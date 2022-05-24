@@ -17,7 +17,7 @@
 
         }else{
            $tab_menu .= '
-           <li><a href="municipality#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
+           <li><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
            ';
 
         }
