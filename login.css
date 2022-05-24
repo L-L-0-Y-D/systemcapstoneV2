@@ -100,4 +100,12 @@ header:hover {
     .container p{
         font-size: 20pt;
     }
+    .container {
+        width:300px;
+        justify-content: center;
+        margin-left: 12%;
+    }
+    .username-box {
+        width: 200px;
+    }
 }
