@@ -1,7 +1,24 @@
 <?php
     session_start();
     include('connection.php');
+    $tab_Query = "SELECT *FROM municipality ORDER BY municipalityid ASC";
+    $tab_result = mysqli_query($conn,$tab_Query);
+    $tab_menu = '';
+    $count = 0;
+    while ($row = mysqli_fetch_array($tab_result)){
+        if($count == 0){
+            $tab_menu .= '
+            <li class="active"><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
+            ';
 
+        }else{
+           $tab_menu .= '
+           <li><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
+           ';
+
+        }
+        $count++;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +26,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css"> 
@@ -66,6 +83,13 @@
                 <?php endif ?>
                 </div>
     </header>
+    <div class="container">
+    <h2>TESTING</a>></h2>
+    <br />
+    <ul class="nav nav-tabs">
+        <?php echo $tab_menu; ?>
+    </ul>
+</div>
     <div class="logo">
         <img src="images/I-EatLogo.png" alt="LOGO" width="300" height="300"> 
     </div>
@@ -85,61 +109,11 @@
         </div>
     </div>
 </div>
-
-<section id="second-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2 d-none d-md-flex">
-            <div >
-                <button type="submit" class="townbtn" onclick="" id="all">All</button>
-            </div>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick="" id="mariveles" >Mariveles</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick="" id="limay">Limay</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="orion">Orion</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="pilar">Pilar</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="balanga">Balanga</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="abucay">Abucay</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="samal">Samal</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="orani">Orani</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="hermosa">Hermosa</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="dinalupihan">Dinalupihan</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="bagac">Bagac</button>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick=""id="morong">Morong</button>
-            </div>
-        </div>
-    </div>
-</section>
     <section id="about">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 d-none d-md-flex">
-                <div class="col-md-3">
                     <img src="images/I-EatLogo.png" class="image" width="200px" height="200px"/>
-                </div>
                 </div>
                 <div class="col-md-3">
                     <p class="display-5 font-weight-bold mt-4">About Us</p>
