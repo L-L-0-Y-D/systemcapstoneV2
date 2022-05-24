@@ -148,7 +148,7 @@ if(isset($_POST['businessregister'])) {
         }
     
         if (count($errors) >= 0) {
-            //$business_password = md5($business_password);
+            $business_password = md5($business_password);
             $query = "SELECT * FROM business WHERE business_email='$business_email' AND business_password='$business_password'";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) >= 1) {
