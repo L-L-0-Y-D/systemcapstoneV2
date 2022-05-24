@@ -107,7 +107,13 @@
         <div class="row">
             <div class="col-md-3 d-none d-md-flex">
                 <div class="col-md-2">
-                <button type="submit" class="townbtn" onclick="" id="all">All</button>
+                    <button type="submit" class="townbtn" onclick="" id="all">All</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="townbtn" onclick="" id="mariveles">Mariveles</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="townbtn" onclick="" id="limay">Limay</button>
                 </div>
             </div>
         </div>
