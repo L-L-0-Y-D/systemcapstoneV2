@@ -84,8 +84,6 @@
                 </div>
     </header>
     <div class="container">
-    <h2>TESTING</a></h2>
-    <br />
     <ul class="nav nav-tabs">
         <?php echo $tab_menu; ?>
     </ul>
