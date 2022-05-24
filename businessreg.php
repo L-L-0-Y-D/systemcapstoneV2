@@ -38,31 +38,31 @@ include ('connection.php');
             <div>
                   <select id="municipality" name='municipality'>
                     <option value="" disabled selected hidden>Select your Business Location</option>
-                    <option value="mariveles">Mariveles</option>
-                    <option value="limay">Limay</option>
-                    <option value="orion">Orion</option>
-                    <option value="pilar">Pilar</option>
-                    <option value="balanga">Balanga</option>
-                    <option value="abucay">Abucay</option>
-                    <option value="samal">Samal</option>
-                    <option value="orani">Orani</option>
-                    <option value="hermosa">Hermosa</option>
-                    <option value="dinalupihan">Dinalupihan</option>
-                    <option value="morong">Morong</option>
-                    <option value="bagac">Bagac</option>
+                    <option value=1>Mariveles</option>
+                    <option value=2>Limay</option>
+                    <option value=3>Orion</option>
+                    <option value=4>Pilar</option>
+                    <option value=5>Balanga</option>
+                    <option value=6>Abucay</option>
+                    <option value=7>Samal</option>
+                    <option value=8>Orani</option>
+                    <option value=9>Hermosa</option>
+                    <option value=10>Dinalupihan</option>
+                    <option value=11>Morong</option>
+                    <option value=12>Bagac</option>
                   </select> 
                 </div>
                 <div>
                   <select id="cuisine" name='cuisine_type'>
                     <option value="" disabled selected hidden>Type of Cuisine</option>
-                    <option value="chinese">Chinese</option>
-                    <option value="japanese">Japanese</option>
-                    <option value="korean">Korean</option>
-                    <option value="arabic">Arabic</option>
-                    <option value="american">American</option>
-                    <option value="asian">Asian</option>
-                    <option value="vietnamese">Vietnamese</option>
-                    <option value="indian">Indian</option>
+                    <option value=1>Chinese</option>
+                    <option value=2>Japanese</option>
+                    <option value=3>Korean</option>
+                    <option value=4>Arabic</option>
+                    <option value=5>American</option>
+                    <option value=6>Asian</option>
+                    <option value=7>Vietnamese</option>
+                    <option value=8>Indian</option>
                   </select> 
                 </div>
             <h1>OWNER DETAILS</h1>
