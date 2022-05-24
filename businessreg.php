@@ -35,6 +35,23 @@ include ('connection.php');
             <div class="column">
                   <input type="text" id="busi_address" name='business_address' required placeholder="Business Address" class="fname"/>
             </div>
+            <div>
+                  <select id="municipality" name='municipality'>
+                    <option value="" disabled selected hidden>Select your Business Location</option>
+                    <option value="mariveles">Mariveles</option>
+                    <option value="limay">Limay</option>
+                    <option value="orion">Orion</option>
+                    <option value="pilar">Pilar</option>
+                    <option value="balanga">Balanga</option>
+                    <option value="abucay">Abucay</option>
+                    <option value="samal">Samal</option>
+                    <option value="orani">Orani</option>
+                    <option value="hermosa">Hermosa</option>
+                    <option value="dinalupihan">Dinalupihan</option>
+                    <option value="morong">Morong</option>
+                    <option value="bagac">Bagac</option>
+                  </select> 
+                </div>
                 <div>
                   <select id="cuisine" name='cuisine_type'>
                     <option value="" disabled selected hidden>Type of Cuisine</option>
