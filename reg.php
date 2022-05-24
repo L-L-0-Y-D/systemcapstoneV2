@@ -33,39 +33,39 @@ include 'connection.php';
         <form method="post" action="reg.php">
          <!-- Input Username -->
         <div class="column">
-            <input type="text" name='username' required placeholder="Username" class="username"/>    
+            <input type="text" name='username' required placeholder="Username" class="input"/>    
         </div>
         <!-- Input Email Address -->
         <div class="column">
-            <input type="text" name='email' required placeholder="Email Address" class="email"/>    
+            <input type="text" name='email' required placeholder="Email Address" class="input"/>    
         </div>
         <!-- Input Firstname -->
         <div class="column">
-            <input type="text" name='firstname' required placeholder="Firstname" class="fname"/>
+            <input type="text" name='firstname' required placeholder="Firstname" class="input"/>
         </div>
         <!-- Input Lastname -->
         <div class="column">
-            <input type="text" name='lastname' required placeholder="Lastname" class="lname"/>
+            <input type="text" name='lastname' required placeholder="Lastname" class="input"/>
         </div>
          <!-- Input Age -->
          <div class="column">
-            <input type="text" name='age' required placeholder="Age" class="age"/>
+            <input type="text" name='age' required placeholder="Age" class="input"/>
         </div>
         <!-- Input Phone Number -->
         <div class="column">
-            <input type="text" name='phonenumber' required placeholder="Phone Number" class="phonenum"/>
+            <input type="text" name='phonenumber' required placeholder="Phone Number" class="input"/>
         </div>
         <!-- Input Address -->
         <div class="column">
-            <input type="text" name='address' required placeholder="Address" class="address"/>
+            <input type="text" name='address' required placeholder="Address" class="input"/>
         </div>
         <!-- Input Password -->
         <div class="column">
-            <input type="password" name='password' required placeholder="Password" class="password"/>
+            <input type="password" name='password' required placeholder="Password" class="input"/>
         </div>
         <!-- Input Confirm Password -->
         <div class="column">
-            <input type="password" name='confirmpassword' required placeholder="Confirm Password" class="conpassword"/>
+            <input type="password" name='confirmpassword' required placeholder="Confirm Password" class="input"/>
         </div>
 
         <input type = "hidden" name='user_type' value = "user">

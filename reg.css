@@ -7,6 +7,7 @@ body{
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
+    align-items: center;
 }
 header {
     text-align: center;
@@ -43,7 +44,7 @@ header:hover {
     text-align: center;
     margin-bottom: 30px;
 }
-.username{
+.input{
     width:300px;
     height:50px;
     background-color: white;
@@ -55,102 +56,7 @@ header:hover {
     border-top-right-radius:10px ;
     border-bottom-right-radius: 10px;
 }
-.email {
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.fname {
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.lname {
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.age {
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.phonenum {
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.address {
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.password {
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.conpassword {
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
+
 .reg-btn{
     color:white;
     margin-top: 10px;   
@@ -175,4 +81,24 @@ header:hover {
 }
 .container a:hover{
     cursor:pointer;
+}
+@media only screen and (max-width : 768px) {
+    .locations-div{
+        margin-bottom: 0;
+    }
+    header {
+        text-align: center;
+    }    
+    .container {
+        text-align: center;
+        left:12%;
+        width: 300px;
+        margin-bottom: 20px;
+    }
+    .container p{
+        font-size: 20pt;
+    }
+    .input{
+        width: 200px;
+    }
 }
