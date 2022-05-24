@@ -62,6 +62,7 @@ include ('connection.php');
                     <option value="american">American</option>
                     <option value="asian">Asian</option>
                     <option value="vietnamese">Vietnamese</option>
+                    <option value="indian">Indian</option>
                   </select> 
                 </div>
             <h1>OWNER DETAILS</h1>

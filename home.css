@@ -51,17 +51,19 @@ header{
     display: none;
     position: absolute;
     top:30%;
-    left:30%;
+    left:35%;
     bottom: 0;
     border: 3px solid #f1f1f1;
-    width: 400px;
+    width: 300px;
     height: fit-content;
+    align-items: center;
   }
   /* Add styles to the form container */
   .form-container {
     text-align: center;
     padding: 10px;
     background-color: white;
+    box-shadow: #000 20px;
   }
   /* Set a style for the submit/login button */
 .ownerbtn {
@@ -113,11 +115,11 @@ header{
   
   /* Add a red background color to the cancel button */
   .form-container .cancel {
-    background-color: rgb(255, 128, 64);
     margin-top:15px;
   }
   .form-container .cancel:hover{
-    background-color: rgb(221, 84, 16);
+    text-decoration: underline 2px rgb(255, 128, 64);
+    font-weight: bolder;
     cursor:pointer;
   }
   
@@ -144,31 +146,14 @@ header{
 .logo {
     display: flex;
     float: left;
-    margin-left: 60vw;
+    margin-top: 30px;
+    margin-left: 57vw;
 }
-.search-box{
-    width:25vw;
-    height:60px;
-    background-color: white;
-    border:solid;
-    border-top-left-radius:20px ;
-    border-bottom-left-radius: 20px;
-    padding-left: 20px;
-    outline:none;
-    font-size: 18px;
-}
-.search-btn{
-    width: 120px;
-    background-color: rgb(59, 58, 58);
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-.search-btn:hover {
-    color:rgb(255, 255, 255);
-    background-color: #000;
+.container select {
+  border-radius: 20px;
+  height:40px;
+  width: 300px;
+  margin-right: 150px;
 }
 #second-section{
     margin-top:50px;

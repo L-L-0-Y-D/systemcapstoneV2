@@ -67,12 +67,21 @@
                 </div>
     </header>
     <div class="logo">
-        <img src="images/I-EatLogo.png" alt="LOGO" width="350" height="350"> 
+        <img src="images/I-EatLogo.png" alt="LOGO" width="300" height="300"> 
     </div>
     <div class="container">
         <div class="d-flex float-right">
-            <input type="text" placeholder="Search for cuisines..." class="search-box"/>
-            <button type="submit" name="search button" class="search-btn">Search</button>
+            <select id="cuisine" name='cuisine_type'>
+                <option value="" disabled selected hidden>Type of Cuisine</option>
+                <option value="chinese">Chinese</option>
+                <option value="japanese">Japanese</option>
+                <option value="korean">Korean</option>
+                <option value="arabic">Arabic</option>
+                <option value="american">American</option>
+                <option value="asian">Asian</option>
+                <option value="vietnamese">Vietnamese</option>
+                <option value="indian">Indian</option>
+            </select> 
         </div>
     </div>
 </div>
