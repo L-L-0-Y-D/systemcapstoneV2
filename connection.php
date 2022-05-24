@@ -89,7 +89,7 @@ if(isset($_POST['businessregister'])) {
     // if there are no errors, save user to database
     if (count($errors) == 0){
         $business_password = md5($business_password);
-        $sql = "INSERT INTO business (business_name, business_address, cuisine_type, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, user_type) Values ('$business_name','$business_address', '$cuisine_type','$business_firstname' , '$business_lastname', '$business_phonenumber', '$business_owneraddress','$business_email','$business_password', '$user_type')";
+        $sql = "INSERT INTO business (business_name, business_address, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, user_type) Values ('$business_name','$business_address', '$cuisine_type','$business_firstname' , '$business_lastname', '$business_phonenumber', '$business_owneraddress','$business_email','$business_password', '$user_type')";
         mysqli_query($conn,$sql);
         //$_SESSION['business_email'] = $business_email;
         //$_SESSION['success'] = "You are now logged in";
@@ -145,7 +145,7 @@ if(isset($_POST['businessregister'])) {
         }
     
         if (count($errors) >= 0) {
-            $business_password = md5($business_password);
+            //$business_password = md5($business_password);
             $query = "SELECT * FROM business WHERE business_email='$business_email' AND business_password='$business_password'";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) >= 1) {
