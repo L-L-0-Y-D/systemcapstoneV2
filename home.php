@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,shrink-to-fit=no">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css"> 
@@ -88,106 +88,47 @@
 
 <section id="second-section">
     <div class="container">
-        <div class="d-flex justify-content-center">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/mariveles.jpg" alt="Mariveles" width="300" height="200" >
-                    <div class="card-bottom">
-                    <p class="h4 m-0 mt-2 text-center">Mariveles</p>
-                    </div>
-                
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/limay.jpg" alt="Limay" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">LIMAY</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/orion.jpg" alt="Orion" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">ORION</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/pilar.jpg" alt="Pilar" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">PILAR</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/balanga.jpg" alt="Balanga" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">BALANGA</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/abucay.png" alt="Abucay" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">ABUCAY</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/samal.jpg" alt="Samal" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">SAMAL</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/orani.jpg" alt="Orani" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">ORANI</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/hermosa.jpg" alt="Hermosa" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">HERMOSA</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/dinalupihan.jpg" alt="Dinalupihan" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">DINALUPIHAN</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/bagac.jpg" alt="Bagac" width="300" height="200" >
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">BAGAC</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="images/morong.jpg" alt="Morong" width="300" height="200" >
-                        <a href="mariveles/mariveles.php"></a>
-                        <div class="card-bottom">
-                            <p class="h4 m-0 mt-2 text-center">MORONG</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-2 d-none d-md-flex">
+            <div >
+                <button type="submit" class="townbtn" onclick="" id="all">All</button>
+            </div>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick="" id="mariveles" >Mariveles</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick="" id="limay">Limay</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="orion">Orion</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="pilar">Pilar</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="balanga">Balanga</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="abucay">Abucay</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="samal">Samal</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="orani">Orani</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="hermosa">Hermosa</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="dinalupihan">Dinalupihan</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="bagac">Bagac</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="townbtn" onclick=""id="morong">Morong</button>
             </div>
         </div>
     </div>
@@ -196,7 +137,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 d-none d-md-flex">
+                <div class="col-md-3">
                     <img src="images/I-EatLogo.png" class="image" width="200px" height="200px"/>
+                </div>
                 </div>
                 <div class="col-md-3">
                     <p class="display-5 font-weight-bold mt-4">About Us</p>
