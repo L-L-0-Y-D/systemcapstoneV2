@@ -38,31 +38,27 @@ include ('connection.php');
             <div>
                   <select name="municipalityid" name='municipality'>
                     <option disabled selected hidden>Select your Business Location</option>
-                    <option value=1>Mariveles</option>
-                    <option value=2>Limay</option>
-                    <option value=3>Orion</option>
-                    <option value=4>Pilar</option>
-                    <option value=5>Balanga</option>
-                    <option value=6>Abucay</option>
-                    <option value=7>Samal</option>
-                    <option value=8>Orani</option>
-                    <option value=9>Hermosa</option>
-                    <option value=10>Dinalupihan</option>
-                    <option value=11>Morong</option>
-                    <option value=12>Bagac</option>
+                    <<?php 
+                        include 'connect.php';
+                        $sql = "SELECT * FROM municipality;";
+                        $result =mysqli_query($conn,$sql);
+                        foreach ($result as $r) {
+                      ?>
+                        <option value="<?php echo $r['municipalityid']; ?>"><?php echo $r['municipality_name']; ?></option>
+                      <?php } ?>
                   </select> 
                 </div>
                 <div>
                   <select name="categoryid" name='cuisine_type'>
                     <option disabled selected hidden>Type of Cuisine</option>
-                    <option value=1>Chinese</option>
-                    <option value=2>Japanese</option>
-                    <option value=3>Korean</option>
-                    <option value=4>Arabic</option>
-                    <option value=5>American</option>
-                    <option value=6>Asian</option>
-                    <option value=7>Vietnamese</option>
-                    <option value=8>Indian</option>
+                    <?php 
+                        include 'connect.php';
+                        $sql = "SELECT * FROM mealcategory;";
+                        $result =mysqli_query($conn,$sql);
+                        foreach ($result as $r) {
+                      ?>
+                        <option value="<?php echo $r['categoryid']; ?>"><?php echo $r['categoryname']; ?></option>
+                      <?php } ?>
                   </select> 
                 </div>
             <h1>OWNER DETAILS</h1>

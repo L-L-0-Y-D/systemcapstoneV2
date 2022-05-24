@@ -9,7 +9,7 @@
     while ($row = mysqli_fetch_array($tab_result)){
         if($count == 0){
             $tab_menu .= '
-            <li class="active"><a href="municipality#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
+            <li class="townbtn"><a href="municipality#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
             ';
             //$tab_content .= '
             //<div id="'.$row["municipality_id"].'"
