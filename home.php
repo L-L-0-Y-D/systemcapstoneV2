@@ -84,12 +84,12 @@
                 </div>
     </header>
     <div class="container">
-    <h2>TESTING</a>></h2>
+    <h2>TESTING</a></h2>
     <br />
     <ul class="nav nav-tabs">
         <?php echo $tab_menu; ?>
     </ul>
-</div>
+    </div>
     <div class="logo">
         <img src="images/I-EatLogo.png" alt="LOGO" width="300" height="300"> 
     </div>
