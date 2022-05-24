@@ -82,14 +82,6 @@
                  
                 <?php endif ?>
                 </div>
-    </header>
-    <div class="container">
-    <h2>TESTING</a>></h2>
-    <br />
-    <ul class="nav nav-tabs">
-        <?php echo $tab_menu; ?>
-    </ul>
-</div>
     <div class="logo">
         <img src="images/I-EatLogo.png" alt="LOGO" width="300" height="300"> 
     </div>
@@ -109,6 +101,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <div id="second-container">
     <div class="container">
         <div class="row">
@@ -120,6 +113,14 @@
         </div>
     </div>
 </div>
+=======
+</header>
+    <div class="container">
+    <ul class="nav nav-tabs">
+        <?php echo $tab_menu; ?>
+    </ul>
+    </div>
+>>>>>>> 1dd76fff62628d4412e354dfe1266b0554626302
     <section id="about">
         <div class="container">
             <div class="row">
