@@ -148,7 +148,7 @@
                 <div class="col-md-3">
                     <p class="display-5 font-weight-bold mt-4">Contact Us</p>
                     <p>Do you want yourself listed on I-Eat? You can register yourself for listing and we will contact you: <span><a href="businessreg.php">Partner with Us</a></span></p>
-                    <p>Are you already a partner of ours and have questions about the service? Then email: 2022ieat@gmail.com</p>
+                    <p>Are you already a partner of ours and have questions about the service? Then email: <a href="mailto:2022ieat@gmail.com">2022ieat@gmail.com</a></p>
                 </div>
             </div>
         </div>
