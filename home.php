@@ -105,6 +105,25 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+<div id="second-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 d-none d-md-flex">
+                <div class="col-md-2">
+                    <button type="submit" class="townbtn" onclick="" id="all">All</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="townbtn" onclick="" id="mariveles">Mariveles</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="townbtn" onclick="" id="limay">Limay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+=======
 </header>
 <!--different municipalities-->
     <div class="container">
@@ -115,6 +134,7 @@
 
     </div>
     </div>
+>>>>>>> 1dd76fff62628d4412e354dfe1266b0554626302
     <section id="about">
         <div class="container">
             <div class="row">
