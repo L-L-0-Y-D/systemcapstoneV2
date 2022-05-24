@@ -1,0 +1,197 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background-image: url(images/bg.png);
+    background-attachment:local;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header {
+    text-align: center;
+}
+header:hover {
+    cursor:pointer;
+}
+main {
+    text-align: center;
+}
+/* box background*/
+.container{
+    position: absolute;
+    text-align: center;
+    justify-content: stretch;
+    width: 40vw;
+    margin-left: 30vw;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(255, 128, 64);
+    border-top-left-radius:20px ;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius:20px ;
+    border-bottom-right-radius: 20px;
+}
+.container p{
+    font-size: 30pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0%;
+}
+.column {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: rgb(255, 128, 64);
+}
+#busi_name{
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+#busi_address{
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.container select{
+    margin-bottom: 30px;
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.container h1{
+    font-size: 30pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+.fname{
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.lname{
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.contactnum{
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.address{
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.email{
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.pword{
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.busi_reg-btn{
+    color:white;
+    margin-top: 10px;   
+    width:190px;
+    height:50px;
+    background-color: rgb(59, 58, 58);
+    border:solid;
+    padding-left: 10px;
+    outline:none;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.busi_reg-btn:hover{
+    cursor:pointer;
+    background-color:black;
+}
+.container a{
+    font-size: 12pt;
+    color: black;
+}
+.container a:hover{
+    cursor:pointer;
+}
+
