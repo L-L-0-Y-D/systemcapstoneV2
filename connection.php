@@ -130,7 +130,7 @@ if(isset($_POST['businessregister'])) {
     }
   }
 
-    // log user in from login page
+    // log business in from login page
     if (isset($_POST['business_login'])) {
         $business_email = $_POST['business_email'];
         $business_password = $_POST['business_password'];
