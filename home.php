@@ -30,7 +30,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css"> 
-    <title>I - Eat || Home </title> 
+    <title>I-Eat | Home </title> 
 </head>
 
 <body>
@@ -122,7 +122,7 @@
                 <div class="col-md-3">
                     <p class="display-5 font-weight-bold mt-4">Contact Us</p>
                     <p>Do you want yourself listed on I-Eat? You can register yourself for listing and we will contact you: <span><a href="businessreg.php">Partner with Us</a></span></p>
-                    <p>Are you already a partner of ours and have questions about the service? Then email: 2022ieat@gmail.com</p>
+                    <p>Are you already a partner of ours and have questions about the service? Then email: <a href="mailto:2022ieat@gmail.com">2022ieat@gmail.com</a></p>
                 </div>
             </div>
         </div>

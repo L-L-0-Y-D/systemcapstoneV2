@@ -57,13 +57,13 @@ header{
     width: 300px;
     height: fit-content;
     align-items: center;
+    box-shadow: #000 10px;
   }
   /* Add styles to the form container */
   .form-container {
     text-align: center;
     padding: 10px;
     background-color: white;
-    box-shadow: #000 20px;
   }
   /* Set a style for the submit/login button */
 .ownerbtn {
@@ -148,7 +148,7 @@ header{
     align-self: center;
     justify-content: right;
     margin-top: 30px;
-    margin-right: 300px;
+    margin-right: 290px;
     
 }
 .container select {
@@ -166,7 +166,7 @@ header{
     margin-bottom: 50px;
 }
 .townbtn {
-  width: 180px;
+  width: 170px;
   border: 1px solid rgb(255, 128, 64);
   cursor: pointer;
   margin-bottom: 20px;
@@ -181,7 +181,7 @@ header{
 .townbtn:hover{
   background: rgb(255, 128, 64);
   color: white;
-  transition: .5s;
+  transition: .3s;
 }
 
 #about{
@@ -190,9 +190,30 @@ header{
     padding-bottom: 30px;
     background-color: rgb(255, 128, 64);
     font-size: 8pt;
+    color: black;
+}
+
+#about p a {
+  color: black;
+  text-decoration: underline;
 }
 @media only screen and (max-width : 768px) {
     .locations-div{
         margin-bottom: 0;
     }
+    .container select {
+      margin-right: 12px;
+    }
+    .logo {
+      margin-right:60px;
+    }
+    #second-section .container {
+      text-align: center;
+      position: relative;
+    }
+    .form-popup {
+      align-self: center;
+      left:10%;
+    }
+    
 }
