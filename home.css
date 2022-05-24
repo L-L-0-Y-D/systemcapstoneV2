@@ -57,13 +57,13 @@ header{
     width: 300px;
     height: fit-content;
     align-items: center;
+    box-shadow: #000 10px;
   }
   /* Add styles to the form container */
   .form-container {
     text-align: center;
     padding: 10px;
     background-color: white;
-    box-shadow: #000 20px;
   }
   /* Set a style for the submit/login button */
 .ownerbtn {
@@ -201,4 +201,19 @@ header{
     .locations-div{
         margin-bottom: 0;
     }
+    .container select {
+      margin-right: 12px;
+    }
+    .logo {
+      margin-right:60px;
+    }
+    #second-section .container {
+      text-align: center;
+      position: relative;
+    }
+    .form-popup {
+      align-self: center;
+      left:10%;
+    }
+    
 }
