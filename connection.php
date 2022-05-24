@@ -115,7 +115,7 @@ if(isset($_POST['businessregister'])) {
         array_push($errors, "<script>alert('Password is required')</script>");
     }
 
-    if (count($errors) == 0) {
+    if (count($errors) >= 0) {
         $password = md5($password);
         $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
         $result = mysqli_query($conn, $query);
@@ -125,7 +125,7 @@ if(isset($_POST['businessregister'])) {
         $_SESSION['success'] = "You are now logged in";
         header('location:home.php'); // redirect to home page
         }else{
-            array_push($errors, "<script>alert('Wrong Email & Password')</script>");
+            array_push($errors, "<script>alert('Wrong Email & Password user')</script>");
         }
     }
   }
@@ -144,7 +144,7 @@ if(isset($_POST['businessregister'])) {
             array_push($errors, "<script>alert('Password is required')</script>");
         }
     
-        if (count($errors) == 0) {
+        if (count($errors) >= 0) {
             $business_password = md5($business_password);
             $query = "SELECT * FROM business WHERE business_email='$business_email' AND business_password='$business_password'";
             $result = mysqli_query($conn, $query);
@@ -154,7 +154,7 @@ if(isset($_POST['businessregister'])) {
             $_SESSION['success'] = "You are now logged in";
             header('location:admin.php'); // redirect to home page
             }else{
-                array_push($errors, "<script>alert('Wrong Email & Password')</script>");
+                array_push($errors, "<script>alert('Wrong Email & Password business')</script>");
             }
         }
       }
