@@ -11,7 +11,8 @@ $address = "";
 $user_type = "";
 $business_name = "";
 $business_address = "";
-$cuisine_type = "";
+$municipalityid = '';
+$categoryid = '';
 $business_firstname = "";
 $business_lastname = "";
 $business_phonenumber = "";
@@ -19,6 +20,7 @@ $business_owneraddress = "";
 $business_email = "";
 $business_password = "";
 $errors = array();
+
 
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
@@ -32,6 +34,8 @@ if (!$conn) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
+
+
 // user register
 if(isset($_POST['register'])) {
     $username = $_POST['username'];
@@ -43,7 +47,6 @@ if(isset($_POST['register'])) {
     $address = $_POST['address'];
     $password = $_POST['password'];
     $confirmpassword = $_POST['confirmpassword'];
-    $user_type = $_POST['user_type'];
     
     // ensure that form fields are filled properly
     
@@ -55,7 +58,7 @@ if(isset($_POST['register'])) {
     // if there are no errors, save user to database
     if (count($errors) == 0){
         $password = md5($password);
-        $sql = "INSERT INTO users (username, email, firstname, lastname, age, phonenumber, address, password, user_type) Values ('$username','$email', '$firstname', '$lastname','$age' , '$phonenumber', '$address', '$password', '$user_type')";
+        $sql = "INSERT INTO users (username, email, firstname, lastname, age, phonenumber, address, password) Values ('$username','$email', '$firstname', '$lastname','$age' , '$phonenumber', '$address', '$password')";
         mysqli_query($conn,$sql);
         //$_SESSION['email'] = $email;
         //$_SESSION['success'] = "You are now logged in";
@@ -69,7 +72,8 @@ if(isset($_POST['register'])) {
 if(isset($_POST['businessregister'])) {
     $business_name = $_POST['business_name'];
     $business_address = $_POST['business_address'];
-    $cuisine_type = $_POST['cuisine_type'];
+    $municipalityid = $_POST['municipalityid'];
+    $categoryid = $_POST['categoryid'];
     $business_firstname = $_POST['business_firstname'];
     $business_lastname = $_POST['business_lastname'];
     $business_phonenumber = $_POST['business_phonenumber'];
@@ -77,7 +81,6 @@ if(isset($_POST['businessregister'])) {
     $business_email = $_POST['business_email'];
     $business_password = $_POST['business_password'];
     $business_confirmpassword = $_POST['business_confirmpassword'];
-    $user_type = $_POST['user_type'];
     
     // ensure that form fields are filled properly
 
@@ -87,13 +90,13 @@ if(isset($_POST['businessregister'])) {
     }
 
     // if there are no errors, save user to database
-    if (count($errors) == 0){
+    if (count($errors) >= 0){
         $business_password = md5($business_password);
-        $sql = "INSERT INTO business (business_name, business_address, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, user_type) Values ('$business_name','$business_address', '$cuisine_type','$business_firstname' , '$business_lastname', '$business_phonenumber', '$business_owneraddress','$business_email','$business_password', '$user_type')";
-        mysqli_query($conn,$sql);
+        $sql = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password) Values ('$business_name','$business_address',$municipalityid , $categoryid ,'$business_firstname' , '$business_lastname', '$business_phonenumber', '$business_owneraddress','$business_email','$business_password')";
+        mysqli_query($conn,$sql) or die("bad query: $sql");
         //$_SESSION['business_email'] = $business_email;
         //$_SESSION['success'] = "You are now logged in";
-        array_push($errors, "<script>alert('Owner Created')</script>");
+        //array_push($errors, "<script>alert('Owner Created')</script>");
         header('location:business/ownerlogin.php'); // redirect to home page
 
     }
@@ -153,6 +156,7 @@ if(isset($_POST['businessregister'])) {
             $_SESSION['business_email'] = $business_email;
             $_SESSION['success'] = "You are now logged in";
             header('location:admin.php'); // redirect to home page
+            
             }else{
                 array_push($errors, "<script>alert('Wrong Email & Password business')</script>");
             }

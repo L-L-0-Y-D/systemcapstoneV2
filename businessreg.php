@@ -36,8 +36,8 @@ include ('connection.php');
                   <input type="text" id="busi_address" name='business_address' required placeholder="Business Address" class="fname"/>
             </div>
             <div>
-                  <select id="municipality" name='municipality'>
-                    <option value="" disabled selected hidden>Select your Business Location</option>
+                  <select name="municipalityid" name='municipality'>
+                    <option disabled selected hidden>Select your Business Location</option>
                     <option value=1>Mariveles</option>
                     <option value=2>Limay</option>
                     <option value=3>Orion</option>
@@ -53,8 +53,8 @@ include ('connection.php');
                   </select> 
                 </div>
                 <div>
-                  <select id="cuisine" name='cuisine_type'>
-                    <option value="" disabled selected hidden>Type of Cuisine</option>
+                  <select name="categoryid" name='cuisine_type'>
+                    <option disabled selected hidden>Type of Cuisine</option>
                     <option value=1>Chinese</option>
                     <option value=2>Japanese</option>
                     <option value=3>Korean</option>
@@ -87,8 +87,6 @@ include ('connection.php');
                 <div class="column">
                     <input type="password" name='business_confirmpassword' required placeholder="Confirm Password" class="pword"/>
                 </div>
-
-                <input type = "hidden" name='user_type' value = "business">
                 
                 <button type="submit" name="businessregister" class="busi_reg-btn" >REGISTER</button> <br> <br>
                 <a href="home.php">Back to Home</a>

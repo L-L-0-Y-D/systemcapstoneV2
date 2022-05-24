@@ -1,6 +1,25 @@
 <?php
     session_start();
     include('connection.php');
+    $tab_Query = "SELECT *FROM municipality ORDER BY municipalityid ASC";
+    $tab_result = mysqli_query($conn,$tab_Query);
+    $tab_menu = '';
+    $count = 0;
+    while ($row = mysqli_fetch_array($tab_result)){
+        if($count == 0){
+            $tab_menu .= '
+            <li class="active"><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
+            ';
+
+        }else{
+           $tab_menu .= '
+           <li><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
+           ';
+
+        }
+        $count++;
+    }
+
 
 ?>
 
@@ -85,8 +104,16 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <h2 align="center">TESTING</a>></h2>
+    <br />
+    <ul class="nav nav-tabs">
+        <?php echo $tab_menu; ?>
+    </ul>
+</div>
 
 <section id="second-section">
+    <ul class="nav nav-tabs">
     <div class="container">
         <div class="d-flex justify-content-center">
             <div class="row">
@@ -96,7 +123,6 @@
                     <div class="card-bottom">
                     <p class="h4 m-0 mt-2 text-center">Mariveles</p>
                     </div>
-                
                     </div>
                 </div>
                 <div class="col-md-3">
