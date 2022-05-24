@@ -85,7 +85,7 @@
                     <a href="logout.php">Logout</a>
                  
                 <?php endif ?>
-                </div>
+            </div>
     <div class="logo">
         <img src="images/I-EatLogo.png" alt="LOGO" width="300" height="300"> 
     </div>
@@ -108,17 +108,17 @@
 </header>
 <!--different municipalities-->
     <div class="container">
-    <ul class="nav nav-tabs">
-        <?php echo $tab_menu; ?>
-        
-    </ul>
-    <div class="tab-content">
-    </div>
+        <ul class="nav nav-tabs">
+            <?php echo $tab_menu; ?>
+        </ul>
+        <div class="tab-content">
+        </div>
     </div>
     <section id="about">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 d-none d-md-flex">
+                <div class="col-md-9 d-none d-md-flex">
+                <div class="col-md-3">
                     <img src="images/I-EatLogo.png" class="image" width="200px" height="200px"/>
                 </div>
                 <div class="col-md-3">
@@ -129,6 +129,7 @@
                     <p class="display-5 font-weight-bold mt-4">Contact Us</p>
                     <p>Do you want yourself listed on I-Eat? You can register yourself for listing and we will contact you: <span><a href="businessreg.php">Partner with Us</a></span></p>
                     <p>Are you already a partner of ours and have questions about the service? Then email: <a href="mailto:2022ieat@gmail.com">2022ieat@gmail.com</a></p>
+                </div>
                 </div>
             </div>
         </div>
