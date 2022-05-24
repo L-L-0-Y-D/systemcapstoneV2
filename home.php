@@ -11,9 +11,9 @@
             $tab_menu .= '
             <li class="active"><a href="municipality#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
             ';
-            $tab_content .= '
-            <div id="'.$row["municipality_id"].'"
-            ';
+            //$tab_content .= '
+            //<div id="'.$row["municipality_id"].'"
+            //';
 
         }else{
            $tab_menu .= '
