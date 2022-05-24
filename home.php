@@ -105,7 +105,6 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 <div id="second-container">
     <div class="container">
         <div class="row">
@@ -123,7 +122,6 @@
         </div>
     </div>
 </div>
-=======
 </header>
 <!--different municipalities-->
     <div class="container">
@@ -134,7 +132,6 @@
 
     </div>
     </div>
->>>>>>> 1dd76fff62628d4412e354dfe1266b0554626302
     <section id="about">
         <div class="container">
             <div class="row">
