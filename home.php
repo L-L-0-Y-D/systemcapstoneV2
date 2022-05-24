@@ -1,7 +1,24 @@
 <?php
     session_start();
     include('connection.php');
+    $tab_Query = "SELECT *FROM municipality ORDER BY municipalityid ASC";
+    $tab_result = mysqli_query($conn,$tab_Query);
+    $tab_menu = '';
+    $count = 0;
+    while ($row = mysqli_fetch_array($tab_result)){
+        if($count == 0){
+            $tab_menu .= '
+            <li class="active"><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
+            ';
 
+        }else{
+           $tab_menu .= '
+           <li><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
+           ';
+
+        }
+        $count++;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +83,13 @@
                 <?php endif ?>
                 </div>
     </header>
+    <div class="container">
+    <h2>TESTING</a>></h2>
+    <br />
+    <ul class="nav nav-tabs">
+        <?php echo $tab_menu; ?>
+    </ul>
+</div>
     <div class="logo">
         <img src="images/I-EatLogo.png" alt="LOGO" width="300" height="300"> 
     </div>
