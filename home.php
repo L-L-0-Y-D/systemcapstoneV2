@@ -55,7 +55,6 @@
                     <!--if user is login-->
                     <h2> Welcome <strong><?php echo $_SESSION['email']; ?></strong> !</h2>
                     <a href="your_reservation.php">Your Reservation</a>
-                    <a href="your_orders.php">Your Orders</a> 
                     <a href="logout.php">Logout</a>
                 
                 <?php elseif(isset($_SESSION['business_email'])): ?>
