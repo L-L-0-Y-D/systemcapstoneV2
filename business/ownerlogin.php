@@ -30,10 +30,10 @@ include ('../connection.php');
 
                 ?>
             <div class="row">
-                <input type="email" name="business_email" required placeholder="Email" class="password-box"/>
+                <input type="email" name="business_email" required placeholder="Email" class="input"/>
             </div>
             <div class="row">
-                <input type="password" name="business_password" required placeholder="Password" class="password-box"/>
+                <input type="password" name="business_password" required placeholder="Password" class="input"/>
             </div>
                 <button class="login-btn" name='business_login' >LOGIN</button> <br> <br>
                 <!--link to connect with register php-->

@@ -87,7 +87,7 @@ header:hover {
     }    
     .container {
         text-align: center;
-        left:12%;
+        margin-left:12%;
         width: 300px;
         margin-bottom: 20px;
     }
