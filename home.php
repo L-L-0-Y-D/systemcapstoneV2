@@ -105,31 +105,14 @@
         </div>
     </div>
 </div>
-<div id="second-container">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 d-none d-md-flex">
-                <div class="col-md-2">
-                    <button type="submit" class="townbtn" onclick="" id="all">All</button>
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="townbtn" onclick="" id="mariveles">Mariveles</button>
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="townbtn" onclick="" id="limay">Limay</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </header>
 <!--different municipalities-->
     <div class="container">
     <ul class="nav nav-tabs">
         <?php echo $tab_menu; ?>
+        
     </ul>
     <div class="tab-content">
-
     </div>
     </div>
     <section id="about">
