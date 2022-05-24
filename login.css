@@ -42,19 +42,7 @@ header:hover {
     text-align: center;
     margin-bottom: 30px;
 }
-.username-box{
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.password-box{
+.input{
     width:300px;
     height:50px;
     background-color: white;
@@ -95,17 +83,18 @@ header:hover {
         margin-bottom: 0;
     }
     header {
-        align-self: center;
+        text-align: center;
+    }    
+    .container {
+        text-align: center;
+        left:12%;
+        width: 300px;
+        margin-bottom: 20px;
     }
     .container p{
         font-size: 20pt;
     }
-    .container {
-        width:300px;
-        justify-content: center;
-        margin-left: 12%;
-    }
-    .username-box {
+    .input{
         width: 200px;
     }
 }

@@ -3,10 +3,11 @@ body{
     padding:0;
     box-sizing: border-box;
     background-image: url(images/bg.png);
-    background-attachment:local;
+    background-attachment:fixed;
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
+    justify-content: center;
 }
 header {
     text-align: center;
@@ -44,20 +45,7 @@ main {
     margin-bottom: 30px;
     background-color: rgb(255, 128, 64);
 }
-#busi_name{
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    outline:none;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-#busi_address{
+.input{
     width:300px;
     height:50px;
     background-color: white;
@@ -72,90 +60,6 @@ main {
 }
 .container select{
     margin-bottom: 30px;
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    outline:none;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.container h1{
-    font-size: 30pt;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-}
-.fname{
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    outline:none;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.lname{
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    outline:none;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.contactnum{
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    outline:none;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.address{
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    outline:none;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.email{
-    width:300px;
-    height:50px;
-    background-color: white;
-    border:solid;
-    padding-left: 20px;
-    outline:none;
-    font-size: 12px;
-    border-top-left-radius:10px ;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius: 10px;
-}
-.pword{
     width:300px;
     height:50px;
     background-color: white;
@@ -194,4 +98,26 @@ main {
 .container a:hover{
     cursor:pointer;
 }
-
+@media only screen and (max-width : 768px) {
+    .locations-div{
+        margin-bottom: 0;
+    }
+    header {
+        text-align: center;
+    }    
+    .container {
+        text-align: center;
+        margin-left:12%;
+        width: 300px;
+        margin-bottom: 20px;
+    }
+    .container p{
+        font-size: 20pt;
+    }
+    .input{
+        width: 200px;
+    }
+    .container select {
+        width: 180px;
+    }
+}

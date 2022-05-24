@@ -30,10 +30,10 @@ include ('connection.php');
         ?>
         <form method="post" action="businessreg.php">
             <div class="column">
-                  <input type="text" id="busi_name" name='business_name' required placeholder="Business Name" class="fname"/>
+                  <input type="text" id="busi_name" name='business_name' required placeholder="Business Name" class="input"/>
             </div>
             <div class="column">
-                  <input type="text" id="busi_address" name='business_address' required placeholder="Business Address" class="fname"/>
+                  <input type="text" id="busi_address" name='business_address' required placeholder="Business Address" class="input"/>
             </div>
             <div>
                   <select name="municipalityid" name='municipality'>
@@ -61,27 +61,27 @@ include ('connection.php');
                       <?php } ?>
                   </select> 
                 </div>
-            <h1>OWNER DETAILS</h1>
+            <p>OWNER DETAILS</p>
                 <div class="column">
-                    <input type="text" name='business_firstname' required placeholder="Firstname" class="fname"/>
+                    <input type="text" name='business_firstname' required placeholder="Firstname" class="input"/>
                 </div>
                 <div class="column">
-                    <input type="text" name='business_lastname' required placeholder="Lastname" class="lname"/>
+                    <input type="text" name='business_lastname' required placeholder="Lastname" class="input"/>
                 </div>
                 <div class="column">
-                    <input type="text" name='business_phonenumber' required placeholder="Contact Number" class="contactnum"/>
+                    <input type="text" name='business_phonenumber' required placeholder="Contact Number" class="input"/>
                 </div>
                 <div class="column">
-                    <input type="text" name='business_owneraddress' required placeholder="Address" class="address"/>
+                    <input type="text" name='business_owneraddress' required placeholder="Address" class="input"/>
                 </div>
                 <div class="column">
-                    <input type="text" name='business_email' required placeholder="Email Address" class="email"/>
+                    <input type="text" name='business_email' required placeholder="Email Address" class="input"/>
                 </div>
                 <div class="column">
-                    <input type="password" name='business_password' required placeholder="Password" class="pword"/>
+                    <input type="password" name='business_password' required placeholder="Password" class="input"/>
                 </div>
                 <div class="column">
-                    <input type="password" name='business_confirmpassword' required placeholder="Confirm Password" class="pword"/>
+                    <input type="password" name='business_confirmpassword' required placeholder="Confirm Password" class="input"/>
                 </div>
                 
                 <button type="submit" name="businessregister" class="busi_reg-btn" >REGISTER</button> <br> <br>
