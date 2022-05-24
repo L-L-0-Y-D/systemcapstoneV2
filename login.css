@@ -7,6 +7,7 @@ body{
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
+    justify-content: center;
 }
 header{
     text-align: center;
@@ -40,7 +41,6 @@ header:hover {
 .row {
     text-align: center;
     margin-bottom: 30px;
-    justify-content: stretch;
 }
 .username-box{
     width:300px;
@@ -90,25 +90,14 @@ header:hover {
 .container a:hover{
     cursor:pointer;
 }
-.error{
-    width:80%;
-    margin: 0px 20px 20px 55px;
-    padding-top: 20px;
-    border: 1px solid #a94442;
-    color: #a94442;
-    background: #f2dede;
-    border-radius: 5px;
-    text-align: center;
-    font-style: italic;
-}
-.success {
-    color: #3c763d;
-    background:#dff0d8;
-    border: 1px solid #3c763d;
-    margin-bottom: 20px;
-}
-@media only screen and (max-width : 350px) {
-    .column{
-        text-align: center;
+@media only screen and (max-width : 768px) {
+    .locations-div{
+        margin-bottom: 0;
+    }
+    header {
+        align-self: center;
+    }
+    .container p{
+        font-size: 20pt;
     }
 }
