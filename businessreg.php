@@ -61,6 +61,12 @@ include ('connection.php');
                       <?php } ?>
                   </select> 
                 </div>
+                
+                <form action="/action_page.php"> 
+                    <label for="img">Select your Business Image:</label> </br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+                    <input type="file" id="img" name="img" accept="image/*">
+                </form>
             <p>OWNER DETAILS</p>
                 <div class="column">
                     <input type="text" name='business_firstname' required placeholder="Firstname" class="input"/>
