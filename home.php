@@ -34,6 +34,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css"> 
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Akaya%20Kanadaka.css">
+    <link rel="stylesheet" href="assets/css/Alata.css">
+    <link rel="stylesheet" href="assets/css/Montserrat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <title>I-Eat | Home </title> 
 </head>
 
@@ -114,6 +121,100 @@
         <div class="tab-content">
         </div>
     </div>
+    <main class="page catalog-page">
+        <section class="clean-block clean-catalog dark" style="padding: 0px 0px 0px 0px;">
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-9" style="margin: 0px 100px;">
+                            <div class="products" style="width: 800px;">
+                                <div class="row g-0">
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/Dinaluphan-beanbox.jpg" style="width: 180px;margin: 0px 10px;border: 1px none rgb(255,128,64);border-radius: 10px;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;border-color: var(--bs-body-bg);">BeanBox</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Dinalupihan, Bataan</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/ichiraku-mariveles.png" style="width: 180px;margin: 0px 10px;border: 1px solid rgb(255,128,64);border-radius: 10px;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;border-color: var(--bs-body-bg);">Ichiraku</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Mariveles, Bataan</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/angelitos-orani.jpg" style="width: 180px;margin: 0px 10px;border-radius: 10px;border: 1px none rgb(255,128,64) ;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">Angelito's</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Orani, Bataan</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4" data-bss-hover-animate="pulse" style="width: 240px;height: 315px;">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 0px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/natalia-balanga.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px none rgb(255,128,64);border-radius: 10px;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;border-style: none;">Natalia</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Balanga, Bataan</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 16px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/foodproject-orion.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px none rgb(255,128,64);border-radius: 10px;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">The Food Project</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Orion, Bataan</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 16px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/winghub-limay.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px none rgb(255,128,64);background: rgb(255,128,64);border-radius: 10px;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">The WingHub</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Limay, Bataan</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 0px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/saverde-abucay.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px solid rgb(255,128,64) ;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">Saverde</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Abucay, Bataan</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 0px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/imaflora-pilar.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px solid rgb(255,128,64) ;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">Ima's Pamangan</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Pilar, Bataan</p>
+                                            <div class="about">
+                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
+                                                <div class="price">
+                                                    <h3>$100</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 0px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
+                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/viewtea-samal.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px solid rgb(255,128,64) ;"></a></div>
+                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">viewtea</a></div>
+                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Samal, Bataan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <nav style="margin-bottom: 20px;">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                        <li class="page-item active"><a class="page-link">1</a></li>
+                                        <li class="page-item"><a class="page-link">2</a></li>
+                                        <li class="page-item"><a class="page-link">3</a></li>
+                                        <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     <section id="about">
         <div class="container">
             <div class="row">
@@ -132,5 +233,10 @@
             </div>
         </div>
     </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
 </body>
 </html>
