@@ -18,8 +18,8 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="../home.php"><i class="fas fa-home"></i><span>Home</span></a>
-                    <a class="nav-link" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../home.php"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="busiowner.php"><i class="fas fa-user-friends"></i><span>Business Owners</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="customers.php"><i class="fas fa-table"></i><span>Customers</span></a></li>
                 </ul>
