@@ -199,15 +199,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <nav style="margin-bottom: 20px;">
-                                    <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                        <li class="page-item active"><a class="page-link">1</a></li>
-                                        <li class="page-item"><a class="page-link">2</a></li>
-                                        <li class="page-item"><a class="page-link">3</a></li>
-                                        <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                    </ul>
-                                </nav>
                             </div>
                         </div>
                     </div>

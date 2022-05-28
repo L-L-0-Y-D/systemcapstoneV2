@@ -22,8 +22,8 @@
                     <li class="nav-item"><a class="nav-link" href="../home.php"><i class="fas fa-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="busiowner.php"><i class="fas fa-user-friends"></i><span>Business Owners</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="customers.php"><i class="fas fa-table"></i><span>Customers</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="category.php"><i class="fas fa-user-friends"></i><span>Category</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="customers.php"><i class="fas fa-table"></i><span>Customers</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="category.php"><i class="fas fa-user-friends"></i><span>Category</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="municipality.php"><i class="fas fa-user-friends"></i><span>Municipality</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../home.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
                 </ul>
@@ -128,55 +128,17 @@
                 </nav>
                 <div class="container-fluid">
                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-dark mb-4">Customer's List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" style="background: rgb(255,128,64);border-style: none;"  id="addbtn" onclick="openForm()">&nbsp;Add Customer</a>
+                    <h3 class="text-dark mb-4">Customer's List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" style="background: rgb(255,128,64);border-style: none;"  id="addbtn" onclick="openForm()">&nbsp;Add Category</a>
                     <div class="form-popup" id="myForm">
                             <form name="form" class="form-container">
-                                <h3>Register Customer</h3>
+                                <h3>Register </h3>
                  <!-- Input Username -->
         <div class="column">
-            <input type="text" name='username' required placeholder="Username" class="input"/>    
+            <input type="text" name='username' required placeholder="Input Category" class="input"/>    
         </div>
-        <!-- Input Email Address -->
-        <div class="column">
-            <input type="text" name='email' required placeholder="Email Address" class="input"/>    
-        </div>
-        <!-- Input Firstname -->
-        <div class="column">
-            <input type="text" name='firstname' required placeholder="Firstname" class="input"/>
-        </div>
-        <!-- Input Lastname -->
-        <div class="column">
-            <input type="text" name='lastname' required placeholder="Lastname" class="input"/>
-        </div>
-         <!-- Input Age -->
-         <div class="column">
-            <input type="text" name='age' required placeholder="Age" class="input"/>
-        </div>
-        <!-- Input Phone Number -->
-        <div class="column">
-            <input type="text" name='phonenumber' required placeholder="Phone Number" class="input"/>
-        </div>
-        <!-- Input Address -->
-        <div class="column">
-            <input type="text" name='address' required placeholder="Address" class="input"/>
-        </div>
-        <!-- Input Password -->
-        <div class="column">
-            <input type="password" name='password' required placeholder="Password" class="input"/>
-        </div>
-        <!-- Input Confirm Password -->
-        <div class="column">
-            <input type="password" name='confirmpassword' required placeholder="Confirm Password" class="input"/>
-        </div> 
-        <div class="column">
-            <form action="/action_page.php"> 
-                    <label for="img">Select Image:</label> </br>
-                    <input type="file" id="img" name="img" accept="image/*">
-                <button type="submit" name="register" class="busi_reg-btn" >REGISTER</button> <br> <br>
+                <button type="submit" name="submit" class="busi_reg-btn" >SUBMIT</button> <br> <br>
                                 <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
                             </form>
-            </form>
-        </div>
                         </div>
                         <script>
                         function openForm() {
@@ -186,6 +148,8 @@
                             document.getElementById("myForm").style.display = "none";
                         }
                         </script>
+                        </div>
+                    </div>
                 </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
