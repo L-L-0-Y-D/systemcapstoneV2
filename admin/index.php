@@ -26,14 +26,13 @@
                     <li class="nav-item"><a class="nav-link" href="municipality.php"><i class="fas fa-user-friends"></i><span>Municipality</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../home.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
                 </ul>
-                
+                <div class="text-center d-none d-md-inline"></div><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="margin-left: 35px;"></button>
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <!-- nav bar arrow to right-->
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                <div class="text-center d-none d-md-inline"></div><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="margin-left: 35px;"></button>
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
