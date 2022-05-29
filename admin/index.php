@@ -12,7 +12,7 @@
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(255,128,64);">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-1" href="#">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-1" href="index.php">
                 <div class="sidebar-brand-icon"><img class=" img-profile" src="../images/I-EatLogo.png" width="80" height="80"></div>
                 <div class="sidebar-brand-text mx-1"><span>I - Eat</span></div>
                 </a>
