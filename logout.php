@@ -1,7 +1,15 @@
 <?php
 session_start(); //start session
-session_destroy(); // distroy all the current sessions
-$url = 'home.php';
-header('Location: ' . $url); // redireted to login page
+//session_destroy(); // distroy all the current sessions
+
+/* Checking if the session is set, if it is, it will unset the session and then redirect the user to
+the index page. */
+if(isset($_SESSION['auth'])){
+    unset($_SESSION['auth']);
+    unset($_SESSION['auth_user']);
+    $_SESSION['message'] = "Logged Out Successfully";
+}
+
+header('Location: index.php');
 
 ?>

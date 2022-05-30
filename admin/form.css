@@ -1,4 +1,11 @@
   /* The popup form - hidden by default */
+  *{
+    font-family: 'Tiro Kannada', serif;
+  }
+
+  a{
+    text-decoration: none;
+  }
   .form-popup {
     display: none;
     position:absolute;

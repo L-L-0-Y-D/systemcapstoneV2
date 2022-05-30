@@ -22,7 +22,7 @@ body{
     position: relative;
     width:100vw;
     height:720px;
-    background-image: url(images/bg.png);
+    background-image: url(uploads/bg.png);
     background-attachment:local;
     background-position:center;
     background-repeat: no-repeat;

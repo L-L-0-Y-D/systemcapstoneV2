@@ -15,19 +15,14 @@ include ('connection.php');
 </head>
 <body>
     <header>
-        <img src="images/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
+        <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
     <map name="workmap">
-        <area shape="circle" coords="100,100,400,400" alt="logo" href="home.php">
+        <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
     </map>
     </header>
 <main>
 <div class="container">
         <p>COMPANY INFORMATION</p>
-        <?php 
-        
-        include('error.php'); 
-        
-        ?>
         <form method="post" action="businessreg.php">
             <div class="column">
                   <input type="text" id="busi_name" name='business_name' required placeholder="Business Name" class="input"/>
@@ -38,12 +33,12 @@ include ('connection.php');
             <div>
                   <select name="municipalityid" name='municipality'>
                     <option disabled selected hidden>Select your Business Location</option>
-                    <<?php 
+                    <?php 
                         include 'connect.php';
                         $sql = "SELECT * FROM municipality;";
                         $result =mysqli_query($conn,$sql);
                         foreach ($result as $r) {
-                      ?>
+                    ?>
                         <option value="<?php echo $r['municipalityid']; ?>"><?php echo $r['municipality_name']; ?></option>
                       <?php } ?>
                   </select> 

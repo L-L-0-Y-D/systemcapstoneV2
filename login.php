@@ -15,20 +15,15 @@ include ('connection.php');
 </head>
 <body>
     <header>
-         <img src="images/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
+         <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
     <map name="workmap">
-        <area shape="circle" coords="100,100,400,400" alt="logo" href="home.php">
+        <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
     </map>
     </header>
 <main>
     <form method="post" action="login.php" > 
         <div class="container">
             <p>CUSTOMER LOGIN</p>
-                <?php 
-
-                include('error.php'); 
-
-                ?>
             <div class="row">
                 <input type="email" name="email" required placeholder="Email" class="input"/>
             </div>

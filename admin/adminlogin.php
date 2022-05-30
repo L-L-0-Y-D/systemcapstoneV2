@@ -24,11 +24,6 @@ include ('connection.php');
     <form method="post" action="adminlogin.php" > 
         <div class="container">
             <p>ADMIN LOGIN</p>
-                <?php 
-
-                include('error.php'); 
-
-                ?>
             <div class="row">
                 <input type="email" name="email" required placeholder="Email" class="input"/>
             </div>
