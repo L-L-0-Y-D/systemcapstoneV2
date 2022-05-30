@@ -20,10 +20,30 @@ include 'connection.php';
         <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
     </map>
     </header>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <?php 
+                    if(isset($_SESSION['message'])) 
+                    {
+                        ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Hey!</strong> <?= $_SESSION['message']; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php
+                        unset($_SESSION['message']);
+                    }
+                ?>
+                </div>
+            </div>
+        </div>
+    </div>
 <main>
     <div class="container">
         <p>REGISTER</p>
-        <form method="post" action="reg.php">
+        <form method="post" action="functions/authcode.php">
          <!-- Input Username -->
         <div class="column">
             <input type="text" name='username' required placeholder="Username" class="input"/>    
@@ -42,7 +62,7 @@ include 'connection.php';
         </div>
          <!-- Input Age -->
          <div class="column">
-            <input type="text" name='age' required placeholder="Age" class="input"/>
+            <input type="number" name='age' required placeholder="Age" class="input"/>
         </div>
         <!-- Input Phone Number -->
         <div class="column">
@@ -61,9 +81,9 @@ include 'connection.php';
             <input type="password" name='confirmpassword' required placeholder="Confirm Password" class="input"/>
         </div>
 
-        <input type = "hidden" name='user_type' value = "user">
+        <input type = "hidden" name='role_as' value = '0'>
             <!--Register Button -->
-            <button type="submit" name="register" class="reg-btn" >REGISTER</button> <br> <br>
+            <button type="submit" name="register_btn" class="reg-btn" >REGISTER</button> <br> <br>
             <!--link to connect with log in php-->
             <a href="login.php">Login an account</a>
         </form>

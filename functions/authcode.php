@@ -6,16 +6,25 @@ include('myfunctions.php');
 
 /* This is the code for registering a user. */
 if(isset($_POST['register_btn'])){ // Registering
-    $name = mysqli_real_escape_string($con,$_POST['name']);
-    $phone = mysqli_real_escape_string($con,$_POST['phone']);
+    $username = mysqli_real_escape_string($con,$_POST['username']);
     $email = mysqli_real_escape_string($con,$_POST['email']);
+    $firstname = mysqli_real_escape_string($con,$_POST['firstname']);
+    $lastname = mysqli_real_escape_string($con,$_POST['lastname']);
+    $age = mysqli_real_escape_string($con,$_POST['age']);
+    $phonenumber = mysqli_real_escape_string($con,$_POST['phonenumber']);
+    $address = mysqli_real_escape_string($con,$_POST['address']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
+    $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
     
     // Check if email already registered
     $check_email_query = "SELECT email FROM users WHERE email='$email'";
     $check_email_query_run = mysqli_query($con, $check_email_query);
     
+    /* This is checking if the email is already registered. If it is, it will redirect the user to the
+    register page with a message. If it is not, it will check if the password matches the confirm
+    password. If it does, it will insert the user data into the database. If it does not, it will
+    redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
         redirect("../register.php", "Email Already Registered");
@@ -27,7 +36,8 @@ if(isset($_POST['register_btn'])){ // Registering
         {
             // Insert User Data
             $password = md5($password);
-            $insert_query = "INSERT INTO users (name, email, phone, password) VALUES ('$name','$email',$phone,'$password' )";
+            $insert_query = "INSERT INTO users (username, email, firstname, lastname, age, phonenumber, address, password, role_as) 
+            VALUES ('$username','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as)";
             $insert_query_run = mysqli_query($con, $insert_query);
 
             if($insert_query_run){
