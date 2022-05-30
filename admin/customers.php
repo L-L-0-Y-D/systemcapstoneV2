@@ -92,6 +92,8 @@ include('includes/header.php');
                                             <th>Username</th>
                                             <th>Address</th>
                                             <th>Age</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>

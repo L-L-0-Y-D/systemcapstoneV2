@@ -13,7 +13,9 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
     </div>
     <header>
             <div class="nav-menu">
-                <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"])): // if user is not login?>
+                <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
+                {// if user is not login
+                    ?>
 							
                     <button class="loginbtn" onclick="openForm()">Login</button>
                         <div class="form-popup" id="myForm">
@@ -36,21 +38,41 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
 
                     <a href="register.php">Sign up</a>
                                
-                <?php elseif(isset($_SESSION['auth'])): ?>
+                <?php 
+                }
+                elseif(isset($_SESSION['auth']))
+                {
+                        if($_SESSION['role_as'] != 0)
+                        {
+                        ?>
                                             
-                    <!--if user is login-->
-                    <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
-                    <a href="your_reservation.php">Your Reservation</a>
-                    <a href="logout.php">Logout</a>
-                
-                
-                <?php elseif(isset($_SESSION['business_email'])): ?>
+                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
+                            <a href="your_reservation.php">Your Reservation</a>
+                            <a href="logout.php">Logout</a>
+
+                    <?php
+                        }
+                        else
+                        {
+                            ?>
+                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
+                            <a href="your_reservation.php">Your Reservation</a>
+                            <a href="logout.php">Logout</a> 
+                            <?php 
+                        }
+                    
+                    ?> 
+                    <?php 
+                }
+                elseif(isset($_SESSION['business_email'])) 
+                {
+                ?>
                     <!--if user is login-->
                     <h2> Welcome <strong><?php echo $_SESSION['business_name']; ?></strong> !</h2>
                     <a href="business/admin.php">Dashboard</a> 
                     <a href="logout.php">Logout</a>
                  
-                <?php endif ?>
+                <?php } ?>
             </div>
     <div class="logo">
         <img src="uploads/I-EatLogo.png" alt="LOGO" width="300" height="300"> 
