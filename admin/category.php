@@ -1,6 +1,6 @@
 <?php 
 
-//include('../middleware/adminMiddleware.php');
+include('../middleware/adminMiddleware.php');
 include('includes/header.php');
 
 

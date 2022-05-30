@@ -6,14 +6,14 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
 <!--eveything inside the bg image-->
 <div id="header-img">
     <div id="header-signup">
-        <?php if(empty($_SESSION["email"])&&empty($_SESSION["business_email"])):?>
+        <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"])):?>
             <!--For business registration-->
             <p>Do you need business account?  <span><a href="businessreg.php">REGISTER</a></span></p>
         <?php endif ?>
     </div>
     <header>
             <div class="nav-menu">
-                <?php if(empty($_SESSION["email"])&&empty($_SESSION["business_email"])): // if user is not login?>
+                <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"])): // if user is not login?>
 							
                     <button class="loginbtn" onclick="openForm()">Login</button>
                         <div class="form-popup" id="myForm">
@@ -34,18 +34,19 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         }
                         </script>
 
-                    <a href="reg.php">Sign up</a>
+                    <a href="register.php">Sign up</a>
                                
-                <?php elseif(isset($_SESSION['email'])): ?>
+                <?php elseif(isset($_SESSION['auth'])): ?>
                                             
                     <!--if user is login-->
-                    <h2> Welcome <strong><?php echo $_SESSION['email']; ?></strong> !</h2>
+                    <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
                     <a href="your_reservation.php">Your Reservation</a>
                     <a href="logout.php">Logout</a>
                 
+                
                 <?php elseif(isset($_SESSION['business_email'])): ?>
                     <!--if user is login-->
-                    <h2> Welcome <strong><?php echo $_SESSION['business_email']; ?></strong> !</h2>
+                    <h2> Welcome <strong><?php echo $_SESSION['business_name']; ?></strong> !</h2>
                     <a href="business/admin.php">Dashboard</a> 
                     <a href="logout.php">Logout</a>
                  

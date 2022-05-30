@@ -6,7 +6,7 @@ include('myfunctions.php');
 
 /* This is the code for registering a user. */
 if(isset($_POST['register_btn'])){ // Registering
-    $username = mysqli_real_escape_string($con,$_POST['username']);
+    $name = mysqli_real_escape_string($con,$_POST['name']);
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $firstname = mysqli_real_escape_string($con,$_POST['firstname']);
     $lastname = mysqli_real_escape_string($con,$_POST['lastname']);
@@ -36,7 +36,7 @@ if(isset($_POST['register_btn'])){ // Registering
         {
             // Insert User Data
             $password = md5($password);
-            $insert_query = "INSERT INTO users (username, email, firstname, lastname, age, phonenumber, address, password, role_as) 
+            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as) 
             VALUES ('$username','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as)";
             $insert_query_run = mysqli_query($con, $insert_query);
 

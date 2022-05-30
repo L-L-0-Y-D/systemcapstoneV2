@@ -1,7 +1,12 @@
 <?php
 
 session_start();
-include 'connection.php';
+if(isset($_SESSION['auth'])){
+    $_SESSION['message'] = "You are Already Login";
+    header('Location: index.php');
+    exit();
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -11,7 +16,9 @@ include 'connection.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reg.css"> 
-    <title>Register an Account</title>
+
+    <title>Login Customer Account</title>
+
 </head>
 <body>
     <header>
@@ -20,33 +27,14 @@ include 'connection.php';
         <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
     </map>
     </header>
-    <div class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                <?php 
-                    if(isset($_SESSION['message'])) 
-                    {
-                        ?>
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>Hey!</strong> <?= $_SESSION['message']; ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <?php
-                        unset($_SESSION['message']);
-                    }
-                ?>
-                </div>
-            </div>
-        </div>
-    </div>
+
 <main>
     <div class="container">
         <p>REGISTER</p>
         <form method="post" action="functions/authcode.php">
          <!-- Input Username -->
         <div class="column">
-            <input type="text" name='username' required placeholder="Username" class="input"/>    
+            <input type="text" name='name' required placeholder="Username" class="input"/>    
         </div>
         <!-- Input Email Address -->
         <div class="column">
@@ -89,5 +77,6 @@ include 'connection.php';
         </form>
     </div>
 </main>
+    
 </body>
 </html>

@@ -1,7 +1,14 @@
 <?php 
 
 session_start();
-include ('connection.php'); 
+
+/* This is checking if the user is already logged in. If they are, it will redirect them to the index
+page and display a message. */
+if(isset($_SESSION['auth'])){
+    $_SESSION['message'] = "You are Already Login";
+    header('Location: index.php');
+    exit();
+}
 
 ?>
 <!DOCTYPE html>
@@ -11,7 +18,9 @@ include ('connection.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css"> 
+
     <title>Login Customer Account</title>
+
 </head>
 <body>
     <header>
@@ -21,7 +30,7 @@ include ('connection.php');
     </map>
     </header>
 <main>
-    <form method="post" action="login.php" > 
+    <form method="post" action="functions/authcode.php" > 
         <div class="container">
             <p>CUSTOMER LOGIN</p>
             <div class="row">
@@ -30,11 +39,16 @@ include ('connection.php');
             <div class="row">
                 <input type="password" name="password" required placeholder="Password" class="input"/>
             </div>
-                <button class="login-btn" name='login' >LOGIN</button> <br> <br>
+                <button class="login-btn" name='login_btn' >LOGIN</button> <br> <br>
                 <!--link to connect with register php-->
                 <a href="reg.php">Create an account</a>
         </div>
     </form>
 </main>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
