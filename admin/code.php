@@ -317,7 +317,7 @@ else if(isset($_POST['add_customer_btn'])){
         {
             // Insert User Data
             $password = md5($password);
-            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
+            $insert_query = "INSERT INTO users (username, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
             VALUES ('$username','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as,'$filename', '$status')";
             $users_query_run = mysqli_query($con, $insert_query);
 
@@ -336,6 +336,58 @@ else if(isset($_POST['add_customer_btn'])){
         }
     }
     
+}
+else if(isset($_POST['update_customer_btn'])){
+    $userid = $_POST['userid'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $age = $_POST['age'];
+    $phonenumber = $_POST['phonenumber'];
+    $address = $_POST['address'];
+    $password = $_POST['password'];
+    $confirmpassword = $_POST['confirmpassword'];
+    $role_as = $_POST['role_as'];
+    $status = isset($_POST['status']) ? "0":"1";
+
+    $new_image = $_FILES['image']['name'];
+    $old_image = $_POST['old_image'];
+
+    if($new_image != "")
+    {
+        //$update_filename = $new_image;
+        $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
+        $update_filename = time().'.'.$image_ext;
+    }
+    else
+    {
+        $update_filename = $old_image;
+    }
+    $path = "../uploads";
+
+    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$password',role_as='$role_as',firstname='$firstname', image='$update_filename', status='$status' WHERE userid='$userid'";
+    mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if($update_query_run)
+    {
+        if($_FILES['image']['name'] != "")
+        {
+            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+            if(file_exists("../uploads/".$old_image))
+            {
+                unlink("../uploads/".$old_image);
+            }
+        }
+        redirect("customers.php", "Category Updated Successfully");
+    }
+    else
+    {
+        redirect("edit-customer.php?id=$userid", "Something Went Wrong"); 
+    }
+
 }
 else
 {

@@ -3,9 +3,8 @@ session_start();
 include('../config/dbcon.php');
 include('myfunctions.php');
 
-
 /* This is the code for registering a user. */
-if(isset($_POST['register_btn'])){ // Registering
+if(isset($_POST['register_btn'])){
     $name = mysqli_real_escape_string($con,$_POST['name']);
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $firstname = mysqli_real_escape_string($con,$_POST['firstname']);
@@ -16,6 +15,15 @@ if(isset($_POST['register_btn'])){ // Registering
     $password = mysqli_real_escape_string($con,$_POST['password']);
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
+    $status = isset($_POST['status']) ? "0":"1";
+
+    $image = $_FILES['image']['name'];
+
+    $path = "../uploads";
+
+    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    $filename = time().'.'.$image_ext;
+
     
     // Check if email already registered
     $check_email_query = "SELECT email FROM users WHERE email='$email'";
@@ -27,7 +35,7 @@ if(isset($_POST['register_btn'])){ // Registering
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("../register.php", "Email Already Registered");
+        redirect("../register.php", "Email Already Use");
     }
     else
     {
@@ -36,11 +44,12 @@ if(isset($_POST['register_btn'])){ // Registering
         {
             // Insert User Data
             $password = md5($password);
-            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as) 
-            VALUES ('$username','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as)";
-            $insert_query_run = mysqli_query($con, $insert_query);
+            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
+            VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as,'$filename', '$status')";
+            $users_query_run = mysqli_query($con, $insert_query);
 
-            if($insert_query_run){
+            if($users_query_run){
+                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                 redirect("../login.php", "Register Successfully");
             }
             else{
@@ -55,6 +64,7 @@ if(isset($_POST['register_btn'])){ // Registering
     }
     
 }
+
 /* This is the code for logging in a user. */
 else if(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);

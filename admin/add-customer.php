@@ -49,11 +49,11 @@ include('includes/header.php');
                     </div>
                     <div class="col-md-6">
                         <label for="">Password</label>
-                        <input type="text" name="password" placeholder="Enter Password" class="form-control">
+                        <input type="password" name="password" placeholder="Enter Password" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label for="">Confirm Password</label>
-                        <input type="text" name="confirmpassword" placeholder="Enter Confirm Password" class="form-control">
+                        <input type="password" name="confirmpassword" placeholder="Enter Confirm Password" class="form-control">
                     </div>
                     <div class="col-md-12">
                         <label class="mb-0">Select Role</label>

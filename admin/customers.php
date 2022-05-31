@@ -37,7 +37,7 @@ include('includes/header.php');
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>image</th>
                                             <th>Username</th>
                                             <th>Firstname</th>
                                             <th>Lastname</th>
@@ -61,7 +61,7 @@ include('includes/header.php');
                                         {
                                         ?>
                                         <tr>
-                                            <td><?= $item['userid']; ?></td>
+                                            <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
                                             <td><?= $item['name']; ?></td>
                                             <td><?= $item['firstname']; ?></td>
                                             <td><?= $item['lastname']; ?></td>
@@ -70,10 +70,10 @@ include('includes/header.php');
                                             <td><?= $item['status']== '0'? "Activates":"Waiting"  ?></td>
                                             <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                             <td>
-                                                <a href="edit-product.php?id=<?= $item['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['id']; ?>" >Delete</button>
+                                                <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['userid']; ?>" >Delete</button>
                                             </td>
                                         </tr>
                                         <?php

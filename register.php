@@ -32,6 +32,13 @@ if(isset($_SESSION['auth'])){
     <div class="container">
         <p>REGISTER</p>
         <form method="post" action="functions/authcode.php">
+        <!-- Input Image -->
+        <div class="column">
+            <div class="input">
+                <label for="">Upload Image</label><br>
+                <input type="file" name="image" required class="form-control">
+            </div>
+        </div>
          <!-- Input Username -->
         <div class="column">
             <input type="text" name='name' required placeholder="Username" class="input"/>    
@@ -68,7 +75,6 @@ if(isset($_SESSION['auth'])){
         <div class="column">
             <input type="password" name='confirmpassword' required placeholder="Confirm Password" class="input"/>
         </div>
-
         <input type = "hidden" name='role_as' value = '0'>
             <!--Register Button -->
             <button type="submit" name="register_btn" class="reg-btn" >REGISTER</button> <br> <br>

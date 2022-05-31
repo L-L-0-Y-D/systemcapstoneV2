@@ -1,7 +1,11 @@
 <?php
 
-session_start();
-include ('connection.php');
+include('functions/myfunctions.php');
+if(isset($_SESSION['auth'])){
+    $_SESSION['message'] = "You are Already Login";
+    header('Location: index.php');
+    exit();
+}
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +27,13 @@ include ('connection.php');
 <main>
 <div class="container">
         <p>COMPANY INFORMATION</p>
-        <form method="post" action="businessreg.php">
+        <form method="post" action="functions/authcode.php">
+            <div class="column">
+                <div class="input">
+                    <label for="">Upload Image</label><br>
+                    <input type="file" name="image" required class="form-control">
+                </div>
+            </div>
             <div class="column">
                   <input type="text" id="busi_name" name='business_name' required placeholder="Business Name" class="input"/>
             </div>
@@ -34,34 +44,42 @@ include ('connection.php');
                   <select name="municipalityid" name='municipality'>
                     <option disabled selected hidden>Select your Business Location</option>
                     <?php 
-                        include 'connect.php';
-                        $sql = "SELECT * FROM municipality;";
-                        $result =mysqli_query($conn,$sql);
-                        foreach ($result as $r) {
-                    ?>
-                        <option value="<?php echo $r['municipalityid']; ?>"><?php echo $r['municipality_name']; ?></option>
-                      <?php } ?>
+                        $municipality = getAll("municipality");
+                        if(mysqli_num_rows($municipality) > 0)
+                            {
+                                foreach ($municipality as $item)
+                                {
+                                    ?>
+                                    <option value="<?= $item['municipalityid']; ?>"><?= $item['municipality_name']; ?></option>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "No Municipality Available";
+                            }?>
                   </select> 
                 </div>
                 <div>
                   <select name="categoryid" name='cuisine_type'>
                     <option disabled selected hidden>Type of Cuisine</option>
                     <?php 
-                        include 'connect.php';
-                        $sql = "SELECT * FROM mealcategory;";
-                        $result =mysqli_query($conn,$sql);
-                        foreach ($result as $r) {
-                      ?>
-                        <option value="<?php echo $r['categoryid']; ?>"><?php echo $r['categoryname']; ?></option>
-                      <?php } ?>
+                        $category = getAll("mealcategory");
+                        if(mysqli_num_rows($category) > 0)
+                            {
+                                foreach ($category as $item)
+                                {
+                                    ?>
+                                    <option value="<?= $item['$categoryid']; ?>"><?= $item['$categoryname']; ?></option>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "No Municipality Available";
+                            }?>
                   </select> 
                 </div>
-                
-                <form action="/action_page.php"> 
-                    <label for="img">Select your Business Image:</label> </br>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-                    <input type="file" id="img" name="img" accept="image/*">
-                </form>
             <p>OWNER DETAILS</p>
                 <div class="column">
                     <input type="text" name='business_firstname' required placeholder="Firstname" class="input"/>
