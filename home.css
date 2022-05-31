@@ -4,6 +4,10 @@ body{
     box-sizing: border-box;
     overflow-x:hidden;  
 }
+
+a{
+  text-decoration: none;
+}
 #header-signup{
     width:100%;
     background-color: rgb(255, 128, 64);

@@ -1,98 +1,47 @@
 <?php
-    session_start();
+
+    include('functions/userfunctions.php');
     include('includes/header.php');
 ?>
 
-<!--different municipalities-->
+<div class="py-5">
     <div class="container">
-        <ul class="nav nav-tabs">
-        </ul>
-        <div class="tab-content">
-        </div>
-    </div>
-    <main class="page catalog-page">
-        <section class="clean-block clean-catalog dark" style="padding: 0px 0px 0px 0px;">
-            <div class="container">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-md-9" style="margin: 0px 100px;">
-                            <div class="products" style="width: 800px;">
-                                <div class="row g-0">
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/Dinaluphan-beanbox.jpg" style="width: 180px;margin: 0px 10px;border: 1px none rgb(255,128,64);border-radius: 10px;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;border-color: var(--bs-body-bg);">BeanBox</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Dinalupihan, Bataan</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/ichiraku-mariveles.png" style="width: 180px;margin: 0px 10px;border: 1px solid rgb(255,128,64);border-radius: 10px;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;border-color: var(--bs-body-bg);">Ichiraku</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Mariveles, Bataan</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/angelitos-orani.jpg" style="width: 180px;margin: 0px 10px;border-radius: 10px;border: 1px none rgb(255,128,64) ;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">Angelito's</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Orani, Bataan</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4" data-bss-hover-animate="pulse" style="width: 240px;height: 315px;">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 0px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/natalia-balanga.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px none rgb(255,128,64);border-radius: 10px;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;border-style: none;">Natalia</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Balanga, Bataan</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 16px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/foodproject-orion.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px none rgb(255,128,64);border-radius: 10px;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">The Food Project</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Orion, Bataan</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 16px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/winghub-limay.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px none rgb(255,128,64);background: rgb(255,128,64);border-radius: 10px;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">The WingHub</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Limay, Bataan</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 0px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/saverde-abucay.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px solid rgb(255,128,64) ;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">Saverde</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Abucay, Bataan</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 0px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/imaflora-pilar.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px solid rgb(255,128,64) ;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">Ima's Pamangan</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Pilar, Bataan</p>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Municipalities</h1>
+                <hr>
+                <div class="row">
+
+                <?php
+                    $municipality = getAllActive("municipality");
+
+                    if(mysqli_num_rows($municipality) > 0)
+                    {
+                        foreach($municipality as $item)
+                        {
+                            ?>
+                                <div class="col-md-3 mb-2">
+                                    <a href="restaurants.php?municipality=<?= $item['municipality_name']; ?>">
+                                        <div class="card shadow">
+                                            <div class="card-body">
+                                                <img src="uploads/<?= $item['image']; ?>" alt="Municipality Image" height="300px" width="275px">
+                                                <h4 class="text-center text-black"><?= $item['municipality_name']; ?></h4>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div data-bss-hover-animate="pulse" class="clean-product-item" style="width: 240px;height: 315px;box-shadow: 0px 0px 3px var(--bs-dark);margin-left: 0px;margin-top: 10px;transform-origin: center;background: rgb(255,128,64);">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/viewtea-samal.jpg" style="width: 180px;margin: 0px 10px;height: 180px;border: 1px solid rgb(255,128,64) ;"></a></div>
-                                            <div class="product-name" style="margin: 0px 0px 0px;"><a href="#" style="font-size: 18px;font-family: Alata, sans-serif;text-align: right;color: var(--bs-body-bg);font-weight: bold;">viewtea</a></div>
-                                            <p style="height: 20px;font-size: 13px;margin: 0px 0px 20px;width: 200px;">Located at Samal, Bataan</p>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+
+                        }
+                    }
+                    else
+                    {
+                        echo "No Category Available";
+                    }
+                ?>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+</div>
 <?php include('includes/footer.php');?>

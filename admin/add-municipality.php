@@ -23,6 +23,10 @@ include('includes/header.php');
                         <label for="">Upload Image</label>
                         <input type="file" name="image" class="form-control">
                     </div>
+                    <div class="col-md-12">
+                        <label for="">Status</label>
+                        <input type="checkbox" name="status" >
+                    </div> <br>
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary" name="add_municipality_btn">Save</button>
                     </div>

@@ -29,6 +29,7 @@ include('includes/header.php');
                                             <th>ID</th>
                                             <th>Municipality</th>
                                             <th>Image</th>
+                                            <th>Status</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
@@ -48,6 +49,7 @@ include('includes/header.php');
                                             <td>
                                                 <img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>">
                                             </td>
+                                            <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
                                            <td>
                                                <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                            </td>

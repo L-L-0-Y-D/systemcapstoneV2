@@ -8,6 +8,7 @@ include('../functions/myfunctions.php');
 if(isset($_POST['add_municipality_btn']))
 {
     $municipality_name = $_POST['municipality_name'];
+    $status = isset($_POST['status']) ? "1":"0";
 
     $image = $_FILES['image']['name'];
 
@@ -16,8 +17,8 @@ if(isset($_POST['add_municipality_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $muni_query = "INSERT INTO municipality (municipality_name, image) 
-    VALUES ('$municipality_name','$filename')";
+    $muni_query = "INSERT INTO municipality (municipality_name, image, status) 
+    VALUES ('$municipality_name','$filename', '$status')";
     mysqli_query($con,$muni_query) or die("bad query: $cate_query");
 
     $muni_query_run = mysqli_query($con, $muni_query);
@@ -39,6 +40,7 @@ else if(isset($_POST['update_municipality_btn']))
 {
     $municipalityid = $_POST['municipalityid'];
     $municipality_name = $_POST['municipality_name'];
+    $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
@@ -55,7 +57,7 @@ else if(isset($_POST['update_municipality_btn']))
     }
     $path = "../uploads";
 
-    $update_query = "UPDATE municipality SET municipality_name='$municipality_name', image='$update_filename' WHERE municipalityid='$municipalityid'";
+    $update_query = "UPDATE municipality SET municipality_name='$municipality_name', image='$update_filename', status='$status' WHERE municipalityid='$municipalityid'";
     mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
