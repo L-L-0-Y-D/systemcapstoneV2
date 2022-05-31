@@ -12,10 +12,10 @@ function getAll($table)
 }
 
 //for getting all the data in the table
-function getByID($table, $id)
+function getByID($table, $id, $tabledata)
 {
     global $con;
-    $query = "SELECT * FROM $table WHERE municipalityid='$id'";
+    $query = "SELECT * FROM $table WHERE $tabledata='$id'";
     return $query_run = mysqli_query($con, $query);
 }
 

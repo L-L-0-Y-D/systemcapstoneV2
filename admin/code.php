@@ -18,7 +18,7 @@ if(isset($_POST['add_municipality_btn']))
 
     $muni_query = "INSERT INTO municipality (municipality_name, image) 
     VALUES ('$municipality_name','$filename')";
-    //mysqli_query($con,$cate_query) or die("bad query: $cate_query");
+    mysqli_query($con,$muni_query) or die("bad query: $cate_query");
 
     $muni_query_run = mysqli_query($con, $muni_query);
 
@@ -55,7 +55,8 @@ else if(isset($_POST['update_municipality_btn']))
     }
     $path = "../uploads";
 
-    $update_query = "UPDATE municipality SET municipality_name='$municipality_name', image='$update_filename' WHERE municipalityid'='$municipalityid'";
+    $update_query = "UPDATE municipality SET municipality_name='$municipality_name', image='$update_filename' WHERE municipalityid='$municipalityid'";
+    mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
 

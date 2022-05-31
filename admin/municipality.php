@@ -16,14 +16,6 @@ include('includes/header.php');
             </form>
         </div>
                         </div>
-                        <script>
-                        function openForm() {
-                            document.getElementById("myForm").style.display = "block";
-                        }
-                        function closeForm() {
-                            document.getElementById("myForm").style.display = "none";
-                        }
-                        </script>
                 </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -60,7 +52,7 @@ include('includes/header.php');
                                                <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                            </td>
                                            <td>
-                                               <button type="button" class="btn btn-sm btn-danger delete_municipality_btn" value="<?= $item['id']; ?>" >Delete</button>
+                                               <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['municipalityid']; ?>" >Delete</button>
                                            </td>
                                        </tr>
                                        <?php

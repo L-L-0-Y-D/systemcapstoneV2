@@ -10,14 +10,15 @@ include('includes/header.php');
   <div class="row">
     <div class="col-md-12">
         <?php 
-        if(isset($_GET['municipalityid']))
+        if(isset($_GET['id']))
         {
-            $id = $_GET['municipalityid'];
-            $municipality = getByID("municipality",$id);
+            $id = $_GET['id'];
+            $municipality = getByID("municipality",$id,"municipalityid");
 
             if(mysqli_num_rows($municipality) > 0)
             {
                 $data = mysqli_fetch_array($municipality)
+                
             
             ?>
             <div class="card">
@@ -32,11 +33,11 @@ include('includes/header.php');
                         <div class="row">
                             <div class="col-md-6">
                                 <!--Needed-->
-                                <input type="hidden" name="municipality_id" value="<?= $data['municipalityid'] ?>">
+                                <input type="hidden" name="municipalityid" value="<?= $data['municipalityid'] ?>">
                                 <label for="">Municipality Name</label>
                                 <input type="text" name="municipality_name" value="<?= $data['municipality_name'] ?>" placeholder="Enter Municipality Name" class="form-control">
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label for="">Upload Image</label>
                                 <input type="file" name="image" class="form-control">
                                 <label for="">Current Image</label>

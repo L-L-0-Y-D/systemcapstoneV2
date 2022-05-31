@@ -56,7 +56,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         {
                             ?>
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
-                            <a href="your_reservation.php">Your Reservation</a>
+                            <a href="admin/index.php">Dashboard</a>
                             <a href="logout.php">Logout</a> 
                             <?php 
                         }

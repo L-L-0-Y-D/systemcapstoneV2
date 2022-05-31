@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     /* This is a jQuery function that is used to delete a product. */
-    $(document).on('click','.delete_product_btn', function (e){
+    $(document).on('click','.delete_municipality_btn', function (e){
 
         e.preventDefault();
 
@@ -22,13 +22,13 @@ $(document).ready(function () {
                     url: "code.php",
                     data: {
                         'product_id':id,
-                        'delete_product_btn':true
+                        'delete_municipality_btn':true
                     },
                     success: function (response) {
                         if(response == 200)
                         {
                             swal("");
-                            swal("Success!", "Product Deleted Successfully", "success");
+                            swal("Success!", "Municipality Deleted Successfully", "success");
                             $("#products_table").load(location.href + " #products_table");
                         }
                         else if(response == 500)
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
     
     /* This is a jQuery function that is used to delete a category. */
-    $(document).on('click','.delete_municipality_btn', function (e){
+    $(document).on('click','.delete_category_btn', function (e){
         
         e.preventDefault();
 
@@ -64,15 +64,15 @@ $(document).ready(function () {
                     method: "POST",
                     url: "code.php",
                     data: {
-                        'municipalityid':id,
-                        'delete_municipality_btn':true
+                        'category_id':id,
+                        'delete_category_btn':true
                     },
                     success: function (response) {
                         if(response == 200)
                         {
                             swal("");
-                            swal("Success!", "municipality Deleted Successfully", "success");
-                            $("#municipality_table").load(location.href + " #municipality_table");
+                            swal("Success!", "Category Deleted Successfully", "success");
+                            $("#category_table").load(location.href + " #category_table");
                         }
                         else if(response == 500)
                         {
