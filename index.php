@@ -25,7 +25,7 @@
                                         <div class="card shadow">
                                             <div class="card-body">
                                                 <img src="uploads/<?= $item['image']; ?>" alt="Municipality Image" height="300px" width="275px">
-                                                <h4 class="text-center text-black"><?= $item['municipality_name']; ?></h4>
+                                                <h4 class="text-center text-black me-2"><?= $item['municipality_name']; ?></h4>
                                             </div>
                                         </div>
                                     </a>

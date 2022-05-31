@@ -19,7 +19,7 @@ include('includes/header.php');
                 </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold" style="color: rgb(255,128,64);">Customers Info</p>
+                            <p class="text-primary m-0 fw-bold" style="color: rgb(255,128,64);">Municipality</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">

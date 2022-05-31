@@ -3,12 +3,12 @@
 include('../config/dbcon.php');
 include('../functions/myfunctions.php');
 
-//inserting add-new-municipality
+
 /* This is the code for adding a new municipality. */
 if(isset($_POST['add_municipality_btn']))
 {
     $municipality_name = $_POST['municipality_name'];
-    $status = isset($_POST['status']) ? "1":"0";
+    $status = isset($_POST['status']) ? "0":"1";
 
     $image = $_FILES['image']['name'];
 
@@ -19,7 +19,7 @@ if(isset($_POST['add_municipality_btn']))
 
     $muni_query = "INSERT INTO municipality (municipality_name, image, status) 
     VALUES ('$municipality_name','$filename', '$status')";
-    mysqli_query($con,$muni_query) or die("bad query: $cate_query");
+    //mysqli_query($con,$muni_query) or die("bad query: $cate_query");
 
     $muni_query_run = mysqli_query($con, $muni_query);
 
@@ -34,13 +34,12 @@ if(isset($_POST['add_municipality_btn']))
     }
 
 }
-//Update a new category
 /* This is the code for updating a municipality. */
 else if(isset($_POST['update_municipality_btn']))
 {
     $municipalityid = $_POST['municipalityid'];
     $municipality_name = $_POST['municipality_name'];
-    $status = isset($_POST['status']) ? "1":"0";
+    $status = isset($_POST['status']) ? "0":"1";
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
@@ -58,7 +57,7 @@ else if(isset($_POST['update_municipality_btn']))
     $path = "../uploads";
 
     $update_query = "UPDATE municipality SET municipality_name='$municipality_name', image='$update_filename', status='$status' WHERE municipalityid='$municipalityid'";
-    mysqli_query($con,$update_query) or die("bad query: $update_query");
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
 
@@ -79,8 +78,7 @@ else if(isset($_POST['update_municipality_btn']))
         redirect("edit-municipality.php?id=$municipalityid", "Something Went Wrong"); 
     }
 }
-//delete a new category
-/* This is the code for deleting a category. */
+/* This is the code for deleting a municipality. */
 else if(isset($_POST['delete_municipality_btn']))
 {
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
@@ -110,7 +108,6 @@ else if(isset($_POST['delete_municipality_btn']))
         echo 500;
     }
 }
-//add new Product
 /* This is the code for adding a new product. */
 else if(isset($_POST['add_product_btn']))
 {
@@ -238,6 +235,107 @@ else if(isset($_POST['delete_product_btn']))
         //redirect("products.php", "Something went wrong");
         echo 500;
     }
+}
+/* This is the code for adding a new category. */
+else if(isset($_POST['add_category_btn']))
+{
+    $categoryname = $_POST['categoryname'];
+    $status = isset($_POST['status']) ? "0":"1";
+
+    $cate_query = "INSERT INTO mealcategory (categoryname, status) 
+    VALUES ('$categoryname', '$status')";
+    //mysqli_query($con,$cate_query) or die("bad query: $cate_query");
+
+    $cate_query_run = mysqli_query($con, $cate_query);
+
+    if($cate_query_run){
+        redirect("category.php", "Municipality Added Successfully");
+    }else{
+
+        redirect("category.php", "Something Went Wrong");
+
+    }
+}
+/* This is the code for updating a category. */
+else if(isset($_POST['update_category_btn']))
+{
+    $categoryid = $_POST['categoryid'];
+    $categoryname = $_POST['categoryname'];
+    $status = isset($_POST['status']) ? "0":"1";
+
+    $update_query = "UPDATE mealcategory SET categoryname='$categoryname', status='$status' WHERE categoryid='$categoryid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if($update_query_run)
+    {
+        redirect("category.php", "Category Updated Successfully");
+    }
+    else
+    {
+        redirect("edit-municipality.php?id=$municipalityid", "Something Went Wrong"); 
+    }
+}
+else if(isset($_POST['add_customer_btn'])){
+    $name = mysqli_real_escape_string($con,$_POST['name']);
+    $email = mysqli_real_escape_string($con,$_POST['email']);
+    $firstname = mysqli_real_escape_string($con,$_POST['firstname']);
+    $lastname = mysqli_real_escape_string($con,$_POST['lastname']);
+    $age = mysqli_real_escape_string($con,$_POST['age']);
+    $phonenumber = mysqli_real_escape_string($con,$_POST['phonenumber']);
+    $address = mysqli_real_escape_string($con,$_POST['address']);
+    $password = mysqli_real_escape_string($con,$_POST['password']);
+    $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
+    $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
+    $status = isset($_POST['status']) ? "0":"1";
+
+    $image = $_FILES['image']['name'];
+
+    $path = "../uploads";
+
+    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    $filename = time().'.'.$image_ext;
+
+    
+    // Check if email already registered
+    $check_email_query = "SELECT email FROM users WHERE email='$email'";
+    $check_email_query_run = mysqli_query($con, $check_email_query);
+    
+    /* This is checking if the email is already registered. If it is, it will redirect the user to the
+    register page with a message. If it is not, it will check if the password matches the confirm
+    password. If it does, it will insert the user data into the database. If it does not, it will
+    redirect the user to the register page with a message. */
+    if(mysqli_num_rows($check_email_query_run)>0)
+    {
+        redirect("add-customer.php", "Email Already Use");
+    }
+    else
+    {
+        // Check if password Match
+        if($password == $confirmpassword)
+        {
+            // Insert User Data
+            $password = md5($password);
+            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
+            VALUES ('$username','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as,'$filename', '$status')";
+            $users_query_run = mysqli_query($con, $insert_query);
+
+            if($users_query_run){
+                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                redirect("customers.php", "Register Successfully");
+            }
+            else{
+                redirect("customers.php", "Something went wrong");;
+            }
+
+        }
+        else
+        {
+            redirect("add-customers.php", "Passwords do not match");
+        }
+    }
+    
 }
 else
 {

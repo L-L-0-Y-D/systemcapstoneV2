@@ -13,18 +13,18 @@ include('includes/header.php');
         if(isset($_GET['id']))
         {
             $id = $_GET['id'];
-            $municipality = getByID("municipality",$id,"municipalityid");
+            $mealcategory = getByID("mealcategory",$id,"categoryid");
 
-            if(mysqli_num_rows($municipality) > 0)
+            if(mysqli_num_rows($mealcategory) > 0)
             {
-                $data = mysqli_fetch_array($municipality)
+                $data = mysqli_fetch_array($mealcategory)
                 
             
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Edit Municipality
-                    <a href="municipality.php" class="btn btn-primary float-end">Back</a>
+                <h4>Edit Cuisine
+                    <a href="category.php" class="btn btn-primary float-end">Back</a>
                 </h4>
                     
                 </div>
@@ -33,23 +33,16 @@ include('includes/header.php');
                         <div class="row">
                             <div class="col-md-12">
                                 <!--Needed-->
-                                <input type="hidden" name="municipalityid" value="<?= $data['municipalityid'] ?>">
-                                <label for="">Municipality Name</label>
-                                <input type="text" name="municipality_name" value="<?= $data['municipality_name'] ?>" placeholder="Enter Municipality Name" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control">
-                                <label for="">Current Image</label>
-                                <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
-                                <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                                <input type="hidden" name="categoryid" value="<?= $data['categoryid'] ?>">
+                                <label for="">Cuisine Name</label>
+                                <input type="text" name="categoryname" value="<?= $data['categoryname'] ?>" placeholder="Enter Cuisine Type" class="form-control">
                             </div>
                             <div class="col-md-12">
                                 <label for="">Status</label>
                                 <input type="checkbox" <?= $data['status'] ? "":"checked"?> name="status" >
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" name="update_municipality_btn">Update</button>
+                                <button type="submit" class="btn btn-primary" name="update_category_btn">Update</button>
                             </div>
                         </div>
                     </form>

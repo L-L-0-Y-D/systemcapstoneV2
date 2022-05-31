@@ -7,64 +7,13 @@ include('includes/header.php');
 ?>
                 <div class="container-fluid">
                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-dark mb-4">Customer's List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" style="background: rgb(255,128,64);border-style: none;"  id="addbtn" onclick="openForm()">&nbsp;Add Customer</a>
+                    <h3 class="text-dark mb-4">Customer's List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-customer.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add User</a>
                     <div class="form-popup" id="myForm">
-                            <form name="form" class="form-container">
-                                <h3>Register Customer</h3>
-                 <!-- Input Username -->
+                            
         <div class="column">
-            <input type="text" name='username' required placeholder="Username" class="input"/>    
-        </div>
-        <!-- Input Email Address -->
-        <div class="column">
-            <input type="text" name='email' required placeholder="Email Address" class="input"/>    
-        </div>
-        <!-- Input Firstname -->
-        <div class="column">
-            <input type="text" name='firstname' required placeholder="Firstname" class="input"/>
-        </div>
-        <!-- Input Lastname -->
-        <div class="column">
-            <input type="text" name='lastname' required placeholder="Lastname" class="input"/>
-        </div>
-         <!-- Input Age -->
-         <div class="column">
-            <input type="text" name='age' required placeholder="Age" class="input"/>
-        </div>
-        <!-- Input Phone Number -->
-        <div class="column">
-            <input type="text" name='phonenumber' required placeholder="Phone Number" class="input"/>
-        </div>
-        <!-- Input Address -->
-        <div class="column">
-            <input type="text" name='address' required placeholder="Address" class="input"/>
-        </div>
-        <!-- Input Password -->
-        <div class="column">
-            <input type="password" name='password' required placeholder="Password" class="input"/>
-        </div>
-        <!-- Input Confirm Password -->
-        <div class="column">
-            <input type="password" name='confirmpassword' required placeholder="Confirm Password" class="input"/>
-        </div> 
-        <div class="column">
-            <form action="/action_page.php"> 
-                    <label for="img">Select Image:</label> </br>
-                    <input type="file" id="img" name="img" accept="image/*">
-                <button type="submit" name="register" class="busi_reg-btn" >REGISTER</button> <br> <br>
-                                <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
-                            </form>
-            </form>
+            
         </div>
                         </div>
-                        <script>
-                        function openForm() {
-                            document.getElementById("myForm").style.display = "block";
-                        }
-                        function closeForm() {
-                            document.getElementById("myForm").style.display = "none";
-                        }
-                        </script>
                 </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -90,8 +39,12 @@ include('includes/header.php');
                                         <tr>
                                             <th>ID</th>
                                             <th>Username</th>
+                                            <th>Firstname</th>
+                                            <th>Lastname</th>
                                             <th>Address</th>
                                             <th>Age</th>
+                                            <th>Status</th>
+                                            <th>Role</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
@@ -110,8 +63,12 @@ include('includes/header.php');
                                         <tr>
                                             <td><?= $item['userid']; ?></td>
                                             <td><?= $item['name']; ?></td>
+                                            <td><?= $item['firstname']; ?></td>
+                                            <td><?= $item['lastname']; ?></td>
                                             <td><?= $item['address']; ?></td>
                                             <td><?= $item['age']; ?></td>
+                                            <td><?= $item['status']== '0'? "Activates":"Waiting"  ?></td>
+                                            <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                             <td>
                                                 <a href="edit-product.php?id=<?= $item['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                             </td>

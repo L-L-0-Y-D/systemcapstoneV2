@@ -7,32 +7,15 @@ include('includes/header.php');
 ?>
                 <div class="container-fluid">
                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-dark mb-4">Cuisine List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" style="background: rgb(255,128,64);border-style: none;"  id="addbtn" onclick="openForm()">&nbsp;Add Customer</a>
+                    <h3 class="text-dark mb-4">Cuisine List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-category.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Cuisine Type</a>
                     <div class="form-popup" id="myForm">
-                            <form name="form" class="form-container">
-                                <h3>Register Customer</h3>
-                <!-- Input Username -->
         <div class="column">
-            <input type="text" name='username' required placeholder="Input Category" class="input"/>    
-        </div>
-        <div class="column">
-                    <button type="submit" name="submit" class="busi_reg-btn" >SUBMIT</button> <br> <br>
-                    <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
-            </form>
         </div>
                         </div>
-                        <script>
-                        function openForm() {
-                            document.getElementById("myForm").style.display = "block";
-                        }
-                        function closeForm() {
-                            document.getElementById("myForm").style.display = "none";
-                        }
-                        </script>
                 </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold" style="color: rgb(255,128,64);">Customers Info</p>
+                            <p class="text-primary m-0 fw-bold" style="color: rgb(255,128,64);">Cuisine type</p>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -54,6 +37,7 @@ include('includes/header.php');
                                         <tr>
                                             <th>ID</th>
                                             <th>Cuisine</th>
+                                            <th>Status</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
@@ -72,11 +56,12 @@ include('includes/header.php');
                                        <tr>
                                            <td><?= $item['categoryid']; ?></td>
                                            <td><?= $item['categoryname']; ?></td>
+                                           <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
                                            <td>
-                                               <a href="edit-product.php?id=<?= $item['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                               <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                            </td>
                                            <td>
-                                               <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['id']; ?>" >Delete</button>
+                                               <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
                                            </td>
                                        </tr>
                                        <?php

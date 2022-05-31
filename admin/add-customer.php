@@ -1,0 +1,82 @@
+<?php 
+
+include('../middleware/adminMiddleware.php');
+include('includes/header.php');
+
+?>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Add Cuisine type</h4>
+        </div>
+        <div class="card-body">
+            <form action="code.php" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="">Upload Image</label>
+                        <input type="file" name="image" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Username</label>
+                        <input type="text" name="name" placeholder="Enter Username" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Email</label>
+                        <input type="email" name="email" placeholder="Enter Email" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">First Name</label>
+                        <input type="text" name="firstname" placeholder="Enter First Name" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Last Name</label>
+                        <input type="text" name="Lastname" placeholder="Enter Last Name" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Age</label>
+                        <input type="number" name="age" placeholder="Enter Age" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Phone Number</label>
+                        <input type="text" name="phonenumber" placeholder="Enter Phone Number" class="form-control">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="">Address</label>
+                        <input type="text" name="address" placeholder="Enter Address" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Password</label>
+                        <input type="text" name="password" placeholder="Enter Password" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Confirm Password</label>
+                        <input type="text" name="confirmpassword" placeholder="Enter Confirm Password" class="form-control">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="mb-0">Select Role</label>
+                        <select name="role_as" required class="form-select mb-2" >
+                            <option disabled selected hidden>Select Role</option>
+                            <option value="0">User</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="">Status</label>
+                        <input type="checkbox" name="status" >
+                    </div> <br>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary" name="add_customer_btn">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+<?php include('includes/footer.php');?>
