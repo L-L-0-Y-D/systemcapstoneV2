@@ -42,7 +42,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 }
                 elseif(isset($_SESSION['auth']))
                 {
-                        if($_SESSION['role_as'] != 0)
+                        if($_SESSION['auth_user']['role_as'] != "1")
                         {
                         ?>
                                             

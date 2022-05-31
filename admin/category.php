@@ -7,17 +7,17 @@ include('includes/header.php');
 ?>
                 <div class="container-fluid">
                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-dark mb-4">Customer's List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" style="background: rgb(255,128,64);border-style: none;"  id="addbtn" onclick="openForm()">&nbsp;Add Customer</a>
+                    <h3 class="text-dark mb-4">Cuisine List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" style="background: rgb(255,128,64);border-style: none;"  id="addbtn" onclick="openForm()">&nbsp;Add Customer</a>
                     <div class="form-popup" id="myForm">
                             <form name="form" class="form-container">
-                                <h3>Register Cuisine</h3>
-                 <!-- Input Username -->
+                                <h3>Register Customer</h3>
+                <!-- Input Username -->
         <div class="column">
             <input type="text" name='username' required placeholder="Input Category" class="input"/>    
         </div>
-                <button type="submit" name="submit" class="busi_reg-btn" >SUBMIT</button> <br> <br>
-                                <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
-                            </form>
+        <div class="column">
+                    <button type="submit" name="submit" class="busi_reg-btn" >SUBMIT</button> <br> <br>
+                    <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
             </form>
         </div>
                         </div>
@@ -60,29 +60,29 @@ include('includes/header.php');
                                     </thead>
                                     <tbody>
                                     <?php
-                                $cuisine = getAll("mealcategory");
+                               $cuisine = getAll("mealcategory");
 
-                                if(mysqli_num_rows($cuisine ) > 0)
-                                {
-                                    foreach($cuisine  as $item)
-                                    {
-                                        if($_SESSION['role_as'] != 0)
-                                        {
-                                        ?>
-                                        <tr>
-                                            <td><?= $item['categoryid']; ?></td>
-                                            <td><?= $item['categoryname']; ?></td>
-                                            <td>
-                                                <a href="edit-product.php?id=<?= $item['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['id']; ?>" >Delete</button>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        }
-                                    }
-                                }
+                               if(mysqli_num_rows($cuisine ) > 0)
+                               {
+                                   foreach($cuisine  as $item)
+                                   {
+                                       if($_SESSION['role_as'] != 0)
+                                       {
+                                       ?>
+                                       <tr>
+                                           <td><?= $item['categoryid']; ?></td>
+                                           <td><?= $item['categoryname']; ?></td>
+                                           <td>
+                                               <a href="edit-product.php?id=<?= $item['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                           </td>
+                                           <td>
+                                               <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['id']; ?>" >Delete</button>
+                                           </td>
+                                       </tr>
+                                       <?php
+                                       }
+                                   }
+                               }
                                 else
                                 {
                                     echo "No records Found";

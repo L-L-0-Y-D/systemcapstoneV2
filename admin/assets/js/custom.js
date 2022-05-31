@@ -44,7 +44,7 @@ $(document).ready(function () {
 
     
     /* This is a jQuery function that is used to delete a category. */
-    $(document).on('click','.delete_category_btn', function (e){
+    $(document).on('click','.delete_municipality_btn', function (e){
         
         e.preventDefault();
 
@@ -64,15 +64,15 @@ $(document).ready(function () {
                     method: "POST",
                     url: "code.php",
                     data: {
-                        'category_id':id,
-                        'delete_category_btn':true
+                        'municipalityid':id,
+                        'delete_municipality_btn':true
                     },
                     success: function (response) {
                         if(response == 200)
                         {
                             swal("");
-                            swal("Success!", "Category Deleted Successfully", "success");
-                            $("#category_table").load(location.href + " #category_table");
+                            swal("Success!", "municipality Deleted Successfully", "success");
+                            $("#municipality_table").load(location.href + " #municipality_table");
                         }
                         else if(response == 500)
                         {

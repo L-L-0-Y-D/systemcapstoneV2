@@ -15,7 +15,7 @@ function getAll($table)
 function getByID($table, $id)
 {
     global $con;
-    $query = "SELECT * FROM $table WHERE id='$id'";
+    $query = "SELECT * FROM $table WHERE municipalityid='$id'";
     return $query_run = mysqli_query($con, $query);
 }
 

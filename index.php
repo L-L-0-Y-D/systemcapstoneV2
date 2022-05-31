@@ -1,35 +1,11 @@
 <?php
     session_start();
-    include('connection.php');
     include('includes/header.php');
-    $tab_Query = "SELECT *FROM municipality ORDER BY municipalityid ASC";
-    $tab_result = mysqli_query($conn,$tab_Query);
-    $tab_menu = '';
-    $tab_content = '';
-    $count = 0;
-    while ($row = mysqli_fetch_array($tab_result)){
-        if($count == 0){
-            $tab_menu .= '
-            <li class="townbtn"><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
-            ';
-            //$tab_content .= '
-            //<div id="'.$row["municipality_id"].'"
-            //';
-
-        }else{
-           $tab_menu .= '
-           <li><a href="#'.$row["municipalityid"].'" data-toggle="tab">'.$row["municipality_name"].'</a></li>
-           ';
-
-        }
-        $count++;
-    }
 ?>
 
 <!--different municipalities-->
     <div class="container">
         <ul class="nav nav-tabs">
-            <?php echo $tab_menu; ?>
         </ul>
         <div class="tab-content">
         </div>

@@ -3,18 +3,11 @@
 include('../config/dbcon.php');
 include('../functions/myfunctions.php');
 
-//inserting add-new-category
-/* This is the code for adding a new category. */
-if(isset($_POST['add_category_btn']))
+//inserting add-new-municipality
+/* This is the code for adding a new municipality. */
+if(isset($_POST['add_municipality_btn']))
 {
-    $name = $_POST['name'];
-    $slug = $_POST['slug'];
-    $description = $_POST['description'];
-    $meta_title = $_POST['meta_title'];
-    $meta_description = $_POST['meta_description'];
-    $meta_keywords = $_POST['meta_keywords'];
-    $status = isset($_POST['status']) ? "1":"0";
-    $popular = isset($_POST['popular']) ? "1":"0";
+    $municipality_name = $_POST['municipality_name'];
 
     $image = $_FILES['image']['name'];
 
@@ -23,8 +16,8 @@ if(isset($_POST['add_category_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $cate_query = "INSERT INTO categories (name, slug, description, meta_title, meta_description, meta_keywords, status, popular, image) 
-    VALUES ('$name', '$slug', '$description', '$meta_title', '$meta_description', '$meta_keywords', '$status', '$popular', '$filename')";
+    $cate_query = "INSERT INTO municipality (municipality_name, image) 
+    VALUES ('$municipality_name','$filename')";
     //mysqli_query($con,$cate_query) or die("bad query: $cate_query");
 
     $cate_query_run = mysqli_query($con, $cate_query);
@@ -32,27 +25,20 @@ if(isset($_POST['add_category_btn']))
     if($cate_query_run){
 
         move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-        redirect("add-category.php", "Category Added Successfully");
+        redirect("municipality.php", "Municipality Added Successfully");
     }else{
 
-        redirect("add-category.php", "Something Went Wrong");
+        redirect("municipality.php", "Something Went Wrong");
 
     }
 
 }
 //Update a new category
-/* This is the code for updating a category. */
-else if(isset($_POST['update_category_btn']))
+/* This is the code for updating a municipality. */
+else if(isset($_POST['update_municipality_btn']))
 {
-    $category_id = $_POST['category_id'];
-    $name = $_POST['name'];
-    $slug = $_POST['slug'];
-    $description = $_POST['description'];
-    $meta_title = $_POST['meta_title'];
-    $meta_description = $_POST['meta_description'];
-    $meta_keywords = $_POST['meta_keywords'];
-    $status = isset($_POST['status']) ? "1":"0";
-    $popular = isset($_POST['popular']) ? "1":"0";
+    $municipalityid = $_POST['municipalityid'];
+    $municipality_name = $_POST['municipality_name'];
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
@@ -69,7 +55,7 @@ else if(isset($_POST['update_category_btn']))
     }
     $path = "../uploads";
 
-    $update_query = "UPDATE categories SET name='$name', slug='$slug', description='$description', meta_title='$meta_title', meta_description='$meta_description', meta_keywords='$meta_keywords', status='$status', popular='$popular', image='$update_filename' WHERE id='$category_id'";
+    $update_query = "UPDATE municipality SET municipality_name='$municipality_name', image='$update_filename' WHERE municipalityid'='$municipalityid'";
 
     $update_query_run = mysqli_query($con, $update_query);
 
@@ -83,26 +69,26 @@ else if(isset($_POST['update_category_btn']))
                 unlink("../uploads/".$old_image);
             }
         }
-        redirect("edit-category.php?id=$category_id", "Category Updated Successfully");
+        redirect("edit-municipality.php?id=$municipalityid", "Category Updated Successfully");
     }
     else
     {
-        redirect("edit-category.php?id=$category_id", "Something Went Wrong"); 
+        redirect("edit-municipality.php?id=$municipalityid", "Something Went Wrong"); 
     }
 }
 //delete a new category
 /* This is the code for deleting a category. */
-else if(isset($_POST['delete_category_btn']))
+else if(isset($_POST['delete_municipality_btn']))
 {
-    $category_id = mysqli_real_escape_string($con,$_POST['category_id']);
+    $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
 
-    $category_query = "SELECT * FROM categories WHERE id='$category_id' ";
-    $category_query_run = mysqli_query($con, $category_query);
-    $category_data = mysqli_fetch_array($category_query_run);
+    $municipality_query = "SELECT * FROM municipality WHERE municipalityid='$municipalityid' ";
+    $municipality_query_run = mysqli_query($con, $municipality_query);
+    $municipality_data = mysqli_fetch_array($municipality_query_run);
 
-    $image = $category_data['image'];
+    $image = $municipality_data['image'];
 
-    $delete_query = "DELETE FROM categories WHERE id='$category_id' ";
+    $delete_query = "DELETE FROM municipality WHERE municipalityid='$municipalityid' ";
     $delete_query_run = mysqli_query($con, $delete_query);
 
     if($delete_query_run)

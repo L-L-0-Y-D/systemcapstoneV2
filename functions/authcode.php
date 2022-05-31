@@ -74,7 +74,8 @@ else if(isset($_POST['login_btn'])){ // LogIn
 
         $_SESSION['auth_user'] = [
             'name' => $username,
-            'email' => $useremail
+            'email' => $useremail,
+            'role_as' => $role_as
         ];
 
         $_SESSION['role_as'] = $role_as;
