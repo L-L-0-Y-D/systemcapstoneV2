@@ -16,13 +16,13 @@ if(isset($_POST['add_municipality_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $cate_query = "INSERT INTO municipality (municipality_name, image) 
+    $muni_query = "INSERT INTO municipality (municipality_name, image) 
     VALUES ('$municipality_name','$filename')";
     //mysqli_query($con,$cate_query) or die("bad query: $cate_query");
 
-    $cate_query_run = mysqli_query($con, $cate_query);
+    $muni_query_run = mysqli_query($con, $muni_query);
 
-    if($cate_query_run){
+    if($muni_query_run){
 
         move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
         redirect("municipality.php", "Municipality Added Successfully");
