@@ -70,7 +70,7 @@ else if(isset($_POST['update_municipality_btn']))
                 unlink("../uploads/".$old_image);
             }
         }
-        redirect("edit-municipality.php?id=$municipalityid", "Category Updated Successfully");
+        redirect("municipality.php", "Category Updated Successfully");
     }
     else
     {
