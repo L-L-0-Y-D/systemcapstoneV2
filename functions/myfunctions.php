@@ -11,6 +11,13 @@ function getAll($table)
     return $query_run = mysqli_query($con, $query);
 }
 
+function getAllStatus($table)
+{
+    global $con;
+    $query = "SELECT * FROM $table WHERE status= '0'";
+    return $query_run = mysqli_query($con, $query);
+}
+
 //for getting all the data in the table
 function getByID($table, $id, $tabledata)
 {

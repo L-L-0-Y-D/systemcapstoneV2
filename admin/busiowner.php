@@ -7,7 +7,7 @@ include('includes/header.php');
 ?>
                 <div class="container-fluid">
                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-dark mb-4">Customer's List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-customer.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add User</a>
+                    <h3 class="text-dark mb-4">Business List</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-business.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add business</a>
                     <div class="form-popup" id="myForm">
                             
         <div class="column">
@@ -17,7 +17,7 @@ include('includes/header.php');
                 </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold" style="color: rgb(255,128,64);">Customers Info</p>
+                            <p class="text-primary m-0 fw-bold" style="color: rgb(255,128,64);">Business Info</p>
                         </div>
                         <div class="card-body">
                             <div class="row">

@@ -10,7 +10,10 @@ include('includes/header.php');
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4>Add Cuisine type</h4>
+          <h4>
+            Add Cuisine type
+          <a href="category.php" class="btn btn-primary float-end">Back</a>
+          </h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
