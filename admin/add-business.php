@@ -68,7 +68,7 @@ include('includes/header.php');
                             }
                             else
                             {
-                                echo "No Municipality Available";
+                                echo "No Category Available";
                             }?>
                         </select>
                     </div>

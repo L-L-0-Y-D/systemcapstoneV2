@@ -81,14 +81,22 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
         <div class="d-flex float-right">
             <select id="cuisine" name='cuisine_type'>
             <option disabled selected hidden>Type of Cuisine</option>
-              <?php 
-                  include 'connect.php';
-                  $sql = "SELECT * FROM mealcategory;";
-                  $result =mysqli_query($conn,$sql);
-                  foreach ($result as $r) {
-              ?>
-                  <option value="<?php echo $r['categoryid']; ?>"><?php echo $r['categoryname']; ?></option>
-                  <?php } ?>
+                <?php 
+                        $category = getAllActive("mealcategory");
+                        if(mysqli_num_rows($category) > 0)
+                        {
+                            foreach ($category as $item)
+                            {
+                                    ?>
+                                    <option value="<?= $item['categoryid']; ?>"><?= $item['categoryname']; ?></option>
+                                    <?php
+                            }
+                        }
+                        else
+                        {
+                            echo "No Category Available";
+                        }
+                        ?>
             </select> 
         </div>
     </div>
