@@ -29,28 +29,29 @@ include('includes/header.php');
                             <?php
                                 $municipality = getAll("municipality");
 
-                                if(mysqli_num_rows($municipality ) > 0)
-                                {
-                                    foreach($municipality  as $item)
-                                    {
-                                        ?>
-                                            <tr>
-                                                <td><?= $item['municipalityid']; ?></td>
-                                                <td ><?= $item['municipality_name']; ?></td>
-                                                <td>
-                                                    <img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>">
-                                                </td>
-                                                <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
-                                                <td>
-                                                    <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['municipalityid']; ?>" >Delete</button>
-                                                </td>
-                                            </tr>
-                                        <?php        
-                                    }
-                                }
+                               if(mysqli_num_rows($municipality ) > 0)
+                               {
+                                   foreach($municipality  as $item)
+                                   {
+                                       ?>
+                                       <tr>
+                                           <td><?= $item['municipalityid']; ?></td>
+                                           <td><?= $item['municipality_name']; ?></td>
+                                            <td>
+                                                <img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>">
+                                            </td>
+                                            <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
+                                           <td>
+                                               <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                           </td>
+                                           <td>
+                                               <button type="button" class="btn btn-sm btn-danger delete_municipality_btn" value="<?= $item['municipalityid']; ?>" >Delete</button>
+                                           </td>
+                                       </tr>
+                                       <?php
+                                       
+                                   }
+                               }
                                 else
                                 {
                                     echo "No records Found";
