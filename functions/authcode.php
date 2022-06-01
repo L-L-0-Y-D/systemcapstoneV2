@@ -35,7 +35,7 @@ if(isset($_POST['register_btn'])){
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("../register.php", "Email Already Use");
+        redirect("register.php", "Email Already Use");
     }
     else
     {
@@ -46,20 +46,21 @@ if(isset($_POST['register_btn'])){
             $password = md5($password);
             $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
             VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as,'$filename', '$status')";
+            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
             $users_query_run = mysqli_query($con, $insert_query);
 
             if($users_query_run){
                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                redirect("../login.php", "Register Successfully");
+                redirect("login.php", "Register Successfully");
             }
             else{
-                redirect("../register.php", "Something went wrong");;
+                redirect("register.php", "Something went wrong");;
             }
 
         }
         else
         {
-            redirect("../register.php", "Passwords do not match");
+            redirect("register.php", "Passwords do not match");
         }
     }
     
