@@ -11,7 +11,7 @@ include('includes/header.php');
             <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-category.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Cuisine Type</a>
         </div>
         <div class="card shadow">
-            <div class="card-body">
+            <div class="card-body" value = "category_table">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
@@ -56,7 +56,7 @@ include('includes/header.php');
                                                         <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
+                                                        <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
                                                     </td>
                                                 </tr>
                                                 <?php
