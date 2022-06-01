@@ -317,8 +317,9 @@ else if(isset($_POST['add_customer_btn'])){
         {
             // Insert User Data
             $password = md5($password);
-            $insert_query = "INSERT INTO users (username, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
-            VALUES ('$username','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as,'$filename', '$status')";
+            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
+            VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as,'$filename', '$status')";
+            mysqli_query($con,$insert_query) or die("bad query: $insert_query");
             $users_query_run = mysqli_query($con, $insert_query);
 
             if($users_query_run){

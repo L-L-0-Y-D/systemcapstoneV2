@@ -33,7 +33,7 @@ include('includes/header.php');
                     </div>
                     <div class="col-md-6">
                         <label for="">Last Name</label>
-                        <input type="text" name="Lastname" placeholder="Enter Last Name" class="form-control">
+                        <input type="text" name="lastname" placeholder="Enter Last Name" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label for="">Age</label>
