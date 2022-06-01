@@ -100,12 +100,12 @@ else if(isset($_POST['delete_municipality_btn']))
         }
 
         //redirect("municipality.php", "municipality Deleted Successfully");
-        echo 200;
+        echo 100;
     }
     else
     {
         //redirect("municipality.php", "Something went wrong");
-        echo 500;
+        echo 200;
     }
 }
 /* This is the code for adding a new product. */
@@ -277,6 +277,29 @@ else if(isset($_POST['update_category_btn']))
         redirect("edit-category.php?id=$categoryid", "Something Went Wrong"); 
     }
 }
+else if(isset($_POST['delete_category_btn']))
+{
+    $categoryid = mysqli_real_escape_string($con,$_POST['categoryid']);
+
+    $category_query = "SELECT * FROM mealcategory WHERE categoryid='$categoryid' ";
+    $category_query_run = mysqli_query($con, $category_query);
+    $category_data = mysqli_fetch_array($category_query_run);
+
+    $delete_query = "DELETE FROM mealcategory WHERE categoryid='$categoryid' ";
+    $delete_query_run = mysqli_query($con, $delete_query);
+
+    if($delete_query_run)
+    {
+
+        //redirect("category.php", "category Deleted Successfully");
+        echo 300;
+    }
+    else
+    {
+        //redirect("category.php", "Something went wrong");
+        echo 400;
+    }
+}
 else if(isset($_POST['add_customer_btn'])){
     $name = mysqli_real_escape_string($con,$_POST['name']);
     $email = mysqli_real_escape_string($con,$_POST['email']);
@@ -390,6 +413,35 @@ else if(isset($_POST['update_customer_btn']))
         redirect("edit-customer.php?id=$userid", "Something Went Wrong"); 
     }
 
+}
+else if(isset($_POST['delete_customer_btn']))
+{
+    $userid = mysqli_real_escape_string($con,$_POST['userid']);
+
+    $user_query = "SELECT * FROM users WHERE userid='$userid' ";
+    $user_query_run = mysqli_query($con, $user_query);
+    $user_data = mysqli_fetch_array($user_query_run);
+
+    $image = $user_data['image'];
+
+    $delete_query = "DELETE FROM users WHERE userid='$userid' ";
+    $delete_query_run = mysqli_query($con, $delete_query);
+
+    if($delete_query_run)
+    {
+        if(file_exists("../uploads/".$image))
+        {
+            unlink("../uploads/".$image);
+        }
+
+        //redirect("user.php", "user Deleted Successfully");
+        echo 500;
+    }
+    else
+    {
+        //redirect("user.php", "Something went wrong");
+        echo 600;
+    }
 }
 else if(isset($_POST['add_business_btn']))
 {
@@ -506,6 +558,35 @@ else if(isset($_POST['edit_business_btn']))
         redirect("edit-business.php?id=$businessid", "Something Went Wrong"); 
     }
 
+}
+else if(isset($_POST['delete_business_btn']))
+{
+    $businessid = mysqli_real_escape_string($con,$_POST['businessid']);
+
+    $business_query = "SELECT * FROM business WHERE businessid='$businessid' ";
+    $business_query_run = mysqli_query($con, $business_query);
+    $business_data = mysqli_fetch_array($business_query_run);
+
+    $image = $business_data['image'];
+
+    $delete_query = "DELETE FROM business WHERE businessid='$businessid' ";
+    $delete_query_run = mysqli_query($con, $delete_query);
+
+    if($delete_query_run)
+    {
+        if(file_exists("../uploads/".$image))
+        {
+            unlink("../uploads/".$image);
+        }
+
+        //redirect("busiowner.php", "business Deleted Successfully");
+        echo 700;
+    }
+    else
+    {
+        //redirect("busiowner.php", "Something went wrong");
+        echo 800;
+    }
 }
 else
 {
