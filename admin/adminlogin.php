@@ -15,7 +15,7 @@ include ('connection.php');
 </head>
 <body>
     <header>
-         <img src="images/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
+         <img src="../images/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
     <map name="workmap">
         <area shape="circle" coords="100,100,400,400" alt="logo" href="home.php">
     </map>
