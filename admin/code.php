@@ -274,7 +274,7 @@ else if(isset($_POST['update_category_btn']))
     }
     else
     {
-        redirect("edit-municipality.php?id=$municipalityid", "Something Went Wrong"); 
+        redirect("edit-category.php?id=$categoryid", "Something Went Wrong"); 
     }
 }
 else if(isset($_POST['add_customer_btn'])){
@@ -368,7 +368,7 @@ else if(isset($_POST['update_customer_btn']))
     }
     $path = "../uploads";
 
-    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$password',role_as='$role_as',firstname='$firstname', image='$update_filename', status='$status' WHERE userid='$userid'";
+    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$password',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
     mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
@@ -455,7 +455,7 @@ else if(isset($_POST['add_business_btn']))
 }
 else if(isset($_POST['edit_business_btn']))
 {
-    $businessid =
+    $businessid = mysqli_real_escape_string($con,$_POST['businessid']);
     $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
@@ -468,6 +468,44 @@ else if(isset($_POST['edit_business_btn']))
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $business_confirmpassword = mysqli_real_escape_string($con,$_POST['business_confirmpassword']);
     $status = isset($_POST['status']) ? "0":"1";
+
+    $new_image = $_FILES['image']['name'];
+    $old_image = $_POST['old_image'];
+
+    if($new_image != "")
+    {
+        //$update_filename = $new_image;
+        $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
+        $update_filename = time().'.'.$image_ext;
+    }
+    else
+    {
+        $update_filename = $old_image;
+    }
+    $path = "../uploads";
+
+    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname=$business_firstname,business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress',business_password='$business_password', image='$update_filename', status='$status' WHERE businessid='$businessid'";
+    mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if($update_query_run)
+    {
+        if($_FILES['image']['name'] != "")
+        {
+            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+            if(file_exists("../uploads/".$old_image))
+            {
+                unlink("../uploads/".$old_image);
+            }
+        }
+        redirect("business.php", "Business Updated Successfully");
+    }
+    else
+    {
+        redirect("edit-business.php?id=$businessid", "Something Went Wrong"); 
+    }
+
 }
 else
 {
