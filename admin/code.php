@@ -338,7 +338,8 @@ else if(isset($_POST['add_customer_btn'])){
     }
     
 }
-else if(isset($_POST['update_customer_btn'])){
+else if(isset($_POST['update_customer_btn']))
+{
     $userid = $_POST['userid'];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -390,7 +391,8 @@ else if(isset($_POST['update_customer_btn'])){
     }
 
 }
-else if(isset($_POST['add_business_btn'])){
+else if(isset($_POST['add_business_btn']))
+{
     $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
@@ -450,6 +452,22 @@ else if(isset($_POST['add_business_btn'])){
             redirect("add-business.php", "Passwords do not match");
         }
     }
+}
+else if(isset($_POST['edit_business_btn']))
+{
+    $businessid =
+    $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
+    $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
+    $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
+    $categoryid = mysqli_real_escape_string($con,$_POST['categoryid']);
+    $business_firstname = mysqli_real_escape_string($con,$_POST['business_firstname']);
+    $business_lastname = mysqli_real_escape_string($con,$_POST['business_lastname']);
+    $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
+    $business_phonenumber = mysqli_real_escape_string($con,$_POST['business_phonenumber']);
+    $business_owneraddress = mysqli_real_escape_string($con,$_POST['business_owneraddress']);
+    $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
+    $business_confirmpassword = mysqli_real_escape_string($con,$_POST['business_confirmpassword']);
+    $status = isset($_POST['status']) ? "0":"1";
 }
 else
 {

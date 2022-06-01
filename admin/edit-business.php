@@ -49,7 +49,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Business Municipality</label>
-                                <select name='municipalityid' class="form-select mb-2">
+                                <select name='municipalityid' class="form-select mb-2" disabled>
                                     <option readonly value="" disabled selected hidden>Municipality</option>
                                     <?php 
                                     $municipality = getAll("municipality");
@@ -70,8 +70,8 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Cuisine Type</label>
-                                <select name='categoryid' class="form-select mb-2" readonly>
-                                    <option readonly value="" disabled selected hidden>Cuisine Type</option>
+                                <select name='categoryid' class="form-select mb-2" disabled>
+                                    <option value="" disabled selected hidden>Cuisine Type</option>
                                     <?php 
                                     $category = getAll("mealcategory");
                                     if(mysqli_num_rows($category) > 0)
