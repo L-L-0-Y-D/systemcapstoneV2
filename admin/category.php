@@ -40,38 +40,40 @@ include('includes/header.php');
                                 
                                 <tbody style="text-align:center">
                                     <?php
-                                        $cuisine = getAll("mealcategory");
-
-                               if(mysqli_num_rows($cuisine ) > 0)
-                               {
-                                   foreach($cuisine  as $item)
-                                   {
-                                       if($_SESSION['role_as'] != 0)
-                                       {
-                                       ?>
-                                       <tr>
-                                           <td><?= $item['categoryid']; ?></td>
-                                           <td><?= $item['categoryname']; ?></td>
-                                           <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
-                                           <td>
-                                               <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                           </td>
-                                           <td>
-                                               <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
-                                           </td>
-                                       </tr>
-                                       <?php
-                                       }
-                                   }
-                               }
-                                else
-                                {
-                                    echo "No records Found";
-                                }
-                           ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        $cuisine = getAll("mealcategory"); 
+                                        if(mysqli_num_rows($cuisine ) > 0)
+                                        {
+                                            foreach($cuisine  as $item)
+                                            {
+                                            if($_SESSION['role_as'] != 0)
+                                            {
+                                                ?>
+                                                <tr>
+                                                    <td><?= $item['categoryid']; ?></td>
+                                                    <td><?= $item['categoryname']; ?></td>
+                                                    <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
+                                                    <td>
+                                                        <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            echo "No records Found";
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+            
+                            <div>
                             <div class="col-md-6">
                                 <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                     <ul class="pagination">
