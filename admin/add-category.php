@@ -18,7 +18,7 @@ include('includes/header.php');
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="">Cuisine type</label>
                         <input type="text" name="categoryname" placeholder="Enter municipality Name" class="form-control">
                     </div>

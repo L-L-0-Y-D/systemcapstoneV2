@@ -54,7 +54,7 @@ include('includes/header.php');
                                                <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                            </td>
                                            <td>
-                                               <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['municipalityid']; ?>" >Delete</button>
+                                               <button type="button" class="btn btn-sm btn-danger delete_municipality_btn" value="<?= $item['municipalityid']; ?>" >Delete</button>
                                            </td>
                                        </tr>
                                        <?php

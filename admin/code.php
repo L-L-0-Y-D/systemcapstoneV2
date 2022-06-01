@@ -99,12 +99,12 @@ else if(isset($_POST['delete_municipality_btn']))
             unlink("../uploads/".$image);
         }
 
-        //redirect("category.php", "Category Deleted Successfully");
+        //redirect("municipality.php", "municipality Deleted Successfully");
         echo 200;
     }
     else
     {
-        //redirect("category.php", "Something went wrong");
+        //redirect("municipality.php", "Something went wrong");
         echo 500;
     }
 }
@@ -249,7 +249,7 @@ else if(isset($_POST['add_category_btn']))
     $cate_query_run = mysqli_query($con, $cate_query);
 
     if($cate_query_run){
-        redirect("category.php", "Municipality Added Successfully");
+        redirect("category.php", "Cuisine Added Successfully");
     }else{
 
         redirect("category.php", "Something Went Wrong");
