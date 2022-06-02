@@ -4,7 +4,7 @@
     include('includes/header.php');
 
     $municipality_name = $_GET['municipality'];
-    $municipality_data = getByNameActive("municipality",$municipality_name,"municipality_name");
+    $municipality_data = getNameActive("municipality",$municipality_name, "municipality_name");
     $municipality = mysqli_fetch_array($municipality_data);
     $mid = $municipality['municipalityid'];
 ?>
@@ -13,12 +13,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1><?= $municipality['municipality_data'] ?></h1>
+                <h1><?= $municipality['municipality_name'] ?></h1>
                 <hr>
                 <div class="row">
 
                 <?php
-                    $business = getBusinessByMunicipality($mid);
+                    $business = getBusiByMunicipality($mid);
 
                     if(mysqli_num_rows($business) > 0)
                     {
