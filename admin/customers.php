@@ -10,8 +10,8 @@ include('includes/header.php');
             <h3 class="text-dark mb-4">Customer's List</h3>
             <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-customer.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add User</a>
         </div>
-        <div class="card shadow">
-            <div class="card-body">
+        <div class="card shadow" >
+            <div class="card-body" id="customer_table" >
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
@@ -67,7 +67,7 @@ include('includes/header.php');
                                                             <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['userid']; ?>" >Delete</button>
+                                                            <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>
                                                         </td>
                                                     </tr>
                                                 <?php

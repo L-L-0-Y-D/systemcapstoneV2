@@ -98,7 +98,7 @@ include('includes/header.php');
             }
             else
             {
-                echo "Municipality not Found";
+                echo "Users not Found";
             }
         }
         else

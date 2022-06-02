@@ -11,7 +11,7 @@ include('includes/header.php');
             <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-category.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Cuisine Type</a>
         </div>
         <div class="card shadow">
-            <div class="card-body" value = "category_table">
+            <div class="card-body" id = "category_table">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
