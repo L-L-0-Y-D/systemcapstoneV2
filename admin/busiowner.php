@@ -65,7 +65,7 @@ include('includes/header.php');
                                                             <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['businessid']; ?>" >Delete</button>
+                                                            <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>
                                                         </td>
                                                     </tr>
                                                 <?php
