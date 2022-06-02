@@ -32,7 +32,7 @@ include('includes/header.php');
                         <div class="row">
                                 <div class="col-md-12">
                                 <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control" disabled>
+                                <input type="file" name="image" class="form-control">
                                 <label for="">Current Image</label>
                                 <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
@@ -49,7 +49,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Business Municipality</label>
-                                <select name='municipalityid' class="form-select mb-2" disabled>
+                                <select name='municipalityid' class="form-select mb-2">
                                     <option readonly value="" disabled selected hidden>Municipality</option>
                                     <?php 
                                     $municipality = getAll("municipality");
@@ -70,7 +70,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Cuisine Type</label>
-                                <select name='categoryid' class="form-select mb-2" disabled>
+                                <select name='categoryid' class="form-select mb-2">
                                     <option value="" disabled selected hidden>Cuisine Type</option>
                                     <?php 
                                     $category = getAll("mealcategory");
