@@ -53,7 +53,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Last Name</label>
-                                <input type="text" name="Lastname" value="<?= $data['lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
+                                <input type="text" name="lastname" value="<?= $data['lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Age</label>
