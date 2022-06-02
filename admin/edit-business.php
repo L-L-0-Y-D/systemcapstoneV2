@@ -50,7 +50,7 @@ include('includes/header.php');
                             <div class="col-md-6">
                                 <label for="">Select Business Municipality</label>
                                 <select name='municipalityid' class="form-select mb-2">
-                                    <option readonly value="" disabled selected hidden>Municipality</option>
+                                    <option value="" disabled selected hidden>Municipality</option>
                                     <?php 
                                     $municipality = getAll("municipality");
                                     if(mysqli_num_rows($municipality) > 0)
