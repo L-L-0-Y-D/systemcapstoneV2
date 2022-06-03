@@ -1,6 +1,6 @@
 <?php
 
-include('functions/myfunctions.php');
+include('functions/userfunctions.php');
 if(isset($_SESSION['auth'])){
     $_SESSION['message'] = "You are Already Login";
     header('Location: index.php');
@@ -35,13 +35,13 @@ if(isset($_SESSION['auth'])){
                 </div>
             </div>
             <div class="column">
-                  <input type="text" id="busi_name" name='business_name' required placeholder="Business Name" class="input"/>
+                  <input type="text" name='business_name' required placeholder="Business Name" class="input"/>
             </div>
             <div class="column">
-                  <input type="text" id="busi_address" name='business_address' required placeholder="Business Address" class="input"/>
+                  <input type="text" name='business_address' required placeholder="Business Address" class="input"/>
             </div>
             <div>
-                  <select name="municipalityid" name='municipality'>
+                  <select name="municipalityid" >
                     <option disabled selected hidden>Select your Business Location</option>
                     <?php 
                         $municipality = getAll("municipality");
@@ -61,7 +61,7 @@ if(isset($_SESSION['auth'])){
                   </select> 
                 </div>
                 <div>
-                  <select name="categoryid" name='cuisine_type'>
+                  <select name="categoryid">
                     <option disabled selected hidden>Type of Cuisine</option>
                     <?php 
                         $category = getAll("mealcategory");
@@ -103,7 +103,7 @@ if(isset($_SESSION['auth'])){
                     <input type="password" name='business_confirmpassword' required placeholder="Confirm Password" class="input"/>
                 </div>
                 
-                <button type="submit" name="businessregister" class="busi_reg-btn" >REGISTER</button> <br> <br>
+                <button type="submit" name="business_register_btn" class="busi_reg-btn" >REGISTER</button> <br> <br>
                 <a href="home.php">Back to Home</a>
     </div>
 </form>
