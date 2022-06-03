@@ -484,9 +484,9 @@ else if(isset($_POST['add_business_btn']))
         if($business_password == $business_confirmpassword)
         {
             // Insert User Data
-            $$business_password = md5($$business_password);
+            $business_password = md5($business_password);
             $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, status) 
-            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_email', '$business_phonenumber', '$business_owneraddress','$business_password','$filename', '$status')";
+            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$business_password','$filename', '$status')";
             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
             $users_query_run = mysqli_query($con, $insert_query);
 

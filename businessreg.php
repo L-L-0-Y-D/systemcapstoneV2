@@ -1,6 +1,6 @@
 <?php
 
-include('functions/userfunctions.php');
+include('middleware/businessMiddleware.php');
 if(isset($_SESSION['auth'])){
     $_SESSION['message'] = "You are Already Login";
     header('Location: index.php');
@@ -27,7 +27,7 @@ if(isset($_SESSION['auth'])){
 <main>
 <div class="container">
         <p>COMPANY INFORMATION</p>
-        <form method="post" action="functions/authcode.php">
+        <form method="post" action="functions/busiauthcode.php">
             <div class="column">
                 <div class="input">
                     <label for="">Upload Image</label><br>
@@ -70,7 +70,7 @@ if(isset($_SESSION['auth'])){
                                 foreach ($category as $item)
                                 {
                                     ?>
-                                    <option value="<?= $item['$categoryid']; ?>"><?= $item['$categoryname']; ?></option>
+                                    <option value="<?= $item['categoryid']; ?>"><?= $item['categoryname']; ?></option>
                                     <?php
                                 }
                             }

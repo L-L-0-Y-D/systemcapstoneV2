@@ -41,7 +41,7 @@ if(isset($_SESSION['auth'])){
             </div>
                 <button class="login-btn" name='login_btn' >LOGIN</button> <br> <br>
                 <!--link to connect with register php-->
-                <a href="reg.php">Create an account</a>
+                <a href="register.php">Create an account</a>
         </div>
     </form>
 </main>

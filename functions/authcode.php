@@ -66,7 +66,7 @@ if(isset($_POST['register_btn'])){
     
 }
 
-if(isset($_POST['register_btn']))
+if(isset($_POST['business_register_btn']))
 {
     $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
@@ -107,7 +107,7 @@ if(isset($_POST['register_btn']))
         if($business_password == $business_confirmpassword)
         {
             // Insert User Data
-            $$business_password = md5($$business_password);
+            $business_password = md5($business_password);
             $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, status) 
             VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_email', '$business_phonenumber', '$business_owneraddress','$business_password','$filename', '$status')";
             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");

@@ -1,7 +1,6 @@
 <?php 
 
 session_start();
-include ('../connection.php'); 
 
 ?>
 <!DOCTYPE html>
@@ -15,20 +14,15 @@ include ('../connection.php');
 </head>
 <body>
     <header>
-         <img src="../images/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
+         <img src="../uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
     <map name="workmap">
-        <area shape="circle" coords="100,100,400,400" alt="logo" href="../home.php">
+        <area shape="circle" coords="100,100,400,400" alt="logo" href="../index.php">
     </map>
     </header>
 <main>
-    <form method="post" action="ownerlogin.php" > 
+    <form method="post" action="../functions/busiauthcode.php" > 
         <div class="container">
             <p>BUSINESS LOGIN</p>
-                <?php 
-
-                include('../error.php'); 
-
-                ?>
             <div class="row">
                 <input type="email" name="business_email" required placeholder="Email" class="input"/>
             </div>
@@ -37,7 +31,7 @@ include ('../connection.php');
             </div>
                 <button class="login-btn" name='business_login' >LOGIN</button> <br> <br>
                 <!--link to connect with register php-->
-                <a href="reg.php">Create an account</a>
+                <a href="../businessreg.php">Create an account</a>
         </div>
     </form>
 </main>
