@@ -45,7 +45,7 @@ if(isset($_SESSION['auth'])){
                   <select name="municipalityid" >
                     <option disabled selected hidden>Select your Business Location</option>
                     <?php 
-                        $municipality = getAll("municipality");
+                        $municipality = getAllActive("municipality");
                         if(mysqli_num_rows($municipality) > 0)
                             {
                                 foreach ($municipality as $item)
@@ -65,7 +65,7 @@ if(isset($_SESSION['auth'])){
                   <select name="categoryid">
                     <option disabled selected hidden>Type of Cuisine</option>
                     <?php 
-                        $category = getAll("mealcategory");
+                        $category = getAllActive("mealcategory");
                         if(mysqli_num_rows($category) > 0)
                             {
                                 foreach ($category as $item)

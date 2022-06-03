@@ -10,9 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Places</h1>
-                <hr>
-                <div class="row">
+                
                 <?php 
                 if(isset($_GET['id']))
                 {
@@ -23,9 +21,10 @@
                     {
                         $data = mysqli_fetch_array($municipality);
                         $mid = $data['municipalityid'];
-                        
-                    
-            ?>
+                ?>
+                <h1><?= $data['municipality_name']; ?></h1>
+                <hr>
+                <div class="row">
                 <?php
                     $business = getBusiByMunicipality($mid);
 
@@ -59,7 +58,7 @@
                 }
                 else
                 {
-                    echo"ID missing from url";
+                    echo"Something went wrong";
                 }
             ?>
                 
