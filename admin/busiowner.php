@@ -60,7 +60,7 @@ include('includes/header.php');
                                                         <td><?= $item['municipalityid']; ?></td>
                                                         <td><?= $item['business_firstname']; ?></td>
                                                         <td><?= $item['business_lastname']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Activated":"Waiting"  ?></td>
+                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
                                                         <td>
                                                             <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                                         </td>

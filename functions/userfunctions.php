@@ -52,9 +52,10 @@ function getBusinessByMunicipality($municipalityid)
 function getByIDActive($table, $id, $tabledata)
 {
     global $con;
-    $query = "SELECT * FROM $table WHERE $tabledata='$id' AND status='1' ";
+    $query = "SELECT * FROM $table WHERE $tabledata='$id' AND status='0' ";
     return $query_run = mysqli_query($con, $query);
 }
+
 
 function redirect($url, $message)
 {

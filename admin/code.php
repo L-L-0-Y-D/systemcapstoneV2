@@ -456,7 +456,7 @@ else if(isset($_POST['add_business_btn']))
     $business_owneraddress = mysqli_real_escape_string($con,$_POST['business_owneraddress']);
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $business_confirmpassword = mysqli_real_escape_string($con,$_POST['business_confirmpassword']);
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = isset($_POST['status']) ? "1":"0";
 
     $image = $_FILES['image']['name'];
 
@@ -519,7 +519,7 @@ else if(isset($_POST['edit_business_btn']))
     $business_owneraddress = $_POST['business_owneraddress'];
     $business_password = $_POST['business_password'];
     $business_confirmpassword = $_POST['business_confirmpassword'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];

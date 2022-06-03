@@ -21,7 +21,7 @@
                         {
                             ?>
                                 <div class="col-md-3 mb-2">
-                                    <a href="business.php?municipality=<?= $item['municipality_name']; ?>">
+                                    <a href="business.php?id=<?= $item['municipalityid']; ?>">
                                         <div class="card shadow">
                                             <div class="card-body">
                                                 <img src="uploads/<?= $item['image']; ?>" alt="Municipality Image" height="300px" width="275px">
