@@ -1,6 +1,7 @@
 <?php
 
-include('middleware/businessMiddleware.php');
+include('functions/businessfunctions.php');
+include('config/dbcon.php');
 if(isset($_SESSION['auth'])){
     $_SESSION['message'] = "You are Already Login";
     header('Location: index.php');
