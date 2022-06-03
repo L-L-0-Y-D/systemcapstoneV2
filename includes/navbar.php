@@ -42,7 +42,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 }
                 elseif(isset($_SESSION['auth']))
                 {
-                        if($_SESSION['auth_user']['role_as'] != "1")
+                        if($_SESSION['auth_user']['role_as'] == "0")
                         {
                         ?>
                                             
@@ -51,6 +51,14 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             <a href="logout.php">Logout</a>
 
                     <?php
+                        }
+                        else if($_SESSION['auth_user']['role_as'] == "2")
+                        {
+                            ?>
+                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
+                            <a href="business/index.php">Dashboard</a>
+                            <a href="logout.php">Logout</a> 
+                            <?php 
                         }
                         else
                         {

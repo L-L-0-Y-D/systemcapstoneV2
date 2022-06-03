@@ -79,16 +79,24 @@ else if(isset($_POST['business_login'])){ // LogIn
     if(mysqli_num_rows($login_query_run) > 0){
         $_SESSION['auth'] = true;
 
-        $businessdata = mysqli_fetch_array($login_query_run);
-        $businessname = $businessdata['businessname'];
-        $businessemail = $businessdata['email'];
-        $role_as = $businessdata['role_as'];
+        $userdata = mysqli_fetch_array($login_query_run);
+        $username = $userdata['name'];
+        $useremail = $userdata['email'];
+        $role_as = $userdata['role_as'];
 
-        redirect("../index.php", "Welcome to dashboard");
+        $_SESSION['auth_user'] = [
+            'name' => $username,
+            'email' => $useremail,
+            'role_as' => $role_as
+        ];
+
+        $_SESSION['role_as'] = $role_as;
+
+        redirect("../business/index.php", "Welcome to dashboard");
         
     }else{
         
-        redirect("../register.php", "Invalid Credentials");
+        redirect("../business/ownerlogin.php", "Invalid Credentials");
 
     }
 }
