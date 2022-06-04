@@ -34,7 +34,7 @@ if(isset($_SESSION['auth'])){
         <form method="post" action="functions/authcode.php">
         <!-- Input Image -->
         <div class="column">
-            <div class="input">
+            <div class="input" style="margin-left:110px">
                 <label for="">Upload Image</label><br>
                 <input type="file" name="image" required class="form-control">
             </div>
