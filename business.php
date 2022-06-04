@@ -29,8 +29,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <div class="products" style="margin-left: 190px;">
-                                <div class="row g-0" style="width: 729px;">
-                                    <?php
+                            <?php
                                     $business = getBusiByMunicipality($mid);
 
                                         if(mysqli_num_rows($business) > 0)
@@ -38,6 +37,7 @@
                                             foreach($business as $item)
                                             {
                                     ?>
+                                <div class="row g-0" style="width: 729px;">
                                     <div class="col-12 col-md-6 col-lg-4">
                                     <a href="#">
                                         <div class="clean-product-item" style="padding: 10px;">
