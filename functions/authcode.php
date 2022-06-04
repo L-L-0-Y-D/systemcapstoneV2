@@ -51,16 +51,16 @@ if(isset($_POST['register_btn'])){
 
             if($users_query_run){
                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                redirect("login.php", "Register Successfully");
+                redirect("../login.php", "Register Successfully");
             }
             else{
-                redirect("register.php", "Something went wrong");;
+                redirect("../register.php", "Something went wrong");;
             }
 
         }
         else
         {
-            redirect("register.php", "Passwords do not match");
+            redirect("../register.php", "Passwords do not match");
         }
     }
     
