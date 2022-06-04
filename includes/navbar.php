@@ -83,7 +83,10 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 <?php } ?>
             </div>
     <div class="logo">
-        <img src="uploads/I-EatLogo.png" alt="LOGO" width="300" height="300"> 
+        <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="300" height="300">
+    <map name="workmap">
+        <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
+    </map>
     </div>
     <div class="container">
         <div class="d-flex float-right">
