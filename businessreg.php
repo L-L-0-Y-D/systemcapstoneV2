@@ -28,7 +28,7 @@ if(isset($_SESSION['auth'])){
 <main>
 <div class="container">
         <p>COMPANY INFORMATION</p>
-        <form method="post" action="functions/busiauthcode.php">
+        <form method="POST" action="functions/busiauthcode.php">
             <div class="column">
                 <div class="input" style="margin-left:110px">
                     <label for="">Upload Image</label><br>
@@ -105,7 +105,7 @@ if(isset($_SESSION['auth'])){
                 </div>
                 
                 <button type="submit" name="business_register_btn" class="busi_reg-btn" >REGISTER</button> <br> <br>
-                <a href="home.php">Back to Home</a>
+                <a href="index.php">Back to Home</a>
     </div>
 </form>
 </main>
