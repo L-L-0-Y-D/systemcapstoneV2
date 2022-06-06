@@ -24,15 +24,15 @@
         </div>
     </div>
     <main class="page catalog-page">
-        <section class="clean-block clean-catalog dark">
+        <section class="clean-block clean-catalog black">
             <div class="container">
                 <div class="content">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-9" style="">
                             <div class="products" style="margin-left: 190px;">
-                                <div class="row g-0" style="width: 729px;">
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item" style="padding: 10px;">
+                                <div class="row g-0" style="width: 730px;">
+                                    <div class="col-12 col-md-4 col-lg-4" style="margin-bottom:15px;">
+                                        <div class="clean-product-item" style="padding: 10px; border:solid 1px">
                                         <?php
                                         $business = getBusiByMunicipality($mid);
 
