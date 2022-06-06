@@ -23,7 +23,6 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                                 <h3>Login as</h3>
                                 <button type="submit" class="ownerbtn" onclick="javascript: form.action='business/ownerlogin.php';" href="ownerlogin.php">Business</button>
                                 <button type="submit" class="customerbtn" onclick="javascript: form.action='login.php';" href="login.php">Customer</button>
-                                <button type="submit" class="adminbtn" onclick="javascript: form.action='admin/adminlogin.php';" href="adminlogin.php">Admin</button>
                                 <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
                             </form>
                         </div>
