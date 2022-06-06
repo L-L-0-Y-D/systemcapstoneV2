@@ -34,10 +34,10 @@
                                                 foreach($business as $item)
                                                 {
                                                     ?>
-                                    <div class="col-12 col-md-6 mb-3 col-lg-4">
+                                    <div class="col-12 col-md-6 mb-3 ml-2 col-lg-4" style="border:1px solid black; width: 260px;">
                                         <div class="clean-product-item">
                                         <a href="business-view.php?id=<?= $item['businessid']; ?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto" src="uploads/<?= $item['image']; ?>"></div>
+                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:180px; width: 200px;"></div>
                                             <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div><small>Located at <?= $item['business_address']; ?>, Bataan</small>
                                             <div class="about">
                                                 <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
