@@ -15,7 +15,7 @@
     
 ?>
     <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <h1 style="text-align: center;width: 753.453px;margin-left: 200px;font-size: 36px;"><strong>Restaurants in <?= $data['municipality_name']; ?></strong></h1>
+        <h1 style="text-align: center;width: auto;font-size: 36px;"><strong>Restaurants in <?= $data['municipality_name']; ?></strong></h1>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav ms-auto"></ul>
         </div>
@@ -24,7 +24,7 @@
         <section class="clean-block clean-catalog dark">
             <div class="container align-content-center justify-content-xl-center">
                 <div class="justify-content-center content">
-                    <div class="row d-flex justify-content-center align-items-lg-center" style="margin-left: 0px;margin-right: 0px;">
+                    <div class="row d-flex justify-content-center align-items-lg-center" >
                         <div class="col-md-9 d-flex justify-content-center" style="width: 960px;">
                             <div class="products">
                                 <div class="row g-0" style="padding: 0px;margin-left: 10px;">

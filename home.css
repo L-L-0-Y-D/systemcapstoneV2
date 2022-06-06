@@ -101,22 +101,6 @@ header{
   color: white;
   transition: .5s;
 }
-.adminbtn{
-  bottom: 12px;
-  border: 1px solid rgb(255, 128, 64);
-  cursor: pointer;
-  border-radius: 3px;
-  background-color: white;
-  color: rgb(255, 128, 64);
-  padding: 8px 8px;
-  font-size: 14px;
-}
-.adminbtn:hover{
-  background: rgb(255, 128, 64);
-  color: white;
-  transition: .5s;
-}
-  
   /* Add a red background color to the cancel button */
   .form-container .cancel {
     margin-top:15px;
