@@ -23,7 +23,7 @@
                                 <div class="col-md-3 mb-2">
                                     <a href="business.php?id=<?= $item['municipalityid']; ?>">
                                         <div class="card shadow">
-                                            <div class="card-body" >
+                                            <div class="card-body" style="text-align:center;" >
                                                 <img src="uploads/<?= $item['image']; ?>" alt="Municipality Image" height="250px" width="230px">
                                                 <h4 class="text-center text-black me-2"><?= $item['municipality_name']; ?></h4>
                                             </div>

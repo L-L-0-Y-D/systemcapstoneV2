@@ -26,15 +26,15 @@
                 <div class="justify-content-center content">
                     <div class="row d-flex justify-content-center align-items-lg-center" >
                         <div class="col-md-9 d-flex justify-content-center" style="width: 960px;">
-                        <div class="col-md-3">
+                        <div class="col-md-3 ">
                             <div class="d-none d-md-block">
                                 <div class="filters">
                                     <div class="filter-item">
-                                        <h3>Categories</h3>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Phones</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Laptops</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">PC</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Tablets</label></div>
+                                        <h3>Cuisines</h3>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Chinese</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Japanese</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Korean</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Asian</label></div>
                                     </div>
                                     <div class="filter-item">
                                         <h3>Brands</h3>

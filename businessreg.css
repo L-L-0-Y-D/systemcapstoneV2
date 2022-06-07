@@ -58,6 +58,19 @@ main {
     border-top-right-radius:10px ;
     border-bottom-right-radius: 10px;
 }
+.upload {
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+    margin-left:110px;
+}
 .container select{
     margin-bottom: 30px;
     width:300px;
@@ -119,5 +132,9 @@ main {
     }
     .container select {
         width: 180px;
+    }
+    .upload {
+        margin-left:38px ;
+        width:200px;
     }
 }
