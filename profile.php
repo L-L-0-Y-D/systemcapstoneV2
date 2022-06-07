@@ -56,7 +56,7 @@
                 </h4>   
                 </div>
                 <div class="card-body">
-                    <form action="code.php" method="POST" enctype="multipart/form-data">
+                    <form action="functions/authcode.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                                 <div class="col-md-12">
                                 <label for="">Current Image</label>
@@ -106,8 +106,11 @@
                             <div class="col-md-12">
                                 <input type = "hidden" name='role_as' value = '0'>
                             </div>
+                            <div class="col-md-12">
+                            <input type="hidden" name="status" <?= $data['status'] == '0'? 'checked':'' ?>>
+                            </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="update_customer_btn">Save</button>
+                                <button type="submit" class="btn btn-primary" name="update_profile_btn">Save</button>
                             </div>
                         </div>
                     </form>

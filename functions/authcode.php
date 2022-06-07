@@ -66,67 +66,58 @@ if(isset($_POST['register_btn'])){
     
 }
 
-if(isset($_POST['business_register_btn']))
+if(isset($_POST['update_profile_btn']))
 {
-    $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
-    $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
-    $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
-    $categoryid = mysqli_real_escape_string($con,$_POST['categoryid']);
-    $business_firstname = mysqli_real_escape_string($con,$_POST['business_firstname']);
-    $business_lastname = mysqli_real_escape_string($con,$_POST['business_lastname']);
-    $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
-    $business_phonenumber = mysqli_real_escape_string($con,$_POST['business_phonenumber']);
-    $business_owneraddress = mysqli_real_escape_string($con,$_POST['business_owneraddress']);
-    $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
-    $business_confirmpassword = mysqli_real_escape_string($con,$_POST['business_confirmpassword']);
+    $userid = $_POST['userid'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $age = $_POST['age'];
+    $phonenumber = $_POST['phonenumber'];
+    $address = $_POST['address'];
+    $password = $_POST['password'];
+    $confirmpassword = $_POST['confirmpassword'];
+    $role_as = $_POST['role_as'];
     $status = isset($_POST['status']) ? "0":"1";
 
-    $image = $_FILES['image']['name'];
+    $new_image = $_FILES['image']['name'];
+    $old_image = $_POST['old_image'];
 
-    $path = "../uploads";
-
-    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
-    $filename = time().'.'.$image_ext;
-
-    
-    // Check if email already registered
-    $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
-    $check_email_query_run = mysqli_query($con, $check_email_query);
-    
-    /* This is checking if the email is already registered. If it is, it will redirect the user to the
-    register page with a message. If it is not, it will check if the password matches the confirm
-    password. If it does, it will insert the user data into the database. If it does not, it will
-    redirect the user to the register page with a message. */
-    if(mysqli_num_rows($check_email_query_run)>0)
+    if($new_image != "")
     {
-        redirect("add-business.php", "Email Already Use");
+        //$update_filename = $new_image;
+        $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
+        $update_filename = time().'.'.$image_ext;
     }
     else
     {
-        // Check if password Match
-        if($business_password == $business_confirmpassword)
-        {
-            // Insert User Data
-            $business_password = md5($business_password);
-            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, status) 
-            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_email', '$business_phonenumber', '$business_owneraddress','$business_password','$filename', '$status')";
-            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-            $users_query_run = mysqli_query($con, $insert_query);
-
-            if($users_query_run){
-                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                redirect("busiowner.php", "Register Successfully");
-            }
-            else{
-                redirect("add-business.php", "Something went wrong");;
-            }
-
-        }
-        else
-        {
-            redirect("add-business.php", "Passwords do not match");
-        }
+        $update_filename = $old_image;
     }
+    $path = "../uploads";
+
+    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$password',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+    mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if($update_query_run)
+    {
+        if($_FILES['image']['name'] != "")
+        {
+            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+            if(file_exists("../uploads/".$old_image))
+            {
+                unlink("../uploads/".$old_image);
+            }
+        }
+        redirect("../index.php", "Category Updated Successfully");
+    }
+    else
+    {
+        redirect("profile.php?id=$userid", "Something Went Wrong"); 
+    }
+
 }
 
 /* This is the code for logging in a user. */

@@ -80,12 +80,14 @@ else if(isset($_POST['business_login'])){ // LogIn
         $_SESSION['auth'] = true;
 
         $userdata = mysqli_fetch_array($login_query_run);
+        $businessid = $userdata['businessid'];
         $businessnames = $userdata['business_name'];
         $businessemail = $userdata['email'];
         $role_as = $userdata['role_as'];
         $businessimage = $userdata['image'];
 
         $_SESSION['auth_user'] = [
+            'businessid' => $businessid,
             'business_name' => $businessnames,
             'email' => $useremail,
             'image' => $businessimage,
@@ -94,7 +96,7 @@ else if(isset($_POST['business_login'])){ // LogIn
 
         $_SESSION['role_as'] = $role_as;
 
-        redirect("../business/index.php", "Welcome to dashboard");
+        redirect("../business/index.php?id=$businessid", "Welcome to dashboard");
         
     }else{
         

@@ -57,7 +57,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         {
                             ?>
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong> !</h2>
-                            <a href="business/index.php">Dashboard</a>
+                            <a href="business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Dashboard</a>
                             <a href="logout.php">Logout</a> 
 
                          <?php
