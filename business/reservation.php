@@ -5,7 +5,6 @@ include('../middleware/businessMiddleware.php');
 include('includes/header.php');
 
 
-
 ?>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4">Team</h3>
