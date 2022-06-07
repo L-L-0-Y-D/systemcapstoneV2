@@ -31,7 +31,7 @@ if(isset($_SESSION['auth'])){
 <main>
     <div class="container">
         <p>REGISTER</p>
-        <form method="post" action="functions/authcode.php">
+        <form method="post" action="functions/authcode.php" enctype="multipart/form-data">
         <!-- Input Image -->
         <div class="column">
             <div class="input" style="margin-left:110px">

@@ -28,7 +28,7 @@ if(isset($_SESSION['auth'])){
 <main>
 <div class="container">
         <p>COMPANY INFORMATION</p>
-        <form method="POST" action="functions/busiauthcode.php">
+        <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data">
             <div class="column">
                 <div class="input" style="margin-left:110px">
                     <label for="">Upload Image</label><br>
