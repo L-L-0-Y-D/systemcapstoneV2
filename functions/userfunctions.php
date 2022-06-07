@@ -3,6 +3,14 @@
 session_start();
 include('config/dbcon.php');
 
+//for getting all the data in the table
+function getByID($table, $id, $tabledata)
+{
+    global $con;
+    $query = "SELECT * FROM $table WHERE $tabledata='$id'";
+    return $query_run = mysqli_query($con, $query);
+}
+
 function getAll($table)
 {
     global $con;

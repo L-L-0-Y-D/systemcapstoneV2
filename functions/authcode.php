@@ -142,14 +142,14 @@ else if(isset($_POST['login_btn'])){ // LogIn
         $_SESSION['auth'] = true;
 
         $userdata = mysqli_fetch_array($login_query_run);
-        $userid = $userdata['id'];
+        $userid = $userdata['userid'];
         $username = $userdata['name'];
         $useremail = $userdata['email'];
         $userimage = $userdata['image'];
         $role_as = $userdata['role_as'];
 
         $_SESSION['auth_user'] = [
-            'id' => $userid,
+            'userid' => $userid,
             'name' => $username,
             'email' => $useremail,
             'image' => $userimage,
