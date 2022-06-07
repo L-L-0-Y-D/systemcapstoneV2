@@ -80,12 +80,12 @@ else if(isset($_POST['business_login'])){ // LogIn
         $_SESSION['auth'] = true;
 
         $userdata = mysqli_fetch_array($login_query_run);
-        $username = $userdata['name'];
-        $useremail = $userdata['email'];
+        $businessnames = $userdata['businessname'];
+        $businessemail = $userdata['email'];
         $role_as = $userdata['role_as'];
 
         $_SESSION['auth_user'] = [
-            'name' => $username,
+            'businessname' => $businessnames,
             'email' => $useremail,
             'role_as' => $role_as
         ];

@@ -2,6 +2,7 @@
 
 $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1); 
 
+
 ?>
 <!--eveything inside the bg image-->
 <div id="header-img">
@@ -47,6 +48,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                                             
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
                             <a href="your_reservation.php">Your Reservation</a>
+                            <a href="profile.php?id=<?= $_SESSION['auth_user']['id'];?>">Your Profile</a>
                             <a href="logout.php">Logout</a>
 
                     <?php
@@ -54,10 +56,11 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         else if($_SESSION['auth_user']['role_as'] == "2")
                         {
                             ?>
-                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
+                            <h2> Welcome <strong><?= $_SESSION['auth_user']['businessname'];?></strong> !</h2>
                             <a href="business/index.php">Dashboard</a>
                             <a href="logout.php">Logout</a> 
-                            <?php 
+
+                         <?php
                         }
                         else
                         {
