@@ -30,7 +30,7 @@ if(isset($_SESSION['auth'])){
         <p>COMPANY INFORMATION</p>
         <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data">
             <div class="column">
-                <div class="input" style="margin-left:110px">
+                <div class="upload" >
                     <label for="">Upload Image</label><br>
                     <input type="file" name="image" required class="form-control">
                 </div>

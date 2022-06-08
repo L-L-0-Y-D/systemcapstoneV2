@@ -10,7 +10,7 @@ body{
     justify-content: center;
 }
 form {
-
+    display:grid;
     text-align: left;
     width: 40vw;
     justify-content: center;
@@ -38,16 +38,86 @@ form {
 .column label {  
     color: rgb(255, 255, 255);
     font-size: 16px;
-    margin-left: 60px;
+    margin-left: 20px;
 }
 .column input {
     display: inline;
     border: 1px solid;
     border-radius: 5px;
     width: 250px;
-    height: 60px;
+    height: 40px;
     font-size: 20px;
     padding: 5px;
     margin-bottom: 10px;
-   
+    margin-left: 52px;
+    font-size: 14px;
+}
+.column .under {
+    margin-left: 10px;
+}
+.column .email {
+    margin-left: 144px;
+}
+.column .phone {
+    margin-left: 75px;
+}
+.column .time {
+    margin-left: 57px;
+}
+.reg {
+    align-self: center;
+    color:white;
+    margin-top: 10px;
+    margin-left: 145px;   
+    width:190px;
+    height:50px;
+    background-color: rgb(59, 58, 58);
+    border:solid;
+    padding-left: 10px;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.reg:hover{
+    cursor:pointer;
+    background-color:black;
+}
+form a {
+    color: black;
+    text-align: center;
+    margin-top: 0%;
+}
+form a:hover{
+    cursor:pointer;
+    font-weight: bolder;
+}
+header {
+    text-align: center;
+}
+header:hover {
+    cursor:pointer;
+}
+@media only screen and (max-width : 768px) {
+    header {
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+        font-size: 24px;
+    }    
+    form {
+        margin-left: 5%;
+        text-align: center;
+        width:350px;
+        margin-bottom: 20px;
+    }
+    .column input{
+        width: 100px;
+        height: 30px;
+    }
+    .reg {
+        margin-left: 70px;
+    }
 }

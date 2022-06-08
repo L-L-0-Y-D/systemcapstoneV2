@@ -30,7 +30,6 @@ header:hover {
     border-bottom-left-radius: 20px;
     border-top-right-radius:20px ;
     border-bottom-right-radius: 20px;
-    
 }
 /*text inside the white box*/
 .container p{
@@ -55,6 +54,19 @@ header:hover {
     border-bottom-left-radius: 10px;
     border-top-right-radius:10px ;
     border-bottom-right-radius: 10px;
+}
+.upload {
+    width:300px;
+    height:50px;
+    background-color: white;
+    border:solid;
+    padding-left: 20px;
+    font-size: 12px;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+    margin-left:110px;
 }
 .reg-btn{
     color:white;
@@ -82,14 +94,12 @@ header:hover {
     cursor:pointer;
 }
 @media only screen and (max-width : 768px) {
-    .locations-div{
-        margin-bottom: 0;
-    }
     header {
         text-align: center;
     }    
     .container {
         text-align: center;
+        align-content: center;
         left:12%;
         width: 300px;
         margin-bottom: 20px;
@@ -99,5 +109,9 @@ header:hover {
     }
     .input{
         width: 200px;
+    }
+    .upload {
+        margin-left:38px ;
+        width:200px;
     }
 }
