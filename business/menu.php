@@ -6,13 +6,17 @@ include('includes/header.php');
 
 
 ?>
+ <?php 
+        if(isset($_GET['id']))
+        {
+?>
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-4">Business List</h3>
-            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-business.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add business</a>       
+            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add business</a>       
         </div>
         <div class="card shadow">
-            <div class="card-body" id="business_table">
+            <div class="card-body" id="products_table">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
@@ -32,11 +36,8 @@ include('includes/header.php');
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Business Name</th>
-                                    <th>Cuisine Type</th>
-                                    <th>Municipality</th>
-                                    <th>Firstname</th>
-                                    <th>Lastname</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
                                     <th>Status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -45,28 +46,25 @@ include('includes/header.php');
                             
                             <tbody style="text-align:center">
                                 <?php
-                                    $business = getAll("business");
+                                    $products = getAll("products");
 
-                                    if(mysqli_num_rows($business) > 0)
+                                    if(mysqli_num_rows($products) > 0)
                                     {
-                                        foreach($business as $item)
+                                        foreach($products as $item)
                                         {
                                             if($_SESSION['role_as'] != 0)
                                             {
                                                 ?>
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
-                                                        <td><?= $item['business_name']; ?></td>
-                                                        <td><?= $item['categoryid']; ?></td>
-                                                        <td><?= $item['municipalityid']; ?></td>
-                                                        <td><?= $item['business_firstname']; ?></td>
-                                                        <td><?= $item['business_lastname']; ?></td>
+                                                        <td><?= $item['name']; ?></td>
+                                                        <td><?= $item['price']; ?></td>
                                                         <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
                                                         <td>
-                                                            <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>
+                                                            <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['productid']; ?>" >Delete</button>
                                                         </td>
                                                     </tr>
                                                 <?php
@@ -101,4 +99,13 @@ include('includes/header.php');
             </div>
         </div>
     </div>
+
+<?php
+
+        }
+        else
+        {
+            echo"ID missing from url";
+        }
+?>
 <?php include('includes/footer.php');?>

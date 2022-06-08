@@ -21,7 +21,7 @@ $(document).ready(function () {
                     method: "POST",
                     url: "code.php",
                     data: {
-                        'product_id':id,
+                        'productid':id,
                         'delete_product_btn':true
                     },
                     success: function (response) {
