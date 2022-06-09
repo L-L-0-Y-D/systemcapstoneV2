@@ -12,11 +12,7 @@
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link <?= $page == "../index.php"? 'active':'';  ?>" href="../index.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "index.php"? 'active':'';  ?>" href="index.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "orders.php"? 'active':'';  ?>" href="orders.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-shopping-bag"></i><span>Orders</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "reservation.php"? 'active':'';  ?>" href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-edit"></i><span>Reservation</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "customers.php"? 'active':'';  ?>" href="customers.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-user-friends"></i><span>Customers</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "reports.php"? 'active':'';  ?>" href="reports.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-bullhorn"></i><span>Reports</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "notif.php"? 'active':'';  ?>" href="notif.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-bell"></i><span>Notification Centre</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "menu.php"? 'active':'';  ?>" href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-store"></i><span>Menu Management</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="margin-left: 37px;"></button></div>
