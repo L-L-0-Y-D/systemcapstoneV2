@@ -69,11 +69,11 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Password</label>
-                                <input type="password" name="password" value="<?= $data['password'] ?>" placeholder="Enter Password" class="form-control">
+                                <input type="password" name="password" placeholder="Enter Password" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">Confirm Password</label>
-                                <input type="password" name="confirmpassword" value="<?= $data['password'] ?>" placeholder="Enter Confirm Password" class="form-control">
+                                <input type="password" name="confirmpassword"  placeholder="Enter Confirm Password" class="form-control">
                             </div>
                             <div class="col-md-12">
                             <input type = "hidden" name='role_as' value = '1'>
