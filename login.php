@@ -39,7 +39,7 @@ if(isset($_SESSION['auth'])){
                 <input type="email" name="email" required placeholder="Email" class="input"/>
             </div>
             <div class="row">
-                <input type="password" name="password" required placeholder="Password" class="input"/>
+                <input type="password" name="password" placeholder="Password" class="input"/>
             </div>
                 <button class="login-btn" name='login_btn' >LOGIN</button> <br> <br>
                 <!--link to connect with register php-->

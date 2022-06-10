@@ -339,9 +339,9 @@ else if(isset($_POST['add_customer_btn'])){
         if($password == $confirmpassword)
         {
             // Insert User Data
-            $password = md5($password);
+            $hash = password_hash($password, PASSWORD_DEFAULT);
             $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
-            VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as,'$filename', '$status')";
+            VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
             $users_query_run = mysqli_query($con, $insert_query);
 
@@ -403,9 +403,76 @@ else if(isset($_POST['update_customer_btn']))
         $update_filename = $old_image;
     }
     $path = "../uploads";
-    $password = md5($password);
-    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$password',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
-    mysqli_query($con,$update_query) or die("bad query: $update_query");
+    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if($update_query_run)
+    {
+        if ($role_as == 0)
+        {
+            if($_FILES['image']['name'] != "")
+            {
+                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+                if(file_exists("../uploads/".$old_image))
+                {
+                    unlink("../uploads/".$old_image);
+                }
+            }
+            redirect("customers.php", "Register Updated Successfully");
+        }
+        else
+        {
+            if($_FILES['image']['name'] != "")
+            {
+                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+                if(file_exists("../uploads/".$old_image))
+                {
+                    unlink("../uploads/".$old_image);
+                }
+            }
+            redirect("admin.php", "Register Updated Successfully");
+        }
+    }
+    else
+    {
+        redirect("edit-customer.php?id=$userid", "Something Went Wrong"); 
+    }
+
+}
+else if(isset($_POST['update_admin_btn']))
+{
+    $userid = $_POST['userid'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $age = $_POST['age'];
+    $phonenumber = $_POST['phonenumber'];
+    $address = $_POST['address'];
+    $password = $_POST['password'];
+    $confirmpassword = $_POST['confirmpassword'];
+    $role_as = $_POST['role_as'];
+    $status = isset($_POST['status']) ? "0":"1";
+
+    $new_image = $_FILES['image']['name'];
+    $old_image = $_POST['old_image'];
+
+    if($new_image != "")
+    {
+        //$update_filename = $new_image;
+        $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
+        $update_filename = time().'.'.$image_ext;
+    }
+    else
+    {
+        $update_filename = $old_image;
+    }
+    $path = "../uploads";
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$hash',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
 
@@ -564,8 +631,8 @@ else if(isset($_POST['edit_business_btn']))
     }
     $path = "../uploads";
 
-    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress',business_password='$business_password', image='$update_filename', status='$status' WHERE businessid='$businessid'";
-    mysqli_query($con,$update_query) or die("bad query: $update_query");
+    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', status='$status' WHERE businessid='$businessid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
 
@@ -599,6 +666,7 @@ else if(isset($_POST['delete_business_btn']))
 
     $delete_query = "DELETE FROM business WHERE businessid='$businessid' ";
     $delete_query_run = mysqli_query($con, $delete_query);
+    mysqli_query($con,$delete_query) or die("bad query: $delete_query");
 
     if($delete_query_run)
     {

@@ -44,9 +44,9 @@ if(isset($_POST['business_register_btn']))
         if($business_password == $business_confirmpassword)
         {
             // Insert User Data
-            $business_password = md5($business_password);
+            $hash = password_hash($business_password, PASSWORD_DEFAULT);
             $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, status) 
-            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$business_password','$filename', '$status')";
+            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename', '$status')";
             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
             $users_query_run = mysqli_query($con, $insert_query);
 
@@ -71,37 +71,51 @@ else if(isset($_POST['business_login'])){ // LogIn
     $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
 
-    $business_password= md5($business_password);
-    $login_query = "SELECT * FROM business WHERE business_email='$business_email' AND business_password='$business_password'";
+    $login_query = "SELECT * FROM business WHERE business_email='$business_email'";
     $login_query_run = mysqli_query($con, $login_query);
     //mysqli_query($con,$login_query) or die("bad query: $login_query");
 
-    if(mysqli_num_rows($login_query_run) > 0){
-        $_SESSION['auth'] = true;
+    if(mysqli_num_rows($login_query_run) > 0)
+    {  
+        while($row = mysqli_fetch_array($login_query_run))
+        {
+            if(password_verify($business_password, $row["business_password"]))
+            {
+                if(mysqli_num_rows($login_query_run) > 0)
+                {
+                    $_SESSION['auth'] = true;
 
-        $userdata = mysqli_fetch_array($login_query_run);
-        $businessid = $userdata['businessid'];
-        $businessnames = $userdata['business_name'];
-        $businessemail = $userdata['email'];
-        $role_as = $userdata['role_as'];
-        $businessimage = $userdata['image'];
+                    $businessid = $row['businessid'];
+                    $businessnames = $row['business_name'];
+                    $businessemail = $row['email'];
+                    $role_as = $row['role_as'];
+                    $businessimage = $row['image'];
 
-        $_SESSION['auth_user'] = [
-            'businessid' => $businessid,
-            'business_name' => $businessnames,
-            'email' => $useremail,
-            'image' => $businessimage,
-            'role_as' => $role_as
-        ];
+                    $_SESSION['auth_user'] = [
+                        'businessid' => $businessid,
+                        'business_name' => $businessnames,
+                        'email' => $useremail,
+                        'image' => $businessimage,
+                        'role_as' => $role_as
+                    ];
 
-        $_SESSION['role_as'] = $role_as;
+                    $_SESSION['role_as'] = $role_as;
 
-        redirect("../business/index.php?id=$businessid", "Welcome to dashboard");
-        
-    }else{
-        
-        redirect("../business/ownerlogin.php", "Invalid Credentials");
+                    redirect("../business/index.php?id=$businessid", "Welcome to dashboard");
+                    
+                }
+                else
+                {
+                    redirect("../business/ownerlogin.php", "Invalid Credentials");
+                }
 
+            }
+            else
+            {
+                redirect("../business/ownerlogin.php", "Wrong Email or Password");
+            }
+
+        }
     }
 }
 

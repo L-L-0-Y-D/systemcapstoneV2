@@ -35,26 +35,33 @@ if(isset($_POST['register_btn'])){
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("register.php", "Email Already Use");
+        redirect("../register.php", "Email Already Use");
     }
     else
     {
         // Check if password Match
         if($password == $confirmpassword)
         {
-            // Insert User Data
-            $password = md5($password);
-            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
-            VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$password', $role_as,'$filename', '$status')";
-            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-            $users_query_run = mysqli_query($con, $insert_query);
+            if($age >= '18')
+            {
+                // Insert User Data
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
+                VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
+                //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
+                $users_query_run = mysqli_query($con, $insert_query);
 
-            if($users_query_run){
-                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                redirect("../login.php", "Register Successfully");
+                if($users_query_run){
+                    move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                    redirect("../login.php", "Register Successfully");
+                }
+                else{
+                    redirect("../register.php", "Something went wrong");
+                }
             }
-            else{
-                redirect("../register.php", "Something went wrong");;
+            else
+            {
+                redirect("../register.php", "Underage Detected");
             }
 
         }
@@ -96,8 +103,8 @@ if(isset($_POST['update_profile_btn']))
     }
     $path = "../uploads";
     
-    $password = md5($password);
-    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$password',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$hash',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
     mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
@@ -126,47 +133,61 @@ else if(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
 
-    $password = md5($password);
-    $login_query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $login_query = "SELECT * FROM users WHERE email='$email'";
     $login_query_run = mysqli_query($con, $login_query);
 
-    if(mysqli_num_rows($login_query_run) > 0){
-        $_SESSION['auth'] = true;
-
-        $userdata = mysqli_fetch_array($login_query_run);
-        $userid = $userdata['userid'];
-        $username = $userdata['name'];
-        $useremail = $userdata['email'];
-        $userphonenumber = $userdata['phonenumber'];
-        $userimage = $userdata['image'];
-        $role_as = $userdata['role_as'];
-
-        $_SESSION['auth_user'] = [
-            'userid' => $userid,
-            'name' => $username,
-            'email' => $useremail,
-            'phonenumber' => $userphonenumber,
-            'image' => $userimage,
-            'role_as' => $role_as
-        ];
-
-        $_SESSION['role_as'] = $role_as;
-
-        if($role_as == 1){
-
-            redirect("../admin/index.php", "Welcome to dashboard");
-
-        }else{
-
-            redirect("../index.php", "Logged In Successfully");
+    if(mysqli_num_rows($login_query_run) > 0)
+    {  
+        while($row = mysqli_fetch_array($login_query_run))
+        {
+            if(password_verify($password, $row["password"]))
+            {
+                if(mysqli_num_rows($login_query_run) > 0)
+                {
+                    $_SESSION['auth'] = true;
+                    $userid = $row['userid'];
+                    $username = $row['name'];
+                    $useremail = $row['email'];
+                    $userphonenumber = $row['phonenumber'];
+                    $userimage = $row['image'];
+                    $role_as = $row['role_as'];
+            
+                    $_SESSION['auth_user'] = [
+                        'userid' => $userid,
+                        'name' => $username,
+                        'email' => $useremail,
+                        'phonenumber' => $userphonenumber,
+                        'image' => $userimage,
+                        'role_as' => $role_as
+                    ];
+            
+                    $_SESSION['role_as'] = $role_as;
+            
+                    if($role_as == 1)
+                    {
+                        redirect("../admin/index.php", "Welcome to dashboard");
+                    }
+                    else
+                    {
+                        redirect("../index.php", "Logged In Successfully");
+                    }
+                }
+                else
+                {  
+                        redirect("../login.php", "Invalid Credentials");
+                }
+            }
+            else
+            {
+                redirect("../login.php", "Wrong Email or Password");
+            }
 
         }
-
         
-    }else{
-        
+    }
+    else
+    {  
         redirect("../login.php", "Invalid Credentials");
-
     }
 }
 

@@ -51,7 +51,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             <a href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">Your Profile</a>
                             <a href="logout.php">Logout</a>
 
-                    <?php
+                        <?php
                         }
                         else if($_SESSION['auth_user']['role_as'] == "2")
                         {

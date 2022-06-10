@@ -62,7 +62,7 @@ include('includes/header.php');
                     </div>
                     <div class="col-md-12">
                         <label for="">Status</label>
-                        <input type="checkbox" name="status" >
+                        <input type="hidden" name="status" value = '1'>
                     </div> <br>
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary" name="add_customer_btn">Save</button>

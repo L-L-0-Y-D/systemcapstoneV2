@@ -139,6 +139,60 @@ elseif (isset($_POST['update_reservation_btn']))
     }
 
 }
+else if(isset($_POST['edit_business_btn']))
+{
+    $businessid = $_POST['businessid'];
+    $business_name = $_POST['business_name'];
+    $business_address = $_POST['business_address'];
+    $municipalityid = $_POST['municipalityid'];
+    $categoryid = $_POST['categoryid'];
+    $business_firstname = $_POST['business_firstname'];
+    $business_lastname = $_POST['business_lastname'];
+    $business_email = $_POST['business_email'];
+    $business_phonenumber = $_POST['business_phonenumber'];
+    $business_owneraddress = $_POST['business_owneraddress'];
+    $business_password = $_POST['business_password'];
+    $business_confirmpassword = $_POST['business_confirmpassword'];
+    $status = isset($_POST['status']) ? "1":"0";
+
+    $new_image = $_FILES['image']['name'];
+    $old_image = $_POST['old_image'];
+
+    if($new_image != "")
+    {
+        //$update_filename = $new_image;
+        $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
+        $update_filename = time().'.'.$image_ext;
+    }
+    else
+    {
+        $update_filename = $old_image;
+    }
+    $path = "../uploads";
+    $hash = password_hash($business_password, PASSWORD_DEFAULT);
+    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress',business_password='$hash', image='$update_filename', status='$status' WHERE businessid='$businessid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if($update_query_run)
+    {
+        if($_FILES['image']['name'] != "")
+        {
+            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+            if(file_exists("../uploads/".$old_image))
+            {
+                unlink("../uploads/".$old_image);
+            }
+        }
+        redirect("index.php", "Business Updated Successfully");
+    }
+    else
+    {
+        redirect("profile.php?id=$businessid", "Something Went Wrong"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');
