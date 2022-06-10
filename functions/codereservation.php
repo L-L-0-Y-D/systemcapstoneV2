@@ -20,7 +20,7 @@ if(isset($_POST['reserve_btn']))
     $reserve_query_run = mysqli_query($con, $insert_query);
 
     if($reserve_query_run){
-        redirect("../index.php", "Register Successfully");
+        redirect("../index.php", "Reservation Successfully");
     }
     else{
         redirect("../reservation.php", "Something went wrong");;

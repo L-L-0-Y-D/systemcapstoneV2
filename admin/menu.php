@@ -7,18 +7,19 @@ include('includes/header.php');
 ?>
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">Customer's List</h3>
+            <h3 class="text-dark mb-4">Menu List</h3>
+            <!--<a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Menu</a>-->       
         </div>
-        <div class="card shadow" >
-            <div class="card-body" id="customer_table" >
+        <div class="card shadow">
+            <div class="card-body" id="products_table">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
-                                <option value="10" selected="">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                                </select>&nbsp;</label>
+                            <option value="10" selected="">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            </select>&nbsp;</label>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -26,59 +27,48 @@ include('includes/header.php');
                         </div>
                     </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                        <table class="table my-0" id="dataTable">
-                            <thead style="text-align:center">
+                        <table class="table my-0" id="dataTable" style="text-align:center">
+                            <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Username</th>
-                                    <th>Firstname</th>
-                                    <th>Lastname</th>
-                                    <th>Address</th>
-                                    <th>Age</th>
+                                    <th>Business Name</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
                                     <th>Status</th>
-                                    <th>Role</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                    </tr>
-                                </thead>
+                                </tr>
+                            </thead>
                             
-                                <tbody style="text-align:center">
-                                    <?php
-                                        $users = getAll("users");
+                            <tbody style="text-align:center">
+                                <?php
+                                    $products = getAll("products");
 
-                                        if(mysqli_num_rows($users ) > 0)
+                                    if(mysqli_num_rows($products) > 0)
+                                    {
+                                        foreach($products as $item)
                                         {
-                                            foreach($users  as $item)
-                                            {
-                                            if($item['role_as'] == 0)
+                                            if($_SESSION['role_as'] != 0)
                                             {
                                                 ?>
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
+                                                        <td><?= $item['businessid']; ?></td>
                                                         <td><?= $item['name']; ?></td>
-                                                        <td><?= $item['firstname']; ?></td>
-                                                        <td><?= $item['lastname']; ?></td>
-                                                        <td><?= $item['address']; ?></td>
-                                                        <td><?= $item['age']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Activated":"Waiting"  ?></td>
-                                                        <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
-                                                        <td>
-                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>
-                                                        </td>
+                                                        <td><?= $item['price']; ?></td>
+                                                        <td><?= $item['description']; ?></td>
+                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
+                                                        
                                                     </tr>
                                                 <?php
                                             }
-                                            }
                                         }
-                                        else
-                                        {
-                                            echo "No records Found";
-                                        }
-                                    ?>
-                                </tbody>
+                                    }
+                                    else
+                                    {
+                                        echo "No records Found";
+                                    }
+                                ?>
+                            </tbody>
                         </table>
                     </div>
                     <div class="row">
@@ -101,6 +91,7 @@ include('includes/header.php');
             </div>
         </div>
     </div>
+
 <?php 
 
 //include('../middleware/adminMiddleware.php');

@@ -1,19 +1,13 @@
 <?php 
 
-include('../config/dbcon.php');
-include('../middleware/businessMiddleware.php');
+include('../middleware/adminMiddleware.php');
 include('includes/header.php');
 
 
 ?>
- <?php 
-        if(isset($_GET['id']))
-        {
-?>
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">Menu List</h3>
-            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Menu</a>       
+            <h3 class="text-dark mb-4">Reservation</h3>   
         </div>
         <div class="card shadow">
             <div class="card-body" id="products_table">
@@ -54,8 +48,7 @@ include('includes/header.php');
                                     {
                                         foreach($reservations as $item)
                                         {
-                                            if($_SESSION['role_as'] != 0)
-                                            {
+                                        
                                                 ?>
                                                     <tr>
                                                         <td><?= $item['namereserveunder']; ?></td>
@@ -70,7 +63,7 @@ include('includes/header.php');
                                                         </td>
                                                     </tr>
                                                 <?php
-                                            }
+                                            
                                         }
                                     }
                                     else
@@ -101,13 +94,10 @@ include('includes/header.php');
             </div>
         </div>
     </div>
+<?php 
 
-<?php
+//include('../middleware/adminMiddleware.php');
+include('includes/footer.php');
 
-        }
-        else
-        {
-            echo"ID missing from url";
-        }
+
 ?>
-<?php include('includes/footer.php');?>

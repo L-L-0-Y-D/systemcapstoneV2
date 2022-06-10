@@ -68,7 +68,7 @@ include('middleware/userMiddleware.php');
                 
             <button type="submit" name="reserve_btn" class="reg" >Reserve</button> 
             <a href="index.php">Back to Home</a>
-    </div>
+            </div>
     <?php
             }
             else

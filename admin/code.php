@@ -345,12 +345,25 @@ else if(isset($_POST['add_customer_btn'])){
             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
             $users_query_run = mysqli_query($con, $insert_query);
 
-            if($users_query_run){
-                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                redirect("customers.php", "Register Successfully");
+            if ($role_as == 0)
+            {
+                if($users_query_run){
+                    move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                    redirect("customers.php", "Register Successfully");
+                }
+                else{
+                    redirect("add-customers.php", "Something went wrong");;
+                }
             }
-            else{
-                redirect("add-customers.php", "Something went wrong");;
+            else
+            {
+                if($users_query_run){
+                    move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                    redirect("admin.php", "Register Successfully");
+                }
+                else{
+                    redirect("add-customers.php", "Something went wrong");;
+                }
             }
 
         }
@@ -398,15 +411,30 @@ else if(isset($_POST['update_customer_btn']))
 
     if($update_query_run)
     {
-        if($_FILES['image']['name'] != "")
+        if ($role_as == 0)
         {
-            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
-            if(file_exists("../uploads/".$old_image))
+            if($_FILES['image']['name'] != "")
             {
-                unlink("../uploads/".$old_image);
+                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+                if(file_exists("../uploads/".$old_image))
+                {
+                    unlink("../uploads/".$old_image);
+                }
             }
+            redirect("customers.php", "Register Updated Successfully");
         }
-        redirect("customers.php", "Category Updated Successfully");
+        else
+        {
+            if($_FILES['image']['name'] != "")
+            {
+                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+                if(file_exists("../uploads/".$old_image))
+                {
+                    unlink("../uploads/".$old_image);
+                }
+            }
+            redirect("admin.php", "Register Updated Successfully");
+        }
     }
     else
     {

@@ -7,7 +7,8 @@ include('includes/header.php');
 ?>
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">Customer's List</h3>
+            <h3 class="text-dark mb-4">Admin's List</h3>
+            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-customer.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Admin</a>
         </div>
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >
@@ -50,7 +51,7 @@ include('includes/header.php');
                                         {
                                             foreach($users  as $item)
                                             {
-                                            if($item['role_as'] == 0)
+                                            if($item['role_as'] == 1)
                                             {
                                                 ?>
                                                     <tr>
@@ -63,7 +64,7 @@ include('includes/header.php');
                                                         <td><?= $item['status']== '0'? "Activated":"Waiting"  ?></td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
-                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="edit-admin.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                                         </td>
                                                         <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>
