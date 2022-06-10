@@ -403,7 +403,7 @@ else if(isset($_POST['update_customer_btn']))
         $update_filename = $old_image;
     }
     $path = "../uploads";
-
+    $password = md5($password);
     $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$password',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
     mysqli_query($con,$update_query) or die("bad query: $update_query");
 

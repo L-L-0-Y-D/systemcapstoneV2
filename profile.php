@@ -99,11 +99,11 @@
                                 <label for="">Address</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" name="password" value="<?= $data['password'] ?>" placeholder="Enter Password" class="form-control">
+                                <input type="password" name="password" required placeholder="Enter Password" class="form-control">
                                 <label for="">Password</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" name="confirmpassword" value="<?= $data['password'] ?>" placeholder="Enter Confirm Password" class="form-control">
+                                <input type="password" name="confirmpassword" required placeholder="Enter Confirm Password" class="form-control">
                                 <label for="">Confirm Password</label>
                             </div>
                             <div class="col-md-12">
