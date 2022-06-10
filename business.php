@@ -27,15 +27,32 @@
                     <div class="row d-flex justify-content-center align-items-lg-center" >
                         <div class="col-md-9 d-flex justify-content-center" style="width: 960px;">
                         <div class="col-md-3 ">
+
                             <div class="d-none d-md-block">
                                 <div class="filters">
                                     <div class="filter-item">
-                                        <h3>Cuisines</h3>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Chinese</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Japanese</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Korean</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Asian</label></div>
-                                    </div>
+                                    <h3>Cuisines</h3>
+                                            <?php
+                                            $cuisine = getAll("mealcategory");
+                                            if(mysqli_num_rows($cuisine) > 0)
+                                            {
+                                                foreach ($cuisine as $item)
+                                                {
+                                                    ?>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="formCheck-1" name="cuisine[]" value="<?= $item['categoryid ']?>">
+                                                        <?= $item['categoryname']; ?>
+                                                    </div>
+
+                                                    <?php
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "No Cuisine Available";
+                                            }?>
+
+                                        </div>
                                     <div class="filter-item">
                                         <h3>Brands</h3>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-5"><label class="form-check-label" for="formCheck-5">Samsung</label></div>
@@ -54,10 +71,26 @@
                                     <div class="filters">
                                         <div class="filter-item">
                                             <h3>Cuisines</h3>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Chinese</label></div>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Japanese</label></div>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Korean</label></div>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Asian</label></div>
+                                            <?php
+                                            $cuisine = getAll("mealcategory");
+                                            if(mysqli_num_rows($cuisine) > 0)
+                                            {
+                                                foreach ($cuisine as $item)
+                                                {
+                                                    ?>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="formCheck-1" name="cuisine[]" value="<?= $item['categoryid ']?>">
+                                                        <?= $item['categoryname']; ?>
+                                                    </div>
+
+                                                    <?php
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "No Cuisine Available";
+                                            }?>
+
                                         </div>
                                         <div class="filter-item">
                                             <h3>Brands</h3>
@@ -84,8 +117,7 @@
                                                     ?>
                                     <div class="col-12 col-md-6 mb-3 ml-2 col-lg-4" style="border:1px solid black; width: 260px;">
                                         <div class="clean-product-item">
-                                        <a href="business-view.php?id=<?= $item['businessid']; ?>">
-                                        <a href="business.php?id=<?= $item['municipalityid']; ?>">
+                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:180px; width: 200px;"></div>
                                             <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div><small>Located at <?= $item['business_address']; ?>, Bataan</small>
                                             <div class="about">
@@ -93,7 +125,7 @@
                                                 <div class="price"></div>
                                             </div>
                                         </a>
-                                            <button href="home.php" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: var(--bs-orange);border: 1px solid var(--bs-orange);border-radius: 10px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
+                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: var(--bs-orange);border: 1px solid var(--bs-orange);border-radius: 10px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
                                         </div>
                                     </div>
                                     <?php

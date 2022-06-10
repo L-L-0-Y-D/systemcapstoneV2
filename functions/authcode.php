@@ -136,6 +136,7 @@ else if(isset($_POST['login_btn'])){ // LogIn
         $userid = $userdata['userid'];
         $username = $userdata['name'];
         $useremail = $userdata['email'];
+        $userphonenumber = $userdata['phonenumber'];
         $userimage = $userdata['image'];
         $role_as = $userdata['role_as'];
 
@@ -143,6 +144,7 @@ else if(isset($_POST['login_btn'])){ // LogIn
             'userid' => $userid,
             'name' => $username,
             'email' => $useremail,
+            'phonenumber' => $userphonenumber,
             'image' => $userimage,
             'role_as' => $role_as
         ];

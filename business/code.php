@@ -110,6 +110,35 @@ elseif (isset($_POST['delete_product_btn']))
     }
 
 }
+elseif (isset($_POST['update_reservation_btn']))
+{
+    $reservationid = $_POST['reservationid'];
+    $businessid = $_POST['businessid'];
+    $userid = $_POST['userid'];
+
+    $numberofguest = $_POST['numberofguest'];
+    $namereserveunder = $_POST['namereserveunder'];
+    $reservation_email = $_POST['reservation_email'];
+    $reservation_phonenumber = $_POST['reservation_phonenumber'];
+    $reservation_date = $_POST['reservation_date'];
+    $reservation_time = $_POST['reservation_time'];
+    $status = isset($_POST['status']) ? "1":"0";
+
+    $update_query = "UPDATE reservations SET numberofguest='$numberofguest',businessid='$businessid',userid='$userid',namereserveunder='$namereserveunder',reservation_email='$reservation_email',reservation_phonenumber='$reservation_phonenumber',reservation_date='$reservation_date',reservation_time='$reservation_time', status='$status' WHERE reservationid='$reservationid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if($update_query_run)
+    {
+        redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
+    }
+    else
+    {
+        redirect("edit-reservation.php?id=$reservationid", "Something Went Wrong"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');

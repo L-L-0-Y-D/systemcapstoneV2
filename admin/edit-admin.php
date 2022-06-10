@@ -76,7 +76,7 @@ include('includes/header.php');
                                 <input type="password" name="confirmpassword" value="<?= $data['password'] ?>" placeholder="Enter Confirm Password" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
-                                <input type = "hidden" name='role_as' value = '0'>
+                                <input type = "hidden" name='role_as' value = '1'>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Status</label>

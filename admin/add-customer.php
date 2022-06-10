@@ -10,7 +10,7 @@ include('includes/header.php');
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4>Add Cuisine type
+          <h4>Add Admin
           <a href="customers.php" class="btn btn-primary float-end">Back</a>
           </h4>
         </div>
@@ -58,12 +58,7 @@ include('includes/header.php');
                         <input type="password" name="confirmpassword" placeholder="Enter Confirm Password" class="form-control">
                     </div>
                     <div class="col-md-12">
-                        <label class="mb-0">Select Role</label>
-                        <select name="role_as" required class="form-select mb-2" >
-                            <option disabled selected hidden>Select Role</option>
-                            <option value="0">User</option>
-                            <option value="1">Admin</option>
-                        </select>
+                        <input type = "hidden" name='role_as' value = '1'>
                     </div>
                     <div class="col-md-12">
                         <label for="">Status</label>

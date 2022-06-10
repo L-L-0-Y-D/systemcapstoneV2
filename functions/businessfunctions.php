@@ -30,7 +30,7 @@ function getBusiByMunicipality($municipality_id)
 function getProductByBusiness($businessid)
 {
     global $con;
-    $query = "SELECT * FROM products WHERE businessid='$businessid' AND status= '0'";
+    $query = "SELECT * FROM products WHERE businessid='$businessid'";
     return $query_run = mysqli_query($con, $query);
 }
 function getIDActive($table, $id, $tabledata)

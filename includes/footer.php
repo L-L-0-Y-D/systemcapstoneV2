@@ -28,5 +28,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/assets/js/vanilla-zoom.js"></script>
     <script src="asset/sassets/js/theme.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        <?php if(isset($_SESSION['message'])) 
+    { ?>
+         alertify.alert('<?= $_SESSION['message']; ?>').set('basic', true); 
+        <?php 
+        unset($_SESSION['message']);
+    }
+    ?> 
+    </script>
 </body>
 </html>

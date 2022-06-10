@@ -45,7 +45,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Business address</label>
-                                <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control" readonly>
+                                <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Business Municipality</label>
