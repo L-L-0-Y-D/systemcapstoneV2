@@ -16,7 +16,9 @@ if(isset($_SESSION['auth'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reg.css"> 
-
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
     <title>Login Customer Account</title>
 
 </head>
@@ -83,6 +85,15 @@ if(isset($_SESSION['auth'])){
         </form>
     </div>
 </main>
-    
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        <?php if(isset($_SESSION['message'])) 
+    { ?>
+         alertify.alert('<?= $_SESSION['message']; ?>').set('basic', true); 
+        <?php 
+        unset($_SESSION['message']);
+    }
+    ?> 
+    </script>     
 </body>
 </html>
