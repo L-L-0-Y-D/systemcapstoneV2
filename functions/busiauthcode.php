@@ -52,7 +52,7 @@ if(isset($_POST['business_register_btn']))
 
             if($users_query_run){
                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                redirect("../business/ownerlogin.php", "Register Successfully");
+                redirect("business/ownerlogin.php", "Register Successfully");
             }
             else{
                 redirect("businessreg.php", "Something went wrong");;
@@ -67,7 +67,8 @@ if(isset($_POST['business_register_btn']))
 }
 
 /* This is the code for logging in a user. */
-else if(isset($_POST['business_login'])){ // LogIn
+else if(isset($_POST['business_login']))
+{ // LogIn
     $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
 
@@ -106,16 +107,20 @@ else if(isset($_POST['business_login'])){ // LogIn
                 }
                 else
                 {
-                    redirect("../business/ownerlogin.php", "Invalid Credentials");
+                    redirect("../ownerlogin.php", "Invalid Credentials");
                 }
 
             }
             else
             {
-                redirect("../business/ownerlogin.php", "Wrong Email or Password");
+                redirect("../ownerlogin.php", "Wrong Email or Password");
             }
 
         }
+    }
+    else
+    {  
+        redirect("../ownerlogin.php", "No Email Exist");
     }
 }
 
