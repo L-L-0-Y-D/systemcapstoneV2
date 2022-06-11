@@ -149,33 +149,9 @@ header{
   font-weight: bolder;
   padding-left: 10px;
 }
-.container li {
-  width: 170px;
-  border: 1px solid rgb(255, 128, 64);
-  cursor: pointer;
-  margin-top: 20px;
-  margin-left: 10px;
-  border-radius: 30px;
-  background-color: white;
-  padding: 8px 8px;
-  font-size: 16px;
-  font-weight: bolder;
-  text-align: center;
-}
-.container li a {
-  color: rgb(65, 59, 57);
-}
-.container li:hover{
-  background: rgb(255, 128, 64);
-  transition: .3s;
-}
-.container li a:hover {
-  color: white;
-  text-decoration: none;
-}
 
 #about{
-    margin-top:50px;
+    margin-top:0px;
     padding-top: 30px;
     padding-bottom: 30px;
     background-color: rgb(255, 128, 64);
