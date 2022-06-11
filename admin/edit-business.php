@@ -41,7 +41,7 @@ include('includes/header.php');
                                 <!--Needed-->
                                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
                                 <label for="">Business Name</label>
-                                <input type="text" name="business_name" value="<?= $data['business_name'] ?>" required placeholder="Enter Business Name" class="form-control" readonly>
+                                <input type="text" name="business_name"  value="<?= $data['business_name'] ?>" required placeholder="Enter Business Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Business address</label>
@@ -49,7 +49,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Business Municipality</label>
-                                <select name='municipalityid' class="form-select mb-2">
+                                <select name='municipalityid' required class="form-select mb-2">
                                     <option value="" disabled selected hidden>Municipality</option>
                                     <?php 
                                     $municipality = getAll("municipality");
@@ -70,7 +70,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Cuisine Type</label>
-                                <select name='categoryid' class="form-select mb-2">
+                                <select name='categoryid' required class="form-select mb-2">
                                     <option value="" disabled selected hidden>Cuisine Type</option>
                                     <?php 
                                     $category = getAll("mealcategory");
@@ -92,31 +92,31 @@ include('includes/header.php');
                             <h3>OWNER DETAILS</h3>
                             <div class="col-md-6">
                                 <label for="">First Name</label>
-                                <input type="text" name="business_firstname" value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name" class="form-control" readonly>
+                                <input type="text" name="business_firstname" required value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Last Name</label>
-                                <input type="text" name="business_lastname" value="<?= $data['business_lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
+                                <input type="text" name="business_lastname" required value="<?= $data['business_lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Phone Number</label>
-                                <input type="text" name="business_phonenumber" value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number" class="form-control" readonly>
+                                <input type="text" name="business_phonenumber" required value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Email</label>
-                                <input type="text" name="business_email" value="<?= $data['business_email'] ?>"  required placeholder="Owner Email" class="form-control" readonly>
+                                <input type="text" name="business_email" required value="<?= $data['business_email'] ?>"  required placeholder="Owner Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Address</label>
-                                <input type="text" name="business_owneraddress" value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control" readonly>
+                                <input type="text" name="business_owneraddress" required value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Password</label>
-                                <input type="password" name="business_password" value="<?= $data['business_password'] ?>"  placeholder="Enter Password" class="form-control" readonly>
+                                <input type="password" name="business_password" required value="<?= $data['business_password'] ?>"  placeholder="Enter Password" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Confirm Password</label>
-                                <input type="password" name="business_confirmpassword" value="<?= $data['business_password'] ?>"  placeholder="Enter Confirm Password" class="form-control" readonly>
+                                <input type="password" name="business_confirmpassword" required value="<?= $data['business_password'] ?>"  placeholder="Enter Confirm Password" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Status</label>

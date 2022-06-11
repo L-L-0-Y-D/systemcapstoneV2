@@ -20,7 +20,7 @@ include('includes/header.php');
                 <div class="row">
                     <div class="col-md-12">
                         <label for="">Business Image</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" required class="form-control">
                     </div>
                     <div class="col-md-12">
                         <label for="">Business Name</label>
@@ -53,7 +53,7 @@ include('includes/header.php');
                     </div>
                     <div class="col-md-6">
                         <label for="">Select Cuisine Type</label>
-                        <select name='categoryid' class="form-select mb-2">
+                        <select name='categoryid' required class="form-select mb-2">
                             <option value="" disabled selected hidden>Cuisine Type</option>
                             <?php 
                             $category = getAllStatus("mealcategory");
@@ -75,15 +75,15 @@ include('includes/header.php');
                     <h3>OWNER DETAILS</h3>
                     <div class="col-md-6">
                         <label for="">First Name</label>
-                        <input type="text" name="business_firstname" placeholder="Enter First Name" class="form-control">
+                        <input type="text" name="business_firstname" required placeholder="Enter First Name" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label for="">Last Name</label>
-                        <input type="text" name="business_lastname" placeholder="Enter Last Name" class="form-control">
+                        <input type="text" name="business_lastname" required placeholder="Enter Last Name" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label for="">Phone Number</label>
-                        <input type="text" name='business_phonenumber' required placeholder="Contact Number" class="form-control"/>
+                        <input type="text" name='business_phonenumber' required required placeholder="Contact Number" class="form-control"/>
                     </div>
                     <div class="col-md-6">
                         <label for="">Email</label>
@@ -95,11 +95,11 @@ include('includes/header.php');
                     </div>
                     <div class="col-md-6">
                         <label for="">Password</label>
-                        <input type="password" name="business_password" placeholder="Enter Password" class="form-control">
+                        <input type="password" name="business_password" required placeholder="Enter Password" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label for="">Confirm Password</label>
-                        <input type="password" name="business_confirmpassword" placeholder="Enter Confirm Password" class="form-control">
+                        <input type="password" name="business_confirmpassword" required placeholder="Enter Confirm Password" class="form-control">
                     </div>
                     <div class="col-md-12">
                         <label for="">Status</label>

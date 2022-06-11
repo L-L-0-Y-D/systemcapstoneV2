@@ -35,7 +35,7 @@ include('includes/header.php');
                                 <!--Needed-->
                                 <input type="hidden" name="municipalityid" value="<?= $data['municipalityid'] ?>">
                                 <label for="">Municipality Name</label>
-                                <input type="text" name="municipality_name" value="<?= $data['municipality_name'] ?>" placeholder="Enter Municipality Name" class="form-control">
+                                <input type="text" name="municipality_name" required value="<?= $data['municipality_name'] ?>" placeholder="Enter Municipality Name" class="form-control">
                             </div>
                             <div class="col-md-12">
                                 <label for="">Upload Image</label>

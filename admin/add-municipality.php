@@ -19,11 +19,11 @@ include('includes/header.php');
                 <div class="row">
                     <div class="col-md-6">
                         <label for="">Municipality</label>
-                        <input type="text" name="municipality_name" placeholder="Enter municipality Name" class="form-control">
+                        <input type="text" name="municipality_name" required placeholder="Enter municipality Name" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label for="">Upload Image</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" required class="form-control">
                     </div>
                     <div class="col-md-12">
                         <label for="">Status</label>

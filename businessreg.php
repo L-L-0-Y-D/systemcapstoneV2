@@ -45,7 +45,7 @@ if(isset($_SESSION['auth'])){
                   <input type="text" name='business_address' required placeholder="Business Address" class="input"/>
             </div>
             <div>
-                  <select name="municipalityid" >
+                  <select name="municipalityid" required>
                     <option disabled selected hidden>Select your Business Location</option>
                     <?php 
                         $municipality = getAllActive("municipality");
@@ -65,7 +65,7 @@ if(isset($_SESSION['auth'])){
                   </select> 
                 </div>
                 <div>
-                  <select name="categoryid">
+                  <select name="categoryid" required>
                     <option disabled selected hidden>Type of Cuisine</option>
                     <?php 
                         $category = getAllActive("mealcategory");

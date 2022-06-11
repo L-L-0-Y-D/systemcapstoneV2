@@ -71,31 +71,31 @@
                             <div class="col-md-6">
                                 <!--Needed-->
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                <input type="text" name="name" value="<?= $data['name'] ?>" placeholder="Enter Username" class="form-control">
+                                <input type="text" name="name" value="<?= $data['name'] ?>" required placeholder="Enter Username" class="form-control">
                                 <label for="">Username</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" name="email" value="<?= $data['email'] ?>" placeholder="Enter Email" class="form-control">
+                                <input type="email" name="email" value="<?= $data['email'] ?>" required placeholder="Enter Email" class="form-control">
                                 <label for="">Email</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" name="firstname" value="<?= $data['firstname'] ?>" placeholder="Enter First Name" class="form-control">
+                                <input type="text" name="firstname" value="<?= $data['firstname'] ?>" required placeholder="Enter First Name" class="form-control">
                                 <label for="">First Name</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" name="lastname" value="<?= $data['lastname'] ?>" placeholder="Enter Last Name" class="form-control">
+                                <input type="text" name="lastname" value="<?= $data['lastname'] ?>" required placeholder="Enter Last Name" class="form-control">
                                 <label for="">Last Name</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="number" name="age" value="<?= $data['age'] ?>" placeholder="Enter Age" class="form-control">
+                                <input type="number" name="age" value="<?= $data['age'] ?>" required placeholder="Enter Age" class="form-control">
                                 <label for="">Age</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" name="phonenumber" value="<?= $data['phonenumber'] ?>" placeholder="Enter Phone Number" class="form-control">
+                                <input type="text" name="phonenumber" value="<?= $data['phonenumber'] ?>" required placeholder="Enter Phone Number" class="form-control">
                                 <label for="">Phone Number</label>
                             </div>
                             <div class="col-md-12">
-                                <input type="text" name="address" value="<?= $data['address'] ?>" placeholder="Enter Address" class="form-control">
+                                <input type="text" name="address" value="<?= $data['address'] ?>" required placeholder="Enter Address" class="form-control">
                                 <label for="">Address</label>
                             </div>
                             <div class="col-md-6">

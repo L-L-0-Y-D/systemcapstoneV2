@@ -41,39 +41,39 @@ include('includes/header.php');
                                 <!--Needed-->
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
                                 <label for="">Username</label>
-                                <input type="text" name="name" value="<?= $data['name'] ?>" placeholder="Enter Username" class="form-control">
+                                <input type="text" name="name" required value="<?= $data['name'] ?>" placeholder="Enter Username" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">Email</label>
-                                <input type="email" name="email" value="<?= $data['email'] ?>" placeholder="Enter Email" class="form-control">
+                                <input type="email" name="email" required value="<?= $data['email'] ?>" placeholder="Enter Email" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">First Name</label>
-                                <input type="text" name="firstname" value="<?= $data['firstname'] ?>" placeholder="Enter First Name" class="form-control">
+                                <input type="text" name="firstname" required value="<?= $data['firstname'] ?>" placeholder="Enter First Name" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">Last Name</label>
-                                <input type="text" name="lastname" value="<?= $data['lastname'] ?>" placeholder="Enter Last Name" class="form-control">
+                                <input type="text" name="lastname" required value="<?= $data['lastname'] ?>" placeholder="Enter Last Name" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">Age</label>
-                                <input type="number" name="age" value="<?= $data['age'] ?>" placeholder="Enter Age" class="form-control">
+                                <input type="number" name="age" required value="<?= $data['age'] ?>" placeholder="Enter Age" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">Phone Number</label>
-                                <input type="text" name="phonenumber" value="<?= $data['phonenumber'] ?>" placeholder="Enter Phone Number" class="form-control">
+                                <input type="text" name="phonenumber" required value="<?= $data['phonenumber'] ?>" placeholder="Enter Phone Number" class="form-control">
                             </div>
                             <div class="col-md-12">
                                 <label for="">Address</label>
-                                <input type="text" name="address" value="<?= $data['address'] ?>" placeholder="Enter Address" class="form-control">
+                                <input type="text" name="address" required value="<?= $data['address'] ?>" placeholder="Enter Address" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">Password</label>
-                                <input type="password" name="password" placeholder="Enter Password" class="form-control">
+                                <input type="password" name="password" required placeholder="Enter Password" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label for="">Confirm Password</label>
-                                <input type="password" name="confirmpassword" placeholder="Enter Confirm Password" class="form-control">
+                                <input type="password" name="confirmpassword" required placeholder="Enter Confirm Password" class="form-control">
                             </div>
                             <div class="col-md-12">
                                 <input type = "hidden" name='role_as' value = '1'>

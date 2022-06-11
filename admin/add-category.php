@@ -20,7 +20,7 @@ include('includes/header.php');
                 <div class="row">
                     <div class="col-md-12">
                         <label for="">Cuisine type</label>
-                        <input type="text" name="categoryname" placeholder="Enter Cuisine Name" class="form-control">
+                        <input type="text" name="categoryname" required placeholder="Enter Cuisine Name" class="form-control">
                     </div>
                     <div class="col-md-12">
                         <label for="">Status</label>
