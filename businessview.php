@@ -1,7 +1,6 @@
 <?php
 
     include('functions/userfunctions.php');
-    include('includes/header.php'); 
     if(isset($_GET['id']))
         {
             $id = $_GET['id'];
@@ -14,15 +13,121 @@
                         $product = getProductByBusiness($bid);
     
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="home.css"> 
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Akaya%20Kanadaka.css">
+    <link rel="stylesheet" href="assets/css/Alata.css">
+    <link rel="stylesheet" href="assets/css/Montserrat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/assets/css/Montserrat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/assets/css/vanilla-zoom.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
+    <title>I-Eat | Home </title> 
+</head>
+<header style="height:100px;">
+            <div class="nav-menu">
+                <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
+                {// if user is not login
+                    ?>
+							
+                    <button class="loginbtn" onclick="openForm()">Login</button>
+                        <div class="form-popup" id="myForm">
+                            <form name="form" class="form-container">
+                                <h3>Login as</h3>
+                                <button type="submit" class="ownerbtn" onclick="javascript: form.action='business/ownerlogin.php';" href="ownerlogin.php">Business</button>
+                                <button type="submit" class="customerbtn" onclick="javascript: form.action='login.php';" href="login.php">Customer</button>
+                                <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
+                            </form>
+                        </div>
+                        <script>
+                        function openForm() {
+                            document.getElementById("myForm").style.display = "block";
+                        }
+                        function closeForm() {
+                            document.getElementById("myForm").style.display = "none";
+                        }
+                        </script>
+
+                    <a href="register.php">Sign up</a>
+                               
+                <?php 
+                }
+                elseif(isset($_SESSION['auth']))
+                {
+                        if($_SESSION['auth_user']['role_as'] == "0")
+                        {
+                        ?>
+                                            
+                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
+                            <a href="your_reservation.php">Your Reservation</a>
+                            <a href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">Your Profile</a>
+                            <a href="logout.php">Logout</a>
+
+                        <?php
+                        }
+                        else if($_SESSION['auth_user']['role_as'] == "2")
+                        {
+                            ?>
+                            <h2> Welcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong> !</h2>
+                            <a href="business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Dashboard</a>
+                            <a href="logout.php">Logout</a> 
+
+                         <?php
+                        }
+                        else
+                        {
+                            ?>
+                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
+                            <a href="admin/index.php">Dashboard</a>
+                            <a href="logout.php">Logout</a> 
+                            <?php 
+                        }
+                    
+                    ?> 
+                    <?php 
+                }
+                elseif(isset($_SESSION['business_email'])) 
+                {
+                ?>
+                    <!--if user is login-->
+                    <h2> Welcome <strong><?php echo $_SESSION['business_name']; ?></strong> !</h2>
+                    <a href="business/admin.php">Dashboard</a> 
+                    <a href="logout.php">Logout</a>
+                 
+                <?php } ?>
+            </div>
+                </header>
 <main class="page product-page">
-        <section class="clean-block clean-product dark">
-            <div class="container" style="width: auto;">
-                <div class="block-heading" style="padding-top: 20px;margin-bottom: 9px;">
+        <section class="clean-block clean-product">
+            <div class="container" style="width: auto; height:auto;">
+            <div class="block-content" style="width: auto;padding-top: 0px; ">
+                <div class="block-heading" style="padding-top: 50px;margin-bottom: 9px;">
                     <div class="col-md-12 d-xxl-flex justify-content-xxl-center" style="height: 500px;"><img class="img-fluid d-flex align-self-center justify-content-xl-start justify-content-xxl-center" style="width: 1100px;height: 500px;margin-top: 0px;box-shadow: 0px 0px 10px var(--bs-gray);border-radius: 5px;margin-bottom: 0px;" src="uploads/<?= $data['image']; ?>" width="200px" height="200px" loading="auto"></div>
                 </div>
-                <div class="block-content" style="width: auto;padding-top: 0px;">
-                    <div class="row" style="width: 1024px;padding-top: 10px;">
+                
+                    <div class="row" style="padding-top: 10px;">
                         <div class="col-md-12" style="width: 1024px;">
                             <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Alata, sans-serif;width: 1000px;height: 40px;"><strong><?= $data['business_name']; ?></strong></h1>
                         </div>
@@ -46,7 +151,7 @@
                                 <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="reviews-tab" href="#specifications">Location</a></li>
                             </ul>
                             <div class="tab-content text-start d-xxl-flex justify-content-xxl-center align-items-xxl-center" id="myTabContent">
-                                <div class="tab-pane fade show active flex-column description" role="tabpanel" id="description" style="margin-right: 40px;margin-left: 40px;padding-top: 40px;">
+                                <div class="tab-pane fade show active flex-column description" role="tabpanel" id="description" style="margin-right: 50px;margin-left: 50px;padding-top: 40px;">
                                     <div class="row d-flex justify-content-center align-items-lg-center" style="margin-left: 0px;margin-right: 0px;text-align: left;">
                                         <div class="col-md-9 d-flex justify-content-center" style="width: 960px;margin-left: 0px;margin-right: 0px;">
                                             <div class="products">

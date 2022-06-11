@@ -53,7 +53,7 @@
                                             }?>
 
                                         </div>
-                                    <div class="filter-item">
+                                    <!--<div class="filter-item">
                                         <h3>Brands</h3>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-5"><label class="form-check-label" for="formCheck-5">Samsung</label></div>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-6"><label class="form-check-label" for="formCheck-6">Apple</label></div>
@@ -63,7 +63,7 @@
                                         <h3>OS</h3>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-8"><label class="form-check-label" for="formCheck-8">Android</label></div>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-9"><label class="form-check-label" for="formCheck-9">iOS</label></div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="d-md-none"><a class="btn btn-link d-md-none filter-collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="filters" href="#filters" role="button">Filters<i class="icon-arrow-down filter-caret"></i></a>
@@ -92,7 +92,7 @@
                                             }?>
 
                                         </div>
-                                        <div class="filter-item">
+                                       <!-- <div class="filter-item">
                                             <h3>Brands</h3>
                                             <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-5"><label class="form-check-label" for="formCheck-5">Samsung</label></div>
                                             <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-6"><label class="form-check-label" for="formCheck-6">Apple</label></div>
@@ -102,13 +102,13 @@
                                             <h3>OS</h3>
                                             <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-8"><label class="form-check-label" for="formCheck-8">Android</label></div>
                                             <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-9"><label class="form-check-label" for="formCheck-9">iOS</label></div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
                         </div>
                             <div class="products">
-                                <div class="row g-0" style="padding: 0px;margin-left: 10px;">
+                                <div class="row g-0" style="padding: 0px;margin-left: 10px; border:none;">
                                     <?php
                                         if(mysqli_num_rows($business) > 0)
                                             {
@@ -119,7 +119,7 @@
                                         <div class="clean-product-item">
                                         <a href="businessview.php?id=<?=$item['businessid'];?>">
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:180px; width: 200px;"></div>
-                                            <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div><small>Located at <?= $item['business_address']; ?>, Bataan</small>
+                                            <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div><small>Located at <?= $item['business_address']; ?></small>
                                             <div class="about">
                                                 <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
                                                 <div class="price"></div>
