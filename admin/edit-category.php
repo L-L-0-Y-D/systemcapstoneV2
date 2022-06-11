@@ -35,7 +35,7 @@ include('includes/header.php');
                                 <!--Needed-->
                                 <input type="hidden" name="categoryid" value="<?= $data['categoryid'] ?>">
                                 <label for="">Cuisine Name</label>
-                                <input type="text" name="categoryname" value="<?= $data['categoryname'] ?>" placeholder="Enter Cuisine Type" class="form-control">
+                                <input type="text" name="categoryname" required value="<?= $data['categoryname'] ?>" placeholder="Enter Cuisine Type" class="form-control">
                             </div>
                             <div class="col-md-12">
                                 <label for="">Status</label>
