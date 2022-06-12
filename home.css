@@ -58,7 +58,7 @@ header{
     left:35%;
     bottom: 0;
     border: 3px solid #f1f1f1;
-    width: 300px;
+    width: 250px;
     height: fit-content;
     align-items: center;
     box-shadow: #000 10px;
@@ -66,7 +66,7 @@ header{
   /* Add styles to the form container */
   .form-container {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background-color: rgb(255, 255, 255);
   }
   /* Set a style for the submit/login button */
@@ -84,7 +84,7 @@ header{
 .ownerbtn:hover{
   background: rgb(255, 128, 64);
   color: white;
-  transition: .5s;
+  transition: .1s;
 }
 .customerbtn{
   bottom: 12px;
@@ -99,18 +99,8 @@ header{
 .customerbtn:hover{
   background: rgb(255, 128, 64);
   color: white;
-  transition: .5s;
+  transition: .1s;
 }
-  /* Add a red background color to the cancel button */
-  .form-container .cancel {
-    margin-top:15px;
-  }
-  .form-container .cancel:hover{
-    text-decoration: underline 2px rgb(255, 128, 64);
-    font-weight: bolder;
-    cursor:pointer;
-  }
-  
 .nav-menu{
     margin-right: 20pt;
     padding-top:15pt;
@@ -136,8 +126,7 @@ header{
     align-self: center;
     justify-content: right;
     margin-top: 30px;
-    margin-right: 290px;
-    
+    margin-right: 290px; 
 }
 .container select {
   border-radius: 20px;

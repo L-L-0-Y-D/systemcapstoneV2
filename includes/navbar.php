@@ -21,10 +21,10 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                     <button class="loginbtn" onclick="openForm()">Login</button>
                         <div class="form-popup" id="myForm">
                             <form name="form" class="form-container">
+                            <i class="far fa-times-circle" onclick="closeForm()" style="float:right;"></i>
                                 <h3>Login as</h3>
                                 <button type="submit" class="ownerbtn" onclick="javascript: form.action='ownerlogin.php';" href="ownerlogin.php">Business</button>
                                 <button type="submit" class="customerbtn" onclick="javascript: form.action='login.php';" href="login.php">Customer</button>
-                                <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
                             </form>
                         </div>
                         <script>

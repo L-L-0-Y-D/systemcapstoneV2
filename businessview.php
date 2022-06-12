@@ -52,13 +52,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
     <title>I-Eat | Home </title> 
 </head>
-
 <header style="height:100px;">
+            <div class="logo" style="float:left; margin:0px; padding-top:10px; padding-left:30px;">
+                <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="80" height="80">
+            <map name="workmap">
+                <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
+            </map>
+            </div>
             <div class="nav-menu">
+           
                 <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
                 {// if user is not login
                     ?>
-                    <a href="login.php">Login</a> 
+                    <a href="login.php">Login</a>
                     <a href="register.php">Sign up</a>
                                
                 <?php 
@@ -107,7 +113,7 @@
                  
                 <?php } ?>
             </div>
-</header>
+    </header>
 <main class="page product-page">
         <section class="clean-block clean-product">
             <div class="container" style="width: auto; height:auto;">
@@ -140,11 +146,11 @@
                                 <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="reviews-tab" href="#specifications">Location</a></li>
                             </ul>
                             <div class="tab-content text-start d-xxl-flex justify-content-xxl-center align-items-xxl-center" id="myTabContent">
-                                <div class="tab-pane fade show active flex-column description" role="tabpanel" id="description" style="margin-right: 50px;margin-left: 50px;padding-top: 40px;">
+                                <div class="tab-pane fade show active flex-column description" role="tabpanel" id="description" style="margin-right: 40px;margin-left: 40px;padding-top: 40px;">
                                     <div class="row d-flex justify-content-center align-items-lg-center" style="margin-left: 0px;margin-right: 0px;text-align: left;">
                                         <div class="col-md-9 d-flex justify-content-center" style="width: 960px;margin-left: 0px;margin-right: 0px;">
                                             <div class="products">
-                                                <div class="row g-0" style="padding: 0px;margin-left: 10px;">
+                                                <div class="row g-0" style="padding: 0px;margin-left: 10px; border:1px solid;">
                                                     <div class="col-12 col-md-6 col-lg-4">
                                                         <div class="clean-product-item">
                                                         <?php
@@ -156,9 +162,9 @@
                                                             <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="uploads/<?= $item['image']; ?>"></a></div>
                                                             <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div><small><?= $item['description']; ?></small>
                                                             <div class="about">
-                                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                                <div class="price"></div>
-                                                            </div><strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px;">₱<?= $item['price']; ?></strong>
+                                                                <div class="rating"><img src="assets/img/star.svg"><span><img src="assets/img/star.svg"></span><span><img src="assets/img/star.svg"></span><span><img src="assets/img/star-half-empty.svg"></span><span><img src="assets/img/star-empty.svg"></span></div>
+                                                                <div class="price" ></div>
+                                                            </div><strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
                                                             <?php
                                                                 }
                                                             }
