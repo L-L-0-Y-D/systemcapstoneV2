@@ -91,7 +91,7 @@ elseif (isset($_POST['delete_product_btn']))
     $image = $product_data['image'];
 
     $delete_query = "DELETE FROM products WHERE productid='$productid' ";
-    $delete_query_run = mysqli_query($con, $delete_query);
+    //$delete_query_run = mysqli_query($con, $delete_query);
 
     if($delete_query_run)
     {

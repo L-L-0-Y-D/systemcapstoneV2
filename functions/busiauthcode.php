@@ -52,16 +52,16 @@ if(isset($_POST['business_register_btn']))
 
             if($users_query_run){
                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                redirect("business/ownerlogin.php", "Register Successfully");
+                redirect("../ownerlogin.php", "Register Successfully");
             }
             else{
-                redirect("businessreg.php", "Something went wrong");;
+                redirect("../businessreg.php", "Something went wrong");;
             }
 
         }
         else
         {
-            redirect("businessreg.php", "Passwords do not match");
+            redirect("../businessreg.php", "Passwords do not match");
         }
     }
 }

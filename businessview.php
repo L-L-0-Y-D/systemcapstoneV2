@@ -162,7 +162,6 @@
                                                             <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="uploads/<?= $item['image']; ?>"></a></div>
                                                             <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div><small><?= $item['description']; ?></small>
                                                             <div class="about">
-                                                                <div class="rating"><img src="assets/img/star.svg"><span><img src="assets/img/star.svg"></span><span><img src="assets/img/star.svg"></span><span><img src="assets/img/star-half-empty.svg"></span><span><img src="assets/img/star-empty.svg"></span></div>
                                                                 <div class="price" ></div>
                                                             </div><strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
                                                             <?php
