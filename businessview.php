@@ -58,9 +58,7 @@
                 <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
                 {// if user is not login
                     ?>
-							
-                    <button class="loginbtn" onclick="openForm()">Log in</button>
-                       
+                    <a href="login.php">Login</a> 
                     <a href="register.php">Sign up</a>
                                
                 <?php 
