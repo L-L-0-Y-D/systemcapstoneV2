@@ -180,4 +180,8 @@ header{
       align-self: center;
       left:10%;
     }
+    select div {
+      width:100% !important;
+    }
+    
 }

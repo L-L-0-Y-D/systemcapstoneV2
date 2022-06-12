@@ -25,10 +25,9 @@
             <div class="container align-content-center justify-content-xl-center">
                 <div class="justify-content-center content">
                     <div class="row d-flex justify-content-center align-items-lg-center" >
-                        <div class="col-md-9 d-flex justify-content-center" style="width: 960px;">
+                        <div class="col-md-9 d-flex justify-content-center" style="width: 100%;">
                         <div class="col-md-3 ">
-
-                            <div class="d-none d-md-block">
+                            <div class="d-none d-md-block ">
                                 <div class="filters">
                                     <div class="filter-item">
                                     <h3>Cuisines</h3>
@@ -66,7 +65,7 @@
                                     </div> -->
                                 </div>
                             </div>
-                            <div class="d-md-none"><a class="btn btn-link d-md-none filter-collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="filters" href="#filters" role="button">Filters<i class="icon-arrow-down filter-caret"></i></a>
+                            <div class="d-md-none "><a class="btn btn-link d-md-none filter-collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="filters" href="#filters" role="button">Filters<i class="icon-arrow-down filter-caret"></i></a>
                                 <div class="collapse" id="filters">
                                     <div class="filters">
                                         <div class="filter-item">

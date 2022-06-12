@@ -94,6 +94,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
         <div class="d-flex float-right">
             <select id="cuisine" name='cuisine_type'>
             <option disabled selected hidden>Type of Cuisine</option>
+            <div>
                 <?php 
                         $category = getAllActive("mealcategory");
                         if(mysqli_num_rows($category) > 0)
@@ -110,6 +111,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             echo "No Category Available";
                         }
                         ?>
+                        </div>
             </select> 
         </div>
     </div>
