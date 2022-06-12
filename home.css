@@ -67,7 +67,7 @@ header{
   .form-container {
     text-align: center;
     padding: 10px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
   }
   /* Set a style for the submit/login button */
 .ownerbtn {

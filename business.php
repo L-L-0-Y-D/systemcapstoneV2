@@ -79,7 +79,7 @@
                                                 {
                                                     ?>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="formCheck-1" name="cuisine[]" value="<?= $item['categoryid ']?>">
+                                                        <input class="form-check-input" type="checkbox" id="formCheck-1" name="cuisine[]" value="<?= $item['categoryid']?>">
                                                         <?= $item['categoryname']; ?>
                                                     </div>
 

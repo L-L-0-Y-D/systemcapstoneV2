@@ -46,6 +46,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
     <title>I-Eat | Home </title> 
 </head>
+
 <header style="height:100px;">
             <div class="nav-menu">
                 <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
@@ -118,7 +119,7 @@
                  
                 <?php } ?>
             </div>
-                </header>
+</header>
 <main class="page product-page">
         <section class="clean-block clean-product">
             <div class="container" style="width: auto; height:auto;">
@@ -187,7 +188,7 @@
                                 </div>
                                 <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?= $data['business_address']; ?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:598px;width:913px;}</style><a href="https://www.embedgooglemap.net">embed code for google map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:598px;width:913px;}</style></div></div></div>
                                 <div class="tab-pane fade" role="tabpanel" id="reviews">
-                                    <div class="container">
+                                    <div class="container mt-3">
                                         <div class="card">
                                             <div class="card-header">Restaurant Feedback</div>
                                             <div class="card-body">
@@ -203,7 +204,7 @@
                                                             <i class="fas fa-star star-light mr-1 main_star"></i>
                                                             <i class="fas fa-star star-light mr-1 main_star"></i>
                                                         </div>
-                                                        <h3><span id="total_review">0</span> Review</h3>
+                                                        <h3><span id="total_review">0</span> Review/s</h3>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <p>
