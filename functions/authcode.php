@@ -174,7 +174,7 @@ else if(isset($_POST['login_btn'])){ // LogIn
                 }
                 else
                 {  
-                        redirect("../login.php", "Invalid Credentials");
+                        redirect("../login.php", "Wrong Email or Password");
                 }
             }
             else
@@ -187,7 +187,7 @@ else if(isset($_POST['login_btn'])){ // LogIn
     }
     else
     {  
-        redirect("../login.php", "Invalid Credentials");
+        redirect("../login.php", "No Email Exist");
     }
 }
 
