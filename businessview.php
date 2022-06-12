@@ -53,29 +53,18 @@
     <title>I-Eat | Home </title> 
 </head>
 <header style="height:100px;">
+            <div class="logo" style="float:left; margin:0px; padding-top:10px; padding-left:30px;">
+                <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="80" height="80">
+            <map name="workmap">
+                <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
+            </map>
+            </div>
             <div class="nav-menu">
+           
                 <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
                 {// if user is not login
                     ?>
-							
-                    <button class="loginbtn" onclick="openForm()">Login</button>
-                        <div class="form-popup" id="myForm">
-                            <form name="form" class="form-container">
-                                <h3>Login as</h3>
-                                <button type="submit" class="ownerbtn" onclick="javascript: form.action='business/ownerlogin.php';" href="ownerlogin.php">Business</button>
-                                <button type="submit" class="customerbtn" onclick="javascript: form.action='login.php';" href="login.php">Customer</button>
-                                <div><button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
-                            </form>
-                        </div>
-                        <script>
-                        function openForm() {
-                            document.getElementById("myForm").style.display = "block";
-                        }
-                        function closeForm() {
-                            document.getElementById("myForm").style.display = "none";
-                        }
-                        </script>
-
+                    <a href="login.php">Login</a>
                     <a href="register.php">Sign up</a>
                                
                 <?php 
@@ -124,7 +113,7 @@
                  
                 <?php } ?>
             </div>
-                </header>
+    </header>
 <main class="page product-page">
         <section class="clean-block clean-product">
             <div class="container" style="width: auto; height:auto;">
@@ -157,11 +146,11 @@
                                 <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="reviews-tab" href="#specifications">Location</a></li>
                             </ul>
                             <div class="tab-content text-start d-xxl-flex justify-content-xxl-center align-items-xxl-center" id="myTabContent">
-                                <div class="tab-pane fade show active flex-column description" role="tabpanel" id="description" style="margin-right: 50px;margin-left: 50px;padding-top: 40px;">
+                                <div class="tab-pane fade show active flex-column description" role="tabpanel" id="description" style="margin-right: 40px;margin-left: 40px;padding-top: 40px;">
                                     <div class="row d-flex justify-content-center align-items-lg-center" style="margin-left: 0px;margin-right: 0px;text-align: left;">
                                         <div class="col-md-9 d-flex justify-content-center" style="width: 960px;margin-left: 0px;margin-right: 0px;">
                                             <div class="products">
-                                                <div class="row g-0" style="padding: 0px;margin-left: 10px;">
+                                                <div class="row g-0" style="padding: 0px;margin-left: 10px; border:1px solid;">
                                                     <div class="col-12 col-md-6 col-lg-4">
                                                         <div class="clean-product-item">
                                                         <?php
@@ -173,9 +162,9 @@
                                                             <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="uploads/<?= $item['image']; ?>"></a></div>
                                                             <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div><small><?= $item['description']; ?></small>
                                                             <div class="about">
-                                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                                <div class="price"></div>
-                                                            </div><strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px;">₱<?= $item['price']; ?></strong>
+                                                                <div class="rating"><img src="assets/img/star.svg"><span><img src="assets/img/star.svg"></span><span><img src="assets/img/star.svg"></span><span><img src="assets/img/star-half-empty.svg"></span><span><img src="assets/img/star-empty.svg"></span></div>
+                                                                <div class="price" ></div>
+                                                            </div><strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
                                                             <?php
                                                                 }
                                                             }
@@ -191,9 +180,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?= $data['business_address']; ?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:598px;width:913px;}</style><a href="https://www.embedgooglemap.net">embed code for google map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:598px;width:913px;}</style></div></div></div>
+                                <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?= $data['business_address']; ?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style><a href="https://www.embedgooglemap.net">embed code for google map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div></div>
                                 <div class="tab-pane fade" role="tabpanel" id="reviews">
-                                    <div class="container">
+                                    <div class="container mt-3">
                                         <div class="card">
                                             <div class="card-header">Restaurant Feedback</div>
                                             <div class="card-body">
@@ -209,7 +198,7 @@
                                                             <i class="fas fa-star star-light mr-1 main_star"></i>
                                                             <i class="fas fa-star star-light mr-1 main_star"></i>
                                                         </div>
-                                                        <h3><span id="total_review">0</span> Review</h3>
+                                                        <h3><span id="total_review">0</span> Review/s</h3>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <p>
