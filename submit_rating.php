@@ -2,7 +2,7 @@
 
 //submit_rating.php
 
-$connect = new PDO("mysql:host=localhost;dbname=thesis", "root", "");
+$con = new PDO("mysql:host=localhost;dbname=thesis", "root", "");
 
 if(isset($_POST["rating_data"]))
 {
@@ -20,7 +20,7 @@ if(isset($_POST["rating_data"]))
 	VALUES (:user_name, :user_rating, :user_review, :datetime)
 	";
 
-	$statement = $connect->prepare($query);
+	$statement = $con->prepare($query);
 
 	$statement->execute($data);
 
@@ -45,7 +45,7 @@ if(isset($_POST["action"]))
 	ORDER BY review_id DESC
 	";
 
-	$result = $connect->query($query, PDO::FETCH_ASSOC);
+	$result = $con->query($query, PDO::FETCH_ASSOC);
 
 	foreach($result as $row)
 	{
