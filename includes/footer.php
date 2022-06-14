@@ -42,6 +42,19 @@
 </body>
 </html>
 
+<?php 
+        if(isset($_GET['id']))
+        {
+            $id = $_GET['id'];
+            $business = getByID("business",$id,"businessid");
+
+            if(mysqli_num_rows($business) > 0)
+            {
+                $data = mysqli_fetch_array($business)
+                
+            
+            ?>
+
 <div id="review_modal" class="modal" tabindex="-1" role="dialog">
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
@@ -57,7 +70,9 @@
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
 	        	</h4>
 	        	<div class="form-group">
-	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
+                    <input type="hidden" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
+                    <input type="hidden" name="businessid" id="businessid" value="<?= $data['businessid'] ?>">
+	        		<input type="text" name="user_name" id="user_name" class="form-control" value="<?= $_SESSION['auth_user']['name'];?>" placeholder="Enter Your Name" />
 	        	</div>
 	        	<div class="form-group">
 	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
@@ -69,6 +84,19 @@
     	</div>
   	</div>
 </div>
+
+<?php
+            }
+            else
+            {
+                echo "Users not Found";
+            }
+        }
+        else
+        {
+           echo"ID missing from url";
+        }
+            ?>
 
 <style>
 .progress-label-left
@@ -149,6 +177,10 @@ $(document).ready(function(){
     });
 
     $('#save_review').click(function(){
+        
+        var userid = $('#userid').val();
+
+        var businessid = $('#businessid').val();
 
         var user_name = $('#user_name').val();
 
@@ -164,7 +196,7 @@ $(document).ready(function(){
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
-                data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
+                data:{rating_data:rating_data, userid:userid, businessid:businessid, user_name:user_name, user_review:user_review},
                 success:function(data)
                 {
                     $('#review_modal').modal('hide');

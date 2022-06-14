@@ -16,7 +16,6 @@ include('includes/header.php');
                     <table class="table my-0" id="dataTable">
                         <thead style="text-align:center">
                         <tr>
-                            <th>ID</th>
                             <th>Municipality</th>
                             <th>Image</th>
                             <th>Status</th>
@@ -35,7 +34,6 @@ include('includes/header.php');
                                    {
                                        ?>
                                        <tr>
-                                           <td><?= $item['municipalityid']; ?></td>
                                            <td><?= $item['municipality_name']; ?></td>
                                             <td>
                                                 <img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>">

@@ -30,7 +30,6 @@ include('includes/header.php');
                             <table class="table my-0" id="dataTable">
                                 <thead style="text-align:center">
                                     <tr>
-                                        <th>ID</th>
                                         <th>Cuisine</th>
                                         <th>Status</th>
                                         <th>Edit</th>
@@ -49,7 +48,6 @@ include('includes/header.php');
                                             {
                                                 ?>
                                                 <tr>
-                                                    <td><?= $item['categoryid']; ?></td>
                                                     <td><?= $item['categoryname']; ?></td>
                                                     <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
                                                     <td>

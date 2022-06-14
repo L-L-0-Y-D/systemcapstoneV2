@@ -16,6 +16,7 @@
                     <li class="nav-item"><a class="nav-link <?= $page == "municipality.php"? 'active':'';  ?>" href="municipality.php"><i class="fas fa-map-marker"></i><span class="align-middle">Municipality</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "menu.php"? 'active':'';  ?>" href="menu.php"><i class="fas fa-map-marker"></i><span class="align-middle">Menu</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "reservation.php"? 'active':'';  ?>" href="reservation.php"><i class="fas fa-map-marker"></i><span class="align-middle">Reservation</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?= $page == "feedback.php"? 'active':'';  ?>" href="feedback.php"><i class="fas fa-map-marker"></i><span class="align-middle">Feedback</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"></div><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="margin-left: 35px;"></button>
             </div>

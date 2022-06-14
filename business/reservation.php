@@ -53,8 +53,8 @@ include('includes/header.php');
                                     {
                                         foreach($reservations as $item)
                                         {
-                                            if($_SESSION['role_as'] != 0)
-                                            {
+                                            if($item['businessid'] == $_SESSION['auth_user']['businessid'])
+                                                {
                                                 ?>
                                                     <tr>
                                                         <td><?= $item['namereserveunder']; ?></td>
@@ -69,7 +69,7 @@ include('includes/header.php');
                                                         </td>
                                                     </tr>
                                                 <?php
-                                            }
+                                                }
                                         }
                                     }
                                     else

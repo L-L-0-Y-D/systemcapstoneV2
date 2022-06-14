@@ -52,8 +52,8 @@ include('includes/header.php');
                                     {
                                         foreach($products as $item)
                                         {
-                                            if($_SESSION['role_as'] != 0)
-                                            {
+                                              if($item['businessid'] == $_SESSION['auth_user']['businessid'])
+                                                {
                                                 ?>
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
@@ -68,7 +68,7 @@ include('includes/header.php');
                                                         </td>
                                                     </tr>
                                                 <?php
-                                            }
+                                                }
                                         }
                                     }
                                     else

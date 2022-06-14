@@ -9,6 +9,8 @@ if(isset($_POST["rating_data"]))
 
 	$data = array(
 		':user_name'		=>	$_POST["user_name"],
+		':userid'			=>	$_POST["userid"],
+		':businessid'		=>	$_POST["businessid"],
 		':user_rating'		=>	$_POST["rating_data"],
 		':user_review'		=>	$_POST["user_review"],
 		':datetime'			=>	time()
@@ -16,8 +18,8 @@ if(isset($_POST["rating_data"]))
 
 	$query = "
 	INSERT INTO review_table 
-	(user_name, user_rating, user_review, datetime) 
-	VALUES (:user_name, :user_rating, :user_review, :datetime)
+	(user_name, userid, businessid, user_rating, user_review, datetime) 
+	VALUES (:user_name, :userid, :businessid, :user_rating, :user_review, :datetime)
 	";
 
 	$statement = $con->prepare($query);
@@ -51,6 +53,8 @@ if(isset($_POST["action"]))
 	{
 		$review_content[] = array(
 			'user_name'		=>	$row["user_name"],
+			'userid'		=>	$row["userid"],
+			'businessid'	=>	$row["businessid"],
 			'user_review'	=>	$row["user_review"],
 			'rating'		=>	$row["user_rating"],
 			'datetime'		=>	date('l jS, F Y h:i:s A', $row["datetime"])
