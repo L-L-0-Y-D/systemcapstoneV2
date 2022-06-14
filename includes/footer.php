@@ -17,6 +17,8 @@
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
@@ -33,7 +35,9 @@
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
-         alertify.alert('<?= $_SESSION['message']; ?>').set('basic', true); 
+          alertify.set('notifier','position', 'top-center');
+         var msg = alertify.message('Default message');
+        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
         <?php 
         unset($_SESSION['message']);
     }
@@ -87,14 +91,6 @@
 
 <?php
             }
-            else
-            {
-                echo "Users not Found";
-            }
-        }
-        else
-        {
-           echo"ID missing from url";
         }
             ?>
 

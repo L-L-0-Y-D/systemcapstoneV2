@@ -89,7 +89,9 @@ if(isset($_SESSION['auth'])){
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
-         alertify.alert('<?= $_SESSION['message']; ?>').set('basic', true); 
+          alertify.set('notifier','position', 'top-center');
+         var msg = alertify.message('Default message');
+        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
         <?php 
         unset($_SESSION['message']);
     }
