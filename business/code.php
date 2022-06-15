@@ -169,9 +169,40 @@ else if(isset($_POST['edit_business_btn']))
         $update_filename = $old_image;
     }
     $path = "../uploads";
-    $hash = password_hash($business_password, PASSWORD_DEFAULT);
-    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress',business_password='$hash', image='$update_filename', status='$status' WHERE businessid='$businessid'";
-    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    if(mysqli_num_rows($check_email_query_run)>0)
+    {
+        redirect("add-business.php", "Email Already Use");
+    }
+    else
+    {
+        // Check if password Match
+        if($business_password == $business_confirmpassword)
+        {
+            if(preg_match("/^[0-9]\d{10}$/",$_POST['business_phonenumber']))
+            {
+                    if(strlen($_POST['business_password']) >= 8 )
+                    {
+                        $hash = password_hash($business_password, PASSWORD_DEFAULT);
+                        $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress',business_password='$hash', image='$update_filename', status='$status' WHERE businessid='$businessid'";
+                        //mysqli_query($con,$update_query) or die("bad query: $update_query");
+                    }
+                    else
+                    {
+                        redirect("profile.php?id=$businessid", "Your password must be at least 8 characters"); 
+                    }
+            }
+            else
+            {
+                redirect("profile.php?id=$businessid", "Phone number error detected");
+            }
+    
+        }
+        else
+        {
+            redirect("profile.php?id=$businessid", "Passwords do not match");
+        }
+    }
 
     $update_query_run = mysqli_query($con, $update_query);
 

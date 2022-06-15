@@ -63,6 +63,7 @@
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
 	      	<div class="modal-header">
+                
 	        	<h5 class="modal-title text-center">Submit Review</h5>
 	      	</div>
 	      	<div class="modal-body">

@@ -43,20 +43,34 @@ if(isset($_POST['business_register_btn']))
         // Check if password Match
         if($business_password == $business_confirmpassword)
         {
-            // Insert User Data
-            $hash = password_hash($business_password, PASSWORD_DEFAULT);
-            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, status) 
-            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename', '$status')";
-            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-            $users_query_run = mysqli_query($con, $insert_query);
+            if(preg_match("/^[0-9]\d{10}$/",$_POST['business_phonenumber']))
+                {
+                    if(strlen($_POST['business_password']) >= 8 )
+                        {
+                            // Insert User Data
+                            $hash = password_hash($business_password, PASSWORD_DEFAULT);
+                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, status) 
+                            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename', '$status')";
+                            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
+                            $users_query_run = mysqli_query($con, $insert_query);
 
-            if($users_query_run){
-                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                redirect("../ownerlogin.php", "Register Successfully");
-            }
-            else{
-                redirect("../businessreg.php", "Something went wrong");;
-            }
+                            if($users_query_run){
+                                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                                redirect("../ownerlogin.php", "Register Successfully");
+                            }
+                            else{
+                                redirect("../businessreg.php", "Something went wrong");;
+                            }
+                        }
+                    else
+                        {
+                            redirect("../businessreg.php", "Your password must be at least 8 characters"); 
+                        }
+                }
+            else
+                {
+                    redirect("../businessreg.php", "Phone number error detected");
+                }
 
         }
         else
