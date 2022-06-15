@@ -32,7 +32,7 @@ include('includes/header.php');
                         <div class="row">
                                 <div class="col-md-12">
                                 <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control">
+                                <input type="file" name="image" class="form-control" readonly>
                                 <label for="">Current Image</label>
                                 <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
@@ -45,7 +45,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Business address</label>
-                                <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control">
+                                <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Business Municipality</label>
@@ -88,6 +88,13 @@ include('includes/header.php');
                                         echo "No Category Available";
                                     }?>
                                 </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Business Certificate</label>
+                                <input type="file" name="image_cert" class="form-control">
+                                <label for="">Current Image</label>
+                                <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px">
+                                <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
                             </div>
                             <h3>OWNER DETAILS</h3>
                             <div class="col-md-6">

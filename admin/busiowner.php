@@ -31,6 +31,7 @@ include('includes/header.php');
                             <thead>
                                 <tr>
                                     <th>Image</th>
+                                    <th>Business Permit</th>
                                     <th>Business Name</th>
                                     <th>Cuisine Type</th>
                                     <th>Municipality</th>
@@ -55,6 +56,7 @@ include('includes/header.php');
                                                 ?>
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
+                                                        <td><img src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"></td>
                                                         <td><?= $item['business_name']; ?></td>
                                                         <td><?= $item['categoryid']; ?></td>
                                                         <td><?= $item['municipalityid']; ?></td>

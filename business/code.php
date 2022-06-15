@@ -156,7 +156,9 @@ else if(isset($_POST['edit_business_btn']))
     $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
+    $new_image_cert = $_FILES['image_cert']['name'];
     $old_image = $_POST['old_image'];
+    $old_image_cert = $_POST['old_image_cert'];
 
     if($new_image != "")
     {
@@ -168,7 +170,19 @@ else if(isset($_POST['edit_business_btn']))
     {
         $update_filename = $old_image;
     }
+
+    if($new_image_cert != "")
+    {
+        //$update_filename = $new_image;
+        $image_cert_ext = pathinfo($new_image_cert, PATHINFO_EXTENSION);
+        $update_filename_cert = time().'.'.$image_cert_ext;
+    }
+    else
+    {
+        $update_filename_cert = $old_image_cert;
+    }
     $path = "../uploads";
+    $cert_path = "../certificate";
 
     if(mysqli_num_rows($check_email_query_run)>0)
     {
@@ -184,7 +198,7 @@ else if(isset($_POST['edit_business_btn']))
                     if(strlen($_POST['business_password']) >= 8 )
                     {
                         $hash = password_hash($business_password, PASSWORD_DEFAULT);
-                        $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress',business_password='$hash', image='$update_filename', status='$status' WHERE businessid='$businessid'";
+                        $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
                         //mysqli_query($con,$update_query) or die("bad query: $update_query");
                     }
                     else
@@ -211,11 +225,22 @@ else if(isset($_POST['edit_business_btn']))
         if($_FILES['image']['name'] != "")
         {
             move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+            
             if(file_exists("../uploads/".$old_image))
             {
                 unlink("../uploads/".$old_image);
             }
         }
+        if($_FILES['image_cert']['name'] != "")
+        {
+            move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$update_filename_cert);
+            
+            if(file_exists("../certification/".$old_image_cert))
+            {
+                unlink("../certification/".$old_image_cert);
+            }
+        }
+
         redirect("index.php", "Business Updated Successfully");
     }
     else
