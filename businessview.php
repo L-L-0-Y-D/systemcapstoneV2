@@ -76,8 +76,8 @@
                         ?>
                                             
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
-                            <a href="your_reservation.php">Your Reservation</a>
-                            <a href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">Your Profile</a>
+                            <a href="your_reservation.php">Reservation</a>
+                            <a href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">Profile</a>
                             <a href="logout.php">Logout</a>
 
                         <?php
@@ -153,8 +153,8 @@
                                     <div class="row d-flex justify-content-center align-items-lg-center" style="margin-left: 0px;margin-right: 0px;text-align: left;">
                                         <div class="col-md-9 d-flex justify-content-center" style="width: 960px;margin-left: 0px;margin-right: 0px;">
                                             <div class="products">
-                                                <div class="row g-0" style="padding: 0px;margin-left: 10px; border:1px solid;">
-                                                    <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="row g-0" style="padding: 0px;margin-left: 10px; border:none;">
+                                            <div class="col-12 col-md-6 mb-3 ml-2 col-lg-4" style="border:1px solid black; width: 260px;">
                                                         <div class="clean-product-item">
                                                         <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -182,7 +182,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?= $data['business_address']; ?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style><a href="https://www.embedgooglemap.net">embed code for google map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div></div>
+                                <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?= $data['business_address']; ?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div></div>
                                 <div class="tab-pane fade" role="tabpanel" id="reviews">
                                     <div class="container mt-3">
                                         <div class="card">

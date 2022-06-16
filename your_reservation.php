@@ -53,7 +53,7 @@ include('middleware/userMiddleware.php');
                
             ?>
     <nav class="navbar navbar-light navbar-expand-md" style="background: var(--bs-orange);">
-        <div class="container-fluid"><a class="navbar-brand" href="#" style="padding-left: 0px;margin-left: 2%;"><strong>Hi Username <?= $_SESSION['auth_user']['name'];?>!</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="padding-left: 0px;margin-left: 2%;"><strong>Hi <?= $_SESSION['auth_user']['name'];?>!</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse justify-content-end" id="navcol-1" style="padding-right: 30px;">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="index.php"><i class="fas fa-home"></i>&nbsp;Home</a></li>
@@ -68,12 +68,12 @@ include('middleware/userMiddleware.php');
                 ?>
                         
     <div class="container" style="box-shadow: 0px 0px 5px;width: auto;margin-right: 15%;margin-left: 15%;height: auto;">
-        <h1 style="margin-top: 10%;font-size: 24.88px;"><strong>Reservation Details</strong></h1>
+        <h1 style="margin-top: 5%;font-size: 24.88px; padding-top:10px;"><strong>Reservation Details</strong></h1>
         <div class="row align-items-center" style="padding-top: 10px;margin-top: 10px;padding-bottom: 10px;padding-left: 10px;padding-right: 10px;height: auto;border-top: 1px solid var(--bs-gray-600);">
             <div class="col-md-3" style="border: 1px solid var(--bs-gray-400);height: 180px;">
                 <div class="product-image" style="height: 180px;"><img class="img-fluid d-block mx-auto image" src="assets/img/1654500540.png" style="width: 160px;height: 160px;margin-top: 10px;margin-bottom: 10px;"></div>
             </div>
-            <div class="col-md-5 text-start product-info"><span style="font-size: 18px;"><strong>Table No.</strong></span>
+            <div class="col-md-5 text-start product-info"><span style="font-size: 18px;"><strong></strong></span>
                 <div class="product-specs">
                     <div><span>Reservation Date:&nbsp;</span><span class="value" style="padding-left: 5px;"><?= $data['reservation_date']; ?></span></div>
                     <div><span>Reservation Time:</span><span class="value" style="padding-left: 5px;"><?= $data['reservation_time']; ?></span></div>
@@ -84,9 +84,9 @@ include('middleware/userMiddleware.php');
         </div>
     </div>
     <div class="container" style="margin-right: 15%;margin-left: 15%;width: auto;box-shadow: 0px 0px 5px;margin-top: 20px;height: auto;">
-        <h1 style="font-size: 24.88px;"><strong>Customer Details</strong></h1>
+        <h1 style="font-size: 24.88px; padding-top:10px;"><strong>Customer Details</strong></h1>
         <div class="row" style="margin-top: 0px;padding: 10px;border-top-width: 1px;border-top-style: solid;">
-            <div class="col"><span style="font-size: 18px;"><strong>Reservation Id</strong></span>
+            <div class="col"><span style="font-size: 18px;"><strong>Information</strong></span>
                 <div class="product-specs">
                     <div><span>Customer Name :</span><span>&nbsp; <?= $data['namereserveunder']; ?></span></div>
                     <div><span>Email Address :</span><span class="value" style="padding-left: 5px;"><?= $data['reservation_email']; ?></span></div>

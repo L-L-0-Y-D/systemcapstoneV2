@@ -55,8 +55,7 @@
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Profile
-                </h4>   
+                <h4>Profile<span> <a href="index.php" class="btn btn-primary float-end">Back</a></span></h4>
                 </div>
                 <div class="card-body">
                     <form action="functions/authcode.php" method="POST" enctype="multipart/form-data">

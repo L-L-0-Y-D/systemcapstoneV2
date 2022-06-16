@@ -34,7 +34,7 @@ if(isset($_SESSION['auth'])){
 <main>
     <form method="post" action="functions/authcode.php" > 
         <div class="container">
-            <p>CUSTOMER LOGIN</p>
+            <p>LOGIN</p>
             <div class="row">
                 <input type="email" name="email" required placeholder="Email" class="input"/>
             </div>

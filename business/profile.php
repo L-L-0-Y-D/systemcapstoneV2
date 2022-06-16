@@ -112,11 +112,11 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Password</label>
-                                <input type="password" name="business_password" placeholder="Enter Password" class="form-control">
+                                <input type="password" name="business_password" placeholder="Enter Password" class="form-control" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Confirm Password</label>
-                                <input type="password" name="business_confirmpassword" placeholder="Enter Confirm Password" class="form-control">
+                                <input type="password" name="business_confirmpassword" placeholder="Enter Confirm Password" class="form-control" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Status</label>

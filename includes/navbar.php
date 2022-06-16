@@ -47,8 +47,8 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         ?>
                                             
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
-                            <a href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>">Your Reservation</a>
-                            <a href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">Your Profile</a>
+                            <a href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>">Reservation</a>
+                            <a href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">Profile</a>
                             <a href="logout.php">Logout</a>
 
                         <?php
@@ -92,8 +92,10 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
     </div>
     <div class="container">
         <div class="d-flex float-right">
+        <!--<input type="" class="search-input" required placeholder=" Search Restaurant">-->
             <select id="cuisine" name='cuisine_type'>
             <option disabled selected hidden>Type of Cuisine</option>
+            <!--<button type="submit" class="search-btn" name="Search" value="Search">Search</button>-->
             <div>
                 <?php 
                         $category = getAllActive("mealcategory");

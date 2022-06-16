@@ -36,7 +36,7 @@ if(isset($_POST['business_register_btn']))
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("add-business.php", "Email Already Use");
+        redirect("../businessreg.php", "Email Already Use");
     }
     else
     {
