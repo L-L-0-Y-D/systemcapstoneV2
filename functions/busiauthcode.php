@@ -98,45 +98,55 @@ else if(isset($_POST['business_login']))
 
     if(mysqli_num_rows($login_query_run) > 0)
     {  
-        while($row = mysqli_fetch_array($login_query_run))
-        {
-            if(password_verify($business_password, $row["business_password"]))
+            while($row = mysqli_fetch_array($login_query_run))
             {
-                if(mysqli_num_rows($login_query_run) > 0)
+                if(password_verify($business_password, $row["business_password"]))
                 {
-                    $_SESSION['auth'] = true;
+                        $status = $row['status']; 
+                        if(mysqli_num_rows($login_query_run) > 0)
+                        {      
+                            $_SESSION['status'] = $status;
+                            if($status == '1')  
+                            { 
+                                $_SESSION['auth'] = true;
 
-                    $businessid = $row['businessid'];
-                    $businessnames = $row['business_name'];
-                    $businessemail = $row['email'];
-                    $role_as = $row['role_as'];
-                    $businessimage = $row['image'];
+                                $businessid = $row['businessid'];
+                                $businessnames = $row['business_name'];
+                                $businessemail = $row['email'];
+                                $role_as = $row['role_as'];
+                                $businessimage = $row['image'];
+                                
 
-                    $_SESSION['auth_user'] = [
-                        'businessid' => $businessid,
-                        'business_name' => $businessnames,
-                        'email' => $useremail,
-                        'image' => $businessimage,
-                        'role_as' => $role_as
-                    ];
+                                $_SESSION['auth_user'] = [
+                                    'businessid' => $businessid,
+                                    'business_name' => $businessnames,
+                                    'email' => $useremail,
+                                    'image' => $businessimage,
+                                    'role_as' => $role_as,
+                                    'status' => $status
+                                ];
+                                $_SESSION['role_as'] = $role_as;
+                                
+                                redirect("../business/index.php?id=$businessid", "Welcome to dashboard");
+                            }
+                            else
+                            {
+                                redirect("../ownerlogin.php", "You are not verify yet");
+                            }
+                            
+                        }
+                        else
+                        {
+                            redirect("../ownerlogin.php", "Invalid Credentials");
+                        }
 
-                    $_SESSION['role_as'] = $role_as;
-
-                    redirect("../business/index.php?id=$businessid", "Welcome to dashboard");
-                    
                 }
                 else
                 {
-                    redirect("../ownerlogin.php", "Invalid Credentials");
+                    redirect("../ownerlogin.php", "Wrong Email or Password");
                 }
 
             }
-            else
-            {
-                redirect("../ownerlogin.php", "Wrong Email or Password");
-            }
-
-        }
     }
     else
     {  

@@ -101,12 +101,12 @@ include('middleware/userMiddleware.php');
             }
             else
             {
-                echo "Reservation not Found";
+                redirect("index.php", "No Reservation Found");
             }
         }
         else
         {
-           echo"ID missing from url";
+            redirect("index.php", "ID Missing from the URL");
         }
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
