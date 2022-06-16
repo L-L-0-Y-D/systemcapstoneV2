@@ -338,33 +338,55 @@ else if(isset($_POST['add_customer_btn'])){
         // Check if password Match
         if($password == $confirmpassword)
         {
-            // Insert User Data
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
-            VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
-            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-            $users_query_run = mysqli_query($con, $insert_query);
+            if($age >= '18')
+                {
+                    if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
+                    {
+                        if(strlen($_POST['password']) >= 8 )
+                        {
+                            // Insert User Data
+                            $hash = password_hash($password, PASSWORD_DEFAULT);
+                            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
+                            VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
+                            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
+                            $users_query_run = mysqli_query($con, $insert_query);
+                        
 
-            if ($role_as == 0)
-            {
-                if($users_query_run){
-                    move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                    redirect("customers.php", "Register Successfully");
+                            if ($role_as == 0)
+                            {
+                                if($users_query_run){
+                                    move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                                    redirect("customers.php", "Register Successfully");
+                                }
+                                else{
+                                    redirect("add-customers.php", "Something went wrong");;
+                                }
+                            }
+                            else
+                            {
+                                if($users_query_run){
+                                    move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                                    redirect("admin.php", "Register Successfully");
+                                }
+                                else{
+                                    redirect("add-customers.php", "Something went wrong");;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            redirect("add-customer.php", "Your password must be at least 8 characters"); 
+                        }
+                    }
+                    else
+                    {
+                        redirect("add-customer.php", "Phone number error detected");
+                    }
                 }
-                else{
-                    redirect("add-customers.php", "Something went wrong");;
+                else
+                {
+                    redirect("add-customer.php", "Underage Detected");
                 }
-            }
-            else
-            {
-                if($users_query_run){
-                    move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                    redirect("admin.php", "Register Successfully");
-                }
-                else{
-                    redirect("add-customers.php", "Something went wrong");;
-                }
-            }
 
         }
         else
@@ -402,11 +424,43 @@ else if(isset($_POST['update_customer_btn']))
     {
         $update_filename = $old_image;
     }
-    $path = "../uploads";
-    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
-    //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
-    $update_query_run = mysqli_query($con, $update_query);
+    if(mysqli_num_rows($check_email_query_run)>0)
+    {
+        redirect("edit-admin.php?=$userid", "Email Already Use");
+    }
+    else
+    {
+        // Check if password Match
+        if($password == $confirmpassword)
+        {
+            if($age >= '18')
+                {
+                    if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
+                    {
+                        
+                            $path = "../uploads";
+                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+                            //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+                            $update_query_run = mysqli_query($con, $update_query);
+                    }
+                    else
+                    {
+                        redirect("edit-admin.php?=$userid", "Phone number error detected");
+                    }
+                }
+                else
+                {
+                    redirect("edit-admin.php?=$userid", "Underage Detected");
+                }
+
+        }
+        else
+        {
+            redirect("add-customers.php", "Passwords do not match");
+        }
+    }
 
     if($update_query_run)
     {
@@ -469,12 +523,51 @@ else if(isset($_POST['update_admin_btn']))
     {
         $update_filename = $old_image;
     }
-    $path = "../uploads";
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-    $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$hash',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
-    //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
-    $update_query_run = mysqli_query($con, $update_query);
+    if(mysqli_num_rows($check_email_query_run)>0)
+    {
+        redirect("edit-admin.php?=$userid", "Email Already Use");
+    }
+    else
+    {
+        // Check if password Match
+        if($password == $confirmpassword)
+        {
+            if($age >= '18')
+                {
+                    if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
+                    {
+                        if(strlen($_POST['password']) >= 8 )
+                        {
+                            $path = "../uploads";
+                            $hash = password_hash($password, PASSWORD_DEFAULT);
+                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$hash',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+                            //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+                            $update_query_run = mysqli_query($con, $update_query);
+                        }
+                        else
+                        {
+                            redirect("edit-admin.php?id=$userid", "Your password must be at least 8 characters"); 
+                        }
+                        
+                    }
+                    else
+                    {
+                        redirect("edit-admin.php?id=$userid", "Phone number error detected");
+                    }
+                }
+                else
+                {
+                    redirect("edit-admin.php?id=$userid", "Underage Detected");
+                }
+
+        }
+        else
+        {
+            redirect("edit-admin.php?id=$userid", "Passwords do not match");
+        }
+    }
 
     if($update_query_run)
     {
@@ -554,11 +647,17 @@ else if(isset($_POST['add_business_btn']))
     $status = isset($_POST['status']) ? "1":"0";
 
     $image = $_FILES['image']['name'];
+    $image_cert = $_FILES['image_cert']['name'];
 
     $path = "../uploads";
 
+    $cert_path = "../certificate";
+
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    $image_cert_ext = pathinfo($image_cert, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
+    $certname = time().'.'.$image_cert_ext;
+
 
     
     // Check if email already registered
@@ -580,13 +679,14 @@ else if(isset($_POST['add_business_btn']))
         {
             // Insert User Data
             $hash = password_hash($business_password, PASSWORD_DEFAULT);
-            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, status) 
-            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename', '$status')";
+            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, image_cert, status) 
+            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email', '$hash', '$filename', '$certname', '$status')";
             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
             $users_query_run = mysqli_query($con, $insert_query);
 
             if($users_query_run){
                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
                 redirect("busiowner.php", "Register Successfully");
             }
             else{
@@ -617,7 +717,9 @@ else if(isset($_POST['edit_business_btn']))
     $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
+    $new_image_cert = $_FILES['image_cert']['name'];
     $old_image = $_POST['old_image'];
+    $old_image_cert = $_POST['old_image_cert'];
 
     if($new_image != "")
     {
@@ -629,9 +731,21 @@ else if(isset($_POST['edit_business_btn']))
     {
         $update_filename = $old_image;
     }
-    $path = "../uploads";
 
-    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', status='$status' WHERE businessid='$businessid'";
+    if($new_image_cert != "")
+    {
+        //$update_filename = $new_image;
+        $image_cert_ext = pathinfo($new_image_cert, PATHINFO_EXTENSION);
+        $update_filename_cert = time().'.'.$image_cert_ext;
+    }
+    else
+    {
+        $update_filename_cert = $old_image_cert;
+    }
+    $path = "../uploads";
+    $cert_path = "../certificate";
+
+    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
@@ -641,11 +755,22 @@ else if(isset($_POST['edit_business_btn']))
         if($_FILES['image']['name'] != "")
         {
             move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+            
             if(file_exists("../uploads/".$old_image))
             {
                 unlink("../uploads/".$old_image);
             }
         }
+        if($_FILES['image_cert']['name'] != "")
+        {
+            move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$update_filename_cert);
+            
+            if(file_exists("../certification/".$old_image_cert))
+            {
+                unlink("../certification/".$old_image_cert);
+            }
+        }
+
         redirect("busiowner.php", "Business Updated Successfully");
     }
     else

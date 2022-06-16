@@ -72,6 +72,10 @@ include('includes/header.php');
                             }?>
                         </select>
                     </div>
+                    <div class="col-md-12">
+                        <label for="">Business Certificate</label>
+                        <input type="file" name="image_cert" required class="form-control">
+                    </div>
                     <h3>OWNER DETAILS</h3>
                     <div class="col-md-6">
                         <label for="">First Name</label>

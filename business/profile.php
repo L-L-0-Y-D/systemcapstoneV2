@@ -24,7 +24,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                 <h4>Edit Business
-                    <a href="busiowner.php" class="btn btn-primary float-end">Back</a>
+                    <a href="index.php" class="btn btn-primary float-end">Back</a>
                 </h4>   
                 </div>
                 <div class="card-body">
@@ -68,6 +68,7 @@ include('includes/header.php');
                                     }?>
                                 </select>
                             </div>
+                            
                             <div class="col-md-6">
                                 <label for="">Select Cuisine Type</label>
                                 <select name='categoryid' class="form-select mb-2">
@@ -88,6 +89,13 @@ include('includes/header.php');
                                         echo "No Category Available";
                                     }?>
                                 </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Business Certificate</label>
+                                <input type="file" name="image_cert" required class="form-control">
+                                <label for="">Current Image</label>
+                                <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px">
+                                <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
                             </div>
                             <h3>OWNER DETAILS</h3>
                             <div class="col-md-6">
@@ -118,10 +126,6 @@ include('includes/header.php');
                                 <label for="">Confirm Password</label>
                                 <input type="password" name="business_confirmpassword" placeholder="Enter Confirm Password" class="form-control" required>
                             </div>
-                            <div class="col-md-12">
-                                <label for="">Status</label>
-                                <input type="hidden" name="status" value = '0'>
-                            </div> <br>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary" name="edit_business_btn">Save</button>
                             </div>

@@ -84,6 +84,10 @@ if(isset($_SESSION['auth'])){
                             }?>
                   </select> 
                 </div>
+                <div class="upload" >
+                    <label for="">Upload Business Permit</label><br>
+                    <input type="file" name="image_cert" required class="form-control">
+                </div>
             <p>OWNER DETAILS</p>
                 <div class="column">
                     <input type="text" name='business_firstname' required placeholder="Firstname" class="input"/>
@@ -104,6 +108,7 @@ if(isset($_SESSION['auth'])){
                     <input type="password" name='business_password' required placeholder="Password" class="input"/>
                 </div>
                 <div class="column">
+                    <input type="hidden" name="status" value = '0'>
                     <input type="password" name='business_confirmpassword' required placeholder="Confirm Password" class="input"/>
                 </div>
                 
