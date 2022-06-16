@@ -8,12 +8,16 @@ include('middleware/userMiddleware.php');
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reservation.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-    <title>Reservation</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Montserrat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="reg.css">
+    <title>Reservation | I-Eat</title>
 </head>
 <body>
     <?php 
@@ -28,46 +32,47 @@ include('middleware/userMiddleware.php');
                 
             
             ?>
-    <header>
-         <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
-    <map name="workmap">
-        <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
-    </map>
-    </header>
-            <form method="POST" action="functions/codereservation.php">
-            <h3>Reservation</h3>
-            <div class="column">
-                <label for="numberofguest">Number of Guest:</label>
-                <input type="number" id="numberofguest" name='numberofguest' required placeholder="Number of guest" class="input"/>
+   <main class="page registration-page">
+        <section class="clean-block clean-form dark" style="height: auto;background: transparent;">
+            <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" loading="eager" src="uploads/I-EatLogo.png" width="200px" height="200px" alt="logo" usemap="#workmap">
+                <map name="workmap">
+                    <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
+                </map>
+            <form method="POST" action="functions/codereservation.php" style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-top-color: rgb(255,;border-right-color: 128,;border-bottom-color: 64);border-left-color: 128,;border-radius: 20px;">
+            <div class="container">
+                        <h2 class="d-flex justify-content-center" style="font-weight:bold;">RESERVATION</h2>
+            <div class="column mb-3">
+                <label class="form-label" for="numberofguest" style="font-weight: bold;">Number of Guest:</label>
+                <input type="number" id="numberofguest" name='numberofguest' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
-            <div class="column">
+            <div class="column mb-3">
                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
                 <input type="hidden" name="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
-                <label for="namereserveunder">Name Reserved Under:</label>
-                <input type="text" id="namereserveunder" name='namereserveunder'value="<?= $_SESSION['auth_user']['name'];?>" required placeholder="Name Reserve under" class="under" required class="input"/>
+                <label class="form-label" for="namereserveunder" style="font-weight: bold;">Name Reserved Under:</label>
+                <input type="text" id="namereserveunder" name='namereserveunder'value="<?= $_SESSION['auth_user']['name'];?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
-            <div class="column">
-                <label for="reservation_email">Email:</label>
-                <input type="email" id="reservation_email" name="reservation_email" value="<?= $_SESSION['auth_user']['email'];?>" required placeholder="Email" class="email" required class="input">
+            <div class="column mb-3">
+                <label class="form-label" for="reservation_email" style="font-weight: bold;">Email:</label>
+                <input type="email" id="reservation_email" name="reservation_email" value="<?= $_SESSION['auth_user']['email'];?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
-            <div class="column">
-                <label for="reservation_phonenumber">Phonenumber:</label>
-                <input type="text" id="reservation_phonenumber" name="reservation_phonenumber" required placeholder="Phonenumber" class ="phone" required class="input">
+            <div class="column mb-3">
+                <label class="form-label" for="reservation_phonenumber" style="font-weight: bold;">Phonenumber:</label>
+                <input type="text" id="reservation_phonenumber" name="reservation_phonenumber" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
-            <div class="column">
-                <label for="reservation_date">Reservation Date:</label>
-                <input type="date" id="reservation_date" name="reservation_date" required class="input">
+            <div class="column mb-3">
+                <label class="form-label" for="reservation_date" style="font-weight: bold;">Reservation Date:</label>
+                <input type="date" id="reservation_date" name="reservation_date" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
-            <div class="column">
-                <label for="reservation_time">Reservation time:</label>
-                <input type="time" id="reservation_time" name="reservation_time" required  class="time">
+            <div class="column mb-3">
+                <label class="form-label" for="reservation_time" style="font-weight: bold;">Reservation time:</label>
+                <input type="time" id="reservation_time" name="reservation_time" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
             <div class="col-md-12">
                 <input type="hidden" name="status" value = '0' >
             </div>
                 
-            <button type="submit" name="reserve_btn" class="reg" >Reserve</button> 
-            <a href="index.php">Back to Home</a>
+            <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" type="submit" name="reserve_btn" style="background: black;color: white;border-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;" >Reserve</button> 
+            <a class="d-flex justify-content-center" style="color: black;" href="index.php">Back to Home</a>
             </div>
     <?php
             }
@@ -81,7 +86,9 @@ include('middleware/userMiddleware.php');
            echo"ID missing from url";
         }
             ?>
-</form>
+        </form>
+    </section>
+</main>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 

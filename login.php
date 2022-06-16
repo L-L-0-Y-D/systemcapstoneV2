@@ -24,18 +24,18 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/Montserrat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
-    
+    <link rel="stylesheet" href="reg.css">
     <title>Login | I-Eat</title>
 
 </head>
-<body style="background: url(uploads/bg.png) center / cover no-repeat;">
+<body >
     <main class="page registration-page">
         <section class="clean-block clean-form dark" style="height: 672px;background: transparent;">
                 <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" src="uploads/I-EatLogo.png" width="200px" height="200px" alt="logo" usemap="#workmap">
                     <map name="workmap">
                         <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
                     </map>
-        <form method="post" action="functions/authcode.php" style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-top-color: rgb(255,;border-right-color: 128,;border-bottom-color: 64);border-left-color: 128,;border-radius: 20px;"> 
+        <form method="post" action="functions/authcode.php" style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-radius: 20px;"> 
         <div class="container">
             <h2 class="d-flex justify-content-center" style="font-weight:bold;">LOGIN</h2>
             <div class="row">
@@ -57,10 +57,6 @@ if(isset($_SESSION['auth'])){
         </form>
     </section>
 </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
-    <script src="assets/js/vanilla-zoom.js"></script>
-    <script src="assets/js/theme.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

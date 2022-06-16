@@ -15,37 +15,40 @@ if(isset($_SESSION['auth'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="businessreg.css"> 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-    <title>Register your Business</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Montserrat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="reg.css"> 
+    <title>Register Business | I-Eat</title>
 </head>
 <body>
-    <header>
-        <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200" height="200">
-    <map name="workmap">
-        <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
-    </map>
-    </header>
-<main>
-<div class="container">
-        <p>COMPANY INFORMATION</p>
-        <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data">
-            <div class="column">
-                <div class="upload" >
-                    <label for="">Upload Image</label><br>
-                    <input type="file" name="image" required class="form-control">
-                </div>
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark" style="height: auto;background: transparent;">
+            <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" loading="eager" src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200px" height="200px">
+            <map name="workmap">
+                <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
+             </map>
+            <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data"  style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-top-color: rgb(255,;border-right-color: 128,;border-bottom-color: 64);border-left-color: 128,;border-radius: 20px;">
+                <div class="container">
+                    <h2 class="d-flex justify-content-center" style="font-weight:bold;">BUSINESS DETAILS</h2>
+            <div class="column mb-3">
+                <label class="form-label" for="" style="font-weight: bold;">Upload Image</label>
+                <input class="form-control" type="file" name="image" style="margin-bottom: 5px;height: 40px;" required >
             </div>
-            <div class="column">
-                  <input type="text" name='business_name' required placeholder="Business Name" class="input"/>
+            <div class="column mb-3">
+                <label class="form-label" for="" style="font-weight: bold;">Business Name</label>
+                <input type="text" name='business_name' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
-            <div class="column">
-                  <input type="text" name='business_address' required placeholder="Business Address" class="input"/>
+            <div class="column mb-3">
+                <label class="form-label" for="" style="font-weight: bold;">Business Address</label>
+                <input type="text" name='business_address' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
             <div>
-                  <select name="municipalityid" required>
+                  <select class= "border rounded form-select mb-3" name="municipalityid" style="height:40px; border-style:none;"  required>
                     <option disabled selected hidden>Select your Business Location</option>
                     <?php 
                         $municipality = getAllActive("municipality");
@@ -65,7 +68,7 @@ if(isset($_SESSION['auth'])){
                   </select> 
                 </div>
                 <div>
-                  <select name="categoryid" required>
+                  <select class= "border rounded form-select mb-3" name="categoryid" style="height:40px; border-style:none;" required>
                     <option disabled selected hidden>Type of Cuisine</option>
                     <?php 
                         $category = getAllActive("mealcategory");
@@ -84,38 +87,46 @@ if(isset($_SESSION['auth'])){
                             }?>
                   </select> 
                 </div>
-                <div class="upload" >
-                    <label for="">Upload Business Permit</label><br>
-                    <input type="file" name="image_cert" required class="form-control">
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Upload Business Permit</label>
+                    <input class="form-control" type="file" name="image" style="margin-bottom: 5px;height: 40px;" required >
+            </div>
+            <h2 class="d-flex justify-content-center" style="font-weight:bold;">Owner Information</h2>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Firstname</label>
+                    <input type="text" name='business_firstname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                 </div>
-            <p>OWNER DETAILS</p>
-                <div class="column">
-                    <input type="text" name='business_firstname' required placeholder="Firstname" class="input"/>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Lastname</label>
+                    <input type="text" name='business_lastname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                 </div>
-                <div class="column">
-                    <input type="text" name='business_lastname' required placeholder="Lastname" class="input"/>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Phone Number</label>
+                    <input type="text" name='business_phonenumber' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                 </div>
-                <div class="column">
-                    <input type="text" name='business_phonenumber' required placeholder="Contact Number" class="input"/>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Address</label>
+                    <input type="text" name='business_owneraddress' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                 </div>
-                <div class="column">
-                    <input type="text" name='business_owneraddress' required placeholder="Address" class="input"/>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Email Address</label>
+                    <input type="email" name='business_email' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                 </div>
-                <div class="column">
-                    <input type="text" name='business_email' required placeholder="Email Address" class="input"/>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Password</label>
+                    <input type="password" name='business_password'  class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                 </div>
-                <div class="column">
-                    <input type="password" name='business_password' required placeholder="Password" class="input"/>
-                </div>
-                <div class="column">
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Confirm Password</label>
                     <input type="hidden" name="status" value = '0'>
-                    <input type="password" name='business_confirmpassword' required placeholder="Confirm Password" class="input"/>
+                    <input type="password" name='business_confirmpassword'  class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                 </div>
                 
-                <button type="submit" name="business_register_btn" class="busi_reg-btn" >REGISTER</button> <br> <br>
-                <a href="index.php">Back to Home</a>
-    </div>
-</form>
+                <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" type="submit" name="business_register_btn"style="background: black;color: white;border-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;" >REGISTER</button> <br>
+                <a class="d-flex justify-content-center" style="color: black;" href="index.php">Back to Home</a>
+        </div>
+    </form>
+</section>
 </main>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
