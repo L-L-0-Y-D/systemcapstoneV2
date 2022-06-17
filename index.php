@@ -50,5 +50,6 @@
 </div>
 </div>
 </div>
+<section class="clean-block about-us">
 
 <?php include('includes/footer.php');?>

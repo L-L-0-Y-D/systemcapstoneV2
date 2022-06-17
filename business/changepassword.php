@@ -46,7 +46,7 @@ include('includes/header.php');
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" name="edit_password_btn">Update Password</button>
                             </div>
-                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
