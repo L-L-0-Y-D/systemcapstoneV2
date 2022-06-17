@@ -137,7 +137,7 @@
                         </div>
                         <div class="col-md-12" style="width: 1024px;margin-top: 10px;">
                             <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Alata, sans-serif;width: 1000px;font-size: 30px;color: var(--bs-gray);margin-top: 21px;">
-                                <div class="btn-group" role="group" style="width: 319.094px;font-size: 16px;"><button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-orange);border-radius: 10px;height: 45px;border-style: none;border-bottom-style: none;text-align: center;">Make Reservation</button><button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-white);color: var(--bs-dark);border-radius: 10px;height: 45px;border: 2px solid var(--bs-gray-900);border-bottom-color: var(--bs-dark);text-align: center;">Add Review</button></div><br>
+                                <div class="btn-group" role="group" style="width: 319.094px;font-size: 16px;"><button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-orange);border-radius: 10px;height: 45px;border-style: none;border-bottom-style: none;text-align: center;">Make Reservation</button><button type="button" name="add_review" id="add_review" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-white);color: var(--bs-dark);border-radius: 10px;height: 45px;border: 2px solid var(--bs-gray-900);border-bottom-color: var(--bs-dark);text-align: center;">Add Review</button></div><br>
                             </h1>
                         </div>
                     </div>
@@ -184,12 +184,16 @@
                                 </div>
                                 <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?= $data['business_address']; ?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div></div>
                                 <div class="tab-pane fade" role="tabpanel" id="reviews">
+                                   <?php
+                                     if($data['businessid'] == $bid)
+                                   {
+                                   ?>
                                     <div class="container mt-3">
                                         <div class="card">
                                             <div class="card-header">Restaurant Feedback</div>
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-sm-4 text-center">
+                                                    <div class="col-sm-6 text-center">
                                                         <h1 class="text-warning mt-4 mb-4">
                                                             <b><span id="average_rating">0.0</span> / 5</b>
                                                         </h1>
@@ -202,7 +206,7 @@
                                                         </div>
                                                         <h3><span id="total_review">0</span> Review/s</h3>
                                                     </div>
-                                                    <div class="col-sm-4">
+                                                    <div class="col-sm-5">
                                                         <p>
                                                             <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
 
@@ -244,16 +248,14 @@
                                                             </div>               
                                                         </p>
                                                     </div>
-                                                    <div class="col-sm-4 text-center">
-                                                        <h3 class="mt-4 mb-3">Write Review Here</h3>
-                                                        <button type="button" name="add_review" id="add_review" class="btn btn-primary">Review</button>
-                                                        
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="mt-5" id="review_content"></div>
                                     </div>
+                                    <?php
+                                   }
+                                   ?>
 
                                 </div>
                             </div>
