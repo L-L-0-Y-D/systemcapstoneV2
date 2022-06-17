@@ -50,8 +50,8 @@
 </div>
 </div>
 </div>
-<!--<section class="clean-block about-us">
-            <div class="container">
+<section class="clean-block about-us">
+            <!--<div class="container">
                 <div class="block-heading">
                     <h2 class="fw-bold" style="color:rgb(255,128,64);">About Us</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
