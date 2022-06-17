@@ -88,6 +88,60 @@ if(isset($_POST['register_btn']))
     
 }
 
+if(isset($_POST['edit_password_btn']))
+{
+    $userid = $_POST['userid'];
+    $oldpassword = $_POST['oldpassword'];
+    $password = $_POST['password'];
+    $confirmpassword = $_POST['confirmpassword'];
+
+        $login_query = "SELECT * FROM users WHERE userid='$userid'";
+        $login_query_run = mysqli_query($con, $login_query);
+        //mysqli_query($con,$login_query) or die("bad query: $login_query");
+
+                while($row = mysqli_fetch_array($login_query_run))
+                {
+                    if(password_verify($oldpassword, $row["password"]))
+                    {
+                                if(strlen($_POST['password']) >= 8 )
+                                {
+                                    if($password == $confirmpassword)
+                                    {
+                                        $hash = password_hash($password, PASSWORD_DEFAULT);
+                                        $update_query = "UPDATE users SET password='$hash' WHERE userid='$userid'";
+                                        //mysqli_query($con,$update_query) or die("bad query: $update_query");
+                                        $update_query_run = mysqli_query($con, $update_query);
+                                        if($update_query_run)
+                                        {   
+                                            redirect("index.php", "Admin Password Updated Successfully");
+                                        }
+                                        else
+                                        {
+                                            redirect("changepassword.php?id=$userid", "Something Went Wrong"); 
+                                        }
+                                        
+                                    }
+                                    else
+                                    {
+                                        redirect("changepassword.php?id=$userid", "Passwords do not match");
+                                    }
+
+                                }
+                                else
+                                {
+                                    redirect("changepassword.php?id=$userid", "Your password must be at least 8 characters"); 
+                                }
+                    }
+                    else
+                    {
+                        redirect("changepassword.php?id=$userid", "Wrong Old Password");
+                    }
+    
+                }
+
+
+}
+
 if(isset($_POST['update_profile_btn']))
 {
     $userid = $_POST['userid'];
