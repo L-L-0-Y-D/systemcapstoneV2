@@ -11,7 +11,7 @@ include('includes/header.php');
       <div class="card">
         <div class="card-header">
           <h4>Add Admin
-          <a href="customers.php" class="btn btn-primary float-end">Back</a>
+          <a href="admin.php" class="btn btn-primary float-end">Back</a>
           </h4>
         </div>
         <div class="card-body">
@@ -61,7 +61,7 @@ include('includes/header.php');
                         <input type = "hidden" name='role_as' value = '1'>
                     </div>
                     <div class="col-md-12">
-                        <label for="">Status</label>
+                        <label for=""></label>
                         <input type="hidden" name="status" value = '1'>
                     </div> <br>
                     <div class="col-md-6">

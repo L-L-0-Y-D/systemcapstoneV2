@@ -67,13 +67,9 @@ include('includes/header.php');
                                 <label for="">Address</label>
                                 <input type="text" name="address" required value="<?= $data['address'] ?>" placeholder="Enter Address" class="form-control">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="">Password</label>
                                 <input type="password" name="password" required placeholder="Enter Password" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Confirm Password</label>
-                                <input type="password" name="confirmpassword" required placeholder="Enter Confirm Password" class="form-control">
                             </div>
                             <div class="col-md-12">
                             <input type = "hidden" name='role_as' value = '1'>
@@ -83,7 +79,7 @@ include('includes/header.php');
                                 <input type="hidden" name="status" <?= $data['status'] == '0'? 'checked':'' ?>>
                             </div> <br>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="update_customer_btn">Save</button>
+                                <button type="submit" class="btn btn-primary" name="update_admin_btn">Save</button>
                             </div>
                         </div>
                     </form>
