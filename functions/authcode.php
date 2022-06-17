@@ -113,28 +113,28 @@ if(isset($_POST['edit_password_btn']))
                                         $update_query_run = mysqli_query($con, $update_query);
                                         if($update_query_run)
                                         {   
-                                            redirect("index.php", "Admin Password Updated Successfully");
+                                            redirect("../index.php", "Password Updated Successfully");
                                         }
                                         else
                                         {
-                                            redirect("changepassword.php?id=$userid", "Something Went Wrong"); 
+                                            redirect("../changepassword.php?id=$userid", "Something Went Wrong"); 
                                         }
                                         
                                     }
                                     else
                                     {
-                                        redirect("changepassword.php?id=$userid", "Passwords do not match");
+                                        redirect("../changepassword.php?id=$userid", "Passwords do not match");
                                     }
 
                                 }
                                 else
                                 {
-                                    redirect("changepassword.php?id=$userid", "Your password must be at least 8 characters"); 
+                                    redirect("../changepassword.php?id=$userid", "Your password must be at least 8 characters"); 
                                 }
                     }
                     else
                     {
-                        redirect("changepassword.php?id=$userid", "Wrong Old Password");
+                        redirect("../changepassword.php?id=$userid", "Wrong Old Password");
                     }
     
                 }
