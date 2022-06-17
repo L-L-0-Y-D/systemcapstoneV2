@@ -97,13 +97,9 @@
                                 <input type="text" name="address" value="<?= $data['address'] ?>" required placeholder="Enter Address" class="form-control">
                                 <label for="">Address</label>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input type="password" name="password" required placeholder="Enter Password" class="form-control">
                                 <label for="">Password</label>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="password" name="confirmpassword" required placeholder="Enter Confirm Password" class="form-control">
-                                <label for="">Confirm Password</label>
                             </div>
                             <div class="col-md-12">
                                 <input type = "hidden" name='role_as' value = '0'>
@@ -112,7 +108,7 @@
                             <input type="hidden" name="status" <?= $data['status'] == '0'? 'checked':'' ?>>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="update_profile_btn">Save</button>
+                                <button type="submit" class="btn btn-primary" name="update_profile_btn">Change Profile</button>
                             </div>
                         </div>
                     </form>

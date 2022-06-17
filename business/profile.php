@@ -23,7 +23,7 @@ include('includes/header.php');
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Edit Business
+                <h4>Edit Profile
                     <a href="index.php" class="btn btn-primary float-end">Back</a>
                 </h4>   
                 </div>
@@ -92,7 +92,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-12">
                                 <label for="">Business Certificate</label>
-                                <input type="file" name="image_cert" required class="form-control">
+                                <input type="file" name="image_cert" class="form-control">
                                 <label for="">Current Image</label>
                                 <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px">
                                 <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
@@ -118,16 +118,15 @@ include('includes/header.php');
                                 <label for="">Address</label>
                                 <input type="text" name="business_owneraddress" value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="">Password</label>
                                 <input type="password" name="business_password" placeholder="Enter Password" class="form-control" required>
                             </div>
-                            <div class="col-md-6">
-                                <label for="">Confirm Password</label>
-                                <input type="password" name="business_confirmpassword" placeholder="Enter Confirm Password" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="edit_business_btn">Save</button>
+                            <div class="col-md-12">
+                                <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
+                            </div> <br>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary" name="edit_business_btn">Update Business Profile</button>
                             </div>
                             </div>
                     </form>

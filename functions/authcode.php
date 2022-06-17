@@ -99,10 +99,8 @@ if(isset($_POST['update_profile_btn']))
     $phonenumber = $_POST['phonenumber'];
     $address = $_POST['address'];
     $password = $_POST['password'];
-    $confirmpassword = $_POST['confirmpassword'];
     $role_as = $_POST['role_as'];
     $status = isset($_POST['status']) ? "0":"1";
-
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
 
@@ -124,7 +122,12 @@ if(isset($_POST['update_profile_btn']))
     }
     else
     {
-        if($password == $confirmpassword)
+        $login_query = "SELECT * FROM users WHERE userid='$userid'";
+        $login_query_run = mysqli_query($con, $login_query);
+
+        while($row = mysqli_fetch_array($login_query_run))
+        {
+            if(password_verify($password, $row["password"]))
             {
                 if($age >= '18')
                 {
@@ -132,9 +135,10 @@ if(isset($_POST['update_profile_btn']))
                     {
                         if(strlen($_POST['password']) >= 8 )
                         {
-                            $hash = password_hash($password, PASSWORD_DEFAULT);
-                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',password='$hash',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
-                            mysqli_query($con,$update_query) or die("bad query: $update_query");
+                            //$hash = password_hash($password, PASSWORD_DEFAULT);
+                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+                            //mysqli_query($con,$update_query) or die("bad query: $update_query");
+                            $update_query_run = mysqli_query($con, $update_query);
                         }
                         else
                         {
@@ -150,15 +154,15 @@ if(isset($_POST['update_profile_btn']))
                 {
                     redirect("../profile.php?id=$userid", "Underage Detected");
                 }
-    
             }
             else
             {
-                redirect("../profile.php?id=$userid", "Passwords do not match");
+                redirect("../profile.php?id=$userid", "Wrong Password");
             }
+
         }
 
-    $update_query_run = mysqli_query($con, $update_query);
+    }
 
     if($update_query_run)
     {
@@ -170,11 +174,11 @@ if(isset($_POST['update_profile_btn']))
                 unlink("../uploads/".$old_image);
             }
         }
-        redirect("../index.php", "Category Updated Successfully");
+        redirect("../index.php", "Profile Updated Successfully");
     }
     else
     {
-        redirect("profile.php?id=$userid", "Something Went Wrong"); 
+        redirect("../profile.php?id=$userid", "Something Went Wrong"); 
     }
 
 }

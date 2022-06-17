@@ -152,7 +152,6 @@ else if(isset($_POST['edit_business_btn']))
     $business_phonenumber = $_POST['business_phonenumber'];
     $business_owneraddress = $_POST['business_owneraddress'];
     $business_password = $_POST['business_password'];
-    $business_confirmpassword = $_POST['business_confirmpassword'];
     $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
@@ -190,63 +189,124 @@ else if(isset($_POST['edit_business_btn']))
     }
     else
     {
-        // Check if password Match
-        if($business_password == $business_confirmpassword)
-        {
-            if(preg_match("/^[0-9]\d{10}$/",$_POST['business_phonenumber']))
-            {
-                    if(strlen($_POST['business_password']) >= 8 )
+        $login_query = "SELECT * FROM business WHERE businessid='$businessid'";
+        $login_query_run = mysqli_query($con, $login_query);
+        //mysqli_query($con,$login_query) or die("bad query: $login_query");
+
+                while($row = mysqli_fetch_array($login_query_run))
+                {
+                    if(password_verify($business_password, $row["business_password"]))
                     {
-                        $hash = password_hash($business_password, PASSWORD_DEFAULT);
-                        $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
-                        //mysqli_query($con,$update_query) or die("bad query: $update_query");
+                        if(preg_match("/^[0-9]\d{10}$/",$_POST['business_phonenumber']))
+                        {
+                                if(strlen($_POST['business_password']) >= 8 )
+                                {
+                                    //$hash = password_hash($business_password, PASSWORD_DEFAULT);
+                                    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
+                                    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+                                    $update_query_run = mysqli_query($con, $update_query);
+
+                                    if($update_query_run)
+                                    {
+                                        if($_FILES['image']['name'] != "")
+                                        {
+                                            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+                                            
+                                            if(file_exists("../uploads/".$old_image))
+                                            {
+                                                unlink("../uploads/".$old_image);
+                                            }
+                                        }
+                                        if($_FILES['image_cert']['name'] != "")
+                                        {
+                                            move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$update_filename_cert);
+                                            
+                                            if(file_exists("../certification/".$old_image_cert))
+                                            {
+                                                unlink("../certification/".$old_image_cert);
+                                            }
+                                        }
+
+                                        redirect("index.php", "Business Updated Successfully");
+                                    }
+                                    else
+                                    {
+                                        redirect("profile.php?id=$businessid", "Something Went Wrong"); 
+                                    }
+
+                                }
+                                else
+                                {
+                                    redirect("profile.php?id=$businessid", "Your password must be at least 8 characters"); 
+                                }
+                        }
+                        else
+                        {
+                            redirect("profile.php?id=$businessid", "Phone number error detected");
+                        }
                     }
                     else
                     {
-                        redirect("profile.php?id=$businessid", "Your password must be at least 8 characters"); 
+                        redirect("profile.php?id=$businessid", "Wrong Password");
                     }
-            }
-            else
-            {
-                redirect("profile.php?id=$businessid", "Phone number error detected");
-            }
     
-        }
-        else
-        {
-            redirect("profile.php?id=$businessid", "Passwords do not match");
-        }
+                }
+    
     }
 
-    $update_query_run = mysqli_query($con, $update_query);
 
-    if($update_query_run)
-    {
-        if($_FILES['image']['name'] != "")
-        {
-            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
-            
-            if(file_exists("../uploads/".$old_image))
-            {
-                unlink("../uploads/".$old_image);
-            }
-        }
-        if($_FILES['image_cert']['name'] != "")
-        {
-            move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$update_filename_cert);
-            
-            if(file_exists("../certification/".$old_image_cert))
-            {
-                unlink("../certification/".$old_image_cert);
-            }
-        }
+}
+else if(isset($_POST['edit_password_btn']))
+{
+    $businessid = $_POST['businessid'];
+    $business_oldpassword = $_POST['business_oldpassword'];
+    $business_password = $_POST['business_password'];
+    $business_confirmpassword = $_POST['business_confirmpassword'];
 
-        redirect("index.php", "Business Updated Successfully");
-    }
-    else
-    {
-        redirect("profile.php?id=$businessid", "Something Went Wrong"); 
-    }
+        $login_query = "SELECT * FROM business WHERE businessid='$businessid'";
+        $login_query_run = mysqli_query($con, $login_query);
+        //mysqli_query($con,$login_query) or die("bad query: $login_query");
+
+                while($row = mysqli_fetch_array($login_query_run))
+                {
+                    if(password_verify($business_oldpassword, $row["business_password"]))
+                    {
+                                if(strlen($_POST['business_password']) >= 8 )
+                                {
+                                    if($business_password == $business_confirmpassword)
+                                    {
+                                        $hash = password_hash($business_password, PASSWORD_DEFAULT);
+                                        $update_query = "UPDATE business SET business_password='$hash' WHERE businessid='$businessid'";
+                                        //mysqli_query($con,$update_query) or die("bad query: $update_query");
+                                        $update_query_run = mysqli_query($con, $update_query);
+                                        if($update_query_run)
+                                        {   
+                                            redirect("index.php", "Business Updated Successfully");
+                                        }
+                                        else
+                                        {
+                                            redirect("changepassword.php?id=$businessid", "Something Went Wrong"); 
+                                        }
+                                        
+                                    }
+                                    else
+                                    {
+                                        redirect("changepassword.php?id=$businessid", "Passwords do not match");
+                                    }
+
+                                }
+                                else
+                                {
+                                    redirect("changepassword.php?id=$businessid", "Your password must be at least 8 characters"); 
+                                }
+                    }
+                    else
+                    {
+                        redirect("changepassword.php?id=$businessid", "Wrong Old Password");
+                    }
+    
+                }
+
 
 }
 else
