@@ -1,6 +1,6 @@
 <?php
 
-    include('functions/userfunctions.php');
+    include('middleware/userMiddleware.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

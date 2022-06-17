@@ -185,8 +185,13 @@
                                 <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?= $data['business_address']; ?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div></div>
                                 <div class="tab-pane fade" role="tabpanel" id="reviews">
                                    <?php
-                                     if($data['businessid'] == $bid)
-                                   {
+                                    $review = getAll("review_table");
+                                    if(mysqli_num_rows($review) > 0)
+                                        {
+                                            foreach($review as $item)
+                                            {
+                                                if($item['businessid'] == $bid)
+                                                {
                                    ?>
                                     <div class="container mt-3">
                                         <div class="card">
@@ -254,7 +259,13 @@
                                         <div class="mt-5" id="review_content"></div>
                                     </div>
                                     <?php
-                                   }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            echo "No Reviews Found";
+                                        }
                                    ?>
 
                                 </div>
