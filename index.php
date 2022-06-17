@@ -3,14 +3,18 @@
     include('functions/userfunctions.php');
     include('includes/header.php');
 ?>
-
+    
 <div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Municipalities</h1>
+                <div class="heading">
+                    <h2>Municipalities</h2>
+                </div>
                 <hr>
-                <div class="row">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="row">
 
                 <?php
                     $municipality = getAllActive("municipality");
@@ -20,14 +24,14 @@
                         foreach($municipality as $item)
                         {
                             ?>
-                                <div class="col-md-3 mb-2">
+                                <div class="col-md-12 col-lg-4 project-sidebar-card" >
                                     <a href="business.php?id=<?= $item['municipalityid']; ?>">
-                                        <div class="card shadow">
-                                            <div class="card-body" style="text-align:center;" >
-                                                <img src="uploads/<?= $item['image']; ?>" alt="Municipality Image" height="250px" width="230px">
-                                                <h4 class="text-center text-black me-2"><?= $item['municipality_name']; ?></h4>
-                                            </div>
+                                    <div class="card" data-bss-hover-animate="pulse" style="height:300px; weight:300px;">
+                                        <img class="img-fluid card-img w-100 h-100 d-block" src="uploads/<?= $item['image']; ?>" alt="Municipality Image" height="300px" width="300px" >
+                                        <div class="card-img-overlay" >
+                                            <h4 class="display-6  fw-bold" style="margin-top: 220px; color:white;"><?= $item['municipality_name']; ?></h4>
                                         </div>
+                                    </div>
                                     </a>
                                 </div>
                             <?php
@@ -44,7 +48,8 @@
         </div>
     </div>
 </div>
-<hr>
+</div>
+</div>
 <!--<section class="clean-block about-us">
             <div class="container">
                 <div class="block-heading">
@@ -89,7 +94,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>-->
-
+            </div>-->
+        
 <?php include('includes/footer.php');?>
