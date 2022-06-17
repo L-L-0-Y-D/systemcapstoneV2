@@ -32,7 +32,7 @@ if(isset($_SESSION['auth'])){
             <map name="workmap">
                 <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
              </map>
-            <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data"  style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-top-color: rgb(255,;border-right-color: 128,;border-bottom-color: 64);border-left-color: 128,;border-radius: 20px;">
+            <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data"  style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-radius: 20px;">
                 <div class="container">
                     <h2 class="d-flex justify-content-center" style="font-weight:bold;">BUSINESS DETAILS</h2>
             <div class="column mb-3">
