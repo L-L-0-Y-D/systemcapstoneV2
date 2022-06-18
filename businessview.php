@@ -77,17 +77,16 @@
                         ?>
                                             
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</h2>
-                            <form>
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background-color:transparent;color:black; border-color:black;">Others</button>
+                                <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">
+                                            <img class="border rounded-circle img-profile" style="width:35px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
                                     <div class="dropdown-menu position-fixed">
-                                    <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
+                                        <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
                                         <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-key"></i>&nbsp;Change Password</a>
                                         <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
                                         <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
                                     </div>
-                            </div>
-                        </form>
+                                </div>
 
                         <?php
                         }

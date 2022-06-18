@@ -37,7 +37,7 @@
     <title>I-Eat | Home </title> 
 </head>
 <body>
-<div class="container">
+<div class="container py-3">
   <div class="row">
     <div class="col-md-12">
         <?php 
@@ -54,8 +54,8 @@
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Change Password
-                    <a href="index.php" class="btn btn-primary float-end">Back</a>
+                <h4 class="mt-1">Change Password
+                    <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a>
                 </h4>   
                 </div>
                 <div class="card-body">
@@ -64,18 +64,18 @@
                             <div class="col-md-12">
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
                                 <label for="">Old Password</label>
-                                <input type="password" name="oldpassword" placeholder="Enter New Password" class="form-control" required>
+                                <input type="password" name="oldpassword" placeholder="Enter Old Password" class="form-control" required>
                             </div>
                             <div class="col-md-12">
-                                <label for="">New Password</label>
+                                <label for="" class="mt-2">New Password</label>
                                 <input type="password" name="password" placeholder="Enter New Password" class="form-control" required>
                             </div>
                             <div class="col-md-12">
-                                <label for="">Confirm Password</label>
+                                <label for="" class="mt-2">Confirm Password</label>
                                 <input type="password" name="confirmpassword" placeholder="Enter Confirm New Password" class="form-control" required>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" name="edit_password_btn">Update Password</button>
+                                <button type="submit" class="btn btn-primary mt-2" name="edit_password_btn" style="background-color:rgb(255,128,64); border:none;">Update Password</button>
                             </div>
                             </div>
                     </form>

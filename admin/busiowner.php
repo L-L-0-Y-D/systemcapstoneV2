@@ -141,7 +141,7 @@ include('includes/header.php');
                                                                 <!-- The Modal -->
                                                                 <div id="imgModal" class="modal">
                                                                 <span class="close">&times;</span>
-                                                                <img class="modal-content" id="permitImgs">
+                                                                <img class="modal-content" id="permitImages" href="../certificate/<?= $item['image_cert']; ?>" alt="<?= $item['image_cert']; ?>">
                                                                 </div>
 
                                                                 <script>
@@ -150,7 +150,7 @@ include('includes/header.php');
 
                                                                 // Get the image and insert it inside the modal - use its "alt" text as a caption
                                                                 var img = document.getElementById("permitImg");
-                                                                var modalImg = document.getElementById("permitImgs");
+                                                                var modalImg = document.getElementById("permitImages");
                                                                 img.onclick = function(){
                                                                 modal.style.display = "block";
                                                                 modalImg.src = this.src;
