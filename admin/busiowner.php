@@ -139,9 +139,9 @@ include('includes/header.php');
                                                         <td class="col-md-6 col-lg-4 item">
                                                             <img class="img-thumbnail img-fluid image" id="permitImg" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"> </td>
                                                                 <!-- The Modal -->
-                                                                <div id="imgModal" class="modal">
-                                                                <span class="close">&times;</span>
-                                                                <img class="modal-content" id="permitImages" href="../certificate/<?= $item['image_cert']; ?>" alt="<?= $item['image_cert']; ?>">
+                                                                <div id="imgModal" class="modal" >
+                                                                    <span class="close">&times;</span>
+                                                                    <img class="modal-content" id="permitImages" href="../certificate/<?= $item['image_cert']; ?>">
                                                                 </div>
 
                                                                 <script>
