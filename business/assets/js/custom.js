@@ -25,7 +25,7 @@ $(document).ready(function () {
                             'delete_product_btn': true
                         },
                         success: function (response) {
-                            console.log(response);
+                            //console.log(response);
                             if(response == 200)
                             {
                                 swal("Success!", "Product Deleted Successfully", "success");
@@ -67,10 +67,10 @@ $(document).ready(function () {
                             'delete_reservation_btn': true
                         },
                         success: function (response) {
-                            console.log(response);
+                            //console.log(response);
                             if(response == 900)
                             {
-                                swal("Success!", "Category Deleted Successfully", "success");
+                                swal("Success!", "Reservation Deleted Successfully", "success");
                                 $("#reservation_table").load(location.href + " #reservation_table");
 
                             }

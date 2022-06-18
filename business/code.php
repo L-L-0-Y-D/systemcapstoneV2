@@ -325,13 +325,13 @@ elseif (isset($_POST['delete_reservation_btn']))
     if($delete_query_run)
     {
 
-        redirect("reservation.php?=$reservationid", "Reservation Deleted Successfully");
-        //echo 900;
+        //redirect("reservation.php?=$reservationid", "Reservation Deleted Successfully");
+        echo 900;
     }
     else
     {
-        redirect("reservation.php?=$reservationid", "Something went wrong");
-        //echo 800;
+        //redirect("reservation.php?=$reservationid", "Something went wrong");
+        echo 800;
     }
 
 }
