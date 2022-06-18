@@ -1,8 +1,7 @@
 <?php 
-
-include('../config/dbcon.php');
 include('../middleware/businessMiddleware.php');
 include('includes/header.php');
+include('../config/dbcon.php');
 
 
 ?>
@@ -15,7 +14,7 @@ include('includes/header.php');
         <h3 class="text-dark mb-4">Reservation</h3>
         </div>
         <div class="card shadow">
-            <div class="card-body" id="products_table">
+            <div class="card-body" id="reservation_table">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
@@ -42,6 +41,7 @@ include('includes/header.php');
                                     <th>Reservation Time</th>
                                     <th>Status</th>
                                     <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             
@@ -66,6 +66,9 @@ include('includes/header.php');
                                                         <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
                                                         <td>
                                                             <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
                                                         </td>
                                                     </tr>
                                                 <?php

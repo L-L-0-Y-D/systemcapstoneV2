@@ -91,7 +91,7 @@ elseif (isset($_POST['delete_product_btn']))
     $image = $product_data['image'];
 
     $delete_query = "DELETE FROM products WHERE productid='$productid' ";
-    //$delete_query_run = mysqli_query($con, $delete_query);
+    $delete_query_run = mysqli_query($con, $delete_query);
 
     if($delete_query_run)
     {
@@ -307,6 +307,32 @@ else if(isset($_POST['edit_password_btn']))
     
                 }
 
+
+}
+elseif (isset($_POST['delete_reservation_btn']))
+{
+    $reservationid = mysqli_real_escape_string($con,$_POST['reservationid']);
+
+    $reservation_query = "SELECT * FROM reservations WHERE reservationid='$reservationid' ";
+    $reservation_query_run = mysqli_query($con, $reservation_query);
+    $reservation_data = mysqli_fetch_array($reservation_query_run);
+
+    $delete_query = "DELETE FROM reservations  WHERE reservationid='$reservationid' ";
+    $delete_query_run = mysqli_query($con, $delete_query);
+
+    //mysqli_query($con,$delete_query) or die("bad query: $delete_query");
+
+    if($delete_query_run)
+    {
+
+        //redirect("reservation.php?=$reservationid", "Reservation Deleted Successfully");
+        echo 900;
+    }
+    else
+    {
+        //redirect("reservation.php?=$reservationid", "Something went wrong");
+        echo 800;
+    }
 
 }
 else

@@ -61,7 +61,7 @@ include('middleware/userMiddleware.php');
             </div>
             <div class="column mb-3">
                 <label class="form-label" for="reservation_date" style="font-weight: bold;">Reservation Date:</label>
-                <input type="date" id="reservation_date" name="reservation_date" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                <input type="date" id="reservation_date" name="reservation_date" min="<?php echo date("Y-m-d"); ?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
             <div class="column mb-3">
                 <label class="form-label" for="reservation_time" style="font-weight: bold;">Reservation time:</label>

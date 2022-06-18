@@ -1,9 +1,7 @@
 <?php 
-
-include('../config/dbcon.php');
 include('../middleware/businessMiddleware.php');
 include('includes/header.php');
-
+include('../config/dbcon.php');
 
 ?>
  <?php 
