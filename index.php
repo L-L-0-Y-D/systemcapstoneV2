@@ -3,13 +3,13 @@
     include('functions/userfunctions.php');
     include('includes/header.php');
 ?>
-    
+   
 <div class="py-4">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="heading ">
-                    <h2 style="font-weight:bold; font-family:Sans Serif">Municipalities</h2>
+                    <h2 style="font-weight:bold;">Municipalities</h2>
                 </div>
                 <hr>
                 <div class="row justify-content-center">
@@ -50,6 +50,5 @@
 </div>
 </div>
 </div>
-<section class="clean-block about-us">
 
 <?php include('includes/footer.php');?>

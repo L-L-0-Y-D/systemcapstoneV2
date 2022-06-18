@@ -77,10 +77,17 @@
                         ?>
                                             
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</h2>
-                            <a href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>">Change Password</a>
-                            <a href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>">Reservation</a>
-                            <a href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">Profile</a>
-                            <a href="logout.php">Logout</a>
+                            <form>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background-color:transparent;color:black; border-color:black;">Others</button>
+                                    <div class="dropdown-menu position-fixed">
+                                    <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
+                                        <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-key"></i>&nbsp;Change Password</a>
+                                        <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
+                                        <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
+                                    </div>
+                            </div>
+                        </form>
 
                         <?php
                         }
@@ -278,6 +285,10 @@
             </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
     <?php
         } 
         else

@@ -5,9 +5,6 @@ body{
     overflow-x:hidden;  
 }
 
-a{
-  text-decoration: none;
-}
 #header-signup{
     width:100%;
     background-color: rgb(255, 128, 64);
@@ -15,47 +12,44 @@ a{
     font-size: 20px;
     color:white;
     padding-top: 5pt;
-    padding-bottom: 1pt;
 }
 #header-signup a{
     color: #000;
     font-size: 12pt;
     text-decoration: underline;
 }
+#header-signup a:hover{
+  font-weight: bolder;
+}
 #header-img{
-    position: relative;
     width:100vw;
-    height:720px;
-    background-image: url(uploads/bg.png);
+    height:650px;
+    background-image: url(uploads/bg.png)!important;
     background-attachment:local;
-    background-position:center;
+    background-position:top center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-header{
-    justify-content: stretch;
-    text-align: right;
-    width:100vw;
-    height:60px;
-}
+
 .loginbtn {
     color: rgb(0, 0, 0);
     font-style: bold;
-    font-size: 18pt;
+    font-size: 16pt;
     text-align: center;
-    padding-right: 10px;
+    margin-right: 10px;
     border: none;
     background-color: rgba(255, 255, 255, 0);
   }
 .loginbtn:hover {
     border-bottom: 2px solid rgb(0, 0, 0);
+    font-weight: bolder;
 }
   /* The popup form - hidden by default */
   .form-popup {
     display: none;
     position: absolute;
     top:30%;
-    left:35%;
+    left:25%;
     bottom: 0;
     border: 3px solid #f1f1f1;
     width: 250px;
@@ -102,9 +96,10 @@ header{
   transition: .1s;
 }
 .nav-menu{
-    margin-right: 20pt;
-    padding-top:15pt;
-    height:60px;   
+  padding-top: 10px;
+  margin-right: 20pt;
+  text-align: right;
+  height:60px;   
 }
 .nav-menu a{
     color: rgb(0, 0, 0);
@@ -113,31 +108,8 @@ header{
     text-align: center;
     padding-right: 10px;
 }
-.nav-link{
-    border-bottom: 0px solid black;
-    transition: border-bottom 0.3s;
-    cursor: pointer;
-}
-.nav-link:hover{
-    border-bottom: 2px solid rgb(0, 0, 0);
-}
-.logo {
-    display: flex;
-    align-self: center;
-    justify-content: right;
-    margin-top: 30px;
-    margin-right: 290px; 
-}
-.container select {
-  border-radius: 20px;
-  border-color: #000;
-  height:50px;
-  width: 350px;
-  margin-right: 130px;
-  color: rgb(255,128,64);
-  font-weight: bolder;
-  padding-left: 10px;
-}
+
+
 @media only screen and (max-width : 768px) {
     .locations-div{
         margin-bottom: 0;

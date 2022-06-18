@@ -30,7 +30,7 @@ if(isset($_SESSION['auth'])){
         <section class="clean-block clean-form dark" style="height: auto;background: transparent;">
             <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" loading="eager" src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200px" height="200px">
             <map name="workmap">
-                <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
+                <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
              </map>
             <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data"  style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-radius: 20px;">
                 <div class="container">
