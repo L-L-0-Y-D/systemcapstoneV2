@@ -67,6 +67,9 @@ include('includes/header.php');
                                                         <td>
                                                             <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                                         </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?= $item['reservationid']; ?>" >Delete</button>
+                                                        </td>
                                                     </tr>
                                                 <?php
                                                 }
