@@ -22,7 +22,7 @@ session_start();
         <section class="clean-block clean-form dark" style="height: 672px;background: transparent;">
                 <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" src="uploads/I-EatLogo.png" width="200px" height="200px" alt="logo" usemap="#workmap">
                     <map name="workmap">
-                        <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
+                        <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                     </map>
     <form method="post" action="functions/busiauthcode.php" style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-radius: 20px;"> 
     <div class="container">

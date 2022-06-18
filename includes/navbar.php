@@ -4,13 +4,20 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
 
 
 ?>
+
 <!--eveything inside the bg image-->
 <div id="header-img">
     <div id="header-signup">
         <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"])):?>
             <!--For business registration-->
-            <p>Do you need business account?  <span><a href="businessreg.php">REGISTER</a></span></p>
+            <p>Do you need business account?  <span><a href="businessreg.php">REGISTER</a></span>
+            <i class="far fa-times-circle" onclick="closeNav()"style="float:right; margin-right:30px;"></i></p>
         <?php endif ?>
+        <script>
+            function closeNav() {
+                document.getElementById("header-signup").style.display = "none";
+            }
+        </script>
     </div>
     <header>
             <div class="nav-menu">
@@ -21,7 +28,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                     <button class="loginbtn" onclick="openForm()">Login</button>
                         <div class="form-popup" id="myForm">
                             <form name="form" class="form-container">
-                            <i class="far fa-times-circle" onclick="closeForm()" style="float:right;"></i>
+                            <i class="fas fa-times-circle" onclick="closeForm()" style="float:right;"></i>
                                 <h3>Login as</h3>
                                 <button type="submit" class="ownerbtn" onclick="javascript: form.action='ownerlogin.php';" href="ownerlogin.php">Business</button>
                                 <button type="submit" class="customerbtn" onclick="javascript: form.action='login.php';" href="login.php">Customer</button>
@@ -35,8 +42,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             document.getElementById("myForm").style.display = "none";
                         }
                         </script>
-
-                    <a href="register.php">Sign up</a>
+                    <button class="loginbtn" onclick="location.href='register.php'">Sign Up</button>  
                                
                 <?php 
                 }
@@ -44,14 +50,20 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 {
                         if($_SESSION['auth_user']['role_as'] == "0")
                         {
-                        ?>
-                                            
+                        ?>    
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</h2>
-                            <a href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>">Change Password</a>
-                            <a href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>">Reservation</a>
-                            <a href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">Profile</a>
-                            <a href="logout.php">Logout</a>
-
+                            <form>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background-color:transparent;color:black; border-color:black;">Others</button>
+                                    <div class="dropdown-menu position-fixed">
+                                    <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
+                                        <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-key"></i>&nbsp;Change Password</a>
+                                        <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
+                                        <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
+                                    </div>
+                            </div>
+                            </form>
+                      
                         <?php
                         }
                         else if($_SESSION['auth_user']['role_as'] == "2")
@@ -85,38 +97,50 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                  
                 <?php } ?>
             </div>
-    <div class="logo">
-        <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="300" height="300">
-    <map name="workmap">
-        <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
-    </map>
-    </div>
-    <div class="container">
-        <div class="d-flex float-right">
-        <!--<input type="" class="search-input" required placeholder=" Search Restaurant">-->
-            <select id="cuisine" name='cuisine_type'>
-            <option disabled selected hidden>Type of Cuisine</option>
-            <!--<button type="submit" class="search-btn" name="Search" value="Search">Search</button>-->
-            <div>
-                <?php 
-                        $category = getAllActive("mealcategory");
-                        if(mysqli_num_rows($category) > 0)
-                        {
-                            foreach ($category as $item)
-                            {
-                                    ?>
-                                    <option value="<?= $item['categoryid']; ?>"><?= $item['categoryname']; ?></option>
-                                    <?php
-                            }
-                        }
-                        else
-                        {
-                            echo "No Category Available";
-                        }
-                        ?>
-                        </div>
-            </select> 
-        </div>
-    </div>
+            <div class="row d-flex justify-content-end py-5" style=" margin-top:40px;width:90%;">
+                <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4">
+                    <div class="text-center" style="max-width: 450px;">
+                        <img src="uploads/logoT.png" alt="LOGO" usemap="#workmap" width="200" height="200">
+                            <map name="workmap">
+                                <area shape="circle" coords="100,100,200,200" alt="logo" href="index.php">
+                            </map>
+                        <p class="my-2">I - Eat kinemberlu.</p>
+                        <form class="d-flex justify-content-center flex-wrap justify-content-md-start flex-lg-nowrap" method="post">
+                            <div class="my-2 me-0">
+                                <input class=" form-control" type="search" name="search" placeholder="Search Restaurant..." style="border:solid 1px black;"></div>
+                            <div class="my-2 me-0">
+                                <select id="cuisine" name='cuisine_type' style="height:38px; font-size:10pt; border:solid 1px black;">
+                                    <option disabled selected hidden>Type of Cuisine</option> 
+                                        <div>
+                                            <?php 
+                                                $category = getAllActive("mealcategory");
+                                                if(mysqli_num_rows($category) > 0)
+                                                {
+                                                    foreach ($category as $item)
+                                                    {
+                                                            ?>
+                                                            <option value="<?= $item['categoryid']; ?>"><?= $item['categoryname']; ?></option>
+                                                            <?php
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    echo "No Category Available";
+                                                }
+                                                ?>
+                                        </div>
+                                </select>
+                            </div>
+                            <div class="my-2">
+                                <button class="btn btn-primary shadow" type="submit" style="height:38px; width:100px; border:none;background: rgb(255,128,64);">Search </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
 </header>
