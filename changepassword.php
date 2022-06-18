@@ -1,5 +1,4 @@
-?php
-
+<?php
     include('middleware/userMiddleware.php');
 ?>
 <!DOCTYPE html>
@@ -60,7 +59,7 @@
                 </h4>   
                 </div>
                 <div class="card-body">
-                    <form action="authcode.php" method="POST">
+                    <form action="functions/authcode.php" method="POST">
                         <div class="row">
                             <div class="col-md-12">
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
