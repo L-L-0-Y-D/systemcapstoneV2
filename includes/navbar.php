@@ -10,7 +10,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
     <div id="header-signup">
         <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"])):?>
             <!--For business registration-->
-            <p>Do you need business account?  <span><a href="businessreg.php">REGISTER</a></span>
+            <p style="padding-top:5px;">Do you need business account?  <span><a href="businessreg.php">REGISTER</a></span>
             <i class="far fa-times-circle" onclick="closeNav()"style="float:right; margin-right:30px;"></i></p>
         <?php endif ?>
         <script>
@@ -70,8 +70,8 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         {
                             ?>
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong> !</h2>
-                            <a href="business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Dashboard</a>
-                            <a href="logout.php">Logout</a> 
+                            <button class="loginbtn" onclick="location.href='business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>'">Dashboard</button>
+                            <button class="loginbtn" onclick="location.href='logout.php'">Logout</button> 
 
                          <?php
                         }
@@ -79,8 +79,8 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         {
                             ?>
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
-                            <a href="admin/index.php">Dashboard</a>
-                            <a href="logout.php">Logout</a> 
+                            <button class="loginbtn" onclick="location.href='admin/index.php'">Dashboard</button>
+                            <button class="loginbtn" onclick="location.href='logout.php'">Logout</button> 
                             <?php 
                         }
                     
@@ -92,8 +92,8 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 ?>
                     <!--if user is login-->
                     <h2> Welcome <strong><?php echo $_SESSION['business_name']; ?></strong> !</h2>
-                    <a href="business/admin.php">Dashboard</a> 
-                    <a href="logout.php">Logout</a>
+                    <button class="loginbtn" onclick="location.href='business/admin.php'">Dashboard</button>
+                    <button class="loginbtn" onclick="location.href='logout.php'">Logout</button> 
                  
                 <?php } ?>
             </div>

@@ -14,18 +14,16 @@
                         $business = getBusiByMunicipality($mid);
     
 ?>
-    <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <h1 style="text-align: center;width: auto;font-size: 36px;"><strong>Restaurants in <?= $data['municipality_name']; ?></strong></h1>
-        <div class="collapse navbar-collapse" id="navcol-1">
-            <ul class="navbar-nav ms-auto"></ul>
-        </div>
+    <div class="container" >   
+        <h1 style="text-align: center;width: auto;font-size: 30px; padding-top:10px;"><strong>Restaurants in <?= $data['municipality_name']; ?></strong></h1>
+        
     </div>
     <main class="page catalog-page">
         <section class="clean-block clean-catalog dark">
-            <div class="container align-content-center justify-content-xl-center">
-                <div class="justify-content-center content">
-                    <div class="row d-flex justify-content-center align-items-lg-center" >
-                        <div class="col-md-9 d-flex justify-content-center" style="width: 100%;">
+            <div class="container align-content-start justify-content-xl-start">
+                <div class="justify-content-start content">
+                    <div class="row d-flex justify-content-start align-items-lg-start" >
+                        <div class="col-md-9 d-flex justify-content-start" style="width: 100%;">
                         <div class="col-md-3 ">
                             <div class="d-none d-md-block ">
                                 <div class="filters">

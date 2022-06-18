@@ -60,13 +60,13 @@
                 <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
             </map>
             </div>
-            <div class="nav-menu">
+            <div class="nav-menu" style="padding-top:30px;">
            
                 <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
                 {// if user is not login
                     ?>
-                    <a href="login.php">Login</a>
-                    <a href="register.php">Sign up</a>
+                    <button class="loginbtn" onclick="location.href='login.php'">Login</button>  
+                    <button class="loginbtn" onclick="location.href='register.php'">Sign Up</button>  
                                
                 <?php 
                 }
@@ -95,8 +95,8 @@
                         {
                             ?>
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong> !</h2>
-                            <a href="business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Dashboard</a>
-                            <a href="logout.php">Logout</a> 
+                            <button class="loginbtn" onclick="location.href='business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>'">Dashboard</button>  
+                            <button class="loginbtn" onclick="location.href='logout.php'">Logout</button>
 
                          <?php
                         }
@@ -104,8 +104,8 @@
                         {
                             ?>
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
-                            <a href="admin/index.php">Dashboard</a>
-                            <a href="logout.php">Logout</a> 
+                            <button class="loginbtn" onclick="location.href='admin/index.php'">Dashboard</button>  
+                            <button class="loginbtn" onclick="location.href='logout.php'">Logout</button>
                             <?php 
                         }
                     
@@ -117,8 +117,8 @@
                 ?>
                     <!--if user is login-->
                     <h2> Welcome <strong><?php echo $_SESSION['business_name']; ?></strong> !</h2>
-                    <a href="business/admin.php">Dashboard</a> 
-                    <a href="logout.php">Logout</a>
+                    <button class="loginbtn" onclick="location.href='business/admin.php'">Dashboard</button>  
+                    <button class="loginbtn" onclick="location.href='logout.php'">Logout</button>
                  
                 <?php } ?>
             </div>

@@ -38,7 +38,7 @@
     <title>I-Eat | Home </title> 
 </head>
 <body>
-<div class="container">
+<div class="container py-3">
   <div class="row">
     <div class="col-md-12">
         <?php 
@@ -54,8 +54,8 @@
             
             ?>
             <div class="card">
-                <div class="card-header">
-                <h4>Profile<span> <a href="index.php" class="btn btn-primary float-end">Back</a></span></h4>
+                <div class="card-header fw-bold" >
+                <h4 class="mt-1">Profile<span> <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a></span></h4>
                 </div>
                 <div class="card-body">
                     <form action="functions/authcode.php" method="POST" enctype="multipart/form-data">
@@ -69,37 +69,37 @@
                             </div>
                             <div class="col-md-6">
                                 <!--Needed-->
+                                <label for="">Username</label>
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
                                 <input type="text" name="name" value="<?= $data['name'] ?>" required placeholder="Enter Username" class="form-control">
-                                <label for="">Username</label>
                             </div>
                             <div class="col-md-6">
+                                <label for="" >Email</label>
                                 <input type="email" name="email" value="<?= $data['email'] ?>" required placeholder="Enter Email" class="form-control">
-                                <label for="">Email</label>
                             </div>
                             <div class="col-md-6">
+                                <label for="" class="mt-2">First Name</label>
                                 <input type="text" name="firstname" value="<?= $data['firstname'] ?>" required placeholder="Enter First Name" class="form-control">
-                                <label for="">First Name</label>
                             </div>
                             <div class="col-md-6">
+                                <label for="" class="mt-2">Last Name</label>
                                 <input type="text" name="lastname" value="<?= $data['lastname'] ?>" required placeholder="Enter Last Name" class="form-control">
-                                <label for="">Last Name</label>
                             </div>
                             <div class="col-md-6">
+                                <label for="" class="mt-2">Age</label>
                                 <input type="number" name="age" value="<?= $data['age'] ?>" required placeholder="Enter Age" class="form-control">
-                                <label for="">Age</label>
                             </div>
                             <div class="col-md-6">
+                                <label for="" class="mt-2">Phone Number</label>
                                 <input type="text" name="phonenumber" value="<?= $data['phonenumber'] ?>" required placeholder="Enter Phone Number" class="form-control">
-                                <label for="">Phone Number</label>
                             </div>
                             <div class="col-md-12">
+                                <label for="" class="mt-2">Address</label>
                                 <input type="text" name="address" value="<?= $data['address'] ?>" required placeholder="Enter Address" class="form-control">
-                                <label for="">Address</label>
                             </div>
                             <div class="col-md-12">
+                                <label for="" class="mt-2">Password</label>
                                 <input type="password" name="password" required placeholder="Enter Password" class="form-control">
-                                <label for="">Password</label>
                             </div>
                             <div class="col-md-12">
                                 <input type = "hidden" name='role_as' value = '0'>
@@ -108,7 +108,7 @@
                             <input type="hidden" name="status" <?= $data['status'] == '0'? 'checked':'' ?>>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="update_profile_btn">Change Profile</button>
+                                <button type="submit" class="btn btn-primary mt-2" name="update_profile_btn" style="background-color:rgb(255,128,64); border:none;">Update Profile</button>
                             </div>
                         </div>
                     </form>

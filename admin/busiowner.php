@@ -5,6 +5,86 @@ include('includes/header.php');
 
 
 ?>
+<head>
+<style>
+#permitImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#permitImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 20px; /* Location of the box */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 500px;
+}
+/* Add Animation */
+.modal-content {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    margin-top:20%;
+    width: 90%;
+  }
+  .close {
+    position:absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+  }
+}
+</style>
+</head>
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-4">Business List</h3>
@@ -56,8 +136,35 @@ include('includes/header.php');
                                                 ?>
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
-                                                        <td class="col-md-6 col-lg-4 item"><a class="lightbox" href="../certificate/<?= $item['image_cert']; ?>"><img class="img-thumbnail img-fluid image" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"></td>
-                                                        <td><?= $item['business_name']; ?></td>
+                                                        <td class="col-md-6 col-lg-4 item">
+                                                            <img class="img-thumbnail img-fluid image" id="permitImg" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"> </td>
+                                                                <!-- The Modal -->
+                                                                <div id="imgModal" class="modal">
+                                                                <span class="close">&times;</span>
+                                                                <img class="modal-content" id="permitImgs">
+                                                                </div>
+
+                                                                <script>
+                                                                // Get the modal
+                                                                var modal = document.getElementById("imgModal");
+
+                                                                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                                                                var img = document.getElementById("permitImg");
+                                                                var modalImg = document.getElementById("permitImgs");
+                                                                img.onclick = function(){
+                                                                modal.style.display = "block";
+                                                                modalImg.src = this.src;
+                                                                }
+
+                                                                // Get the <span> element that closes the modal
+                                                                var span = document.getElementsByClassName("close")[0];
+
+                                                                // When the user clicks on <span> (x), close the modal
+                                                                span.onclick = function() { 
+                                                                modal.style.display = "none";
+                                                                }
+                                                                </script>
+                                                            <td><?= $item['business_name']; ?></td>
                                                         <td><?= $item['categoryid']; ?></td>
                                                         <td><?= $item['municipalityid']; ?></td>
                                                         <td><?= $item['business_firstname']; ?></td>
