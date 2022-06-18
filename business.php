@@ -15,14 +15,14 @@
     
 ?>
     <div class="container" >   
-        <h1 style="text-align: center;width: auto;font-size: 30px; padding-top:10px;"><strong>Restaurants in <?= $data['municipality_name']; ?></strong></h1>
-        
+        <h1 style="text-align: center;width: auto;font-size: 30px; padding-top:20px;"><strong>Restaurants in <?= $data['municipality_name']; ?></strong></h1>   
+        <hr>
     </div>
     <main class="page catalog-page">
-        <section class="clean-block clean-catalog dark">
+        <section class="portfolio-block project-with-sidebar">
             <div class="container ">
                 <div class=" content">
-                    <div class="row d-flex " >
+                    <div class="row" >
                         <div class="col-md-9 d-flex " style="width: 100%;">
                         <div class="col-md-3 ">
                             <div class="d-none d-md-block ">
@@ -52,11 +52,11 @@
                                         </div>
                                 </div>
                             </div>
-                            <div class="d-md-none "><a class="btn btn-link d-md-none filter-collapse m-0" data-bs-toggle="collapse" aria-expanded="false" aria-controls="filters" href="#filters" role="button">Filters<i class="icon-arrow-down filter-caret"></i></a>
+                            <div class="d-md-none "><a class="btn btn-link d-md-none filter-collapse m-0 text-black fw-bold fs-6" data-bs-toggle="collapse" aria-expanded="false" aria-controls="filters" href="#filters" role="button">Filters<i class="icon-arrow-down filter-caret"></i></a>
                                 <div class="collapse m-0" id="filters">
                                     <div class="filters">
                                         <div class="filter-item" >
-                                            <h3 style="padding:0px;">Cuisines</h3>
+                                            <h5 style="padding:0px;">Cuisines</h5>
                                             <?php
                                             $cuisine = getAll("mealcategory");
                                             if(mysqli_num_rows($cuisine) > 0)
@@ -83,20 +83,22 @@
                             </div>
                         </div>
                             <div class="products">
-                                <div class="row g-0" style="padding: 0px;margin-left: 0px; border:none;">
+                                <div class="row g-0 " style="padding-bottom: 50px;margin-left: 0px; border:none;">
                                     <?php
                                         if(mysqli_num_rows($business) > 0)
                                             {
                                                 foreach($business as $item)
                                                 {
                                                     ?>
-                                    <div class="col-12 col-md-6 mb-3 ml-2 col-lg-4" style="border:1px solid black; width: 260px; height:320px;">
+                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px;">
                                         <div class="clean-product-item">
                                         <a href="businessview.php?id=<?=$item['businessid'];?>">
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div><small style="font-size:12px;">Located at <?= $item['business_address']; ?></small>
-                                            <div class="about align-bottom">
-                                                <div class="rating "><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
+                                            <div class="product-name mb-0">
+                                                <a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div>
+                                                <div class="product-details m-0" style="height:75px;"><small >Located at <?= $item['business_address']; ?></small></div>
+                                            <div class="about">
+                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
                                                 <div class="price" ></div>
                                             </div>
                                         </a>
