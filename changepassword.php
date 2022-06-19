@@ -10,6 +10,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css"> 
+    <link rel="stylesheet" href="reg.css"> 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Akaya%20Kanadaka.css">
     <link rel="stylesheet" href="assets/css/Alata.css">
@@ -63,8 +64,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                <label for="">Old Password</label>
-                                <input type="password" name="oldpassword" placeholder="Enter Old Password" class="form-control" required>
+                                <label for="">Current Password</label>
+                                <input type="password" name="oldpassword" placeholder="Enter Current Password" class="form-control" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="mt-2">New Password</label>

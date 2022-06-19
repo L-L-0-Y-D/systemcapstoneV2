@@ -57,6 +57,7 @@ include('includes/header.php');
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
                                                         <td class="col-md-6 col-lg-4 item">
+                                                            <a href="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>">
                                                             <img class="img-thumbnail img-fluid image" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"> </td>
                                                             <td><?= $item['business_name']; ?></td>
                                                         <td><?= $item['categoryid']; ?></td>

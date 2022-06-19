@@ -35,7 +35,7 @@ if(isset($_POST['register_btn']))
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("../register.php", "Email Already Use");
+        redirect("../register.php", "Email Already Exist.");
     }
     else
     {
@@ -71,12 +71,12 @@ if(isset($_POST['register_btn']))
                 }
                 else
                 {
-                    redirect("../register.php", "Phone number error detected");
+                    redirect("../register.php", "Phone Number must be 11 digits");
                 }
             }
             else
             {
-                redirect("../register.php", "Underage Detected");
+                redirect("../register.php", "User is Under Age.");
             }
 
         }
@@ -134,7 +134,7 @@ if(isset($_POST['edit_password_btn']))
                     }
                     else
                     {
-                        redirect("../changepassword.php?id=$userid", "Wrong Old Password");
+                        redirect("../changepassword.php?id=$userid", "Wrong Current Password");
                     }
     
                 }
