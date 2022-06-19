@@ -57,7 +57,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                                         <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">
                                             <img class="border rounded-circle img-profile" style="width:35px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
                                     <div class="dropdown-menu position-fixed">
-                                    <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
+                                        <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
                                         <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
                                         <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-key"></i>&nbsp;Change Password</a>
                                         <div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
@@ -103,10 +103,10 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             <map name="workmap">
                                 <area shape="circle" coords="100,100,200,200" alt="logo" href="index.php">
                             </map>
-                        <p class="my-2">I - Eat kinemberlu.</p>
+                        <p class="my-2" style="font-size:20px;">First we eat, I-Eat.</p>
                         <form class="d-flex justify-content-center flex-wrap justify-content-md-start flex-lg-nowrap" action="search.php" method="POST">
                             <div class="my-2 me-0">
-                                <input class=" form-control" type="text" name="search" placeholder="Search Restaurant..." style="border:solid 1px black;"></div>
+                                <input class=" form-control" type="text" name="search" placeholder="Search Restaurant..." style="border:solid 1px black;border-radius:none;"></div>
                             <div class="my-2 me-0">
                                 <select id="cuisine" name='cuisine_type' style="height:38px; font-size:10pt; border:solid 1px black;">
                                     <option disabled selected hidden>Type of Cuisine</option> 

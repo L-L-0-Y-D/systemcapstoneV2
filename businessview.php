@@ -125,9 +125,9 @@
     </header>
 <main class="page product-page">
         <section class="clean-block clean-product">
-            <div class="container" style="width: auto; height:auto;">
+            <div class="container mt-3" style="width: auto; height:auto;">
             <div class="block-content" style="width: auto;padding-top: 0px; ">
-                <div class="block-heading" style="padding-top: 50px;margin-bottom: 9px;">
+                <div class="block-heading" style="padding-top: 30px;margin-bottom: 9px;">
                     <div class="col-md-12 d-xxl-flex justify-content-xxl-center" style="height: 500px;"><img class="img-fluid d-flex align-self-center justify-content-xl-start justify-content-xxl-center" style="width: 1100px;height: 500px;margin-top: 0px;box-shadow: 0px 0px 10px var(--bs-gray);border-radius: 5px;margin-bottom: 0px;" src="uploads/<?= $data['image']; ?>" width="200px" height="200px" loading="auto"></div>
                 </div>
                 
