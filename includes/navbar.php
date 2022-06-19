@@ -52,7 +52,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         if($_SESSION['auth_user']['role_as'] == "0")
                         {
                         ?>    
-                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong></h2>
+                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</h2>
                                 <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">
                                             <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
