@@ -11,12 +11,27 @@ function getByID($table, $id, $tabledata)
     return $query_run = mysqli_query($con, $query);
 }
 
+function reservationGetByID($id)
+{
+    global $con;
+    $query = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.image,reservations.userid,reservations.status
+    FROM reservations
+    WHERE reservations.userid = '$id'
+    JOIN business 
+    ON reservations.businessid=business.businessid";
+    echo $query;
+    return $query_run = mysqli_query($con, $query);
+}
+
+
 function getAll($table)
 {
     global $con;
     $query = "SELECT * FROM $table";
     return $query_run = mysqli_query($con, $query);
 }
+
+
 
 function getAllActive($table)
 {

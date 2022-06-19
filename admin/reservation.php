@@ -29,6 +29,7 @@ include('includes/header.php');
                         <table class="table my-0" id="dataTable" style="text-align:center">
                             <thead>
                                 <tr>
+                                    <th>Business Name</th>
                                     <th>Name</th>
                                     <th>No. of Guest</th>
                                     <th>Phonenumber</th>
@@ -42,7 +43,7 @@ include('includes/header.php');
                             
                             <tbody style="text-align:center">
                                 <?php
-                                    $reservations = getAll("reservations");
+                                    $reservations = reservationGetAll();
 
                                     if(mysqli_num_rows($reservations) > 0)
                                     {
@@ -51,6 +52,7 @@ include('includes/header.php');
                                         
                                                 ?>
                                                     <tr>
+                                                        <td><?= $item['business_name']; ?></td>
                                                         <td><?= $item['namereserveunder']; ?></td>
                                                         <td><?= $item['numberofguest']; ?></td>
                                                         <td><?= $item['reservation_phonenumber']; ?></td>

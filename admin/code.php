@@ -677,33 +677,47 @@ else if(isset($_POST['add_business_btn']))
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("add-business.php", "Email Already Use");
+        redirect("../businessreg.php", "Email Already Use");
     }
     else
     {
         // Check if password Match
         if($business_password == $business_confirmpassword)
         {
-            // Insert User Data
-            $hash = password_hash($business_password, PASSWORD_DEFAULT);
-            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image, image_cert, status) 
-            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email', '$hash', '$filename', '$certname', '$status')";
-            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-            $users_query_run = mysqli_query($con, $insert_query);
+            if(preg_match("/^[0-9]\d{10}$/",$_POST['business_phonenumber']))
+                {
+                    if(strlen($_POST['business_password']) >= 8 )
+                        {
+                            // Insert User Data
+                            $hash = password_hash($business_password, PASSWORD_DEFAULT);
+                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert, status) 
+                            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname', '$status')";
+                            //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
+                            $users_query_run = mysqli_query($con, $insert_query);
 
-            if($users_query_run){
-                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
-                redirect("busiowner.php", "Register Successfully");
-            }
-            else{
-                redirect("add-business.php", "Something went wrong");;
-            }
+                            if($users_query_run){
+                                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
+                                redirect("../ownerlogin.php", "Register Successfully");
+                            }
+                            else{
+                                redirect("../businessreg.php", "Something went wrong");;
+                            }
+                        }
+                    else
+                        {
+                            redirect("../businessreg.php", "Your password must be at least 8 characters"); 
+                        }
+                }
+            else
+                {
+                    redirect("../businessreg.php", "Phone number error detected");
+                }
 
         }
         else
         {
-            redirect("add-business.php", "Passwords do not match");
+            redirect("../businessreg.php", "Passwords do not match");
         }
     }
 }
