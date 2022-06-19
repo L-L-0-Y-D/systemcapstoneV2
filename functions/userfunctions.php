@@ -16,10 +16,9 @@ function reservationGetByID($id)
     global $con;
     $query = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.image,reservations.userid,reservations.status
     FROM reservations
-    WHERE reservations.userid = '$id'
     JOIN business 
-    ON reservations.businessid=business.businessid";
-    echo $query;
+    ON reservations.businessid=business.businessid
+    WHERE reservations.userid = '$id'";
     return $query_run = mysqli_query($con, $query);
 }
 

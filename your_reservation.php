@@ -46,6 +46,7 @@ include('middleware/userMiddleware.php');
         {
             $id = $_GET['id'];
             $reservations = reservationGetByID($id);
+            
 
             if(mysqli_num_rows($reservations) > 0)
             {
@@ -71,7 +72,7 @@ include('middleware/userMiddleware.php');
         <h1 style="margin-top: 5%;font-size: 24.88px; padding-top:10px;"><strong>Reservation Details</strong></h1>
         <div class="row align-items-center" style="padding-top: 10px;margin-top: 10px;padding-bottom: 10px;padding-left: 10px;padding-right: 10px;height: auto;border-top: 1px solid var(--bs-gray-600);">
             <div class="col-md-3" style="border: 1px solid var(--bs-gray-400);height: 180px;">
-                <div class="product-image" style="height: 180px;"><img class="img-fluid d-block mx-auto image" src="assets/img/1654500540.png" style="width: 160px;height: 160px;margin-top: 10px;margin-bottom: 10px;"></div>
+                <div class="product-image" style="height: 180px;"><img class="img-fluid d-block mx-auto image" src="uploads/<?= $data['image']; ?>" style="width: 160px;height: 160px;margin-top: 10px;margin-bottom: 10px;"></div>
             </div>
             <div class="col-md-5 text-start product-info"><span style="font-size: 18px;"><strong></strong></span>
                 <div class="product-specs">
