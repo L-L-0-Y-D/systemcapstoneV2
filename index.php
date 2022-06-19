@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="heading ">
-                    <h2 style="font-weight:bold; font-size:30px;">Municipalities</h2>
+                    <h2 style="font-weight:bold; font-size:30px;">Let's explore, BATAAN!</h2>
                 </div>
                 <hr>
                 <div class="row justify-content-center">

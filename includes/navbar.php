@@ -55,7 +55,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong></h2>
                                 <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">
-                                            <img class="border rounded-circle img-profile" style="width:35px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
+                                            <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
                                     <div class="dropdown-menu position-fixed">
                                         <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
                                         <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
@@ -105,10 +105,10 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             </map>
                         <p class="my-2" style="font-size:20px;">First we eat, I-Eat.</p>
                         <form class="d-flex justify-content-center flex-wrap justify-content-md-start flex-lg-nowrap" action="search.php" method="POST">
-                            <div class="my-2 me-0">
-                                <input class=" form-control" type="text" name="search" placeholder="Search Restaurant..." style="border:solid 1px black;border-radius:none;"></div>
-                            <div class="my-2 me-0">
-                                <select id="cuisine" name='cuisine_type' style="height:38px; font-size:10pt; border:solid 1px black;">
+                            <div class="my-2 me-2">
+                                <input class=" form-control" type="text" name="search" placeholder="Search Restaurant..." style="width:200px;border:solid 1px gray; border-radius:20px;"></div>
+                            <div class="my-2 me-2">
+                                <select id="cuisine" name='cuisine_type' style="height:38px; font-size:10pt;border:solid 1px gray; border-radius:20px;">
                                     <option disabled selected hidden>Type of Cuisine</option> 
                                         <div>
                                             <?php 
@@ -131,7 +131,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                                 </select>
                             </div>
                             <div class="my-2">
-                                <button class="btn btn-primary shadow" type="submit" name="submit" style="height:38px; width:100px; border:none;background: rgb(255,128,64);">Search </button>
+                                <button class="btn btn-primary shadow" type="submit" name="submit" style="height:38px;  border:none;background: rgb(255,128,64); border-radius:20px;"><i class="far fa-search"></i> </button>
                             </div>
                         </form>
                     </div>

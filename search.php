@@ -38,17 +38,19 @@
                                                 foreach($results as $item)
                                                 {
                                                     ?>
-                                    <div class="col-12 col-md-6 mb-3 ml-2 col-lg-4" style="border:1px solid black; width: 260px;">
+                                   <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px;">
                                         <div class="clean-product-item">
                                         <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:180px; width: 200px;"></div>
-                                            <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div><small>Located at <?= $item['business_address']; ?></small>
+                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
+                                            <div class="product-name mb-0">
+                                                <a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div>
+                                                <div class="product-details m-0" style="height:75px;"><small >Located at <?= $item['business_address']; ?></small></div>
                                             <div class="about">
                                                 <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price"></div>
+                                                <div class="price" ></div>
                                             </div>
                                         </a>
-                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: var(--bs-orange);border: 1px solid var(--bs-orange);border-radius: 10px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
+                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: var(--bs-orange);border: 1px solid var(--bs-orange);border-radius: 20px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
                                         </div>
                                     </div>
                                     <?php

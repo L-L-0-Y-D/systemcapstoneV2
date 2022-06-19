@@ -128,25 +128,25 @@
             <div class="container mt-3" style="width: auto; height:auto;">
             <div class="block-content" style="width: auto;padding-top: 0px; ">
                 <div class="block-heading" style="padding-top: 30px;margin-bottom: 9px;">
-                    <div class="col-md-12 d-xxl-flex justify-content-xxl-center" style="height: 500px;"><img class="img-fluid d-flex align-self-center justify-content-xl-start justify-content-xxl-center" style="width: 1100px;height: 500px;margin-top: 0px;box-shadow: 0px 0px 10px var(--bs-gray);border-radius: 5px;margin-bottom: 0px;" src="uploads/<?= $data['image']; ?>" width="200px" height="200px" loading="auto"></div>
+                    <div class="col-md-12 d-xxl-flex justify-content-xxl-center" style="padding:50px;height: 600px; background-color:rgb(255,128,64);"><img class="img-fluid d-flex align-self-center justify-content-xl-start justify-content-xxl-center" style="width: 1100px;height: 500px;margin-top: 0px;box-shadow: 0px 0px 10px var(--bs-gray);border-radius: 5px;margin-bottom: 0px;" src="uploads/<?= $data['image']; ?>" width="200px" height="200px" loading="auto"></div>
                 </div>
                 
                     <div class="row" style="padding-top: 10px;">
                         <div class="col-md-12" style="width: 1024px;">
-                            <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Alata, sans-serif;width: 1000px;height: 40px;"><strong><?= $data['business_name']; ?></strong></h1>
+                            <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Alata, sans-serif;width: 1000px;height:30px;"><strong><?= $data['business_name']; ?></strong></h1>
                         </div>
                         <div class="col-md-12" style="width: 1024px;font-size: 14px;">
-                            <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 20px;color: var(--bs-gray);height: 20px;"><strong><?= $data['categoryid']; ?></strong></h1>
+                            <h2 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 16px;color: var(--bs-gray);height: 20px;"><strong><?= $data['categoryid']; ?></strong></h2>
                         </div>
                         <div class="col-md-12" style="width: 1024px;">
-                            <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 23px;color: var(--bs-gray);height: 24px;"><strong><?= $data['business_address']; ?></strong></h1>
+                            <h3 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 20px;color: var(--bs-gray);height: 24px;"><strong><?= $data['business_address']; ?></strong></h3>
                         </div>
                         <div class="col-md-12" style="width: 1024px;">
-                            <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 23px;color: var(--bs-gray);height: 24px;"><strong><?= $data['business_phonenumber']; ?></strong></h1>
+                            <h4 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 16px;color: var(--bs-gray);height: 24px;"><strong><?= $data['business_phonenumber']; ?></strong></h4>
                         </div>
                         <div class="col-md-12" style="width: 1024px;margin-top: 10px;">
                             <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Alata, sans-serif;width: 1000px;font-size: 30px;color: var(--bs-gray);margin-top: 21px;">
-                                <div class="btn-group" role="group" style="width: 319.094px;font-size: 16px;"><button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-orange);border-radius: 10px;height: 45px;border-style: none;border-bottom-style: none;text-align: center;">Make Reservation</button><button type="button" name="add_review" id="add_review" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-white);color: var(--bs-dark);border-radius: 10px;height: 45px;border: 2px solid var(--bs-gray-900);border-bottom-color: var(--bs-dark);text-align: center;">Add Review</button></div><br>
+                                <div class="btn-group" role="group" style="width: 319.094px;font-size: 16px;"><button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background:rgb(255,128,64);border-radius: 20px;height: 45px;border-style: none;border-bottom-style: none;text-align: center;">Make Reservation</button><button type="button" name="add_review" id="add_review" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-white);color: var(--bs-dark);border-radius: 20px;height: 45px;border: 2px solid var(--bs-gray-900);border-bottom-color: var(--bs-dark);text-align: center;">Add Review</button></div><br>
                             </h1>
                         </div>
                     </div>
@@ -157,14 +157,14 @@
                                 <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="specifications-tabs" href="#reviews">Reviews</a></li>
                                 <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="reviews-tab" href="#specifications">Location</a></li>
                             </ul>
-                            <div class="tab-content text-start d-xxl-flex justify-content-xxl-center align-items-xxl-center" id="myTabContent">
-                                <div class="tab-pane fade show active flex-column description" role="tabpanel" id="description" style="margin-right: 40px;margin-left: 40px;padding-top: 40px;">
-                                    <div class="row d-flex justify-content-center align-items-lg-center" style="margin-left: 0px;margin-right: 0px;text-align: left;">
-                                        <div class="col-md-9 d-flex justify-content-center" style="width: 960px;margin-left: 0px;margin-right: 0px;">
+                            <div class="tab-content " id="myTabContent">
+                                <div class="tab-pane fade show active  description" role="tabpanel" id="description" style="margin-right: 40px;margin-left: 40px;padding-top: 40px;">
+                                    <div class="row" >
+                                        <div class="col-md-9 " style="widtH:100%;margin-left: 0px;margin-right: 0px;">
                                             <div class="products">
-                                            <div class="row g-0" style="padding: 0px;margin-left: 10px; border:none;">
-                                            <div class="col-12 col-md-6 mb-3 ml-2 col-lg-4" style="border:1px solid black; width: 260px;">
-                                                        <div class="clean-product-item">
+                                                <div class="row g-0 " style="padding-bottom: 50px;margin-left: 0px; border:none;">
+                                                <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px;">
+                                                    <div class="clean-product-item">
                                                         <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                             {
@@ -193,15 +193,7 @@
                                 </div>
                                 <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?=$location?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div></div>
                                 <div class="tab-pane fade" role="tabpanel" id="reviews">
-                                   <?php
-                                    $review = getAll("review_table");
-                                    if(mysqli_num_rows($review) > 0)
-                                        {
-                                            foreach($review as $item)
-                                            {
-                                                if($item['businessid'] == $bid)
-                                                {
-                                   ?>
+                                  
                                     <div class="container mt-3">
                                         <div class="card">
                                             <div class="card-header">Restaurant Feedback</div>
@@ -267,15 +259,7 @@
                                         </div>
                                         <div class="mt-5" id="review_content"></div>
                                     </div>
-                                    <?php
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            echo "No Reviews Found";
-                                        }
-                                   ?>
+                                    
 
                                 </div>
                             </div>
