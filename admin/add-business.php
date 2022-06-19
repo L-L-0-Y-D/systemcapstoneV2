@@ -12,7 +12,7 @@ include('includes/header.php');
         <div class="card-header">
           <h4>
               Add Business
-            <a href="busiowner.php" class="btn btn-primary float-end">Back</a>
+            <a href="busiowner.php" class="btn btn-primary float-end" >Back</a>
           </h4>
         </div>
         <div class="card-body">

@@ -10,6 +10,7 @@ include('middleware/userMiddleware.php');
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css"> 
+    <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Akaya%20Kanadaka.css">
     <link rel="stylesheet" href="assets/css/Alata.css">
@@ -53,7 +54,7 @@ include('middleware/userMiddleware.php');
                 $data = mysqli_fetch_array($reservations);
                
             ?>
-    <nav class="navbar navbar-light navbar-expand-md" style="background: var(--bs-orange);">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: rgb(255,128,64);">
         <div class="container-fluid"><a class="navbar-brand" href="#" style="padding-left: 0px;margin-left: 2%;"><strong>Hi <?= $_SESSION['auth_user']['name'];?>!</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse justify-content-end" id="navcol-1" style="padding-right: 30px;">
                 <ul class="navbar-nav">
@@ -67,8 +68,8 @@ include('middleware/userMiddleware.php');
         foreach($reservations as $data)
             {
                 ?>
-                        
-    <div class="container" style="box-shadow: 0px 0px 5px;width: auto;margin-right: 15%;margin-left: 15%;height: auto;">
+   <section style="padding-bottom:20px;">                     
+    <div class="container" style="background:white;box-shadow: 0px 0px 5px;width: auto;margin-right: 15%;margin-left: 15%;height: auto; ">
         <h1 style="margin-top: 5%;font-size: 24.88px; padding-top:10px;"><strong>Reservation Details</strong></h1>
         <div class="row align-items-center" style="padding-top: 10px;margin-top: 10px;padding-bottom: 10px;padding-left: 10px;padding-right: 10px;height: auto;border-top: 1px solid var(--bs-gray-600);">
             <div class="col-md-3" style="border: 1px solid var(--bs-gray-400);height: 180px;">
@@ -84,7 +85,7 @@ include('middleware/userMiddleware.php');
             <div class="col-6 col-md-2 quantity"><label class="col-form-label d-none d-md-block" for="quantity">Status :<?= $data['status']== '0'? "Waiting":"Confirmed"  ?></label></div>
         </div>
     </div>
-    <div class="container" style="margin-right: 15%;margin-left: 15%;width: auto;box-shadow: 0px 0px 5px;margin-top: 20px;height: auto;">
+    <div class="container" style="background:white;margin-right: 15%;margin-left: 15%;width: auto;box-shadow: 0px 0px 5px;margin-top: 20px;height: auto;">
         <h1 style="font-size: 24.88px; padding-top:10px;"><strong>Customer Details</strong></h1>
         <div class="row" style="margin-top: 0px;padding: 10px;border-top-width: 1px;border-top-style: solid;">
             <div class="col"><span style="font-size: 18px;"><strong>Information</strong></span>
@@ -96,7 +97,7 @@ include('middleware/userMiddleware.php');
             </div>
         </div>
     </div>
-
+            </section>
     <?php
                         }
             }

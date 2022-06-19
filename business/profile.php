@@ -24,7 +24,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                 <h4>Edit Profile
-                    <a href="index.php" class="btn btn-primary float-end">Back</a>
+                    <a href="index.php" class="btn btn-primary float-end" style="background:rgb(255,128,64); border:none;">Back</a>
                 </h4>   
                 </div>
                 <div class="card-body">
@@ -94,7 +94,8 @@ include('includes/header.php');
                                 <label for="">Business Certificate</label>
                                 <input type="file" name="image_cert" class="form-control">
                                 <label for="">Current Image</label>
-                                <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px">
+                                <a href="../certificate/<?= $data['image_cert'] ?>">
+                                <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px"></a>
                                 <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
                             </div>
                             <h3>OWNER DETAILS</h3>
@@ -126,7 +127,7 @@ include('includes/header.php');
                                 <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
                             </div> <br>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" name="edit_business_btn">Update Business Profile</button>
+                                <button type="submit" class="btn btn-primary" name="edit_business_btn" style="background:rgb(255,128,64); border:none;">Update Business Profile</button>
                             </div>
                             </div>
                     </form>

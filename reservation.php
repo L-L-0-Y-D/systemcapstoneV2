@@ -72,7 +72,7 @@ include('middleware/userMiddleware.php');
             </div>
                 
             <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" type="submit" name="reserve_btn" style="background: black;color: white;border-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;" >Reserve</button> 
-            <a class="d-flex justify-content-center" style="color: black;" href="index.php">Back to Home</a>
+            <br><a class="d-flex justify-content-center" style="color: black;" href="index.php">Back to Home</a>
             </div>
     <?php
             }

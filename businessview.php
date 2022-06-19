@@ -136,11 +136,7 @@
                             <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;height:30px;"><strong><?= $data['business_name']; ?></strong></h1>
                         </div>
                         <div class="col-md-12" style="width: 1024px;font-size: 14px;">
-<<<<<<< HEAD
-                            <h2 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;font-size: 16px;color: var(--bs-gray);height: 20px;"><strong><?= $data['categoryid']; ?></strong></h2>
-=======
                             <h2 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 16px;color: var(--bs-gray);height: 20px;"><strong><?= $data['categoryname']; ?></strong></h2>
->>>>>>> 072b8e5bb01a7c4fd1f41943033506dc51de7684
                         </div>
                         <div class="col-md-12" style="width: 1024px;">
                             <h3 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;font-size: 20px;color: var(--bs-gray);height: 24px;"><strong><?= $data['business_address']; ?></strong></h3>
@@ -163,36 +159,44 @@
                             </ul>
                             <div class="tab-content " id="myTabContent">
                                 <div class="tab-pane fade show active  description" role="tabpanel" id="description" style="margin-right: 40px;margin-left: 40px;padding-top: 40px;">
-                                    <div class="row" >
-                                        <div class="col-md-9 d-flex " style="width: 100%;">
-                                            <div class="products">
-                                                <div class="row g-0 " style="padding-bottom: 50px;margin-left: 0px; border:none;">
-                                                <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px;">
-                                                    <div class="clean-product-item">
-                                                        <?php
-                                                        if(mysqli_num_rows($product) > 0)
-                                                            {
-                                                                foreach($product as $item)
-                                                                {
-                                                                    ?>
-                                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="uploads/<?= $item['image']; ?>"></a></div>
-                                                            <div class="product-name" style="margin-bottom: 0px;"><a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div><small><?= $item['description']; ?></small>
-                                                            <div class="about">
-                                                                <div class="price" ></div>
-                                                            </div><strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                                            <?php
-                                                                }
-                                                            }
-                                                            else
-                                                            {
-                                                                echo "No Menu Available";
-                                                            }?>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                <div class="row" >
+                                    <div class="col-md-9 d-flex " style="width: 100%;">
+                                    <div class="products">
+                                <div class="row g-0 " style=";margin-left: 0px; border:none;">
+                                <?php
+                                    if(mysqli_num_rows($product) > 0)
+                                    {
+                                        foreach($product as $item)
+                                        {
+                                ?>
+                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
+                                        <div class="clean-product-item">
+                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
+                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
+                                            <div class="product-name mb-0">
+                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
+                                                <div class="product-details m-0" style="height:110px;"><small style="font-size:12px;"><?= $item['description']; ?></small></div>
+                                            <div class="about">
+                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
+                                               
                                             </div>
+                                        </a>
+                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
                                         </div>
+                                    </div>
+                                    <?php
+                                                }
+                                            }
+                                        else
+                                        {
+                                            echo "No Menu Available";
+                                            ?>
+                                            <?php
+                                        }
+                                        ?>
+                                </div>
+                            </div>
+                                    </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe width="913" height="598" id="gmap_canvas" src="https://maps.google.com/maps?q=<?=$location?>&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div></div>
