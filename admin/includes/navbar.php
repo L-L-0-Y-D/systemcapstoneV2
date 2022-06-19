@@ -15,11 +15,11 @@
                                         <a class="dropdown-item" href="admin.php">
                                             <i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Admin</a>
                                         <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>">
-                                            <i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Change Password</a>
-                                        <div class="dropdown-divider"></div>
+                                            <i class="fas fa-key fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Change Password</a>
+                                            <div class="dropdown-divider bg-gray-500"></div>
                                         <a class="dropdown-item" href="../logout.php">
                                             <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
-                                    </div>
+                                        </div>
                                 </div>
                             </li>
                         </ul>

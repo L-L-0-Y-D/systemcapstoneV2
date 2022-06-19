@@ -5,7 +5,7 @@
                 <img src="uploads/I-EatLogo.png" class="image" width="200px" height="200px"/>
             </div>
             <div class="col-md-3">
-                <h3 class="fs-8 text-black fw-bold">About</h3>
+                <h3 class="fs-8 text-black fw-bold">About Us</h3>
                 <h6 style="font-size:12px;">I-Eat: established in 2022, an online international cuisine management system. I-Eat aims to improve the management of the growing community of food industry within Bataan. The system is designed intending to manage customer information, to provide an efficient, contactless, and a more accurate business process.</h6>
             </div>
             <div class="col-md-3">
