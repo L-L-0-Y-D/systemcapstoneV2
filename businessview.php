@@ -4,7 +4,7 @@
     if(isset($_GET['id']))
         {
             $id = $_GET['id'];
-            $business = getByIDActives("business",$id,"businessid");
+            $business = businessGetByIDActives($id);
 
                 if(mysqli_num_rows($business) > 0)
                     {
@@ -136,7 +136,11 @@
                             <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;height:30px;"><strong><?= $data['business_name']; ?></strong></h1>
                         </div>
                         <div class="col-md-12" style="width: 1024px;font-size: 14px;">
+<<<<<<< HEAD
                             <h2 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;font-size: 16px;color: var(--bs-gray);height: 20px;"><strong><?= $data['categoryid']; ?></strong></h2>
+=======
+                            <h2 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 16px;color: var(--bs-gray);height: 20px;"><strong><?= $data['categoryname']; ?></strong></h2>
+>>>>>>> 072b8e5bb01a7c4fd1f41943033506dc51de7684
                         </div>
                         <div class="col-md-12" style="width: 1024px;">
                             <h3 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;font-size: 20px;color: var(--bs-gray);height: 24px;"><strong><?= $data['business_address']; ?></strong></h3>
@@ -277,7 +281,7 @@
         } 
         else
         {
-            echo "Data not found";
+            echo "No Data Found";
             ?>
             <br><a href="index.php">Go Back</a>
             <?php
