@@ -41,7 +41,7 @@ include('includes/header.php');
                             
                             <tbody style="text-align:center">
                                 <?php
-                                    $products = getAll("products");
+                                    $products = menuGetAll();
 
                                     if(mysqli_num_rows($products) > 0)
                                     {
@@ -52,7 +52,7 @@ include('includes/header.php');
                                                 ?>
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
-                                                        <td><?= $item['businessid']; ?></td>
+                                                        <td><?= $item['business_name']; ?></td>
                                                         <td><?= $item['name']; ?></td>
                                                         <td><?= $item['price']; ?></td>
                                                         <td><?= $item['description']; ?></td>

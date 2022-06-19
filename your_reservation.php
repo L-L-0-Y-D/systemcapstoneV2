@@ -45,7 +45,7 @@ include('middleware/userMiddleware.php');
         if(isset($_GET['id']))
         {
             $id = $_GET['id'];
-            $reservations = getByID("reservations",$id,"userid");
+            $reservations = reservationGetByID($id);
 
             if(mysqli_num_rows($reservations) > 0)
             {

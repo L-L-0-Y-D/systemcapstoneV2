@@ -14,6 +14,16 @@ function getAllActive($table)
     $query = "SELECT * FROM $table WHERE status= '0'";
     return $query_run = mysqli_query($con, $query);
 }
+
+function businessGetAll()
+{
+    global $con;
+    $query = "SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.categoryid,mealcategory.categoryname,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    FROM business
+    INNER JOIN mealcategory ON business.categoryid=mealcategory.categoryid;";
+    return $query_run = mysqli_query($con, $query);
+}
+
 function getNameActive($table, $name, $tabledata)
 {
     global $con;

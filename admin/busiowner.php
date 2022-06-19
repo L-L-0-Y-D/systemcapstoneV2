@@ -45,7 +45,7 @@ include('includes/header.php');
                             
                             <tbody style="text-align:center">
                                 <?php
-                                    $business = getAll("business");
+                                    $business = businessGetAll();
 
                                     if(mysqli_num_rows($business) > 0)
                                     {
@@ -60,8 +60,8 @@ include('includes/header.php');
                                                             <a href="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>">
                                                             <img class="img-thumbnail img-fluid image" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"> </td>
                                                             <td><?= $item['business_name']; ?></td>
-                                                        <td><?= $item['categoryid']; ?></td>
-                                                        <td><?= $item['municipalityid']; ?></td>
+                                                        <td><?= $item['categoryname']; ?></td>
+                                                        <td><?= $item['municipality_name']; ?></td>
                                                         <td><?= $item['business_firstname']; ?></td>
                                                         <td><?= $item['business_lastname']; ?></td>
                                                         <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
