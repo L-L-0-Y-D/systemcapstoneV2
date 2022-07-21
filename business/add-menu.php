@@ -37,9 +37,23 @@ include('includes/header.php');
                         <label class="mb-0">Description</label>
                         <textarea rows="3" name="description" required placeholder="Enter Description" class="form-control mb-2"></textarea>
                     </div>
-                    <div class="col-md-12">
-                        <label class="mb-0">Upload Image</label>
+                    <div class="col-md-6">
+                        <label class="mb-0">Upload Image (Upload image that is greater than 2MB to get a better quality)</label>
                         <input type="file" name="image" required class="form-control mb-2">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Course Menu</label>
+						<select  name="food_type" required class="form-control mb-2">
+							<option disabled selected hidden> -Select- </option>
+							<option value="Appetizer">Appetizer</option>
+							<option value="Soup">Soup</option>
+						    <option value="FishDish">Fish Dish</option>
+							<option value="MeatDish">Meat Dish</option>
+							<option value="Main">Main Course</option>
+							<option value="Salad">Salad</option>
+						    <option value="Dessert">Dessert</option>
+						    <option value="Drinks">Drinks</option>
+						</select>
                     </div>
                     <div class="row">
                         <div class="col-md-3">

@@ -107,29 +107,6 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         <form class="d-flex justify-content-center flex-wrap justify-content-md-start flex-lg-nowrap" action="search.php" method="POST">
                             <div class="my-2 me-2">
                                 <input class=" form-control" type="text" name="search" placeholder="Search Restaurant..." style="width:200px;border:solid 1px gray; border-radius:20px;"></div>
-                            <div class="my-2 me-2">
-                                <select id="cuisine" name='cuisine_type' style="height:38px; font-size:10pt;border:solid 1px gray; border-radius:20px;">
-                                    <option disabled selected hidden>Type of Cuisine</option> 
-                                        <div>
-                                            <?php 
-                                                $category = getAllActive("mealcategory");
-                                                if(mysqli_num_rows($category) > 0)
-                                                {
-                                                    foreach ($category as $item)
-                                                    {
-                                                            ?>
-                                                            <option value="<?= $item['categoryid']; ?>"><?= $item['categoryname']; ?></option>
-                                                            <?php
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    echo "No Category Available";
-                                                }
-                                                ?>
-                                        </div>
-                                </select>
-                            </div>
                             <div class="my-2">
                                 <button class="btn btn-primary shadow" type="submit" name="submit" style="height:38px;  border:none;background: rgb(255,128,64); border-radius:20px;"><i class="far fa-search"></i> </button>
                             </div>

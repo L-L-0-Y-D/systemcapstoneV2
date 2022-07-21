@@ -36,6 +36,8 @@ include('../config/dbcon.php');
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Course Menu</th>
                                     <th>Status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -57,6 +59,8 @@ include('../config/dbcon.php');
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
                                                         <td><?= $item['name']; ?></td>
                                                         <td><?= $item['price']; ?></td>
+                                                        <td><?= $item['description']; ?></td>
+                                                        <td><?= $item['food_type']; ?></td>
                                                         <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
                                                         <td>
                                                             <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-sm btn-primary">Edit</a>

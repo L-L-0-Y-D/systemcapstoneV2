@@ -8,6 +8,7 @@ if(isset($_POST['add_product_btn']))
     $businessid = $_POST['businessid'];
     $name = $_POST['name'];
     $description = $_POST['description'];
+    $food_type = $_POST['food_type'];
     $price = $_POST['price'];
     $status = isset($_POST['status']) ? "1":"0";
 
@@ -50,8 +51,8 @@ if(isset($_POST['add_product_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $product_query = "INSERT INTO products (businessid,name,description,price,status,image) 
-    VALUES ('$businessid','$name','$description','$price','$status','$filename')";
+    $product_query = "INSERT INTO products (businessid,name,description,food_type,price,status,image) 
+    VALUES ('$businessid','$name','$description','$food_type','$price','$status','$filename')";
 
     $product_query_run = mysqli_query($con, $product_query);
 

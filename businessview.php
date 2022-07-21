@@ -166,8 +166,9 @@
                                     <div class="col-md-9 d-flex " style="width: 100%;">
                                     <div class="products">
                                 <div class="row g-0 " style="margin-left: 0px; border:none;">
+                                <!---->
                                 <?php
-                                    if(mysqli_num_rows($product) > 0)
+                                if(mysqli_num_rows($product) > 0)
                                     {
                                         foreach($product as $item)
                                         {
@@ -178,7 +179,8 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" style="height:110px;"><small style="font-size:12px;"><?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                
@@ -197,6 +199,7 @@
                                             <?php
                                         }
                                         ?>
+
                                 </div>
                             </div>
                                     </div>
