@@ -24,6 +24,39 @@ if(isset($_POST['register_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
+    // Get Image Dimension
+    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+
+    $allowed_image_extension = array(
+        "png",
+        "jpg",
+        "jpeg"
+    );
+    
+    // Get image file extension
+    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    
+    // Validate file input to check if is not empty
+   if (! file_exists($_FILES["image"]["tmp_name"])) {
+       
+        redirect("../register", "Choose image file to upload.");
+    
+   }  // Validate file input to check if is with valid extension
+   else if (! in_array($file_extension, $allowed_image_extension)) {
+
+       redirect("../register", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+   }// Validate image file size less than
+   else if (($_FILES["image"]["size"] < 2000000)) {
+
+       redirect("../register", "Image size less than 2MB");
+
+   }    // Validate image file size that is greater
+   else if (($_FILES["image"]["size"] > 5000000)) {
+
+       redirect("../register", "Image size exceeds 5MB");
+   }
+   
+
     
     // Check if email already registered
     $check_email_query = "SELECT email FROM users WHERE email='$email'";

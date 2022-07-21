@@ -37,7 +37,7 @@ if(isset($_SESSION['auth'])){
                     <h2 class="d-flex justify-content-center" style="font-weight:bold;">BUSINESS DETAILS</h2>
             <div class="column mb-3">
                 <label class="form-label" for="" style="font-weight: bold;">Upload Image</label>
-                <input class="form-control" type="file" name="image" style="margin-bottom: 5px;height: 40px;" required >
+                <input class="form-control" type="file" data-tag="website-files" name="image" style="margin-bottom: 5px;height: 40px;" data-maxFileSize="2" data-accepted="image/*" required  >
             </div>
             <div class="column mb-3">
                 <label class="form-label" for="" style="font-weight: bold;">Business Name</label>

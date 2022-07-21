@@ -40,6 +40,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
     <title>I-Eat | Home </title> 
+
+    <!-- Favicon -->
+    <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 
 <body>

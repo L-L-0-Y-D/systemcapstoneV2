@@ -162,7 +162,7 @@
                                 <div class="row" >
                                     <div class="col-md-9 d-flex " style="width: 100%;">
                                     <div class="products">
-                                <div class="row g-0 " style=";margin-left: 0px; border:none;">
+                                <div class="row g-0 " style="margin-left: 0px; border:none;">
                                 <?php
                                     if(mysqli_num_rows($product) > 0)
                                     {

@@ -30,6 +30,61 @@ if(isset($_POST['business_register_btn']))
     $filename = time().'.'.$image_ext;
     $certname = time().'.'.$image_cert_ext;
 
+     // Get Image Dimension
+     $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+     $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
+
+     $allowed_image_extension = array(
+         "png",
+         "jpg",
+         "jpeg"
+     );
+     
+     // Get image file extension
+     $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+     $file_cert_extension = pathinfo($_FILES["image_cert"]["name"], PATHINFO_EXTENSION);
+     
+     // Validate file input to check if is not empty
+    if (! file_exists($_FILES["image"]["tmp_name"])) {
+        
+         redirect("../businessreg.php", "Choose image file to upload.");
+     
+    }// Validate file input to check if is not empty
+    else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
+        
+        redirect("../businessreg.php", "Choose image certificate file to upload.");
+            
+    }    // Validate file input to check if is with valid extension
+    else if (! in_array($file_extension, $allowed_image_extension)) {
+ 
+        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+    }    // Validate file input to check if is with valid extension
+    else if (! in_array($file_cert_extension, $allowed_image_extension)) {
+    
+        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
+       
+    }    // Validate image file size less than
+    else if (($_FILES["image"]["size"] < 2000000)) {
+ 
+        redirect("../businessreg.php", "Image size less than 2MB");
+
+    }    // Validate image file size less than
+    else if (($_FILES["image_cert"]["size"] < 2000000)) {
+ 
+        redirect("../businessreg.php", "Image size less than 2MB");
+
+    }    // Validate image file size that is greater
+    else if (($_FILES["image"]["size"] > 5000000)) {
+ 
+        redirect("../businessreg.php", "Image size exceeds 5MB");
+    }    // Validate image file size
+    else if (($_FILES["image_cert"]["size"] > 5000000)) {
+ 
+        redirect("../businessreg.php", "Image size exceeds 5MB");
+
+    }
+    
+
     
     // Check if email already registered
     $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
@@ -65,7 +120,7 @@ if(isset($_POST['business_register_btn']))
                                 redirect("../ownerlogin.php", "Register Successfully");
                             }
                             else{
-                                redirect("../businessreg.php", "Something went wrong");;
+                                redirect("../businessreg.php", "Something went wrong");
                             }
                         }
                     else
@@ -153,5 +208,6 @@ else if(isset($_POST['business_login']))
         redirect("../ownerlogin.php", "No Email Exist");
     }
 }
+
 
 ?>
