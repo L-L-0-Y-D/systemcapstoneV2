@@ -16,6 +16,9 @@ session_start();
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="reg.css">
     <title>Login Business Account | I- Eat</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
     <main class="page registration-page">

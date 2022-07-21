@@ -24,6 +24,8 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="reg.css"> 
     <title>Register Business | I-Eat</title>
+    <!-- Favicon -->
+    <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
     <main class="page registration-page">

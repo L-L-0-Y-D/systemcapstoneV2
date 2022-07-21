@@ -18,6 +18,9 @@ include('middleware/userMiddleware.php');
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="reg.css">
     <title>Reservation | I-Eat</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
     <?php 

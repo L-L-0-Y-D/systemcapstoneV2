@@ -25,6 +25,9 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="reg.css">
     <title>Register | I-Eat</title>
 
+    <!-- Favicon -->
+    <link rel="icon" href="uploads/favicon.ico"/>
+
 </head>
 <body>
     <main class="page registration-page">
