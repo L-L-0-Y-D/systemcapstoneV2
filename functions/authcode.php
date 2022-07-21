@@ -9,13 +9,17 @@ if(isset($_POST['register_btn']))
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $firstname = mysqli_real_escape_string($con,$_POST['firstname']);
     $lastname = mysqli_real_escape_string($con,$_POST['lastname']);
-    $age = mysqli_real_escape_string($con,$_POST['age']);
+    $dateofbirth = date('Y-m-d',strtotime($_POST['dateofbirth']));
     $phonenumber = mysqli_real_escape_string($con,$_POST['phonenumber']);
     $address = mysqli_real_escape_string($con,$_POST['address']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
     $status = isset($_POST['status']) ? "0":"1";
+
+    $today = date("Y-m-d");
+    $difference = date_diff(date_create($dateofbirth), date_create($today));
+    $age = $difference->format('%y');
 
     $image = $_FILES['image']['name'];
 
@@ -39,21 +43,21 @@ if(isset($_POST['register_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("../register", "Choose image file to upload.");
+        redirect("../register.php", "Choose image file to upload.");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("../register", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("../register.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
    }// Validate image file size less than
    else if (($_FILES["image"]["size"] < 2000000)) {
 
-       redirect("../register", "Image size less than 2MB");
+       redirect("../register.php", "Image size less than 2MB");
 
    }    // Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 5000000)) {
 
-       redirect("../register", "Image size exceeds 5MB");
+       redirect("../register.php", "Image size exceeds 5MB");
    }
    
 
@@ -75,7 +79,7 @@ if(isset($_POST['register_btn']))
         // Check if password Match
         if($password == $confirmpassword)
         {
-            if($age >= '18')
+            if($age >= 18)
             {
                 if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
                 {
@@ -83,8 +87,8 @@ if(isset($_POST['register_btn']))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
-                        VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
+                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, address, password, role_as, image, status) 
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
                         //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                         $users_query_run = mysqli_query($con, $insert_query);
 
@@ -182,7 +186,7 @@ if(isset($_POST['update_profile_btn']))
     $email = $_POST['email'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $age = $_POST['age'];
+    $dateofbirth = $_POST['dateofbirth'];
     $phonenumber = $_POST['phonenumber'];
     $address = $_POST['address'];
     $password = $_POST['password'];
@@ -190,6 +194,42 @@ if(isset($_POST['update_profile_btn']))
     $status = isset($_POST['status']) ? "0":"1";
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
+
+    $today = date("Y-m-d");
+    $difference = date_diff(date_create($dateofbirth), date_create($today));
+    $age = $difference->format('%y');
+
+    // Get Image Dimension
+    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+
+    $allowed_image_extension = array(
+        "png",
+        "jpg",
+        "jpeg"
+    );
+    
+    // Get image file extension
+    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    
+    // Validate file input to check if is not empty
+   if (! file_exists($_FILES["image"]["tmp_name"])) {
+       
+        redirect("../profile.php", "Choose image file to upload.");
+    
+   }  // Validate file input to check if is with valid extension
+   else if (! in_array($file_extension, $allowed_image_extension)) {
+
+       redirect("../profile.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+   }// Validate image file size less than
+   else if (($_FILES["image"]["size"] < 2000000)) {
+
+       redirect("../profile.php", "Image size less than 2MB");
+
+   }    // Validate image file size that is greater
+   else if (($_FILES["image"]["size"] > 5000000)) {
+
+       redirect("../profile.php", "Image size exceeds 5MB");
+   }
 
     if($new_image != "")
     {
@@ -216,7 +256,7 @@ if(isset($_POST['update_profile_btn']))
         {
             if(password_verify($password, $row["password"]))
             {
-                if($age >= '18')
+                if($age >= 18)
                 {
                     if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
                     {

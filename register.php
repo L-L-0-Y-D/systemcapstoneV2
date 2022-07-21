@@ -61,10 +61,10 @@ if(isset($_SESSION['auth'])){
                             <label class="form-label" for="" style="font-weight: bold;">Lastname</label>
                             <input type="text" name='lastname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                         </div>
-                        <!-- Input Age -->
+                        <!-- Input Date of birth -->
                         <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Age</label>
-                            <input type="number" name='age' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                            <label class="form-label" for="" style="font-weight: bold;">Date of birth</label>
+                            <input type="date" name='dateofbirth' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                         </div>
                         <!-- Input Phone Number -->
                         <div class="column mb-3">

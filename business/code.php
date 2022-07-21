@@ -15,6 +15,38 @@ if(isset($_POST['add_product_btn']))
 
     $path = "../uploads";
 
+    // Get Image Dimension
+    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+
+    $allowed_image_extension = array(
+        "png",
+        "jpg",
+        "jpeg"
+    );
+    
+    // Get image file extension
+    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    
+    // Validate file input to check if is not empty
+   if (! file_exists($_FILES["image"]["tmp_name"])) {
+       
+        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
+    
+   }  // Validate file input to check if is with valid extension
+   else if (! in_array($file_extension, $allowed_image_extension)) {
+
+       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+   }// Validate image file size less than
+   else if (($_FILES["image"]["size"] < 2000000)) {
+
+       redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+
+   }    // Validate image file size that is greater
+   else if (($_FILES["image"]["size"] > 10000000)) {
+
+       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+   }
+
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
@@ -46,6 +78,38 @@ elseif (isset($_POST['update_product_btn']))
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
+
+    // Get Image Dimension
+    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+
+    $allowed_image_extension = array(
+        "png",
+        "jpg",
+        "jpeg"
+    );
+    
+    // Get image file extension
+    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    
+    // Validate file input to check if is not empty
+   if (! file_exists($_FILES["image"]["tmp_name"])) {
+       
+        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
+    
+   }  // Validate file input to check if is with valid extension
+   else if (! in_array($file_extension, $allowed_image_extension)) {
+
+       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+   }// Validate image file size less than
+   else if (($_FILES["image"]["size"] < 2000000)) {
+
+       redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+
+   }    // Validate image file size that is greater
+   else if (($_FILES["image"]["size"] > 10000000)) {
+
+       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+   }
 
     if($new_image != "")
     {
@@ -158,6 +222,60 @@ else if(isset($_POST['edit_business_btn']))
     $new_image_cert = $_FILES['image_cert']['name'];
     $old_image = $_POST['old_image'];
     $old_image_cert = $_POST['old_image_cert'];
+
+    // Get Image Dimension
+    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+    $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
+
+    $allowed_image_extension = array(
+        "png",
+        "jpg",
+        "jpeg"
+    );
+    
+    // Get image file extension
+    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    $file_cert_extension = pathinfo($_FILES["image_cert"]["name"], PATHINFO_EXTENSION);
+    
+    // Validate file input to check if is not empty
+   if (! file_exists($_FILES["image"]["tmp_name"])) {
+       
+        redirect("profile.php?id=$businessid", "Choose image file to upload.");
+    
+   }// Validate file input to check if is not empty
+   else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
+       
+       redirect("profile.php?id=$businessid", "Choose image certificate file to upload.");
+           
+   }    // Validate file input to check if is with valid extension
+   else if (! in_array($file_extension, $allowed_image_extension)) {
+
+       redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+   }    // Validate file input to check if is with valid extension
+   else if (! in_array($file_cert_extension, $allowed_image_extension)) {
+   
+       redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
+      
+   }    // Validate image file size less than
+   else if (($_FILES["image"]["size"] < 2000000)) {
+
+       redirect("profile.php?id=$businessid", "Image size less than 2MB");
+
+   }    // Validate image file size less than
+   else if (($_FILES["image_cert"]["size"] < 2000000)) {
+
+       redirect("profile.php?id=$businessid", "Image size less than 2MB");
+
+   }    // Validate image file size that is greater
+   else if (($_FILES["image"]["size"] > 5000000)) {
+
+       redirect("profile.php?id=$businessid", "Image size exceeds 5MB");
+   }    // Validate image file size
+   else if (($_FILES["image_cert"]["size"] > 5000000)) {
+
+       redirect("profile.php?id=$businessid", "Image size exceeds 5MB");
+
+   }
 
     if($new_image != "")
     {
