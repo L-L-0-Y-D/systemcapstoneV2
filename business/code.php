@@ -80,37 +80,6 @@ elseif (isset($_POST['update_product_btn']))
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
 
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
-
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
-    
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    
-    // Validate file input to check if is not empty
-   if (! file_exists($_FILES["image"]["tmp_name"])) {
-       
-        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
-    
-   }  // Validate file input to check if is with valid extension
-   else if (! in_array($file_extension, $allowed_image_extension)) {
-
-       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-   }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
-
-       redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 10000000)) {
-
-       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
-   }
 
     if($new_image != "")
     {
@@ -141,7 +110,7 @@ elseif (isset($_POST['update_product_btn']))
     }
     else
     {
-        redirect("edit-menu.php?id=$product_id", "Something Went Wrong"); 
+        redirect("edit-menu.php?id=$productid", "Something Went Wrong"); 
     }
 
 }
