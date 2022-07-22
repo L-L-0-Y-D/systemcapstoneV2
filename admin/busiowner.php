@@ -35,6 +35,8 @@ include('includes/header.php');
                                     <th>Business Name</th>
                                     <th>Cuisine Type</th>
                                     <th>Municipality</th>
+                                    <th>Opening Time</th>
+                                    <th>Closing Time</th>
                                     <th>Firstname</th>
                                     <th>Lastname</th>
                                     <th>Status</th>
@@ -60,14 +62,16 @@ include('includes/header.php');
                                                             <a href="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>">
                                                             <img class="img-thumbnail img-fluid image" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"> </td>
                                                             <td><?= $item['business_name']; ?></td>
-                                                        <td><?= $item['categoryname']; ?></td>
-                                                        <td><?= $item['municipality_name']; ?></td>
-                                                        <td><?= $item['business_firstname']; ?></td>
-                                                        <td><?= $item['business_lastname']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
-                                                        <td>
+                                                            <td><?= $item['categoryname']; ?></td>
+                                                            <td><?= $item['municipality_name']; ?></td>
+                                                            <td><?= date('h:i A', strtotime($item['opening'])); ?></td>
+                                                            <td><?= date('h:i A', strtotime($item['closing']));?></td>
+                                                            <td><?= $item['business_firstname']; ?></td>
+                                                            <td><?= $item['business_lastname']; ?></td>
+                                                            <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
+                                                            <td>
                                                             <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                        </td>
+                                                            </td>
                                                         <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>
                                                         </td>

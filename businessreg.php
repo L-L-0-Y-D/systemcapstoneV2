@@ -92,7 +92,15 @@ if(isset($_SESSION['auth'])){
                 <div class="column mb-3">
                     <label class="form-label" for="" style="font-weight: bold;">Upload Business Permit</label>
                     <input class="form-control" type="file" name="image_cert" style="margin-bottom: 5px;height: 40px;" required >
-            </div>
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Opening</label>
+                    <input class="form-control" type="time" name="opening" style="margin-bottom: 5px;height: 40px;" required >
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Closing</label>
+                    <input class="form-control" type="time" name="closing" style="margin-bottom: 5px;height: 40px;" required >
+                </div>
             <h2 class="d-flex justify-content-center" style="font-weight:bold;">Owner Information</h2>
                 <div class="column mb-3">
                     <label class="form-label" for="" style="font-weight: bold;">Firstname</label>

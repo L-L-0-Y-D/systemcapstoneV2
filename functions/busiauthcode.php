@@ -9,6 +9,8 @@ if(isset($_POST['business_register_btn']))
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
     $categoryid = mysqli_real_escape_string($con,$_POST['categoryid']);
+    $opening = $_POST['opening'];
+    $closing = $_POST['closing'];
     $business_firstname = mysqli_real_escape_string($con,$_POST['business_firstname']);
     $business_lastname = mysqli_real_escape_string($con,$_POST['business_lastname']);
     $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
@@ -17,18 +19,6 @@ if(isset($_POST['business_register_btn']))
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $business_confirmpassword = mysqli_real_escape_string($con,$_POST['business_confirmpassword']);
     $status = isset($_POST['status']) ? "0":"1";
-
-    $image = $_FILES['image']['name'];
-    $image_cert = $_FILES['image_cert']['name'];
-
-    $path = "../uploads";
-
-    $cert_path = "../certificate";
-
-    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
-    $image_cert_ext = pathinfo($image_cert, PATHINFO_EXTENSION);
-    $filename = time().'.'.$image_ext;
-    $certname = time().'.'.$image_cert_ext;
 
      // Get Image Dimension
      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
@@ -83,8 +73,18 @@ if(isset($_POST['business_register_btn']))
         redirect("../businessreg.php", "Image size exceeds 5MB");
 
     }
-    
 
+    $image = $_FILES['image']['name'];
+    $image_cert = $_FILES['image_cert']['name'];
+
+    $path = "../uploads";
+
+    $cert_path = "../certificate";
+
+    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    $image_cert_ext = pathinfo($image_cert, PATHINFO_EXTENSION);
+    $filename = time().'.'.$image_ext;
+    $certname = time().'.'.$image_cert_ext;
     
     // Check if email already registered
     $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
@@ -109,8 +109,8 @@ if(isset($_POST['business_register_btn']))
                         {
                             // Insert User Data
                             $hash = password_hash($business_password, PASSWORD_DEFAULT);
-                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert, status) 
-                            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname', '$status')";
+                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert, status) 
+                            VALUES ('$business_name','$business_address', $municipalityid, $categoryid, '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname', '$status')";
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 

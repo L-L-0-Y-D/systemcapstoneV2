@@ -27,7 +27,7 @@
                                         if (isset($_POST["submit"]))
                                         {
                                             $key = $_POST["search"];
-                                            $query = $con->prepare('SELECT * FROM business WHERE business_name LIKE :keyword ORDER BY business_name');
+                                            $query = $con->prepare("SELECT * FROM business WHERE business_name LIKE :keyword AND status= '1' ORDER BY business_name ");
                                             $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                                             $query->execute();
                                             $results = $query->fetchAll();
@@ -70,7 +70,7 @@
                                         if (isset($_POST["submit"]))
                                         {
                                             $key = $_POST["search"];
-                                            $query = $con->prepare('SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.categoryid,mealcategory.categoryname,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at FROM business JOIN mealcategory ON business.categoryid=mealcategory.categoryid WHERE categoryname LIKE :keyword ORDER BY categoryname');
+                                            $query = $con->prepare("SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.categoryid,mealcategory.categoryname,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at FROM business JOIN mealcategory ON business.categoryid=mealcategory.categoryid AND business.status = '1' WHERE categoryname LIKE :keyword ORDER BY categoryname ");
                                             $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                                             $query->execute();
                                             $results = $query->fetchAll();
@@ -113,7 +113,7 @@
                                         if (isset($_POST["submit"]))
                                         {
                                             $key = $_POST["search"];
-                                            $query = $con->prepare('SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,municipality.municipality_name,business.categoryid,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at FROM business JOIN municipality ON business.municipalityid=municipality.municipalityid WHERE municipality_name LIKE :keyword ORDER BY municipality_name');
+                                            $query = $con->prepare("SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,municipality.municipality_name,business.categoryid,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at FROM business JOIN municipality ON business.municipalityid=municipality.municipalityid AND business.status = '1' WHERE municipality_name LIKE :keyword ORDER BY municipality_name");
                                             $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                                             $query->execute();
                                             $results = $query->fetchAll();

@@ -14,7 +14,7 @@ function getAll($table)
 function businessGetAll()
 {
     global $con;
-    $query = "SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,municipality.municipality_name,business.categoryid,mealcategory.categoryname,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    $query = "SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.opening,business.closing,municipality.municipality_name,business.categoryid,mealcategory.categoryname,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
     FROM business
     JOIN mealcategory 
     ON business.categoryid=mealcategory.categoryid
@@ -36,7 +36,7 @@ function menuGetAll()
 function reservationGetAll()
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,reservations.userid,reservations.status
+    $query = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,reservations.userid,reservations.status
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid";
