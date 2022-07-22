@@ -76,6 +76,14 @@ include('includes/header.php');
                         <label for="">Business Certificate</label>
                         <input type="file" name="image_cert" required class="form-control">
                     </div>
+                    <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Opening</label>
+                    <input class="form-control" type="time" name="opening" style="margin-bottom: 5px;height: 40px;" required >
+                    </div>
+                    <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Closing</label>
+                    <input class="form-control" type="time" name="closing" style="margin-bottom: 5px;height: 40px;" required >
+                    </div>
                     <h3>OWNER DETAILS</h3>
                     <div class="col-md-6">
                         <label for="">First Name</label>

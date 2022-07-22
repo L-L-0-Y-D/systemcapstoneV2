@@ -564,38 +564,6 @@ else if(isset($_POST['update_customer_btn']))
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
 
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
-
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
-    
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    
-    // Validate file input to check if is not empty
-   if (! file_exists($_FILES["image"]["tmp_name"])) {
-       
-        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
-    
-   }  // Validate file input to check if is with valid extension
-   else if (! in_array($file_extension, $allowed_image_extension)) {
-
-       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-   }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
-
-       redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 10000000)) {
-
-       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
-   }
-
     if($new_image != "")
     {
         //$update_filename = $new_image;
@@ -607,12 +575,6 @@ else if(isset($_POST['update_customer_btn']))
         $update_filename = $old_image;
     }
 
-    if(mysqli_num_rows($check_email_query_run)>0)
-    {
-        redirect("edit-admin.php?=$userid", "Email Already Use");
-    }
-    else
-    {
         // Check if password Match
         if($password == $confirmpassword)
         {
@@ -642,7 +604,7 @@ else if(isset($_POST['update_customer_btn']))
         {
             redirect("add-customers.php", "Passwords do not match");
         }
-    }
+    
 
     if($update_query_run)
     {
@@ -694,37 +656,7 @@ else if(isset($_POST['update_admin_btn']))
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
 
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
-
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
     
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    
-    // Validate file input to check if is not empty
-   if (! file_exists($_FILES["image"]["tmp_name"])) {
-       
-        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
-    
-   }  // Validate file input to check if is with valid extension
-   else if (! in_array($file_extension, $allowed_image_extension)) {
-
-       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-   }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
-
-       redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 10000000)) {
-
-       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
-   }
 
     if($new_image != "")
     {
@@ -787,6 +719,34 @@ else if(isset($_POST['update_admin_btn']))
                                         {
                                             unlink("../uploads/".$old_image);
                                         }
+                                        // Get Image Dimension
+                                            $allowed_image_extension = array(
+                                                "png",
+                                                "jpg",
+                                                "jpeg"
+                                            );
+                                                
+                                            // Get image file extension  
+                                            // Validate file input to check if is not empty
+                                            if (! file_exists($_FILES["image"]["name"])) {
+                                                
+                                                redirect("profile.php?id=$userid", "Choose image file to upload.");
+                                                
+                                            }  // Validate file input to check if is with valid extension
+                                            else if (! in_array($file_extension, $allowed_image_extension)) {
+
+                                                redirect("profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+
+                                            }// Validate image file size less than
+                                            else if (($_FILES["image"]["size"] < 2000000)) {
+
+                                                redirect("profile.php?id=$userid", "Image size less than 2MB");
+
+                                            }    // Validate image file size that is greater
+                                            else if (($_FILES["image"]["size"] > 10000000)) {
+
+                                                redirect("profile.php?id=$userid", "Image size exceeds 10MB");
+                                            }
                                     }
                                     redirect("index.php", "Register Updated Successfully");
                                 }
@@ -858,6 +818,8 @@ else if(isset($_POST['add_business_btn']))
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
     $categoryid = mysqli_real_escape_string($con,$_POST['categoryid']);
+    $opening = $_POST['opening'];
+    $closing = $_POST['closing'];
     $business_firstname = mysqli_real_escape_string($con,$_POST['business_firstname']);
     $business_lastname = mysqli_real_escape_string($con,$_POST['business_lastname']);
     $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
@@ -865,65 +827,64 @@ else if(isset($_POST['add_business_btn']))
     $business_owneraddress = mysqli_real_escape_string($con,$_POST['business_owneraddress']);
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $business_confirmpassword = mysqli_real_escape_string($con,$_POST['business_confirmpassword']);
-    $status = isset($_POST['status']) ? "1":"0";
+    $status = isset($_POST['status']) ? "0":"1";
+
+     // Get Image Dimension
+     $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+     $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
+
+     $allowed_image_extension = array(
+         "png",
+         "jpg",
+         "jpeg"
+     );
+     
+     // Get image file extension
+     $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+     $file_cert_extension = pathinfo($_FILES["image_cert"]["name"], PATHINFO_EXTENSION);
+     
+     // Validate file input to check if is not empty
+    if (! file_exists($_FILES["image"]["tmp_name"])) {
+        
+         redirect("../businessreg.php", "Choose image file to upload.");
+     
+    }// Validate file input to check if is not empty
+    else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
+        
+        redirect("../businessreg.php", "Choose image certificate file to upload.");
+            
+    }    // Validate file input to check if is with valid extension
+    else if (! in_array($file_extension, $allowed_image_extension)) {
+ 
+        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+    }    // Validate file input to check if is with valid extension
+    else if (! in_array($file_cert_extension, $allowed_image_extension)) {
+    
+        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
+       
+    }    // Validate image file size less than
+    else if (($_FILES["image"]["size"] < 2000000)) {
+ 
+        redirect("../businessreg.php", "Image size less than 2MB");
+
+    }    // Validate image file size less than
+    else if (($_FILES["image_cert"]["size"] < 2000000)) {
+ 
+        redirect("../businessreg.php", "Image size less than 2MB");
+
+    }    // Validate image file size that is greater
+    else if (($_FILES["image"]["size"] > 5000000)) {
+ 
+        redirect("../businessreg.php", "Image size exceeds 5MB");
+    }    // Validate image file size
+    else if (($_FILES["image_cert"]["size"] > 5000000)) {
+ 
+        redirect("../businessreg.php", "Image size exceeds 5MB");
+
+    }
 
     $image = $_FILES['image']['name'];
     $image_cert = $_FILES['image_cert']['name'];
-
-    /* Checking the image file size and extension. */
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
-    $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
-
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
-    
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    $file_cert_extension = pathinfo($_FILES["image_cert"]["name"], PATHINFO_EXTENSION);
-    
-    // Validate file input to check if is not empty
-   if (! file_exists($_FILES["image"]["tmp_name"])) {
-       
-        redirect("profile.php?id=$businessid", "Choose image file to upload.");
-    
-   }// Validate file input to check if is not empty
-   else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
-       
-       redirect("profile.php?id=$businessid", "Choose image certificate file to upload.");
-           
-   }    // Validate file input to check if is with valid extension
-   else if (! in_array($file_extension, $allowed_image_extension)) {
-
-       redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-   }    // Validate file input to check if is with valid extension
-   else if (! in_array($file_cert_extension, $allowed_image_extension)) {
-   
-       redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
-      
-   }    // Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size less than
-   else if (($_FILES["image_cert"]["size"] < 2000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 5000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size exceeds 5MB");
-   }    // Validate image file size
-   else if (($_FILES["image_cert"]["size"] > 5000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size exceeds 5MB");
-
-   }
 
     $path = "../uploads";
 
@@ -933,8 +894,6 @@ else if(isset($_POST['add_business_btn']))
     $image_cert_ext = pathinfo($image_cert, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
     $certname = time().'.'.$image_cert_ext;
-
-
     
     // Check if email already registered
     $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
@@ -959,34 +918,34 @@ else if(isset($_POST['add_business_btn']))
                         {
                             // Insert User Data
                             $hash = password_hash($business_password, PASSWORD_DEFAULT);
-                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert, status) 
-                            VALUES ('$business_name','$business_address', $municipalityid,$categoryid, '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname', '$status')";
+                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert, status) 
+                            VALUES ('$business_name','$business_address', $municipalityid, $categoryid, '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname', '$status')";
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
-                                redirect("../ownerlogin.php", "Register Successfully");
+                                redirect("businowner.php", "Register Successfully");
                             }
                             else{
-                                redirect("../businessreg.php", "Something went wrong");;
+                                redirect("add-business.php", "Something went wrong");
                             }
                         }
                     else
                         {
-                            redirect("../businessreg.php", "Your password must be at least 8 characters"); 
+                            redirect("add-business.php", "Your password must be at least 8 characters"); 
                         }
                 }
             else
                 {
-                    redirect("../businessreg.php", "Phone number error detected");
+                    redirect("add-business.php", "Phone number error detected");
                 }
 
         }
         else
         {
-            redirect("../businessreg.php", "Passwords do not match");
+            redirect("add-business.php", "Passwords do not match");
         }
     }
 }
@@ -995,8 +954,8 @@ else if(isset($_POST['edit_business_btn']))
     $businessid = $_POST['businessid'];
     $business_name = $_POST['business_name'];
     $business_address = $_POST['business_address'];
-    $municipalityid = $_POST['municipalityid'];
-    $categoryid = $_POST['categoryid'];
+    $opening = $_POST['opening'];
+    $closing = $_POST['closing'];
     $business_firstname = $_POST['business_firstname'];
     $business_lastname = $_POST['business_lastname'];
     $business_email = $_POST['business_email'];
@@ -1006,116 +965,14 @@ else if(isset($_POST['edit_business_btn']))
     $business_confirmpassword = $_POST['business_confirmpassword'];
     $status = isset($_POST['status']) ? "1":"0";
 
-    /* Checking the image file size and extension. */
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
-    $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
 
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
-    
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    $file_cert_extension = pathinfo($_FILES["image_cert"]["name"], PATHINFO_EXTENSION);
-    
-    // Validate file input to check if is not empty
-   if (! file_exists($_FILES["image"]["tmp_name"])) {
-       
-        redirect("profile.php?id=$businessid", "Choose image file to upload.");
-    
-   }// Validate file input to check if is not empty
-   else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
-       
-       redirect("profile.php?id=$businessid", "Choose image certificate file to upload.");
-           
-   }    // Validate file input to check if is with valid extension
-   else if (! in_array($file_extension, $allowed_image_extension)) {
-
-       redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-   }    // Validate file input to check if is with valid extension
-   else if (! in_array($file_cert_extension, $allowed_image_extension)) {
-   
-       redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
-      
-   }    // Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size less than
-   else if (($_FILES["image_cert"]["size"] < 2000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 5000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size exceeds 5MB");
-   }    // Validate image file size
-   else if (($_FILES["image_cert"]["size"] > 5000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size exceeds 5MB");
-
-   }
-
-    /* Updating the database with the new values. */
-    $new_image = $_FILES['image']['name'];
-    $new_image_cert = $_FILES['image_cert']['name'];
-    $old_image = $_POST['old_image'];
-    $old_image_cert = $_POST['old_image_cert'];
-
-    if($new_image != "")
-    {
-        //$update_filename = $new_image;
-        $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
-        $update_filename = time().'.'.$image_ext;
-    }
-    else
-    {
-        $update_filename = $old_image;
-    }
-
-    if($new_image_cert != "")
-    {
-        //$update_filename = $new_image;
-        $image_cert_ext = pathinfo($new_image_cert, PATHINFO_EXTENSION);
-        $update_filename_cert = time().'.'.$image_cert_ext;
-    }
-    else
-    {
-        $update_filename_cert = $old_image_cert;
-    }
-    $path = "../uploads";
-    $cert_path = "../certificate";
-
-    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
+    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',opening='$opening',closing='$closing',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', status='$status' WHERE businessid='$businessid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
 
     if($update_query_run)
     {
-        if($_FILES['image']['name'] != "")
-        {
-            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
-            
-            if(file_exists("../uploads/".$old_image))
-            {
-                unlink("../uploads/".$old_image);
-            }
-        }
-        if($_FILES['image_cert']['name'] != "")
-        {
-            move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$update_filename_cert);
-            
-            if(file_exists("../certification/".$old_image_cert))
-            {
-                unlink("../certification/".$old_image_cert);
-            }
-        }
 
         redirect("busiowner.php", "Business Updated Successfully");
     }

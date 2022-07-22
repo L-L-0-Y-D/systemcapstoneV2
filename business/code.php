@@ -211,6 +211,8 @@ else if(isset($_POST['edit_business_btn']))
     $business_address = $_POST['business_address'];
     $municipalityid = $_POST['municipalityid'];
     $categoryid = $_POST['categoryid'];
+    $opening = $_POST['opening'];
+    $closing = $_POST['closing'];
     $business_firstname = $_POST['business_firstname'];
     $business_lastname = $_POST['business_lastname'];
     $business_email = $_POST['business_email'];
@@ -223,60 +225,6 @@ else if(isset($_POST['edit_business_btn']))
     $new_image_cert = $_FILES['image_cert']['name'];
     $old_image = $_POST['old_image'];
     $old_image_cert = $_POST['old_image_cert'];
-
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
-    $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
-
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
-    
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    $file_cert_extension = pathinfo($_FILES["image_cert"]["name"], PATHINFO_EXTENSION);
-    
-    // Validate file input to check if is not empty
-   if (! file_exists($_FILES["image"]["tmp_name"])) {
-       
-        redirect("profile.php?id=$businessid", "Choose image file to upload.");
-    
-   }// Validate file input to check if is not empty
-   else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
-       
-       redirect("profile.php?id=$businessid", "Choose image certificate file to upload.");
-           
-   }    // Validate file input to check if is with valid extension
-   else if (! in_array($file_extension, $allowed_image_extension)) {
-
-       redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-   }    // Validate file input to check if is with valid extension
-   else if (! in_array($file_cert_extension, $allowed_image_extension)) {
-   
-       redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
-      
-   }    // Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size less than
-   else if (($_FILES["image_cert"]["size"] < 2000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size less than 2MB");
-
-   }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 5000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size exceeds 5MB");
-   }    // Validate image file size
-   else if (($_FILES["image_cert"]["size"] > 5000000)) {
-
-       redirect("profile.php?id=$businessid", "Image size exceeds 5MB");
-
-   }
 
     if($new_image != "")
     {
@@ -302,12 +250,6 @@ else if(isset($_POST['edit_business_btn']))
     $path = "../uploads";
     $cert_path = "../certificate";
 
-    if(mysqli_num_rows($check_email_query_run)>0)
-    {
-        redirect("add-business.php", "Email Already Use");
-    }
-    else
-    {
         $login_query = "SELECT * FROM business WHERE businessid='$businessid'";
         $login_query_run = mysqli_query($con, $login_query);
         //mysqli_query($con,$login_query) or die("bad query: $login_query");
@@ -321,7 +263,7 @@ else if(isset($_POST['edit_business_btn']))
                                 if(strlen($_POST['business_password']) >= 8 )
                                 {
                                     //$hash = password_hash($business_password, PASSWORD_DEFAULT);
-                                    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
+                                    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',opening='$opening',closing='$closing',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
                                     //mysqli_query($con,$update_query) or die("bad query: $update_query");
                                     $update_query_run = mysqli_query($con, $update_query);
 
@@ -371,7 +313,6 @@ else if(isset($_POST['edit_business_btn']))
     
                 }
     
-    }
 
 
 }
@@ -400,7 +341,7 @@ else if(isset($_POST['edit_password_btn']))
                                         $update_query_run = mysqli_query($con, $update_query);
                                         if($update_query_run)
                                         {   
-                                            redirect("index.php", "Business Updated Successfully");
+                                            redirect("index.php", "Password Updated Successfully");
                                         }
                                         else
                                         {

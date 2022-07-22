@@ -32,7 +32,7 @@ include('includes/header.php');
                         <div class="row">
                                 <div class="col-md-12">
                                 <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control" readonly>
+                                <input type="file" name="image" class="form-control" disabled>
                                 <label for="">Current Image</label>
                                 <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
@@ -49,7 +49,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Business Municipality</label>
-                                <select name='municipalityid' required class="form-select mb-2">
+                                <select name='municipalityid' readonly required class="form-select mb-2" disabled>
                                     <option value="" disabled selected hidden>Municipality</option>
                                     <?php 
                                     $municipality = getAll("municipality");
@@ -58,7 +58,7 @@ include('includes/header.php');
                                         foreach ($municipality as $item)
                                         {
                                             ?>
-                                            <option value="<?= $item['municipalityid']; ?>" <?= $data['municipalityid'] == $item['municipalityid']?'selected':''?>><?= $item['municipality_name']; ?></option>
+                                            <option readonly value="<?= $item['municipalityid']; ?>" <?= $data['municipalityid'] == $item['municipalityid']?'selected':''?>><?= $item['municipality_name']; ?></option>
                                             <?php
                                         }
                                     }
@@ -70,7 +70,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Cuisine Type</label>
-                                <select name='categoryid' required class="form-select mb-2">
+                                <select name='categoryid' required class="form-select mb-2" disabled>
                                     <option value="" disabled selected hidden>Cuisine Type</option>
                                     <?php 
                                     $category = getAll("mealcategory");
@@ -79,7 +79,7 @@ include('includes/header.php');
                                         foreach ($category as $item)
                                         {
                                             ?>
-                                            <option value="<?= $item['categoryid']; ?>" <?= $data['categoryid'] == $item['categoryid']?'selected':''?>><?= $item['categoryname']; ?></option>
+                                            <option readonly value="<?= $item['categoryid']; ?>" <?= $data['categoryid'] == $item['categoryid']?'selected':''?>><?= $item['categoryname']; ?></option>
                                             <?php
                                         }
                                     }
@@ -91,10 +91,18 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-12">
                                 <label for="">Business Certificate</label>
-                                <input type="file" name="image_cert" class="form-control">
+                                <input type="file" name="image_cert" class="form-control" disabled >
                                 <label for="">Current Image</label>
                                 <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px">
                                 <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Openig Time</label>
+                                <input type="text" name="opening" value="<?= date('h:i A', strtotime($data['opening'])); ?>"  required placeholder="opening" class="form-control" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Closing Time</label>
+                                <input type="text" name="closing" value="<?= date('h:i A', strtotime($data['closing'])); ?>"  required placeholder="closing" class="form-control" readonly>
                             </div>
                             <h3>OWNER DETAILS</h3>
                             <div class="col-md-6">

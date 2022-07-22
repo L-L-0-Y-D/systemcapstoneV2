@@ -8,7 +8,7 @@ include('includes/header.php');
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-4">Business List</h3>
-            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-business.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add business</a>       
+            <!--<a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-business.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add business</a>-->       
         </div>
         <div class="card shadow">
             <div class="card-body" id="business_table">

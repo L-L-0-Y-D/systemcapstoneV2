@@ -98,6 +98,14 @@ include('includes/header.php');
                                 <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px"></a>
                                 <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
                             </div>
+                            <div class="col-md-6">
+                                <label for="">Opening Time</label>
+                                <input type="time" name="opening" value="<?= $data['opening'] ?>"  required placeholder="Opening" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Closing</label>
+                                <input type="time" name="closing" value="<?= $data['closing'] ?>"  required placeholder="Closing" class="form-control">
+                            </div>
                             <h3>OWNER DETAILS</h3>
                             <div class="col-md-6">
                                 <label for="">First Name</label>
