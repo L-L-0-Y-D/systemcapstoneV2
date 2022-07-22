@@ -250,6 +250,16 @@ else if(isset($_POST['edit_business_btn']))
     $path = "../uploads";
     $cert_path = "../certificate";
 
+    // Check if email already registered
+    $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
+    $check_email_query_run = mysqli_query($con, $check_email_query);
+
+    if(mysqli_num_rows($check_email_query_run)>1)
+    {
+        redirect("profile.php?=$businessid", "Email Already Use");
+    }
+    else
+    {
         $login_query = "SELECT * FROM business WHERE businessid='$businessid'";
         $login_query_run = mysqli_query($con, $login_query);
         //mysqli_query($con,$login_query) or die("bad query: $login_query");
@@ -312,6 +322,7 @@ else if(isset($_POST['edit_business_btn']))
                     }
     
                 }
+            }
     
 
 

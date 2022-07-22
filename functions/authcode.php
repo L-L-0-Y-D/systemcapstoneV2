@@ -242,8 +242,11 @@ if(isset($_POST['update_profile_btn']))
         $update_filename = $old_image;
     }
     $path = "../uploads";
-    
-    if(mysqli_num_rows($check_email_query_run)>0)
+
+    // Check if email already registered
+    $check_email_query = "SELECT email FROM users WHERE email='$email'";
+    $check_email_query_run = mysqli_query($con, $check_email_query);
+    if(mysqli_num_rows($check_email_query_run)>1)
     {
         redirect("../profile.php", "Email Already Use");
     }
