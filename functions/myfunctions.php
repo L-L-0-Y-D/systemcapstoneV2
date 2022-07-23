@@ -26,7 +26,7 @@ function businessGetAll()
 function menuGetAll()
 {
     global $con;
-    $query = "SELECT products.productid,products.name,business.business_name,products.description,products.price,products.image,products.status,products.created_at
+    $query = "SELECT products.productid,products.name,business.business_name,products.description,products.food_type,products.price,products.image,products.status,products.created_at
     FROM products
     JOIN business 
     ON products.businessid=business.businessid";

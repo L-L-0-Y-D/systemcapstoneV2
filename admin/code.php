@@ -77,6 +77,27 @@ else if(isset($_POST['update_municipality_btn']))
         //$update_filename = $new_image;
         $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
         $update_filename = time().'.'.$image_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+        }// Validate image file size less than
+        else if (($_FILES["image"]["size"] < 2000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+        }
     }
     else
     {
@@ -237,6 +258,27 @@ else if(isset($_POST['update_product_btn']))
         //$update_filename = $new_image;
         $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
         $update_filename = time().'.'.$image_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in product image.");
+        }// Validate image file size less than
+        else if (($_FILES["image"]["size"] < 2000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+        }
     }
     else
     {
@@ -254,35 +296,7 @@ else if(isset($_POST['update_product_btn']))
             if(file_exists("../uploads/".$old_image))
             {
                 unlink("../uploads/".$old_image);
-                // Get Image Dimension
-                $allowed_image_extension = array(
-                    "png",
-                    "jpg",
-                    "jpeg"
-                );
-                    
-                // Get image file extension
-                $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-                    
-                // Validate file input to check if is not empty
-                if (! file_exists($_FILES["image"]["tmp_name"])) {
-                    
-                    redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
-                    
-                }  // Validate file input to check if is with valid extension
-                else if (! in_array($file_extension, $allowed_image_extension)) {
-
-                    redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-                }// Validate image file size less than
-                else if (($_FILES["image"]["size"] < 2000000)) {
-
-                    redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
-
-                }    // Validate image file size that is greater
-                else if (($_FILES["image"]["size"] > 10000000)) {
-
-                    redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
-                }
+                
             }
         }
         redirect("edit-product.php?id=$product_id", "Product Updated Successfully");
@@ -541,6 +555,27 @@ else if(isset($_POST['update_customer_btn']))
         //$update_filename = $new_image;
         $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
         $update_filename = time().'.'.$image_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+        }// Validate image file size less than
+        else if (($_FILES["image"]["size"] < 2000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+        }
     }
     else
     {
@@ -635,6 +670,27 @@ else if(isset($_POST['update_admin_btn']))
         //$update_filename = $new_image;
         $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
         $update_filename = time().'.'.$image_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+        }// Validate image file size less than
+        else if (($_FILES["image"]["size"] < 2000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+        }
     }
     else
     {
@@ -695,34 +751,6 @@ else if(isset($_POST['update_admin_btn']))
                                         {
                                             unlink("../uploads/".$old_image);
                                         }
-                                        // Get Image Dimension
-                                            $allowed_image_extension = array(
-                                                "png",
-                                                "jpg",
-                                                "jpeg"
-                                            );
-                                                
-                                            // Get image file extension  
-                                            // Validate file input to check if is not empty
-                                            if (! file_exists($_FILES["image"]["name"])) {
-                                                
-                                                redirect("profile.php?id=$userid", "Choose image file to upload.");
-                                                
-                                            }  // Validate file input to check if is with valid extension
-                                            else if (! in_array($file_extension, $allowed_image_extension)) {
-
-                                                redirect("profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-
-                                            }// Validate image file size less than
-                                            else if (($_FILES["image"]["size"] < 2000000)) {
-
-                                                redirect("profile.php?id=$userid", "Image size less than 2MB");
-
-                                            }    // Validate image file size that is greater
-                                            else if (($_FILES["image"]["size"] > 10000000)) {
-
-                                                redirect("profile.php?id=$userid", "Image size exceeds 10MB");
-                                            }
                                     }
                                     redirect("index.php", "Register Updated Successfully");
                                 }

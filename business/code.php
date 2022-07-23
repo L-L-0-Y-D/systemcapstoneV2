@@ -72,6 +72,7 @@ elseif (isset($_POST['update_product_btn']))
 
     $name = $_POST['name'];
     $description = $_POST['description'];
+    $food_type = $_POST['food_type'];
     $price = $_POST['price'];
     $status = isset($_POST['status']) ? "1":"0";
 
@@ -86,13 +87,35 @@ elseif (isset($_POST['update_product_btn']))
         //$update_filename = $new_image;
         $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
         $update_filename = time().'.'.$image_ext;
+
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+        }// Validate image file size less than
+        else if (($_FILES["image"]["size"] < 2000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+        }
     }
     else
     {
         $update_filename = $old_image;
     }
 
-    $update_product_query = " UPDATE products SET name='$name', description='$description',price='$price',status='$status',image='$update_filename' WHERE productid='$productid'";
+    $update_product_query = " UPDATE products SET name='$name', description='$description', food_type='$food_type',price='$price',status='$status',image='$update_filename' WHERE productid='$productid'";
     $update_product_query_run = mysqli_query($con, $update_product_query);
 
     if($update_product_query_run)
@@ -200,6 +223,28 @@ else if(isset($_POST['edit_business_btn']))
         //$update_filename = $new_image;
         $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
         $update_filename = time().'.'.$image_ext;
+
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_ext, $allowed_image_extension)) {
+
+            redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+        }// Validate image file size less than
+        else if (($_FILES["image"]["size"] < 2000000)) {
+
+            redirect("profile.php?id=$businessid", "Image size less than 2MB");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image"]["size"] > 10000000)) {
+
+            redirect("profile.php?id=$businessid", "Image size exceeds 10MB");
+        }
     }
     else
     {
@@ -211,6 +256,27 @@ else if(isset($_POST['edit_business_btn']))
         //$update_filename = $new_image;
         $image_cert_ext = pathinfo($new_image_cert, PATHINFO_EXTENSION);
         $update_filename_cert = time().'.'.$image_cert_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_cert_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.");
+        }// Validate image file size less than
+        else if (($_FILES["image_cert"]["size"] < 2000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image_cert"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+        }
     }
     else
     {

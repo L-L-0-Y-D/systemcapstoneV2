@@ -13,7 +13,7 @@ include('includes/header.php');
       <div class="card">
         <div class="card-header">
           <h4>Add Products
-          <a href="menu.php" class="btn btn-primary float-end" style="background:rgb(255,128,64); border:none;">Back</a></h4>
+          <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end" style="background:rgb(255,128,64); border:none;">Back</a></h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">

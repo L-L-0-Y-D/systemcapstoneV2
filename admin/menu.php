@@ -29,12 +29,13 @@ include('includes/header.php');
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                         <table class="table my-0" id="dataTable" style="text-align:center">
                             <thead>
-                                <tr>
+                            <tr>
                                     <th>Image</th>
                                     <th>Business Name</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Description</th>
+                                    <th>Course Menu</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -56,6 +57,7 @@ include('includes/header.php');
                                                         <td><?= $item['name']; ?></td>
                                                         <td><?= $item['price']; ?></td>
                                                         <td><?= $item['description']; ?></td>
+                                                        <td><?= $item['food_type']; ?></td>
                                                         <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
                                                         
                                                     </tr>

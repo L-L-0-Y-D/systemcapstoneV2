@@ -51,12 +51,26 @@ include('includes/header.php');
                                         <label class="mb-0">Description</label>
                                         <textarea rows="3" name="description"  required placeholder="Enter Description" class="form-control mb-2"><?= $data['description']?></textarea>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label class="mb-0">Upload Image</label>
                                         <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
                                         <input type="file" name="image" class="form-control mb-2">
                                         <label class="mb-0">Current Image</label>
                                         <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label">Course Menu</label>
+                                        <select  name="food_type" value="<?= $data['food_type'] ?>" required class="form-control mb-2">
+                                            <option selected hidden value="<?= $data['food_type'] ?>"> <?= $data['food_type'] ?> </option>
+                                            <option value="Appetizer">Appetizer</option>
+                                            <option value="Soup">Soup</option>
+                                            <option value="FishDish">Fish Dish</option>
+                                            <option value="MeatDish">Meat Dish</option>
+                                            <option value="Main">Main Course</option>
+                                            <option value="Salad">Salad</option>
+                                            <option value="Dessert">Dessert</option>
+                                            <option value="Drinks">Drinks</option>
+                                        </select>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3">

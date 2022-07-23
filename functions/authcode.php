@@ -199,48 +199,39 @@ if(isset($_POST['update_profile_btn']))
     $difference = date_diff(date_create($dateofbirth), date_create($today));
     $age = $difference->format('%y');
 
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
-
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
-    
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    
-    // Validate file input to check if is not empty
-   if (! file_exists($_FILES["image"]["tmp_name"])) {
-       
-        redirect("../profile.php", "Choose image file to upload.");
-    
-   }  // Validate file input to check if is with valid extension
-   else if (! in_array($file_extension, $allowed_image_extension)) {
-
-       redirect("../profile.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-   }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
-
-       redirect("../profile.php", "Image size less than 2MB");
-
-   }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 5000000)) {
-
-       redirect("../profile.php", "Image size exceeds 5MB");
-   }
 
     if($new_image != "")
     {
         //$update_filename = $new_image;
         $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
         $update_filename = time().'.'.$image_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_ext, $allowed_image_extension)) {
+
+            redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.");
+        }// Validate image file size less than
+        else if (($_FILES["image"]["size"] < 2000000)) {
+
+            redirect("../profile.php?id=$userid", "Image size less than 2MB");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image"]["size"] > 10000000)) {
+
+            redirect("../profile.php?id=$userid", "Image size exceeds 10MB");
+        }
     }
     else
     {
         $update_filename = $old_image;
     }
+    
     $path = "../uploads";
 
     // Check if email already registered
