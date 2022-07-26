@@ -40,7 +40,7 @@
                     }
                     else
                     {
-                        echo "No Category Available";
+                        echo "No Category Availables";
                     }
                 ?>
                 </div>
