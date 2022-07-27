@@ -15,7 +15,7 @@ if(isset($_POST['register_btn']))
     $password = mysqli_real_escape_string($con,$_POST['password']);
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
-    $status = isset($_POST['status']) ? "0":"1";
+    $verify_token = md5(rand());
 
     $today = date("Y-m-d");
     $difference = date_diff(date_create($dateofbirth), date_create($today));
@@ -49,12 +49,7 @@ if(isset($_POST['register_btn']))
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
        redirect("../register.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
-   }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
-
-       redirect("../register.php", "Image size less than 2MB");
-
-   }    // Validate image file size that is greater
+   }// Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 5000000)) {
 
        redirect("../register.php", "Image size exceeds 5MB");
@@ -87,14 +82,15 @@ if(isset($_POST['register_btn']))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, address, password, role_as, image, status) 
-                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
+                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, address, password, role_as, image, verify_token) 
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$verify_token')";
                         //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                         $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                                redirect("../login.php", "Register Successfully");
+                                sendemail_verify("$name","$email","$verify_token");
+                                redirect("../login.php", "Registration Success Please verify Email Address to login");
                             }
                             else
                             {
@@ -319,43 +315,57 @@ else if(isset($_POST['login_btn'])){ // LogIn
             if(password_verify($password, $row["password"]))
             {
                 if(mysqli_num_rows($login_query_run) > 0)
-                {
-                    $_SESSION['auth'] = true;
-                    $userid = $row['userid'];
-                    $username = $row['name'];
-                    $useremail = $row['email'];
-                    $userphonenumber = $row['phonenumber'];
-                    $userimage = $row['image'];
-                    $role_as = $row['role_as'];
-            
-                    $_SESSION['auth_user'] = [
-                        'userid' => $userid,
-                        'name' => $username,
-                        'email' => $useremail,
-                        'phonenumber' => $userphonenumber,
-                        'image' => $userimage,
-                        'role_as' => $role_as
-                    ];
-            
-                    $_SESSION['role_as'] = $role_as;
-            
-                    if($role_as == 1)
                     {
-                        redirect("../admin/index.php", "Welcome to dashboard");
+                        if($row['status'] == "1")
+                        {
+                            $_SESSION['auth'] = true;
+                            $userid = $row['userid'];
+                            $username = $row['name'];
+                            $useremail = $row['email'];
+                            $userphonenumber = $row['phonenumber'];
+                            $userimage = $row['image'];
+                            $role_as = $row['role_as'];
+                    
+                            $_SESSION['auth_user'] = [
+                                'userid' => $userid,
+                                'name' => $username,
+                                'email' => $useremail,
+                                'phonenumber' => $userphonenumber,
+                                'image' => $userimage,
+                                'role_as' => $role_as
+                            ];
+                    
+                            $_SESSION['role_as'] = $role_as;
+                    
+                            if($role_as == 1)
+                            {
+                                redirect("../admin/index.php", "Welcome to dashboard");
+                                exit(0);
+                            }
+                            else
+                            {
+                                redirect("../index.php", "Logged In Successfully");
+                                exit(0);
+                            }
+                        }
+                        else
+                        {
+                            redirect("../login.php", "Please Verify your Email to Login");
+                            // $_SESSION['status'] = "Please Verify your Email to Login";
+                            // header("Location: login.php");
+                            exit(0);
+                        }
                     }
-                    else
-                    {
-                        redirect("../index.php", "Logged In Successfully");
-                    }
-                }
                 else
-                {  
-                        redirect("../login.php", "Wrong Email or Password");
-                }
+                    {  
+                            redirect("../login.php", "Wrong Email or Password");
+                            exit(0);
+                    }
             }
             else
             {
                 redirect("../login.php", "Wrong Email or Password");
+                exit(0);
             }
 
         }
@@ -364,6 +374,7 @@ else if(isset($_POST['login_btn'])){ // LogIn
     else
     {  
         redirect("../login.php", "No Email Exist");
+        exit(0);
     }
 }
 

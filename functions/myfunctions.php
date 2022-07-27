@@ -3,6 +3,49 @@
 session_start();
 include('../config/dbcon.php');
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    
+    //Load Composer's autoloader
+    require '../vendor/autoload.php';
+
+function sendemail_verify($name,$email,$verify_token)
+{
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    //$mail->SMTPDebug = 2; 
+    $mail->isSMTP();
+    $mail->SMTPAuth   = true; 
+
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "ieatwebsite@gmail.com";
+    $mail->Password   = "ydckqbbwsloabncq";
+
+    $mail->SMTPSecure = "tls";
+    $mail->Port       = 587;
+    
+    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->addAddress($email);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Email Verification'; 
+
+    $email_template = "
+        <h1>Hello $name!! </h1>
+        <h2>You have Register with I-EAT</h2>
+        <h3>Verify your email <a href='http://localhost/systemcapstoneV2/verify-email.php?token=$verify_token'>Here.<a></h3>
+        
+    ";
+
+    $mail->Body    = $email_template;
+    $mail->send();
+   // echo 'Message has been sent';
+
+
+}
+
 //for getting all the data in the table
 function getAll($table)
 {
