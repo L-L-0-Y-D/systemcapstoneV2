@@ -35,7 +35,7 @@ function sendemail_verify($name,$email,$verify_token)
     $email_template = "
         <h1>Hello $name!! </h1>
         <h2>You have Register with I-EAT</h2>
-        <h3>Verify your email <a href='http://localhost/systemcapstoneV2/verify-email.php?token=$verify_token'>Here.<a></h3>
+        <h3>Verify your email <a href='http://localhost/systemcapstoneV2/verify-email.php?token=$verify_token'>here.<a></h3>
         
     ";
 
