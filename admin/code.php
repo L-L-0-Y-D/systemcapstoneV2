@@ -968,15 +968,16 @@ else if(isset($_POST['edit_business_btn']))
     if($update_query_run)
     {
         //redirect("busiowner.php", "Business Updated Successfully");
-         if($status == 1)
-         {
-             sendemail_businessconfirm($business_email,$business_name);
-             redirect("busiowner.php", "Email Send Business Updated Successfully");
-         }
-         elseif($status == 0)
-         {
-             redirect("busiowner.php", "Business Updated Successfully");
-         }
+        //Not finish
+        if($status == 1)
+        {
+            sendemail_businessconfirm($business_email,$business_name);
+            redirect("busiowner.php", "Email Send Business Updated Successfully");
+        }
+        elseif($status == 0)
+        {
+            redirect("busiowner.php", "Business Updated Successfully");
+        }
     }
     else
     {

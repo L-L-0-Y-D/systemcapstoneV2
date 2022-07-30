@@ -379,7 +379,7 @@ if(isset($_POST['login_btn'])){ // LogIn
 }
 
 if(isset($_POST["recover"])){
-    $email = mysqli_real_escape_string($con,$_POST['email']);
+    $email = $_POST['email'];
 
     $sql = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
     $query = mysqli_num_rows($sql);
@@ -395,13 +395,13 @@ if(isset($_POST["recover"])){
        
     }else{
         // generate token by binaryhexa 
-        $token = bin2hex(random_bytes(50));
+        $token = $fetch["verify_token"];
 
         //session_start ();
-        $_SESSION['token'] = $token;
+        $_SESSION['verify_token'] = $token;
         $_SESSION['email'] = $email;
 
-        sendemail_forgetpassword("$email");
+        sendemail_forgetpassword("$email","$token");
         redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email");
     }
 }
@@ -419,7 +419,7 @@ if(isset($_POST["reset"])){
     $query = mysqli_num_rows($sql);
     $fetch = mysqli_fetch_assoc($sql);
 
-    if($password=$confirmpassword)
+    if($password == $confirmpassword)
     {
         if($Email)
         {

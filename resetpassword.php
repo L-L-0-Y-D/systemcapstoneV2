@@ -2,12 +2,12 @@
 session_start();
 /* This is checking if the user is already logged in. If they are, it will redirect them to the index
 page and display a message. */
-if(isset($_SESSION['auth'])){
-    $_SESSION['message'] = "You are Already Login";
-    header('Location: index.php');
+if(!isset($_GET['token']))
+{   
+    $_SESSION['message'] = "token missing from url";
+    header('Location: '."index.php");
     exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -46,7 +46,7 @@ function sendemail_verify($name,$email,$verify_token)
 
 }
 
-function sendemail_forgetpassword($email)
+function sendemail_forgetpassword($email,$verify_token)
 {
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
@@ -72,7 +72,7 @@ function sendemail_forgetpassword($email)
     <b>Dear User</b>
     <h3>We received a request to reset your password.</h3>
     <p>Kindly click the below link to reset your password</p>
-    <a href='http://localhost/systemcapstoneV2/resetpassword.php'>Clicked here<a>
+    <a href='http://localhost/systemcapstoneV2/resetpassword.php?token=$verify_token'>Clicked here<a>
     ";
 
     $mail->Body    = $email_template;
