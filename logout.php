@@ -7,6 +7,7 @@ the index page. */
 if(isset($_SESSION['auth'])){
     unset($_SESSION['auth']);
     unset($_SESSION['auth_user']);
+    //unset($_SESSION['business_name']);
     $_SESSION['message'] = "Logged Out Successfully";
 }
 

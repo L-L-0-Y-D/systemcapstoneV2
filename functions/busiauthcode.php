@@ -19,6 +19,7 @@ if(isset($_POST['business_register_btn']))
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $business_confirmpassword = mysqli_real_escape_string($con,$_POST['business_confirmpassword']);
     $status = isset($_POST['status']) ? "0":"1";
+    $verify_token = md5(rand());
 
      // Get Image Dimension
      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
@@ -109,8 +110,8 @@ if(isset($_POST['business_register_btn']))
                         {
                             // Insert User Data
                             $hash = password_hash($business_password, PASSWORD_DEFAULT);
-                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert, status) 
-                            VALUES ('$business_name','$business_address', $municipalityid, $categoryid, '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname', '$status')";
+                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,verify_token, status) 
+                            VALUES ('$business_name','$business_address', $municipalityid, $categoryid, '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$verify_token', '$status')";
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 
@@ -167,7 +168,7 @@ else if(isset($_POST['business_login']))
 
                                 $businessid = $row['businessid'];
                                 $businessnames = $row['business_name'];
-                                $businessemail = $row['email'];
+                                $businessemail = $row['business_email'];
                                 $role_as = $row['role_as'];
                                 $businessimage = $row['image'];
                                 
@@ -175,7 +176,7 @@ else if(isset($_POST['business_login']))
                                 $_SESSION['auth_user'] = [
                                     'businessid' => $businessid,
                                     'business_name' => $businessnames,
-                                    'email' => $useremail,
+                                    'business_email' => $useremail,
                                     'image' => $businessimage,
                                     'role_as' => $role_as,
                                     'status' => $status
@@ -206,6 +207,74 @@ else if(isset($_POST['business_login']))
     else
     {  
         redirect("../ownerlogin.php", "No Email Exist");
+    }
+}
+
+if(isset($_POST["recover"])){
+    $business_email = $_POST['business_email'];
+
+    $sql = mysqli_query($con, "SELECT * FROM business WHERE business_email='$business_email'");
+    $query = mysqli_num_rows($sql);
+    $fetch = mysqli_fetch_assoc($sql);
+
+    if(mysqli_num_rows($sql) <= 0){
+
+            redirect("../forgetbusinesspassword.php", "Sorry, no emails exists ");
+
+    }else if($fetch["status"] == 0){
+
+            redirect("../index.php", "Sorry, your account must verify first, before you recover your password !");
+       
+    }else{
+        // generate token by binaryhexa 
+        $token = $fetch["verify_token"];
+
+        //session_start ();
+        $_SESSION['verify_token'] = $token;
+        $_SESSION['business_email'] = $business_email;
+
+        sendemail_forgetpassword("$business_email","$token");
+        redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email");
+    }
+}
+
+if(isset($_POST["reset"])){
+    $business_password = $_POST["business_password"];
+    $confirmpassword = $_POST["business_confirmpassword"];
+
+    $token = $_SESSION['verify_token'];
+    $business_email = $_SESSION['business_email'];
+
+    $hash = password_hash( $business_password  , PASSWORD_DEFAULT );
+
+    $sql = mysqli_query($con, "SELECT * FROM business WHERE business_email='$business_email'");
+    $query = mysqli_num_rows($sql);
+    $fetch = mysqli_fetch_assoc($sql);
+
+    if(strlen($_POST['business_password']) >= 8 )
+    {
+        if($business_password  == $confirmpassword)
+        {
+            if($business_email)
+            {
+                $new_pass = $hash;
+                mysqli_query($con, "UPDATE business SET business_password='$new_pass' WHERE business_email='$business_email'");
+
+                    redirect("../index.php", "Your Password has been succesful reset");
+            }
+            else
+            {
+                    redirect("../resetpassword.php", "Please try again");
+            }
+        }
+        else
+        {
+            redirect("../resetpassword.php", "Passwords do not match");
+        }
+    }
+    else
+    {  
+        redirect("../businessreg.php", "Your password must be at least 8 characters"); 
     }
 }
 

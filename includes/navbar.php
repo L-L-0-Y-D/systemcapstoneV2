@@ -9,7 +9,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
 <!--eveything inside the bg image-->
 <div id="header-img">
     <div id="header-signup">
-        <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"])):?>
+        <?php if(empty($_SESSION["auth"])):?>
             <!--For business registration-->
             <p style="padding-top:5px;">Do you need business account?  <span><a href="businessreg.php">REGISTER</a></span>
             <i class="far fa-times-circle" onclick="closeNav()"style="float:right; margin-right:30px;"></i></p>
@@ -22,7 +22,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
     </div>
     <header>
             <div class="nav-menu">
-                <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
+                <?php if(empty($_SESSION["auth"]))
                 {// if user is not login
                     ?>
 							
@@ -86,11 +86,11 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                     ?> 
                     <?php 
                 }
-                elseif(isset($_SESSION['business_email'])) 
+                elseif(isset($_SESSION['busi'])) 
                 {
                 ?>
                     <!--if user is login-->
-                    <h2> Welcome <strong><?php echo $_SESSION['business_name']; ?></strong> !</h2>
+                    <h2> Welcome <strong><?php echo $_SESSION['auth_user']['business_name']; ?></strong> !</h2>
                     <button class="loginbtn" onclick="location.href='business/admin.php'">Dashboard</button>
                     <button class="loginbtn" onclick="location.href='logout.php'">Logout</button> 
                  

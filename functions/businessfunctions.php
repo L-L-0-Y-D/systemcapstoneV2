@@ -1,6 +1,126 @@
 <?php
 
 session_start();
+include('../config/dbcon.php');
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    
+    //Load Composer's autoloader
+    require '../vendor/autoload.php';
+
+
+    function sendemail_verify($name,$email,$verify_token)
+    {
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+    
+        //$mail->SMTPDebug = 2; 
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true; 
+    
+        $mail->Host       = "smtp.gmail.com";
+        $mail->Username   = "ieatwebsite@gmail.com";
+        $mail->Password   = "ydckqbbwsloabncq";
+    
+        $mail->SMTPSecure = "tls";
+        $mail->Port       = 587;
+        
+        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+        $mail->addAddress($email);
+    
+        $mail->isHTML(true);
+        $mail->Subject = 'Email Verification'; 
+    
+        $email_template = "
+            <h1>Hello $name!! </h1>
+            <h2>You have Register with I-EAT</h2>
+            <h3>Verify your email <a href='http://localhost/systemcapstoneV2/verify-email.php?token=$verify_token'>here.<a></h3>
+            
+        ";
+    
+        $mail->Body    = $email_template;
+        $mail->send();
+       // echo 'Message has been sent';
+    
+    
+    }
+    
+    function sendemail_forgetpassword($email,$verify_token)
+    {
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+    
+        //$mail->SMTPDebug = 2; 
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true; 
+    
+        $mail->Host       = "smtp.gmail.com";
+        $mail->Username   = "ieatwebsite@gmail.com";
+        $mail->Password   = "ydckqbbwsloabncq";
+    
+        $mail->SMTPSecure = "tls";
+        $mail->Port       = 587;
+        
+        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+        $mail->addAddress($email);
+    
+        $mail->isHTML(true);
+        $mail->Subject = 'Recover your Password'; 
+    
+        $email_template = "
+        <b>Dear Business Owner</b>
+        <h3>We received a request to reset your password.</h3>
+        <p>Kindly click the below link to reset your password</p>
+        <a href='http://localhost/systemcapstoneV2/resetbusinesspassword.php?token=$verify_token'>Clicked here<a>
+        ";
+    
+        $mail->Body    = $email_template;
+        $mail->send();
+       // echo 'Message has been sent';
+    
+    
+    }
+    
+    function sendemail_businessconfirm($email,$name)
+    {
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+    
+        //$mail->SMTPDebug = 2; 
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true; 
+    
+        $mail->Host       = "smtp.gmail.com";
+        $mail->Username   = "ieatwebsite@gmail.com";
+        $mail->Password   = "ydckqbbwsloabncq";
+    
+        $mail->SMTPSecure = "tls";
+        $mail->Port       = 587;
+        
+        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+        $mail->addAddress($email);
+    
+        $mail->isHTML(true);
+        $mail->Subject = 'Business Confirm'; 
+    
+        $email_template = "
+        <b>Dear $name</b>
+        <h3>Congratulations.</h3>
+        <p>We check your business details and all the files you send<p>
+        http://localhost/systemcapstoneV2/index.php
+        ";
+    
+        $mail->Body    = $email_template;
+        $mail->send();
+       // echo 'Message has been sent';
+    
+    
+    }
+    
+
+
 function getAll($table)
 {
     global $con;

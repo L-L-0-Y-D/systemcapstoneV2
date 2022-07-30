@@ -42,8 +42,9 @@ session_start();
                     <input type="password" name="business_password" id="password" class="form-control form-control-sm item" style="height: 50px;" required/>
                 </div>
             </div>
-                <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" name='business_login' style="background:black;color:white;border-style: none;border-bottom-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;">LOGIN</button> <br> 
+                <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" name='business_login' style="background:black;color:white;border-style: none;border-bottom-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;">LOGIN</button>
                 <!--link to connect with register php-->
+                <a href="forgetbusinesspassword.php" class="btn btn-link">Forgot Password</a>
                 <a class="d-flex justify-content-center" style="color: black;" href="businessreg.php">Create an account</a>
         </div>
     </form>
