@@ -82,6 +82,42 @@ function sendemail_forgetpassword($email)
 
 }
 
+function sendemail_businessconfirm($email,$name)
+{
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    //$mail->SMTPDebug = 2; 
+    $mail->isSMTP();
+    $mail->SMTPAuth   = true; 
+
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "ieatwebsite@gmail.com";
+    $mail->Password   = "ydckqbbwsloabncq";
+
+    $mail->SMTPSecure = "tls";
+    $mail->Port       = 587;
+    
+    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->addAddress($email);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Business Confirm'; 
+
+    $email_template = "
+    <b>Dear $name</b>
+    <h3>Congratulations.</h3>
+    <p>We check your business details and all the files you send<p>
+    http://localhost/systemcapstoneV2/index.php
+    ";
+
+    $mail->Body    = $email_template;
+    $mail->send();
+   // echo 'Message has been sent';
+
+
+}
+
 //for getting all the data in the table
 function getAll($table)
 {

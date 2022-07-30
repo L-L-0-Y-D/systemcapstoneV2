@@ -1,6 +1,5 @@
 <?php
 
-include('../config/dbcon.php');
 include('../functions/myfunctions.php');
 
 
@@ -957,28 +956,27 @@ else if(isset($_POST['edit_business_btn']))
 {
     $businessid = $_POST['businessid'];
     $business_name = $_POST['business_name'];
-    $business_address = $_POST['business_address'];
-    $opening = $_POST['opening'];
-    $closing = $_POST['closing'];
-    $business_firstname = $_POST['business_firstname'];
-    $business_lastname = $_POST['business_lastname'];
     $business_email = $_POST['business_email'];
-    $business_phonenumber = $_POST['business_phonenumber'];
-    $business_owneraddress = $_POST['business_owneraddress'];
-    $business_password = $_POST['business_password'];
-    $business_confirmpassword = $_POST['business_confirmpassword'];
     $status = isset($_POST['status']) ? "1":"0";
 
 
-    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',opening='$opening',closing='$closing',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', status='$status' WHERE businessid='$businessid'";
+    $update_query = "UPDATE business SET status='$status' WHERE businessid='$businessid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
 
     if($update_query_run)
     {
-
-        redirect("busiowner.php", "Business Updated Successfully");
+        //redirect("busiowner.php", "Business Updated Successfully");
+         if($status == 1)
+         {
+             sendemail_businessconfirm($business_email,$business_name);
+             redirect("busiowner.php", "Email Send Business Updated Successfully");
+         }
+         elseif($status == 0)
+         {
+             redirect("busiowner.php", "Business Updated Successfully");
+         }
     }
     else
     {
