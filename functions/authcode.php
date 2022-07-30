@@ -301,7 +301,7 @@ if(isset($_POST['update_profile_btn']))
 }
 
 /* This is the code for logging in a user. */
-else if(isset($_POST['login_btn'])){ // LogIn
+if(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
 
@@ -375,6 +375,67 @@ else if(isset($_POST['login_btn'])){ // LogIn
     {  
         redirect("../login.php", "No Email Exist");
         exit(0);
+    }
+}
+
+if(isset($_POST["recover"])){
+    $email = mysqli_real_escape_string($con,$_POST['email']);
+
+    $sql = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
+    $query = mysqli_num_rows($sql);
+    $fetch = mysqli_fetch_assoc($sql);
+
+    if(mysqli_num_rows($sql) <= 0){
+
+            redirect("../forgetpassword.php", "Sorry, no emails exists ");
+
+    }else if($fetch["status"] == 0){
+
+            redirect("../index.php", "Sorry, your account must verify first, before you recover your password !");
+       
+    }else{
+        // generate token by binaryhexa 
+        $token = bin2hex(random_bytes(50));
+
+        //session_start ();
+        $_SESSION['token'] = $token;
+        $_SESSION['email'] = $email;
+
+        sendemail_forgetpassword("$email");
+        redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email");
+    }
+}
+
+if(isset($_POST["reset"])){
+    $password = $_POST["password"];
+    $confirmpassword = $_POST["confirmpassword"];
+
+    $token = $_SESSION['token'];
+    $Email = $_SESSION['email'];
+
+    $hash = password_hash( $password , PASSWORD_DEFAULT );
+
+    $sql = mysqli_query($con, "SELECT * FROM users WHERE email='$Email'");
+    $query = mysqli_num_rows($sql);
+    $fetch = mysqli_fetch_assoc($sql);
+
+    if($password=$confirmpassword)
+    {
+        if($Email)
+        {
+            $new_pass = $hash;
+            mysqli_query($con, "UPDATE users SET password='$new_pass' WHERE email='$Email'");
+
+                redirect("../index.php", "Your Password has been succesful reset");
+        }
+        else
+        {
+                redirect("../resetpassword.php", "Please try again");
+        }
+    }
+    else
+    {
+        redirect("../resetpassword.php", "Passwords do not match");
     }
 }
 

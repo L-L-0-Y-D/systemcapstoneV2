@@ -46,6 +46,42 @@ function sendemail_verify($name,$email,$verify_token)
 
 }
 
+function sendemail_forgetpassword($email)
+{
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    //$mail->SMTPDebug = 2; 
+    $mail->isSMTP();
+    $mail->SMTPAuth   = true; 
+
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "ieatwebsite@gmail.com";
+    $mail->Password   = "ydckqbbwsloabncq";
+
+    $mail->SMTPSecure = "tls";
+    $mail->Port       = 587;
+    
+    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->addAddress($email);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Recover your Password'; 
+
+    $email_template = "
+    <b>Dear User</b>
+    <h3>We received a request to reset your password.</h3>
+    <p>Kindly click the below link to reset your password</p>
+    <a href='http://localhost/systemcapstoneV2/resetpassword.php'>Clicked here<a>
+    ";
+
+    $mail->Body    = $email_template;
+    $mail->send();
+   // echo 'Message has been sent';
+
+
+}
+
 //for getting all the data in the table
 function getAll($table)
 {
