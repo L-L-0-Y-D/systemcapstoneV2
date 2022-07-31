@@ -11,7 +11,7 @@
                         $data = mysqli_fetch_array($business);
                         $bid = $data['businessid'];
                         $product = getProductByBusiness($bid);
-                        $location = str_replace(' ', '%20', $data['business_address']);
+                        $location = str_replace(' ', '+', $data['business_address']);
     
 ?>
 <!DOCTYPE html>
