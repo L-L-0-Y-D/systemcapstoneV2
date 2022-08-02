@@ -124,7 +124,7 @@ include('../config/dbcon.php');
 function getAll($table)
 {
     global $con;
-    $query = "SELECT * FROM $table";
+    $query = "SELECT * FROM $table ORDER BY businessid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -194,6 +194,19 @@ function getByID($table, $id, $tabledata)
 {
     global $con;
     $query = "SELECT * FROM $table WHERE $tabledata='$id'";
+    return $query_run = mysqli_query($con, $query);
+}
+
+function businessGetByIDActives($id)
+{
+    global $con;
+    $query = "SELECT business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.categoryid,mealcategory.categoryname,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    FROM business
+    JOIN mealcategory 
+    ON business.categoryid=mealcategory.categoryid
+    WHERE business.businessid='$id' 
+    AND business.status='1' ";
+    //echo $query;
     return $query_run = mysqli_query($con, $query);
 }
 

@@ -441,6 +441,28 @@ elseif (isset($_POST['delete_reservation_btn']))
     }
 
 }
+else if(isset($_POST['update_location_btn']))
+{
+    $businessid = $_POST['businessid'];
+    $latitude = $_POST["latitude"];
+    $longitude = $_POST["longitude"];
+
+
+    $update_location_query = "UPDATE business SET latitude='$latitude',longitude='$longitude' WHERE businessid='$businessid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_location_query_run = mysqli_query($con, $update_location_query);
+
+    if($update_location_query_run)
+    {
+        redirect("location.php?id=$businessid", "Location Updated Successfully");
+    }
+    else
+    {
+        redirect("pin-location.php?id=$businessid", "Something Went Wrong"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');

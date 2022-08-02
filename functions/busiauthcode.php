@@ -171,6 +171,8 @@ else if(isset($_POST['business_login']))
                                 $businessemail = $row['business_email'];
                                 $role_as = $row['role_as'];
                                 $businessimage = $row['image'];
+                                $latitude = $row['latitude'];
+                                $longitude = $row['longitude'];
                                 
 
                                 $_SESSION['auth_user'] = [
@@ -178,6 +180,8 @@ else if(isset($_POST['business_login']))
                                     'business_name' => $businessnames,
                                     'business_email' => $useremail,
                                     'image' => $businessimage,
+                                    'latitude' => $latitude,
+                                    'longitude' => $longitude,
                                     'role_as' => $role_as,
                                     'status' => $status
                                 ];

@@ -68,12 +68,12 @@ include('middleware/userMiddleware.php');
             </div>
             <div class="column mb-3">
                 <label class="form-label" for="reservation_time" style="font-weight: bold;">Reservation time:</label>
-                <input type="time" id="reservation_time" name="reservation_time" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                <input type="time" id="reservation_time" name="reservation_time" min="<?= $data['opening']; ?>" max="<?= $data['closing']; ?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
+            <small>Reservation hours are <?=  date("g:i a", strtotime('$data["opening"]'));?> to <?= date("g:i a", strtotime('$data["closing"]')); ?></small>
             <div class="col-md-12">
                 <input type="hidden" name="status" value = '0' >
             </div>
-                
             <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" type="submit" name="reserve_btn" style="background: black;color: white;border-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;" >Reserve</button> 
             <br><a class="d-flex justify-content-center" style="color: black;" href="index.php">Back to Home</a>
             </div>

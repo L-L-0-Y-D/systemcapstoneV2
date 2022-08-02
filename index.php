@@ -26,7 +26,7 @@
                             ?>
                                 <div class="col-md-12 col-lg-4 project-sidebar-card" >
                                     <a href="business.php?id=<?= $item['municipalityid']; ?>">
-                                    <div class="card" data-bss-hover-animate="pulse" style="height:300px; weight:300px; margin-bottom:10px;">
+                                    <div class="card" data-bss-hover-animate="pulse" style="height:300px;  margin-bottom:10px;">
                                         <img class="img-fluid card-img w-100 h-100 d-block" src="uploads/<?= $item['image']; ?>" alt="Municipality Image" height="300px" width="300px" >
                                         <div class="card-img-overlay" >
                                             <h4 class="display-6  fw-bold" style="margin-top: 220px; color:white;"><?= $item['municipality_name']; ?></h4>

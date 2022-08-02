@@ -36,6 +36,8 @@
         padding: 8px 10px;
       }
 </style>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 
 <body id="page-top">
