@@ -188,7 +188,17 @@ elseif (isset($_POST['update_reservation_btn']))
 
     if($update_query_run)
     {
-        redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
+        if($status == 1)
+        {
+            sendemail_confirmreservation($namereserveunder,$reservation_email,$reservation_date,$reservation_time,$numberofguest);
+            redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
+        }
+        else
+        {
+            redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
+        }
+
+        
     }
     else
     {

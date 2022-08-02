@@ -31,7 +31,9 @@ include('middleware/userMiddleware.php');
 
             if(mysqli_num_rows($business) > 0)
             {
-                $data = mysqli_fetch_array($business)
+                $data = mysqli_fetch_array($business);
+                $opening = $data['opening'];
+                $closing = $data['closing'];
                 
             
             ?>
@@ -70,7 +72,7 @@ include('middleware/userMiddleware.php');
                 <label class="form-label" for="reservation_time" style="font-weight: bold;">Reservation time:</label>
                 <input type="time" id="reservation_time" name="reservation_time" min="<?= $data['opening']; ?>" max="<?= $data['closing']; ?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
-            <small>Reservation hours are <?=  date("g:i a", strtotime('$data["opening"]'));?> to <?= date("g:i a", strtotime('$data["closing"]')); ?></small>
+            <small>Reservation hours are <?=  date("g:i a", strtotime($opening));?> to <?= date("g:i a", strtotime($closing)); ?></small>
             <div class="col-md-12">
                 <input type="hidden" name="status" value = '0' >
             </div>

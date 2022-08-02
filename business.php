@@ -96,7 +96,8 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div>
-                                                <div class="product-details m-0" style="height:75px;"><small style="font-size:12px;">Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;">Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?>- Closing: <?= date("g:i a", strtotime($item['closing'])); ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                

@@ -122,7 +122,7 @@ function sendemail_businessconfirm($email,$name)
 function getAll($table)
 {
     global $con;
-    $query = "SELECT * FROM $table";
+    $query = "SELECT * FROM $table ORDER BY businessid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 

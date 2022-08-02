@@ -118,6 +118,41 @@ include('../config/dbcon.php');
     
     
     }
+
+    function sendemail_confirmreservation($name,$email,$date,$time,$numguest)
+    {
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+    
+        //$mail->SMTPDebug = 2; 
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true; 
+    
+        $mail->Host       = "smtp.gmail.com";
+        $mail->Username   = "ieatwebsite@gmail.com";
+        $mail->Password   = "ydckqbbwsloabncq";
+    
+        $mail->SMTPSecure = "tls";
+        $mail->Port       = 587;
+        
+        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+        $mail->addAddress($email);
+    
+        $mail->isHTML(true);
+        $mail->Subject = 'Business Confirm'; 
+    
+        $email_template = "
+        <b>Dear $name</b>
+        <h3>Congratulations.</h3>
+        <p>You are now reserve with of $numguest and the time and date are $date and $time
+        ";
+    
+        $mail->Body    = $email_template;
+        $mail->send();
+       // echo 'Message has been sent';
+    
+    
+    }
     
 
 
