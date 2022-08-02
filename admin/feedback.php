@@ -23,7 +23,7 @@ include('includes/header.php');
                 
                         <tbody style="text-align:center">
                             <?php
-                                $review = getAll("review_table");
+                                $review = getAll("review_table","review_id");
 
                                if(mysqli_num_rows($review) > 0)
                                {

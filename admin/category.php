@@ -39,7 +39,7 @@ include('includes/header.php');
                                 
                                 <tbody style="text-align:center">
                                     <?php
-                                        $cuisine = getAll("mealcategory"); 
+                                        $cuisine = getAll("mealcategory","categoryid"); 
                                         if(mysqli_num_rows($cuisine ) > 0)
                                         {
                                             foreach($cuisine  as $item)

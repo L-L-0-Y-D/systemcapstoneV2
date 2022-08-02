@@ -119,10 +119,10 @@ function sendemail_businessconfirm($email,$name)
 }
 
 //for getting all the data in the table
-function getAll($table)
+function getAll($table,$tableid)
 {
     global $con;
-    $query = "SELECT * FROM $table ORDER BY businessid DESC";
+    $query = "SELECT * FROM $table ORDER BY $tableid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -134,7 +134,8 @@ function businessGetAll()
     JOIN mealcategory 
     ON business.categoryid=mealcategory.categoryid
     JOIN municipality
-    ON business.municipalityid=municipality.municipalityid";
+    ON business.municipalityid=municipality.municipalityid
+    ORDER BY business.businessid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
