@@ -96,7 +96,7 @@ if(isset($_SESSION['auth'])){
                 </div>
                 <div class="column mb-3">
                     <label class="form-label" for="" style="font-weight: bold;">Upload Business Permit</label>
-                    <input class="form-control" type="file" name="image_cert" style="margin-bottom: 5px;height: 40px;" required >
+                    <input class="form-control" type="file" name="image_cert" style="margin-bottom: 5px;height: 40px;" multiple required >
                 </div>
                 <div class="column mb-3">
                     <label class="form-label" for="" style="font-weight: bold;">Opening</label>
