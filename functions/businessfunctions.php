@@ -139,7 +139,7 @@ include('../config/dbcon.php');
         $mail->addAddress($email);
     
         $mail->isHTML(true);
-        $mail->Subject = 'Business Confirm'; 
+        $mail->Subject = 'Reservation Confirm'; 
     
         $email_template = "
         <b>Dear $name</b>

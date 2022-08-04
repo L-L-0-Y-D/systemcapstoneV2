@@ -44,21 +44,21 @@ include('includes/header.php');
                                         {
                                             foreach($cuisine  as $item)
                                             {
-                                            if($_SESSION['role_as'] != 0)
-                                            {
-                                                ?>
-                                                <tr>
-                                                    <td><?= $item['categoryname']; ?></td>
-                                                    <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
-                                                    <td>
-                                                        <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                            }
+                                                if($_SESSION['role_as'] != 0)
+                                                {
+                                                    ?>
+                                                    <tr>
+                                                        <td><?= $item['categoryname']; ?></td>
+                                                        <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
+                                                        <td>
+                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                }
                                             }
                                         }
                                         else

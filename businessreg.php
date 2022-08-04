@@ -1,7 +1,8 @@
 <?php
 
-include('functions/businessfunctions.php');
+
 include('config/dbcon.php');
+//include('functions/businessfunctions.php');
 if(isset($_SESSION['auth'])){
     $_SESSION['message'] = "You are Already Login";
     header('Location: index.php');
@@ -53,10 +54,12 @@ if(isset($_SESSION['auth'])){
                   <select class= "border rounded form-select mb-3" name="municipalityid" style="height:40px; border-style:none;"  required>
                     <option disabled selected hidden>Select your Business Location</option>
                     <?php 
-                        $municipality = getAllActive("municipality");
-                        if(mysqli_num_rows($municipality) > 0)
+                        //$municipality = getAllActive("municipality");
+                        $query = "SELECT * FROM municipality WHERE status= '0'";
+                        $query_run = mysqli_query($con, $query);
+                        if(mysqli_num_rows($query_run) > 0)
                             {
-                                foreach ($municipality as $item)
+                                foreach ($query_run as $item)
                                 {
                                     ?>
                                     <option value="<?= $item['municipalityid']; ?>"><?= $item['municipality_name']; ?></option>
@@ -73,10 +76,12 @@ if(isset($_SESSION['auth'])){
                   <select class= "border rounded form-select mb-3" name="categoryid" style="height:40px; border-style:none;" required>
                     <option disabled selected hidden>Type of Cuisine</option>
                     <?php 
-                        $category = getAllActive("mealcategory");
-                        if(mysqli_num_rows($category) > 0)
+                        //$category = getAllActive("mealcategory");
+                        $query = "SELECT * FROM mealcategory WHERE status= '0'";
+                        $query_run = mysqli_query($con, $query);
+                        if(mysqli_num_rows($query_run) > 0)
                             {
-                                foreach ($category as $item)
+                                foreach ($query_run as $item)
                                 {
                                     ?>
                                     <option value="<?= $item['categoryid']; ?>"><?= $item['categoryname']; ?></option>
