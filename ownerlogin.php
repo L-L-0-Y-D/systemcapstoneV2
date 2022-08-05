@@ -40,11 +40,11 @@ session_start();
                             <form class="text-center" method="post" action="functions/busiauthcode.php">
                                 <div class="d-flex d-md-flex justify-content-end justify-content-md-end mb-3" style="text-align: left;border-bottom-width: 1px;border-bottom-style: solid;">
                                     <i class="fas fa-at d-md-flex justify-content-md-end align-items-md-end" style="height: 28px;width: 15px;opacity: 0.65;"></i>
-                                    <input class="form-control" type="email" name="business_email" placeholder="Email" required style="width: 189px;text-align: left;border-style: none;border-bottom-style: none;padding-left: 7px;">
+                                    <input class="form-control" type="email" name="business_email" placeholder="Email" style="width: 189px;text-align: left;border-style: none;border-bottom-style: none;padding-left: 7px;">
                                 </div>
                                 <div class="d-flex d-md-flex justify-content-end justify-content-md-end mb-3" style="border-bottom-width: 1px;border-bottom-style: solid;">
                                     <i class="fas fa-key d-md-flex align-items-md-end" style="width: 15px;height: 28px;opacity: 0.65;"></i>
-                                    <input class="form-control" type="password" name="business_password" placeholder="Password" required style="width: 189px;border-style: none;border-bottom-style: none;padding-left: 7px;">
+                                    <input class="form-control" type="password" name="business_password" placeholder="Password" style="width: 189px;border-style: none;border-bottom-style: none;padding-left: 7px;">
                                 </div>
                                 <div class="mb-3">
                                     <button class="btn btn-primary d-block w-100" type="submit" name="business_login" style="background: rgb(255, 128, 64);border-style: none;">Login</button>
