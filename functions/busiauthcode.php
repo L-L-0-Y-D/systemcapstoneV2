@@ -55,12 +55,12 @@ if(isset($_POST['business_register_btn']))
         redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
        
     }    // Validate image file size less than
-    else if (($_FILES["image"]["size"] < 2000000)) {
+    else if (($_FILES["image"]["size"] < 0)) {
  
         redirect("../businessreg.php", "Image size less than 2MB");
 
     }    // Validate image file size less than
-    else if (($_FILES["image_cert"]["size"] < 2000000)) {
+    else if (($_FILES["image_cert"]["size"] < 0)) {
  
         redirect("../businessreg.php", "Image size less than 2MB");
 
