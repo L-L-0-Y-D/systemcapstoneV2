@@ -1,14 +1,14 @@
 <?php
 
 session_start();
-include('../config/dbcon.php');
+include('./config/dbcon.php');
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
     
     //Load Composer's autoloader
-    require '../vendor/autoload.php';
+    require './vendor/autoload.php';
 
 
     function sendemail_verify($name,$email,$verify_token)

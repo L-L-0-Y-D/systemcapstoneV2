@@ -26,7 +26,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 {// if user is not login
                     ?>
 							
-                    <button class="loginbtn" onclick="openForm()">Login</button>
+                    <button class="loginbtn" onclick="location.href='login.php'">Login</button>
                         <div class="form-popup" id="myForm">
                             <form name="form" class="form-container">
                             <i class="fas fa-times-circle" onclick="closeForm()" style="float:right;"></i>
@@ -99,10 +99,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
             <div class="row d-flex justify-content-end py-5" style=" margin-top:40px;width:90%;">
                 <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4">
                     <div class="text-center" style="max-width: 450px;">
-                        <img src="uploads/logoT.png" alt="LOGO" usemap="#workmap" width="200" height="200">
-                            <map name="workmap">
-                                <area shape="circle" coords="100,100,200,200" alt="logo" href="index.php">
-                            </map>
+                        <img src="uploads/logoT.png" alt="LOGO"  width="200" height="200">
                         <p class="my-2" style="font-size:20px;">First we eat, I-Eat.</p>
                         <form class="d-flex justify-content-center flex-wrap justify-content-md-start flex-lg-nowrap" action="search.php" method="POST">
                             <div class="my-2 me-2">
