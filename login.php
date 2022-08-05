@@ -55,7 +55,7 @@ if(isset($_SESSION['auth'])){
                                     <input class="form-control" type="password" name="password" placeholder="Password" style="width: 189px;border-style: none;border-bottom-style: none;padding-left: 7px;">
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(255, 128, 64);border-style: none;">Login</button>
+                                    <button class="btn btn-primary d-block w-100" type="submit" name="login_btn" style="background: rgb(255, 128, 64);border-style: none;">Login</button>
                                 </div>
                                 <p class="text-muted" style="text-align: right;"><a href="forgetpassword.php" style="font-size: 15px;color: var(--bs-gray-600);">Forgot password?<br></a></p>
                             </form>
