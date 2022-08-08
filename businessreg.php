@@ -51,6 +51,7 @@ if(isset($_SESSION['auth'])){
                 <input type="text" name='business_address' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
             </div>
             <div>
+                <label class="form-label" for="" style="font-weight: bold;">Municipality</label>
                   <select class= "border rounded form-select mb-3" name="municipalityid" style="height:40px; border-style:none;"  required>
                     <option disabled selected hidden>Select your Business Location</option>
                     <?php 
@@ -73,8 +74,7 @@ if(isset($_SESSION['auth'])){
                   </select> 
                 </div>
                 <div>
-                  <select class= "border rounded form-select mb-3" name="categoryid" style="height:40px; border-style:none;" required>
-                    <option disabled selected hidden>Type of Cuisine</option>
+                    <label class="form-label" for="" style="font-weight: bold;">Cuisine Type</label><br/>
                     <?php 
                         //$category = getAllActive("mealcategory");
                         $query = "SELECT * FROM mealcategory WHERE status= '0'";
@@ -84,15 +84,16 @@ if(isset($_SESSION['auth'])){
                                 foreach ($query_run as $item)
                                 {
                                     ?>
-                                    <option value="<?= $item['categoryid']; ?>"><?= $item['categoryname']; ?></option>
+                                    <input class= "border rounded form-checkbox mb-3" type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></input>
                                     <?php
                                 }
                             }
                             else
                             {
-                                echo "No Municipality Available";
-                            }?>
-                  </select> 
+                                echo "No Cuisine Type Available";
+                            }
+                    ?>
+                    <a style="color: black;" href="insert.php">Add Cuisine Type</a>
                 </div>
                 <div class="column mb-3">
                     <label class="form-label" for="" style="font-weight: bold;">Upload Business Permit</label>

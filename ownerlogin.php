@@ -1,7 +1,11 @@
 <?php 
 
 session_start();
-
+if(isset($_SESSION['auth'])){
+    $_SESSION['message'] = "You are Already Login";
+    header('Location: index.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

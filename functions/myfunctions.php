@@ -163,10 +163,8 @@ function getAll($table)
 function businessGetAll()
 {
     global $con;
-    $query = "SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.opening,business.closing,municipality.municipality_name,business.categoryid,mealcategory.categoryname,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    $query = "SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.opening,business.closing,municipality.municipality_name,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
     FROM business
-    JOIN mealcategory 
-    ON business.categoryid=mealcategory.categoryid
     JOIN municipality
     ON business.municipalityid=municipality.municipalityid
     ORDER BY business.businessid DESC";
