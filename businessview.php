@@ -143,7 +143,7 @@
                             <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;height:30px;"><strong><?= $data['business_name']; ?></strong></h1>
                         </div>
                         <div class="col-md-12" style="width: 1024px;font-size: 14px;">
-                            <h2 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 16px;color: var(--bs-gray);height: 20px;"><strong><?= $data['categoryname']; ?></strong></h2>
+                            <h2 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;font-family: Actor, sans-serif;width: 1000px;font-size: 16px;color: var(--bs-gray);height: 20px;"><strong><?= $data['cuisinename']; ?></strong></h2>
                         </div>
                         <div class="col-md-12" style="width: 1024px;">
                             <h3 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;font-size: 20px;color: var(--bs-gray);height: 24px;"><strong><?= $data['business_address']; ?></strong></h3>
@@ -190,8 +190,9 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                
@@ -227,8 +228,9 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                
@@ -264,8 +266,9 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                
@@ -301,8 +304,9 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                
@@ -338,8 +342,9 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                
@@ -375,8 +380,9 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                
@@ -412,8 +418,9 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                
@@ -449,8 +456,9 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;"><?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
+                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                                

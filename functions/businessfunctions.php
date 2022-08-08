@@ -159,7 +159,7 @@ include('../config/dbcon.php');
 function getAll($table)
 {
     global $con;
-    $query = "SELECT * FROM $table ORDER BY businessid DESC";
+    $query = "SELECT * FROM $table";
     return $query_run = mysqli_query($con, $query);
 }
 

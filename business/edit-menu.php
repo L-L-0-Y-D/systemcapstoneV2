@@ -52,13 +52,6 @@ include('includes/header.php');
                                         <textarea rows="3" name="description"  required placeholder="Enter Description" class="form-control mb-2"><?= $data['description']?></textarea>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="mb-0">Upload Image</label>
-                                        <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
-                                        <input type="file" name="image" class="form-control mb-2">
-                                        <label class="mb-0">Current Image</label>
-                                        <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
-                                    </div>
-                                    <div class="col-md-6">
                                         <label class="control-label">Course Menu</label>
                                         <select  name="food_type" value="<?= $data['food_type'] ?>" required class="form-control mb-2">
                                             <option selected hidden value="<?= $data['food_type'] ?>"> <?= $data['food_type'] ?> </option>
@@ -72,8 +65,39 @@ include('includes/header.php');
                                             <option value="Drinks">Drinks</option>
                                         </select>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label">Cuisine Type</label>
+                                        <select class= "border rounded form-select mb-3" name="cuisinename" value="<?= $data['cuisinename'] ?>" style="height:40px; border-style:none;"  required>
+                                        <option selected hidden value="<?= $data['cuisinename'] ?>"><?= $data['cuisinename'] ?></option>
+                                            <?php 
+                                                $business = getByID("business", $_SESSION['auth_user']['businessid'],"businessid");
+                                                if(mysqli_num_rows($business) > 0)
+                                                    {
+                                                        $item = mysqli_fetch_array($business);
+                                                        $cuisine = str_word_count($item['cuisinename'],1);
+                                                        foreach ($cuisine as $itemcuisine)
+                                                        {
+                                                            ?>
+                                                            <option value="<?= $itemcuisine ?>"><?= $itemcuisine ?></option>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "No Municipality Available";
+                                                    }
+                                            ?>
+                                        </select> 
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="mb-0">Upload Image</label>
+                                        <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                                        <input type="file" name="image" class="form-control mb-2">
+                                        <label class="mb-0">Current Image</label>
+                                        <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
+                                    </div>
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-12">
                                             <label class="mb-0">Status</label> <br>
                                             <input type="checkbox" name="status" <?= $data['status'] == '0'? '':'checked' ?>>
                                         </div>

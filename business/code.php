@@ -9,6 +9,7 @@ if(isset($_POST['add_product_btn']))
     $name = $_POST['name'];
     $description = $_POST['description'];
     $food_type = $_POST['food_type'];
+    $cuisinename = $_POST['cuisinename'];
     $price = $_POST['price'];
     $status = isset($_POST['status']) ? "1":"0";
 
@@ -51,8 +52,8 @@ if(isset($_POST['add_product_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $product_query = "INSERT INTO products (businessid,name,description,food_type,price,status,image) 
-    VALUES ('$businessid','$name','$description','$food_type','$price','$status','$filename')";
+    $product_query = "INSERT INTO products (businessid,name,description,cuisinename,food_type,price,status,image) 
+    VALUES ('$businessid','$name','$description','$cuisinename','$food_type','$price','$status','$filename')";
 
     $product_query_run = mysqli_query($con, $product_query);
 
@@ -73,6 +74,7 @@ elseif (isset($_POST['update_product_btn']))
     $name = $_POST['name'];
     $description = $_POST['description'];
     $food_type = $_POST['food_type'];
+    $cuisinename = $_POST['cuisinename'];
     $price = $_POST['price'];
     $status = isset($_POST['status']) ? "1":"0";
 
@@ -115,7 +117,7 @@ elseif (isset($_POST['update_product_btn']))
         $update_filename = $old_image;
     }
 
-    $update_product_query = " UPDATE products SET name='$name', description='$description', food_type='$food_type',price='$price',status='$status',image='$update_filename' WHERE productid='$productid'";
+    $update_product_query = " UPDATE products SET name='$name', description='$description', food_type='$food_type',cuisinename='$cuisinename',price='$price',status='$status',image='$update_filename' WHERE productid='$productid'";
     $update_product_query_run = mysqli_query($con, $update_product_query);
 
     if($update_product_query_run)
@@ -212,7 +214,7 @@ else if(isset($_POST['edit_business_btn']))
     $business_name = $_POST['business_name'];
     $business_address = $_POST['business_address'];
     $municipalityid = $_POST['municipalityid'];
-    $categoryid = $_POST['categoryid'];
+    $cuisinename = $_POST['cuisinename'];
     $opening = $_POST['opening'];
     $closing = $_POST['closing'];
     $business_firstname = $_POST['business_firstname'];
@@ -318,7 +320,8 @@ else if(isset($_POST['edit_business_btn']))
                                 if(strlen($_POST['business_password']) >= 8 )
                                 {
                                     //$hash = password_hash($business_password, PASSWORD_DEFAULT);
-                                    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',categoryid='$categoryid',opening='$opening',closing='$closing',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
+                                    $item = implode(" ",$cuisinename);
+                                    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',cuisinename='$item',opening='$opening',closing='$closing',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
                                     //mysqli_query($con,$update_query) or die("bad query: $update_query");
                                     $update_query_run = mysqli_query($con, $update_query);
 

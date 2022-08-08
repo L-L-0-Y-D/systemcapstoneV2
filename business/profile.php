@@ -70,25 +70,36 @@ include('includes/header.php');
                             </div>
                             
                             <div class="col-md-6">
-                                <label for="">Select Cuisine Type</label>
-                                <select name='categoryid' class="form-select mb-2">
-                                    <option value="" disabled selected hidden>Cuisine Type</option>
-                                    <?php 
-                                    $category = getAll("mealcategory");
-                                    if(mysqli_num_rows($category) > 0)
-                                    {
-                                        foreach ($category as $item)
+                                <label for="">Select Cuisine Type</label><br>
+                                <?php 
+                                    //$category = getAllActive("mealcategory");
+                                    $query = "SELECT * FROM mealcategory ";
+                                    $query_run = mysqli_query($con, $query);
+                                    if(mysqli_num_rows($query_run) > 0)
                                         {
-                                            ?>
-                                            <option value="<?= $item['categoryid']; ?>" <?= $data['categoryid'] == $item['categoryid']?'selected':''?>><?= $item['categoryname']; ?></option>
-                                            <?php
+                                            foreach ($query_run as $item)
+                                            {
+                                                ?>
+                                                <input type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"
+                                                <?php
+                                                    $cuisine = str_word_count($data['cuisinename'],1);
+                                                    foreach ($cuisine as $itemcuisine)
+                                                    {
+                                                    ?>
+                                                    <?= $itemcuisine == $item['categoryname']?'checked':''?>
+                                                    <?php
+                                                    }
+                                                ?>
+                                                ><?= $item['categoryname']; ?></input>
+                                                <?php
+                                            }
                                         }
-                                    }
                                     else
-                                    {
-                                        echo "No Category Available";
-                                    }?>
-                                </select>
+                                        {
+                                            echo "No Cuisine Type Available";
+                                        }
+                                ?>
+                                    <a style="color: black;" href="insert.php">Add Cuisine Type</a>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Business Certificate</label>
