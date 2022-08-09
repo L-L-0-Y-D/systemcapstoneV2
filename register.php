@@ -18,10 +18,10 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Montserrat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
-    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="assets/css/Inter.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Links.css">
     <link rel="stylesheet" href="reg.css">
     <title>Register | I-Eat</title>
 
@@ -29,74 +29,68 @@ if(isset($_SESSION['auth'])){
     <link rel="icon" href="uploads/favicon.ico"/>
 
 </head>
-<body>
-    <main class="page registration-page">
-        <section class="clean-block clean-form dark" style="height: auto;background: transparent;">
-            <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" loading="eager" src="uploads/I-EatLogo.png" width="200px" height="200px" alt="logo" usemap="#workmap">
-                <map name="workmap">
-                    <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
-                </map>
-                <form method="post" action="functions/authcode.php" enctype="multipart/form-data" style="background: rgb(255, 128, 64);border:none;border-radius: 20px;">
-                    <div class="container">
-                        <h2 class="d-flex justify-content-center" style="font-weight:bold;">REGISTER</h2>
-                        <!-- Input Image -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Upload Image</label>
-                            <input class="form-control" type="file" name="image" style="margin-bottom: 5px;height: 40px;" required >
-                        </div>
-                        <!-- Input Username -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Username</label>
-                            <input type="text" name='name' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>    
-                        </div>
-                        <!-- Input Email Address -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Email Address</label>
-                            <input type="email" name='email' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>    
-                        </div>
-                        <!-- Input Firstname -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Firstname</label>
-                            <input type="text" name='firstname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Lastname -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Lastname</label>
-                            <input type="text" name='lastname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Date of birth -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Date of birth</label>
-                            <input type="date" name='dateofbirth' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Phone Number -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Phone Number</label>
-                            <input type="text" name='phonenumber' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Address -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Address</label>
-                            <input type="text" name='address' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Password -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Password</label>
-                            <input type="password" name='password' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Confirm Password -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Confirm Password</label>
-                            <input type="password" name='confirmpassword' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                            <input type = "hidden" name='role_as' value = '0'>
-                        </div>
-                        <!--Register Button -->
-                        <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" type="submit" name="register_btn" style="background: black;color: white;border-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;">REGISTER</button> <br>
-                        <!--link to connect with log in php-->
-                        <a class="d-flex justify-content-center" style="color: black;" href="login.php">Login an account</a>
+<body >
+    <nav class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
+            <div class="container ml-2">
+                    <a class="navbar-brand d-flex align-items-center" href="index.php">
+                        <span class="bs-icon-md bs-icon-circle bs-icon-primary shadow-none d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
+                        <img class="rounded img-fluid" src="assets/img/logoT.png" loading="eager"></span>
+                        <span style="color:rgb(255,128,64);; font-family:Aclonica; font-size:25px;">I - Eat&nbsp;</span></a>
+                <nav class="navbar navbar-expand">
+                    <div class="container-fluid">
+                        <span class="bs-icon-lg d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
+                        <i class="far fa-calendar-alt" style="float:right; color:rgb(255,128,64);"></i>
+                        </span></div>
+                </nav>
+            </div>
+        </nav>
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container" style="margin-top:50px;">
+            <div class="row d-flex justify-content-center align-items-md-end">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-5" style="border-style: none;">
+                        <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
+                           
+            <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="height:110px; width:110px; border-style: solid;border-color: rgb(255, 128, 64);background: transparent;">
+                <picture><img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap></picture>
+                    <map name="workmap">
+                        <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+                    </map>
+            </div>
+                <form method="post" action="functions/authcode.php" enctype="multipart/form-data">
+                <p class="fw-bold text-center " style="margin-bottom: 5px; font-size:20px;">Create an Account</p>
+                <input class="form-control" name="image" type="file" style="margin-bottom: 10px;" required>
+                                <div class="row row-cols-1" style="margin-bottom: 10px;">
+                                    <div class="col"><input class="form-control" type="text" name="name" placeholder="Username" required style="margin-bottom: 10px;"></div>
+                                    <div class="col"><input class="form-control" type="email" name="email" placeholder="Email Address" required></div>
+                                    <div class="w-100"></div>
+                                </div>
+                                <div class="row" style="margin-bottom: 10px;">
+                                    <div class="col"><input class="form-control" name="firstname" type="text" placeholder="Firstname" required></div>
+                                    <div class="col"><input class="form-control" name="lastname" type="text" placeholder="Lastname" required></div>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="fw-normal text-start" style="margin-bottom: 1px;padding-left: 10px;">Birthdate</p>
+                                    <input class="form-control" name='dateofbirth' type="date" required>
+                                </div>
+                                <div class="mb-3"><input class="form-control" name="phonenumber" type="text" placeholder="Phone Number"required ></div>
+                                <div class="mb-3"><input class="form-control" name="address" type="text" placeholder="Address" required></div>
+                                <div class="row" style="margin-bottom: 10px;">
+                                    <div class="col"><input class="form-control" name="password" type="password" placeholder="Password" required></div>
+                                    <div class="col"><input class="form-control" name="confirmpassword" type="password" placeholder="Confirm Password" required>
+                                    <input type = "hidden" name='role_as' value = '0'></div>
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-primary d-block w-100" type="submit" name="register_btn" style="background: rgb(255, 128, 64);border-style: none;">Register</button>
+                                </div>
+                                <p style="padding-left:30px;">Already have an account?&nbsp;<a href="login.php" style="color: var(--bs-dark);font-weight: bold;">Sign In</a>&nbsp;</p>
         </form>
-    </div>
-</main>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 

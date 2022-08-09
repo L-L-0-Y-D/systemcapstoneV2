@@ -1,12 +1,13 @@
 <?php
 
-session_start();
+
+include('config/dbcon.php');
+//include('functions/businessfunctions.php');
 if(isset($_SESSION['auth'])){
     $_SESSION['message'] = "You are Already Login";
     header('Location: index.php');
     exit();
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@ if(isset($_SESSION['auth'])){
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
@@ -22,80 +23,126 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/Montserrat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
-    <link rel="stylesheet" href="reg.css">
-    <title>Register | I-Eat</title>
-
+    <link rel="stylesheet" href="reg.css"> 
+    <title>Register Business | I-Eat</title>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
-
 </head>
 <body>
     <main class="page registration-page">
         <section class="clean-block clean-form dark" style="height: auto;background: transparent;">
-            <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" loading="eager" src="uploads/I-EatLogo.png" width="200px" height="200px" alt="logo" usemap="#workmap">
-                <map name="workmap">
-                    <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
-                </map>
-                <form method="post" action="functions/authcode.php" enctype="multipart/form-data" style="background: rgb(255, 128, 64);border:none;border-radius: 20px;">
-                    <div class="container">
-                        <h2 class="d-flex justify-content-center" style="font-weight:bold;">REGISTER</h2>
-                        <!-- Input Image -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Upload Image</label>
-                            <input class="form-control" type="file" name="image" style="margin-bottom: 5px;height: 40px;" required >
-                        </div>
-                        <!-- Input Username -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Username</label>
-                            <input type="text" name='name' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>    
-                        </div>
-                        <!-- Input Email Address -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Email Address</label>
-                            <input type="email" name='email' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>    
-                        </div>
-                        <!-- Input Firstname -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Firstname</label>
-                            <input type="text" name='firstname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Lastname -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Lastname</label>
-                            <input type="text" name='lastname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Date of birth -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Date of birth</label>
-                            <input type="date" name='dateofbirth' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Phone Number -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Phone Number</label>
-                            <input type="text" name='phonenumber' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Address -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Address</label>
-                            <input type="text" name='address' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Password -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Password</label>
-                            <input type="password" name='password' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                        </div>
-                        <!-- Input Confirm Password -->
-                        <div class="column mb-3">
-                            <label class="form-label" for="" style="font-weight: bold;">Confirm Password</label>
-                            <input type="password" name='confirmpassword' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                            <input type = "hidden" name='role_as' value = '0'>
-                        </div>
-                        <!--Register Button -->
-                        <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" type="submit" name="register_btn" style="background: black;color: white;border-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;">REGISTER</button> <br>
-                        <!--link to connect with log in php-->
-                        <a class="d-flex justify-content-center" style="color: black;" href="login.php">Login an account</a>
-        </form>
-    </div>
+            <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" loading="eager" src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="200px" height="200px">
+            <map name="workmap">
+                <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+             </map>
+            <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data"  style="background: rgb(255, 128, 64);border-style: solid;border-color: rgb(255, 128, 64);border-radius: 20px;">
+                <div class="container">
+                    <h2 class="d-flex justify-content-center" style="font-weight:bold;">BUSINESS DETAILS</h2>
+            <div class="column mb-3">
+                <label class="form-label" for="" style="font-weight: bold;">Upload Image</label>
+                <input class="form-control" type="file" data-tag="website-files" name="image" style="margin-bottom: 5px;height: 40px;" data-maxFileSize="2" data-accepted="image/*" required  >
+            </div>
+            <div class="column mb-3">
+                <label class="form-label" for="" style="font-weight: bold;">Business Name</label>
+                <input type="text" name='business_name' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+            </div>
+            <div class="column mb-3">
+                <label class="form-label" for="" style="font-weight: bold;">Business Address</label>
+                <input type="text" name='business_address' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+            </div>
+            <div>
+                <label class="form-label" for="" style="font-weight: bold;">Municipality</label>
+                  <select class= "border rounded form-select mb-3" name="municipalityid" style="height:40px; border-style:none;"  required>
+                    <option disabled selected hidden>Select your Business Location</option>
+                    <?php 
+                        //$municipality = getAllActive("municipality");
+                        $query = "SELECT * FROM municipality WHERE status= '0'";
+                        $query_run = mysqli_query($con, $query);
+                        if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach ($query_run as $item)
+                                {
+                                    ?>
+                                    <option value="<?= $item['municipalityid']; ?>"><?= $item['municipality_name']; ?></option>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "No Municipality Available";
+                            }?>
+                  </select> 
+                </div>
+                <div>
+                    <label class="form-label" for="" style="font-weight: bold;">Cuisine Type</label><br/>
+                    <?php 
+                        //$category = getAllActive("mealcategory");
+                        $query = "SELECT * FROM mealcategory WHERE status= '0'";
+                        $query_run = mysqli_query($con, $query);
+                        if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach ($query_run as $item)
+                                {
+                                    ?>
+                                    <input class= "border rounded form-checkbox mb-3" type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></input>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "No Cuisine Type Available";
+                            }
+                    ?>
+                    <a style="color: black;" href="insert.php">Add Cuisine Type</a>
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Upload Business Permit</label>
+                    <input class="form-control" type="file" name="image_cert" style="margin-bottom: 5px;height: 40px;" multiple required >
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Opening</label>
+                    <input class="form-control" type="time" name="opening" style="margin-bottom: 5px;height: 40px;" required >
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Closing</label>
+                    <input class="form-control" type="time" name="closing" style="margin-bottom: 5px;height: 40px;" required >
+                </div>
+            <h2 class="d-flex justify-content-center" style="font-weight:bold;">Owner Information</h2>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Firstname</label>
+                    <input type="text" name='business_firstname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Lastname</label>
+                    <input type="text" name='business_lastname' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Phone Number</label>
+                    <input type="text" name='business_phonenumber' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Address</label>
+                    <input type="text" name='business_owneraddress' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Email Address</label>
+                    <input type="email" name='business_email' class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Password</label>
+                    <input type="password" name='business_password'  class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                </div>
+                <div class="column mb-3">
+                    <label class="form-label" for="" style="font-weight: bold;">Confirm Password</label>
+                    <input type="hidden" name="status" value = '0'>
+                    <input type="password" name='business_confirmpassword'  class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
+                </div>
+                
+                <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" type="submit" name="business_register_btn"style="background: black;color: white;border-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;" >REGISTER</button> <br>
+                <a class="d-flex justify-content-center" style="color: black;" href="index.php">Back to Home</a>
+        </div>
+    </form>
+</section>
 </main>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
@@ -108,6 +155,6 @@ if(isset($_SESSION['auth'])){
         unset($_SESSION['message']);
     }
     ?> 
-    </script>     
+    </script> 
 </body>
 </html>
