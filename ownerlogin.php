@@ -21,12 +21,26 @@ session_start();
 
 </head>
 <body >
+    <nav class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
+        <div class="container ml-2">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <span class="bs-icon-md bs-icon-circle bs-icon-primary shadow-none d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
+                    <img class="rounded img-fluid" src="assets/img/logoT.png" loading="eager"></span>
+                    <span style="color:rgb(255,128,64);; font-family:Aclonica; font-size:25px;">I - Eat&nbsp;</span></a>
+            <nav class="navbar navbar-expand">
+                <div class="container-fluid">
+                    <span class="bs-icon-lg d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
+                    <i class="far fa-calendar-check" style="float:right; color:rgb(255,128,64);"></i>
+                    </span></div>
+            </nav>
+        </div>
+    </nav>
 <section class="position-relative py-4 py-xl-5">
         <div class="container" style="margin-top:50px;">
             <div class="row d-flex justify-content-center align-items-md-end">
                 <div class="col-md-6 col-xl-4">
                     <div class="card mb-5" style="border-style: none;">
-                        <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);height: 480px;box-shadow: 0px 0px 18px var(--bs-gray);">
+                        <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);height: 510px;box-shadow: 0px 0px 18px var(--bs-gray);">
                             <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="height:110px; width:110px;border-style: solid;border-color: rgb(255, 128, 64);background: transparent;">
                                 <picture><img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap></picture>
                                 <map name="workmap">
@@ -50,8 +64,8 @@ session_start();
                                     <button class="btn btn-primary d-block w-100" type="submit" name="business_login" style="background: rgb(255, 128, 64);border-style: none;">Login</button>
                                 </div>
                                 <p class="text-muted" style="text-align: right;"><a href="forgetbusinesspassword.php" style="font-size: 15px;color: var(--bs-gray-600);">Forgot password?<br></a></p>
+                                <p>Don't have an account?&nbsp;<a href="businessreg.php" style="color: var(--bs-dark);font-weight: bold;">Register Now!</a>&nbsp;</p>
                             </form>
-                            <p>Don't have an account?&nbsp;<a href="businessreg.php" style="color: var(--bs-dark);font-weight: bold;">Register Now!</a>&nbsp;</p>
                         </div>
                     </div>
                 </div>
