@@ -44,13 +44,15 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div>
-                                                <div class="product-details m-0" style="height:75px;"><small >Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;">Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;"><?= $item['cuisinename']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?>- Closing: <?= date("g:i a", strtotime($item['closing'])); ?></small></div>
                                             <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price" ></div>
+                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
+                                               
                                             </div>
                                         </a>
-                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: var(--bs-orange);border: 1px solid var(--bs-orange);border-radius: 20px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
+                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: RGB(255,128,64);border: 1px solid var(--bs-orange);border-radius: 20px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
                                         </div>
                                     </div>
                                     <?php
@@ -70,7 +72,7 @@
                                         if (isset($_POST["submit"]))
                                         {
                                             $key = $_POST["search"];
-                                            $query = $con->prepare("SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.categoryid,mealcategory.categoryname,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at FROM business JOIN mealcategory ON business.categoryid=mealcategory.categoryid AND business.status = '1' WHERE categoryname LIKE :keyword ORDER BY categoryname ");
+                                            $query = $con->prepare("SELECT * FROM business WHERE cuisinename LIKE :keyword AND status= '1' ORDER BY cuisinename ");
                                             $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                                             $query->execute();
                                             $results = $query->fetchAll();
@@ -87,13 +89,15 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div>
-                                                <div class="product-details m-0" style="height:75px;"><small >Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;">Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;"><?= $item['cuisinename']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?>- Closing: <?= date("g:i a", strtotime($item['closing'])); ?></small></div>
                                             <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price" ></div>
+                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
+                                               
                                             </div>
                                         </a>
-                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: var(--bs-orange);border: 1px solid var(--bs-orange);border-radius: 20px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
+                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: RGB(255,128,64);border: 1px solid var(--bs-orange);border-radius: 20px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
                                         </div>
                                     </div>
                                     <?php
@@ -113,7 +117,7 @@
                                         if (isset($_POST["submit"]))
                                         {
                                             $key = $_POST["search"];
-                                            $query = $con->prepare("SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,municipality.municipality_name,business.categoryid,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at FROM business JOIN municipality ON business.municipalityid=municipality.municipalityid AND business.status = '1' WHERE municipality_name LIKE :keyword ORDER BY municipality_name");
+                                            $query = $con->prepare("SELECT business.businessid,business.business_name,business.business_address,business.opening,business.closing,business.municipalityid,municipality.municipality_name,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at FROM business JOIN municipality ON business.municipalityid=municipality.municipalityid AND business.status = '1' WHERE municipality_name LIKE :keyword ORDER BY municipality_name");
                                             $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                                             $query->execute();
                                             $results = $query->fetchAll();
@@ -130,13 +134,15 @@
                                             <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div>
-                                                <div class="product-details m-0" style="height:75px;"><small >Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;">Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;"><?= $item['cuisinename']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?>- Closing: <?= date("g:i a", strtotime($item['closing'])); ?></small></div>
                                             <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price" ></div>
+                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
+                                               
                                             </div>
                                         </a>
-                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: var(--bs-orange);border: 1px solid var(--bs-orange);border-radius: 20px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
+                                            <button href="" onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center float-end" type="button" style="height: 29px;padding-top: 3px;background: RGB(255,128,64);border: 1px solid var(--bs-orange);border-radius: 20px;margin-left: 0px;font-size: 14px;width: 152.328px;text-align: left;margin-bottom: 13px;">Make Reservation</button>
                                         </div>
                                     </div>
                                     <?php

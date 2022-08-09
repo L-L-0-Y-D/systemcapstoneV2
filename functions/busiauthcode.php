@@ -8,7 +8,7 @@ if(isset($_POST['business_register_btn']))
     $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
-    $categoryid = mysqli_real_escape_string($con,$_POST['categoryid']);
+    $cuisinename = $_POST['cuisinename'];
     $opening = $_POST['opening'];
     $closing = $_POST['closing'];
     $business_firstname = mysqli_real_escape_string($con,$_POST['business_firstname']);
@@ -110,8 +110,9 @@ if(isset($_POST['business_register_btn']))
                         {
                             // Insert User Data
                             $hash = password_hash($business_password, PASSWORD_DEFAULT);
-                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, categoryid, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,verify_token, status) 
-                            VALUES ('$business_name','$business_address', $municipalityid, $categoryid, '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$verify_token', '$status')";
+                            $item = implode(" ",$cuisinename);
+                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, cuisinename, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,verify_token, status) 
+                            VALUES ('$business_name','$business_address', $municipalityid, '$item', '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$verify_token', '$status')";
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 

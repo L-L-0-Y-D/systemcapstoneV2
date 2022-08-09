@@ -24,64 +24,6 @@
                 <div class=" content">
                     <div class="row" >
                         <div class="col-md-9 d-flex " style="width: 100%;">
-                        <div class="col-md-3 ">
-                            <div class="d-none d-md-block ">
-                                <div class="filters">
-                                    <div class="filter-item">
-                                    <h3>Cuisines</h3>
-                                            <?php
-                                            $cuisine = getAll("mealcategory");
-                                            if(mysqli_num_rows($cuisine) > 0)
-                                            {
-                                                foreach ($cuisine as $item)
-                                                {
-                                                    ?>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="formCheck-1" name="cuisine[]" value="<?= $item['categoryid']?>">
-                                                        <?= $item['categoryname']; ?>
-                                                    </div>
-
-                                                    <?php
-                                                }
-                                            }
-                                            else
-                                            {
-                                                echo "No Cuisine Available";
-                                            }?>
-
-                                        </div>
-                                </div>
-                            </div>
-                            <div class="d-md-none "><a class="btn btn-link d-md-none filter-collapse m-0 text-black fw-bold fs-6" data-bs-toggle="collapse" aria-expanded="false" aria-controls="filters" href="#filters" role="button">Filters<i class="icon-arrow-down filter-caret"></i></a>
-                                <div class="collapse m-0" id="filters">
-                                    <div class="filters">
-                                        <div class="filter-item" >
-                                            <h5 style="padding:0px;">Cuisines</h5>
-                                            <?php
-                                            $cuisine = getAll("mealcategory");
-                                            if(mysqli_num_rows($cuisine) > 0)
-                                            {
-                                                foreach ($cuisine as $item)
-                                                {
-                                                    ?>
-                                                    <div class="form-check" style="padding:0px;">
-                                                        <input class="form-check-input" type="checkbox" id="formCheck-1" name="cuisine[]" value="<?= $item['categoryid']?>">
-                                                        <?= $item['categoryname']; ?>
-                                                    </div>
-
-                                                    <?php
-                                                }
-                                            }
-                                            else
-                                            {
-                                                echo "No Cuisine Available";
-                                            }?>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                             <div class="products">
                                 <div class="row g-0 " style="padding-bottom: 50px;margin-left: 0px; border:none;">
                                     <?php
@@ -97,6 +39,7 @@
                                             <div class="product-name mb-0">
                                                 <a class="d-flex" href="#"><strong><?= $item['business_name']; ?></strong></a></div>
                                                 <div class="product-details m-0"><small style="font-size:12px;">Located at <?= $item['business_address']; ?></small></div>
+                                                <div class="product-details m-0"><small style="font-size:12px;"><?= $item['cuisinename']; ?></small></div>
                                                 <div class="product-details m-0"><small style="font-size:12px;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?>- Closing: <?= date("g:i a", strtotime($item['closing'])); ?></small></div>
                                             <div class="about">
                                                 <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->

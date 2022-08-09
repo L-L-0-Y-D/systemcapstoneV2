@@ -62,7 +62,7 @@ include('includes/header.php');
                                                             <a href="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>">
                                                             <img class="img-thumbnail img-fluid image" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"> </td>
                                                             <td><?= $item['business_name']; ?></td>
-                                                            <td><?= $item['categoryname']; ?></td>
+                                                            <td><?= $item['cuisinename']; ?></td>
                                                             <td><?= $item['municipality_name']; ?></td>
                                                             <td><?= date('h:i A', strtotime($item['opening'])); ?></td>
                                                             <td><?= date('h:i A', strtotime($item['closing']));?></td>
