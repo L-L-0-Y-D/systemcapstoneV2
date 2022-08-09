@@ -42,9 +42,9 @@
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
-<div class="container py-3">
-  <div class="row">
-    <div class="col-md-12">
+<div class="container ">
+  <div class="row d-flex justify-content-center align-items-md-end">
+    <div class="col-md-9 mt-4">
         <?php 
         if(isset($_GET['id']))
         {
@@ -57,13 +57,15 @@
                 
             
             ?>
-            <div class="card">
-                <div class="card-header fw-bold" >
-                <h4 class="mt-1">Profile<span> <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a></span></h4>
-                </div>
-                <div class="card-body">
+            <div class="card mb-5" style="border-style:none;">
+                <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
                     <form action="functions/authcode.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="mt-3 fw-bold mb-3 pb-md-3" style="border-bottom:solid 1px;">Profile<span> 
+                                    <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a></span>
+                                </h4>   
+                            </div>
                                 <div class="col-md-12">
                                 <label for="">Current Image</label>
                                 <img src="uploads/<?= $data['image'] ?>" height="50px" width="50px">

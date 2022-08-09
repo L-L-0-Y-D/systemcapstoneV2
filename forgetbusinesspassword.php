@@ -30,26 +30,35 @@ if(isset($_SESSION['auth'])){
 
 </head>
 <body >
-    <main class="page login-page">
-        <section class="clean-block clean-form dark" style="height: 672px;background: transparent;">
-                <img class="img-fluid d-flex d-lg-flex align-items-center m-auto" src="uploads/I-EatLogo.png" width="200px" height="200px" alt="logo" usemap="#workmap">
-                    <map name="workmap">
-                        <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
-                    </map>
-        <form method="post" action="functions/busiauthcode.php" style="background: rgb(255, 128, 64);border:none;border-radius: 20px;"> 
-        <div class="container">
-            <h2 class="d-flex justify-content-center" style="font-weight:bold;">FORGET PASSWORD</h2>
-            <div class="row">
-                <div class="mb-3">
-                        <label class="form-label" for="email" style="font-weight: bold;">Email</label>
-                        <input type="email" name="business_email" id="email" class="form-control form-control-sm item" style="font-size: 14px;height: 50px;" required/>
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container" style="margin-top:50px;">
+            <div class="row d-flex justify-content-center align-items-md-end">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-5" style="border-style: none;">
+                        <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
+                        <form method="post" action="functions/busiauthcode.php"> 
+                            <div class="row d-flex justify-content-center align-items-md-end">
+                                <div class="col-md-12 mb-5">
+                                    <h4 class="mt-1">
+                                        <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a>
+                                    </h4>   
+                                </div>
+                                <p class="fw-bold text-center " style="margin-bottom: 5px; font-size:20px;">Forget Password?</p>
+                                <div class="mb-1">
+                                    <label class="form-label" for="email" style="font-weight: bold;">Enter your email</label>
+                                    <input type="email" name="business_email" id="email" class="form-control form-control-sm item mb-3" style="font-size: 14px;height: 50px;" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-primary d-block w-100" type="submit" name='recover' style="background: rgb(255, 128, 64);border-style: none;">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-                <button class="btn btn-primary d-flex d-xl-flex align-items-center m-auto" name='recover'style="background:black;color:white;border-style: none;border-bottom-style: none;padding-right: 15px;padding-left: 15px;font-size: 18px;padding-bottom: 7px;">Reset Password</button>
         </div>
-        </form>
     </section>
-</main>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

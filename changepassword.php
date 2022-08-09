@@ -41,65 +41,65 @@
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
-<div class="container py-3">
-  <div class="row">
-    <div class="col-md-12">
-        <?php 
-        if(isset($_GET['id']))
-        {
-            $id = $_GET['id'];
-            $user = getByID("users",$id,"userid");
-
-            if(mysqli_num_rows($user) > 0)
+    <div class="container" >
+        <div class="row d-flex justify-content-center align-items-md-end">
+            <div class="col-md-6 col-xl-4" style="margin-top:150px;">
+            <?php 
+            if(isset($_GET['id']))
             {
-                $data = mysqli_fetch_array($user)
+                $id = $_GET['id'];
+                $user = getByID("users",$id,"userid");
+
+                if(mysqli_num_rows($user) > 0)
+                {
+                    $data = mysqli_fetch_array($user)
+                    
                 
-            
-            ?>
-            <div class="card">
-                <div class="card-header">
-                <h4 class="mt-1">Change Password
-                    <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a>
-                </h4>   
+                ?>
+                <div class="card mb-5" style="border-style:none;">
+                    <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
+                        <form action="functions/authcode.php" method="POST"> 
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="mt-1">
+                                        <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a>
+                                    </h4>   
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
+                                    <label for="">Enter Current Password</label>
+                                    <input type="password" name="oldpassword"  class="form-control" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="" class="mt-2">Enter New Password</label>
+                                    <input type="password" name="password"  class="form-control" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="" class="mt-2">Confirm New Password</label>
+                                    <input type="password" name="confirmpassword"  class="form-control" required>
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <button type="submit" class="btn btn-primary mt-2" name="edit_password_btn" style="background-color:rgb(255,128,64); border:none;">Update Password</button>
+                                </div>
+                                </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <form action="functions/authcode.php" method="POST">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                <label for="">Current Password</label>
-                                <input type="password" name="oldpassword" placeholder="Enter Current Password" class="form-control" required>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="" class="mt-2">New Password</label>
-                                <input type="password" name="password" placeholder="Enter New Password" class="form-control" required>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="" class="mt-2">Confirm Password</label>
-                                <input type="password" name="confirmpassword" placeholder="Enter Confirm New Password" class="form-control" required>
-                            </div>
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary mt-2" name="edit_password_btn" style="background-color:rgb(255,128,64); border:none;">Update Password</button>
-                            </div>
-                            </div>
-                    </form>
-                </div>
-            </div>
-            <?php
+                <?php
+                }
+                else
+                {
+                    echo "User not Found";
+                }
             }
             else
             {
-                echo "User not Found";
+            echo"ID missing from url";
             }
-        }
-        else
-        {
-           echo"ID missing from url";
-        }
-            ?>
+                ?>
+        </div>
+    </div>  
     </div>
-  </div>  
-</div>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 
