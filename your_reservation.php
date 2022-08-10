@@ -9,8 +9,6 @@ include('middleware/userMiddleware.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="home.css"> 
-    <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Akaya%20Kanadaka.css">
     <link rel="stylesheet" href="assets/css/Alata.css">
@@ -18,12 +16,13 @@ include('middleware/userMiddleware.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
-
+    <link rel="stylesheet" href="assets/css/Acme.css">
+    <link rel="stylesheet" href="assets/css/Aldrich.css">
+    <link rel="stylesheet" href="assets/css/Amaranth.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/assets/css/Montserrat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/assets/css/vanilla-zoom.min.css">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -39,7 +38,7 @@ include('middleware/userMiddleware.php');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
-    <title>I-Eat | Home </title> 
+    <title>I-Eat | Reservation Table </title> 
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
@@ -57,50 +56,55 @@ include('middleware/userMiddleware.php');
                 $data = mysqli_fetch_array($reservations);
                
             ?>
-    <nav class="navbar navbar-light navbar-expand-md" style="background: rgb(255,128,64);">
-        <div class="container-fluid"><a class="navbar-brand" href="#" style="padding-left: 0px;margin-left: 2%;"><strong>Hi <?= $_SESSION['auth_user']['name'];?>!</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse justify-content-end" id="navcol-1" style="padding-right: 30px;">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="index.php"><i class="fas fa-home"></i>&nbsp;Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i>&nbsp;Log out</a></li>
+     <nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar" style="background-color: rgb(255,128,64);">
+        <div class="container">
+            <a class="navbar-brand logo" href="#" style=" color:white;font-family: Amaranth, sans-serif;font-weight: bold;font-size: 26px;">
+            <strong>Hi <?= $_SESSION['auth_user']['name'];?>!</strong></a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+            <span class="visually-hidden" style="color: var(--bs-dark);">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active text-white" href="index.php"><i class="fas fa-home"></i>&nbsp;Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="logout.php"><i class="fas fa-arrow-right"></i>&nbsp;Log out</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <?php 
-        foreach($reservations as $data)
+    <main class="page blog-post-list" >
+    <section class="mb-0 text-center bg-light p-2">
+            <p style="font-family: Acme, sans-serif;font-size: 40px;font-weight: bold; color:black;">RESERVATION DETAILS</p>
+        </section>
+        <?php 
+            foreach($reservations as $data)
             {
-                ?>
-   <section style="padding-bottom:20px;">                     
-    <div class="container" style="background:white;box-shadow: 0px 0px 5px;width: auto;margin-right: 15%;margin-left: 15%;height: auto; ">
-        <h1 style="margin-top: 5%;font-size: 24.88px; padding-top:10px;"><strong>Reservation Details</strong></h1>
-        <div class="row align-items-center" style="padding-top: 10px;margin-top: 10px;padding-bottom: 10px;padding-left: 10px;padding-right: 10px;height: auto;border-top: 1px solid var(--bs-gray-600);">
-            <div class="col-md-3" style="border: 1px solid var(--bs-gray-400);height: 180px;">
-                <div class="product-image" style="height: 180px;"><img class="img-fluid d-block mx-auto image" src="uploads/<?= $data['image']; ?>" style="width: 160px;height: 160px;margin-top: 10px;margin-bottom: 10px;"></div>
-            </div>
-            <div class="col-md-5 text-start product-info"><span style="font-size: 18px;"><strong></strong></span>
-                <div class="product-specs">
-                    <div><span>Reservation Date:&nbsp;</span><span class="value" style="padding-left: 5px;"><?= $data['reservation_date']; ?></span></div>
-                    <div><span>Reservation Time:</span><span class="value" style="padding-left: 5px;"><?= $data['reservation_time']; ?></span></div>
-                    <div><span>No. of Guest :&nbsp;</span><span class="value"><?= $data['numberofguest'];?>persons</span></div>
+        ?>
+        <section class="clean-block clean-blog-list dark">
+            <div class="container">
+                <div class="block-content" style="padding-right: 80px;padding-left: 80px;padding-top: 50px;padding-bottom: 0px;">
+                    <div class="clean-blog-post">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <img class="rounded img-fluid " style="height:250px; width:300px;" src="uploads/<?= $data['image']; ?>">
+                            </div>
+                            <div class="col-lg-7"style="border-left:solid 2px;" >
+                                <h3 style="font-family: Amaranth, sans-serif;margin-bottom: 3px;margin-top: 5px;font-size: 24px;">RESTAURANT NAME</h3>
+                                <div class="info">
+                                    <span class="text-muted" style="font-weight: bold;font-family: Aldrich, sans-serif;">Table Number</span>
+                                </div>
+                                <p style="color: red;"for="quantity"><strong>STATUS :&nbsp;<?= $data['status']== '0'? "Waiting":"Confirmed"  ?></strong></p>
+                                <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
+                                <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
+                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
+                                <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
+                                <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
+                                <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-6 col-md-2 quantity"><label class="col-form-label d-none d-md-block" for="quantity">Status :<?= $data['status']== '0'? "Waiting":"Confirmed"  ?></label></div>
-        </div>
-    </div>
-    <div class="container" style="background:white;margin-right: 15%;margin-left: 15%;width: auto;box-shadow: 0px 0px 5px;margin-top: 20px;height: auto;">
-        <h1 style="font-size: 24.88px; padding-top:10px;"><strong>Customer Details</strong></h1>
-        <div class="row" style="margin-top: 0px;padding: 10px;border-top-width: 1px;border-top-style: solid;">
-            <div class="col"><span style="font-size: 18px;"><strong>Information</strong></span>
-                <div class="product-specs">
-                    <div><span>Customer Name :</span><span>&nbsp; <?= $data['namereserveunder']; ?></span></div>
-                    <div><span>Email Address :</span><span class="value" style="padding-left: 5px;"><?= $data['reservation_email']; ?></span></div>
-                    <div><span>Contact Number :</span><span class="value" style="padding-left: 5px;"><?= $data['reservation_phonenumber']; ?></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-            </section>
+        </section>
+    </main>
     <?php
                         }
             }
