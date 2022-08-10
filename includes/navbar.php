@@ -20,97 +20,108 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
             }
         </script>
     </div>
-    <header>
-            <div class="nav-menu">
+  
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" style="height:80px; background-color:rgb(255,128,64);">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top" style="color: white;font-size: 28px;">
+            <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
+                        <map name="workmap">
+                            <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+                        </map>I - Eat</a>
+            <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: gray;"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-left:10px;background-color:rgb(255,128,64);" >
+                <ul class="navbar-nav ms-auto text-uppercase" >
+                
                 <?php if(empty($_SESSION["auth"]))
                 {// if user is not login
-                    ?>
-							
-                    <button class="loginbtn" onclick="location.href='login.php'">Login</button>
-                        <div class="form-popup" id="myForm">
-                            <form name="form" class="form-container">
-                            <i class="fas fa-times-circle" onclick="closeForm()" style="float:right;"></i>
-                                <h3>Login as</h3>
-                                <button type="submit" class="ownerbtn" onclick="javascript: form.action='ownerlogin.php';" href="ownerlogin.php">Business</button>
-                                <button type="submit" class="customerbtn" onclick="javascript: form.action='login.php';" href="login.php">Customer</button>
-                            </form>
-                        </div>
-                        <script>
-                        function openForm() {
-                            document.getElementById("myForm").style.display = "block";
-                        }
-                        function closeForm() {
-                            document.getElementById("myForm").style.display = "none";
-                        }
-                        </script>
-                    <button class="loginbtn" onclick="location.href='register.php'">Sign Up</button>  
-                               
+                ?>
+                    <li class="nav-item"><a class="nav-link" href="#page-top" active>HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">LOCATIONS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.php">SIGNUP</a></li>
                 <?php 
                 }
-                elseif(isset($_SESSION['auth']))
+                 elseif(isset($_SESSION['auth']))
                 {
-                        if($_SESSION['auth_user']['role_as'] == "0")
-                        {
-                        ?>    
-                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</h2>
-                                <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">
-                                            <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
-                                    <div class="dropdown-menu position-fixed">
-                                        <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
-                                        <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
-                                        <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-key"></i>&nbsp;Change Password</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
-                                    </div>
+                    if($_SESSION['auth_user']['role_as'] == "0")
+                    {
+                    ?>   
+                    <li class="nav-item">
+                        <h2 class="text-white text-capitalize" style="font-size:25px;"> Welcome 
+                        <strong><?= $_SESSION['auth_user']['name'];?></strong>!&nbsp;</h2>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown">
+                            <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
+                                    <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
+                                    <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-key"></i>&nbsp;Change Password</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
                                 </div>
-                        <?php
-                        }
-                        else if($_SESSION['auth_user']['role_as'] == "2")
-                        {
-                            ?>
-                            <h2> Welcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong> !</h2>
-                            <button class="loginbtn" onclick="location.href='business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>'">Dashboard</button>
-                            <button class="loginbtn" onclick="location.href='logout.php'">Logout</button> 
-
-                         <?php
-                        }
-                        else
-                        {
-                            ?>
-                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
-                            <button class="loginbtn" onclick="location.href='admin/index.php'">Dashboard</button>
-                            <button class="loginbtn" onclick="location.href='logout.php'">Logout</button> 
-                            <?php 
-                        }
-                    
+                        </div>
+                    </li>                   
+                <?php
+                }
+                else if($_SESSION['auth_user']['role_as'] == "2")
+                {
+                    ?>
+                    <li class="nav-item">
+                        <h2 class="text-white text-capitalize" style="font-size:20px;"> Welcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong>!</h2>
+                    </li>
+                        <li class="nav-item"><a class="nav-link" href="'business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>'" >DASHBOARD</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li>       
+                <?php
+                }
+                else
+                {
+                    ?>
+                    <li class="nav-item">
+                        <h2 class="text-white text-capitalize" style="font-size:20px;"> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
+                    </li>
+                        <li class="nav-item"><a class="nav-link" href="admin/index.php" >DASHBOARD</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li> 
+                <?php 
+                }  
                     ?> 
-                    <?php 
+                <?php 
                 }
                 elseif(isset($_SESSION['busi'])) 
                 {
-                ?>
+                    ?>
                     <!--if user is login-->
-                    <h2> Welcome <strong><?php echo $_SESSION['auth_user']['business_name']; ?></strong> !</h2>
-                    <button class="loginbtn" onclick="location.href='business/admin.php'">Dashboard</button>
-                    <button class="loginbtn" onclick="location.href='logout.php'">Logout</button> 
-                 
+                    <li class="nav-item">
+                        <h2 class="text-white text-capitalize" style="font-size:20px;"> Welcome <strong><?php echo $_SESSION['auth_user']['business_name']; ?></strong> !</h2>
+                    </li>
+                        <li class="nav-item"><a class="nav-link" href="business/admin.php" >DASHBOARD</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li> 
                 <?php } ?>
+                
+                </ul>
             </div>
-            <div class="row d-flex justify-content-end py-5" style=" margin-top:40px;width:90%;">
-                <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4">
-                    <div class="text-center" style="max-width: 450px;">
-                        <img src="uploads/logoT.png" alt="LOGO"  width="200" height="200">
-                        <p class="my-2" style="font-size:20px;">First we eat, I-Eat.</p>
-                        <form class="d-flex justify-content-center flex-wrap justify-content-md-start flex-lg-nowrap" action="search.php" method="POST">
-                            <div class="my-2 me-2">
-                                <input class=" form-control" type="text" name="search" placeholder="Search Restaurant..." style="width:200px;border:solid 1px gray; border-radius:20px;"></div>
-                            <div class="my-2">
-                                <button class="btn btn-primary shadow" type="submit" name="submit" style="height:38px;  border:none;background: rgb(255,128,64); border-radius:20px;"><i class="far fa-search"></i> </button>
-                            </div>
-                        </form>
-                    </div>
+        </div>
+    </nav>        
+    <header class="masthead "  style="padding-top:100px;">
+        <div class="container">
+            <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
+                <div class="intro-lead-in">
+                    <span><img src="uploads/logoT.png" style="width: 150px;"></span>
+                </div>
+                <div class="intro-heading text-uppercase ">
+                    <span style="font-family: 'Kaushan Script', serif; font-size:55px;">First we eat,&nbsp; i - eat.</span></div>
+                    <form action="search.php" method="POST">
+                        <input class="form-control-lg" type="text" name="search" style="border-radius: 20px;border: 2px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
+                        <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 10px;padding-bottom: 10px;padding-left: 30px;padding-right: 30px;">
+                        <i class="far fa-search"></i></button>
+                    </form>
                 </div>
             </div>
+        </div>
+    </header>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>

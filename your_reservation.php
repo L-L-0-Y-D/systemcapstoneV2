@@ -71,16 +71,16 @@ include('middleware/userMiddleware.php');
         </div>
     </nav>
     <main class="page blog-post-list" >
-    <section class="mb-0 text-center bg-light p-2">
+    <section class="mb-0 text-center bg-light p-1">
             <p style="font-family: Acme, sans-serif;font-size: 40px;font-weight: bold; color:black;">RESERVATION DETAILS</p>
         </section>
         <?php 
             foreach($reservations as $data)
             {
         ?>
-        <section class="clean-block clean-blog-list dark">
+        <section class="clean-block clean-blog-list dark p-2">
             <div class="container">
-                <div class="block-content" style="padding-right: 80px;padding-left: 80px;padding-top: 50px;padding-bottom: 0px;">
+                <div class="block-content" style="padding-right: 80px;padding-left: 80px;">
                     <div class="clean-blog-post">
                         <div class="row">
                             <div class="col-lg-5">
