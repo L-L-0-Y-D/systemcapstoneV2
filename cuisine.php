@@ -4,14 +4,14 @@
     include('includes/header.php'); 
     if(isset($_GET['name']))
         {
-            // $con = new PDO("mysql:host=localhost;dbname=thesis",'root','');
-            // $con->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // $name = $_GET['name'];
-            // $query = $con->prepare("SELECT * FROM business WHERE cuisinename LIKE :keyword");
-            // $query->bindValue(':keyword' ,'%'.$name.'%', PDO::PARAM_STR);
-            // $query->execute();
-            // $results = $query->fetchAll();
-            // $row = $query->rowCount();
+             $conn = new PDO("mysql:host=localhost;dbname=thesis",'root','');
+             $conn->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+             $name = $_GET['name'];
+             $query = $conn->prepare("SELECT * FROM business WHERE cuisinename LIKE :keyword AND status= '1'");
+             $query->bindValue(':keyword' ,'%'.$name.'%', PDO::PARAM_STR);
+             $query->execute();
+             $results = $query->fetchAll();
+             $row = $query->rowCount();
 
     
 ?>
