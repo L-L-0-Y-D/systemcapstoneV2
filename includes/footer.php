@@ -3,7 +3,7 @@
         <div class="row ">
                 <h3 class="fs-8 text-black fw-bold">POPULAR CUISINES </h3>
             <?php
-            $query = "SELECT * FROM mealcategory WHERE status= '0'";
+            $query = "SELECT * FROM mealcategory";
             $query_run = mysqli_query($con, $query);
 
             if(mysqli_num_rows($query_run) > 0)
