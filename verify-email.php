@@ -46,14 +46,14 @@ if(isset($_GET['token']))
     else
     {
         //redirect("login.php", "This Token does not Exists");
-         $_SESSION['status'] = "This Token does not Exists";
+         $_SESSION['message'] = "This Token does not Exists";
          header("Location: login.php");
     }
 }
 else
 {
     //redirect("login.php", "Not Allowed");
-     $_SESSION['status'] = "Not Allowed";
+     $_SESSION['message'] = "Not Allowed";
      header("location: login.php");
 }
 
