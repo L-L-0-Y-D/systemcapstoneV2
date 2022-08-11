@@ -3,16 +3,6 @@
     include('functions/userfunctions.php');
     include('includes/header.php');
 ?>
-<head>
-    <link rel="stylesheet" href="assets/css/Alfa%20Slab%20One.css">
-    <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
-    <link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/untitled-1.css">
-    <link rel="stylesheet" href="assets/css/untitled-2.css">
-    <link rel="stylesheet" href="assets/css/untitled-3.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
-</head>
 <section class="bg-light" id="portfolio" style="padding-top: 50px;padding-bottom: 50px;">
         <div class="container">
             <div class="row">

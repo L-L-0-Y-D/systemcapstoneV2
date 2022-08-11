@@ -14,7 +14,7 @@ if(isset($_SESSION['auth'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -50,11 +50,10 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="reg.css">
-    <title>Login | I-Eat</title>
+    <title>Login Admin | I-Eat</title>
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
-
 </head>
 <body >
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
@@ -72,21 +71,17 @@ if(isset($_SESSION['auth'])){
                 </nav>
             </div>
         </nav>
-<section class="position-relative py-4 py-xl-5">
-        <div class="container" style="margin-top:50px;">
-            <div class="row d-flex justify-content-center align-items-md-end">
-                <div class="col-md-6 col-xl-4">
-                    <div class="card mb-5" style="border-style: none;">
-                        <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
+<section class="position-relative py-4 py-xl-5 ">
+        <div class="container" >
+            <div class="row d-flex justify-content-center align-items-md-end ">
+                <div class="col-md-6 col-xl-4 ">
+                    <div class="card mb-5 " style="border-style: none; margin-top:100px;">
+                        <div class="card-body d-flex flex-column align-items-center " style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
                             <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="height:110px; width:110px; border-style: solid;border-color: rgb(255, 128, 64);background: transparent;">
                                 <picture><img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap></picture>
                                 <map name="workmap">
                                     <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                                 </map>
-                            </div>
-                            <div class="btn-group btn-group-sm border rounded shadow-none d-flex flex-grow-1" role="group" style="margin-bottom: 30px;">
-                                <button class="btn btn-primary" type="submit" onclick="location.href='ownerlogin.php'" style="background: transparent;color: var(--bs-dark);border-style: solid;border-color: rgb(255, 128, 64);">Business</button>
-                                <button class="btn btn-primary active" type="submit" onclick="location.href='login.php'" style="border-color: rgb(255, 128, 64);color: var(--bs-dark);background: rgb(255, 128, 64);">Customer</button>
                             </div>
                             <form class="text-center" method="post" action="functions/authcode.php">
                                 <div class="d-flex d-md-flex justify-content-end justify-content-md-end mb-3" style="text-align: left;border-bottom-width: 1px;border-bottom-style: solid;">
@@ -100,8 +95,6 @@ if(isset($_SESSION['auth'])){
                                 <div class="mb-3">
                                     <button class="btn btn-primary d-block w-100" type="submit" name="login_btn" style="background: rgb(255, 128, 64);border-style: none;">Login</button>
                                 </div>
-                                <p class="text-muted" style="text-align: right;"><a href="forgetpassword.php" style="font-size: 15px;color: var(--bs-gray-600);">Forgot password?<br></a></p>
-                                <p>Don't have an account?&nbsp;<a href="register.php" style="color: var(--bs-dark);font-weight: bold;">Sign Up</a>&nbsp;</p>
                             </form> 
                         </div>
                     </div>
@@ -109,21 +102,6 @@ if(isset($_SESSION['auth'])){
             </div>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
-    <script src="assets/js/vanilla-zoom.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
-    <script src="assets/assets/js/vanilla-zoom.js"></script>
-    <script src="asset/sassets/js/theme.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

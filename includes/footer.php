@@ -40,7 +40,9 @@
             </div>-->
             <hr>
             <div class="row ">
-                <div class="col-md-4 text-white"><span class="copyright">Copyright&nbsp;© I-EAT 2022</span></div>
+                <div class="col-md-4 text-white"><span class="copyright">Copyright&nbsp;© I-EAT 2022</span>
+                <a href="adminsignup.php"><i class="fas fa-door-open text-black"></i></a></li>
+            </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons ">
                         <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>

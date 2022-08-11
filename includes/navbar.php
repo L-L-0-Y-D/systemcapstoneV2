@@ -71,15 +71,15 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 {
                     ?>
                     <li class="nav-item">
-                        <h2 class="text-white text-capitalize" style="font-size:20px;"> Welcome
-                        <strong><?= $_SESSION['auth_user']['business_name'];?></strong>!</h2>
+                        <h2 class="text-white text-capitalize" style="font-size:25px;"> Welcome
+                        <strong><?= $_SESSION['auth_user']['business_name'];?></strong>!&nbsp;</h2>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown no-arrow">
                             <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown">
                             <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="'business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>'"style="font-size:16px; text-align:left;">&nbsp;Dashboard</a>
+                                    <a class="dropdown-item" href="business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
                                 </div>
@@ -91,15 +91,15 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 {
                     ?>
                     <li class="nav-item">
-                        <h2 class="text-white text-capitalize" style="font-size:20px;"> Welcome 
-                        <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
+                        <h2 class="text-white text-capitalize" style="font-size:25px;"> Welcome 
+                        <strong><?= $_SESSION['auth_user']['name'];?></strong> !&nbsp;</h2>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown no-arrow">
                             <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown">
                             <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="admin/index.php"style="font-size:16px; text-align:left;">&nbsp;Dashboard</a>
+                                    <a class="dropdown-item" href="admin/index.php"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
                                 </div>
@@ -115,15 +115,15 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                     ?>
                     <!--if user is login-->
                     <li class="nav-item">
-                        <h2 class="text-white text-capitalize" style="font-size:20px;"> Welcome 
-                        <strong><?php echo $_SESSION['auth_user']['business_name']; ?></strong> !</h2>
+                        <h2 class="text-white text-capitalize" style="font-size:25px;"> Welcome 
+                        <strong><?php echo $_SESSION['auth_user']['business_name']; ?></strong> !&nbsp;</h2>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown no-arrow">
                             <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown">
                             <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="business/admin.php"style="font-size:16px; text-align:left;">&nbsp;Dashboard</a>
+                                    <a class="dropdown-item" href="business/admin.php"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
                                 </div>
