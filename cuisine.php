@@ -4,18 +4,18 @@
     include('includes/header.php'); 
     if(isset($_GET['name']))
         {
-            $name = $_GET['name'];
-            $municipality = getByIDActive("business",$name,"cuisinename");
+            // $con = new PDO("mysql:host=localhost;dbname=thesis",'root','');
+            // $con->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // $name = $_GET['name'];
+            // $query = $con->prepare("SELECT * FROM business WHERE cuisinename LIKE :keyword");
+            // $query->bindValue(':keyword' ,'%'.$name.'%', PDO::PARAM_STR);
+            // $query->execute();
+            // $results = $query->fetchAll();
+            // $row = $query->rowCount();
 
-                if(mysqli_num_rows($municipality) > 0)
-                    {
-                        $data = mysqli_fetch_array($municipality);
-                        $mid = $data['cuisinename'];
-                        $business = getNameActive("business", $mid, "cuisinename");
     
 ?>
     <div class="container" >   
-        <h1 style="text-align: center;width: auto;font-size: 30px; padding-top:20px;"><strong>Restaurants in <?= $data['cuisinename']; ?></strong></h1>    
         <hr>
     </div>
     <main class="page catalog-page">
@@ -27,9 +27,9 @@
                             <div class="products">
                                 <div class="row g-0 " style="padding-bottom: 50px;margin-left: 0px; border:none;">
                                     <?php
-                                        if(mysqli_num_rows($query_run ) > 0)
+                                        if($row!= 0)
                                             {
-                                                foreach($query_run  as $item)
+                                                foreach($results as $item)
                                                 {
                                                     ?>
                                     <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px;">
@@ -69,14 +69,6 @@
         </section>
     </main>
     <?php
-        } 
-        else
-        {
-            echo "Something Went Wrong";
-            ?>
-            <br><a href="Index.php">Go Back</a>
-            <?php
-        }
     }
     else
     {
