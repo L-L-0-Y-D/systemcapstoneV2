@@ -35,14 +35,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                                 <button type="submit" class="customerbtn" onclick="javascript: form.action='login.php';" href="login.php">Customer</button>
                             </form>
                         </div>
-                        <script>
-                        function openForm() {
-                            document.getElementById("myForm").style.display = "block";
-                        }
-                        function closeForm() {
-                            document.getElementById("myForm").style.display = "none";
-                        }
-                        </script>
+                        <input class="form-control" type="text" name="closing">
                     <button class="loginbtn" onclick="location.href='register.php'">Sign Up</button>  
                                
                 <?php 

@@ -151,13 +151,26 @@ if(isset($_SESSION['auth'])){
                                             echo "No Cuisine Type Available";
                                         }
                                 ?>
-                            <div class="text-start">
-                                <p style="text-align: left;font-size: 16px;">Other Cuisine Type:<span><input class="form-control" type="text" name="closing"></span></p>
-                            </div>
+                                <a class="btn d-block w-100" name="addcuisinebtn" onclick="openForm()" style="text-decoration:underline;">Add Cuisine Type</a>
+                                    <div class="form-popup bg-light p-3" id="myForm" style="border-radius:10px; border: solid 2px rgb(255,128,64); ">
+                                        <form name="form" class="form-container">
+                                            <i class="far fa-times-circle" onclick="closeForm()" style="float:right;"></i>
+                                            <p class="fw-bold mt-2 mb-1">Add Cuisine Type</p>
+                                            <input class="form-control" type="text" name="addcuisine"></input>
+                                            <button type="submit" class="btn btn-primary d-block w-50 mt-2 fw-light"  style="background-color:rgb(255,128,64);border:none;" href="#">Add</button>
+                                        </form>
+                                        <script>
+                                            function openForm() {
+                                                document.getElementById("myForm").style.display = "block";
+                                            }
+                                            function closeForm() {
+                                                document.getElementById("myForm").style.display = "none";
+                                            }
+                                        </script>
                         </div>
                     </div>
                 </div>
-                    <p style="text-align: left;font-size: 16px;font-weight:bold;">Upload Business Permit</p>
+                    <p style="text-align:left;font-size: 16px;font-weight:bold;">Upload Business Permit</p>
                     <input class="form-control" name="image_cert" type="file" style="margin-bottom: 10px;" required>
                 <div class="row" style="margin-bottom: 10px;">
                     <div class="col mb-3">
