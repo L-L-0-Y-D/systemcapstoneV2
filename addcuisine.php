@@ -50,7 +50,7 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="reg.css">
-    <title>Login Admin | I-Eat</title>
+    <title>Add Cuisine | I-Eat</title>
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
