@@ -2,43 +2,25 @@
     <div class="container py-4 py-lg-4">
         <div class="row justify-content-center">
                 <h3 class="fs-8 text-black fw-bold">POPULAR CUISINES </h3>
-            
+            <?php
+            $query = "SELECT * FROM mealcategory WHERE status= '0'";
+            $query_run = mysqli_query($con, $query);
+
+            if(mysqli_num_rows($query_run) > 0)
+            {
+                foreach($query_run as $item)
+                {
+            ?>
             <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Korean</a>
+                <a href="" class=" fs-5 text-black "><?= $item['categoryname']; ?></a>
             </div>
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Chinese</a>
-            </div> 
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Japanese</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Filipino</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Korean</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Chinese</a>
-            </div> 
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Japanese</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Filipino</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Korean</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Chinese</a>
-            </div> 
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Japanese</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black ">Filipino</a>
-            </div>
+            <?php
+                }
+            }
+            else
+            {
+                echo "No Cuisine Available";
+            }?>
             <!--<div class="col-md-3">
                 <h3 class="fs-8 text-black fw-bold">Contacts</h3>
                 <h6 style="font-size:12px;">Do you want yourself listed on I-Eat? You can register yourself for listing and we will contact you: <span><a style="color:black; text-decoration:underline;" href="businessreg.php">Partner with Us</a></span></h6>
