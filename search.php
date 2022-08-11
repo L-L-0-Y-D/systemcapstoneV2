@@ -5,6 +5,16 @@
 
     
 ?>
+<head>
+<link rel="stylesheet" href="assets/css/Alfa%20Slab%20One.css">
+<link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
+<link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
+<link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/untitled-1.css">
+<link rel="stylesheet" href="assets/css/untitled-2.css">
+<link rel="stylesheet" href="assets/css/untitled-3.css">
+<link rel="stylesheet" href="assets/css/untitled.css">
+</head>
     <div class="container" >   
         <h1 style="text-align: center;width: auto;font-size: 30px; padding-top:10px;"><strong>Search Result</strong></h1>
         

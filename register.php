@@ -41,7 +41,7 @@ if(isset($_SESSION['auth'])){
                 <nav class="navbar navbar-expand">
                     <div class="container-fluid">
                         <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                        <i class="far fa-calendar-alt" style="float:right; color:white;"></i>
+                        <a href="index.php"><i class="fa fa-home" style="float:right; color:white;"></i></a>
                         </span></div>
                 </nav>
             </div>
