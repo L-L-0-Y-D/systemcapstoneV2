@@ -41,4 +41,16 @@
             </div>
         </div>
     </section>
+    <hr>
+    <section id="about" style="padding-top: 0px;">
+        <!-- Start: Banner-->
+        <section class="py-4 py-xl-5" style="background: url(uploads/bg.png)left;height: 300px;">
+            <div class="container">
+                <div class="text-center p-4 p-lg-5">
+                    <h1 class="fw-bold mb-4" style="font-family: 'Alfa Slab One', serif;font-size: 38.88px;margin-top: 50px;">ABOUT&nbsp; &nbsp;|&nbsp; &nbsp; I - EAT</h1>
+                </div>
+            </div>
+        </section><!-- End: Banner --><hr>
+        <p style="margin-left:100px;margin-right:100px;text-indent:50px;font-size: 18px;">I-Eat: established in 2022, an online international cuisine management system. I-Eat aims to improve the management of the growing community of food industry within Bataan. The system is designed intending to manage customer information, to provide an efficient, contactless, and a more accurate business process. It is capable of locating specialty restaurants and displaying various menus from specialty restaurants.</p>
+    </section>
 <?php include('includes/footer.php');?>
