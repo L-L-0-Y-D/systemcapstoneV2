@@ -6,11 +6,11 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
 
 ?>
 
-<!--eveything inside the bg image-->
+<!--eveything inside the bg image
 <div id="header-img">
     <div id="header-signup">
         <?php if(empty($_SESSION["auth"])):?>
-            <!--For business registration-->
+            For business registration
             <p style="padding-top:5px;">Do you need business account?  <span><a href="businessreg.php">REGISTER</a></span>
             <i class="far fa-times-circle" onclick="closeNav()"style="float:right; margin-right:30px;"></i></p>
         <?php endif ?>
@@ -19,7 +19,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 document.getElementById("header-signup").style.display = "none";
             }
         </script>
-    </div>
+    </div>-->
   
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" style="height:80px; background-color:rgb(255,128,64);">
@@ -39,6 +39,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                     <li class="nav-item"><a class="nav-link" href="#page-top" active>HOME</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">LOCATIONS</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>
                     <li class="nav-item"><a class="nav-link" href="register.php">SIGNUP</a></li>
                 <?php 
@@ -134,7 +135,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
             </div>
         </div>
     </nav>        
-    <header class="masthead "  style="padding-top:100px;">
+    <header class="masthead "  style="height:730px;padding-top:100px;background-image:url(uploads/bg.png); background-position:top center;">
         <div class="container">
             <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
                 <div class="intro-lead-in">

@@ -4,7 +4,7 @@ body{
     box-sizing: border-box;
     overflow-x:hidden;  
 }
-
+/*
 #header-signup{
     width:100%;
     background-color: rgb(255, 128, 64);
@@ -23,27 +23,13 @@ body{
 }
 #header-img{
     width:100vw;
-    height:650px;
+    height:100vw;
     background-image: url(uploads/bg.png)!important;
     background-attachment:local;
     background-position:top center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.loginbtn {
-    color: rgb(0, 0, 0);
-    font-style: bold;
-    font-size: 16pt;
-    text-align: center;
-    margin-right: 10px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-  }
-.loginbtn:hover {
-    border-bottom: 2px solid rgb(0, 0, 0);
-    font-weight: bolder;
-}
+}*/
   /* The popup form - hidden by default */
   .form-popup {
     display: none;
@@ -64,50 +50,6 @@ body{
     background-color: rgb(255, 255, 255);
   }
   /* Set a style for the submit/login button */
-.ownerbtn {
-  bottom: 12px;
-  border: 1px solid rgb(255, 128, 64);
-  cursor: pointer;
-  right: 100px;
-  border-radius: 3px;
-  background-color: white;
-  color: rgb(255, 128, 64);
-  padding: 8px 8px;
-  font-size: 14px;
-}
-.ownerbtn:hover{
-  background: rgb(255, 128, 64);
-  color: white;
-  transition: .1s;
-}
-.customerbtn{
-  bottom: 12px;
-  border: 1px solid rgb(255, 128, 64);
-  cursor: pointer;
-  border-radius: 3px;
-  background-color: white;
-  color: rgb(255, 128, 64);
-  padding: 8px 8px;
-  font-size: 14px;
-}
-.customerbtn:hover{
-  background: rgb(255, 128, 64);
-  color: white;
-  transition: .1s;
-}
-.nav-menu{
-  padding-top: 10px;
-  margin-right: 20pt;
-  text-align: right;
-  height:60px;   
-}
-.nav-menu a{
-    color: rgb(0, 0, 0);
-    font-style: bold;
-    font-size: 18pt;
-    text-align: center;
-    padding-right: 10px;
-}
 @media only screen and (max-width : 768px) {
     .locations-div{
         margin-bottom: 0;
