@@ -12,7 +12,7 @@
                 {
             ?>
             <div class="col-sm-3">
-                <a href="" class=" fs-5 text-black "><?= $item['categoryname']; ?></a>
+                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-5 text-black "><?= $item['categoryname']; ?></a>
             </div>
             <?php
                 }

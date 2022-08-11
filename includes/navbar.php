@@ -29,7 +29,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         <map name="workmap">
                             <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                         </map>I - Eat</a>
-            <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: gray;"><i class="fa fa-bars"></i></button>
+            <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" href="index.php" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: gray;"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-left:10px;background-color:rgb(255,128,64);" >
                 <ul class="navbar-nav ms-auto text-uppercase" >
                 
