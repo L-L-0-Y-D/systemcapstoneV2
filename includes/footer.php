@@ -1,6 +1,6 @@
 <footer class="text-white" style="background-color:rgb(255,128,64); ">
-    <div class="container py-4 py-lg-4">
-        <div class="row justify-content-center">
+    <div class="container py-4 py-lg-4" >
+        <div class="row ">
                 <h3 class="fs-8 text-black fw-bold">POPULAR CUISINES </h3>
             <?php
             $query = "SELECT * FROM mealcategory WHERE status= '0'";
@@ -11,8 +11,8 @@
                 foreach($query_run as $item)
                 {
             ?>
-            <div class="col-sm-3">
-                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-5 text-black "><?= $item['categoryname']; ?></a>
+            <div class="col-md-2">
+                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-8 text-black "><?= $item['categoryname']; ?></a>
             </div>
             <?php
                 }
@@ -27,7 +27,7 @@
                 <h6 style="font-size:12px;">Are you already a partner of ours and have questions about the service? Then email: <a style="color:black; text-decoration:underline;"href="mailto:2022ieat@gmail.com">2022ieat@gmail.com</a></h6>
             </div>-->
             <hr>
-            <div class="row">
+            <div class="row ">
                 <div class="col-md-4 text-white"><span class="copyright">Copyright&nbsp;© I-EAT 2022</span></div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons ">

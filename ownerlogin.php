@@ -54,27 +54,29 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/Login-Form-Basic.css?h=561e53509f5bc926993a2226fdbdf2f4">
     <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
     <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <title>Login | I-Eat</title>
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 
 </head>
-<body style="font-family: Acme, sans-serif;">
-    <nav class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
-        <div class="container ml-2">
-                <a class="navbar-brand d-flex align-items-center" href="index.php">
-                    <span class="bs-icon-md bs-icon-circle bs-icon-primary shadow-none d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                    <img class="rounded img-fluid" src="assets/img/logoT.png" loading="eager"></span>
-                    <span style="color:rgb(255,128,64);; font-family:Aclonica; font-size:25px;">I - Eat&nbsp;</span></a>
-            <nav class="navbar navbar-expand">
-                <div class="container-fluid">
-                    <span class="bs-icon-lg d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                    <i class="far fa-calendar-check" style="float:right; color:rgb(255,128,64);"></i>
-                    </span></div>
-            </nav>
-        </div>
-    </nav>
+<body >
+        <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
+            <div class="container ml-2">
+                <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">
+                    <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
+                        <map name="workmap">
+                            <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+                        </map>I - Eat</a>
+                <nav class="navbar navbar-expand">
+                    <div class="container-fluid">
+                        <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
+                        <i class="far fa-calendar-alt" style="float:right; color:white;"></i>
+                        </span></div>
+                </nav>
+            </div>
+        </nav>
 <section class="position-relative py-4 py-xl-5">
         <div class="container" style="margin-top:50px;">
             <div class="row d-flex justify-content-center align-items-md-end">

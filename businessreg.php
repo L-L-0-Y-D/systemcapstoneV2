@@ -27,26 +27,28 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/Inter.css">
     <link rel="stylesheet" href="assets/css/Navbar-Centered-Links.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="reg.css"> 
     <title>Register Business | I-Eat</title>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
-    <nav class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
-        <div class="container ml-2">
-            <a class="navbar-brand d-flex align-items-center" href="index.php">
-                    <span class="bs-icon-md bs-icon-circle bs-icon-primary shadow-none d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                    <img class="rounded img-fluid" src="assets/img/logoT.png" loading="eager"></span>
-                    <span style="color:rgb(255,128,64);; font-family:Aclonica; font-size:25px;">I - Eat&nbsp;</span></a>
-            <nav class="navbar navbar-expand">
-                <div class="container-fluid">
-                    <span class="bs-icon-lg d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                    <i class="far fa-calendar-alt" style="float:right; color:rgb(255,128,64);"></i>
-                    </span></div>
-            </nav>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
+            <div class="container ml-2">
+                <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">
+                    <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
+                        <map name="workmap">
+                            <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+                        </map>I - Eat</a>
+                <nav class="navbar navbar-expand">
+                    <div class="container-fluid">
+                        <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
+                        <i class="far fa-calendar-alt" style="float:right; color:white;"></i>
+                        </span></div>
+                </nav>
+            </div>
+        </nav>
 <section class="position-relative py-4 py-xl-5">
     <div class="container" style="margin-top:50px;">
         <div class="row d-flex justify-content-center align-items-md-end">
@@ -90,6 +92,7 @@ if(isset($_SESSION['auth'])){
                                     }?>
                         </select> 
                     </div>
+                </div>
                 <p style="text-align: left;font-size: 16px; font-weight:bold;">Cuisine Type</p>
                 <div class="row" style="margin-bottom: 10px;">
                     <div class="col">
@@ -103,7 +106,7 @@ if(isset($_SESSION['auth'])){
                                             foreach ($query_run as $item)
                                             {
                                                 ?>
-                                                <input class= "form-checkbox" type="checkbox" style="margin-right:11px;" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></input>
+                                                <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></input>
                                                 <?php
                                             }
                                         }
@@ -112,8 +115,9 @@ if(isset($_SESSION['auth'])){
                                             echo "No Cuisine Type Available";
                                         }
                                 ?>
-                            <div class="text-start" style="text-decoration:  underline;">
-                                <a href="insert.php" style="text-decoration:  underline;"><strong>Add Cuisine Type</strong></a></div>
+                            <div class="text-start">
+                                <p style="text-align: left;font-size: 16px;">Other Cuisine Type:<span><input class="form-control" type="text" name="closing"></span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,9 +153,8 @@ if(isset($_SESSION['auth'])){
                     <button class="btn btn-primary d-block w-100" type="submit" name="business_register_btn" style="background: rgb(255, 128, 64);border-style: none;">Register</button>
                 </div>
                     <p><a class="d-flex justify-content-center" href="index.php" style="color: var(--bs-dark);font-weight: bold;">Back to Home</a></p>
-        </div>
     </form>
-                        </div> </div> </div> </div> </div>
+    </div> </div> </div> </div> </div>
 </section>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
