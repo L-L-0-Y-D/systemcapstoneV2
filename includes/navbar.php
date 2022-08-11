@@ -38,7 +38,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 ?>
                     <li class="nav-item"><a class="nav-link" href="#page-top" active>HOME</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">LOCATIONS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>
                     <li class="nav-item"><a class="nav-link" href="register.php">SIGNUP</a></li>
                 <?php 
