@@ -135,7 +135,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
             </div>
         </div>
     </nav>        
-    <header class="masthead "  style="height:730px;padding-top:100px;background-image:url(uploads/bg.png); background-position:top center;">
+    <header class="masthead "  style="height:730px;padding-top:200px;background-image:url(uploads/bg.png); background-position:top center;">
         <div class="container">
             <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
                 <div class="intro-lead-in">

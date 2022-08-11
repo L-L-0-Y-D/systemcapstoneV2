@@ -1,7 +1,7 @@
 <footer class="text-white" style="background-color:rgb(255,128,64); ">
-    <div class="container py-4 py-lg-4" >
+    <div class="container " >
         <div class="row ">
-                <h3 class="fs-8 text-black fw-bold">POPULAR CUISINES </h3>
+                <h3 class="fs-8 text-black fw-bold p-2" style="font-family: Acme, sans-serif;" >POPULAR CUISINES </h3>
             <?php
             $query = "SELECT * FROM mealcategory";
             $query_run = mysqli_query($con, $query);
@@ -12,7 +12,7 @@
                 {
             ?>
             <div class="col-md-2">
-                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-8 text-black "><?= $item['categoryname']; ?></a>
+                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-8 text-white "><?= $item['categoryname']; ?></a>
             </div>
             <?php
                 }
@@ -50,10 +50,8 @@
 </footer>
     <script src="assets/js/agency.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
@@ -62,7 +60,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/assets/js/vanilla-zoom.js"></script>
     <script src="asset/sassets/js/theme.js"></script>
-
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 
