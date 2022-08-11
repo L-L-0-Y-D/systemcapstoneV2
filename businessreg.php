@@ -59,7 +59,7 @@ if(isset($_SESSION['auth'])){
                                 <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                             </map>
                         </div>
-            <form method="POST" action="functions/busiauthcode.php" enctype="multipart/form-data">
+            <form class="text-center" method="post" action="functions/busiauthcode.php" enctype="multipart/form-data">
             <p class="text-center" style="text-align: left;font-size: 20px;font-weight: bold;">BUSINESS DETAILS</p>
                 <p style="text-align: left;font-size: 16px; font-weight:bold;">Upload Business Logo</p>
                 <input class="form-control" type="file" data-tag="website-files" name="image" style="margin-bottom: 10px;" data-maxFileSize="2" data-accepted="image/*" required>
@@ -118,7 +118,7 @@ if(isset($_SESSION['auth'])){
                     </div>
                 </div>
                     <p style="text-align: left;font-size: 16px;font-weight:bold;">Upload Business Permit</p>
-                    <input class="form-control" name="image_cert" type="file" style="margin-bottom: 10px;" multiple required>
+                    <input class="form-control" name="image_cert" type="file" style="margin-bottom: 10px;" required>
                 <div class="row" style="margin-bottom: 10px;">
                     <div class="col mb-3">
                         <p style="text-align: left;font-size: 16px;">Opening Time</p>
@@ -149,8 +149,8 @@ if(isset($_SESSION['auth'])){
                     <button class="btn btn-primary d-block w-100" type="submit" name="business_register_btn" style="background: rgb(255, 128, 64);border-style: none;">Register</button>
                 </div>
                     <p><a class="d-flex justify-content-center" href="index.php" style="color: var(--bs-dark);font-weight: bold;">Back to Home</a></p>
-        </div>
-    </form>
+                </div>
+            </form>
                         </div> </div> </div> </div> </div>
 </section>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
