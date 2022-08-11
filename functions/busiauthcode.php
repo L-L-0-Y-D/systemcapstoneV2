@@ -283,5 +283,25 @@ if(isset($_POST["reset"])){
     }
 }
 
+if(isset($_POST['add_category_btn']))
+{
+    $categoryname = $_POST['categoryname'];
+    $status = isset($_POST['status']) ? "0":"1";
+
+    $cate_query = "INSERT INTO mealcategory (categoryname, status) 
+    VALUES ('$categoryname', '$status')";
+    //mysqli_query($con,$cate_query) or die("bad query: $cate_query");
+
+    $cate_query_run = mysqli_query($con, $cate_query);
+
+    if($cate_query_run){
+        redirect("../businessreg.php", "Cuisine Added Successfully");
+    }else{
+
+        redirect("../businessreg.php", "Something Went Wrong");
+
+    }
+}
+
 
 ?>
