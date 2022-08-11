@@ -64,7 +64,7 @@ if(isset($_SESSION['auth'])){
             <form class="text-center" method="post" action="functions/busiauthcode.php" enctype="multipart/form-data">
             <p class="text-center" style="text-align: left;font-size: 20px;font-weight: bold;">BUSINESS DETAILS</p>
                 <p style="text-align: left;font-size: 16px; font-weight:bold;">Upload Business Logo</p>
-                <input class="form-control" type="file" data-tag="website-files" name="image" style="margin-bottom: 10px;" data-maxFileSize="2" data-accepted="image/*" required>
+                <input class="form-control" type="file" name="image" style="margin-bottom: 10px;" required>
                 <div class="row row-cols-1" style="margin-bottom: 10px;">
                     <div class="col">
                         <input class="form-control" type="text" name='business_name' placeholder="Business Name" style="margin-bottom: 10px;" required></div>
