@@ -50,14 +50,14 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                     {
                     ?>   
                     <li class="nav-item">
-                        <h2 class="text-white text-capitalize" style="font-size:25px;"> Welcome 
+                        <h2 class="text-white text-capitalize" style="margin-top:5px;font-size:25px;"> Welcome 
                         <strong><?= $_SESSION['auth_user']['name'];?></strong>!&nbsp;</h2>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown no-arrow">
                             <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown">
                             <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
-                                <div class="dropdown-menu">
+                                <div class="dropdown-menu ">
                                     <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
                                     <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
                                     <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-key"></i>&nbsp;Change Password</a>
@@ -72,7 +72,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 {
                     ?>
                     <li class="nav-item">
-                        <h2 class="text-white text-capitalize" style="font-size:25px;"> Welcome
+                        <h2 class="text-white text-capitalize" style="margin-top:5px;font-size:25px;"> Welcome
                         <strong><?= $_SESSION['auth_user']['business_name'];?></strong>!&nbsp;</h2>
                     </li>
                     <li class="nav-item">

@@ -45,9 +45,9 @@
                         }
                         else
                         {
-                            echo "No Business Found";
+                            echo "<p class='text-center'>No Business Found</p>";
                         ?>
-                        <br><a href="index.php">Go Back</a>
+                        <br><a class="text-center text-black fw-bold" href="index.php">Go Back</a>
                         <?php
                         }
                     ?>
