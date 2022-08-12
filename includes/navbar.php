@@ -36,7 +36,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 <?php if(empty($_SESSION["auth"]))
                 {// if user is not login
                 ?>
-                    <li class="nav-item"><a class="nav-link" href="#page-top" active>HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php" active>HOME</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">LOCATIONS</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
@@ -135,7 +135,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
             </div>
         </div>
     </nav>        
-    <header class="masthead "  style="height:730px;padding-top:200px;background-image:url(uploads/bg.png); background-position:top center;">
+    <header class="masthead "  style="height:730px;padding-top:150px;background-image:url(uploads/bg.png); background-position:top center;">
         <div class="container">
             <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
                 <div class="intro-lead-in">

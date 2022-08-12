@@ -15,16 +15,12 @@
 
     
 ?>
-    <div class="container" >   
-        <hr>
-    </div>
-    <main class="page catalog-page">
-        <section class="portfolio-block project-with-sidebar">
-            <div class="container ">
-                <div class=" content">
-                    <div class="row" >
-                        <div class="col-md-9 d-flex " style="width: 100%;">
-                            <div class="products">
+ <section class="portfolio-block projects-cards" style="padding-top: 40px;">
+    <div class="container">
+                <div class="heading">
+                    <h2 style="margin-bottom: 20px;font-size: 50px;font-weight: bold;font-family: Acme, sans-serif;text-align: center;">Search Result</h2>
+                </div>
+                    <div class="row">
                                 <div class="row g-0 " style="padding-bottom: 50px;margin-left: 0px; border:none;">
                                     <?php
                                         if($row!= 0)
