@@ -18,7 +18,6 @@ include('middleware/userMiddleware.php');
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Inter.css">
-    <link rel="stylesheet" href="reg.css">
     <title>Reservation | I-Eat</title>
 
     <!-- Favicon -->
@@ -39,8 +38,10 @@ include('middleware/userMiddleware.php');
                 
             
             ?>
+    <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
  <body>
-    <header class="bg-primary-gradient py-2" style="background: url(uploads/bg.png) left, linear-gradient(black 0%, white);">
+    <header class="bg-primary-gradient py-4">
         <div class="container ">
             <div class="row ">
                 <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4">
@@ -81,10 +82,10 @@ include('middleware/userMiddleware.php');
                                 <div class="col-mb-3">
                                     <input type="hidden" name="status" value = '0' >
                                 </div>
-                                <div class="mb-3" style="text-align: left;">
+                                <div class="mt-2 mb-3" style="text-align: left;">
                                     <button class="btn btn-primary shadow d-block w-100" type="submit" name="reserve_btn" style="background: rgb(255,128,64);border-style: none;">Reserve</button>
                                 </div>
-                                    <a href="index.php" style="text-decoration:underline;">Back to Home</a>
+                                    <a href="index.php" style="color:black;text-decoration:underline;">Back to Home</a>
                                 <?php
                                         }
                                         else
@@ -101,10 +102,10 @@ include('middleware/userMiddleware.php');
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 align-self-center mb-4">
-                    <div class="d-lg-flex justify-content-lg-start p-5 mx-lg-5" style="background: transparent;">
+                <div class="col-md-6 align-self-center mb-3">
+                    <div class="d-lg-flex justify-content-lg-start p-4 mx-lg-5" style="background: transparent;">
                         <div class="text" style="color: var(--bs-dark);">
-                            <h2 style="font-size: 50px;text-align: left;font-weight: bold;font-family: Allan, serif;">MAKE YOUR RESERVATION</h2>
+                            <h2 style="font-size: 50px;text-align: left;font-weight: bold;font-family: 'Kaushan Script', serif;">MAKE YOUR RESERVATION</h2>
                             <p class="text-start" style="font-family: Acme, sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                         </div>
                     </div>

@@ -62,7 +62,7 @@ if(isset($_SESSION['auth'])){
                 </nav>
             </div>
         </nav>
-<section class="position-relative py-4 py-xl-5">
+<section class="position-relative py-4 py-xl-5 mt-4">
         <div class="container" style="margin-top:50px;">
             <div class="row d-flex justify-content-center align-items-md-end">
                 <div class="col-md-6 col-xl-4">

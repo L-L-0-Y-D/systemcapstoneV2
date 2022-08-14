@@ -24,112 +24,175 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="home.css"> 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Akaya%20Kanadaka.css">
-    <link rel="stylesheet" href="assets/css/Alata.css">
     <link rel="stylesheet" href="assets/css/Montserrat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
-
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-    <link rel="stylesheet" href="assets/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/assets/css/Montserrat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
-    <link rel="stylesheet" href="assets/assets/css/vanilla-zoom.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Links.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/assets/css/vanilla-zoom.min.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
-    <title>I-Eat | Home </title> 
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=21f14b60305aa9b0449170550a54b7e5">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic.css?h=561e53509f5bc926993a2226fdbdf2f4">
+    <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
+    <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
+    <link rel="stylesheet" href="assets/css/Acme.css">
+    <link rel="stylesheet" href="assets/css/untitled-1.css">
+    <link rel="stylesheet" href="assets/css/untitled-2.css">
+    <link rel="stylesheet" href="assets/css/untitled-3.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    
+    <title>I-Eat | Business View </title> 
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
-<header style="height:100px;">
-            <div class="logo" style="float:left; margin:0px; padding-top:10px; padding-left:30px;">
-                <img src="uploads/I-EatLogo.png" alt="LOGO" usemap="#workmap" width="80" height="80">
-            <map name="workmap">
-                <area shape="circle" coords="100,100,400,400" alt="logo" href="index.php">
-            </map>
-            </div>
-            <div class="nav-menu" style="padding-top:30px;">
-           
-                <?php if(empty($_SESSION["auth"])&&empty($_SESSION["business_email"]))
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav" style="background: rgb(255,128,64);">
+        <div class="container">
+
+                <?php if(empty($_SESSION["auth"]))
                 {// if user is not login
-                    ?>
-                    <button class="loginbtn" onclick="location.href='login.php'">Login</button>  
-                    <button class="loginbtn" onclick="location.href='register.php'">Sign Up</button>  
-                               
+                ?>
+                <a class="navbar-brand" href="#page-top" style="color: white;font-size: 28px;">
+                    <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
+                        <map name="workmap">
+                            <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+                        </map>I - Eat</a>
+                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
+                        <li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.php">SIGNUP</a></li>
                 <?php 
                 }
-                elseif(isset($_SESSION['auth']))
+                 elseif(isset($_SESSION['auth']))
                 {
-                        if($_SESSION['auth_user']['role_as'] == "0")
-                        {
-                        ?>
-                                            
-                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</h2>
-                                <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">
-                                            <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
-                                    <div class="dropdown-menu position-fixed">
-                                        <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
-                                        <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-key"></i>&nbsp;Change Password</a>
-                                        <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
-                                    </div>
-                                </div>
-
-                        <?php
-                        }
-                        else if($_SESSION['auth_user']['role_as'] == "2")
-                        {
-                            ?>
-                            <h2> Welcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong> !</h2>
-                            <button class="loginbtn" onclick="location.href='business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>'">Dashboard</button>  
-                            <button class="loginbtn" onclick="location.href='logout.php'">Logout</button>
-
-                         <?php
-                        }
-                        else
-                        {
-                            ?>
-                            <h2> Welcome <strong><?= $_SESSION['auth_user']['name'];?></strong> !</h2>
-                            <button class="loginbtn" onclick="location.href='admin/index.php'">Dashboard</button>  
-                            <button class="loginbtn" onclick="location.href='logout.php'">Logout</button>
-                            <?php 
-                        }
-                    
-                    ?> 
-                    <?php 
+                    if($_SESSION['auth_user']['role_as'] == "0")
+                    {
+                    ?>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
+                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
+                        <div class="dropdown-menu ">
+                            <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
+                            <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
+                            <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="fas fa-key"></i>&nbsp;Change Password</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="fa fa-sign-out alt"></i>&nbsp;Logout</a>
+                        </div>
+                    </div>
+                        <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
+                        &nbspWelcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</a>
+                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
+                            <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">MENU</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#contact">REVIEW</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
+                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                
+                <?php
                 }
-                elseif(isset($_SESSION['business_email'])) 
+                else if($_SESSION['auth_user']['role_as'] == "2")
                 {
-                ?>
+                    ?>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
+                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
+                        </div>
+                    </div>
+                        <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
+                        &nbspWelcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong>!</a>
+                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
+                            <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">MENU</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#contact">REVIEW</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
+                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                 
+                <?php
+                }
+                else
+                {
+                    ?>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
+                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="admin/index.php"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
+                        </div>
+                    </div>
+                        <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
+                        &nbspWelcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</a>
+                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
+                            <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">MENU</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#contact">REVIEW</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
+                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                
+                <?php 
+                }  
+                    ?> 
+                <?php 
+                }
+                elseif(isset($_SESSION['busi'])) 
+                {
+                    ?>
                     <!--if user is login-->
-                    <h2> Welcome <strong><?php echo $_SESSION['business_name']; ?></strong> !</h2>
-                    <button class="loginbtn" onclick="location.href='business/admin.php'">Dashboard</button>  
-                    <button class="loginbtn" onclick="location.href='logout.php'">Logout</button>
-                 
-                <?php } ?>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
+                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="business/admin.php"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
+                        </div>
+                    </div>
+                        <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
+                        &nbspWelcome <strong><?php echo $_SESSION['auth_user']['business_name']; ?></strong>!</a>
+                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
+                            <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">MENU</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#contact">REVIEW</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
+                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                    
+                    <?php } ?>
+                </ul>
             </div>
-    </header>
+        </div>
+    </nav> 
 <main class="page product-page">
         <section class="clean-block clean-product">
             <div class="container mt-3" style="width: auto; height:auto;">
@@ -156,7 +219,7 @@
                         </div>
                         <div class="col-md-12" style="width: 1024px;margin-top: 10px;">
                             <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;font-size: 30px;color: var(--bs-gray);margin-top: 21px;">
-                                <div class="btn-group" role="group" style="width: 319.094px;font-size: 16px;"><button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background:rgb(255,128,64);border-radius: 20px;height: 45px;border-style: none;border-bottom-style: none;text-align: center;">Make Reservation</button><button type="button" name="add_review" id="add_review" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-white);color: var(--bs-dark);border-radius: 20px;height: 45px;border: 2px solid var(--bs-gray-900);border-bottom-color: var(--bs-dark);text-align: center;">Add Review</button></div><br>
+                                <div class="btn-group" role="group" style="width: 319.094px;font-size: 16px;"><button type="button" name="add_review" id="add_review" style="margin-right: 24px;font-size: 16px;font-family: Alata, sans-serif;background: var(--bs-white);color: var(--bs-dark);border-radius: 20px;height: 45px;border: 2px solid var(--bs-gray-900);border-bottom-color: var(--bs-dark);text-align: center;">Add Review</button></div><br>
                             </h1>
                         </div>
                     </div>
