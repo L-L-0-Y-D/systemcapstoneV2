@@ -46,7 +46,7 @@
         <section class="py-4 py-xl-5" style="background: url(uploads/bg.png)left;height: 300px;">
             <div class="container">
                 <div class="text-center p-4 p-lg-5">
-                    <h1 class="text-uppercase section-heading fw-bold mb-4" style="font-size:50px;margin-top: 40px;">ABOUT&nbsp; &nbsp;|&nbsp; &nbsp; I - EAT</h1>
+                    <h1 class="text-uppercase section-heading fw-bold mb-4" style="font-size:50px;margin-top: 40px;">ABOUT&nbsp; &nbsp;| &nbsp; &nbsp; I - EAT</h1>
                 </div>
             </div>
         </section><hr>

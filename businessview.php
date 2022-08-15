@@ -56,14 +56,14 @@
     <link rel="stylesheet" href="assets/css/untitled-3.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
     <link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">    
     <title>I-Eat | Business View </title> 
-
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
+
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
+<!--START OF LOGIN-->
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav" style="background: rgb(255,128,64);">
         <div class="container">
 
@@ -104,10 +104,10 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#contact">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
                             <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                
                 <?php
                 }
@@ -129,10 +129,10 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#contact">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
                             <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                 
                 <?php
                 }
@@ -154,10 +154,10 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#contact">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
                             <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                
                 <?php 
                 }  
@@ -183,24 +183,29 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#contact">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
                             <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                    
                     <?php } ?>
                 </ul>
             </div>
         </div>
     </nav> 
+<!--END OF LOGIN-->
+
+<!-- START OF ABOUT SECTION-->
 <main class="page product-page">
-        <section class="clean-block clean-product">
-            <div class="container mt-3" style="width: auto; height:auto;">
+    <section class="clean-block clean-product">
+        <div class="container mt-3" style="width: auto; height:auto;">
             <div class="block-content" style="width: auto;padding-top: 0px; ">
-                <div class="block-heading" style="padding-top: 30px;margin-bottom: 9px;">
-                    <div class="col-md-12 d-xxl-flex justify-content-xxl-center" style="padding:50px;height: 600px; background-color:rgb(255,128,64);"><img class="img-fluid d-flex align-self-center justify-content-xl-start justify-content-xxl-center" style="width: 1100px;height: 500px;margin-top: 0px;box-shadow: 0px 0px 10px var(--bs-gray);border-radius: 5px;margin-bottom: 0px;" src="uploads/<?= $data['image']; ?>" width="200px" height="200px" loading="auto"></div>
-                </div>
-                
+                <section id="aboutrestaurant" style="padding-top: 0px;">
+                    <div class="block-heading" style="padding-top: 30px;margin-bottom: 9px;">
+                        <div class="col-md-12 d-xxl-flex justify-content-xxl-center" style="padding:50px;height: 600px; background-color:rgb(255,128,64);">
+                            <img class="img-fluid d-flex align-self-center justify-content-xl-start justify-content-xxl-center" style="width: 1100px;height: 500px;margin-top: 0px;box-shadow: 0px 0px 10px var(--bs-gray);border-radius: 5px;margin-bottom: 0px;" src="uploads/<?= $data['image']; ?>" width="200px" height="200px" loading="auto">
+                        </div>
+                    </div>
                     <div class="row" style="padding-top: 10px;">
                         <div class="col-md-12" style="width: 1024px;">
                             <h1 class="text-start d-table-row d-xxl-flex justify-content-start align-items-baseline justify-content-lg-start justify-content-xxl-start" style="margin-left: 146px;width: 1000px;height:30px;"><strong><?= $data['business_name']; ?></strong></h1>
@@ -223,57 +228,79 @@
                             </h1>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <div style="margin-top: 27px;">
-                            <ul class="nav nav-tabs" role="tablist" id="myTab">
-                                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" id="description-tab" href="#description">Menu</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="specifications-tabs" href="#reviews">Reviews</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="reviews-tab" href="#specifications">Location</a></li>
-                            </ul>
-                            <div class="tab-content " id="myTabContent">
-                                <div class="tab-pane fade show active  description" role="tabpanel" id="description" style="margin-right: 40px;margin-left: 40px;padding-top: 40px;">
-                                <div class="row" >
-                                    <div class="col-md-9 d-flex " style="width: 100%;">
-                                    <div class="products">
-                                <div class="row g-0 " style="margin-left: 0px; border:none;">
-                                <!--Appetizer-->
-                                <?php
-                                if(mysqli_num_rows($product) > 0)
-                                    {
-                                        
-                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
-                                        $result = $con->query($sql);
-                                        foreach($result as $item)
-                                        {
-                                ?>
-                                    <h1> Appetizer </h1>
-                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-                                        <div class="clean-product-item">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name mb-0">
-                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
-                                            <div class="about">
-                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
-                                               
-                                            </div>
-                                        </a>
-                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                        </div>
-                                    </div>
-                                    <?php
-                                                }
-                                            }
-                                        else
-                                        {
-                                            echo "";
-                                            ?>
-                                            <?php
-                                        }
-                                        ?>
+                </section>
+            </div>
+        </div>
+    </section>
+</main>
+<!--END OF ABOUT SECTION-->
+
+<!-- START OF MENU SECTION-->
+    <!--Appetizer-->
+    <?php
+        if(mysqli_num_rows($product) > 0)
+        {                           
+        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
+        $result = $con->query($sql);
+        foreach($result as $item)
+        {
+    ?>
+    <section id="menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-uppercase section-heading">APPETIZER</h2>
+                    <h3 class="text-muted section-subheading">PRICE RANGE</h3>
+                </div>
+            </div>
+            <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+                <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                    <a href="businessview.php?id=<?=$item['businessid'];?>">
+                        <img data-bss-hover-animate="pulse" src="assets/img/1654627735.jpg" style="width: 170px;margin-top: 10px;">
+                        <hr style="height: 2px;">
+                        <h4 class="section-heading">MENU NAME</h4>
+                        <p class="text-start text-muted" style="margin-bottom: 0px;">DESCRIPTION</p>
+                        <p class="text-start text-muted" style="margin-bottom: 0px;">FOOD CATEGORY</p>
+                        <p class="text-start text-muted" style="margin-bottom: 0px;">CUISINE TYPE</p>
+                        <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">PRICE</h4>
+                </div>
+            </div>
+    <h1> Appetizer </h1>
+    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
+        <div class="clean-product-item">
+            <a href="businessview.php?id=<?=$item['businessid'];?>">
+                <div class="image">
+                    <img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;">
+                </div>
+                <div class="product-name mb-0">
+                    <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a>
+                </div>
+                <div class="product-details m-0" >
+                    <small style="font-size:12px;">Description:<?= $item['description']; ?></small>
+                </div>
+                <div class="product-details m-0" >
+                    <small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small>
+                </div>
+                <div class="product-details m-0" >
+                    <small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small>
+                </div>
+                <div class="about">
+                    <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->                              
+                </div>
+            </a>
+            <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
+        </div>
+    </div>
+    <?php
+        }
+    }
+        else
+        {
+            echo "";
+    ?>
+    <?php
+    }
+    ?>
                                 <!--Soup-->
                                 <?php
                                 if(mysqli_num_rows($product) > 0)
@@ -546,84 +573,85 @@
                                     </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade specifications" role="tabpanel" id="specifications"><div class="mapouter"><div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 1020px; height: 800px;"></iframe><br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div></div>
-                                <div class="tab-pane fade" role="tabpanel" id="reviews">
-                                  
-                                    <div class="container mt-3">
-                                        <div class="card">
-                                            <div class="card-header">Restaurant Feedback</div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-sm-6 text-center">
-                                                        <h1 class="text-warning mt-4 mb-4">
-                                                            <b><span id="average_rating">0.0</span> / 5</b>
-                                                        </h1>
-                                                        <div class="mb-3">
-                                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                                        </div>
-                                                        <h3><span id="total_review">0</span> Review/s</h3>
-                                                    </div>
-                                                    <div class="col-sm-5">
-                                                        <p>
-                                                            <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
+                                <!-- END OF MENU SECTION-->
 
-                                                            <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
-                                                            <div class="progress">
-                                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
-                                                            </div>
-                                                        </p>
-                                                        <p>
-                                                            <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>
-                                                            
-                                                            <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
-                                                            <div class="progress">
-                                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
-                                                            </div>               
-                                                        </p>
-                                                        <p>
-                                                            <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div>
-                                                            
-                                                            <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
-                                                            <div class="progress">
-                                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
-                                                            </div>               
-                                                        </p>
-                                                        <p>
-                                                            <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>
-                                                            
-                                                            <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
-                                                            <div class="progress">
-                                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
-                                                            </div>               
-                                                        </p>
-                                                        <p>
-                                                            <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
-                                                            
-                                                            <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
-                                                            <div class="progress">
-                                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
-                                                            </div>               
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mt-5" id="review_content"></div>
-                                    </div>
-                                    
-
-                                </div>
+<!-- START OF REVIEW SECTION-->
+    <section id="review">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">Restaurant Feedback</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <h1 class="text-warning mt-4 mb-4">
+                                <b><span id="average_rating">0.0</span> / 5</b>
+                            </h1>
+                            <div class="mb-3">
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
                             </div>
+                            <h3><span id="total_review">0</span> Review/s</h3>
                         </div>
+                        <div class="col-sm-5">
+                            <p>
+                                <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
+                                <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>  
+                                <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
+                                </div>               
+                            </p>
+                            <p>
+                                <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div> 
+                                <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
+                                </div>               
+                            </p>
+                            <p>
+                                <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>  
+                                <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
+                                </div>               
+                            </p>
+                            <p>
+                                <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
+                                <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
+                                </div>               
+                            </p>
+                        </div>
+                        <div class="mt-5" id="review_content"></div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+<!-- END OF REVIEW SECTION-->
+
+<!-- START OF LOCATION SECTION-->
+    <section id="locations">
+        <div class="mapouter">
+            <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 1020px; height: 800px;"></iframe>
+                <br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style>
+                <style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
+            </div>
+        </div>
+    </section>
+<!-- END OF LOCATION SECTION-->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
