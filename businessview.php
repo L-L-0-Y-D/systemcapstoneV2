@@ -91,7 +91,7 @@
                         <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
                         <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
                         <div class="dropdown-menu ">
-                            <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="far fa-user"></i>&nbsp;Profile</a>
+                            <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="fas fa-user"></i>&nbsp;Profile</a>
                             <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
                             <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="fas fa-key"></i>&nbsp;Change Password</a>
                             <div class="dropdown-divider"></div>
@@ -236,344 +236,315 @@
 <!--END OF ABOUT SECTION-->
 
 <!-- START OF MENU SECTION-->
-    <!--Appetizer-->
-    <?php
-        if(mysqli_num_rows($product) > 0)
-        {                           
-        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
-        $result = $con->query($sql);
-        foreach($result as $item)
-        {
-    ?>
-    <section id="menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">APPETIZER</h2>
-                    <h3 class="text-muted section-subheading">PRICE RANGE</h3>
-                </div>
+<section id="menu">
+    <div class="container">
+        <!--Appetizer-->
+        <?php
+            if(mysqli_num_rows($product) > 0)
+            {                           
+            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
+            $result = $con->query($sql);
+            foreach($result as $item)
+            {
+        ?>
+        <div class="row ">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">APPETIZER</h2>
+                <h3 class="text-muted section-subheading">PRICE RANGE</h3>
             </div>
-            <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
-                <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
-                    <a href="businessview.php?id=<?=$item['businessid'];?>">
-                        <img data-bss-hover-animate="pulse" src="assets/img/1654627735.jpg" style="width: 170px;margin-top: 10px;">
-                        <hr style="height: 2px;">
-                        <h4 class="section-heading">MENU NAME</h4>
-                        <p class="text-start text-muted" style="margin-bottom: 0px;">DESCRIPTION</p>
-                        <p class="text-start text-muted" style="margin-bottom: 0px;">FOOD CATEGORY</p>
-                        <p class="text-start text-muted" style="margin-bottom: 0px;">CUISINE TYPE</p>
-                        <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">PRICE</h4>
-                </div>
-            </div>
-    <h1> Appetizer </h1>
-    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-        <div class="clean-product-item">
-            <a href="businessview.php?id=<?=$item['businessid'];?>">
-                <div class="image">
-                    <img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;">
-                </div>
-                <div class="product-name mb-0">
-                    <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a>
-                </div>
-                <div class="product-details m-0" >
-                    <small style="font-size:12px;">Description:<?= $item['description']; ?></small>
-                </div>
-                <div class="product-details m-0" >
-                    <small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small>
-                </div>
-                <div class="product-details m-0" >
-                    <small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small>
-                </div>
-                <div class="about">
-                    <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->                              
-                </div>
-            </a>
-            <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
         </div>
-    </div>
-    <?php
+        <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+        <a href="businessview.php?id=<?=$item['businessid'];?>" style="text-decoration:none;">
+            <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                <img data-bss-hover-animate="pulse" src="uploads/<?= $item['image']; ?>" style="width: 170px;margin-top: 10px;">
+                <hr style="height: 2px;">
+                <h4 class="section-heading"><?= $item['name']; ?></h4>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">DESCRIPTION:&nbsp<?= $item['description']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">FOOD CATEGORY:&nbsp<?= $item['food_type']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">CUISINE TYPE:&nbsp<?= $item['cuisinename']; ?></p>
+                <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">₱<?= $item['price']; ?></h4>
+            </div>
+        </a>
+        </div>
+        <?php
+            }
         }
-    }
-        else
-        {
-            echo "";
-    ?>
-    <?php
-    }
-    ?>
-                                <!--Soup-->
-                                <?php
-                                if(mysqli_num_rows($product) > 0)
-                                    {
-                                        
-                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup';";
-                                        $result = $con->query($sql);
-                                        foreach($result as $item)
-                                        {
-                                ?>
-                                    <h1> Soup </h1>
-                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-                                        <div class="clean-product-item">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name mb-0">
-                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
-                                            <div class="about">
-                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
-                                               
-                                            </div>
-                                        </a>
-                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                        </div>
-                                    </div>
-                                    <?php
-                                                }
-                                            }
-                                        else
-                                        {
-                                            echo "";
-                                            ?>
-                                            <?php
-                                        }
-                                        ?>
-                                <!--Fish Dish-->
-                                <?php
-                                if(mysqli_num_rows($product) > 0)
-                                {
-                                        
-                                    $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish';";
-                                    $result = $con->query($sql);
-                                    foreach($result as $item)
-                                    {
-                                ?>
-                                    <h1> FishDish </h1>
-                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-                                        <div class="clean-product-item">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name mb-0">
-                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
-                                            <div class="about">
-                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
-                                               
-                                            </div>
-                                        </a>
-                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo "";
-                                    ?>
-                                    <?php
-                                }
-                                ?>
-                                <!--Meat Dish-->
-                                <?php
-                                if(mysqli_num_rows($product) > 0)
-                                {
-                                        
-                                    $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish';";
-                                    $result = $con->query($sql);
-                                    foreach($result as $item)
-                                    {
-                                ?>
-                                    <h1> MeatDish </h1>
-                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-                                        <div class="clean-product-item">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name mb-0">
-                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
-                                            <div class="about">
-                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
-                                               
-                                            </div>
-                                        </a>
-                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo "";
-                                    ?>
-                                    <?php
-                                }
-                                ?>
-                                <!--Main-->
-                                <?php
-                                if(mysqli_num_rows($product) > 0)
-                                {
-                                        
-                                    $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main';";
-                                    $result = $con->query($sql);
-                                    foreach($result as $item)
-                                    {
-                                ?>
-                                    <h1> Main Course </h1>
-                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-                                        <div class="clean-product-item">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name mb-0">
-                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
-                                            <div class="about">
-                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
-                                               
-                                            </div>
-                                        </a>
-                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo "";
-                                    ?>
-                                    <?php
-                                }
-                                ?>
-                                <!--Salad-->
-                                <?php
-                                if(mysqli_num_rows($product) > 0)
-                                {
-                                        
-                                    $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad';";
-                                    $result = $con->query($sql);
-                                    foreach($result as $item)
-                                    {
-                                ?>
-                                    <h1> Salad </h1>
-                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-                                        <div class="clean-product-item">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name mb-0">
-                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
-                                            <div class="about">
-                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
-                                               
-                                            </div>
-                                        </a>
-                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo "";
-                                    ?>
-                                    <?php
-                                }
-                                ?>
-                                <!--Dessert-->
-                                <?php
-                                if(mysqli_num_rows($product) > 0)
-                                {
-                                        
-                                    $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert';";
-                                    $result = $con->query($sql);
-                                    foreach($result as $item)
-                                    {
-                                ?>
-                                    <h1> Dessert </h1>
-                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-                                        <div class="clean-product-item">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name mb-0">
-                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
-                                            <div class="about">
-                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
-                                               
-                                            </div>
-                                        </a>
-                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo "";
-                                    ?>
-                                    <?php
-                                }
-                                ?>
-                                <!--Drinks-->
-                                <?php
-                                if(mysqli_num_rows($product) > 0)
-                                {
-                                        
-                                    $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks';";
-                                    $result = $con->query($sql);
-                                    foreach($result as $item)
-                                    {
-                                ?>
-                                    <h1> Drinks </h1>
-                                    <div class="col-12 col-md-6 mb-2 ml-2 col-lg-4" style="border:1px solid black; width: 250px; height:360px;">
-                                        <div class="clean-product-item">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <div class="image"><img class="img-fluid d-block mx-auto " src="uploads/<?= $item['image']; ?>" style="height:140px; width: 200px;"></div>
-                                            <div class="product-name mb-0">
-                                                <a class="d-flex" href="#"><strong><?= $item['name']; ?></strong></a></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Description:<?= $item['description']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Food Type:<?= $item['food_type']; ?></small></div>
-                                                <div class="product-details m-0" ><small style="font-size:12px;">Cuisine Type:<?= $item['cuisinename']; ?></small></div>
-                                            <div class="about">
-                                                <!--<div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
-                                               
-                                            </div>
-                                        </a>
-                                        <strong class="fw-bold text-end float-end d-xxl-flex justify-content-xxl-end" style="font-size: 20px;margin-bottom: 5px; float:right;">₱<?= $item['price']; ?></strong>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo "";
-                                    ?>
-                                    <?php
-                                }
-                                ?>
-
-                                </div>
-                            </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <!-- END OF MENU SECTION-->
+            else
+            {
+                echo "";
+            ?>
+        <?php
+        }
+        ?>
+        <!--Soup-->
+        <?php
+            if(mysqli_num_rows($product) > 0)
+            {                                       
+            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup';";
+            $result = $con->query($sql);
+            foreach($result as $item)
+            {
+        ?>
+        <div class="row mt-3">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">SOUP</h2>
+                <h3 class="text-muted section-subheading">PRICE RANGE</h3>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+        <a href="businessview.php?id=<?=$item['businessid'];?>" style="text-decoration:none;">
+            <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                <img data-bss-hover-animate="pulse" src="uploads/<?= $item['image']; ?>" style="width: 170px;margin-top: 10px;">
+                <hr style="height: 2px;">
+                <h4 class="section-heading"><?= $item['name']; ?></h4>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">DESCRIPTION:&nbsp<?= $item['description']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">FOOD CATEGORY:&nbsp<?= $item['food_type']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">CUISINE TYPE:&nbsp<?= $item['cuisinename']; ?></p>
+                <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">₱<?= $item['price']; ?></h4>
+            </div>
+        </a>
+        </div>
+        <?php
+            }
+        }
+            else
+            {
+                echo "";
+            ?>
+        <?php
+        }
+        ?>
+        <!--Fish Dish-->
+        <?php
+            if(mysqli_num_rows($product) > 0)
+            {     
+            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish';";
+            $result = $con->query($sql);
+            foreach($result as $item)
+            {
+        ?>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">FISH DISH</h2>
+                <h3 class="text-muted section-subheading">PRICE RANGE</h3>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+        <a href="businessview.php?id=<?=$item['businessid'];?>" style="text-decoration:none;">
+            <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                <img data-bss-hover-animate="pulse" src="uploads/<?= $item['image']; ?>" style="width: 170px;margin-top: 10px;">
+                <hr style="height: 2px;">
+                <h4 class="section-heading"><?= $item['name']; ?></h4>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">DESCRIPTION:&nbsp<?= $item['description']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">FOOD CATEGORY:&nbsp<?= $item['food_type']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">CUISINE TYPE:&nbsp<?= $item['cuisinename']; ?></p>
+                <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">₱<?= $item['price']; ?></h4>
+            </div>
+        </a>
+        </div>
+        <?php
+            }
+        }
+            else
+            {
+                echo "";
+            ?>
+        <?php
+        }
+        ?>
+        <!--Meat Dish-->
+        <?php
+            if(mysqli_num_rows($product) > 0)
+            {                  
+            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish';";
+            $result = $con->query($sql);
+            foreach($result as $item)
+            {
+        ?>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">MEAT DISH</h2>
+                <h3 class="text-muted section-subheading">PRICE RANGE</h3>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+        <a href="businessview.php?id=<?=$item['businessid'];?>" style="text-decoration:none;">
+            <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                <img data-bss-hover-animate="pulse" src="uploads/<?= $item['image']; ?>" style="width: 170px;margin-top: 10px;">
+                <hr style="height: 2px;">
+                <h4 class="section-heading"><?= $item['name']; ?></h4>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">DESCRIPTION:&nbsp<?= $item['description']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">FOOD CATEGORY:&nbsp<?= $item['food_type']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">CUISINE TYPE:&nbsp<?= $item['cuisinename']; ?></p>
+                <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">₱<?= $item['price']; ?></h4>
+            </div>
+        </a>
+        </div>
+        <?php
+            }
+        }
+            else
+            {
+                echo "";
+            ?>
+        <?php
+        }
+        ?>        
+        <!--Main Course-->
+        <?php
+            if(mysqli_num_rows($product) > 0)
+            {                                     
+            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main';";
+            $result = $con->query($sql);
+            foreach($result as $item)
+            {
+        ?>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">MAIN COURSE</h2>
+                <h3 class="text-muted section-subheading">PRICE RANGE</h3>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+        <a href="businessview.php?id=<?=$item['businessid'];?>" style="text-decoration:none;">
+            <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                <img data-bss-hover-animate="pulse" src="uploads/<?= $item['image']; ?>" style="width: 170px;margin-top: 10px;">
+                <hr style="height: 2px;">
+                <h4 class="section-heading"><?= $item['name']; ?></h4>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">DESCRIPTION:&nbsp<?= $item['description']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">FOOD CATEGORY:&nbsp<?= $item['food_type']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">CUISINE TYPE:&nbsp<?= $item['cuisinename']; ?></p>
+                <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">₱<?= $item['price']; ?></h4>
+            </div>
+        </a>
+        </div>
+        <?php
+            }
+        }
+            else
+            {
+                echo "";
+            ?>
+        <?php
+        }
+        ?>    
+        <!--Salad-->
+        <?php
+            if(mysqli_num_rows($product) > 0)
+            {                  
+            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad';";
+            $result = $con->query($sql);
+            foreach($result as $item)
+            {
+        ?>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">SALAD</h2>
+                <h3 class="text-muted section-subheading">PRICE RANGE</h3>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+        <a href="businessview.php?id=<?=$item['businessid'];?>" style="text-decoration:none;">
+            <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                <img data-bss-hover-animate="pulse" src="uploads/<?= $item['image']; ?>" style="width: 170px;margin-top: 10px;">
+                <hr style="height: 2px;">
+                <h4 class="section-heading"><?= $item['name']; ?></h4>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">DESCRIPTION:&nbsp<?= $item['description']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">FOOD CATEGORY:&nbsp<?= $item['food_type']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">CUISINE TYPE:&nbsp<?= $item['cuisinename']; ?></p>
+                <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">₱<?= $item['price']; ?></h4>
+            </div>
+        </a>
+        </div>
+        <?php
+            }
+        }
+            else
+            {
+                echo "";
+            ?>
+        <?php
+        }
+        ?>    
+        <!--Dessert-->
+        <?php
+            if(mysqli_num_rows($product) > 0)
+            {                                     
+            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert';";
+            $result = $con->query($sql);
+            foreach($result as $item)
+            {
+        ?>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">DESSERT</h2>
+                <h3 class="text-muted section-subheading">PRICE RANGE</h3>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+        <a href="businessview.php?id=<?=$item['businessid'];?>" style="text-decoration:none;">
+            <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                <img data-bss-hover-animate="pulse" src="uploads/<?= $item['image']; ?>" style="width: 170px;margin-top: 10px;">
+                <hr style="height: 2px;">
+                <h4 class="section-heading"><?= $item['name']; ?></h4>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">DESCRIPTION:&nbsp<?= $item['description']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">FOOD CATEGORY:&nbsp<?= $item['food_type']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">CUISINE TYPE:&nbsp<?= $item['cuisinename']; ?></p>
+                <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">₱<?= $item['price']; ?></h4>
+            </div>
+        </a>
+        </div>
+        <?php
+            }
+        }
+            else
+            {
+                echo "";
+            ?>
+        <?php
+        }
+        ?>    
+        <!--Drinks-->
+        <?php
+            if(mysqli_num_rows($product) > 0)
+            {                                        
+            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks';";
+            $result = $con->query($sql);
+            foreach($result as $item)
+            {
+        ?>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">DRINKS</h2>
+                <h3 class="text-muted section-subheading">PRICE RANGE</h3>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-right: 0px;margin-left: 0px;">
+        <a href="businessview.php?id=<?=$item['businessid'];?>" style="text-decoration:none;">
+            <div class="col-md-4" style="border-style: solid;border-color: rgb(255,128,64);border-radius: 15px;">
+                <img data-bss-hover-animate="pulse" src="uploads/<?= $item['image']; ?>" style="width: 170px;margin-top: 10px;">
+                <hr style="height: 2px;">
+                <h4 class="section-heading"><?= $item['name']; ?></h4>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">DESCRIPTION:&nbsp<?= $item['description']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">FOOD CATEGORY:&nbsp<?= $item['food_type']; ?></p>
+                <p class="text-start text-muted mb-0" style="margin-left: 10px;">CUISINE TYPE:&nbsp<?= $item['cuisinename']; ?></p>
+                <h4 class="section-heading" style="text-align: right;font-size: 20px;margin-right: 8px;">₱<?= $item['price']; ?></h4>
+            </div>
+        </a>
+        </div>
+        <?php
+            }
+        }
+            else
+            {
+                echo "";
+            ?>
+        <?php
+        }
+        ?>    
+    </div>
+    </section>
+<!-- END OF MENU SECTION-->
 
 <!-- START OF REVIEW SECTION-->
     <section id="review">
