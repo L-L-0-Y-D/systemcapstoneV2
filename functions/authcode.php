@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include('myfunctions.php');
 
 /* This is the code for registering a user. */
