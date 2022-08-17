@@ -82,20 +82,79 @@ if(isset($_SESSION['auth'])){
                 <p class="fw-bold text-center " style="margin-bottom: 5px; font-size:20px;">Create an Account</p>
                 <input class="form-control" name="image" type="file" style="margin-bottom: 10px;" required>
                                 <div class="row row-cols-1" style="margin-bottom: 10px;">
-                                    <div class="col"><input class="form-control" type="text" name="name" placeholder="Username" required style="margin-bottom: 10px;"></div>
-                                    <div class="col"><input class="form-control" type="email" name="email" placeholder="Email Address" required></div>
+                                    <!-- /* A php code that is used to check if the name is set or not. If
+                                    it is set then it will display the name in the input field. */ -->
+                                    <?php if (isset($_GET['name'])){?>
+                                        <div class="col">
+                                            <input class="form-control" type="text" name="name" placeholder="Username" value="<?= $_GET['name']?>" required style="margin-bottom: 10px;"></div>
+                                    <?php }else{?>
+                                        <div class="col">
+                                            <input class="form-control" type="text" name="name" placeholder="Username" required style="margin-bottom: 10px;"></div>
+                                    <?php }?>
+
+                                    <!-- /* Checking if the email is set or not. If it is set then it will
+                                    display the email in the input field. */ -->
+                                    <?php if (isset($_GET['email'])){?>
+                                        <div class="col">
+                                            <input class="form-control" type="email" name="email" placeholder="Email Address" value="<?= $_GET['email']?>" required></div>
+                                    <?php }else{?>
+                                        <div class="col">
+                                            <input class="form-control" type="email" name="email" placeholder="Email Address"  required></div>
+                                    <?php }?>
+
                                     <div class="w-100"></div>
+
                                 </div>
                                 <div class="row" style="margin-bottom: 10px;">
-                                    <div class="col"><input class="form-control" name="firstname" type="text" placeholder="Firstname" required></div>
-                                    <div class="col"><input class="form-control" name="lastname" type="text" placeholder="Lastname" required></div>
+                                    <!-- /* Checking if the firstname is set or not. If it is set then it
+                                    will display the firstname in the input field. */ -->
+                                    <?php if (isset($_GET['firstname'])){?>
+                                        <div class="col">
+                                            <input class="form-control" name="firstname" type="text" placeholder="Firstname" value="<?= $_GET['firstname']?>"  required></div>
+                                    <?php }else{?>
+                                        <div class="col">
+                                            <input class="form-control" name="firstname" type="text" placeholder="Firstname"  required></div>
+                                    <?php }?>
+                                    
+                                    <!-- /* Checking if the lastname is set, if it is then it will display
+                                    the value of the lastname. If it is not set then it will display
+                                    the placeholder. */ -->
+                                    <?php if (isset($_GET['lastname'])){?>
+                                        <div class="col">
+                                            <input class="form-control" name="lastname" type="text" placeholder="Lastname" value="<?= $_GET['lastname']?>"  required></div>
+                                    <?php }else{?>
+                                        <div class="col">
+                                            <input class="form-control" name="lastname" type="text" placeholder="Lastname"  required></div>
+                                    <?php }?> 
+
                                 </div>
                                 <div class="mb-3">
                                     <p class="fw-normal text-start" style="margin-bottom: 1px;padding-left: 10px;">Birthdate</p>
                                     <input class="form-control" name='dateofbirth' type="date" required>
                                 </div>
-                                <div class="mb-3"><input class="form-control" name="phonenumber" type="text" placeholder="Phone Number"required ></div>
-                                <div class="mb-3"><input class="form-control" name="address" type="text" placeholder="Address" required></div>
+                                
+                                    <!-- /* Checking if the variable phonenumber is set. If it is, it will
+                                    display the value of the variable. If it is not set, it will
+                                    display nothing. */ -->
+                                    <?php if (isset($_GET['phonenumber'])){?>
+                                        <div class="col">
+                                            <input class="form-control" name="phonenumber" type="text" placeholder="Phone Number" value="<?= $_GET['phonenumber']?>"  required ></div>
+                                    <?php }else{?>
+                                        <div class="col">
+                                            <input class="form-control" name="phonenumber" type="text" placeholder="Phone Number" required ></div>
+                                    <?php }?> 
+
+                                    <!-- /* Checking if the address is set, if it is then it will display
+                                    the address in the input field. If it is not set then it will
+                                    display the input field without the address. */ -->
+                                    <?php if (isset($_GET['address'])){?>
+                                        <div class="col">
+                                            <input class="form-control" name="address" type="text"  placeholder="Address" value="<?= $_GET['address']?>"  required ></div>
+                                    <?php }else{?>
+                                        <div class="col">
+                                            <input class="form-control" name="address" type="text"  placeholder="Address" required></div>
+                                    <?php }?> 
+
                                 <div class="row" style="margin-bottom: 10px;">
                                     <div class="col"><input class="form-control" name="password" type="password" placeholder="Password" required></div>
                                     <div class="col"><input class="form-control" name="confirmpassword" type="password" placeholder="Confirm Password" required>

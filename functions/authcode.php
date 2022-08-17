@@ -55,7 +55,7 @@ if(isset($_POST['register_btn']))
        redirect("../register.php", "Image size exceeds 5MB");
    }
    
-
+   $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&lastname='.$lastname.'&phonenumber='.$phonenumber.'&address='.$address;
     
     // Check if email already registered
     $check_email_query = "SELECT email FROM users WHERE email='$email'";
@@ -94,28 +94,28 @@ if(isset($_POST['register_btn']))
                             }
                             else
                             {
-                                redirect("../register.php", "Something went wrong");
+                                redirect("../register.php?error=Something went wrong&$user_data", "Something went wrong");
                             }
                     }
                     else
                     {
-                        redirect("../register.php", "Your password must be at least 8 characters"); 
+                        redirect("../register.php?error=Your password must be at least 8 characters&$user_data", "Your password must be at least 8 characters"); 
                     }
                 }
                 else
                 {
-                    redirect("../register.php", "Phone Number must be 11 digits");
+                    redirect("../register.php?error=Phone Number must be 11 digits&$user_data", "Phone Number must be 11 digits");
                 }
             }
             else
             {
-                redirect("../register.php", "User is Under Age.");
+                redirect("../register.php?error=User is Under Age&$user_data", "User is Under Age.");
             }
 
         }
         else
         {
-            redirect("../register.php", "Passwords do not match");
+            redirect("../register.php?error=Passwords do not match&$user_data", "Passwords do not match");
         }
     }
     
@@ -259,6 +259,7 @@ if(isset($_POST['update_profile_btn']))
                         }
                         else
                         {
+                            
                             redirect("../profile.php?id=$userid", "Your password must be at least 8 characters"); 
                         }
                     }
