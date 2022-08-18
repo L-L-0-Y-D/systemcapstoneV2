@@ -10,6 +10,197 @@ include('../config/dbcon.php');
     //Load Composer's autoloader
     require '../vendor/autoload.php';
 
+function sendemail_forgetpassword($email,$verify_token)
+{
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    //$mail->SMTPDebug = 2; 
+    $mail->isSMTP();
+    $mail->SMTPAuth   = true; 
+
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "ieatwebsite@gmail.com";
+    $mail->Password   = "ydckqbbwsloabncq";
+
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+        )
+        );
+    $mail->SMTPSecure = "tls";
+    $mail->Port       = 587;
+    
+    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->addAddress($email);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Recover your Password'; 
+
+    $email_template = "
+    <b>Dear User</b>
+    <h3>We received a request to reset your password.</h3>
+    <p>Kindly click the below link to reset your password</p>
+    <a href='http://localhost/systemcapstoneV2/resetpassword.php?token=$verify_token'>Clicked here<a>
+    ";
+
+    $mail->Body    = $email_template;
+    $mail->send();
+   // echo 'Message has been sent';
+
+
+}
+
+function sendemail_businessconfirm($email,$name)
+{
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    //$mail->SMTPDebug = 2; 
+    $mail->isSMTP();
+    $mail->SMTPAuth   = true; 
+
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "ieatwebsite@gmail.com";
+    $mail->Password   = "ydckqbbwsloabncq";
+
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+        )
+        );
+    $mail->SMTPSecure = "tls";
+    $mail->Port       = 587;
+    
+    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->addAddress($email);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Business Confirm'; 
+
+    $email_template = "
+    <b>Dear $name</b>
+    <h3>Congratulations.</h3>
+    <p>We check your business details and all the files you send<p>
+    http://localhost/systemcapstoneV2/index.php
+    ";
+
+    $mail->Body    = $email_template;
+    $mail->send();
+   // echo 'Message has been sent';
+
+
+}
+function sendemail_confirmreservation($name,$email,$date,$time,$numguest)
+    {
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+    
+        //$mail->SMTPDebug = 2; 
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true; 
+    
+        $mail->Host       = "smtp.gmail.com";
+        $mail->Username   = "ieatwebsite@gmail.com";
+        $mail->Password   = "ydckqbbwsloabncq";
+        
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+            );
+        $mail->SMTPSecure = "tls";
+        $mail->Port       = 587;
+        
+        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+        $mail->addAddress($email);
+    
+        $mail->isHTML(true);
+        $mail->Subject = 'Reservation Confirm'; 
+    
+        $email_template = "
+        <b>Dear $name</b>
+        <h3>Congratulations.</h3>
+        <p>You are now reserve with of $numguest and the time and date are $date and $time
+        ";
+    
+        $mail->Body    = $email_template;
+        $mail->send();
+       // echo 'Message has been sent';
+    
+    
+    }
+
+//for getting all the data in the table
+function getAll($table)
+{
+    global $con;
+    $query = "SELECT * FROM $table";
+    return $query_run = mysqli_query($con, $query);
+}
+
+function businessGetAll()
+{
+    global $con;
+    $query = "SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.opening,business.closing,municipality.municipality_name,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    FROM business
+    JOIN municipality
+    ON business.municipalityid=municipality.municipalityid
+    ORDER BY business.businessid DESC";
+    return $query_run = mysqli_query($con, $query);
+}
+
+function menuGetAll()
+{
+    global $con;
+    $query = "SELECT products.productid,products.name,business.business_name,products.description,products.food_type,products.price,products.image,products.status,products.created_at
+    FROM products
+    JOIN business 
+    ON products.businessid=business.businessid";
+    return $query_run = mysqli_query($con, $query);
+}
+
+function reservationGetAll()
+{
+    global $con;
+    $query = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,reservations.userid,reservations.status
+    FROM reservations
+    JOIN business 
+    ON reservations.businessid=business.businessid";
+    return $query_run = mysqli_query($con, $query);
+}
+
+
+function getAllStatus($table)
+{
+    global $con;
+    $query = "SELECT * FROM $table WHERE status= '0'";
+    return $query_run = mysqli_query($con, $query);
+}
+
+//for getting all the data in the table
+function getByID($table, $id, $tabledata)
+{
+    global $con;
+    $query = "SELECT * FROM $table WHERE $tabledata='$id'";
+    return $query_run = mysqli_query($con, $query);
+}
+
+
+//for the Notification Message
+function redirect($url, $message)
+{
+    $_SESSION['message'] = $message;
+    header('Location: '.$url);
+    exit();
+}
+
 function sendemail_verify($name,$email,$verify_token)
 {
     //Create an instance; passing `true` enables exceptions
@@ -23,6 +214,13 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->Username   = "ieatwebsite@gmail.com";
     $mail->Password   = "ydckqbbwsloabncq";
 
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+        )
+        );
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
     
@@ -219,176 +417,6 @@ function sendemail_verify($name,$email,$verify_token)
    // echo 'Message has been sent';
 
 
-}
-
-function sendemail_forgetpassword($email,$verify_token)
-{
-    //Create an instance; passing `true` enables exceptions
-    $mail = new PHPMailer(true);
-
-    //$mail->SMTPDebug = 2; 
-    $mail->isSMTP();
-    $mail->SMTPAuth   = true; 
-
-    $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "ieatwebsite@gmail.com";
-    $mail->Password   = "ydckqbbwsloabncq";
-
-    $mail->SMTPSecure = "tls";
-    $mail->Port       = 587;
-    
-    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
-    $mail->addAddress($email);
-
-    $mail->isHTML(true);
-    $mail->Subject = 'Recover your Password'; 
-
-    $email_template = "
-    <b>Dear User</b>
-    <h3>We received a request to reset your password.</h3>
-    <p>Kindly click the below link to reset your password</p>
-    <a href='http://localhost/systemcapstoneV2/resetpassword.php?token=$verify_token'>Clicked here<a>
-    ";
-
-    $mail->Body    = $email_template;
-    $mail->send();
-   // echo 'Message has been sent';
-
-
-}
-
-function sendemail_businessconfirm($email,$name)
-{
-    //Create an instance; passing `true` enables exceptions
-    $mail = new PHPMailer(true);
-
-    //$mail->SMTPDebug = 2; 
-    $mail->isSMTP();
-    $mail->SMTPAuth   = true; 
-
-    $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "ieatwebsite@gmail.com";
-    $mail->Password   = "ydckqbbwsloabncq";
-
-    $mail->SMTPSecure = "tls";
-    $mail->Port       = 587;
-    
-    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
-    $mail->addAddress($email);
-
-    $mail->isHTML(true);
-    $mail->Subject = 'Business Confirm'; 
-
-    $email_template = "
-    <b>Dear $name</b>
-    <h3>Congratulations.</h3>
-    <p>We check your business details and all the files you send<p>
-    http://localhost/systemcapstoneV2/index.php
-    ";
-
-    $mail->Body    = $email_template;
-    $mail->send();
-   // echo 'Message has been sent';
-
-
-}
-function sendemail_confirmreservation($name,$email,$date,$time,$numguest)
-    {
-        //Create an instance; passing `true` enables exceptions
-        $mail = new PHPMailer(true);
-    
-        //$mail->SMTPDebug = 2; 
-        $mail->isSMTP();
-        $mail->SMTPAuth   = true; 
-    
-        $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "ieatwebsite@gmail.com";
-        $mail->Password   = "ydckqbbwsloabncq";
-    
-        $mail->SMTPSecure = "tls";
-        $mail->Port       = 587;
-        
-        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
-        $mail->addAddress($email);
-    
-        $mail->isHTML(true);
-        $mail->Subject = 'Reservation Confirm'; 
-    
-        $email_template = "
-        <b>Dear $name</b>
-        <h3>Congratulations.</h3>
-        <p>You are now reserve with of $numguest and the time and date are $date and $time
-        ";
-    
-        $mail->Body    = $email_template;
-        $mail->send();
-       // echo 'Message has been sent';
-    
-    
-    }
-
-//for getting all the data in the table
-function getAll($table)
-{
-    global $con;
-    $query = "SELECT * FROM $table";
-    return $query_run = mysqli_query($con, $query);
-}
-
-function businessGetAll()
-{
-    global $con;
-    $query = "SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.opening,business.closing,municipality.municipality_name,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
-    FROM business
-    JOIN municipality
-    ON business.municipalityid=municipality.municipalityid
-    ORDER BY business.businessid DESC";
-    return $query_run = mysqli_query($con, $query);
-}
-
-function menuGetAll()
-{
-    global $con;
-    $query = "SELECT products.productid,products.name,business.business_name,products.description,products.food_type,products.price,products.image,products.status,products.created_at
-    FROM products
-    JOIN business 
-    ON products.businessid=business.businessid";
-    return $query_run = mysqli_query($con, $query);
-}
-
-function reservationGetAll()
-{
-    global $con;
-    $query = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,reservations.userid,reservations.status
-    FROM reservations
-    JOIN business 
-    ON reservations.businessid=business.businessid";
-    return $query_run = mysqli_query($con, $query);
-}
-
-
-function getAllStatus($table)
-{
-    global $con;
-    $query = "SELECT * FROM $table WHERE status= '0'";
-    return $query_run = mysqli_query($con, $query);
-}
-
-//for getting all the data in the table
-function getByID($table, $id, $tabledata)
-{
-    global $con;
-    $query = "SELECT * FROM $table WHERE $tabledata='$id'";
-    return $query_run = mysqli_query($con, $query);
-}
-
-
-//for the Notification Message
-function redirect($url, $message)
-{
-    $_SESSION['message'] = $message;
-    header('Location: '.$url);
-    exit();
 }
 
 
