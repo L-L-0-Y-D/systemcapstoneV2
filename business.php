@@ -16,7 +16,7 @@
 ?>
 <body>
     <main class="page projects-page">
-        <section class="portfolio-block projects-cards" style="padding-top: 40px;">
+        <section class="portfolio-block projects-cards" style="padding-top: 140px;">
             <div class="container">
                 <div class="heading">
                     <h2 style="margin-bottom: 20px;font-size: 60px;font-weight: bold;font-family: Acme, sans-serif;text-align: center;">Restaurants in <?= $data['municipality_name']; ?></h2>
@@ -47,7 +47,7 @@
                         {
                             echo "<p class='text-center'>No Business Found</p>";
                         ?>
-                        <br><a class="text-center text-black fw-bold" href="index.php">Go Back</a>
+                        <br><a class="text-center text-black fw-bold " style="margin-bottom:76px;" href="index.php">Go Back</a>
                         <?php
                         }
                     ?>
@@ -65,7 +65,7 @@
         {
             echo "Something Went Wrong";
             ?>
-            <br><a href="Index.php">Go Back</a>
+            <br><a href="Index.php" style="margin-bottom:76px;">Go Back</a>
             <?php
         }
     }
@@ -73,7 +73,7 @@
     {
         echo "Something Went Wrong";
         ?>
-        <br><a href="Index.php">Go Back</a>
+        <br><a href="Index.php"style="margin-bottom:76px;">Go Back</a>
         <?php
     }
 

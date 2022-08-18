@@ -37,7 +37,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
                         <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
                         <div class="dropdown-menu ">
-                            <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="fas fa-user"></i>&nbsp;Profile</a>
+                            <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="fa fa-user"></i>&nbsp;Profile</a>
                             <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
                             <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="fas fa-key"></i>&nbsp;Change Password</a>
                             <div class="dropdown-divider"></div>
@@ -131,26 +131,9 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
             </div>
         </div>
     </nav>        
-    <header class="masthead "  style="height:900px;padding-top:200px;background-image:url(uploads/bg.png); background-position:top center;">
-        <div class="container">
-            <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
-                <div class="intro-lead-in">
-                    <span><img src="uploads/logoT.png" style="width: 150px;"></span>
-                </div>
-                <div class="intro-heading text-uppercase ">
-                    <span style="font-family: 'Kaushan Script', serif; font-size:55px;">First we eat,&nbsp; i - eat.</span></div>
-                    <form action="search.php" method="POST">
-                        <input class="form-control-lg" type="text" name="search" style="border-radius: 20px;border: 2px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
-                        <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 10px;padding-bottom: 10px;padding-left: 30px;padding-right: 30px;">
-                        <i class="far fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </header>
-</div>
+</body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
-</header>
+
