@@ -6,10 +6,8 @@ include('includes/header.php');
 
 
 ?>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-        <?php 
+<div class="container-fluid">
+    <?php 
         if(isset($_GET['id']))
         {
             $id = $_GET['id'];
@@ -21,152 +19,223 @@ include('includes/header.php');
                 
             
             ?>
-            <div class="card">
-                <div class="card-header">
-                <h4>Edit Profile
-                    <a href="index.php" class="btn btn-primary float-end" style="background:rgb(255,128,64); border:none;">Back</a>
-                </h4>   
+        <h3 class="text-dark mb-4">Profile
+            <a href="index.php" class="btn btn-primary float-end" style="background:rgb(255,128,64); border:none;">Back</a>
+        </h3>
+    <form action="code.php" method="POST" enctype="multipart/form-data">
+    <div class="row mb-3">
+        <div class="col-lg-4">
+            <div class="card mb-3">
+                <div class="card-header py-3">
+                    <h6 class="text-primary fw-bold m-0">Upload Profile</h6>
                 </div>
-                <div class="card-body">
-                    <form action="code.php" method="POST" enctype="multipart/form-data">
-                        <div class="row">
-                                <div class="col-md-12">
-                                <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control">
-                                <label for="">Current Image</label>
-                                <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
-                                <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
-                            </div>
-                            <div class="col-md-6">
-                                <!--Needed-->
-                                <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
-                                <label for="">Business Name</label>
-                                <input type="text" name="business_name" value="<?= $data['business_name'] ?>" required placeholder="Enter Business Name" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Business address</label>
-                                <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Select Business Municipality</label>
-                                <select name='municipalityid' class="form-select mb-2">
-                                    <option value="" disabled selected hidden>Municipality</option>
-                                    <?php 
-                                    $municipality = getAll("municipality");
-                                    if(mysqli_num_rows($municipality) > 0)
-                                    {
-                                        foreach ($municipality as $item)
-                                        {
-                                            ?>
-                                            <option value="<?= $item['municipalityid']; ?>" <?= $data['municipalityid'] == $item['municipalityid']?'selected':''?>><?= $item['municipality_name']; ?></option>
-                                            <?php
-                                        }
-                                    }
-                                    else
-                                    {
-                                        echo "No Municipality Available";
-                                    }?>
-                                </select>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <label for="">Select Cuisine Type</label><br>
-                                <?php 
-                                    //$category = getAllActive("mealcategory");
-                                    $query = "SELECT * FROM mealcategory ";
-                                    $query_run = mysqli_query($con, $query);
-                                    if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach ($query_run as $item)
-                                            {
-                                                ?>
-                                                <input type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"
-                                                <?php
-                                                    $cuisine = str_word_count($data['cuisinename'],1);
-                                                    foreach ($cuisine as $itemcuisine)
-                                                    {
-                                                    ?>
-                                                    <?= $itemcuisine == $item['categoryname']?'checked':''?>
-                                                    <?php
-                                                    }
-                                                ?>
-                                                ><?= $item['categoryname']; ?></input>
-                                                <?php
-                                            }
-                                        }
-                                    else
-                                        {
-                                            echo "No Cuisine Type Available";
-                                        }
-                                ?>
-                                    <a style="color: black;" href="insert.php">Add Cuisine Type</a>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">Business Certificate</label>
-                                <input type="file" name="image_cert" class="form-control">
-                                <label for="">Current Image</label>
-                                <a href="../certificate/<?= $data['image_cert'] ?>">
-                                <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px"></a>
-                                <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Opening Time</label>
-                                <input type="time" name="opening" value="<?= $data['opening'] ?>"  required placeholder="Opening" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Closing</label>
-                                <input type="time" name="closing" value="<?= $data['closing'] ?>"  required placeholder="Closing" class="form-control">
-                            </div>
-                            <h3>OWNER DETAILS</h3>
-                            <div class="col-md-6">
-                                <label for="">First Name</label>
-                                <input type="text" name="business_firstname" value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Last Name</label>
-                                <input type="text" name="business_lastname" value="<?= $data['business_lastname'] ?>" placeholder="Enter Last Name" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Phone Number</label>
-                                <input type="text" name="business_phonenumber" value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Email</label>
-                                <input type="text" name="business_email" value="<?= $data['business_email'] ?>"  required placeholder="Owner Email" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">Address</label>
-                                <input type="text" name="business_owneraddress" value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">Password</label>
-                                <input type="password" name="business_password" placeholder="Enter Password" class="form-control" required>
-                            </div>
-                            <div class="col-md-12">
-                                <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
-                            </div> <br>
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" name="edit_business_btn" style="background:rgb(255,128,64); border:none;">Update Business Profile</button>
-                            </div>
-                            </div>
-                    </form>
+                <div class="card-body text-center shadow">
+                    <img class="rounded-circle mb-3 mt-4" src="../uploads/<?= $data['image'] ?>" width="160" height="160">
+                    <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                    <div class="mb-3"><input type="file" name="image" class="form-control"></div>
                 </div>
             </div>
-            <?php
-            }
-            else
-            {
-                echo "Business not Found";
-            }
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="text-primary fw-bold m-0">Business Time</h6>
+                </div>
+                <div class="card-body">
+                    <h4 class="small fw-bold"><label class="form-label" for="username"><strong>Opening Time</strong><br></label>
+                        <input type="time" name="opening" value="<?= $data['opening'] ?>"  required placeholder="Opening"></h4>
+                    <h4 class="small fw-bold"><label class="form-label" for="username"><strong>ClosingTime</strong><br></label>
+                        <input type="time" name="closing" value="<?= $data['closing'] ?>"  required placeholder="Closing"></h4>
+                </div>
+            </div>
+            <div class="card shadow mb-4">                  
+                <div class="card-header py-3">
+                    <h6 class="text-primary fw-bold m-0">Business Certificate</h6>
+                </div>
+                <div class="card-body text-center shadow">
+                    <a href="../certificate/<?= $data['image_cert'] ?>">   
+                    <img class="rounded mb-3 mt-4" src="../certificate/<?= $data['image_cert'] ?>" width="160" height="160"></a>
+                    <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
+                    <div class="mb-3"><input type="file" name="image_cert" class="form-control"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="row mb-3 d-none">
+                <div class="col">
+                    <div class="card text-white bg-primary shadow">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <p class="m-0">Peformance</p>
+                                    <p class="m-0"><strong>65.2%</strong></p>
+                                </div>
+                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                            </div>
+                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-white bg-success shadow">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <p class="m-0">Peformance</p>
+                                    <p class="m-0"><strong>65.2%</strong></p>
+                                </div>
+                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                            </div>
+                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Business Information</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">                          
+                                        <!--Needed-->
+                                        <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
+                                        <label class="form-label" for="business_name"><strong>Business Name</strong><br></label>
+                                        <input type="text" name="business_name" value="<?= $data['business_name'] ?>" required placeholder="Enter Business Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="email"><strong>Business Address</strong></label>
+                                        <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label class="form-label" for=""><strong>Business Municipality</strong><br></label>
+                                        <select name='municipalityid' class="form-select mb-2">
+                                            <option value="" disabled selected hidden>Municipality</option>
+                                            <?php 
+                                            $municipality = getAll("municipality");
+                                            if(mysqli_num_rows($municipality) > 0)
+                                            {
+                                                foreach ($municipality as $item)
+                                                {
+                                                    ?>
+                                                    <option value="<?= $item['municipalityid']; ?>" <?= $data['municipalityid'] == $item['municipalityid']?'selected':''?>><?= $item['municipality_name']; ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "No Municipality Available";
+                                            }?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label class="form-label" for=""><strong>Cuisine Type</strong></label>
+                                        <?php 
+                                            //$category = getAllActive("mealcategory");
+                                            $query = "SELECT * FROM mealcategory ";
+                                            $query_run = mysqli_query($con, $query);
+                                            if(mysqli_num_rows($query_run) > 0)
+                                                {
+                                                    foreach ($query_run as $item)
+                                                    {
+                                                        ?>
+                                                        <input type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"
+                                                        <?php
+                                                            $cuisine = str_word_count($data['cuisinename'],1);
+                                                            foreach ($cuisine as $itemcuisine)
+                                                            {
+                                                            ?>
+                                                            <?= $itemcuisine == $item['categoryname']?'checked':''?>
+                                                            <?php
+                                                            }
+                                                        ?>
+                                                        ><?= $item['categoryname']; ?></input>
+                                                        <?php
+                                                    }
+                                                }
+                                            else
+                                                {
+                                                    echo "No Cuisine Type Available";
+                                                }
+                                        ?>
+                                        <a style="color: black;" href="insert.php">Add Cuisine Type</a>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Business Owner Details</p>
+                        </div>
+                        <div class="card-body">                            
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3"><label class="form-label" for=""><strong>First Name</strong></label>
+                                        <input type="text" name="business_firstname" value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3"><label class="form-label" for=""><strong>Last Name</strong></label>
+                                        <input type="text" name="business_lastname" value="<?= $data['business_lastname'] ?>" placeholder="Enter Last Name" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3"><label class="form-label" for=""><strong>Phone Number</strong></label>
+                                        <input type="text" name="business_phonenumber" value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number" class="form-control">
+                                    </div>
+                                 </div>
+                                <div class="col">
+                                    <div class="mb-3"><label class="form-label" for=""><strong>Email Address</strong></label>
+                                        <input type="text" name="business_email" value="<?= $data['business_email'] ?>"  required placeholder="Owner Email" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for=""><strong>Address</strong></label>
+                                <input type="text" name="business_owneraddress" value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for=""><strong>Password</strong></label>
+                                <input type="password" name="business_password" placeholder="Enter Password" class="form-control" required>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-sm" type="submit" name="edit_business_btn" style="background: rgb(255,128,64);color: var(--bs-white);">UPDATE BUSINESS PROFILE&nbsp;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>       
+</div>
+</form>      
+    <?php
         }
         else
         {
-           echo"ID missing from url";
+            echo "Business not Found";
         }
-            ?>
-    </div>
-  </div>  
+            }
+            else
+            {
+            echo"ID missing from url";
+            }
+    ?>
 </div>
-
 
 <?php include('includes/footer.php');?>
