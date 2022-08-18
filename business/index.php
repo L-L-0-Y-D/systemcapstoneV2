@@ -28,6 +28,7 @@ include('includes/header.php');
                                             </div>
                                         </div>
                                         <div class="col-auto"><i class="fa fa-calendar fa-2x text-gray-300"></i></div>
+                                        <a class="fw-bold text-dark" href="#content" style="text-align:right;">More</a>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +49,8 @@ include('includes/header.php');
                                              ?>
                                             </div>
                                         </div>
-                                        <div class="col-auto"><i class="fa fa-calendar fa-2x text-gray-300"></i></div>
+                                        <div class="col-auto"><i class="far fa-check-square fa-2x text-gray-300"></i></div>
+                                        <a class="fw-bold text-dark" href="#content" style="text-align:right;">More</a>
                                     </div>
                                 </div>
                             </div>
@@ -79,6 +81,7 @@ include('includes/header.php');
                                             </div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
+                                        <a class="fw-bold text-dark" href="#content" style="text-align:right;">More</a>
                                     </div>
                                 </div>
                             </div>
@@ -109,10 +112,14 @@ include('includes/header.php');
                                             </div>
                                         </div>
                                         <div class="col-auto"><i class="fa fa-bar-chart fa-2x text-gray-300"></i></div>
+                                        <a class="fw-bold text-dark" onclick="location.href='#content'" style="text-align:right;">More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!--<container class="mt-4 bg-dark" id="content" name="content">
+                        <div class="col-auto"><i class="fa fa-bar-chart fa-2x text-gray-300"></i></div>
+                        </container>-->
 
 
 <?php include('includes/footer.php');?>
