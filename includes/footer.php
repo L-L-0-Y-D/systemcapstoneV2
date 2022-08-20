@@ -106,7 +106,7 @@
 	        	<div class="form-group">
                     <input type="hidden" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
                     <input type="hidden" name="businessid" id="businessid" value="<?= $data['businessid'] ?>">
-	        		<input type="text" name="user_name" id="user_name" class="form-control" value="<?= $_SESSION['auth_user']['name'];?>" placeholder="Enter Your Name" />
+	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" value="<?= $_SESSION['auth_user']['name']?>" />
 	        	</div>
 	        	<div class="form-group">
 	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
