@@ -27,13 +27,7 @@ include('includes/header.php');
                                              ?>
                                             </div>
                                         </div>
-                                        <div class="col-auto"><i class="fa fa-calendar fa-2x text-gray-300"></i></div>                               
-                                        <button onclick="totalReservation()" class="bg-transparent border-0 text-start">View Details</button>
-                                        <script>
-                                            function totalReservation() {
-                                                document.getElementById("btotalreservation").style.visibility = "hidden"; 
-                                            }
-                                        </script>
+                                        <div class="col-auto"><i class="fa fa-calendar fa-2x text-gray-300"></i></div>                                                                       
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +49,6 @@ include('includes/header.php');
                                             </div>
                                         </div>
                                         <div class="col-auto"><i class="far fa-check-square fa-2x text-gray-300"></i></div>                            
-                                        <a class="text-black" href="#bpendingreservation" target="moredetails">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +79,6 @@ include('includes/header.php');
                                             </div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>                                      
-                                        <a class="text-black" href="#btotalmenu">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -117,80 +109,46 @@ include('includes/header.php');
                                             </div>
                                         </div>
                                         <div class="col-auto"><i class="fa fa-bar-chart fa-2x text-gray-300"></i></div>
-                                        <a class="text-black" href="#brating">View Details</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!--FOR TOTAL RESERVATION-->    
-                        <section class="mt-4 " style="height:500px;" id="moredetails">
-                            <div class="col-md-12 mb-4">
-                                <div class="card shadow border-start-info">
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="text-primary fw-bold m-0"><br><strong>TOTAL RESERVATION</strong><br></h6>
+                                    </div>
                                     <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">                                                   
-                                                <h1>MORE DETAILS</h1>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
-                        </section> 
-                        <!--FOR TOTAL RESERVATION-->       
-                        <section class="mt-4" style="height:500px;" id="btotalreservation">
-                            <div class="col-md-12 mb-4">
-                                <div class="card shadow border-start-info">
+                            <!--FOR PENDING RESERVATION-->
+                            <div class="col-lg-6 mb-4">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="text-primary fw-bold m-0"><br><strong>PENDING RESERVATION</strong><br></h6>
+                                    </div>
                                     <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">                                                   
-                                                <h1>FOR TOTAL RESERVATION</h1>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                        <!--FOR PENDING RESERVATION-->
-                        <section class="mt-4 " style="height:500px;" id="bpendingreservation">
-                            <div class="col-md-12 mb-4">
-                                <div class="card shadow border-start-info">
+                        </div>
+                        <!--FOR RATING-->
+                        <div class="row">
+                            <div class="col">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="text-primary fw-bold m-0"><br><strong>FEEDBACK AND REVIEW</strong><br></h6>
+                                    </div>
                                     <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">                                                   
-                                                <h1>FOR PENDING RESERVATION</h1>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                        <!--FOR TOTAL MENU
-                        <section class="mt-4 " style="height:500px;" id="btotalmenu">
-                            <div class="col-md-12 mb-4">
-                                <div class="card shadow border-start-info">
-                                    <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">                                                   
-                                                <h1>FOR TOTAL MENU</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        FOR BUSINESS RATING
-                        <section class="mt-4 d-none" style="height:500px; display:block;" id="brating">
-                            <div class="col-md-12 mb-4">
-                                <div class="card shadow border-start-info">
-                                    <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">                                                   
-                                                <h1>FOR BUSINESS RATING</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>-->
+                        </div>
 
 <?php include('includes/footer.php');?>

@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
-
+    <script src="assets/js/Simple-Slider.js"></script>
     <!--   Core JS Files   -->
     <script src="assets/js/perfect-scrollbar.min.js"></script>
     <script src="assets/js/smooth-scrollbar.min.js"></script>

@@ -12,7 +12,7 @@
     <script src="assets/js/theme.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="assets/js/custom.js"></script>
-    
+    <script src="assets/js/Simple-Slider.js"></script>
     <script src="assets/js/perfect-scrollbar.min.js"></script>
     <script src="assets/js/smooth-scrollbar.min.js"></script>
 
