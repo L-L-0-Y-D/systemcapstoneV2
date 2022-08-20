@@ -81,20 +81,63 @@ if(isset($_SESSION['auth'])){
                 <p style="text-align: left;font-size: 16px; font-weight:bold;">Upload Business Logo</p>
                 <input class="form-control" type="file" name="image" style="margin-bottom: 10px;" required>
                 <div class="row row-cols-1" style="margin-bottom: 10px;">
-                    <div class="col">
-                        <input class="form-control" type="text" name='business_name' placeholder="Business Name" style="margin-bottom: 10px;" required></div>
-                    <div class="col">
-                        <input class="form-control" type="text" name='business_address' placeholder="Business Address" style="margin-bottom: 10px;" required></div>
-                    <div class="col">
+                    <!-- /* Checking if the name is set, if it is, it will display the name in the input
+                    field. If it is not set, it will display the input field without the name. */ -->
+                    <?php if (isset($_GET['business_name'])){?>
+                        <div class="col">
+                            <input class="form-control" type="text" name="business_name" placeholder="Business Name" value="<?= $_GET['business_name']?>" required style="margin-bottom: 10px;"></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" type="text" name='business_name' placeholder="Business Name" style="margin-bottom: 10px;" required></div>
+                    <?php }?>
+
+
+                    <!-- /* Checking if the variable business_address is set. If it is, it will display the
+                    value of the variable. If it is not set, it will display the placeholder. */ -->
+                    <?php if (isset($_GET['business_address'])){?>
+                        <div class="col">
+                            <input class="form-control" type="text" name="business_address" placeholder="Business Address" value="<?= $_GET['business_address']?>" required style="margin-bottom: 10px;"></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" type="text" name='business_address' placeholder="Business Address" style="margin-bottom: 10px;" required></div>
+                    <?php }?>
+
+                    <!-- /* The above code is checking if the municipalityid is set. If it is set, it will
+                    display the municipalityid. If it is not set, it will display the
+                    municipalityid. */ -->
+                    <?php if (isset($_GET['municipalityid'])){?>
+                        <div class="col">
+                            <select class="form-select" name="municipalityid" style="margin-bottom: 10px;" required>
+                                <option value="" disabled selected hidden>Municipality</option>
+                                <?php 
+                                    //$municipality = getAll("municipality");
+                                    $query_municipality = "SELECT * FROM municipality WHERE status= '0'";
+                                    $query_municipality_run = mysqli_query($con, $query_municipality);
+                                    if(mysqli_num_rows($query_municipality_run) > 0)
+                                        {
+                                            foreach ($query_municipality_run as $item)
+                                            {
+                                                ?>
+                                                <option value="<?= $item['municipalityid']; ?>" <?= $_GET['municipalityid'] == $item['municipalityid']?'selected':''?>><?= $item['municipality_name']; ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        else
+                                        {
+                                            echo "No Municipality Available";
+                                        }?>
+                            </select>
+                    <?php }else{?>
+                        <div class="col">
                         <select class="form-select" name="municipalityid" style="margin-bottom: 10px;" required>
                             <option disabled selected hidden>Select your Business Location</option>
                             <?php 
                                 //$municipality = getAllActive("municipality");
-                                $query = "SELECT * FROM municipality WHERE status= '0'";
-                                $query_run = mysqli_query($con, $query);
-                                if(mysqli_num_rows($query_run) > 0)
+                                $query_municipality = "SELECT * FROM municipality WHERE status= '0'";
+                                $query_municipality_run = mysqli_query($con, $query_municipality);
+                                if(mysqli_num_rows($query_municipality_run) > 0)
                                     {
-                                        foreach ($query_run as $item)
+                                        foreach ($query_municipality_run as $item)
                                         {
                                             ?>
                                             <option value="<?= $item['municipalityid']; ?>"><?= $item['municipality_name']; ?></option>
@@ -107,11 +150,50 @@ if(isset($_SESSION['auth'])){
                                     }?>
                         </select> 
                     </div>
+                    <?php }?>
+
+                    
                 </div>
+
                 <p style="text-align: left;font-size: 16px; font-weight:bold;">Cuisine Type</p>
                 <div class="row" style="margin-bottom: 10px;">
-                    <div class="col">
-                        <div class="form-check">        
+                    <!-- /* The above code is a PHP code that is used to display the cuisine type in the
+                    form of checkboxes. */ -->
+                    <?php if (isset($_GET['cuisinename[]'])){?>
+                        <div class="col">
+                            <?php 
+                                //$category = getAllActive("mealcategory");
+                                $query_mealcategory = "SELECT * FROM mealcategory ";
+                                $query_mealcategory_run = mysqli_query($con, $query_mealcategory);
+                                if(mysqli_num_rows($query_mealcategory_run) > 0)
+                                    {
+                                        foreach ($query_mealcategory_run as $item)
+                                            {
+                                                ?>
+                                                <input type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"
+                                                <?php
+                                                $cuisine = str_word_count($_GET['cuisinename'],1);
+                                                foreach ($cuisine as $itemcuisine)
+                                                    {
+                                                        ?>
+                                                        <?= $itemcuisine == $item['categoryname']?'checked':''?>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    ><?= $item['categoryname']; ?></input>
+                                                    <?php
+                                                    }
+                                                }
+                                            else
+                                                {
+                                                    echo "No Cuisine Type Available";
+                                                }
+                                        ?>
+                                        <a class="btn d-block w-100" name="addcuisinebtn" href="addcuisine.php" style="text-decoration:underline;">Add Cuisine Type</a>
+                        </div>  
+                    <?php }else{?>
+                        <div class="col">
+                            <div class="form-check">        
                                 <?php 
                                     //$category = getAllActive("mealcategory");
                                     $query = "SELECT * FROM mealcategory WHERE status= '0'";
@@ -119,60 +201,125 @@ if(isset($_SESSION['auth'])){
                                     if(mysqli_num_rows($query_run) > 0)
                                         {
                                             foreach ($query_run as $item)
-                                            {
-                                                ?>
-                                                <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></input>
-                                                <?php
-                                            }
+                                                {
+                                                    ?>
+                                                    <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></input>
+                                                    <?php
+                                                }
                                         }
-                                        else
+                                    else
                                         {
                                             echo "No Cuisine Type Available";
                                         }
                                 ?>
-                                <a class="btn d-block w-100" name="addcuisinebtn" onclick="openForm()" href="addcuisine.php" style="text-decoration:underline;">Add Cuisine Type</a>
-                                    <!-- <div class="form-popup bg-light p-3" id="myForm" style="border-radius:10px; border: solid 2px rgb(255,128,64); ">
-                                        <form name="form" method="post" action="functions/busiauthcode.php" class="form-container">
-                                            <i class="far fa-times-circle" onclick="closeForm()" style="float:right;"></i>
-                                            <p class="fw-bold mt-2 mb-1">Add Cuisine Type</p>
-                                            <input class="form-control" type="text" name="categoryname"></input>
-                                            <input type = "hidden" name="status" value = '0'>
-                                            <button type="submit" class="btn btn-primary d-block w-50 mt-2 fw-light text-center" name="add_category_btn"  style="background-color:rgb(255,128,64);border:none;" href="#">Add</button>
-                                        </form>
-                                        <script>
-                                            function openForm() {
-                                                document.getElementById("myForm").style.display = "block";
-                                            }
-                                            function closeForm() {
-                                                document.getElementById("myForm").style.display = "none";
-                                            }
-                                        </script>
-                                    </div> -->
-                    </div>
-                </div>
+                                        <a class="btn d-block w-100" name="addcuisinebtn" onclick="openForm()" href="addcuisine.php" style="text-decoration:underline;">Add Cuisine Type</a>
+                                            <!-- <div class="form-popup bg-light p-3" id="myForm" style="border-radius:10px; border: solid 2px rgb(255,128,64); ">
+                                                <form name="form" method="post" action="functions/busiauthcode.php" class="form-container">
+                                                    <i class="far fa-times-circle" onclick="closeForm()" style="float:right;"></i>
+                                                    <p class="fw-bold mt-2 mb-1">Add Cuisine Type</p>
+                                                    <input class="form-control" type="text" name="categoryname"></input>
+                                                    <input type = "hidden" name="status" value = '0'>
+                                                    <button type="submit" class="btn btn-primary d-block w-50 mt-2 fw-light text-center" name="add_category_btn"  style="background-color:rgb(255,128,64);border:none;" href="#">Add</button>
+                                                </form>
+                                                <script>
+                                                    function openForm() {
+                                                        document.getElementById("myForm").style.display = "block";
+                                                    }
+                                                    function closeForm() {
+                                                        document.getElementById("myForm").style.display = "none";
+                                                    }
+                                                </script>
+                                            </div> -->
+                            </div>
+                        </div>
+                    <?php }?>
+
+                    
                     <p style="text-align:left;font-size: 16px;font-weight:bold;">Upload Business Permit</p>
                     <input class="form-control" name="image_cert" type="file" style="margin-bottom: 10px;" required>
                 <div class="row" style="margin-bottom: 10px;">
-                    <div class="col mb-3">
+                    <!-- /* Checking if the business name is set, if it is then it will display the business
+                    name, if not then it will display the opening time. */ -->
+                    <?php if (isset($_GET['opening'])){?>
+                        <div class="col mb-3">
                         <p style="text-align: left;font-size: 16px;">Opening Time</p>
-                        <input class="form-control" type="time" name="opening"  required></div>
-                    <div class="col">
+                            <input type="time" name="opening" value="<?= $_GET['opening'] ?>"  required placeholder="Opening"></div>
+                    <?php }else{?>
+                        <div class="col mb-3">
+                        <p style="text-align: left;font-size: 16px;">Opening Time</p>
+                            <input class="form-control" type="time" name="opening"  required></div>
+                    <?php }?>
+                    
+                    <?php if (isset($_GET['closing'])){?>
+                        <div class="col mb-3">
                         <p style="text-align: left;font-size: 16px;">Closing Time</p>
-                        <input class="form-control" type="time" name="closing" required></div>
+                            <input type="time" name="closing" value="<?= $_GET['closing'] ?>"  required placeholder="Opening"></div>
+                    <?php }else{?>
+                        <div class="col">
+                        <p style="text-align: left;font-size: 16px;">Closing Time</p>
+                            <input class="form-control" type="time" name="closing" required></div>
+                    <?php }?>
+                    
                 </div>
                 <div class="mb-3">
                     <p class="text-center" style="text-align: left;font-size: 20px;font-weight: bold;">OWNER INFORMATION</p>
                     <div class="row" style="margin-bottom: 10px;">
-                        <div class="col"><input class="form-control" name='business_firstname' type="text" placeholder="Firstname" required ></div>
-                        <div class="col"><input class="form-control" name='business_lastname' type="text" placeholder="Lastname" required ></div>
+                    <!-- /* Checking if the variable business_firstname is set. If it is, it will display
+                    the value of the variable. If it is not set, it will display a blank input
+                    field. */ -->
+                    <?php if (isset($_GET['business_firstname'])){?>
+                        <div class="col">
+                        <input class="form-control" name='business_firstname' type="text" value="<?= $_GET['business_firstname']?>" placeholder="Firstname" required ></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" name='business_firstname' type="text" placeholder="Firstname" required ></div>
+                    <?php }?>
+
+                    <!-- /* Checking if the variable business_firstname is set. If it is, it will display
+                    the value of the variable. If it is not set, it will display the placeholder. */ -->
+                    <?php if (isset($_GET['business_firstname'])){?>
+                        <div class="col">
+                            <input class="form-control" name='business_lastname' type="text" value="<?= $_GET['business_lastname']?>" placeholder="Lastname" required ></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" name='business_lastname' type="text" placeholder="Lastname" required ></div>
+                    <?php }?>
+                        
                     </div>
                 </div>
-                <div class="mb-3">
-                    <input class="form-control" name='business_phonenumber' type="text" placeholder="Phone Number" required></div>
-                <div class="mb-3">
-                    <input class="form-control" name='business_owneraddress' type="text" placeholder="Address" required></div>
-                <div class="mb-3">
-                    <input class="form-control" name='business_email' type="email" placeholder="Email Address" required></div>
+
+                <!-- /* Checking if the variable business_phonenumber is set. If it is, it will display
+                the value of the variable. If it is not set, it will display a blank input
+                field. */ -->
+                <?php if (isset($_GET['business_phonenumber'])){?>
+                    <div class="mb-3">
+                        <input class="form-control" name='business_phonenumber' type="text" value="<?= $_GET['business_phonenumber']?>" placeholder="Phone Number" required></div>
+                <?php }else{?>
+                    <div class="mb-3">
+                        <input class="form-control" name='business_phonenumber' type="text" placeholder="Phone Number" required></div>
+                <?php }?>
+
+                <!-- /* Checking if the variable business_owneraddress is set. If it is, it will display
+                the value of the variable. If it is not set, it will display a blank input
+                field. */ -->
+                <?php if (isset($_GET['business_owneraddress'])){?>
+                    <div class="mb-3">
+                        <input class="form-control" name='business_owneraddress' type="text" value="<?= $_GET['business_owneraddress']?>" placeholder="Address" required></div>
+                <?php }else{?>
+                    <div class="mb-3">
+                        <input class="form-control" name='business_owneraddress' type="text" placeholder="Address" required></div>
+                <?php }?>
+                
+                <!-- /* Checking if the business_email is set in the URL. If it is, it will display the
+                value in the input field. If it is not, it will display a blank input field. */ -->
+                <?php if (isset($_GET['business_email'])){?>
+                    <div class="mb-3">
+                        <input class="form-control" name='business_email' type="email" value="<?= $_GET['business_email']?>" placeholder="Email Address" required></div>
+                <?php }else{?>
+                    <div class="mb-3">
+                        <input class="form-control" name='business_email' type="email" placeholder="Email Address" required></div>
+                <?php }?>
+                
                 <div class="row" style="margin-bottom: 10px;">
                     <div class="col"><input class="form-control" name='business_password' type="password" placeholder="Password" required></div>
                     <input type="hidden" name="status" value = '0'>

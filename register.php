@@ -132,22 +132,22 @@ if(isset($_SESSION['auth'])){
                                     <p class="fw-normal text-start" style="margin-bottom: 1px;padding-left: 10px;">Birthdate</p>
                                     <?php if (isset($_GET['dateofbirth'])){?>
                                         <div class="col">
-                                            <input type="date" name='dateofbirth' value="<?= $_GET['dateofbirth'] ?>"  required>
+                                        <input class="form-control" name='dateofbirth' type="date" placeholder="Birthdate" value="<?= $_GET['dateofbirth'] ?>"  required></div>
                                     <?php }else{?>
                                         <div class="col">
                                             <input class="form-control" name='dateofbirth' type="date" placeholder="Birthdate" required></div>
                                     <?php }?> 
-                                    
                                 </div>
-                                
+                                    
+                                <div class="row" style="margin-bottom: 10px;"> 
                                     <!-- /* Checking if the variable phonenumber is set. If it is, it will
                                     display the value of the variable. If it is not set, it will
                                     display nothing. */ -->
                                     <?php if (isset($_GET['phonenumber'])){?>
-                                        <div class="col">
+                                        <div class="col-mb-3">
                                             <input class="form-control" name="phonenumber" type="text" placeholder="Phone Number" value="<?= $_GET['phonenumber']?>"  required ></div>
                                     <?php }else{?>
-                                        <div class="col">
+                                        <div class="col-mb-3">
                                             <input class="form-control" name="phonenumber" type="text" placeholder="Phone Number" required ></div>
                                     <?php }?> 
 
@@ -160,7 +160,8 @@ if(isset($_SESSION['auth'])){
                                     <?php }else{?>
                                         <div class="col">
                                             <input class="form-control" name="address" type="text"  placeholder="Address" required></div>
-                                    <?php }?> 
+                                    <?php }?>
+                                </div> 
 
                                 <div class="row" style="margin-bottom: 10px;">
                                     <div class="col"><input class="form-control" name="password" type="password" placeholder="Password" required></div>

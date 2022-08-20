@@ -90,6 +90,8 @@ if(isset($_POST['business_register_btn']))
     // Check if email already registered
     $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
     $check_email_query_run = mysqli_query($con, $check_email_query);
+
+    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'&cuisinename[]='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email;
     
     /* This is checking if the email is already registered. If it is, it will redirect the user to the
     register page with a message. If it is not, it will check if the password matches the confirm
@@ -122,23 +124,23 @@ if(isset($_POST['business_register_btn']))
                                 redirect("../ownerlogin.php", "Register Successfully");
                             }
                             else{
-                                redirect("../businessreg.php", "Something went wrong");
+                                redirect("../businessreg.php?error=Something went wrong&$business_data", "Something went wrong");
                             }
                         }
                     else
                         {
-                            redirect("../businessreg.php", "Your password must be at least 8 characters"); 
+                            redirect("../businessreg.php?error=Your password must be at least 8 characters&$business_data", "Your password must be at least 8 characters"); 
                         }
                 }
             else
                 {
-                    redirect("../businessreg.php", "Phone number error detected");
+                    redirect("../businessreg.php?error=Phone number error detected&$business_data", "Phone number error detected");
                 }
 
         }
         else
         {
-            redirect("../businessreg.php", "Passwords do not match");
+            redirect("../businessreg.php?error=Passwords do not match&$business_data", "Passwords do not match");
         }
     }
 }
