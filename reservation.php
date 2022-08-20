@@ -18,6 +18,8 @@ include('middleware/userMiddleware.php');
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Inter.css">
+    <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <title>Reservation | I-Eat</title>
 
     <!-- Favicon -->
@@ -38,14 +40,13 @@ include('middleware/userMiddleware.php');
                 
             
             ?>
-    <link rel="stylesheet" href="reg.css">
-    <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
+
  <body>
-    <header class="bg-primary-gradient py-4">
+    <header class="bg-primary-gradient py-4 mt-5">
         <div class="container ">
             <div class="row ">
                 <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4">
-                    <div class="card" style="border-radius: 30px;border: 4px solid rgb(255,128,64) ;">
+                    <div class="card" style="border-radius: 30px;border: 4px solid rgb(255,128,64); background-color:rgb(255,128,64) ;">
                         <div class="card-body text-center d-flex flex-column align-items-center">
                             <form method="POST" action="functions/codereservation.php" style="font-family: Acme, sans-serif;">
                                 <div class="row" style="margin-bottom: 5px;">
@@ -83,7 +84,7 @@ include('middleware/userMiddleware.php');
                                     <input type="hidden" name="status" value = '0' >
                                 </div>
                                 <div class="mt-2 mb-3" style="text-align: left;">
-                                    <button class="btn btn-primary shadow d-block w-100" type="submit" name="reserve_btn" style="background: rgb(255,128,64);border-style: none;">Reserve</button>
+                                    <button class="btn btn-dark shadow d-block w-100" type="submit" name="reserve_btn" style="border-style: none;">Reserve</button>
                                 </div>
                                     <a href="index.php" style="color:black;text-decoration:underline;">Back to Home</a>
                                 <?php
