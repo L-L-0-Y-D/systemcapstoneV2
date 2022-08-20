@@ -70,35 +70,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Select Cuisine Type</label><br>
-                                <?php 
-                                    //$category = getAllActive("mealcategory");
-                                    $query = "SELECT * FROM mealcategory ";
-                                    $query_run = mysqli_query($con, $query);
-                                    if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach ($query_run as $item)
-                                            {
-                                                ?>
-                                                <input type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"
-                                                <?php
-                                                    $cuisine = str_word_count($data['cuisinename'],1);
-                                                    foreach ($cuisine as $itemcuisine)
-                                                    {
-                                                    ?>
-                                                    <?= $itemcuisine == $item['categoryname']?'checked':''?>
-                                                    <?php
-                                                    }
-                                                ?>
-                                                ><?= $item['categoryname']; ?></input>
-                                                <?php
-                                            }
-                                        }
-                                    else
-                                        {
-                                            echo "No Cuisine Type Available";
-                                        }
-                                ?>
-                                    <a style="color: black;" href="insert.php">Add Cuisine Type</a>
+                                <input type="text" name="cuisinename" value="<?= $data['cuisinename'] ?>"  required placeholder="Cuisine Type" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Business Certificate</label>

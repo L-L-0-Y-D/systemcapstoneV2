@@ -55,7 +55,7 @@ if(isset($_POST['register_btn']))
        redirect("../register.php", "Image size exceeds 5MB");
    }
    
-   $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&lastname='.$lastname.'&phonenumber='.$phonenumber.'&address='.$address;
+   $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber.'&address='.$address;
     
     // Check if email already registered
     $check_email_query = "SELECT email FROM users WHERE email='$email'";

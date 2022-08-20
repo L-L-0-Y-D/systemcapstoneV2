@@ -130,7 +130,14 @@ if(isset($_SESSION['auth'])){
                                 </div>
                                 <div class="mb-3">
                                     <p class="fw-normal text-start" style="margin-bottom: 1px;padding-left: 10px;">Birthdate</p>
-                                    <input class="form-control" name='dateofbirth' type="date" required>
+                                    <?php if (isset($_GET['dateofbirth'])){?>
+                                        <div class="col">
+                                            <input type="date" name='dateofbirth' value="<?= $_GET['dateofbirth'] ?>"  required>
+                                    <?php }else{?>
+                                        <div class="col">
+                                            <input class="form-control" name='dateofbirth' type="date" placeholder="Birthdate" required></div>
+                                    <?php }?> 
+                                    
                                 </div>
                                 
                                     <!-- /* Checking if the variable phonenumber is set. If it is, it will
