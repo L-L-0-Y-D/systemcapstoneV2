@@ -253,62 +253,6 @@
                             <span style="color: rgba(0, 0, 0, 0.7);">DRINKS</span></a></li>
                 </ul>
             <div class="tab-content">
-                <!--All-->
-                <div class="tab-pane" role="tabpanel" id="allmenu">
-                    <div class="container">
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                           
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">ALL</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                        <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>                                               
-                                    </div></a>   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>      
                 <!--APPETIZER-->
                 <div class="tab-pane" role="tabpanel" id="appetizer">
                     <div class="container">
@@ -759,6 +703,60 @@
                 ?>
                 <!--ALL MENU-->
                 <div class="tab-pane active" role="tabpanel" id="allmenu">
+                    <div class="container">
+                    <?php
+                        if(mysqli_num_rows($product) > 0)
+                        {                           
+                        $sql = "SELECT * FROM `products` WHERE businessid = $bid";
+                        $result = $con->query($sql);
+                        foreach($result as $item)
+                        {
+                    ?>
+                        <div class="row">
+                            <div class="col">
+                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">ALL</h1>
+                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
+                                <div class="container">
+                                    <div class="row">                                         
+						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
+                                        <div class="col-md-4">
+                                            <section class="py-4 py-xl-5">
+                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
+                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
+                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
+                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
+                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                    <div class="my-3"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
+                                                                <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>                                               
+                                    </div></a>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    }
+                }
+                    else
+                    {
+                        echo "";
+                    ?>
+                <?php
+                }
+                ?>      
                 </div>
             </div> 
         </div>
