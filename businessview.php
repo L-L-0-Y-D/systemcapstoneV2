@@ -266,7 +266,7 @@
                     ?>
                         <div class="row">
                             <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">APPETIZER</h1>
+                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">ALL</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
                                     <div class="row">                                         
