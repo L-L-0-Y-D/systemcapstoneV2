@@ -254,7 +254,7 @@
                 </ul>
             <div class="tab-content">
                 <!--All-->
-                <div class="tab-pane" role="tabpanel" id="allmenu">
+                <div class="tab-pane active" role="tabpanel" id="allmenu">
                     <div class="container">
                     <?php
                         if(mysqli_num_rows($product) > 0)
@@ -757,9 +757,7 @@
                 <?php
                 }
                 ?>
-                <!--ALL MENU-->
-                <div class="tab-pane active" role="tabpanel" id="allmenu">
-                </div>
+                
             </div> 
         </div>
     </div>
