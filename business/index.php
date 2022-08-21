@@ -118,10 +118,49 @@ include('includes/header.php');
                             <div class="col-lg-6 mb-4">
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="text-primary fw-bold m-0"><br><strong>TOTAL RESERVATION</strong><br></h6>
+                                        <h6 class="text-primary fw-bold m-0"><br><strong>OVERALL RESERVATION</strong><br></h6>
                                     </div>
                                     <div class="card-body">
-                                        
+                                    <table class="table my-0" id="dataTable" style="text-align:center">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>No. of Guest</th>
+                                                    <th>Reservation Date</th>
+                                                    <th>Reservation Time</th>
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody style="text-align:center">
+                                                <?php
+                                                    //$reservations = getAll("reservations");
+                                                    $query_reservation = "SELECT * FROM reservations ORDER BY reservationid DESC ";
+                                                    $query_reservation_run = mysqli_query($con, $query_reservation);
+
+                                                    if(mysqli_num_rows($query_reservation_run) > 0)
+                                                    {
+                                                        foreach($query_reservation_run as $item)
+                                                        {
+                                                            if($item['businessid'] == $_SESSION['auth_user']['businessid'])
+                                                                {
+                                                                ?>
+                                                                    <tr>
+                                                                        <td><?= $item['namereserveunder']; ?></td>
+                                                                        <td><?= $item['numberofguest']; ?></td>
+                                                                        <td><?= $item['reservation_date']; ?></td>
+                                                                        <td><?= $item['reservation_time']; ?></td>
+                                                                    </tr>
+                                                                <?php
+                                                                }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "No records Found";
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +171,48 @@ include('includes/header.php');
                                         <h6 class="text-primary fw-bold m-0"><br><strong>PENDING RESERVATION</strong><br></h6>
                                     </div>
                                     <div class="card-body">
+                                    <table class="table my-0" id="dataTable" style="text-align:center">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>No. of Guest</th>
+                                                    <th>Reservation Date</th>
+                                                    <th>Reservation Time</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody style="text-align:center">
+                                                <?php
+                                                    //$reservations = getAll("reservations");
+                                                    $query_reservation = "SELECT * FROM reservations WHERE status = '0' ORDER BY reservationid DESC";
+                                                    $query_reservation_run = mysqli_query($con, $query_reservation);
 
+                                                    if(mysqli_num_rows($query_reservation_run) > 0)
+                                                    {
+                                                        foreach($query_reservation_run as $item)
+                                                        {
+                                                            if($item['businessid'] == $_SESSION['auth_user']['businessid'])
+                                                                {
+                                                                ?>
+                                                                    <tr>
+                                                                        <td><?= $item['namereserveunder']; ?></td>
+                                                                        <td><?= $item['numberofguest']; ?></td>
+                                                                        <td><?= $item['reservation_date']; ?></td>
+                                                                        <td><?= $item['reservation_time']; ?></td>
+                                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"; ?></td>
+                                                                    </tr>
+                                                                <?php
+                                                                }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "No records Found";
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +225,42 @@ include('includes/header.php');
                                         <h6 class="text-primary fw-bold m-0"><br><strong>FEEDBACK AND REVIEW</strong><br></h6>
                                     </div>
                                     <div class="card-body">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead style="text-align:center">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Rating</th>
+                                                <th>Review</th>
+                                            </tr>
+                                            </thead>
+                                    
+                                        <tbody style="text-align:center">
+                                            <?php
+                                                $review = getAll("review_table");
 
+                                                if(mysqli_num_rows($review) > 0)
+                                                {
+                                                    foreach($review as $item)
+                                                    {
+                                                        if($item['businessid'] == $_SESSION['auth_user']['businessid'])
+                                                            {
+                                                        ?>
+                                                        <tr>
+                                                                <td><?= $item['user_name']; ?></td>
+                                                                <td><?= $item['user_rating']; ?></td>
+                                                                <td><?= $item['user_review'];?></td>
+                                                        </tr>
+                                                        <?php
+                                                            }
+                                                    }
+                                                }
+                                                    else
+                                                    {
+                                                        echo "No records Found";
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
