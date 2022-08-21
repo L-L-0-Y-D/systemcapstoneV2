@@ -10,6 +10,7 @@ include('../config/dbcon.php');
     //Load Composer's autoloader
     require '../vendor/autoload.php';
 
+
 function sendemail_forgetpassword($email,$verify_token)
 {
     //Create an instance; passing `true` enables exceptions
@@ -95,47 +96,6 @@ function sendemail_businessconfirm($email,$name)
 
 
 }
-function sendemail_confirmreservation($name,$email,$date,$time,$numguest)
-    {
-        //Create an instance; passing `true` enables exceptions
-        $mail = new PHPMailer(true);
-    
-        //$mail->SMTPDebug = 2; 
-        $mail->isSMTP();
-        $mail->SMTPAuth   = true; 
-    
-        $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "ieatwebsite@gmail.com";
-        $mail->Password   = "ydckqbbwsloabncq";
-        
-        $mail->SMTPOptions = array(
-            'ssl' => array(
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-            'allow_self_signed' => true
-            )
-            );
-        $mail->SMTPSecure = "tls";
-        $mail->Port       = 587;
-        
-        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
-        $mail->addAddress($email);
-    
-        $mail->isHTML(true);
-        $mail->Subject = 'Reservation Confirm'; 
-    
-        $email_template = "
-        <b>Dear $name</b>
-        <h3>Congratulations.</h3>
-        <p>You are now reserve with of $numguest and the time and date are $date and $time
-        ";
-    
-        $mail->Body    = $email_template;
-        $mail->send();
-       // echo 'Message has been sent';
-    
-    
-    }
 
 //for getting all the data in the table
 function getAll($table)

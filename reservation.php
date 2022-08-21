@@ -58,6 +58,7 @@ include('middleware/userMiddleware.php');
                                 <div class="row" style="margin-bottom: 5px;">
                                     <div class="col">
                                         <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
+                                        <input type="hidden" name="business_name" value="<?= $data['business_name'] ?>">
                                         <input type="hidden" name="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
                                         <p class="mb-1 mt-2 fw-bold" for="namereserveunder" style="text-align: left;font-size: 14px;">Name Reserved Under:</p>
                                         <input type="text" id="namereserveunder" name='namereserveunder'value="<?= $_SESSION['auth_user']['name'];?>" class="form-control" required>
@@ -69,7 +70,7 @@ include('middleware/userMiddleware.php');
                                 </div>
                                 <div class="mb-2">
                                     <p class="mb-1 mt-2 fw-bold" for="reservation_phonenumber" style="text-align: left;font-size: 14px;">Phone Number</p>
-                                    <input class="form-control" type="text " id="reservation_phonenumber" name="reservation_phonenumber" required>
+                                    <input class="form-control" type="text " id="reservation_phonenumber" name="reservation_phonenumber" value="<?= $_SESSION['auth_user']['phonenumber'];?>" required>
                                 </div>
                                 <div class="mb-2">
                                     <p class="mb-1 mt-2 fw-bold" for="reservation_date" style="text-align: left;font-size: 14px;">Reservation Date</p>

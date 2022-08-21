@@ -119,40 +119,44 @@ include('../config/dbcon.php');
     
     }
 
-    function sendemail_confirmreservation($name,$email,$date,$time,$numguest)
+    // Required if your environment does not handle autoloading
+    require '../vendor/autoload.php';
+
+    // Use the REST API Client to make requests to the Twilio REST API
+    use Twilio\Rest\Client;
+
+function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
+{
+    // Your Account SID and Auth Token from twilio.com/console
+    $sid = 'AC319119520487be0445e890d2ae09e4b2';
+    $token = '0ce8c987fa2abc718cccb6a0a863e1ef';
+    $client = new Client($sid, $token);
+
+    $receiver = ltrim($phonenumber,"0");
+
+    // Use the client to do fun stuff like send text messages!
+    $message = $client->messages->create(
+    // the number you'd like to send the message to
+        '+63'.$receiver,
+    [
+        // A Twilio phone number you purchased at twilio.com/console
+        'from' => '+16195030287',
+        // the body of the text message you'd like to send
+        'body' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are confirm'
+    ]
+    );
+
+    if($message)
     {
-        //Create an instance; passing `true` enables exceptions
-        $mail = new PHPMailer(true);
-    
-        //$mail->SMTPDebug = 2; 
-        $mail->isSMTP();
-        $mail->SMTPAuth   = true; 
-    
-        $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "ieatwebsite@gmail.com";
-        $mail->Password   = "ydckqbbwsloabncq";
-    
-        $mail->SMTPSecure = "tls";
-        $mail->Port       = 587;
-        
-        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
-        $mail->addAddress($email);
-    
-        $mail->isHTML(true);
-        $mail->Subject = 'Reservation Confirm'; 
-    
-        $email_template = "
-        <b>Dear $name</b>
-        <h3>Congratulations.</h3>
-        <p>You are now reserve with of $numguest and the time and date are $date and $time
-        ";
-    
-        $mail->Body    = $email_template;
-        $mail->send();
-       // echo 'Message has been sent';
-    
-    
+        redirect("../business/reservation.php?id=$businessid", "Message Sent");
     }
+    else
+    {
+        redirect("../business/reservation.php?id=$businessid", "Message not sent");
+    }
+    
+    
+}
     
 
 

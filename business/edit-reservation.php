@@ -16,10 +16,16 @@ include('includes/header.php');
                 $id = $_GET['id'];
 
                 $reservations = getByID("reservations", $id,"reservationid");
+                $query_reservation = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,reservations.userid,reservations.status
+                FROM reservations
+                JOIN business
+                ON reservations.businessid=business.businessid
+                WHERE reservationid = '$id'";
+                $query_reservation_run = mysqli_query($con, $query_reservation);
 
-                if(mysqli_num_rows($reservations) > 0)
+                if(mysqli_num_rows($query_reservation_run) > 0)
                 {
-                    $data = mysqli_fetch_array($reservations);
+                    $data = mysqli_fetch_array($query_reservation_run);
                     ?>
                     <div class="card">
                         <div class="card-header">
@@ -37,6 +43,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <!--Needed-->
+                                <input type="hidden" name="business_name" value="<?= $data['business_name'] ?>">
                                 <input type="hidden" name="reservationid" value="<?= $data['reservationid'] ?>">
                                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
