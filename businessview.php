@@ -206,8 +206,7 @@
                 </div>
             </div>
             <div class="col-md-4" style="padding-top: 90px;padding-bottom: 90px;background: var(--bs-gray-800);color: var(--bs-dark);box-shadow: 0px 0px 2px var(--bs-dark);border-style: none;">
-                <h1 class="text-start" style="font-family: 'Kaushan Script', serif;color: RGB(255,128,64);padding-left: 15px;padding-right: 15px;font-weight: bold;margin-top: 8px;"><?= $data['business_name']; ?>
-                <span class="text-end" style="font-size: 16PX;color: var(--bs-dark);"></span></h1>
+                <h1 class="text-start" style="font-size: 60px;font-family: 'Kaushan Script', serif;color: RGB(255,128,64);padding-left: 15px;padding-right: 15px;font-weight: bold;margin-top: 8px;"><?= $data['business_name']; ?></h1>
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['business_address']; ?></p>
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['cuisinename']; ?></p>
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['business_phonenumber']; ?></p>
@@ -253,29 +252,28 @@
                             <span style="color: rgba(0, 0, 0, 0.7);">DRINKS</span></a></li>
                 </ul>
             <div class="tab-content">
-<<<<<<< HEAD
                 <!--All-->
                 <div class="tab-pane active" role="tabpanel" id="allmenu">
                     <div class="container">
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                           
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">ALL</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                        <div class="col-md-4">
+                                    <div class="row">   
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {                           
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                      
+						                <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -290,50 +288,49 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>   
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div>
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?> 
+                                    </div>        
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>      
-=======
->>>>>>> 7f9a70fc132c2929f244e247d2bec38dca9f6991
+                     
                 <!--APPETIZER-->
                 <div class="tab-pane" role="tabpanel" id="appetizer">
                     <div class="container">
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                           
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">APPETIZER</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
+                                    <div class="row">  
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {                           
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                       		    
                                         <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -348,48 +345,49 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div>  
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?>                                             
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>
+             
                 <!--SOUP-->
                 <div class="tab-pane" role="tabpanel" id="soup">
                     <div class="container">
-                        <?php
-                            if(mysqli_num_rows($product) > 0)
-                            {                                       
-                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup';";
-                            $result = $con->query($sql);
-                            foreach($result as $item)
-                            {
-                        ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">SOUP</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
+                                    <div class="row">    
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {                                       
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup';";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                     
                                         <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px; box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -404,48 +402,49 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div>
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?>                                               
+                                    </div>  
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>
+               
                 <!--DRINKS-->
                 <div class="tab-pane" role="tabpanel" id="drinks">
                     <div class="container">
-                        <?php
-                            if(mysqli_num_rows($product) > 0)
-                            {                                        
-                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks';";
-                            $result = $con->query($sql);
-                            foreach($result as $item)
-                            {
-                        ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">DRINKS</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
+                                    <div class="row"> 
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {                                        
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks';";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                               
                                         <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -460,48 +459,49 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>   
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div> 
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?>                                              
+                                    </div>  
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>
+                
                 <!--MEAT DISH-->
                 <div class="tab-pane" role="tabpanel" id="meatdish">
                     <div class="container">
-                        <?php
-                            if(mysqli_num_rows($product) > 0)
-                            {                  
-                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish';";
-                            $result = $con->query($sql);
-                            foreach($result as $item)
-                            {
-                        ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">MEAT DISH</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                        <div class="col-md-4">
+                                    <div class="row">   
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {                  
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish';";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                      
+						                <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -516,48 +516,49 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>   
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div>
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>        
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>
+                
                 <!--MAIN COURSE-->
                 <div class="tab-pane" role="tabpanel" id="maincourse">
                     <div class="container">
-                        <?php
-                            if(mysqli_num_rows($product) > 0)
-                            {                                     
-                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main';";
-                            $result = $con->query($sql);
-                            foreach($result as $item)
-                            {
-                        ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">MAIN COURSE</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                        <div class="col-md-4">
+                                    <div class="row">   
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {                                     
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main';";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                      
+						                <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -572,48 +573,49 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>   
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div>
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>          
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>
+                
                 <!--SALAD-->
                 <div class="tab-pane" role="tabpanel" id="salad">
                     <div class="container">
-                        <?php
-                            if(mysqli_num_rows($product) > 0)
-                            {                  
-                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad';";
-                            $result = $con->query($sql);
-                            foreach($result as $item)
-                            {
-                        ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">SALAD</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                        <div class="col-md-4">
+                                    <div class="row">  
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {                  
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad';";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                       
+						                <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -628,48 +630,49 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>   
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div>
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>        
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>
+                
                 <!--DESSERT-->
                 <div class="tab-pane" role="tabpanel" id="dessert">
                     <div class="container">
-                        <?php
-                            if(mysqli_num_rows($product) > 0)
-                            {                                     
-                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert';";
-                            $result = $con->query($sql);
-                            foreach($result as $item)
-                            {
-                        ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">DESSERT</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                        <div class="col-md-4">
+                                    <div class="row">
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {                                     
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert';";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                         
+						                <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -684,48 +687,49 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>   
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div>
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>         
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>
+                
                 <!--FISH DISH-->
                 <div class="tab-pane" role="tabpanel" id="fishdish">
                     <div class="container">
-                        <?php
-                            if(mysqli_num_rows($product) > 0)
-                            {     
-                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish';";
-                            $result = $con->query($sql);
-                            foreach($result as $item)
-                            {
-                        ?>
                         <div class="row">
                             <div class="col">
                                 <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">FISH DISH</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                 <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                        <div class="col-md-4">
+                                    <div class="row"> 
+                                        <?php
+                                            if(mysqli_num_rows($product) > 0)
+                                            {     
+                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish';";
+                                            $result = $con->query($sql);
+                                            foreach($result as $item)
+                                            {
+                                        ?>                                        
+						                <div class="col-md-4">
                                             <section class="py-4 py-xl-5">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
+                                                    <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
                                                                 <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
@@ -740,87 +744,26 @@
                                                                 <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>   
                                                 </div>
                                             </section>
-                                        </div>                                               
-                                    </div></a>   
+                                        </div> 
+                                        <?php
+                                            }
+                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            ?>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>       
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>
-<<<<<<< HEAD
-                
-=======
-                <!--ALL MENU-->
-                <div class="tab-pane active" role="tabpanel" id="allmenu">
-                    <div class="container">
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                           
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">ALL</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="container">
-                                    <div class="row">                                         
-						            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                        <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>                                               
-                                    </div></a>   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                    }
-                }
-                    else
-                    {
-                        echo "";
-                    ?>
-                <?php
-                }
-                ?>      
-                </div>
->>>>>>> 7f9a70fc132c2929f244e247d2bec38dca9f6991
             </div> 
         </div>
     </div>
