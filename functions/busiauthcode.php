@@ -57,7 +57,7 @@ if(isset($_POST['business_register_btn']))
     }    // Validate image file size less than
     else if (($_FILES["image"]["size"] < 0)) {
  
-        redirect("../businessreg.php", "Image size less than 2MB");
+        redirect("../businessreg.php", "Image size less than 800KB");
 
     }    // Validate image file size less than
     else if (($_FILES["image_cert"]["size"] < 0)) {
@@ -65,9 +65,9 @@ if(isset($_POST['business_register_btn']))
         redirect("../businessreg.php", "Image size less than 2MB");
 
     }    // Validate image file size that is greater
-    else if (($_FILES["image"]["size"] > 5000000)) {
+    else if (($_FILES["image"]["size"] > 80000)) {
  
-        redirect("../businessreg.php", "Image size exceeds 5MB");
+        redirect("../businessreg.php", "Image size exceeds 800KB");
     }    // Validate image file size
     else if (($_FILES["image_cert"]["size"] > 5000000)) {
  

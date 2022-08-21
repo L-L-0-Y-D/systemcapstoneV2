@@ -657,7 +657,7 @@ else if(isset($_POST['update_admin_btn']))
     $address = $_POST['address'];
     $password = $_POST['password'];
     $role_as = $_POST['role_as'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = $_POST['status'];
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];

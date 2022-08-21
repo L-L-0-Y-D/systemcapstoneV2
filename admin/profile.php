@@ -128,7 +128,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="form-check form-switch">
-                                <input type="hidden" name="status" <?= $data['status'] == '0'? 'checked':'' ?>>
+                                <input type="hidden" name="status" value = '1'>
                             </div>
                             <div class="mb-3">
                                 <button class="btn btn-sm" type="submit" name="update_admin_btn" style="background: rgb(255,128,64);color: var(--bs-white);">UPDATE ADMIN PROFILE&nbsp;</button>
