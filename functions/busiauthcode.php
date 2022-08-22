@@ -21,6 +21,7 @@ if(isset($_POST['business_register_btn']))
     $status = isset($_POST['status']) ? "0":"1";
     $verify_token = md5(rand());
 
+    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'&cuisinename[]='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email;
      // Get Image Dimension
      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
      $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
@@ -38,40 +39,40 @@ if(isset($_POST['business_register_btn']))
      // Validate file input to check if is not empty
     if (! file_exists($_FILES["image"]["tmp_name"])) {
         
-         redirect("../businessreg.php", "Choose image file to upload.");
+         redirect("../businessreg.php?error=Choose image file to upload&$business_data", "Choose image file to upload.");
      
     }// Validate file input to check if is not empty
     else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
         
-        redirect("../businessreg.php", "Choose image certificate file to upload.");
+        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image certificate file to upload.");
             
     }    // Validate file input to check if is with valid extension
     else if (! in_array($file_extension, $allowed_image_extension)) {
  
-        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business image.");
     }    // Validate file input to check if is with valid extension
     else if (! in_array($file_cert_extension, $allowed_image_extension)) {
     
-        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
        
     }    // Validate image file size less than
     else if (($_FILES["image"]["size"] < 0)) {
  
-        redirect("../businessreg.php", "Image size less than 800KB");
+        redirect("../businessreg.php?error=Image size less than 800KB&$business_data", "Image size less than 800KB");
 
     }    // Validate image file size less than
     else if (($_FILES["image_cert"]["size"] < 0)) {
  
-        redirect("../businessreg.php", "Image size less than 2MB");
+        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB");
 
     }    // Validate image file size that is greater
-    else if (($_FILES["image"]["size"] > 80000)) {
+    else if (($_FILES["image"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php", "Image size exceeds 800KB");
+        redirect("../businessreg.php?error=Image size exceeds 800KB&$business_data", "Image size exceeds 800KB");
     }    // Validate image file size
     else if (($_FILES["image_cert"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php", "Image size exceeds 5MB");
+        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB");
 
     }
 
@@ -91,7 +92,6 @@ if(isset($_POST['business_register_btn']))
     $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
     $check_email_query_run = mysqli_query($con, $check_email_query);
 
-    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'&cuisinename[]='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email;
     
     /* This is checking if the email is already registered. If it is, it will redirect the user to the
     register page with a message. If it is not, it will check if the password matches the confirm

@@ -196,7 +196,7 @@ include('includes/header.php');
                                                                     <td><?= $item['business_name']; ?></td>
                                                                     <td><?= $item['business_address']; ?></td>
                                                                     <td><?= $item['cuisinename']; ?></td>
-                                                                    <td><?= $item['status']== '0'? "Denied":"Confirmed"; ?></td>
+                                                                    <td><?= $item['status']== '0'? "Waiting":"Confirmed"; ?></td>
                                                                 </tr>
                                                             <?php
                                                         }
@@ -247,7 +247,7 @@ include('includes/header.php');
                                                                     <td><?= $item['business_name']; ?></td>
                                                                     <td><?= $item['business_address']; ?></td>
                                                                     <td><?= $item['cuisinename']; ?></td>
-                                                                    <td><?= $item['status']== '0'? "Denied":"Confirmed"; ?></td>
+                                                                    <td><?= $item['status']== '0'? "Waiting":"Confirmed"; ?></td>
                                                                 </tr>
                                                             <?php
                                                         }
