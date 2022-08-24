@@ -28,9 +28,9 @@
                         foreach($business as $item)
                         {
                     ?>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-5"><a href="businessview.php?id=<?=$item['businessid'];?>">
-                            <img class="card-img-top scale-on-hover" src="uploads/<?= $item['image']; ?>" alt="Card Image"></a>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-4"><a href="businessview.php?id=<?=$item['businessid'];?>">
+                            <img class="card-img-top scale-on-hover" src="uploads/<?= $item['image']; ?>" alt="Card Image" height="250px;"></a>
                             <div class="card-body" style="padding-top: 10px;">
                                 <p class="text-center" style="font-family: Acme, sans-serif;font-weight: bold;font-size: 20px;"><?= $item['business_name']; ?></p>
                                 <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Located at <?= $item['business_address']; ?></p>

@@ -1,4 +1,4 @@
-<footer class="bg-white sticky-footer">
+<footer class="bg-white sticky-footer ">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © I - Eat 2022</span></div>
                 </div>
@@ -15,9 +15,13 @@
     <script src="assets/js/Simple-Slider.js"></script>
     <script src="assets/js/perfect-scrollbar.min.js"></script>
     <script src="assets/js/smooth-scrollbar.min.js"></script>
-
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/agency.js"></script>
     <!-- ALERTIFY JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/agency.js"></script>
+
     
     <script>
     <?php if(isset($_SESSION['message'])) 
