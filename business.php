@@ -2,6 +2,7 @@
 
     include('functions/userfunctions.php');
     include('includes/header.php'); 
+    include('includes/navbar.php'); 
 
     if(isset($_GET['id']))
         {

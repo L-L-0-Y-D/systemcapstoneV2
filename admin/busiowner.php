@@ -5,6 +5,7 @@ include('includes/header.php');
 
 
 ?>
+<!--
 <div class="container-fluid">
     <div class="d-sm-flex justify-content-between align-items-center mb-4">
         <h3 class="text-dark mb-4">BUSINESS PARTNERS</h3>   
@@ -54,7 +55,7 @@ include('includes/header.php');
                         <button class="btn btn-primary" type="button" data-bs-dismiss="modal">
                             <i class="fa fa-times"></i><span>&nbsp;Close&nbsp;</span>
                         </button>
-                    /div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
                             <?php
@@ -167,7 +168,7 @@ include('includes/header.php');
                                                             <div class="mb-3">
                                                                 <div class="row">
                                                                     <div class="col d-lg-flex justify-content-lg-end align-items-lg-center">
-                                                                        <div class="mb-3"></div><button class="btn btn-primary btn-sm" type="submit" href="edit-business.php?id=<?= $item['businessid']; ?>">EDIT</button>
+                                                                        <div class="mb-3"></div><a href="edit-business.php?id=<?= $item['businessid']; ?>"><button class="btn btn-primary btn-sm" type="submit" >EDIT</button></a>
                                                                     </div>
                                                                     <div class="col d-lg-flex justify-content-lg-start align-items-lg-center">
                                                                         <div class="mb-3"></div><button class="btn btn-primary btn-sm" type="submit" value="<?= $item['businessid']; ?>">DELETE</button>
@@ -209,11 +210,12 @@ include('includes/header.php');
             </div>
         </div>
     </div>
-    
+
+-->   
 
 
 
-<!--
+
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-4">BUSINESS PARTNERS</h3>
@@ -322,7 +324,7 @@ include('includes/header.php');
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
 <?php 
 
 //include('../middleware/adminMiddleware.php');

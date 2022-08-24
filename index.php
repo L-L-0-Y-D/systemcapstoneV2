@@ -3,7 +3,7 @@
     include('functions/userfunctions.php');
     include('includes/header.php');
 ?>
- <header class="masthead "  style="height:900px;padding-top:200px;background-image:url(uploads/bg.png); background-position:top center;">
+ <header class="masthead "  style="height:900px;padding-top:200px;background-image:url(uploads/bg.png); background-position:top center;background-attachment:fixed;">
         <div class="container">
             <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
                 <div class="intro-lead-in">
@@ -20,7 +20,17 @@
             </div>
         </div>
     </header>
-<section class="bg-light" id="portfolio" style="padding-top: 50px;padding-bottom: 50px;">
+    <section id="about" style="margin-bottom:0px;padding-top: 0px;">
+        <section class="py-4 py-xl-5" style="background: url(uploads/forabout2.png)center;height:300px; background-size:contain;">
+            <div class="container">
+                <div class="text-center p-lg-5">
+                    <h1 class="text-uppercase section-heading fw-bold mb-0" style="font-size:60px;margin-top: 20px;">ABOUT&nbsp; &nbsp;| &nbsp; &nbsp; I - EAT</h1>
+                </div>
+            </div>
+        </section>  
+        <p class="fs-5 mt-2" style="font-family:Acme;margin-left:100px;margin-right:100px;">I-Eat: established in 2022, an online international cuisine management system. I-Eat aims to improve the management of the growing community of food industry within Bataan. The system is designed intending to manage customer information, to provide an efficient, contactless, and a more accurate business process. It is capable of locating specialty restaurants and displaying various menus from specialty restaurants.</p>      
+    </section>
+<section class="bg-light" id="portfolio" style="margin-top:0px;padding-top: 50px;padding-bottom: 50px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -58,18 +68,9 @@
             </div>
         </div>
     </section>
-    <hr >
-    <section id="about" style="padding-top: 0px;">
-        <section class="py-4 py-xl-5" style="background: url(uploads/bg.png)left;height: 300px;">
-            <div class="container">
-                <div class="text-center p-4 p-lg-5">
-                    <h1 class="text-uppercase section-heading fw-bold mb-4" style="font-size:50px;margin-top: 40px;">ABOUT&nbsp; &nbsp;| &nbsp; &nbsp; I - EAT</h1>
-                </div>
-            </div>
-        </section><hr>
-        <p style="margin-left:100px;margin-right:100px;text-indent:50px;font-size: 18px;">I-Eat: established in 2022, an online international cuisine management system. I-Eat aims to improve the management of the growing community of food industry within Bataan. The system is designed intending to manage customer information, to provide an efficient, contactless, and a more accurate business process. It is capable of locating specialty restaurants and displaying various menus from specialty restaurants.</p>
-    </section>
-    <section id="contact" class="py-5 mt-0" style="background: var(--bs-gray-300);">
+   
+
+    <section id="contact" class="py-5 mt-0" style="background: url(uploads/forbg2.png)center; background-size:cover;">
         <div class="container py-5">
             <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex align-items-md-center align-items-xl-center">
                 <div class="col offset-xl-2 mb-4">
@@ -92,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mb-4" style="background: transparent;"><img src="uploads/bg.png" style="height: 500px;width: 370px;border-radius: 10px;"></div>
+                <div class="col mb-4" style="background: transparent;"><img src="uploads/forcontact.png" style="height: 500px;width: 370px;border-radius: 10px;"></div>
             </div>
         </div>
     </section>

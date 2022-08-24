@@ -106,8 +106,8 @@
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATION</a></li>
                             <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                
                 <?php
                 }
@@ -131,8 +131,8 @@
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATION</a></li>
                             <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                 
                 <?php
                 }
@@ -156,8 +156,8 @@
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATION</a></li>
                             <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                
                 <?php 
                 }  
@@ -185,8 +185,8 @@
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATION</a></li>
                             <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                    
                     <?php } ?>
                 </ul>
@@ -270,16 +270,16 @@
                                             {
                                         ?>                                      
 						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu2.png); background-size:cover;height: 100%;">
+                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                     <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
@@ -327,16 +327,16 @@
                                             {
                                         ?>                                       		    
                                         <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu1.png)center; background-size:cover;height: 100%;">
+                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                     <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
@@ -384,7 +384,7 @@
                                             {
                                         ?>                                     
                                         <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px; box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
@@ -441,16 +441,16 @@
                                             {
                                         ?>                                               
                                         <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu1.png)center; background-size:cover;height: 100%;">
+                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                     <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
@@ -498,16 +498,16 @@
                                             {
                                         ?>                                      
 						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu1.png)center; background-size:cover;height: 100%;">
+                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                     <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
@@ -555,16 +555,16 @@
                                             {
                                         ?>                                      
 						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu1.png)center; background-size:cover;height: 100%;">
+                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                     <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
@@ -612,16 +612,16 @@
                                             {
                                         ?>                                       
 						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu1.png)center; background-size:cover;height: 100%;">
+                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                     <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
@@ -669,16 +669,16 @@
                                             {
                                         ?>                                         
 						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu1.png)center; background-size:cover;height: 100%;">
+                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                     <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
@@ -726,16 +726,16 @@
                                             {
                                         ?>                                        
 						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-5">
+                                            <section class="py-4 py-xl-3">
                                                 <div class="container" style="padding-right: 0px;padding-left: 0px;">
                                                     <div class="border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                    <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" ><?= $item['cuisinename']; ?></p>
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu1.png)center; background-size:cover;height: 100%;">
+                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
+                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                     <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>

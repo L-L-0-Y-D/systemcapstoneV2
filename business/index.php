@@ -113,7 +113,7 @@ include('includes/header.php');
                                 </div>
                             </div>
                         </div>
-                        <!--FOR TOTAL RESERVATION-->    
+                        <!--FOR OVERALL RESERVATION-->    
                         <div class="row">
                             <div class="col-lg-6 mb-4">
                                 <div class="card shadow mb-4">
@@ -171,7 +171,7 @@ include('includes/header.php');
                                         <h6 class="text-primary fw-bold m-0"><br><strong>PENDING RESERVATION</strong><br></h6>
                                     </div>
                                     <div class="card-body">
-                                    <table class="table my-0" id="dataTable" style="text-align:center">
+                                        <table class="table my-0" id="dataTable" style="text-align:center">
                                             <thead>
                                                 <tr>
                                                     <th>Name</th>

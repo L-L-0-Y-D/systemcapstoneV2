@@ -95,7 +95,7 @@
                                             <div class="dropdown-divider bg-gray-500"></div>
                                         <a class="dropdown-item" href="../logout.php">
                                             <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
-                                        </div>
+                                    </div>
                                 </div>
                             </li>
                         </ul>

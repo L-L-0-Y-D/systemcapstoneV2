@@ -4,9 +4,9 @@
   $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
 ?>
 <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(255,128,64);">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                <div class="sidebar-brand-icon"><img class=" img-profile" src="../uploads/I-EatLogo.png" width="80" height="80"></div>
-                    <div class="sidebar-brand-text mx-3"><span>I - Eat</span></div>
+    <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+        <div class="sidebar-brand-icon"><img class=" img-profile" src="../uploads/I-EatLogo.png" width="80" height="80"></div>
+            <div class="sidebar-brand-text mx-3"><span>I - Eat</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
