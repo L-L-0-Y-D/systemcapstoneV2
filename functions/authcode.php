@@ -17,6 +17,8 @@ if(isset($_POST['register_btn']))
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
     $verify_token = md5(rand());
 
+    $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber.'&address='.$address;
+
     $today = date("Y-m-d");
     $difference = date_diff(date_create($dateofbirth), date_create($today));
     $age = $difference->format('%y');
@@ -43,20 +45,18 @@ if(isset($_POST['register_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("../register.php", "Choose image file to upload.");
+        redirect("../register.php?error=Choose image file to upload&$user_data", "Choose image file to upload.");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("../register.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("../register.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$user_data", "Upload valid images. Only PNG and JPEG are allowed in business image.");
    }// Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 5000000)) {
 
-       redirect("../register.php", "Image size exceeds 5MB");
+       redirect("../register.php?error=Image size exceeds 5MB&$user_data", "Image size exceeds 5MB");
    }
    
-   $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber.'&address='.$address;
-    
     // Check if email already registered
     $check_email_query = "SELECT email FROM users WHERE email='$email'";
     $check_email_query_run = mysqli_query($con, $check_email_query);

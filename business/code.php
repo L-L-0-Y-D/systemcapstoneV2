@@ -15,6 +15,8 @@ if(isset($_POST['add_product_btn']))
 
     $image = $_FILES['image']['name'];
 
+    $food_data = 'name='.$name.'&description='.$description.'&food_type='.$food_type.'&cuisinename='.$cuisinename.'&price='.$price.'&status='.$status;
+
     $path = "../uploads";
 
     // Get Image Dimension
@@ -32,7 +34,7 @@ if(isset($_POST['add_product_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
+        redirect("add-menu.php?id=$businessid&Choose image file to upload", "Choose image file to upload.");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
@@ -44,7 +46,7 @@ if(isset($_POST['add_product_btn']))
        redirect("add-menu.php?id=$businessid", "Image size less than 800KB");
 
    }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 1000000)) {
+   else if (($_FILES["image"]["size"] > 100000000)) {
 
        redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
    }

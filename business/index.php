@@ -97,7 +97,7 @@ include('includes/header.php');
                                                         $query_rating = "SELECT AVG(user_rating) AS averagerating FROM review_table WHERE businessid = $businessuser";
                                                         $query_rating_run = mysqli_query($con, $query_rating);
                                                         $row_rating = mysqli_fetch_assoc($query_rating_run);
-                                                        echo '<span>'.$row_rating['averagerating'].'</span>'
+                                                        echo '<span>'.$row_rating['averagerating'].'</span>';
                                                     ?> 
                                                     </div>
                                                 </div>
@@ -208,7 +208,7 @@ include('includes/header.php');
                                                     }
                                                     else
                                                     {
-                                                        echo "No records Found";
+                                                        
                                                     }
                                                 ?>
                                             </tbody>
