@@ -102,16 +102,16 @@ elseif (isset($_POST['update_product_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+            redirect("add-menu.php?id=$productid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 800000)) {
+        else if (($_FILES["image"]["size"] < 8000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 800KB");
+            redirect("add-menu.php?id=$productid", "Image size less than 800KB");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 1000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+            redirect("add-menu.php?id=$productid", "Image size exceeds 10MB");
         }
     }
     else
@@ -251,7 +251,7 @@ else if(isset($_POST['edit_business_btn']))
 
             redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 80000)) {
+        else if (($_FILES["image"]["size"] < 800)) {
 
             redirect("profile.php?id=$businessid", "Image size less than 800KB");
 
@@ -283,7 +283,7 @@ else if(isset($_POST['edit_business_btn']))
 
             redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.");
         }// Validate image file size less than
-        else if (($_FILES["image_cert"]["size"] < 80000)) {
+        else if (($_FILES["image_cert"]["size"] < 800)) {
 
             redirect("add-menu.php?id=$businessid", "Image size less than 800KB");
 
@@ -325,7 +325,7 @@ else if(isset($_POST['edit_business_btn']))
                                     //$hash = password_hash($business_password, PASSWORD_DEFAULT);
                                     $item = implode(" ",$cuisinename);
                                     $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',cuisinename='$item',opening='$opening',closing='$closing',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
-                                    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+                                    mysqli_query($con,$update_query) or die("bad query: $update_query");
                                     $update_query_run = mysqli_query($con, $update_query);
 
                                     if($update_query_run)

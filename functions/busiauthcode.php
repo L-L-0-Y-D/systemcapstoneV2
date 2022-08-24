@@ -173,7 +173,7 @@ else if(isset($_POST['business_login']))
                                 $businessnames = $row['business_name'];
                                 $businessemail = $row['business_email'];
                                 $role_as = $row['role_as'];
-                                $businessimage = $row['image'];
+                                $image = $row['image'];
                                 $latitude = $row['latitude'];
                                 $longitude = $row['longitude'];
                                 
@@ -182,7 +182,7 @@ else if(isset($_POST['business_login']))
                                     'businessid' => $businessid,
                                     'business_name' => $businessnames,
                                     'business_email' => $useremail,
-                                    'image' => $businessimage,
+                                    'image' => $image,
                                     'latitude' => $latitude,
                                     'longitude' => $longitude,
                                     'role_as' => $role_as,
