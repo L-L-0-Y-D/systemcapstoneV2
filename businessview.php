@@ -201,7 +201,7 @@
             <div class="col-md-8" style="padding-right: 0px;padding-left: 0px;">
                 <div><a class="portfolio-link" href="#portfolioModal1" data-bs-toggle="modal">
                         <div class="portfolio-hover"></div>
-                        <img class="img-fluid" data-bss-hover-animate="pulse" src="uploads/<?= $data['image']; ?>" style="height: 500px;width: 100%;">
+                        <img class="img-fluid" data-bss-hover-animate="pulse" src="uploads/<?= $data['image']; ?>" style="height: 500px;width: 100%; box-shadow: 0px 0px 5px var(--bs-dark);border-radius: 10px;">
                     </a>
                 </div>
             </div>
@@ -276,7 +276,7 @@
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu2.png); background-size:cover;height: 100%;">
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/forhome.png)center; background-size:cover;height: 100%;">
                                                                     <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
@@ -285,7 +285,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>">
+                                                                <img class="img-fluid w-100 h-100 cover" src="uploads/<?= $item['image']; ?>">
                                                             </div>
                                                         </div>
                                                     </div></a>   

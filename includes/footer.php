@@ -1,4 +1,4 @@
-<footer class="text-black" style="background-color:white; ">
+<footer class="text-white sticky-footer" style="background-color:rgb(255,128,64); ">
     <div class="container " >
         <div class="row ">
                 <h3 class="fs-8 text-black fw-bold p-2" style="font-family: Acme, sans-serif;" >POPULAR CUISINES </h3>
@@ -12,7 +12,7 @@
                 {
             ?>
             <div class="col-md-2">
-                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-8 text-black " style="text-decoration:none;"><?= $item['categoryname']; ?></a>
+                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-8 text-white " style="text-decoration:none;"><?= $item['categoryname']; ?></a>
             </div>
             <?php
                 }
@@ -28,7 +28,7 @@
             </div>-->
             <hr>
             <div class="row ">
-                <div class="col-md-4 text-black"><span class="copyright">Copyright&nbsp;© I-EAT 2022</span>
+                <div class="col-md-4 text-white"><span class="copyright">Copyright&nbsp;© I-EAT 2022</span>
                 <a href="adminsignup.php"><i class="fas fa-door-open text-black"></i></a></li>
             </div>
                 <div class="col-md-4">
@@ -40,8 +40,8 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#" style="color:black;">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="#" style="color: black;">Terms of Use</a></li>
+                        <li class="list-inline-item"><a href="#" style="color: white;">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="#" style="color: white;">Terms of Use</a></li>
                     </ul>
                 </div>
             </div>
