@@ -8,7 +8,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
-    position
+    object-fit:scale-down;
+    position:
 }
 form {
     display:grid;

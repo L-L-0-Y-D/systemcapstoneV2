@@ -39,7 +39,7 @@
                                 <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Located at <?= $item['business_address']; ?></p>
                                 <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?>- Closing: <?= date("g:i a", strtotime($item['closing'])); ?></p>
                                 <p class="text-muted card-text" style="text-align: left;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                <button onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center " type="button" style=" position:sticky ;height: 29px;padding-top: 5px;background: RGB(255,128,64);border: none;border-radius: 20px;font-size: 14px;width: 152.328px;">Make Reservation</button>
+                                <button onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center " type="button" style=" position: absolute; bottom: 0; height: 29px;padding-top: 5px;background: RGB(255,128,64);border: none;border-radius: 20px;font-size: 14px;width: 152.328px; margin-bottom:20px;">Make Reservation</button>
                             </div>
                         </div>
                     </div>

@@ -145,10 +145,10 @@ if(isset($_SESSION['auth'])){
                                     display nothing. */ -->
                                     <?php if (isset($_GET['phonenumber'])){?>
                                         <div class="col-mb-3">
-                                            <input class="form-control" name="phonenumber" type="text" placeholder="Phone Number" value="<?= $_GET['phonenumber']?>"  required ></div>
+                                            <input class="form-control mb-2" name="phonenumber" type="text" placeholder="Phone Number" value="<?= $_GET['phonenumber']?>"  required ></div>
                                     <?php }else{?>
                                         <div class="col-mb-3">
-                                            <input class="form-control" name="phonenumber" type="text" placeholder="Phone Number" required ></div>
+                                            <input class="form-control mb-2" name="phonenumber" type="text" placeholder="Phone Number" required ></div>
                                     <?php }?> 
 
                                     <!-- /* Checking if the address is set, if it is then it will display

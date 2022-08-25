@@ -276,7 +276,7 @@
                                                     <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
                                                         <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
                                                             <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/forhome.png)center; background-size:cover;height: 100%;">
+                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
                                                                     <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
@@ -285,7 +285,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100 h-100 cover" src="uploads/<?= $item['image']; ?>">
+                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
                                                             </div>
                                                         </div>
                                                     </div></a>   
@@ -771,10 +771,10 @@
 <!-- END OF MENU SECTION-->
 
 <!-- START OF REVIEW SECTION-->
-    <section id="review">
+    <section id="review"  class="bg-dark">
         <div class="container">
             <div class="card">
-                <div class="card-header">Restaurant Feedback</div>
+                <div class="card-header"> <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">REVIEWS AND FEEDBACKS</h1></div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 text-center">
@@ -837,8 +837,10 @@
 
 <!-- START OF LOCATION SECTION-->
     <section id="locations">
+        <hr>
+    <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">LOCATION</h1>
         <div class="mapouter">
-            <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 1020px; height: 800px;"></iframe>
+            <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 1020px; height: 600px;"></iframe>
                 <br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style>
                 <style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
             </div>
