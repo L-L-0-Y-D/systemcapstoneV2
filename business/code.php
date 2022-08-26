@@ -41,7 +41,7 @@ if(isset($_POST['add_product_btn']))
 
        redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
    }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 8000)) {
+   else if (($_FILES["image"]["size"] < 80000)) {
 
        redirect("add-menu.php?id=$businessid", "Image size less than 800KB");
 
@@ -213,19 +213,19 @@ elseif (isset($_POST['update_reservation_btn']))
 }
 else if(isset($_POST['edit_business_btn']))
 {
-    $businessid = $_POST['businessid'];
-    $business_name = $_POST['business_name'];
-    $business_address = $_POST['business_address'];
-    $municipalityid = $_POST['municipalityid'];
+    $businessid = mysqli_real_escape_string($con,$_POST['businessid']);
+    $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
+    $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
+    $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
     $cuisinename = $_POST['cuisinename'];
     $opening = $_POST['opening'];
     $closing = $_POST['closing'];
-    $business_firstname = $_POST['business_firstname'];
-    $business_lastname = $_POST['business_lastname'];
-    $business_email = $_POST['business_email'];
-    $business_phonenumber = $_POST['business_phonenumber'];
-    $business_owneraddress = $_POST['business_owneraddress'];
-    $business_password = $_POST['business_password'];
+    $business_firstname = mysqli_real_escape_string($con,$_POST['business_firstname']);
+    $business_lastname = mysqli_real_escape_string($con,$_POST['business_lastname']);
+    $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
+    $business_phonenumber = mysqli_real_escape_string($con,$_POST['business_phonenumber']);
+    $business_owneraddress = mysqli_real_escape_string($con,$_POST['business_owneraddress']);
+    $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
