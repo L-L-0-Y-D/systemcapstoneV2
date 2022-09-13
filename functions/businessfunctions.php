@@ -120,40 +120,72 @@ include('../config/dbcon.php');
     }
 
     // Required if your environment does not handle autoloading
-    require '../vendor/autoload.php';
+    // require '../vendor/autoload.php';
 
-    // Use the REST API Client to make requests to the Twilio REST API
-    use Twilio\Rest\Client;
+    // // Use the REST API Client to make requests to the Twilio REST API
+    // use Twilio\Rest\Client;
 
+// function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
+// {
+//     // Your Account SID and Auth Token from twilio.com/console
+//     $sid = 'AC319119520487be0445e890d2ae09e4b2';
+//     $token = '0ce8c987fa2abc718cccb6a0a863e1ef';
+//     $client = new Client($sid, $token);
+
+//     $receiver = ltrim($phonenumber,"0");
+
+//     // Use the client to do fun stuff like send text messages!
+//     $message = $client->messages->create(
+//     // the number you'd like to send the message to
+//         '+63'.$receiver,
+//     [
+//         // A Twilio phone number you purchased at twilio.com/console
+//         'from' => '+16195030287',
+//         // the body of the text message you'd like to send
+//         'body' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are confirm'
+//     ]
+//     );
+
+//     if($message)
+//     {
+//         redirect("../business/reservation.php?id=$businessid", "Message Sent");
+//     }
+//     else
+//     {
+//         redirect("../business/reservation.php?id=$businessid", "Message not sent");
+//     }
+    
+    
+// }
+
+    
+require '../vendor/autoload.php';
+use Semaphore\SemaphoreClient;
+    
 function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
 {
-    // Your Account SID and Auth Token from twilio.com/console
-    $sid = 'AC319119520487be0445e890d2ae09e4b2';
-    $token = '0ce8c987fa2abc718cccb6a0a863e1ef';
-    $client = new Client($sid, $token);
 
+    $ch = curl_init();
     $receiver = ltrim($phonenumber,"0");
-
-    // Use the client to do fun stuff like send text messages!
-    $message = $client->messages->create(
-    // the number you'd like to send the message to
-        '+63'.$receiver,
-    [
-        // A Twilio phone number you purchased at twilio.com/console
-        'from' => '+16195030287',
-        // the body of the text message you'd like to send
-        'body' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are confirm'
-    ]
+    $parameters = array(
+        'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
+        'number' => '+63'.$receiver,
+        'message' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are confirm',
+        'sendername' => 'SEMAPHORE'
     );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
 
-    if($message)
-    {
-        redirect("../business/reservation.php?id=$businessid", "Message Sent");
-    }
-    else
-    {
-        redirect("../business/reservation.php?id=$businessid", "Message not sent");
-    }
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
+
+    //Show the server response
+    echo $output;
     
     
 }

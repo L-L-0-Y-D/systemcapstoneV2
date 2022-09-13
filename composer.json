@@ -1,6 +1,7 @@
 {
     "require": {
         "phpmailer/phpmailer": "^6.6",
-        "twilio/sdk": "^6.40"
+        "twilio/sdk": "^6.40",
+        "kickstartph/semaphore-client": "^0.5.0"
     }
 }

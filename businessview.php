@@ -310,7 +310,8 @@
                                                                     <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                    <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                     <div class="my-3"></div>
                                                                 </div>
                                                             </div>
@@ -398,7 +399,8 @@
                                                                         <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                         <div class="my-3"></div>
                                                                     </div>
                                                                 </div>
@@ -486,7 +488,8 @@
                                                                         <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                         <div class="my-3"></div>
                                                                     </div>
                                                                 </div>
@@ -574,7 +577,8 @@
                                                                         <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                         <div class="my-3"></div>
                                                                     </div>
                                                                 </div>
@@ -634,7 +638,7 @@
                                                                     <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                    <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
                                                             </div>
@@ -662,7 +666,8 @@
                                                                         <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                         <div class="my-3"></div>
                                                                     </div>
                                                                 </div>
@@ -750,7 +755,8 @@
                                                                         <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                         <div class="my-3"></div>
                                                                     </div>
                                                                 </div>
@@ -810,7 +816,7 @@
                                                                     <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                     <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                    <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
                                                                     <div class="my-3"></div>
                                                                 </div>
                                                             </div>
@@ -838,7 +844,8 @@
                                                                         <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                         <div class="my-3"></div>
                                                                     </div>
                                                                 </div>
@@ -926,7 +933,8 @@
                                                                         <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                         <div class="my-3"></div>
                                                                     </div>
                                                                 </div>
@@ -1014,7 +1022,8 @@
                                                                         <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
                                                                         <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
+                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
+                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
                                                                         <div class="my-3"></div>
                                                                     </div>
                                                                 </div>
