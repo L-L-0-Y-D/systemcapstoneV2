@@ -44,9 +44,15 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
     <title>Business Register| I-Eat</title>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
@@ -331,8 +337,13 @@ if(isset($_SESSION['auth'])){
                     <p><a class="d-flex justify-content-center" href="index.php" style="color: var(--bs-dark);font-weight: bold;">Back to Home</a></p>
     </form>
     </div> </div> </div> </div> </div>
+
 </section>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="assets/js/map.js"></script>
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
@@ -363,5 +374,7 @@ if(isset($_SESSION['auth'])){
     }
     ?> 
     </script> 
+
+
 </body>
 </html>

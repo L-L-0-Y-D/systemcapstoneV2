@@ -54,18 +54,30 @@ if(isset($_POST['add_product_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $product_query = "INSERT INTO products (businessid,name,description,cuisinename,food_type,price,status,image) 
-    VALUES ('$businessid','$name','$description','$cuisinename','$food_type','$price','$status','$filename')";
+    // Check if email already registered
+    $check_product_query = "SELECT name FROM products WHERE products='$name'";
+    $check_product_query_run = mysqli_query($con, $check_product_query);
 
-    $product_query_run = mysqli_query($con, $product_query);
+    if(mysqli_num_rows($check_email_query_run)>0)
+    {
+        redirect("menu.php", "Product Already Exist.");
+    }
+    else
+    {
 
-    if($product_query_run)
-    {
-        move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-        redirect("menu.php?id=$businessid", "Product Added Successfully");
-    }else
-    {
-        redirect("add-menu.php?id=$businessid", "Something Went Wrong");
+        $product_query = "INSERT INTO products (businessid,name,description,cuisinename,food_type,price,status,image) 
+        VALUES ('$businessid','$name','$description','$cuisinename','$food_type','$price','$status','$filename')";
+
+        $product_query_run = mysqli_query($con, $product_query);
+
+        if($product_query_run)
+        {
+            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+            redirect("menu.php?id=$businessid", "Product Added Successfully");
+        }else
+        {
+            redirect("add-menu.php?id=$businessid", "Something Went Wrong");
+        }
     }
 }
 elseif (isset($_POST['update_product_btn']))
