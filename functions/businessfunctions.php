@@ -119,11 +119,11 @@ include('../config/dbcon.php');
     
     }
 
-    // Required if your environment does not handle autoloading
-    // require '../vendor/autoload.php';
+//     //Required if your environment does not handle autoloading
+//     require '../vendor/autoload.php';
 
-    // // Use the REST API Client to make requests to the Twilio REST API
-    // use Twilio\Rest\Client;
+//     // Use the REST API Client to make requests to the Twilio REST API
+//     use Twilio\Rest\Client;
 
 // function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
 // {
@@ -157,20 +157,15 @@ include('../config/dbcon.php');
     
     
 // }
-
-    
-require '../vendor/autoload.php';
-use Semaphore\SemaphoreClient;
     
 function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
 {
 
     $ch = curl_init();
-    $receiver = ltrim($phonenumber,"0");
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
-        'number' => '+63'.$receiver,
-        'message' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are confirm',
+        'number' => $phonenumber,
+        'message' => 'Hello '.$name.'',
         'sendername' => 'SEMAPHORE'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
@@ -185,8 +180,14 @@ function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numg
     curl_close ($ch);
 
     //Show the server response
-    echo $output;
-    
+    if($output)
+    {
+        redirect("../business/reservation.php?id=$businessid", "Message Sent");
+    }
+    else
+    {
+        redirect("../business/reservation.php?id=$businessid", "Message not sent");
+    }
     
 }
     
