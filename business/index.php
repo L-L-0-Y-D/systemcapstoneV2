@@ -94,7 +94,7 @@ include('includes/header.php');
                                                     <div class="text-dark fw-bold h5 mb-0 me-3">
                                                     <?php
                                                         //$businessuser = $_SESSION['auth_user']['businessid'];
-                                                        $query_rating = "SELECT AVG(user_rating) AS averagerating FROM review_table WHERE businessid = $businessuser ORDER BY review_id";
+                                                        $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessuser ORDER BY review_id";
                                                         $query_rating_run = mysqli_query($con, $query_rating);
                                                         $row_rating = mysqli_fetch_assoc($query_rating_run);
 
@@ -102,104 +102,14 @@ include('includes/header.php');
                                                         {
                                                             echo '<span> No Rating </span>';
                                                         }
-                                                        else if($row_rating['averagerating'] == '1')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <?php
-                                                        }
-                                                        else if($row_rating['averagerating'] > '1')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star-half-full"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star "></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <?php
-                                                        }
-                                                        else if($row_rating['averagerating'] == '2')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <?php
-                                                        }
-                                                        else if($row_rating['averagerating'] > '2')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star-half-full"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <?php
-                                                        }
-                                                        else if($row_rating['averagerating'] == '3')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <?php
-                                                        }
-                                                        else if($row_rating['averagerating'] > '3')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star-half-full"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <?php
-                                                        }
-                                                        else if($row_rating['averagerating'] == '4')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <?php
-                                                        }
-                                                        else if($row_rating['averagerating'] > '4')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star-half-full"></span>
-                                                            <?php
-                                                        }
-                                                        else if($row_rating['averagerating'] == '5')
-                                                        {
-                                                            ?>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <?php
-                                                        }
                                                         else
                                                         {
-                                                            //echo '<span>'.$row_rating['averagerating'].'</span>';
+                                                            echo '<span class="fa fa-star checked">'.$row_rating['averagerating'].'/5</span>';
                                                         }
                                                         $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessuser ORDER BY review_id";
                                                         $query_rating_count_run = mysqli_query($con, $query_rating_count);
                                                         $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                                                        echo '<span>('.$row_rating_count.')</span>'
+                                                        echo '<span> ('.$row_rating_count.')</span>'
 
                                                     ?> 
                                                     </div>
