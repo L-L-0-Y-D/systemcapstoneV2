@@ -7,10 +7,6 @@ namespace Composer\Autoload;
 class ComposerStaticInitef49a8fdb53ac38108d2919b1520d46a
 {
     public static $prefixLengthsPsr4 = array (
-        'T' => 
-        array (
-            'Twilio\\' => 7,
-        ),
         'P' => 
         array (
             'PHPMailer\\PHPMailer\\' => 20,
@@ -18,10 +14,6 @@ class ComposerStaticInitef49a8fdb53ac38108d2919b1520d46a
     );
 
     public static $prefixDirsPsr4 = array (
-        'Twilio\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/twilio/sdk/src/Twilio',
-        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',

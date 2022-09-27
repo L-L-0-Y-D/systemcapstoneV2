@@ -41,7 +41,7 @@ if(isset($_POST['add_product_btn']))
 
        redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
    }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 8000)) {
+   else if (($_FILES["image"]["size"] < 80000)) {
 
        redirect("add-menu.php?id=$businessid", "Image size less than 800KB");
 
@@ -54,18 +54,30 @@ if(isset($_POST['add_product_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $product_query = "INSERT INTO products (businessid,name,description,cuisinename,food_type,price,status,image) 
-    VALUES ('$businessid','$name','$description','$cuisinename','$food_type','$price','$status','$filename')";
+    // Check if email already registered
+    $check_product_query = "SELECT name FROM products WHERE products='$name'";
+    $check_product_query_run = mysqli_query($con, $check_product_query);
 
-    $product_query_run = mysqli_query($con, $product_query);
+    if(mysqli_num_rows($check_email_query_run)>0)
+    {
+        redirect("menu.php", "Product Already Exist.");
+    }
+    else
+    {
 
-    if($product_query_run)
-    {
-        move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-        redirect("menu.php?id=$businessid", "Product Added Successfully");
-    }else
-    {
-        redirect("add-menu.php?id=$businessid", "Something Went Wrong");
+        $product_query = "INSERT INTO products (businessid,name,description,cuisinename,food_type,price,status,image) 
+        VALUES ('$businessid','$name','$description','$cuisinename','$food_type','$price','$status','$filename')";
+
+        $product_query_run = mysqli_query($con, $product_query);
+
+        if($product_query_run)
+        {
+            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+            redirect("menu.php?id=$businessid", "Product Added Successfully");
+        }else
+        {
+            redirect("add-menu.php?id=$businessid", "Something Went Wrong");
+        }
     }
 }
 elseif (isset($_POST['update_product_btn']))
@@ -213,19 +225,19 @@ elseif (isset($_POST['update_reservation_btn']))
 }
 else if(isset($_POST['edit_business_btn']))
 {
-    $businessid = $_POST['businessid'];
-    $business_name = $_POST['business_name'];
-    $business_address = $_POST['business_address'];
-    $municipalityid = $_POST['municipalityid'];
+    $businessid = mysqli_real_escape_string($con,$_POST['businessid']);
+    $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
+    $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
+    $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
     $cuisinename = $_POST['cuisinename'];
     $opening = $_POST['opening'];
     $closing = $_POST['closing'];
-    $business_firstname = $_POST['business_firstname'];
-    $business_lastname = $_POST['business_lastname'];
-    $business_email = $_POST['business_email'];
-    $business_phonenumber = $_POST['business_phonenumber'];
-    $business_owneraddress = $_POST['business_owneraddress'];
-    $business_password = $_POST['business_password'];
+    $business_firstname = mysqli_real_escape_string($con,$_POST['business_firstname']);
+    $business_lastname = mysqli_real_escape_string($con,$_POST['business_lastname']);
+    $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
+    $business_phonenumber = mysqli_real_escape_string($con,$_POST['business_phonenumber']);
+    $business_owneraddress = mysqli_real_escape_string($con,$_POST['business_owneraddress']);
+    $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];

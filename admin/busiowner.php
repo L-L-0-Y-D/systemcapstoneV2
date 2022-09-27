@@ -66,8 +66,7 @@ include('includes/header.php');
                                                         <td class="col-md-6 col-lg-4 item">
                                                             <a href="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>">
                                                             <img class="img-thumbnail img-fluid image" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"> </td>
-                                                            <td><iframe src="https://maps.google.com/maps?q=<?=$item['latitude'];?>,<?=$item['longitude']?>&hl=es;z=14&output=embed" style="width: 50px; height: 50px;"></iframe></td>
-                                                                
+                                                            <td><a href="https://google.com/maps?q=<?= $item['latitude'] ?>,<?= $item['longitude'] ?>" style="width: 100px; height: 100px;">View Location</a></td>
                                                             <td><?= $item['business_name']; ?></td>
                                                             <td><?= $item['cuisinename']; ?></td>
                                                             <td><?= $item['municipality_name']; ?></td>
