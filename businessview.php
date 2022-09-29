@@ -211,6 +211,7 @@
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['cuisinename']; ?></p>
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['business_phonenumber']; ?></p>
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;">Open:<?=  date("g:i a", strtotime($opening));?> - Close: <?= date("g:i a", strtotime($closing)); ?></p>
+                <span style="color:yellow; margin-bottom: 50px;sans-serif;margin-left: 15px;"><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span><br>
                 <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
             </div>
         </div>

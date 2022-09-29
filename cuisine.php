@@ -18,7 +18,7 @@
  <section class="portfolio-block projects-cards" style="padding-top: 40px;">
     <div class="container">
                 <div class="heading">
-                    <h2 style="margin-bottom: 20px;font-size: 50px;font-weight: bold;font-family: Acme, sans-serif;text-align: center;">Search Result</h2>
+                    <h2 style=" margin-top:100px;margin-bottom: 20px;font-size: 50px;font-weight: bold;font-family: Acme, sans-serif;text-align: center;">Search Result</h2>
                 </div><hr>
                     <div class="row">
                                     <?php
@@ -27,19 +27,21 @@
                                                 foreach($results as $item)
                                                 {
                                                     ?>
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="card border-5">
-                                            <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                                <img class="card-img-top scale-on-hover" src="uploads/<?= $item['image']; ?>" alt="Card Image"></a>
-                                                <div class="card-body" style="padding-top: 10px;">
-                                                    <p class="text-center" style="font-family: Acme, sans-serif;font-weight: bold;font-size: 20px;"><?= $item['business_name']; ?></p>
-                                                    <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Located at <?= $item['business_address']; ?></p>
-                                                    <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?>- Closing: <?= date("g:i a", strtotime($item['closing'])); ?></p>
-                                                    <p class="text-muted card-text" style="text-align: left;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                    <button onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center" type="button" style="height: 29px;padding-top: 3px;background: RGB(255,128,64);border: 1px solid var(--bs-orange);border-radius: 20px;margin-left: 0px;font-size: 14px;width: 152.328px;margin-bottom: 13px;">Make Reservation</button>
+                                               <div class="col-md-6 col-lg-4">
+                                                    <div class="card" style="border-style:none;box-shadow: 0px 0px 5px var(--bs-dark);border-radius: 30px;">
+                                                    <a href="businessview.php?id=<?=$item['businessid'];?>">
+                                                        <img class="card-img-top scale-on-hover" height="200px;" src="uploads/<?= $item['image']; ?>" alt="Card Image" style="border-radius: 30px;"></a>
+                                                        <div class="card-body" style=" height: 250px;padding-top: 10px;">
+                                                            <p class="text-center" style="font-family: Acme, sans-serif;font-weight: bold;font-size: 20px;"><?= $item['business_name']; ?></p>
+                                                            <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Located at <?= $item['business_address']; ?></p>
+                                                            <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?> - Closing: <?= date("g:i a", strtotime($item['closing'])); ?></p>
+                                                            <p class="text-muted card-text" style="text-align: left; margin-bottom:0px;"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <span style="color:yellow; margin-bottom: 30px;"><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span>
+                                                            <button onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center justify-content-end" type="button" style=" position: absolute; bottom: 0; height: 29px;background: RGB(255,128,64);border: none;border-radius: 20px;font-size: 14px;width: 152.328px; margin-bottom:20px;">Make Reservation</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                        </div>
-                                    </div>
+                                    
                                     <?php
                                                 }
                                             }
