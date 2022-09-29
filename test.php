@@ -1,22 +1,5 @@
 <?php
-
-    include('functions/userfunctions.php');
-    if(isset($_GET['id']))
-        {
-            $id = $_GET['id'];
-            $business = businessGetByIDActives($id);
-
-                if(mysqli_num_rows($business) > 0)
-                    {
-                        $data = mysqli_fetch_array($business);
-                        $bid = $data['businessid'];
-                        $product = getProductByBusiness($bid);
-                        $location = str_replace(' ', '+', $data['business_address']);
-                        $latitude = $data['latitude'];
-                        $longitude = $data['longitude'];
-                        $opening = $data['opening'];
-                        $closing = $data['closing'];
-    
+include('middleware/userMiddleware.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,905 +7,180 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Montserrat.css">
-    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="assets/css/Acme.css">
+    <link rel="stylesheet" href="assets/css/Aldrich.css">
+    <link rel="stylesheet" href="assets/css/Amaranth.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/assets/css/Montserrat.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
-    <link rel="stylesheet" href="assets/css/Navbar-Centered-Links.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
-    <link rel="stylesheet" href="assets/assets/css/vanilla-zoom.min.css">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=21f14b60305aa9b0449170550a54b7e5">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Basic.css?h=561e53509f5bc926993a2226fdbdf2f4">
-    <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
-    <link rel="stylesheet" href="assets/css/Acme.css">
-    <link rel="stylesheet" href="assets/css/untitled-1.css">
-    <link rel="stylesheet" href="assets/css/untitled-2.css">
-    <link rel="stylesheet" href="assets/css/untitled-3.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
-    <link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">    
-    <title>I-Eat | Business View </title> 
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Links.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=21f14b60305aa9b0449170550a54b7e5">
+    <title>I-Eat | Reservation Table </title> 
+
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
+<body>
+    <?php 
+        if(isset($_GET['id']))
+        {
+            $id = $_GET['id'];
+            $reservations = reservationGetByID($id);
+            
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
-<!--START OF LOGIN-->
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav" style="background: rgb(255,128,64);">
-        <div class="container">
-
-                <?php if(empty($_SESSION["auth"]))
-                {// if user is not login
-                ?>
-                <a class="navbar-brand" href="#page-top" style="color: white;font-size: 28px;">
-                    <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
-                        <map name="workmap">
-                            <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
-                        </map>I - Eat</a>
-                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
-                        <li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>
-                        <li class="nav-item"><a class="nav-link" href="register.php">SIGNUP</a></li>
-                <?php 
-                }
-                 elseif(isset($_SESSION['auth']))
-                {
-                    if($_SESSION['auth_user']['role_as'] == "0")
-                    {
-                    ?>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
-                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
-                        <div class="dropdown-menu ">
-                            <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"style="font-size:16px; text-align:left;"><i class="fas fa-user"></i>&nbsp;Profile</a>
-                            <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
-                            <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>" style="font-size:16px;text-align:left;"><i class="fas fa-key"></i>&nbsp;Change Password</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="fa fa-sign-out alt"></i>&nbsp;Logout</a>
-                        </div>
-                    </div>
-                        <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
-                        &nbspWelcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</a>
-                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
-                            <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
-                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                
-                <?php
-                }
-                else if($_SESSION['auth_user']['role_as'] == "2")
-                {
-                    ?>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
-                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
-                        </div>
-                    </div>
-                        <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
-                        &nbspWelcome <strong><?= $_SESSION['auth_user']['business_name'];?></strong>!</a>
-                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
-                            <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
-                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                 
-                <?php
-                }
-                else
-                {
-                    ?>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
-                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="admin/index.php"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
-                        </div>
-                    </div>
-                        <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
-                        &nbspWelcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</a>
-                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
-                            <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
-                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                
-                <?php 
-                }  
-                    ?> 
-                <?php 
-                }
-                elseif(isset($_SESSION['busi'])) 
-                {
-                    ?>
-                    <!--if user is login-->
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
-                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="business/admin.php"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="far fa-sign-out alt"></i>&nbsp;Logout</a>
-                        </div>
-                    </div>
-                        <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
-                        &nbspWelcome <strong><?php echo $_SESSION['auth_user']['business_name']; ?></strong>!</a>
-                    <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
-                            <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#review">REVIEW</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATIONS</a></li>
-                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                    
-                    <?php } ?>
-                </ul>
+            if(mysqli_num_rows($reservations) > 0)
+            {
+                $data = mysqli_fetch_array($reservations);
+               
+            ?>
+        <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
+            <div class="container ml-2">
+                <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">My Reservations</a>
+                <nav class="navbar navbar-expand">
+                    <div class="container-fluid">
+                        <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
+                        <a href="index.php"><i class="fa fa-home" style="float:right; color:white;"></i></a>
+                        </span></div>
+                </nav>
             </div>
-        </div>
-    </nav> 
-<!--END OF LOGIN-->
-
-<!-- START OF ABOUT SECTION-->
-    <div class="container" id="aboutrestaurant" style="margin-top: 130px;padding-top: 30px;padding-bottom: 0px;">
-        <div class="row">
-            <div class="col-md-8" style="padding-right: 0px;padding-left: 0px;">
-                <div><a class="portfolio-link" href="#portfolioModal1" data-bs-toggle="modal">
-                        <div class="portfolio-hover"></div>
-                        <img class="img-fluid" data-bss-hover-animate="pulse" src="uploads/<?= $data['image']; ?>" style="height: 500px;width: 100%;">
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4" style="padding-top: 90px;padding-bottom: 90px;background: var(--bs-gray-800);color: var(--bs-dark);box-shadow: 0px 0px 2px var(--bs-dark);border-style: none;">
-                <h1 class="text-start" style="font-family: 'Kaushan Script', serif;color: RGB(255,128,64);padding-left: 15px;padding-right: 15px;font-weight: bold;margin-top: 8px;"><?= $data['business_name']; ?>
-                <span class="text-end" style="font-size: 16PX;color: var(--bs-dark);"></span></h1>
-                <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['business_address']; ?></p>
-                <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['cuisinename']; ?></p>
-                <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['business_phonenumber']; ?></p>
-                <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;">Open:<?=  date("g:i a", strtotime($opening));?> - Close: <?= date("g:i a", strtotime($closing)); ?></p>
-                <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
-            </div>
-        </div>
-    </div>
-<!--END OF ABOUT SECTION-->
-
-<!-- START OF MENU SECTION-->
-<section id="menu" style="margin-top: 20px;">
-        <div class="container">
-            <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">MENU</h1>
-            <div>
-                <ul class="nav nav-tabs d-lg-flex justify-content-lg-center" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" role="tab" data-bs-toggle="tab" href="#allmenu">
-                            <span style="color: rgba(0, 0, 0, 0.9);">ALL</span><br></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#maincourse">
-                            <span style="color: rgba(0, 0, 0, 0.7);">MAIN COURSE</span><br></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#soup">
-                            <span style="color: rgba(0, 0, 0, 0.7);">SOUP</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#appetizer">
-                            <span style="color: rgba(0, 0, 0, 0.7);">APPETIZER</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#fishdish">
-                            <span style="color: rgba(0, 0, 0, 0.7);">FISH DISH</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#meatdish">
-                            <span style="color: rgba(0, 0, 0, 0.7);">MEAT DISH</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#dessert">
-                            <span style="color: rgba(0, 0, 0, 0.7);">DESSERT</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#salad" style="color: var(--bs-dark);">
-                            <span style="color: rgba(0, 0, 0, 0.7);">SALAD</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#drinks">
-                            <span style="color: rgba(0, 0, 0, 0.7);">DRINKS</span></a></li>
-                </ul>
-                <div class="tab-content">
-                
-                <!--ALL MENU-->
-                    <div class="tab-pane active" role="tabpanel" id="allmenu">
-                    <!--Appetizer-->
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                           
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">APPETIZER</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="carousel slide" data-bs-ride="carousel" id="carousel-9">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="container">
-                                                <div class="row">                                         
-						                            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                    <div class="col-md-4">
-                                                        <section class="py-4 py-xl-5">
-                                                            <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                                <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                                    <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                        <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                            <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                                <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                                <p class="mb-1"><?= $item['description']; ?></p>
-                                                                                <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                                <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                                <div class="my-3"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                        <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </div></a>                                                  
-                                                </div>
-                                            </div>
+        </nav>
+        <main class="page product-page">
+        <?php 
+            foreach($reservations as $data)
+            {
+        ?>
+        <section class="clean-block clean-product dark">
+            <div class="container">
+                <div class="text-center block-content" style="padding-top: 40px;height: auto;">
+                    <div class="product-info">
+                        <div>
+                            <ul class="nav nav-pills nav-fill text-center" role="tablist" id="myTab" style="border-bottom-width: 1px;border-bottom-style: solid;border-left-width: 1px;border-left-style: none;">
+                                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="pill" id="description-tab" href="#waiting" style="border-right-style: solid;">WAITING</a></li>
+                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link" role="tab" data-bs-toggle="pill" id="specifications-tabs" href="#reserved" style="border-right-style: solid;border-left-style: solid;">RESERVED</a></li>
+                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link active" role="tab" data-bs-toggle="pill" id="reviews-tab" href="#cancelled">CANCELLED</a></li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade description" role="tabpanel" id="waiting" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Waiting</p>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;">
+                                            <img class="img-fluid" src="uploads/<?= $data['image']; ?>" style="height: 90%;padding-top: 20px;">
+                                        </div>
+                                        <div class="col-md-7">
+                                        <div class="col-lg-7"style="border-left:solid 2px;" >
+                                <h3 style="font-family: Amaranth, sans-serif;margin-bottom: 3px;margin-top: 5px;font-size: 24px;"><?= $data['business_name']; ?></h3>
+                                    <div class="info">
+                                        <span class="text-muted" style="font-weight: bold;font-family: Aldrich, sans-serif;">Table Number</span>
+                                    </div>
+                                        <p style="color: red;"for="quantity"><strong>STATUS :&nbsp;<?= $data['status']== '0'? "Waiting":"Confirmed"  ?></strong></p>
+                                        <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
+                                        <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
+                                        <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
+                                        <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
+                                        <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
+                                        <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
+                                    </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <a class="carousel-control-prev" href="#carousel-9" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Previous</span></a>
-                                        <a class="carousel-control-next" href="#carousel-9" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Next</span></a>
-                                    </div>
-                                        <ol class="carousel-indicators">
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="0" class="active"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="1"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="2"></li>
-                                        </ol>
-                                </div><a class="d-lg-flex justify-content-lg-center" href="#" style="color: var(--bs-dark);font-size: 18px;font-family: Acme, sans-serif;">SEE ALL</a>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                        else
-                        {
-                            echo "";
-                        ?>
-                    <?php
-                    }
-                    ?>
-                    <!--Soup-->
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                                       
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                    <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">SOUP</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="carousel slide" data-bs-ride="carousel" id="carousel-9">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="container">
-                                                <div class="row">                                         
-						                            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                    <div class="col-md-4">
-                                                        <section class="py-4 py-xl-5">
-                                                            <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                                <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                                    <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                        <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                            <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                                <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                                <p class="mb-1"><?= $item['description']; ?></p>
-                                                                                <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                                <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                                <div class="my-3"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                        <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </div></a>                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <a class="carousel-control-prev" href="#carousel-9" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Previous</span></a>
-                                        <a class="carousel-control-next" href="#carousel-9" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Next</span></a>
-                                    </div>
-                                        <ol class="carousel-indicators">
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="0" class="active"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="1"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="2"></li>
-                                        </ol>
-                                </div><a class="d-lg-flex justify-content-lg-center" href="#" style="color: var(--bs-dark);font-size: 18px;font-family: Acme, sans-serif;">SEE ALL</a>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                        else
-                        {
-                            echo "";
-                        ?>
-                    <?php
-                    }
-                    ?>
-                    <!--Fish Dish-->
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {     
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                    <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">FISH DISH</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="carousel slide" data-bs-ride="carousel" id="carousel-9">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="container">
-                                                <div class="row">                                         
-						                            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                    <div class="col-md-4">
-                                                        <section class="py-4 py-xl-5">
-                                                            <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                                <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                                    <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                        <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                            <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                                <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                                <p class="mb-1"><?= $item['description']; ?></p>
-                                                                                <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                                <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                                <div class="my-3"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                        <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </div></a>                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <a class="carousel-control-prev" href="#carousel-9" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Previous</span></a>
-                                        <a class="carousel-control-next" href="#carousel-9" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Next</span></a>
-                                    </div>
-                                        <ol class="carousel-indicators">
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="0" class="active"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="1"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="2"></li>
-                                        </ol>
-                                </div><a class="d-lg-flex justify-content-lg-center" href="#" style="color: var(--bs-dark);font-size: 18px;font-family: Acme, sans-serif;">SEE ALL</a>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                        else
-                        {
-                            echo "";
-                        ?>
-                    <?php
-                    }
-                    ?>
-                    <!--Meat Dish-->
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                  
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                    <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">MEAT DISH</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="carousel slide" data-bs-ride="carousel" id="carousel-9">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="container">
-                                                <div class="row">                                         
-						                            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                    <div class="col-md-4">
-                                                        <section class="py-4 py-xl-5">
-                                                            <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                                <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                                    <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                        <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                            <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                                <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                                <p class="mb-1"><?= $item['description']; ?></p>
-                                                                                <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                                <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                                <div class="my-3"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                        <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </div></a>                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <a class="carousel-control-prev" href="#carousel-9" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Previous</span></a>
-                                        <a class="carousel-control-next" href="#carousel-9" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Next</span></a>
-                                    </div>
-                                        <ol class="carousel-indicators">
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="0" class="active"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="1"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="2"></li>
-                                        </ol>
-                                </div><a class="d-lg-flex justify-content-lg-center" href="#" style="color: var(--bs-dark);font-size: 18px;font-family: Acme, sans-serif;">SEE ALL</a>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                        else
-                        {
-                            echo "";
-                        ?>
-                    <?php
-                    }
-                    ?>
-                    <!--Main Course-->
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                                     
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                    <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">MAIN COURSE</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="carousel slide" data-bs-ride="carousel" id="carousel-9">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="container">
-                                                <div class="row">                                         
-						                            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                    <div class="col-md-4">
-                                                        <section class="py-4 py-xl-5">
-                                                            <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                                <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                                    <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                        <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                            <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                                <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                                <p class="mb-1"><?= $item['description']; ?></p>
-                                                                                <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                                <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                                <div class="my-3"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                        <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </div></a>                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <a class="carousel-control-prev" href="#carousel-9" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Previous</span></a>
-                                        <a class="carousel-control-next" href="#carousel-9" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Next</span></a>
-                                    </div>
-                                        <ol class="carousel-indicators">
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="0" class="active"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="1"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="2"></li>
-                                        </ol>
-                                </div><a class="d-lg-flex justify-content-lg-center" href="#" style="color: var(--bs-dark);font-size: 18px;font-family: Acme, sans-serif;">SEE ALL</a>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                        else
-                        {
-                            echo "";
-                        ?>
-                    <?php
-                    }
-                    ?>
-                    <!--Salad-->
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                  
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                    <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">SALAD</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="carousel slide" data-bs-ride="carousel" id="carousel-9">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="container">
-                                                <div class="row">                                         
-						                            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                    <div class="col-md-4">
-                                                        <section class="py-4 py-xl-5">
-                                                            <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                                <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                                    <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                        <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                            <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                                <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                                <p class="mb-1"><?= $item['description']; ?></p>
-                                                                                <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                                <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                                <div class="my-3"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                        <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </div></a>                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <a class="carousel-control-prev" href="#carousel-9" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Previous</span></a>
-                                        <a class="carousel-control-next" href="#carousel-9" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Next</span></a>
-                                    </div>
-                                        <ol class="carousel-indicators">
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="0" class="active"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="1"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="2"></li>
-                                        </ol>
-                                </div><a class="d-lg-flex justify-content-lg-center" href="#" style="color: var(--bs-dark);font-size: 18px;font-family: Acme, sans-serif;">SEE ALL</a>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                        else
-                        {
-                            echo "";
-                        ?>
-                    <?php
-                    }
-                    ?>
-                     <!--Dessert-->
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                                     
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                    <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">DESSERT</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="carousel slide" data-bs-ride="carousel" id="carousel-9">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="container">
-                                                <div class="row">                                         
-						                            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                    <div class="col-md-4">
-                                                        <section class="py-4 py-xl-5">
-                                                            <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                                <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                                    <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                        <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                            <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                                <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                                <p class="mb-1"><?= $item['description']; ?></p>
-                                                                                <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                                <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                                <div class="my-3"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                        <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </div></a>                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <a class="carousel-control-prev" href="#carousel-9" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Previous</span></a>
-                                        <a class="carousel-control-next" href="#carousel-9" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Next</span></a>
-                                    </div>
-                                        <ol class="carousel-indicators">
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="0" class="active"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="1"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="2"></li>
-                                        </ol>
-                                </div><a class="d-lg-flex justify-content-lg-center" href="#" style="color: var(--bs-dark);font-size: 18px;font-family: Acme, sans-serif;">SEE ALL</a>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                        else
-                        {
-                            echo "";
-                        ?>
-                    <?php
-                    }
-                    ?>
-                    <!--Drinks-->
-                    <?php
-                        if(mysqli_num_rows($product) > 0)
-                        {                                        
-                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks';";
-                        $result = $con->query($sql);
-                        foreach($result as $item)
-                        {
-                    ?>
-                    <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">DRINKS</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                <div class="carousel slide" data-bs-ride="carousel" id="carousel-9">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="container">
-                                                <div class="row">                                         
-						                            <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                    <div class="col-md-4">
-                                                        <section class="py-4 py-xl-5">
-                                                            <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                                <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 10px;">
-                                                                    <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                        <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                            <div class="text-white p-4 p-md-5" style="background: rgb(255,128,64);height: 100%;">
-                                                                                <h2 class="fw-bold text-white mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                                <p class="mb-1"><?= $item['description']; ?></p>
-                                                                                <p class="mb-1" ><?= $item['cuisinename']; ?></p>
-                                                                                <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                                <div class="my-3"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                        <img class="img-fluid w-100 h-100 fit-cover" src="uploads/<?= $item['image']; ?>"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </div></a>                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <a class="carousel-control-prev" href="#carousel-9" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Previous</span></a>
-                                        <a class="carousel-control-next" href="#carousel-9" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Next</span></a>
-                                    </div>
-                                        <ol class="carousel-indicators">
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="0" class="active"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="1"></li>
-                                            <li data-bs-target="#carousel-9" data-bs-slide-to="2"></li>
-                                        </ol>
-                                </div><a class="d-lg-flex justify-content-lg-center" href="#" style="color: var(--bs-dark);font-size: 18px;font-family: Acme, sans-serif;">SEE ALL</a>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                        else
-                        {
-                            echo "";
-                        ?>
-                    <?php
-                    }
-                    ?>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-  
-    
-<!-- END OF MENU SECTION-->
-
-<!-- START OF REVIEW SECTION-->
-    <section id="review">
-        <div class="container">
-            <div class="card">
-                <div class="card-header">Restaurant Feedback</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6 text-center">
-                            <h1 class="text-warning mt-4 mb-4">
-                                <b><span id="average_rating">0.0</span> / 5</b>
-                            </h1>
-                            <div class="mb-3">
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                            </div>
-                            <h3><span id="total_review">0</span> Review/s</h3>
-                        </div>
-                        <div class="col-sm-5">
-                            <p>
-                                <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
-                                <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
                                 </div>
-                            </p>
-                            <p>
-                                <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>  
-                                <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
-                                </div>               
-                            </p>
-                            <p>
-                                <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div> 
-                                <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
-                                </div>               
-                            </p>
-                            <p>
-                                <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>  
-                                <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
-                                </div>               
-                            </p>
-                            <p>
-                                <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
-                                <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
-                                </div>               
-                            </p>
+                                <div class="tab-pane fade description" role="tabpanel" id="reserved" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Reserved</p>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;"><img class="img-fluid" src="assets/img/1655662612.jpg" style="height: 90%;padding-top: 20px;"></div>
+                                        <div class="col-md-7">
+                                            <h4 style="text-align: left;">BUSINESS NAME</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show active description" role="tabpanel" id="cancelled" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Cancelled</p>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;"><img class="img-fluid" src="assets/img/1655662612.jpg" style="height: 90%;padding-top: 20px;"></div>
+                                        <div class="col-md-7">
+                                            <h4 style="text-align: left;">BUSINESS NAME</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mt-5" id="review_content"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-<!-- END OF REVIEW SECTION-->
-
-<!-- START OF LOCATION SECTION-->
-    <section id="locations">
-        <div class="mapouter">
-            <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 1020px; height: 800px;"></iframe>
-                <br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style>
-                <style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
+        </section>
+    </main>
+    <main class="page blog-post-list" style="margin-top:100px;" >
+        <section class="mb-0 text-center bg-light p-1">
+            <p style="font-family: Acme, sans-serif;font-size: 40px;font-weight: bold; color:black;">RESERVATION DETAILS</p>
+        </section>
+        <?php 
+            foreach($reservations as $data)
+            {
+        ?>
+        <section class="clean-block clean-blog-list dark p-2">
+            <div class="container">
+                <div class="block-content" style="padding-right: 80px;padding-left: 80px;">
+                    <div class="clean-blog-post">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <img class="rounded img-fluid " style="height:250px; width:300px;" src="uploads/<?= $data['image']; ?>">
+                            </div>
+                            <div class="col-lg-7"style="border-left:solid 2px;" >
+                                <h3 style="font-family: Amaranth, sans-serif;margin-bottom: 3px;margin-top: 5px;font-size: 24px;"><?= $data['business_name']; ?></h3>
+                                <div class="info">
+                                    <span class="text-muted" style="font-weight: bold;font-family: Aldrich, sans-serif;">Table Number</span>
+                                </div>
+                                <p style="color: red;"for="quantity"><strong>STATUS :&nbsp;<?= $data['status']== '0'? "Waiting":"Confirmed"  ?></strong></p>
+                                <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
+                                <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
+                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
+                                <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
+                                <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
+                                <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-</body>
-<!-- END OF LOCATION SECTION-->
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
-    <script src="assets/js/vanilla-zoom.js"></script>
-    <script src="assets/js/theme.js"></script>
+        </section>
+    </main>
     <?php
-        } 
+                        }
+            }
+            else
+            {
+                redirect("index.php", "No Reservation Found");
+            }
+        }
         else
         {
-            echo "No Data Found";
-            ?>
-            <br><a href="index.php">Go Back</a>
-            <?php
+            redirect("index.php", "ID Missing from the URL");
         }
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        <?php if(isset($_SESSION['message'])) 
+    { ?>
+        alertify.set('notifier','position', 'top-center');
+        var msg = alertify.message('Default message');
+        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        <?php 
+        unset($_SESSION['message']);
     }
-    else
-    {
-        echo "Something Went Wrong";
-        ?>
-        <br><a href="index.php">Go Back</a>
-        <?php
-    }
-
-include('includes/footer.php');?>
+    ?> 
+    </script>     
+</body>
+</html>
