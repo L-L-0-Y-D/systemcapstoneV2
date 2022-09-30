@@ -46,11 +46,7 @@ include('middleware/userMiddleware.php');
             ?>
         <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
             <div class="container ml-2">
-                <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">
-                    <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
-                        <map name="workmap">
-                            <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
-                        </map>I - Eat</a>
+                <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">My Reservations</a>
                 <nav class="navbar navbar-expand">
                     <div class="container-fluid">
                         <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
@@ -59,34 +55,76 @@ include('middleware/userMiddleware.php');
                 </nav>
             </div>
         </nav>
-    <main class="page blog-post-list" style="margin-top:100px;" >
-        <section class="mb-0 text-center bg-light p-1">
-            <p style="font-family: Acme, sans-serif;font-size: 40px;font-weight: bold; color:black;">RESERVATION DETAILS</p>
-        </section>
-        <?php 
-            foreach($reservations as $data)
-            {
-        ?>
-        <section class="clean-block clean-blog-list dark p-2">
+        <main class="page product-page">
+        <section class="clean-block clean-product dark">
             <div class="container">
-                <div class="block-content" style="padding-right: 80px;padding-left: 80px;">
-                    <div class="clean-blog-post">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <img class="rounded img-fluid " style="height:250px; width:300px;" src="uploads/<?= $data['image']; ?>">
-                            </div>
-                            <div class="col-lg-7"style="border-left:solid 2px;" >
-                                <h3 style="font-family: Amaranth, sans-serif;margin-bottom: 3px;margin-top: 5px;font-size: 24px;"><?= $data['business_name']; ?></h3>
-                                <div class="info">
-                                    <span class="text-muted" style="font-weight: bold;font-family: Aldrich, sans-serif;">Table Number</span>
+                <div class="text-center block-content" style="padding-top: 40px;height: auto;">
+                    <div class="product-info">
+                        <div>
+                            <ul class="nav nav-pills nav-fill text-center" role="tablist" id="myTab" style="border-bottom-width: 1px;border-bottom-style: solid;border-left-width: 1px;border-left-style: none;">
+                                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="pill" id="description-tab" href="#waiting" style="border-right-style: solid;">WAITING</a></li>
+                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link" role="tab" data-bs-toggle="pill" id="specifications-tabs" href="#reserved" style="border-right-style: solid;border-left-style: solid;">RESERVED</a></li>
+                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link active" role="tab" data-bs-toggle="pill" id="reviews-tab" href="#cancelled">CANCELLED</a></li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <?php 
+                                    foreach($reservations as $data)
+                                    {
+                                ?>
+                                <div class="tab-pane fade description" role="tabpanel" id="waiting" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Waiting</p>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;">
+                                            <img class="img-fluid" src="uploads/<?= $data['image']; ?>" style="height: 90%;padding-top: 20px;">
+                                        </div>
+                                        <div class="col-md-7" style="text-align:left;">
+                                            <h3 style="font-family: Amaranth, sans-serif;margin-bottom: 3px;margin-top: 15px;font-size: 24px;"><?= $data['business_name']; ?></h3>
+                                            <div class="info">
+                                                <span class="text-muted" style="font-weight: bold;font-family: Aldrich, sans-serif;">Table Number</span>
+                                            </div>
+                                                <p style="color:red; margin-bottom: 10px;"for="quantity"><strong>STATUS :&nbsp;<?= $data['status']== '0'? "Waiting":"Confirmed"  ?></strong></p>
+                                                <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
+                                                <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
+                                            </div>
+                                    </div>
                                 </div>
-                                <p style="color: red;"for="quantity"><strong>STATUS :&nbsp;<?= $data['status']== '0'? "Waiting":"Confirmed"  ?></strong></p>
-                                <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
-                                <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
-                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
-                                <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
-                                <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
-                                <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
+                                <?php
+                                }
+                                        }
+                                        else
+                                        {
+                                            redirect("index.php", "No Reservation Found");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        redirect("index.php", "ID Missing from the URL");
+                                    }
+                                ?>
+                                <div class="tab-pane fade description" role="tabpanel" id="reserved" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Reserved</p>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;"><img class="img-fluid" src="assets/img/1655662612.jpg" style="height: 90%;padding-top: 20px;"></div>
+                                        <div class="col-md-7">
+                                            <h4 style="text-align: left;">BUSINESS NAME</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show active description" role="tabpanel" id="cancelled" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Cancelled</p>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;"><img class="img-fluid" src="assets/img/1655662612.jpg" style="height: 90%;padding-top: 20px;"></div>
+                                        <div class="col-md-7">
+                                            <h4 style="text-align: left;">BUSINESS NAME</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -94,19 +132,7 @@ include('middleware/userMiddleware.php');
             </div>
         </section>
     </main>
-    <?php
-                        }
-            }
-            else
-            {
-                redirect("index.php", "No Reservation Found");
-            }
-        }
-        else
-        {
-            redirect("index.php", "ID Missing from the URL");
-        }
-    ?>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
