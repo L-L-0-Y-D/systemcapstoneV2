@@ -8,6 +8,8 @@ if(isset($_POST['business_register_btn']))
     $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
+    $latitude = $_POST["latitude"];
+    $longitude = $_POST["longitude"];
     $cuisinename = $_POST['cuisinename'];
     $opening = $_POST['opening'];
     $closing = $_POST['closing'];
@@ -21,7 +23,7 @@ if(isset($_POST['business_register_btn']))
     $status = isset($_POST['status']) ? "0":"1";
     $verify_token = md5(rand());
 
-    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'&cuisinename[]='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email;
+    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'$latitude='.$latitude.'$longitude='.$longitude.'&cuisinename[]='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email;
      // Get Image Dimension
      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
      $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
@@ -113,8 +115,8 @@ if(isset($_POST['business_register_btn']))
                             // Insert User Data
                             $hash = password_hash($business_password, PASSWORD_DEFAULT);
                             $item = implode(" ",$cuisinename);
-                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid, cuisinename, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,verify_token, status) 
-                            VALUES ('$business_name','$business_address', $municipalityid, '$item', '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$verify_token', '$status')";
+                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid,  cuisinename, latitude, longitude, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,verify_token, status) 
+                            VALUES ('$business_name','$business_address', $municipalityid, '$item', '$latitude', '$longitude', '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$verify_token', '$status')";
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 

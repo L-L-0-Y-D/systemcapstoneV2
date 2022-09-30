@@ -104,7 +104,7 @@ include('includes/header.php');
                                                         }
                                                         else
                                                         {
-                                                            echo '<span class="fas fa-star">&nbsp'.$row_rating['averagerating'].'/5</span>';
+                                                            echo '<span style="color:orange; margin-bottom: 30px;" <i class="fas fa-star"></i>>&nbsp'.$row_rating['averagerating'].'/5</span>';
                                                         }
                                                         $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessuser ORDER BY review_id";
                                                         $query_rating_count_run = mysqli_query($con, $query_rating_count);

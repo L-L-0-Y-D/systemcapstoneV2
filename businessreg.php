@@ -44,8 +44,6 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
@@ -160,6 +158,13 @@ if(isset($_SESSION['auth'])){
 
                     
                 </div>
+
+                <!-- /* The above code is creating a map and pinning the location of the user. */ -->
+                <p style="text-align: left;font-size: 16px; font-weight:bold;">Pin Location</p>
+                    <input type="hidden" id="address" name="address">
+                    <input type="text" id="latitude" name="latitude">
+                    <input type="text" id="longitude" name="longitude">
+                <div id="map" style="height: 300px"></div>
 
                 <p style="text-align: left;font-size: 16px; font-weight:bold;">Cuisine Type</p>
                 <div class="row" style="margin-bottom: 10px;">
@@ -340,11 +345,8 @@ if(isset($_SESSION['auth'])){
 
 </section>
 
-
+    <!-- <script type="text/javascript" src="map.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script type="text/javascript" src="assets/js/map.js"></script>
-
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
@@ -374,7 +376,9 @@ if(isset($_SESSION['auth'])){
     }
     ?> 
     </script> 
+    <script type="text/javascript" src="map.js"></script>
 
+    
 
 </body>
 </html>

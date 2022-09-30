@@ -211,7 +211,26 @@
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['cuisinename']; ?></p>
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;"><?= $data['business_phonenumber']; ?></p>
                 <p class="text-white" style="font-family: Acme, sans-serif;margin-left: 15px;margin-bottom: 0px;">Open:<?=  date("g:i a", strtotime($opening));?> - Close: <?= date("g:i a", strtotime($closing)); ?></p>
-                <span style="color:yellow; margin-bottom: 50px;sans-serif;margin-left: 15px;"><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span><br>
+                <?php
+                    //$businessuser = $_SESSION['auth_user']['businessid'];
+                    $businessid = $data['businessid'];
+                    $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                    $query_rating_run = mysqli_query($con, $query_rating);
+                    $row_rating = mysqli_fetch_assoc($query_rating_run);
+
+                    if(!$row_rating['averagerating'])
+                    {
+                        echo '<span> No Rating </span>';
+                    }
+                    else
+                    {
+                        echo '<span style="color:white; margin-left: 15px; margin-bottom: 0px;" <i class="fas fa-star"></i>&nbsp'.$row_rating['averagerating'].'/5</span>';
+                    }
+                    $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                    $query_rating_count_run = mysqli_query($con, $query_rating_count);
+                    $row_rating_count = mysqli_num_rows($query_rating_count_run);
+                    echo '<span style="color:white"> ('.$row_rating_count.')</span><br>';
+                ?>
                 <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
             </div>
         </div>

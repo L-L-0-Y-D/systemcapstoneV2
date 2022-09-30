@@ -28,7 +28,7 @@ $('#longitude').val(latlng.lng());
 
 
 function updateMarkerAddress(str) {
-  document.getElementById('address').value = str;
+  document.getElementById('#address').value = str;
 }
 
 
@@ -62,7 +62,7 @@ function initialize_map() {
     
     marker = new google.maps.Marker({
             position: latlng,
-            title: 'Address',
+            title: 'address',
             map: map,
             draggable: true,
             //shadow: shadow,

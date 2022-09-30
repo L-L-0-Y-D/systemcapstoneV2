@@ -29,6 +29,7 @@
                         {
                         foreach($business as $item)
                         {
+                            $businessid = $item['businessid'];
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card" style="border-style:none;box-shadow: 0px 0px 5px var(--bs-dark);border-radius: 30px;">
@@ -39,7 +40,60 @@
                                 <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Located at <?= $item['business_address']; ?></p>
                                 <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?> - Closing: <?= date("g:i a", strtotime($item['closing'])); ?></p>
                                 <p class="text-muted card-text" style="text-align: left; margin-bottom:0px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                <span style="color:yellow; margin-bottom: 30px;"><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span>
+                                <?php
+                                $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                                $query_rating_run = mysqli_query($con, $query_rating);
+                                $row_rating = mysqli_fetch_assoc($query_rating_run);
+                                if(!$row_rating['averagerating'])
+                                {
+                                    echo '<span> No Rating </span>';
+                                }
+                                else if($row_rating['averagerating'] == 5.0)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="fas fa-star"></i></span>';
+                                }
+                                else if($row_rating['averagerating'] >= 4.1)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span>';
+                                }
+                                else if($row_rating['averagerating'] == 4.0)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i></span>';
+                                }
+                                else if($row_rating['averagerating'] >= 3.1)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>';
+                                }
+                                else if($row_rating['averagerating'] == 3.0)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                }
+                                else if($row_rating['averagerating'] >= 2.1)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
+                                }
+                                else if($row_rating['averagerating'] == 2.0)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                }
+                                else if($row_rating['averagerating'] >= 1.1)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
+                                }
+                                else if($row_rating['averagerating'] == 1.0)
+                                {
+                                    echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                }
+                                else
+                                {
+                                    echo 'something went wrong';
+                                }
+                                $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                                $query_rating_count_run = mysqli_query($con, $query_rating_count);
+                                $row_rating_count = mysqli_num_rows($query_rating_count_run);
+                                echo '<span> ('.$row_rating_count.')</span>'
+                                
+                                ?>
                                 <button onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center justify-content-end" type="button" style=" position: absolute; bottom: 0; height: 29px;background: RGB(255,128,64);border: none;border-radius: 20px;font-size: 14px;width: 152.328px; margin-bottom:20px;">Make Reservation</button>
                             </div>
                         </div>
