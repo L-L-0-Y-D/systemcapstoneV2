@@ -162,8 +162,8 @@ if(isset($_SESSION['auth'])){
                 <!-- /* The above code is creating a map and pinning the location of the user. */ -->
                 <p style="text-align: left;font-size: 16px; font-weight:bold;">Pin Location</p>
                     <input type="hidden" id="address" name="address">
-                    <input type="text" id="latitude" name="latitude">
-                    <input type="text" id="longitude" name="longitude">
+                    <input type="hidden" id="latitude" name="latitude">
+                    <input type="hidden" id="longitude" name="longitude">
                 <div id="map" style="height: 300px"></div>
 
                 <p style="text-align: left;font-size: 16px; font-weight:bold;">Cuisine Type</p>
