@@ -544,7 +544,7 @@ else if(isset($_POST['update_customer_btn']))
     $password = $_POST['password'];
     $confirmpassword = $_POST['confirmpassword'];
     $role_as = $_POST['role_as'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
@@ -655,9 +655,8 @@ else if(isset($_POST['update_admin_btn']))
     $age = $_POST['age'];
     $phonenumber = $_POST['phonenumber'];
     $address = $_POST['address'];
-    $password = $_POST['password'];
     $role_as = $_POST['role_as'];
-    $status = $_POST['status'];
+    $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
@@ -713,14 +712,10 @@ else if(isset($_POST['update_admin_btn']))
 
         while($row = mysqli_fetch_array($login_query_run))
         {
-            if(password_verify($password, $row["password"]))
-            {
-                if($age >= '18')
+               if($age >= '18')
                 {
                     if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
                     {
-                        if(strlen($_POST['password']) >= 8 )
-                        {
                             $path = "../uploads";
                             //$hash = password_hash($password, PASSWORD_DEFAULT);
                             $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
@@ -739,7 +734,7 @@ else if(isset($_POST['update_admin_btn']))
                                             unlink("../uploads/".$old_image);
                                         }
                                     }
-                                    redirect("customers.php", "Register Updated Successfully");
+                                    redirect("admin.php", " Updated Successfully");
                                 }
                                 else
                                 {
@@ -751,18 +746,13 @@ else if(isset($_POST['update_admin_btn']))
                                             unlink("../uploads/".$old_image);
                                         }
                                     }
-                                    redirect("index.php", "Register Updated Successfully");
+                                    redirect("admin.php", " Updated Successfully");
                                 }
                             }
                             else
                             {
                                 redirect("edit-admin.php?id=$userid", "Something Went Wrong"); 
                             }
-                        }
-                        else
-                        {
-                            redirect("edit-admin.php?id=$userid", "Your password must be at least 8 characters"); 
-                        }
                         
                     }
                     else
@@ -774,11 +764,6 @@ else if(isset($_POST['update_admin_btn']))
                 {
                     redirect("edit-admin.php?id=$userid", "Underage Detected");
                 }
-            }
-            else
-            {
-                redirect("edit-admin.php?id=$userid", "Wrong Password");
-            }
 
         }
 
