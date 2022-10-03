@@ -7,7 +7,7 @@ include('includes/header.php');
 ?>
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">Customer's List</h3>
+            <h3 class="text-dark mb-4">CUSTOMER'S LIST</h3>
         </div>
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >
