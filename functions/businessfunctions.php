@@ -165,8 +165,8 @@ function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numg
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$name.'',
-        'sendername' => 'SEMAPHORE'
+        'message' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are confirm',
+        'sendername' => 'IEAT'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
     curl_setopt( $ch, CURLOPT_POST, 1 );

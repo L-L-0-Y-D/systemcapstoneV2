@@ -111,7 +111,7 @@
                                 <input type = "hidden" name='role_as' value = '0'>
                             </div>
                             <div class="col-md-12">
-                            <input type="hidden" name="status" <?= $data['status'] == '0'? 'checked':'' ?>>
+                            <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
                             </div>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary mt-2" name="update_profile_btn" style="background-color:rgb(255,128,64); border:none;">Update Profile</button>

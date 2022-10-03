@@ -187,7 +187,7 @@ if(isset($_POST['update_profile_btn']))
     $address = $_POST['address'];
     $password = $_POST['password'];
     $role_as = $_POST['role_as'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = isset($_POST['status']) ? "1":"0";
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
 

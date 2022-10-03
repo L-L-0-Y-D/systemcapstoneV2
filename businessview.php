@@ -224,7 +224,7 @@
                     }
                     else
                     {
-                        echo '<span style="color:white; margin-left: 15px; margin-bottom: 0px;" <i class="fas fa-star"></i>&nbsp'.$row_rating['averagerating'].'/5</span>';
+                        echo '<span style="color:orange; margin-left: 15px; margin-bottom: 0px;" <i class="fas fa-star"></i><p class="text-white">'.$row_rating['averagerating'].'/5</p></span>';
                     }
                     $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                     $query_rating_count_run = mysqli_query($con, $query_rating_count);
