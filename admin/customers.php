@@ -60,7 +60,7 @@ include('includes/header.php');
                                                         <td><?= $item['lastname']; ?></td>
                                                         <td><?= $item['address']; ?></td>
                                                         <td><?= $item['age']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Activated":"Waiting"  ?></td>
+                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
                                                             <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">Edit</a>

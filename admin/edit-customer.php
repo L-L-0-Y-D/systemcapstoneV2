@@ -80,7 +80,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-12">
                                 <label for="">Status</label>
-                                <input type="checkbox" name="status" <?= $data['status'] == '0'? 'checked':'' ?>>
+                                <input type="checkbox" name="status" <?= $data['status'] == '0'? '':'checked' ?>>
                             </div> <br>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary" name="update_customer_btn">Save</button>

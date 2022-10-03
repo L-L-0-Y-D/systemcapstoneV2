@@ -55,12 +55,12 @@ if(isset($_POST['add_product_btn']))
     $filename = time().'.'.$image_ext;
 
     // Check if email already registered
-    $check_product_query = "SELECT name FROM products WHERE products='$name'";
+    $check_product_query = "SELECT name FROM products WHERE name='$name'";
     $check_product_query_run = mysqli_query($con, $check_product_query);
 
-    if(mysqli_num_rows($check_email_query_run)>0)
+    if(mysqli_num_rows($check_product_query_run)>0)
     {
-        redirect("menu.php", "Product Already Exist.");
+        redirect("menu.php?id=$businessid", "Product Already Exist.");
     }
     else
     {

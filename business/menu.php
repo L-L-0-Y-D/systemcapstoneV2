@@ -63,7 +63,7 @@ include('../config/dbcon.php');
                                                         <td><?= $item['description']; ?></td>
                                                         <td><?= $item['food_type']; ?></td>
                                                         <td><?= $item['cuisinename']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Sold Out":"Okay"  ?></td>
+                                                        <td><?= $item['status']== '0'? "Sold Out":"Available"  ?></td>
                                                         <td>
                                                             <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                                         </td>
