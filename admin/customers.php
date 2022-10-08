@@ -60,10 +60,18 @@ include('includes/header.php');
                                                         <td><?= $item['lastname']; ?></td>
                                                         <td><?= $item['address']; ?></td>
                                                         <td><?= $item['age']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
+                                                        <td><?php 
+                                                                if($item['status'] == 0)
+                                                                    { echo 'Waiting'; } 
+                                                                elseif($item['status'] == 1)
+                                                                    { echo 'Approved';}
+                                                                elseif($item['status'] == 2)
+                                                                    {echo 'Declined';}  
+                                                                ?>
+                                                        </td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
-                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">View</a>
                                                         </td>
                                                         <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>

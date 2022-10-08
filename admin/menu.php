@@ -58,7 +58,7 @@ include('includes/header.php');
                                                         <td><?= $item['price']; ?></td>
                                                         <td><?= $item['description']; ?></td>
                                                         <td><?= $item['food_type']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
+                                                        <td><?= $item['status']== '0'? "Sold Out":"Activated"  ?></td>
                                                         
                                                     </tr>
                                                 <?php

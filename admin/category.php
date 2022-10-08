@@ -33,7 +33,7 @@ include('includes/header.php');
                                         <th>Cuisine</th>
                                         <th>Status</th>
                                         <th>Edit</th>
-                                        <th>Delete</th>
+                                        <!-- <th>Delete</th> -->
                                     </tr>
                                 </thead>
                                 
@@ -51,11 +51,11 @@ include('includes/header.php');
                                                         <td><?= $item['categoryname']; ?></td>
                                                         <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
                                                         <td>
-                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">View</a>
                                                         </td>
-                                                        <td>
+                                                        <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
-                                                        </td>
+                                                        </td> -->
                                                     </tr>
                                                     <?php
                                                 }

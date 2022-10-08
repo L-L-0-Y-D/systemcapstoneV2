@@ -349,6 +349,10 @@ if(isset($_POST['login_btn'])){ // LogIn
                                 exit(0);
                             }
                         }
+                        elseif($row['status'] == "2")
+                        {
+                            redirect("../login.php", "Your Account has been closed");
+                        }
                         else
                         {
                             redirect("../login.php", "Please Verify your Email to Login");

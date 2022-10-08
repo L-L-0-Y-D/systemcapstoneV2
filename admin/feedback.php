@@ -15,6 +15,7 @@ include('includes/header.php');
                     <table class="table my-0" id="dataTable">
                         <thead style="text-align:center">
                         <tr>
+                            <th>BusinessName</th>
                             <th>Name</th>
                             <th>Rating</th>
                             <th>Review</th>
@@ -23,7 +24,7 @@ include('includes/header.php');
                 
                         <tbody style="text-align:center">
                             <?php
-                                $review = getAll("review_table","review_id");
+                                $review = feedbackGetAll();
 
                                if(mysqli_num_rows($review) > 0)
                                {
@@ -31,6 +32,7 @@ include('includes/header.php');
                                    {
                                        ?>
                                        <tr>
+                                            <td><?= $item['business_name']; ?></td>
                                             <td><?= $item['user_name']; ?></td>
                                             <td><?= $item['user_rating']; ?></td>
                                             <td><?= $item['user_review'];?></td>

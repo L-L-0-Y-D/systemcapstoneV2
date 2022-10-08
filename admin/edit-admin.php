@@ -56,8 +56,8 @@ include('includes/header.php');
                                 <input type="text" name="lastname" required value="<?= $data['lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Age</label>
-                                <input type="number" name="age" required value="<?= $data['age'] ?>" placeholder="Enter Age" class="form-control" readonly>
+                            <label for="" class="mt-2">Date of birth</label>
+                                    <input type="date" name='dateofbirth' value="<?= $data['dateofbirth'] ?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Phone Number</label>

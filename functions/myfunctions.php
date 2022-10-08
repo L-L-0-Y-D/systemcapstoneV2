@@ -81,12 +81,55 @@ function sendemail_businessconfirm($email,$name)
     $mail->addAddress($email);
 
     $mail->isHTML(true);
-    $mail->Subject = 'Business Confirm'; 
+    $mail->Subject = 'Business Update'; 
 
     $email_template = "
     <b>Dear $name</b>
     <h3>Congratulations.</h3>
     <p>We check your business details and all the files you send<p>
+    http://localhost/systemcapstoneV2/index.php
+    ";
+
+    $mail->Body    = $email_template;
+    $mail->send();
+   // echo 'Message has been sent';
+
+
+}
+
+function sendemail_businesdeclined($email,$name)
+{
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    //$mail->SMTPDebug = 2; 
+    $mail->isSMTP();
+    $mail->SMTPAuth   = true; 
+
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "ieatwebsite@gmail.com";
+    $mail->Password   = "ydckqbbwsloabncq";
+
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+        )
+        );
+    $mail->SMTPSecure = "tls";
+    $mail->Port       = 587;
+    
+    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->addAddress($email);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Business Update'; 
+
+    $email_template = "
+    <b>Dear $name</b>
+    <h3>Sorry to Inform you.</h3>
+    <p>We check your business details and all the files you send and sorry to inform you that you are been declined <p>
     http://localhost/systemcapstoneV2/index.php
     ";
 
@@ -123,6 +166,16 @@ function menuGetAll()
     FROM products
     JOIN business 
     ON products.businessid=business.businessid";
+    return $query_run = mysqli_query($con, $query);
+}
+
+function feedbackGetAll()
+{
+    global $con;
+    $query = "SELECT review_table.review_id,review_table.businessid,review_table.user_name,review_table.user_rating,review_table.user_review,business.business_name,review_table.datetime
+    FROM review_table
+    JOIN business 
+    ON review_table.businessid=business.businessid";
     return $query_run = mysqli_query($con, $query);
 }
 

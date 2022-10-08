@@ -104,8 +104,8 @@ include('includes/header.php');
                             <div class="row">
                                 <div class="col">
                                     <div class="mb-3">                                               
-                                        <label class="form-label" for=""><strong>Age</strong><br></label>
-                                        <input type="number" name="age" required value="<?= $data['age'] ?>" placeholder="Enter Age" class="form-control">
+                                    <label for="" class="mt-2">Date of birth</label>
+                                    <input type="date" name='dateofbirth' value="<?= $data['dateofbirth'] ?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                                     </div>
                                 </div>
                                 <div class="col">

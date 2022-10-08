@@ -74,9 +74,16 @@ include('includes/header.php');
                                                             <td><?= date('h:i A', strtotime($item['closing']));?></td>
                                                             <td><?= $item['business_firstname']; ?></td>
                                                             <td><?= $item['business_lastname']; ?></td>
-                                                            <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
+                                                            <td><?php 
+                                                                if($item['status'] == 0)
+                                                                    { echo 'Waiting'; } 
+                                                                elseif($item['status'] == 1)
+                                                                    { echo 'Approved';}
+                                                                else
+                                                                    {echo 'Declined';}  
+                                                                ?></td>
                                                             <td>
-                                                            <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm btn-primary">View</a>
                                                             </td>
                                                         <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>

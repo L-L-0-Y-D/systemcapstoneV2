@@ -544,7 +544,7 @@ else if(isset($_POST['update_customer_btn']))
     $password = $_POST['password'];
     $confirmpassword = $_POST['confirmpassword'];
     $role_as = $_POST['role_as'];
-    $status = isset($_POST['status']) ? "1":"0";
+    $status = $_POST['status'];
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
@@ -942,7 +942,7 @@ else if(isset($_POST['edit_business_btn']))
     $businessid = $_POST['businessid'];
     $business_name = $_POST['business_name'];
     $business_email = $_POST['business_email'];
-    $status = isset($_POST['status']) ? "1":"0";
+    $status = $_POST['status'];
 
 
     $update_query = "UPDATE business SET status='$status' WHERE businessid='$businessid'";
@@ -962,6 +962,11 @@ else if(isset($_POST['edit_business_btn']))
         elseif($status == 0)
         {
             redirect("busiowner.php", "Business Updated Successfully");
+        }
+        elseif($status == 2)
+        {
+            sendemail_businesdeclined($business_email,$business_name);
+            redirect("busiowner.php", "Email Send Business Updated Successfully");
         }
     }
     else

@@ -37,7 +37,7 @@ include('includes/header.php');
                                     <th>Reservation Date</th>
                                     <th>Reservation Time</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
+                                    <!-- <th>Edit</th> -->
                                 </tr>
                             </thead>
                             
@@ -59,10 +59,17 @@ include('includes/header.php');
                                                         <td><?= $item['reservation_email']; ?></td>
                                                         <td><?= $item['reservation_date']; ?></td>
                                                         <td><?= $item['reservation_time']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
-                                                        <td>
+                                                        <td><?php 
+                                                                if($item['status'] == 0)
+                                                                    { echo 'Waiting'; } 
+                                                                elseif($item['status'] == 1)
+                                                                    { echo 'Approved';}
+                                                                else
+                                                                    {echo 'Declined';}  
+                                                                ?></td>
+                                                        <!-- <td>
                                                             <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                        </td>
+                                                        </td> -->
                                                     </tr>
                                                 <?php
                                             

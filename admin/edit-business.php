@@ -116,10 +116,29 @@ include('includes/header.php');
                                 <label for="">Confirm Password</label>
                                 <input type="password" name="business_confirmpassword" required value="<?= $data['business_password'] ?>"  placeholder="Enter Confirm Password" class="form-control" readonly>
                             </div>
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <label for="">Status</label>
                                 <input type="checkbox" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
-                            </div> <br>
+                            </div> <br> -->
+                            <div class="col-md-12">
+                                <label for="">Status</label>
+                                <select name='status' required class="form-select mb-2">
+                                    <?php
+                                    if($data['status'] == 0)
+                                    { echo '<option value="0" selected hidden>Waiting</option>
+                                            <option value="1">Approve</option>
+                                            <option value="2">Declined</option>'; } 
+                                    elseif($data['status'] == 1)
+                                    { echo '<option value="0" hidden>Waiting</option>
+                                            <option value="1" selected>Approve</option>
+                                            <option value="2">Declined</option>';}
+                                    elseif($data['status'] == 2)
+                                    {echo  '<option value="0" hidden>Waiting</option>
+                                            <option value="1" >Approve</option>
+                                            <option value="2" selected>Declined</option>';} 
+                                    ?>
+                                </select>
+                            </div>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary" name="edit_business_btn">Save</button>
                             </div>

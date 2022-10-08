@@ -83,7 +83,7 @@
 
             if(mysqli_num_rows($business) > 0)
             {
-                $data = mysqli_fetch_array($business)
+                $data = mysqli_fetch_array($business);
                 
             
             ?>
@@ -104,8 +104,8 @@
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
 	        	</h4>
 	        	<div class="form-group">
-                    <input type="hidden" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
-                    <input type="hidden" name="businessid" id="businessid" value="<?= $data['businessid'] ?>">
+                    <input type="text" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
+                    <input type="text" name="businessid" id="businessid" value="<?= $data['businessid'] ?>">
 	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" value="<?= $_SESSION['auth_user']['name']?>" />
 	        	</div>
 	        	<div class="form-group">
@@ -214,6 +214,7 @@ $(document).ready(function(){
 
         if(user_name == '' || user_review == '')
         {
+            // $_SESSION['Please Fill Both Field'];
             alert("Please Fill Both Field");
             return false;
         }
@@ -240,6 +241,7 @@ $(document).ready(function(){
 
     function load_rating_data()
     {
+        
         $.ajax({
             url:"submit_rating.php",
             method:"POST",
@@ -287,6 +289,8 @@ $(document).ready(function(){
 
                     for(var count = 0; count < data.review_data.length; count++)
                     {
+                        html += '<div class="card-header"><b>'+data.review_data[count].businessid+'</b></div>';
+
                         html += '<div class="row mb-3">';
 
                         html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
@@ -331,11 +335,26 @@ $(document).ready(function(){
                     }
 
                     $('#review_content').html(html);
+
                 }
             }
         })
+        // $.ajax({
+        //         url:"submit_rating.php",
+        //         method:"GET",
+        //         data:{businessid:businessid},
+        //         success:function(data)
+        //         {
+        //             $('#review_modal').modal('hide');
+
+        //             load_rating_data();
+
+        //             alert(data);
+        //         }
+        //     })
     }
 
 });
+
 
 </script>
