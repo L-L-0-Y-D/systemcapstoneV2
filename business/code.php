@@ -196,7 +196,7 @@ elseif (isset($_POST['update_reservation_btn']))
     $reservation_phonenumber = $_POST['reservation_phonenumber'];
     $reservation_date = $_POST['reservation_date'];
     $reservation_time = $_POST['reservation_time'];
-    $status = isset($_POST['status']) ? "1":"0";
+    $status = $_POST['status'];
 
     $update_query = "UPDATE reservations SET numberofguest='$numberofguest',businessid='$businessid',userid='$userid',namereserveunder='$namereserveunder',reservation_email='$reservation_email',reservation_phonenumber='$reservation_phonenumber',reservation_date='$reservation_date',reservation_time='$reservation_time', status='$status' WHERE reservationid='$reservationid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
@@ -209,6 +209,11 @@ elseif (isset($_POST['update_reservation_btn']))
         {
             sendphonenumber_confirmreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$business_name,$businessid);
             //redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
+        }
+        elseif($status == 2)
+        {
+            sendphonenumber_declinedreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$business_name,$businessid);
+            
         }
         else
         {

@@ -31,8 +31,11 @@ if(isset($_POST["rating_data"]))
 }
 
 	if(isset($_POST["action"]))
-	{	
-		$businessid = 95;
+	{
+		if(isset($_GET['id']))
+        {
+		$id = $_GET['id'];
+		$businessid = $id;
 		$userid = 0;
 		$average_rating = 0;
 		$total_review = 0;
@@ -110,7 +113,7 @@ if(isset($_POST["rating_data"]))
 
 	}
 		
-
+	}
 
 
 

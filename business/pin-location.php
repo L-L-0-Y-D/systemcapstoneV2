@@ -28,7 +28,7 @@ include('../config/dbcon.php');
         <div id="map"  style="height: 700px"></div>
     </div>
 </div>
-
+    
 
 
 <?php

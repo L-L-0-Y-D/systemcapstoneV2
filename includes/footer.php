@@ -121,7 +121,7 @@
 
 <?php
             }
-        }
+        
             ?>
 
 <style>
@@ -221,7 +221,7 @@ $(document).ready(function(){
         else
         {
             $.ajax({
-                url:"submit_rating.php",
+                url:"submit_rating.php?id=<?= $id; ?>",
                 method:"POST",
                 data:{rating_data:rating_data, userid:userid, businessid:businessid, user_name:user_name, user_review:user_review},
                 success:function(data)
@@ -243,7 +243,7 @@ $(document).ready(function(){
     {
         
         $.ajax({
-            url:"submit_rating.php",
+            url:"submit_rating.php?id=<?= $id; ?>",
             method:"POST",
             data:{action:'load_data'},
             dataType:"JSON",
@@ -358,3 +358,8 @@ $(document).ready(function(){
 
 
 </script>
+
+<?php
+
+        }
+?>

@@ -194,9 +194,13 @@ else if(isset($_POST['business_login']))
                                 
                                 redirect("../business/index.php?id=$businessid", "Welcome to dashboard");
                             }
+                            elseif($status == '2')
+                            {
+                                redirect("../ownerlogin.php", "Account Closed");
+                            }
                             else
                             {
-                                redirect("../ownerlogin.php", "You are not verify yet");
+                                redirect("../ownerlogin.php", "You are not Verify Yet");
                             }
                             
                         }

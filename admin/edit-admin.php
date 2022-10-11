@@ -32,7 +32,7 @@ include('includes/header.php');
                         <div class="row">
                                 <div class="col-md-12">
                                 <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control" disabled>
+                                <input type="file" name="image" class="form-control" readonly>
                                 <label for="">Current Image</label>
                                 <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
@@ -72,8 +72,23 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-12">
                                 <label for="">Status</label>
-                                <input type="checkbox" name="status" <?= $data['status'] == '0'? '':'checked' ?>>
-                            </div> <br>
+                                <select name='status' required class="form-select mb-2">
+                                    <?php
+                                    if($data['status'] == 0)
+                                    { echo '<option value="0" selected hidden>Waiting</option>
+                                            <option value="1">Approve</option>
+                                            <option value="2">Declined</option>'; } 
+                                    elseif($data['status'] == 1)
+                                    { echo '<option value="0" hidden>Waiting</option>
+                                            <option value="1" selected>Approve</option>
+                                            <option value="2">Closed</option>';}
+                                    elseif($data['status'] == 2)
+                                    {echo  '<option value="0" hidden>Waiting</option>
+                                            <option value="1" >Approve</option>
+                                            <option value="2" selected>Closed</option>';} 
+                                    ?>
+                                </select>
+                            </div>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary" name="update_admin_btn">Save</button>
                             </div>

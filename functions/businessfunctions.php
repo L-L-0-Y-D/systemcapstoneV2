@@ -190,7 +190,39 @@ function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numg
     }
     
 }
+
+function sendphonenumber_declinedreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
+{
+
+    $ch = curl_init();
+    $parameters = array(
+        'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
+        'number' => $phonenumber,
+        'message' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are has been declined',
+        'sendername' => 'IEAT'
+    );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
+
+    //Show the server response
+    if($output)
+    {
+        redirect("../business/reservation.php?id=$businessid", "Message Sent");
+    }
+    else
+    {
+        redirect("../business/reservation.php?id=$businessid", "Message not sent");
+    }
     
+}
 
 
 function getAll($table)

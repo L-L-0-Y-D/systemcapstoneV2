@@ -39,7 +39,7 @@ include('includes/header.php');
                                     <th>Status</th>
                                     <th>Role</th>
                                     <th>Edit</th>
-                                    <th>Delete</th>
+                                    <!-- <th>Delete</th> -->
                                     </tr>
                                 </thead>
                             
@@ -61,14 +61,21 @@ include('includes/header.php');
                                                         <td><?= $item['lastname']; ?></td>
                                                         <td><?= $item['address']; ?></td>
                                                         <td><?= $item['age']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
+                                                        <td><?php 
+                                                                if($item['status'] == 0)
+                                                                    { echo 'Waiting'; } 
+                                                                elseif($item['status'] == 1)
+                                                                    { echo 'Approved';}
+                                                                else
+                                                                    {echo 'Declined';}  
+                                                                ?></td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
                                                             <a href="edit-admin.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">View</a>
                                                         </td>
-                                                        <td>
+                                                        <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>
-                                                        </td>
+                                                        </td> -->
                                                     </tr>
                                                 <?php
                                             }

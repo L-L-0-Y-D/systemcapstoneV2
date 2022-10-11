@@ -40,8 +40,8 @@ include('../config/dbcon.php');
                                     <th>Reservation Date</th>
                                     <th>Reservation Time</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>View</th>
+                                    <!-- <th>Delete</th> -->
                                 </tr>
                             </thead>
                             
@@ -63,13 +63,20 @@ include('../config/dbcon.php');
                                                         <td><?= $item['reservation_email']; ?></td>
                                                         <td><?= $item['reservation_date']; ?></td>
                                                         <td><?= $item['reservation_time']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"  ?></td>
+                                                        <td><?php 
+                                                                if($item['status'] == 0)
+                                                                    { echo 'Waiting'; } 
+                                                                elseif($item['status'] == 1)
+                                                                    { echo 'Approved';}
+                                                                elseif($item['status'] == 2)
+                                                                    {echo 'Declined';}  
+                                                        ?></td>
                                                         <td>
-                                                            <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">View</a>
                                                         </td>
-                                                        <td>
+                                                        <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
-                                                        </td>
+                                                        </td> -->
                                                     </tr>
                                                 <?php
                                                 }

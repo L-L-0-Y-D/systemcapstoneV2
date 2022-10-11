@@ -652,16 +652,17 @@ else if(isset($_POST['update_admin_btn']))
     $email = $_POST['email'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $age = $_POST['age'];
+    $dateofbirth = $_POST['dateofbirth'];
     $phonenumber = $_POST['phonenumber'];
     $address = $_POST['address'];
     $role_as = $_POST['role_as'];
-    $status = isset($_POST['status']) ? "1":"0";
-
+    $status = $_POST['status'];
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
 
-    
+    $today = date("Y-m-d");
+    $difference = date_diff(date_create($dateofbirth), date_create($today));
+    $age = $difference->format('%y');
 
     if($new_image != "")
     {
@@ -678,98 +679,64 @@ else if(isset($_POST['update_admin_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+            redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 2000000)) {
+        else if (($_FILES["image"]["size"] < 80000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+            redirect("../profile.php?id=$userid", "Image size less than 800KB");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+            redirect("../profile.php?id=$userid", "Image size exceeds 10MB");
         }
     }
     else
     {
         $update_filename = $old_image;
     }
+    
+    $path = "../uploads";
 
     // Check if email already registered
     $check_email_query = "SELECT email FROM users WHERE email='$email'";
     $check_email_query_run = mysqli_query($con, $check_email_query);
-
     if(mysqli_num_rows($check_email_query_run)>1)
     {
-        redirect("edit-admin.php?=$userid", "Email Already Use");
+        redirect("../profile.php", "Email Already Use");
     }
     else
     {
-        // Check if password Match
         $login_query = "SELECT * FROM users WHERE userid='$userid'";
         $login_query_run = mysqli_query($con, $login_query);
-        //mysqli_query($con,$login_query) or die("bad query: $login_query");
 
         while($row = mysqli_fetch_array($login_query_run))
         {
-               if($age >= '18')
+            
+                if($age >= 18)
                 {
                     if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
                     {
-                            $path = "../uploads";
+                        
                             //$hash = password_hash($password, PASSWORD_DEFAULT);
                             $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
                             //mysqli_query($con,$update_query) or die("bad query: $update_query");
-
                             $update_query_run = mysqli_query($con, $update_query);
-                            if($update_query_run)
-                            {
-                                if ($role_as == 0)
-                                {
-                                    if($_FILES['image']['name'] != "")
-                                    {
-                                        move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
-                                        if(file_exists("../uploads/".$old_image))
-                                        {
-                                            unlink("../uploads/".$old_image);
-                                        }
-                                    }
-                                    redirect("admin.php", " Updated Successfully");
-                                }
-                                else
-                                {
-                                    if($_FILES['image']['name'] != "")
-                                    {
-                                        move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
-                                        if(file_exists("../uploads/".$old_image))
-                                        {
-                                            unlink("../uploads/".$old_image);
-                                        }
-                                    }
-                                    redirect("admin.php", " Updated Successfully");
-                                }
-                            }
-                            else
-                            {
-                                redirect("edit-admin.php?id=$userid", "Something Went Wrong"); 
-                            }
-                        
+                            redirect("index.php?id=$userid", "Update Succesfully");
                     }
                     else
                     {
-                        redirect("edit-admin.php?id=$userid", "Phone number error detected");
+                        redirect("admin.php?id=$userid", "Phone number error detected");
                     }
                 }
                 else
                 {
-                    redirect("edit-admin.php?id=$userid", "Underage Detected");
+                    redirect("admin.php?id=$userid", "Underage Detected");
                 }
 
         }
 
-
     }
-
 }
 else if(isset($_POST['delete_customer_btn']))
 {
