@@ -63,12 +63,56 @@ if(isset($_GET['id']))
                     <div class="product-info">
                         <div>
                             <ul class="nav nav-pills nav-fill text-center" role="tablist" id="myTab" style="border-bottom-width: 1px;border-bottom-style: solid;border-left-width: 1px;border-left-style: none;">
-                                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="pill" id="description-tab" href="#waiting" style="border-right-style: solid;">WAITING</a></li>
-                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link" role="tab" data-bs-toggle="pill" id="specifications-tabs" href="#reserved" style="border-right-style: solid;border-left-style: solid;">APPROVED</a></li>
-                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link active" role="tab" data-bs-toggle="pill" id="reviews-tab" href="#cancelled">CANCELLED</a></li>
+                                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="pill" id="description-tab" href="#all" style="border-right-style: solid;">ALL</a></li>
+                                <li class="nav-item" role="presentation"><a class="nav-link " role="tab" data-bs-toggle="pill" id="description-tab" href="#waiting" style="border-right-style: solid;">WAITING</a></li>
+                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link" role="tab" data-bs-toggle="pill" id="specifications-tabs" href="#approved" style="border-right-style: solid;border-left-style: solid;">APPROVED</a></li>
+                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link " role="tab" data-bs-toggle="pill" id="reviews-tab" href="#declined">DECLINED</a></li>
+                                <li class="nav-item" role="presentation" style="border-left-width: 1px;border-left-style: solid;"><a class="nav-link " role="tab" data-bs-toggle="pill" id="reviews-tab" href="#cancelled">CANCELLED</a></li>
+
                             </ul>
 							
                             <div class="tab-content" id="myTabContent">
+
+                                <!-- All -->
+                                <div class="tab-pane fade show active description" role="tabpanel" id="all" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">All</p>
+									<?php 
+
+									// $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
+									if(mysqli_num_rows($result_waiting) > 0)
+                                    {  
+                                        foreach($result_waiting as $data)
+                                        {
+                                         
+									?>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;">
+                                            <img class="img-fluid" src="uploads/<?= $data['image']; ?>" style="height: 90%;padding-top: 20px;">
+                                        </div>
+                                        <div class="col-md-7" style="text-align:left;">
+                                            <h3 style="font-family: Amaranth, sans-serif;margin-bottom: 3px;margin-top: 15px;font-size: 24px;"><?= $data['business_name']; ?></h3>
+                                            <div class="info">
+                                                <span class="text-muted" style="font-weight: bold;font-family: Aldrich, sans-serif;">Table Number</span>
+                                            </div>
+                                                <p style="color:red; margin-bottom: 10px;"for="quantity"><strong>STATUS :&nbsp;<?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></strong></p>
+                                                <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
+                                                <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
+                                            </div>
+                                    </div>
+									<?php
+                                           }
+                                    }
+                                    else
+                                    {
+                                        echo "No Data";
+                                    }	
+                                        
+									?>
+                                </div>
 
                                 <!-- Waiting -->
                                 <div class="tab-pane fade description" role="tabpanel" id="waiting" style="padding-top: 20px;">
@@ -112,7 +156,7 @@ if(isset($_GET['id']))
                                 </div>
                                 
 								<!-- Confirmed -->
-                                <div class="tab-pane fade description" role="tabpanel" id="reserved" style="padding-top: 20px;">
+                                <div class="tab-pane fade description" role="tabpanel" id="approved" style="padding-top: 20px;">
                                     <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Approved</p>
 									<?php 
                                     if(mysqli_num_rows($result_approved) > 0)
@@ -140,7 +184,11 @@ if(isset($_GET['id']))
                                                 <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
                                                 <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
 
-                                                <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
+                                                <button class="btn btn-primary mb-3 mt-3" type="submit" name="add_review" id="add_review" style="background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
+                                        </div>
+                                    </div>
+
+                                                <!-- <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button> -->
                                                 <!-- /* A modal that is used to submit a review. */ -->
                                                 <div id="review_modal" class="modal" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
@@ -193,8 +241,87 @@ if(isset($_GET['id']))
                                         
 									?>
                                 </div>
-                                <!-- Cancelled -->
-                                <div class="tab-pane fade show active description" role="tabpanel" id="cancelled" style="padding-top: 20px;">
+                                <!-- Declined -->
+                                <div class="tab-pane fade description" role="tabpanel" id="declined" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Declined</p>
+									<?php 
+									// $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
+									if(mysqli_num_rows($result_declined) > 0)
+                                    { 	
+										foreach($result_declined as $data)
+										{
+											
+									?>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;">
+                                            <img class="img-fluid" src="uploads/<?= $data['image']; ?>" style="height: 90%;padding-top: 20px;">
+                                        </div>
+                                        <div class="col-md-7" style="text-align:left;">
+                                            <h3 style="font-family: Amaranth, sans-serif;margin-bottom: 3px;margin-top: 15px;font-size: 24px;"><?= $data['business_name']; ?></h3>
+                                            <div class="info">
+                                                <span class="text-muted" style="font-weight: bold;font-family: Aldrich, sans-serif;">Table Number</span>
+                                            </div>
+                                                <p style="color:red; margin-bottom: 10px;"for="quantity"><strong>STATUS :&nbsp;<?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></strong></p>
+                                                <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
+                                                <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
+                                            </div>
+                                    </div>
+									<?php
+                                        }
+									}
+                                    else
+                                    {
+                                        echo "No Data";
+                                    }
+                                        
+									?>
+                                </div>
+								
+                                <!-- Declined -->
+                                <div class="tab-pane fade description" role="tabpanel" id="declined" style="padding-top: 20px;">
+                                    <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Declined</p>
+									<?php 
+									// $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
+									if(mysqli_num_rows($result_declined) > 0)
+                                    { 	
+										foreach($result_declined as $data)
+										{
+											
+									?>
+                                    <div class="row" style="border-radius: 15px;border-width: 2px;border-style: solid;">
+                                        <div class="col-md-5" style="border-right-width: 2px;border-right-style: solid;">
+                                            <img class="img-fluid" src="uploads/<?= $data['image']; ?>" style="height: 90%;padding-top: 20px;">
+                                        </div>
+                                        <div class="col-md-7" style="text-align:left;">
+                                            <h3 style="font-family: Amaranth, sans-serif;margin-bottom: 3px;margin-top: 15px;font-size: 24px;"><?= $data['business_name']; ?></h3>
+                                            <div class="info">
+                                                <span class="text-muted" style="font-weight: bold;font-family: Aldrich, sans-serif;">Table Number</span>
+                                            </div>
+                                                <p style="color:red; margin-bottom: 10px;"for="quantity"><strong>STATUS :&nbsp;<?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></strong></p>
+                                                <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
+                                                <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
+                                                <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
+                                            </div>
+                                    </div>
+									<?php
+                                        }
+									}
+                                    else
+                                    {
+                                        echo "No Data";
+                                    }
+                                        
+									?>
+                                </div>
+								<!-- Declined -->
+                                <div class="tab-pane fade description" role="tabpanel" id="cancelled" style="padding-top: 20px;">
                                     <p style="font-size: 30px;font-family: Acme, sans-serif;font-weight: bold;text-align: left;margin-bottom: 30px;">Cancelled</p>
 									<?php 
 									// $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
