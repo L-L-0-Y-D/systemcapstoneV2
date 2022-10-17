@@ -91,7 +91,7 @@
                                 <label for="" class="mt-2">Last Name</label>
                                 <input type="text" name="lastname" value="<?= $data['lastname'] ?>" required placeholder="Enter Last Name" class="form-control">
                             </div>
-                            <div class="column mb-6">
+                            <div class="col-md-6">
                                 <label for="" class="mt-2">Date of birth</label>
                                 <input type="date" name='dateofbirth' value="<?= $data['dateofbirth'] ?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
                             </div>
