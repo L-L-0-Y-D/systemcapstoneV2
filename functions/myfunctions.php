@@ -24,14 +24,14 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->Username   = "recoverpassword@ieat.store";
     $mail->Password   = "*Password1*";
 
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-        )
-        );
-    $mail->SMTPSecure = "tls";
+    // $mail->SMTPOptions = array(
+    //     'ssl' => array(
+    //     'verify_peer' => false,
+    //     'verify_peer_name' => false,
+    //     'allow_self_signed' => true
+    //     )
+    //     );
+    $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
     $mail->setFrom("recoverpassword@ieat.store", "I-EAT");
