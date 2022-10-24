@@ -21,8 +21,8 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->SMTPAuth   = true; 
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "recoverpassword@ieat.store";
-    $mail->Password   = "*Password1*";
+    $mail->Username   = "ieatwebsite@gmail.com";
+    $mail->Password   = "ydckqbbwsloabncq";
 
     $mail->SMTPOptions = array(
         'ssl' => array(
