@@ -20,9 +20,9 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->isSMTP();
     $mail->SMTPAuth   = true; 
 
-    $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "ieatwebsite@gmail.com";
-    $mail->Password   = "ydckqbbwsloabncq";
+    $mail->Host       = "smtp.hostinger.com";
+    $mail->Username   = "recoverpassword@ieat.store";
+    $mail->Password   = "*Password1*";
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -32,7 +32,7 @@ function sendemail_forgetpassword($email,$verify_token)
         )
         );
     $mail->SMTPSecure = "tls";
-    $mail->Port       = 587;
+    $mail->Port       = 465;
     
     $mail->setFrom("recoverpassword@ieat.store", "I-EAT");
     $mail->addAddress($email);
@@ -44,7 +44,7 @@ function sendemail_forgetpassword($email,$verify_token)
     <b>Dear User</b>
     <h3>We received a request to reset your password.</h3>
     <p>Kindly click the below link to reset your password</p>
-    <a href='http://localhost/systemcapstoneV2/resetpassword.php?token=$verify_token'>Clicked here<a>
+    <a href='https://ieat.store/resetpassword.php?token=$verify_token'>Clicked here<a>
     ";
 
     $mail->Body    = $email_template;
