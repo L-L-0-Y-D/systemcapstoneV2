@@ -34,7 +34,7 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
     
-    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->setFrom("recoverpassword@ieat.store", "I-EAT");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
