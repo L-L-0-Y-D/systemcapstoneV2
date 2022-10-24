@@ -4,7 +4,7 @@
     $host = "ieat.store";
     $username = "u217632220_ieat";
     $password = "Hj1@8QuF3C";
-    $database = "u217632220_ieat";
+    $database = "u217632220_ieatwebsite";
 
     // Creating database connection
     $con = mysqli_connect($host,$username,$password,$database);
