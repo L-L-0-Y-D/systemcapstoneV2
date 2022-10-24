@@ -10,6 +10,7 @@ if(isset($_GET['id']))
     if(mysqli_num_rows($reservations) > 0)
     {
         $data = mysqli_fetch_array($reservations);
+        $result_all = getReservationByUser($id);
         $result_waiting = reservationGetByIDWaiting($id);
         $result_approved = reservationGetByIDApproved($id);
         $result_declined= reservationGetByIDDeclined($id);
@@ -79,9 +80,9 @@ if(isset($_GET['id']))
 									<?php 
 
 									// $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
-									if(mysqli_num_rows($result_waiting) > 0)
+									if(mysqli_num_rows($result_all) > 0)
                                     {  
-                                        foreach($result_waiting as $data)
+                                        foreach($result_all as $data)
                                         {
                                          
 									?>
@@ -185,10 +186,8 @@ if(isset($_GET['id']))
                                                 <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
 
                                                 <button class="btn btn-primary mb-3 mt-3" type="submit" name="add_review" id="add_review" style="background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
-                                        </div>
-                                    </div>
 
-                                                <!-- <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button> -->
+                                                                                                <!-- <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button> -->
                                                 <!-- /* A modal that is used to submit a review. */ -->
                                                 <div id="review_modal" class="modal" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
@@ -208,6 +207,7 @@ if(isset($_GET['id']))
                                                                 <div class="form-group">
                                                                     <input type="hidden" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
                                                                     <input type="hidden" name="businessid" id="businessid" value="<?= $data['businessid'] ?>">
+                                                                    <input type="hidden" name="review_status" id="review_status" value="1">
                                                                     <input type="text" readonly name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" value="<?= $_SESSION['auth_user']['name']?>" />
                                                                 </div>
                                                                 <div class="form-group">
@@ -221,10 +221,7 @@ if(isset($_GET['id']))
                                                     </div>
                                                 </div>
                                         </div>
-                                    </div>
-
-                                    
-                                                                   
+                                    </div>                                                          
 									<?php
                                                                                
                                         }

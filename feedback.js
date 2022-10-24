@@ -64,6 +64,8 @@ $(document).ready(function(){
 
         var businessid = $('#businessid').val();
 
+        var review_status = $('#review_status').val();
+
         var user_name = $('#user_name').val();
 
         var user_review = $('#user_review').val();
@@ -79,14 +81,16 @@ $(document).ready(function(){
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
-                data:{rating_data:rating_data, userid:userid, businessid:businessid, user_name:user_name, user_review:user_review},
+                data:{rating_data:rating_data, userid:userid, businessid:businessid, review_status:review_status, user_name:user_name, user_review:user_review},
                 success:function(data)
                 {
                     $('#review_modal').modal('hide');
 
                     load_rating_data();
 
-                    alert(data);
+                    // alert(data);
+                    window.location = 'your_reservation.php?id=' + userid;
+
                 }
             })
         }
