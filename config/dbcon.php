@@ -2,7 +2,7 @@
 
 /* This is the code that connects to the database. */
     $host = "localhost";
-    $username = "u217632220_ieat";
+    $username = "u217632220_ieat1";
     $password = "Hj1@8QuF3C";
     $database = "u217632220_ieatwebsite";
 
