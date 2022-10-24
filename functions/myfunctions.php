@@ -34,7 +34,7 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("recoverpassword@ieat.store", "I-EAT");
+    $mail->setFrom("recoverpassword@ieat.store", "I-EAT Recover Password");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
