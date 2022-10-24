@@ -13,7 +13,7 @@
                     <div class="row">
                                     <?php
                                         /* A PDO connection to the database. */
-                                       $conn = new PDO("mysql:host=localhost;dbname=thesis",'root','');
+                                       $conn = new PDO("mysql:host=localhost;dbname=u217632220_ieatwebsite",'u217632220_ieat','Hj1@8QuF3C');
                                        $conn->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                     
                                         /* This is the code that is responsible for the search for business
