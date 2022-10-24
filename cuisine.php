@@ -4,7 +4,7 @@
     include('includes/header.php'); 
     if(isset($_GET['name']))
         {
-             $conn = new PDO("mysql:host=localhost;dbname=thesis",'root','');
+             $conn = new PDO("mysql:host=localhost;dbname=u217632220_ieatwebsite",'u217632220_ieat','Hj1@8QuF3C');
              $conn->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
              $name = $_GET['name'];
              $query = $conn->prepare("SELECT * FROM business WHERE cuisinename LIKE :keyword AND status= '1'");

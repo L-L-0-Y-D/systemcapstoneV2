@@ -2,7 +2,7 @@
 
 //submit_rating.php
 
-$con = new PDO("mysql:host=localhost;dbname=thesis", "root", "");
+$con = new PDO("mysql:host=localhost;dbname=u217632220_ieatwebsite", "u217632220_ieat", "Hj1@8QuF3C");
 
 function redirect($url, $message)
 {
