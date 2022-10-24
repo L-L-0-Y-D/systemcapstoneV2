@@ -63,31 +63,31 @@ function sendemail_businessconfirm($email,$name)
     $mail->isSMTP();
     $mail->SMTPAuth   = true; 
 
-    $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "ieatwebsite@gmail.com";
-    $mail->Password   = "ydckqbbwsloabncq";
+    $mail->Host       = "smtp.hostinger.com";
+    $mail->Username   = "businessapproved@ieat.store";
+    $mail->Password   = "*Password2*";
 
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-        )
-        );
-    $mail->SMTPSecure = "tls";
-    $mail->Port       = 587;
+    // $mail->SMTPOptions = array(
+    //     'ssl' => array(
+    //     'verify_peer' => false,
+    //     'verify_peer_name' => false,
+    //     'allow_self_signed' => true
+    //     )
+    //     );
+    $mail->SMTPSecure = "ssl";
+    $mail->Port       = 465;
     
-    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->setFrom("businessapproved@ieat.store", "I-EAT Business Approved");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
-    $mail->Subject = 'Business Update'; 
+    $mail->Subject = 'Business Approved'; 
 
     $email_template = "
     <b>Dear $name</b>
     <h3>Congratulations.</h3>
     <p>We check your business details and all the files you send<p>
-    http://localhost/systemcapstoneV2/index.php
+    https://ieat.store/ownerlogin.php
     ";
 
     $mail->Body    = $email_template;
@@ -96,6 +96,49 @@ function sendemail_businessconfirm($email,$name)
 
 
 }
+
+// function sendemail_businessconfirm($email,$name)
+// {
+//     //Create an instance; passing `true` enables exceptions
+//     $mail = new PHPMailer(true);
+
+//     //$mail->SMTPDebug = 2; 
+//     $mail->isSMTP();
+//     $mail->SMTPAuth   = true; 
+
+//     $mail->Host       = "smtp.gmail.com";
+//     $mail->Username   = "ieatwebsite@gmail.com";
+//     $mail->Password   = "ydckqbbwsloabncq";
+
+//     $mail->SMTPOptions = array(
+//         'ssl' => array(
+//         'verify_peer' => false,
+//         'verify_peer_name' => false,
+//         'allow_self_signed' => true
+//         )
+//         );
+//     $mail->SMTPSecure = "tls";
+//     $mail->Port       = 587;
+    
+//     $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+//     $mail->addAddress($email);
+
+//     $mail->isHTML(true);
+//     $mail->Subject = 'Business Update'; 
+
+//     $email_template = "
+//     <b>Dear $name</b>
+//     <h3>Congratulations.</h3>
+//     <p>We check your business details and all the files you send<p>
+//     http://localhost/systemcapstoneV2/index.php
+//     ";
+
+//     $mail->Body    = $email_template;
+//     $mail->send();
+//    // echo 'Message has been sent';
+
+
+// }
 
 function sendemail_businesdeclined($email,$name)
 {
@@ -106,31 +149,31 @@ function sendemail_businesdeclined($email,$name)
     $mail->isSMTP();
     $mail->SMTPAuth   = true; 
 
-    $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "ieatwebsite@gmail.com";
-    $mail->Password   = "ydckqbbwsloabncq";
+    $mail->Host       = "smtp.hostinger.com";
+    $mail->Username   = "businessdeclined@ieat.store";
+    $mail->Password   = "*Password3*";
 
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-        )
-        );
-    $mail->SMTPSecure = "tls";
-    $mail->Port       = 587;
+    // $mail->SMTPOptions = array(
+    //     'ssl' => array(
+    //     'verify_peer' => false,
+    //     'verify_peer_name' => false,
+    //     'allow_self_signed' => true
+    //     )
+    //     );
+    $mail->SMTPSecure = "ssl";
+    $mail->Port       = 465;
     
-    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->setFrom("businessdeclined@ieat.store", "I-EAT Business Declined");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
-    $mail->Subject = 'Business Update'; 
+    $mail->Subject = 'Business Declined'; 
 
     $email_template = "
     <b>Dear $name</b>
     <h3>Sorry to Inform you.</h3>
     <p>We check your business details and all the files you send and sorry to inform you that you are been declined <p>
-    http://localhost/systemcapstoneV2/index.php
+    https://ieat.store
     ";
 
     $mail->Body    = $email_template;
@@ -223,21 +266,21 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->isSMTP();
     $mail->SMTPAuth   = true; 
 
-    $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "ieatwebsite@gmail.com";
-    $mail->Password   = "ydckqbbwsloabncq";
+    $mail->Host       = "smtp.hostinger.com";
+    $mail->Username   = "verifyaccount@ieat.store";
+    $mail->Password   = "*Password4*";
 
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-        )
-        );
-    $mail->SMTPSecure = "tls";
-    $mail->Port       = 587;
+    // $mail->SMTPOptions = array(
+    //     'ssl' => array(
+    //     'verify_peer' => false,
+    //     'verify_peer_name' => false,
+    //     'allow_self_signed' => true
+    //     )
+    //     );
+    $mail->SMTPSecure = "ssl";
+    $mail->Port       = 465;
     
-    $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+    $mail->setFrom("verifyaccount@ieat.store", "I-EAT Verify Email");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -367,7 +410,7 @@ function sendemail_verify($name,$email,$verify_token)
                 <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                     <tr>
                         <td bgcolor='#ffffff' align='center' valign='top' style='padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;'>
-                            <h1 style='font-size: 48px; font-weight: 400; margin: 2;'>Welcome!</h1> <img src='https://image.shutterstock.com/image-vector/sad-sun-exhausted-heat-vector-260nw-200226281.jpg' width='125' height='120' style='display: block; border: 0px;' />
+                            <h1 style='font-size: 48px; font-weight: 400; margin: 2;'>Welcome!</h1> <img src='https://ieat.store/uploads/logoT.png' width='125' height='120' style='display: block; border: 0px;' />
                         </td>
                     </tr>
                 </table>
@@ -389,7 +432,7 @@ function sendemail_verify($name,$email,$verify_token)
                                     <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 60px 30px;'>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td align='center' style='border-radius: 3px;' bgcolor='#FFA73B'><a href='http://localhost/systemcapstoneV2/verify-email.php?token=$verify_token' target='_blank' style='font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #060505; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid rgb(255,128,64); display: inline-block;'>Confirm Account</a></td>
+                                                <td align='center' style='border-radius: 3px;' bgcolor='#FFA73B'><a href='https://ieat.store/verify-email.php?token=$verify_token' target='_blank' style='font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #060505; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid rgb(255,128,64); display: inline-block;'>Confirm Account</a></td>
                                             </tr>
                                         </table>
                                     </td>
