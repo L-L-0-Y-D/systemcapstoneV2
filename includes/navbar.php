@@ -45,7 +45,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         </div>
                     </div>
                         <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
-                        &nbspWelcome <strong><?= $_SESSION['auth_user']['name'];?></strong>!</a>
+                        &nbspWelcome&nbsp&nbsp <strong><?= $_SESSION['auth_user']['name'];?></strong>!</a>
                     <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
