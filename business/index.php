@@ -3,7 +3,7 @@ include('../config/dbcon.php');
 include('../middleware/businessMiddleware.php');
 include('includes/header.php');
 
-
+$businessuserid = $_SESSION['auth_user']['businessid'];
 ?>
 
 <div class="container-fluid">
@@ -146,7 +146,12 @@ include('includes/header.php');
                                             <tbody style="text-align:center">
                                                 <?php
                                                     //$reservations = getAll("reservations");
-                                                    $query_reservation = "SELECT * FROM reservations ORDER BY reservationid DESC ";
+                                                    $query_reservation = "SELECT reservations.reservationid,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status
+                                                    FROM reservations
+                                                    JOIN managetable 
+                                                    ON reservations.tableid=managetable.tableid
+                                                    WHERE reservations.businessid = $businessuserid
+                                                    ORDER BY reservationid DESC";
                                                     $query_reservation_run = mysqli_query($con, $query_reservation);
 
                                                     if(mysqli_num_rows($query_reservation_run) > 0)
@@ -157,8 +162,8 @@ include('includes/header.php');
                                                                 {
                                                                 ?>
                                                                     <tr>
-                                                                        <td><?= $item['namereserveunder']; ?></td>
-                                                                        <td><?= $item['numberofguest']; ?></td>
+                                                                        <td><?= $item['table_number']; ?></td>
+                                                                        <td><?= $item['chair']; ?></td>
                                                                         <td><?= $item['reservation_date']; ?></td>
                                                                         <td><?= $item['reservation_time']; ?></td>
                                                                     </tr>
@@ -197,7 +202,13 @@ include('includes/header.php');
                                             <tbody style="text-align:center">
                                                 <?php
                                                     //$reservations = getAll("reservations");
-                                                    $query_reservation = "SELECT * FROM reservations WHERE status = '0' ORDER BY reservationid DESC";
+                                                    $query_reservation = "SELECT reservations.reservationid,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status
+                                                    FROM reservations
+                                                    JOIN managetable 
+                                                    ON reservations.tableid=managetable.tableid
+                                                    WHERE reservations.businessid = $businessuserid
+                                                    AND reservations.status = 0
+                                                    ORDER BY reservationid DESC";
                                                     $query_reservation_run = mysqli_query($con, $query_reservation);
 
                                                     if(mysqli_num_rows($query_reservation_run) > 0)
@@ -208,8 +219,8 @@ include('includes/header.php');
                                                                 {
                                                                 ?>
                                                                     <tr>
-                                                                        <td><?= $item['namereserveunder']; ?></td>
-                                                                        <td><?= $item['numberofguest']; ?></td>
+                                                                        <td><?= $item['table_number']; ?></td>
+                                                                        <td><?= $item['chair']; ?></td>
                                                                         <td><?= $item['reservation_date']; ?></td>
                                                                         <td><?= $item['reservation_time']; ?></td>
                                                                         <td><?= $item['status']== '0'? "Waiting":"Activated"; ?></td>
