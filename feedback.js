@@ -4,11 +4,11 @@ $(document).ready(function(){
 
     var rating_data = 0;
 
-    $('#add_review').click(function(){
+    // $('#add_review').click(function(){
 
-        $('#review_modal').modal('show');
+    //     $('#review_modal').modal('show');
 
-    });
+    // });
     
 
     $(document).on('mouseenter', '.submit_star', function(){
