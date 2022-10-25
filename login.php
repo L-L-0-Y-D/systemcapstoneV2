@@ -92,7 +92,7 @@ if(isset($_SESSION['auth'])){
                                     <input class="form-control" type="password" name="password" id="inputpassword" placeholder="Password" required style="border-style: none;border-bottom-style: none;padding-left: 7px;">
                                     
                                 </div>
-                                <div class="d-flex d-md-flex justify-content-end justify-content-md-end mb-3" style="border-bottom-width: 1px;border-bottom-style: solid;">
+                                <div class="d-flex d-md-flex justify-content-end justify-content-md-end mb-3" style="border-bottom-width: 1px">
                                     <input type="checkbox" onclick="myFunction()">Show Password
                                 </div>
                                 <div class="mb-3">
