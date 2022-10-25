@@ -3,6 +3,10 @@
 include('middleware/userMiddleware.php');
 
 $id = $_GET['id'];
+$managetable = "SELECT * FROM managetable WHERE businessid=$id AND status='1' ";
+$managetable_query_run = mysqli_query($con, $managetable);
+if(mysqli_num_rows($managetable_query_run) > 0)
+{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,6 +98,13 @@ $(document).on('change','#resource_select', function(){
         <?php 
         unset($_SESSION['message']);
     }
-    ?> 
+    ?>
+<?php
+}
+else
+{
+    redirect("index.php", "No Table and Chairs created");
+}
+?>
 </script> 
 </html>

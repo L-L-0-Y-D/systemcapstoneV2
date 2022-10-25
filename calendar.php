@@ -230,6 +230,29 @@ if(isset($_POST['month']) && isset($_POST['year']))
 
 }
 
-echo build_calendar($month, $year, $resource_id);
+function redirect($url, $message)
+{
+    $_SESSION['message'] = $message;
+    header('Location: '.$url);
+    exit();
+}
+
+// $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');
+// $id = $_GET['id'];
+// $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE businessid=? AND status='1' ");
+// $stmt -> bind_param('i', $id);
+
+// if($stmt -> execute())
+//     {
+//         $result = $stmt -> get_result();
+//         if($result -> num_rows > 0)
+//         {
+            echo build_calendar($month, $year, $resource_id);
+    //     }else
+    //     {
+    //         header('Location: '."index.php");
+    //         exit();
+    //     }
+    // }
 
 ?>
