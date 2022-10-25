@@ -185,7 +185,7 @@ if(isset($_GET['id']))
                                                 <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
                                                 <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
 
-                                                <button hred="#review_modal<?= $data['businessid'] ?>" class="btn btn-primary mb-3 mt-3 add_review" data-bs-toggle="modal" type="submit" id="add_review" style="background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
+                                                <button href="#review_modal<?= $data['businessid'] ?>" class="btn btn-primary mb-3 mt-3 add_review" data-bs-toggle="modal" type="submit" id="add_review" style="background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
 
                                                                                                 <!-- <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button> -->
                                                 <!-- /* A modal that is used to submit a review. */ -->
