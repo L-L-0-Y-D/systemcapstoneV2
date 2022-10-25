@@ -65,7 +65,39 @@ if(isset($_SESSION['auth'])){
                 </nav>
             </div>
         </nav>
-    <section class="position-relative py-4 py-xl-5">
+        <div class="container ">
+        <div class="row mx-auto bg-white" style="width: 60%;margin-top: 7vw;">
+            <div class="col d-flex flex-column align-items-center" style="border-radius: 15px;border-style: solid;border-color: rgb(255,128,64);text-align: center;">
+                <div style="text-align: center; ">
+                    <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="height:110px; width:110px; border-style: solid;border-color: rgb(255, 128, 64);background: transparent;">
+                        <img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap>
+                        <map name="workmap">
+                            <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+                        </map>
+                    </div>
+                <div>
+                    <h1 style="text-align: center;font-size: 20px;font-weight: bold;">Create an Account</h1>
+                </div>
+                <div>
+                    <p style="margin-bottom: 0px;text-align: left;">&nbsp;Upload your Profile</p>
+                    <input type="file" class="form-control" style="margin-top: 2px;margin-bottom: 5px;">
+                    <input type="text" class="form-control" style="margin-bottom: 5px;" placeholder="Username">
+                    <input type="text" class="form-control" style="margin-bottom: 5px;" placeholder="Email Address">
+                </div>
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" style="margin-bottom: 5px;" placeholder="First Name"></div>
+                    <div class="col"><input type="text" class="form-control" style="margin-bottom: 5px;" placeholder="Last Name"></div>
+                </div>
+                <p style="margin-bottom: 0px;text-align: left;">&nbspBirthdate</p><input class="form-control" type="date" style="margin-bottom: 5px;"><input type="text" class="form-control" style="margin-bottom: 5px;" placeholder="Phone Number"><input type="text" class="form-control" style="margin-bottom: 5px;" placeholder="Address">
+                <div class="row" style="margin-bottom: 5px;">
+                    <div class="col"><input type="password" class="form-control" placeholder="Password"></div>
+                    <div class="col"><input type="password" class="form-control" placeholder="Confirm Password"></div>
+                </div><button class="btn btn-primary" type="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 5px;font-weight: bold;margin-bottom: 5px;">REGISTER</button>
+                <p style="margin-bottom: 0px;text-align: center;">Already have an account?&nbsp;<a href="#">LOGIN</a></p>
+            </div>
+        </div>
+    </div>
+    <section class="position-relative py-4 py-xl-5 " style="width:100;">
         <div class="container" style="margin-top:50px;">
             <div class="row d-flex justify-content-center align-items-md-end">
                 <div class="col-md-6 col-xl-4">
