@@ -280,7 +280,7 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("verifyaccount@ieat.store", "I-EAT Verify Email");
+    $mail->setFrom('verifyaccount@ieat.store', 'I-EAT Verify Email');
     $mail->addAddress($email);
 
     $mail->isHTML(true);
