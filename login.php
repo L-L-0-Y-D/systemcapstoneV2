@@ -138,18 +138,14 @@ if(isset($_SESSION['auth'])){
     ?> 
     </script>
     <script>
-        var state = false;
-        function toggle(){
-            if(state){
-                document.getElementById("inputpassword").setAttribute("type","password");
-                document.getElementById("icon").style.color = '#6c757d';
-                state = false;
-            }else{
-                document.getElementById("inputpassword").setAttribute("type","text");
-                document.getElementById("icon").style.color = '#000000';
-                state = true;
-            }
+        function myFunction() {
+        var x = document.getElementById("inputpassword");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
         }
-    </script> 
+        }
+    </script>
 </body>
 </html>
