@@ -2,7 +2,14 @@
 
 //submit_rating.php
 
-$con = new PDO("mysql:host=localhost;dbname=thesis", "root", "");
+$con = new PDO("mysql:host=localhost;dbname=u217632220_ieatwebsite", "u217632220_ieat", "Hj1@8QuF3C");
+
+function redirect($url, $message)
+{
+    $_SESSION['message'] = $message;
+    header('Location: '.$url);
+    exit();
+}
 // include('config/dbcon.php');
 
 if(isset($_POST["rating_data"]))
@@ -11,10 +18,17 @@ if(isset($_POST["rating_data"]))
 		':user_name'		=>	$_POST["user_name"],
 		':userid'			=>	$_POST["userid"],
 		':businessid'		=>	$_POST["businessid"],
+		// ':review_status'	=>	$_POST["review_status"],
 		':user_rating'		=>	$_POST["rating_data"],
 		':user_review'		=>	$_POST["user_review"],
 		':datetime'			=>	time()
 	);
+
+	$review = array(
+		':businessid'		=>	$_POST["businessid"],
+		':review_status'	=>	$_POST["review_status"],
+	);
+
 
 	$query = "
 	INSERT INTO review_table 
@@ -22,9 +36,19 @@ if(isset($_POST["rating_data"]))
 	VALUES (:user_name, :userid, :businessid, :user_rating, :user_review, :datetime)
 	";
 
+	$review_query = "UPDATE reservations SET review=:review_status WHERE businessid=:businessid";
+
+
+
 	$statement = $con->prepare($query);
 
 	$statement->execute($data);
+
+	$review_statement = $con->prepare($review_query);
+	
+	$review_statement -> execute($review);
+
+	// redirect("index.php", "Your Review & Rating Successfully Submitted"); 
 
 	echo "Your Review & Rating Successfully Submitted";
 

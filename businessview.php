@@ -229,9 +229,9 @@
                     $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                     $query_rating_count_run = mysqli_query($con, $query_rating_count);
                     $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                    echo '<span style="color:white"> ('.$row_rating_count.')</span><br>';
+                    echo '<span style="color:white"> ('.$row_rating_count.' Rating)</span><br>';
                 ?>
-                <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
+                <!-- <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button> -->
             </div>
         </div>
     </div>

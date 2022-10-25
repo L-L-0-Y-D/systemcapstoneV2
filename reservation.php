@@ -2,6 +2,7 @@
 
 include('middleware/userMiddleware.php');
 
+$id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,102 +22,70 @@ include('middleware/userMiddleware.php');
     <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <title>Reservation | I-Eat</title>
+    <style>
+        table
+        {
+          table-layout:fixed;  
+        }
 
-    <!-- Favicon -->
+        td
+        {
+          width: 33%;  
+        }
+
+        .today
+        {
+            background: yellow;
+        }
+    </style>
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
-    <?php 
-        if(isset($_GET['id']))
-        {
-            $id = $_GET['id'];
-            $business = getByID("business",$id,"businessid");
-
-            if(mysqli_num_rows($business) > 0)
-            {
-                $data = mysqli_fetch_array($business);
-                $opening = $data['opening'];
-                $closing = $data['closing'];
-                
-            
-            ?>
-
- <body>
-    <header class="bg-primary-gradient py-4 mt-5">
-        <div class="container ">
-            <div class="row ">
-                <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4">
-                    <div class="card" style="border-radius: 30px;border: 4px solid rgb(255,128,64); background-color:rgb(255,128,64) ;">
-                        <div class="card-body text-center d-flex flex-column align-items-center">
-                            <form method="POST" action="functions/codereservation.php" style="font-family: Acme, sans-serif;">
-                                <div class="row" style="margin-bottom: 5px;">
-                                    <div class="col">
-                                        <p class="mb-1 mt-2 fw-bold " for="numberofguest" style="text-align: left;font-size: 14px;">Number of Guest:</p>
-                                        <input type="number" id="numberofguest" name='numberofguest' class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-bottom: 5px;">
-                                    <div class="col">
-                                        <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
-                                        <input type="hidden" name="business_name" value="<?= $data['business_name'] ?>">
-                                        <input type="hidden" name="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
-                                        <p class="mb-1 mt-2 fw-bold" for="namereserveunder" style="text-align: left;font-size: 14px;">Name Reserved Under:</p>
-                                        <input type="text" id="namereserveunder" name='namereserveunder'value="<?= $_SESSION['auth_user']['name'];?>" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="mb-2">
-                                    <p class="mb-1 mt-2 fw-bold" for="reservation_email" style="text-align: left;font-size: 14px;">Email Address</p>
-                                    <input class="form-control" type="email" id="reservation_email" name="reservation_email" value="<?= $_SESSION['auth_user']['email'];?>" required>
-                                </div>
-                                <div class="mb-2">
-                                    <p class="mb-1 mt-2 fw-bold" for="reservation_phonenumber" style="text-align: left;font-size: 14px;">Phone Number</p>
-                                    <input class="form-control" type="text " id="reservation_phonenumber" name="reservation_phonenumber" value="<?= $_SESSION['auth_user']['phonenumber'];?>" required>
-                                </div>
-                                <div class="mb-2">
-                                    <p class="mb-1 mt-2 fw-bold" for="reservation_date" style="text-align: left;font-size: 14px;">Reservation Date</p>
-                                    <input class="form-control" type="date" id="reservation_date" name="reservation_date" min="<?php echo date("Y-m-d"); ?>" required>
-                                </div>
-                                <div class="mb-2">
-                                    <p class="mb-1 mt-2 fw-bold" for="reservation_time" style="text-align: left;font-size: 14px;">Reservation Time</p>
-                                    <input class="form-control" type="time" id="reservation_time" name="reservation_time" min="<?= $data['opening']; ?>" max="<?= $data['closing']; ?>" required>
-                                </div>
-                                <small>Reservation hours are <?=  date("g:i a", strtotime($opening));?> to <?= date("g:i a", strtotime($closing)); ?></small>
-                                <div class="col-mb-3">
-                                    <input type="hidden" name="status" value = '0' >
-                                </div>
-                                <div class="mt-2 mb-3" style="text-align: left;">
-                                    <button class="btn btn-dark shadow d-block w-100" type="submit" name="reserve_btn" style="border-style: none;">Reserve</button>
-                                </div>
-                                    <a href="index.php" style="color:black;text-decoration:underline;">Back to Home</a>
-                                <?php
-                                        }
-                                        else
-                                        {
-                                            echo "Users not Found";
-                                        }
-                                    }
-                                    else
-                                    {
-                                    echo"ID missing from url";
-                                    }
-                                        ?>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 align-self-center mb-3">
-                    <div class="d-lg-flex justify-content-lg-start p-4 mx-lg-5" style="background: transparent;">
-                        <div class="text" style="color: var(--bs-dark);">
-                            <h2 style="font-size: 50px;text-align: left;font-weight: bold;font-family: 'Kaushan Script', serif;">MAKE YOUR RESERVATION</h2>
-                            <p class="text-start" style="font-family: Acme, sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="calendar"></div>
             </div>
         </div>
-    </header>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script>
+<script>
+$.ajax({
+    url: "calendar.php?id=<?= $id; ?>",
+    type:"POST",
+    data: {'month':'<?php echo date('m'); ?>', 'year':'<?php echo date('Y'); ?>', 'resource_id':1},
+    success: function(data){
+        $("#calendar").html(data);
+    }
+});
+
+$(document).on('click','.changemonth', function(){
+    var resource_id = $("#resource_select").val();
+    $.ajax({
+        url: "calendar.php?id=<?= $id; ?>",
+        type:"POST",
+        data: {'month': $(this).data('month'), 'year':$(this).data('year'), 'resource_id':resource_id},
+        success: function(data){
+            $("#calendar").html(data);
+        }
+    });
+});
+
+$(document).on('change','#resource_select', function(){
+    var resource_id = $(this).val();
+    $.ajax({
+        url: "calendar.php?id=<?= $id; ?>",
+        type:"POST",
+        data: {'month': $('#current_month').data('month'), 'year':$('#current_month').data('year'), 'resource_id':resource_id},
+        success: function(data){
+            $("#calendar").html(data);
+        }
+    });
+});
+</script>
+<script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
           alertify.set('notifier','position', 'top-center');
@@ -126,6 +95,5 @@ include('middleware/userMiddleware.php');
         unset($_SESSION['message']);
     }
     ?> 
-    </script>    
-</body>
+</script> 
 </html>

@@ -496,6 +496,62 @@ else if(isset($_POST['update_location_btn']))
     }
 
 }
+else if(isset($_POST['add_table_btn']))
+{
+    $businessid = $_POST['businessid'];
+    $table = $_POST['table'];
+    $chair = $_POST['chair'];
+    $status = isset($_POST['status']) ? "1":"0";
+
+    // Check if email already registered
+     $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table'";
+     $check_table_query_run = mysqli_query($con, $check_table_query);
+
+     if(mysqli_num_rows($check_table_query_run)>0)
+     {
+         redirect("table.php?id=$businessid", "Table Already Exist.");
+     }
+     else
+     {
+
+        $table_query = "INSERT INTO managetable (businessid,table_number,chair,status) 
+        VALUES ('$businessid','$table','$chair','$status')";
+        // mysqli_query($con,$table_query) or die("bad query: $table_query");
+        $table_query_run = mysqli_query($con, $table_query);
+
+        if($table_query_run)
+        {
+            redirect("table.php?id=$businessid", "Product Added Successfully");
+        }else
+        {
+            redirect("add-table.php?id=$businessid", "Something Went Wrong");
+        }
+     }
+}
+else if(isset($_POST['update_table_btn']))
+{
+    $tableid = $_POST['tableid'];
+    $businessid = $_POST['businessid'];
+    $table = $_POST['table'];
+    $chair = $_POST['chair'];
+    $status = isset($_POST['status']) ? "1":"0";
+
+
+    $update_table_query = "UPDATE managetable SET table_number='$table',chair='$chair',status='$status' WHERE tableid='$tableid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        redirect("table.php?id=$businessid", "Location Updated Successfully");
+    }
+    else
+    {
+        redirect("edit-table.php?id=$businessid", "Something Went Wrong"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');

@@ -48,12 +48,13 @@ function reservationGetByIDWaiting($id)
 function reservationGetByIDApproved($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status
+    $query = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
     WHERE reservations.userid = $id 
-    AND reservations.status = 1";
+    AND reservations.status = 1
+    AND reservations.review = 0";
     return $query_run = mysqli_query($con, $query);
 }
 

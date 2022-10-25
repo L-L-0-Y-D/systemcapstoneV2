@@ -153,6 +153,7 @@ $(document).ready(function(){
 
         $('#review_modal').modal('show');
 
+
     });
 
     $(document).on('mouseenter', '.submit_star', function(){
