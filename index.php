@@ -3,14 +3,14 @@
     include('functions/userfunctions.php');
     include('includes/header.php');
 ?>
- <header class="masthead "  style="height:900px;padding-top:200px;background-image:url(uploads/bg.png); background-position:top center;background-attachment:fixed;">
+ <header class="masthead "  style="padding-top:200px;background-image:url(uploads/layout3.jpeg); background-position:top center;background-attachment:fixed; background-size:cover;">
         <div class="container">
             <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
                 <div class="intro-lead-in">
-                    <span><img src="uploads/logoT.png" style="width: 150px;"></span>
+                    <span><img src="uploads/logoT.png" style="width: 140px;"></span>
                 </div>
                 <div class="intro-heading text-uppercase ">
-                    <span style="font-family: 'Kaushan Script', serif; font-size:55px;">First we eat,&nbsp; i - eat.</span></div>
+                    <span style="font-family: 'Kaushan Script', serif; font-size:50px;">First we eat,&nbsp; i - eat.</span></div>
                     <form action="search.php" method="POST">
                         <input class="form-control-lg" type="text" name="search" style="font-size:15px;border-radius: 20px;border: 2px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
                         <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 5px;padding-bottom: 5px;padding-left: 30px;padding-right: 30px;">
