@@ -67,20 +67,27 @@ if(isset($_POST['submit']))
             redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", 'Time Already Booked');
 
         }else{
+            if(preg_match("/^[0-9]\d{10}$/",$_POST['reservation_phonenumber']))
+            {
 
-            $stmt = $mysqli->prepare("INSERT INTO reservations (namereserveunder, reservation_time,reservation_phonenumber, reservation_email, reservation_date, tableid, businessid, userid) VALUES (?,?,?,?,?,?,?,?)");
-            $stmt -> bind_param('sssssiii',$namereserveunder,$reservation_time,$reservation_phonenumber,$reservation_email,$date,$resourceid,$businessid,$userid);
-            $stmt -> execute();
-            $msg = "<div class='alert alert-sucess'>Booking Successfull</div>";
-        
-            //part 5
-            $bookings[] = $reservation_time;
-            // endpart5
-        
-            $stmt -> close();
-            $mysqli -> close();
-        
-            redirect("businessview.php?id=$businessid", 'Reservation Successfully');
+                $stmt = $mysqli->prepare("INSERT INTO reservations (namereserveunder, reservation_time,reservation_phonenumber, reservation_email, reservation_date, tableid, businessid, userid) VALUES (?,?,?,?,?,?,?,?)");
+                $stmt -> bind_param('sssssiii',$namereserveunder,$reservation_time,$reservation_phonenumber,$reservation_email,$date,$resourceid,$businessid,$userid);
+                $stmt -> execute();
+                $msg = "<div class='alert alert-sucess'>Booking Successfull</div>";
+            
+                //part 5
+                $bookings[] = $reservation_time;
+                // endpart5
+            
+                $stmt -> close();
+                $mysqli -> close();
+            
+                redirect("businessview.php?id=$businessid", 'Reservation Successfully');
+            }
+            else
+            {
+                redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Phone Number must be 11 digits");
+            }
             
         }
     }

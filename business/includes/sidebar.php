@@ -12,10 +12,10 @@
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link <?= $page == "../index.php"? 'active':'';  ?>" href="../index.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "index.php"? 'active':'';  ?>" href="index.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "arriving.php"? 'active':'';  ?>" href="arriving.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-edit"></i><span>Arriving</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?= $page == "arriving.php"? 'active':'';  ?>" href="arriving.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-clock"></i><span>Arriving</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "reservation.php"? 'active':'';  ?>" href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-edit"></i><span>Reservation</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "table.php"? 'active':'';  ?>" href="table.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-edit"></i><span>Table Management</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "menu.php"? 'active':'';  ?>" href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-store"></i><span>Menu Management</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?= $page == "table.php"? 'active':'';  ?>" href="table.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-chair"></i><span>Table Management</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?= $page == "menu.php"? 'active':'';  ?>" href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-list"></i><span>Menu Management</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "feedback.php"? 'active':'';  ?>" href="feedback.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-list-alt"></i><span>Feedback</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "location.php"? 'active':'';  ?>" href="location.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-map-marker"></i></i><span>Location</span></a></li>
                 </ul>

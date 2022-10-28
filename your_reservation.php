@@ -207,6 +207,7 @@ if(isset($_GET['id']))
                                                                 <div class="form-group">
                                                                     <input type="hidden" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
                                                                     <input type="hidden" name="businessid" id="businessid" value="<?= $data['businessid'] ?>">
+                                                                    <input type="hidden" name="tableid" id="tableid" value="<?= $data['tableid'] ?>">
                                                                     <input type="hidden" name="review_status" id="review_status" value="1">
                                                                     <input type="text" readonly name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" value="<?= $_SESSION['auth_user']['name']?>" />
                                                                 </div>

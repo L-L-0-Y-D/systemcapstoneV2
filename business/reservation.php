@@ -9,6 +9,17 @@ include('../config/dbcon.php');
         if(isset($_GET['id']))
         {
             $businessuserid = $_SESSION['auth_user']['businessid'];
+            $query_reservation = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
+            FROM reservations
+            JOIN managetable 
+            ON reservations.tableid=managetable.tableid
+            JOIN users
+            ON reservations.userid=users.userid
+            WHERE reservations.businessid = $businessuserid
+            ORDER BY reservationid DESC";
+            $query_reservation_run = mysqli_query($con, $query_reservation);
+            $reservations = $query_reservation_run;
+            $data = mysqli_fetch_array($reservations);    
 ?>
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
@@ -34,7 +45,6 @@ include('../config/dbcon.php');
                         <table class="table my-0" id="dataTable" style="text-align:center">
                             <thead>
                                 <tr>
-                                    <th>Arrived</th>
                                     <th>Account Name</th>
                                     <th>Name Reserveunder</th>
                                     <th>Table No.</th>
@@ -53,16 +63,7 @@ include('../config/dbcon.php');
                                 <?php
                                     // $reservations = getAll("reservations");
                                     //$reservations = getAll("reservations");
-                                    $query_reservation = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
-                                    FROM reservations
-                                    JOIN managetable 
-                                    ON reservations.tableid=managetable.tableid
-                                    JOIN users
-                                    ON reservations.userid=users.userid
-                                    WHERE reservations.businessid = $businessuserid
-                                    ORDER BY reservationid DESC";
-                                    $query_reservation_run = mysqli_query($con, $query_reservation);
-                                    $reservations = $query_reservation_run;     
+                                     
                                     if(mysqli_num_rows($reservations) > 0)
                                     {
                                         foreach($reservations as $item)
@@ -71,16 +72,6 @@ include('../config/dbcon.php');
                                                 {
                                                 ?>
                                                     
-                                                        <td>
-                                                        <?php 
-                                                            if($item['arrived'] == 0)
-                                                                { echo 'Waiting'; } 
-                                                            elseif($item['arrived'] == 1)
-                                                                { echo 'Approved';}
-                                                            elseif($item['arrived'] == 2)
-                                                                {echo 'Declined';}  
-                                                        ?>
-                                                        </td>
                                                         <td><?= $item['name']; ?></td>
                                                         <td><?= $item['namereserveunder']; ?></td>
                                                         <td><?= $item['table_number']; ?></td>
@@ -96,7 +87,7 @@ include('../config/dbcon.php');
                                                                     { echo 'Approved';}
                                                                 elseif($item['status'] == 2)
                                                                     {echo 'Declined';}  
-                                                        ?></td>
+                                                        ?></td>                                                                                                         
                                                         <td>
                                                             <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">View</a>
                                                         </td>
