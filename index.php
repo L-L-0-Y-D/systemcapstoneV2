@@ -10,9 +10,9 @@
                     <span><img src="uploads/logoT.png" style="width: 140px;"></span>
                 </div>
                 <div class="intro-heading text-uppercase ">
-                    <span style="font-family: 'Kaushan Script', serif; font-size:50px; ">First we eat,&nbsp; i - eat.</span></div>
+                    <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.</span></div>
                     <form action="search.php" method="POST">
-                        <input class="form-control-lg" type="text" name="search" style="font-size:13px;border-radius: 20px;border: 1px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
+                        <input class="form-control-lg" type="text" name="search" style="font-size:15px;border-radius: 20px;border: 1px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
                         <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
                     </form>
