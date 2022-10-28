@@ -65,13 +65,13 @@ if(isset($_SESSION['auth'])){
                 </nav>
             </div>
         </nav>
-<<<<<<< HEAD
+
         <!--<div class="container ">
         <div class="row mx-auto bg-white" style="width: 60%;margin-top: 7vw;">
-=======
+
         <div class="container ">
-        <!-- <div class="row mx-auto bg-white" style="width: 60%;margin-top: 7vw;">
->>>>>>> 1e904f64b039251010a399c860c0a50e5c5ed35c
+            <div class="row mx-auto bg-white" style="width: 60%;margin-top: 7vw;">
+
             <div class="col d-flex flex-column align-items-center" style="border-radius: 15px;border-style: solid;border-color: rgb(255,128,64);text-align: center;">
                 <div style="text-align: center; ">
                     <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="height:110px; width:110px; border-style: solid;border-color: rgb(255, 128, 64);background: transparent;">
