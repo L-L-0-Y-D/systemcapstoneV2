@@ -158,14 +158,14 @@ include('../config/dbcon.php');
     
 // }
     
-function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
+function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$tableno,$businame,$businessid)
 {
 
     $ch = curl_init();
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are confirm',
+        'message' => 'Hello '.$name.'! Your table reservation at '.$businame.' on ' .$date." at ".date("g:i a", strtotime($time)).' on '.$tableno.' for '.$numguest.' are confirm',
         'sendername' => 'IEAT'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
@@ -182,7 +182,7 @@ function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numg
     //Show the server response
     if($output)
     {
-        redirect("../business/reservation.php?id=$businessid", "Message Sent");
+        redirect("../business/reservation.php?id=$businessid", "Reservation Approved Message will be sent");
     }
     else
     {
@@ -191,14 +191,14 @@ function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numg
     
 }
 
-function sendphonenumber_declinedreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
+function sendphonenumber_declinedreservation($name,$phonenumber,$date,$time,$numguest,$tableno,$businame,$businessid)
 {
 
     $ch = curl_init();
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are has been declined',
+        'message' => 'Hello '.$name.'! Your table reservation at '.$businame.' on ' .$date." at ".date("g:i a", strtotime($time)).' on '.$tableno.' for '.$numguest.' are declined',
         'sendername' => 'IEAT'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
@@ -215,7 +215,7 @@ function sendphonenumber_declinedreservation($name,$phonenumber,$date,$time,$num
     //Show the server response
     if($output)
     {
-        redirect("../business/reservation.php?id=$businessid", "Message Sent");
+        redirect("../business/reservation.php?id=$businessid", "Reservation Declined Message will be sent");
     }
     else
     {

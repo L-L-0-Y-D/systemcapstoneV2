@@ -188,9 +188,10 @@ elseif (isset($_POST['update_reservation_btn']))
     $reservationid = $_POST['reservationid'];
     $businessid = $_POST['businessid'];
     $business_name = $_POST['business_name'];
-    $userid = $_POST['userid'];
+    // $userid = $_POST['userid'];
 
-    $numberofguest = $_POST['numberofguest'];
+    $table_number = $_POST['table_number'];
+    $numberofguest = $_POST['chair'];
     $namereserveunder = $_POST['namereserveunder'];
     $reservation_email = $_POST['reservation_email'];
     $reservation_phonenumber = $_POST['reservation_phonenumber'];
@@ -198,7 +199,7 @@ elseif (isset($_POST['update_reservation_btn']))
     $reservation_time = $_POST['reservation_time'];
     $status = $_POST['status'];
 
-    $update_query = "UPDATE reservations SET numberofguest='$numberofguest',businessid='$businessid',userid='$userid',namereserveunder='$namereserveunder',reservation_email='$reservation_email',reservation_phonenumber='$reservation_phonenumber',reservation_date='$reservation_date',reservation_time='$reservation_time', status='$status' WHERE reservationid='$reservationid'";
+    $update_query = "UPDATE reservations SET status='$status' WHERE reservationid='$reservationid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_query_run = mysqli_query($con, $update_query);
@@ -207,12 +208,12 @@ elseif (isset($_POST['update_reservation_btn']))
     {
         if($status == 1)
         {
-            sendphonenumber_confirmreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$business_name,$businessid);
+            sendphonenumber_confirmreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             //redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
         }
         elseif($status == 2)
         {
-            sendphonenumber_declinedreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$business_name,$businessid);
+            sendphonenumber_declinedreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             
         }
         else
@@ -549,6 +550,64 @@ else if(isset($_POST['update_table_btn']))
     else
     {
         redirect("edit-table.php?id=$businessid", "Something Went Wrong"); 
+    }
+
+}
+else if(isset($_POST['update_arrived_btn']))
+{
+    $arrived = 1;
+    $businessid = $_POST['businessid'];
+    $reservationid = $_POST['update_arrived_btn'];
+
+    $update_table_query = "UPDATE reservations SET arrived='$arrived' WHERE reservationid='$reservationid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($arrived == 1)
+        {
+            redirect("reservation.php?id=$businessid", "User Arrived");
+        }
+        elseif($arrived == 2)
+        {
+            redirect("reservation.php?id=$businessid", "User Not Arrived");
+        }
+
+    }
+    else
+    {
+        redirect("reservation.php?id=$businessid", "Something Went Wrong"); 
+    }
+
+}
+else if(isset($_POST['update_not_arrived_btn']))
+{
+    $arrived = 2;
+    $businessid = $_POST['businessid'];
+    $reservationid = $_POST['update_not_arrived_btn'];
+
+    $update_table_query = "UPDATE reservations SET arrived='$arrived' WHERE reservationid='$reservationid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($arrived == 1)
+        {
+            redirect("reservation.php?id=$businessid", "User Arrived");
+        }
+        elseif($arrived == 2)
+        {
+            redirect("reservation.php?id=$businessid", "User Not Arrived");
+        }
+
+    }
+    else
+    {
+        redirect("reservation.php?id=$businessid", "Something Went Wrong"); 
     }
 
 }

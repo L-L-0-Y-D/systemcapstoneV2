@@ -26,7 +26,7 @@ include('includes/header.php');
                 
                         <tbody style="text-align:center">
                             <?php
-                                $municipality = getAll("municipality","municipalityid");
+                                $municipality = getAll("municipality");
 
                                if(mysqli_num_rows($municipality ) > 0)
                                {

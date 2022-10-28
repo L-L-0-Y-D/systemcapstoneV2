@@ -8,7 +8,8 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
 
 <div class="container-fluid">
             <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-dark mb-0">Dashboard</h3>
+                    <h3 class="text-dark mb-0">Dashboard</h3><br>
+                    <h3 class="text-dark mb-4"><?php echo "Today is " . date("m/d/Y") . "<br>";?></h3>
             </div>
                 <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
@@ -136,7 +137,9 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                     <table class="table my-0" id="dataTable" style="text-align:center">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
+                                                    <th>Account Name</th>
+                                                    <th>Table Reserveunder</th>
+                                                    <th>table No.</th>
                                                     <th>No. of Guest</th>
                                                     <th>Reservation Date</th>
                                                     <th>Reservation Time</th>
@@ -146,12 +149,14 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                             <tbody style="text-align:center">
                                                 <?php
                                                     //$reservations = getAll("reservations");
-                                                    $query_reservation = "SELECT reservations.reservationid,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status
+                                                    $query_reservation = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
                                                     FROM reservations
                                                     JOIN managetable 
                                                     ON reservations.tableid=managetable.tableid
+                                                    JOIN users
+                                                    ON reservations.userid=users.userid
                                                     WHERE reservations.businessid = $businessuserid
-                                                    ORDER BY reservationid DESC";
+                                                    ORDER BY reservationid DESC"; 
                                                     $query_reservation_run = mysqli_query($con, $query_reservation);
 
                                                     if(mysqli_num_rows($query_reservation_run) > 0)
@@ -162,6 +167,8 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                                 {
                                                                 ?>
                                                                     <tr>
+                                                                        <td><?= $item['name']; ?></td>
+                                                                        <td><?= $item['namereserveunder']; ?></td>
                                                                         <td><?= $item['table_number']; ?></td>
                                                                         <td><?= $item['chair']; ?></td>
                                                                         <td><?= $item['reservation_date']; ?></td>
@@ -191,7 +198,8 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                         <table class="table my-0" id="dataTable" style="text-align:center">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
+                                                    <th>Account Name</th>
+                                                    <th>Table Reserveunder</th>
                                                     <th>No. of Guest</th>
                                                     <th>Reservation Date</th>
                                                     <th>Reservation Time</th>
@@ -202,10 +210,12 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                             <tbody style="text-align:center">
                                                 <?php
                                                     //$reservations = getAll("reservations");
-                                                    $query_reservation = "SELECT reservations.reservationid,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status
+                                                    $query_reservation = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
                                                     FROM reservations
                                                     JOIN managetable 
                                                     ON reservations.tableid=managetable.tableid
+                                                    JOIN users
+                                                    ON reservations.userid=users.userid
                                                     WHERE reservations.businessid = $businessuserid
                                                     AND reservations.status = 0
                                                     ORDER BY reservationid DESC";
@@ -219,6 +229,8 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                                 {
                                                                 ?>
                                                                     <tr>
+                                                                        <td><?= $item['name']; ?></td>
+                                                                        <td><?= $item['namereserveunder']; ?></td>
                                                                         <td><?= $item['table_number']; ?></td>
                                                                         <td><?= $item['chair']; ?></td>
                                                                         <td><?= $item['reservation_date']; ?></td>

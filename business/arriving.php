@@ -10,21 +10,22 @@ include('../config/dbcon.php');
         {
             $businessuserid = $_SESSION['auth_user']['businessid'];
 ?>
-    <div class="container-fluid">
+<div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-        <h3 class="text-dark mb-4">Reservation</h3>
+        <h3 class="text-dark mb-4">Reservations Arriving</h3><br/>
+        <h3 class="text-dark mb-4"><?php echo "Today is " . date("m/d/Y") . "<br>";?></h3>
         </div>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
-                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
+                        <!-- <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
                             <option value="10" selected="">10</option>
                             <option value="25">25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
                             </select>&nbsp;</label>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-md-6">
                         <!-- <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div> -->
@@ -34,22 +35,23 @@ include('../config/dbcon.php');
                         <table class="table my-0" id="dataTable" style="text-align:center">
                             <thead>
                                 <tr>
-                                    <th>Arrived</th>
-                                    <th>Account Name</th>
+                                    <!-- <th>Account Name</th> -->
+                                    <!-- <th>Reservation No.</th> -->
                                     <th>Name Reserveunder</th>
                                     <th>Table No.</th>
                                     <th>No. of Guest</th>
                                     <th>Phonenumber</th>
-                                    <th>Email</th>
-                                    <th>Reservation Date</th>
+                                    <!-- <th>Email</th> -->
+                                    <!-- <th>Reservation Date</th> -->
                                     <th>Reservation Time</th>
-                                    <th>Status</th>
-                                    <th>View</th>
+                                    <!-- <th>Status</th> -->
+                                    <th>Arrived</th>
                                     <!-- <th>Delete</th> -->
                                 </tr>
                             </thead>
-                            
+                            <form action="code.php" method="POST" enctype="multipart/form-data">
                             <tbody style="text-align:center">
+                            <input type="hidden" name="businessid" value="<?= $businessuserid ?>" >
                                 <?php
                                     // $reservations = getAll("reservations");
                                     //$reservations = getAll("reservations");
@@ -60,7 +62,9 @@ include('../config/dbcon.php');
                                     JOIN users
                                     ON reservations.userid=users.userid
                                     WHERE reservations.businessid = $businessuserid
-                                    ORDER BY reservationid DESC";
+                                    AND reservations.arrived = 0
+                                    AND DATE(reservation_date) = DATE(NOW())
+                                    ORDER BY reservation_time ASC";
                                     $query_reservation_run = mysqli_query($con, $query_reservation);
                                     $reservations = $query_reservation_run;     
                                     if(mysqli_num_rows($reservations) > 0)
@@ -70,35 +74,27 @@ include('../config/dbcon.php');
                                             if($item['businessid'] == $_SESSION['auth_user']['businessid'])
                                                 {
                                                 ?>
-                                                    
-                                                        <td>
-                                                        <?php 
-                                                            if($item['arrived'] == 0)
-                                                                { echo 'Waiting'; } 
-                                                            elseif($item['arrived'] == 1)
-                                                                { echo 'Approved';}
-                                                            elseif($item['arrived'] == 2)
-                                                                {echo 'Declined';}  
-                                                        ?>
-                                                        </td>
-                                                        <td><?= $item['name']; ?></td>
-                                                        <td><?= $item['namereserveunder']; ?></td>
-                                                        <td><?= $item['table_number']; ?></td>
-                                                        <td><?= $item['chair']; ?></td>
-                                                        <td><?= $item['reservation_phonenumber']; ?></td>
-                                                        <td><?= $item['reservation_email']; ?></td>
-                                                        <td><?= $item['reservation_date']; ?></td>
-                                                        <td><?= $item['reservation_time']; ?></td>
-                                                        <td><?php 
+                                                    <tr>
+                                                        <!-- <td><?= $item['name']; ?></td> -->
+                                                        <!-- <td ><input type="" name="reservationid" value=<?= $item['reservationid']; ?>></td> -->
+                                                        <td name="namereserveunder"><?= $item['namereserveunder']; ?></td>
+                                                        <td name="table_number"><?= $item['table_number']; ?></td>
+                                                        <td name="chair"><?= $item['chair']; ?></td>
+                                                        <td name="reservation_phonenumber"><?= $item['reservation_phonenumber']; ?></td>
+                                                        <!-- <td><?= $item['reservation_email']; ?></td> -->
+                                                        <!-- <td><?= $item['reservation_date']; ?></td> -->
+                                                        <td name="reservation_time"><?=date("g:i a", strtotime($item['reservation_time'])); ?></td>
+                                                        <!-- <td><?php 
                                                                 if($item['status'] == 0)
                                                                     { echo 'Waiting'; } 
                                                                 elseif($item['status'] == 1)
                                                                     { echo 'Approved';}
                                                                 elseif($item['status'] == 2)
                                                                     {echo 'Declined';}  
-                                                        ?></td>
+                                                        ?></td> -->
                                                         <td>
-                                                            <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">View</a>
+                                                            <button type="submit" class="btn btn-success" value = "<?= $item['reservationid']; ?>" name="update_arrived_btn">✓</button>
+                                                            <button type="submit" class="btn btn-danger" value = "<?= $item['reservationid']; ?>"  name="update_not_arrived_btn">X</button>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
@@ -107,21 +103,26 @@ include('../config/dbcon.php');
                                                 <?php
                                                 }
                                         }
-                                    }
-                                    else
-                                    {
-                                        echo "No records Found";
-                                    }
+                                    
                                 ?>
                             </tbody>
+                            <?php
+                                }
+                                else
+                                {
+                                    echo "No records Found";
+                                }
+                            ?> 
+                        </form>
                         </table>
+                        
                     </div>
                     <div class="row">
-                        <div class="col-md-6 align-self-center">
+                        <!-- <div class="col-md-6 align-self-center">
                             <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
-                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                            <!-- <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                 <ul class="pagination">
                                     <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -129,7 +130,7 @@ include('../config/dbcon.php');
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
                                 </ul>
-                            </nav>
+                            </nav> -->
                         </div>
                     </div>
                 </div>

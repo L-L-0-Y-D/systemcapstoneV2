@@ -28,16 +28,16 @@ if(isset($_POST['add_municipality_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
+        redirect("add-municipality.php", "Choose image file to upload.");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("add-municipality.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
    }    // Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 10000000)) {
 
-       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+       redirect("add-municipality.php", "Image size exceeds 10MB");
    }
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
@@ -86,16 +86,16 @@ else if(isset($_POST['update_municipality_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+            redirect("edit-municipality.php?id=$municipalityid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 2000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+            redirect("edit-municipality.php?id=$municipalityid", "Image size less than 2MB");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+            redirect("edit-municipality.php?id=$municipalityid", "Image size exceeds 10MB");
         }
     }
     else
@@ -192,21 +192,21 @@ else if(isset($_POST['add_product_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
+        redirect("add-products.php", "Choose image file to upload.");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("add-products.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
    }// Validate image file size less than
    else if (($_FILES["image"]["size"] < 2000000)) {
 
-       redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+       redirect("add-products.php", "Image size less than 2MB");
 
    }    // Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 10000000)) {
 
-       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+       redirect("add-products.php", "Image size exceeds 10MB");
    }
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
@@ -267,16 +267,16 @@ else if(isset($_POST['update_product_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in product image.");
+            redirect("index.php", "Upload valid images. Only PNG and JPEG are allowed in product image.");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 2000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+            redirect("index.php", "Image size less than 2MB");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+            redirect("index.php", "Image size exceeds 10MB");
         }
     }
     else
@@ -438,21 +438,21 @@ else if(isset($_POST['add_customer_btn'])){
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("add-menu.php?id=$businessid", "Choose image file to upload.");
+        redirect("index.php", "Choose image file to upload.");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("index.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
    }// Validate image file size less than
    else if (($_FILES["image"]["size"] < 2000000)) {
 
-       redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+       redirect("index.php", "Image size less than 2MB");
 
    }    // Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 10000000)) {
 
-       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+       redirect("index.php", "Image size exceeds 10MB");
    }
 
     
@@ -564,16 +564,16 @@ else if(isset($_POST['update_customer_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+            redirect("edit-customer.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 2000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 2MB");
+            redirect("edit-customer.php?id=$userid", "Image size less than 2MB");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+            redirect("edit-customer.php?id=$userid", "Image size exceeds 10MB");
         }
     }
     else
