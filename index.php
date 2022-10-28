@@ -3,17 +3,17 @@
     include('functions/userfunctions.php');
     include('includes/header.php');
 ?>
- <header class="masthead "  style="padding-top:200px;background-image:url(uploads/layout3.jpeg); background-position:top center;background-attachment:fixed; background-size:cover;">
+ <header class="masthead "  style="padding-top:180px;background-image:url(uploads/layout3.jpeg); background-position:top center;background-attachment:fixed; background-size:cover;">
         <div class="container">
             <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
                 <div class="intro-lead-in">
                     <span><img src="uploads/logoT.png" style="width: 140px;"></span>
                 </div>
                 <div class="intro-heading text-uppercase ">
-                    <span style="font-family: 'Kaushan Script', serif; font-size:50px;">First we eat,&nbsp; i - eat.</span></div>
+                    <span style="font-family: 'Kaushan Script', serif; font-size:50px; ">First we eat,&nbsp; i - eat.</span></div>
                     <form action="search.php" method="POST">
-                        <input class="form-control-lg" type="text" name="search" style="font-size:15px;border-radius: 20px;border: 2px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
-                        <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 5px;padding-bottom: 5px;padding-left: 30px;padding-right: 30px;">
+                        <input class="form-control-lg" type="text" name="search" style="font-size:13px;border-radius: 20px;border: 1px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
+                        <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
                     </form>
                 </div>
@@ -39,12 +39,12 @@
                             ?>
                 <div class="col-sm-6 col-md-4 portfolio-item" data-bss-hover-animate="pulse" >
                     <a class="portfolio-link" href="business.php?id=<?= $item['municipalityid']; ?>">
-                        <div class="portfolio-hover">
+                        <div class="portfolio-hover" style="border-radius:10px;">
                             <div class="portfolio-hover-content">
                                 <h4 style="font-family: 'Vujahday Script', serif;font-size: 70px;" style="margin-left: 15px;padding-bottom: 5px;"><?= $item['municipality_name']; ?></h4>
                             </div>
                         </div>
-                        <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="Municipality Image"style="height:300px; width:400px;" >
+                        <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="Municipality Image"style="border-radius:10px;height:300px; width:400px;" >
                     </a>
                 </div>
                 <?php
