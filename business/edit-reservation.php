@@ -16,10 +16,14 @@ include('includes/header.php');
                 $id = $_GET['id'];
 
                 $reservations = getByID("reservations", $id,"reservationid");
-                $query_reservation = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.numberofguest,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,reservations.userid,reservations.status
+                $query_reservation = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name,business.businessid,business.business_name
                 FROM reservations
                 JOIN business
                 ON reservations.businessid=business.businessid
+                JOIN managetable 
+                ON reservations.tableid=managetable.tableid
+                JOIN users
+                ON reservations.userid=users.userid
                 WHERE reservationid = '$id'";
                 $query_reservation_run = mysqli_query($con, $query_reservation);
 
@@ -38,8 +42,12 @@ include('includes/header.php');
                         <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
+                                <label for="">Table No.</label>
+                                <input type="text" name="table_number" value="<?= $data['table_number'] ?>" placeholder="Enter Number of Guest" class="form-control" readonly>
+                            </div>
+                            <div class="col-md-6">
                                 <label for="">Number of Guest</label>
-                                <input type="number" name="numberofguest" value="<?= $data['numberofguest'] ?>" placeholder="Enter Number of Guest" class="form-control" readonly>
+                                <input type="text" name="chair" value="<?= $data['chair'] ?>" placeholder="Enter Number of Guest" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <!--Needed-->
@@ -51,6 +59,11 @@ include('includes/header.php');
                                 <input type="text" name="namereserveunder" value="<?= $data['namereserveunder'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
+                                <label for="namereserveunder">Account Name:</label>
+                                <input type="text" name="namereserveunder" value="<?= $data['name'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                
                                 <label for="">Email</label>
                                 <input type="email" name="reservation_email" value="<?= $data['reservation_email'] ?>" placeholder="Enter Reservation Email" class="form-control" readonly>
                             </div>

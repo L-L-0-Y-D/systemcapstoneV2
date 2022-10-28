@@ -44,7 +44,7 @@ include('includes/header.php');
                             
                                 <tbody style="text-align:center">
                                     <?php
-                                        $users = getAll("users","userid");
+                                        $users = getAll("users");
 
                                         if(mysqli_num_rows($users ) > 0)
                                         {
