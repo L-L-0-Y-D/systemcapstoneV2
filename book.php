@@ -4,6 +4,7 @@ $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_i
 if(isset($_GET['date']))
 {
     $resourceid = $_GET['tableid'];
+    $businessid = $_GET['id'];
     $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE tableid = ?");
     $stmt -> bind_param('i', $resourceid);
     $stmt -> execute();
@@ -19,8 +20,8 @@ if(isset($_GET['date']))
     $date = $_GET['date'];
 
     //part 5
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=?");
-    $stmt -> bind_param('si', $date, $resourceid);
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND businessid=?");
+    $stmt -> bind_param('sii', $date, $resourceid, $businessid);
     $bookings = array();
 
     if($stmt -> execute())
@@ -45,7 +46,7 @@ if(isset($_POST['submit']))
     $userid = $_POST['userid'];
     $businessid = $_POST['businessid'];
     $reservation_time = $_POST['timeslot'];
-
+    $date = $_GET['date'];
     //part 5
     $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=?");
     $stmt -> bind_param('ssi', $date, $reservation_time, $resourceid);
