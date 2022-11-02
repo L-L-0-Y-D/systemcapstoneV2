@@ -64,7 +64,7 @@ function initialize_map() {
             position: latlng,
             title: 'address',
             map: map,
-            draggable: true,
+            draggable: false,
             //shadow: shadow,
           });
 
