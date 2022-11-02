@@ -7,6 +7,8 @@ $managetable = "SELECT * FROM managetable WHERE businessid=$id AND status='1' ";
 $managetable_query_run = mysqli_query($con, $managetable);
 if(mysqli_num_rows($managetable_query_run) > 0)
 {
+    $data = mysqli_fetch_array($managetable_query_run);
+    $idnum = $data['tableid'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,10 +58,11 @@ if(mysqli_num_rows($managetable_query_run) > 0)
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <script>
+    
 $.ajax({
     url: "calendar.php?id=<?= $id; ?>",
     type:"POST",
-    data: {'month':'<?php echo date('m'); ?>', 'year':'<?php echo date('Y'); ?>', 'resource_id':1},
+    data: {'month':'<?php echo date('m'); ?>', 'year':'<?php echo date('Y'); ?>', 'resource_id':'<?php echo $idnum; ?>'},
     success: function(data){
         $("#calendar").html(data);
     }

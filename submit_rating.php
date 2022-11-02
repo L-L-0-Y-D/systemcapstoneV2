@@ -4,13 +4,6 @@
 
 $con = new PDO("mysql:host=localhost;dbname=u217632220_ieatwebsite", "u217632220_ieat", "Hj1@8QuF3C");
 
-function redirect($url, $message)
-{
-    $_SESSION['message'] = $message;
-    header('Location: '.$url);
-    exit();
-}
-// include('config/dbcon.php');
 
 if(isset($_POST["rating_data"]))
 {
@@ -25,8 +18,9 @@ if(isset($_POST["rating_data"]))
 	);
 
 	$review = array(
-		':tableid'		=>	$_POST["tableid"],
-		':review_status'	=>	$_POST["review_status"],
+		':tableid'			=>	$_POST["tableid"],
+		':review_status'	=>	$_POST["review_status"]
+		
 	);
 
 

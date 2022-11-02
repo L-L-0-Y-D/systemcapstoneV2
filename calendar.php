@@ -53,17 +53,21 @@ function build_calendar($month,$year,$resourceid){
 
     //Adding table
     //Add
-    $calendar.="<labe>Select Table</label><select id='resource_select' class='form-control'>";
+   
     
-    $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE businessid = '$id'");
-
+    $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE businessid = ?");
+    $stmt -> bind_param('i', $id);
     if($stmt -> execute())
     {
         $result = $stmt -> get_result();
         if($result -> num_rows > 0)
         {
+            $calendar.="<labe>Select Table</label><select id='resource_select' class='form-control' required>";
+            $calendar.="<option value='' disabled selected hidden>Please Select Table</option>";
+
             while($row = $result -> fetch_assoc())
             {
+                
                 $selected = $resourceid==$row['tableid'] ? 'selected':'';
                 $calendar.= "<option $selected value='{$row['tableid']}'>{$row['table_number']} - {$row['chair']}</option>";
             }
@@ -226,7 +230,7 @@ if(isset($_POST['month']) && isset($_POST['year']))
 
     $month = $dateComponents['mon'];
     $year = $dateComponents['year'];
-    $resource_id = 1;
+    // $resource_id = 1;
 
 }
 
