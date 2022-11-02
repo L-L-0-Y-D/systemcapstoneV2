@@ -12,8 +12,8 @@
                 <div class="intro-heading text-uppercase ">
                     <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.</span></div>
                     <form action="search.php" method="POST">
-                        <input class="form-control-lg" type="text" name="search" style="font-size:15px;border-radius: 20px;border: 1px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
-                        <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
+                        <input class="form-control-lg" type="text" name="search" style="font-size:18px;border-radius: 20px;border: 1px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
+                        <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 5px;padding-bottom: 5px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
                     </form>
                 </div>
@@ -59,8 +59,7 @@
         </div>
     </section>
    
-
-    <section id="contact" class="py-5 mt-0" style="background: url(uploads/forbg2.png)center; background-size:cover;">
+    <section id="contact" class="py-5 mt-0" style="background: url(uploads/layout1.jpg)center; background-size:cover;">
         <div class="container py-5">
             <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex align-items-md-center align-items-xl-center">
                 <div class="col offset-xl-2 mb-4">
@@ -96,5 +95,59 @@
             </div>
         </section>  
         <p class="fs-5 mt-2" style="font-family:Acme;margin-left:100px;margin-right:100px;">I-Eat: established in 2022, an online international cuisine management system. I-Eat aims to improve the management of the growing community of food industry within Bataan. The system is designed intending to manage customer information, to provide an efficient, contactless, and a more accurate business process. It is capable of locating specialty restaurants and displaying various menus from specialty restaurants.</p>      
+    </section>
+    <section class="bg-light" id="team">
+        <!-- Start: 1 Row 4 Columns -->
+        <div class="container">
+            <div class="col-lg-12 text-center pt-0">
+                <h2 class="text-uppercase section-heading">TEAM</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/lloyd.jpg">
+                        <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">John Lloyd Agorita</h4>
+                        <p class="text-muted">Back-End Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item"><a href="https://www.instagram.com/l_l_o_y_d_y_y/"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/johnlloydyulipagorita"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:johnlloyd.professional@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/mld.jpg">
+                        <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Melodee Bantog</h4>
+                        <p class="text-muted">Front-End Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item"><a href="https://www.instagram.com/mldbntg"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/MelodeeNunez"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:bantogmelodee02212000@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/kimberly.jpg">
+                        <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Kimberly Escober</h4>
+                        <p class="text-muted">Documenter</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item"><a href="https://www.instagram.com/yesno.elle"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/elyescober"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:escoberkimberly@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/karen.jpg">
+                        <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Karen Guinto</h4>
+                        <p class="text-muted">Documenter</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item"><a href="https://www.instagram.com/_krnaqn/"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/KRNAQN"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:karenguinto9@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End: 1 Row 4 Columns -->
     </section>
 <?php include('includes/footer.php');?>

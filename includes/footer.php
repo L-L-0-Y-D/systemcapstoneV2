@@ -35,7 +35,7 @@
                     <ul class="list-inline social-buttons ">
                         <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-google"></i></a></li>
+                        <li class="list-inline-item"><a href="ieatwebsite@gmail.com"><i class="fa fa-google"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
