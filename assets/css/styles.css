@@ -9,9 +9,11 @@
   }
   .form-control {
     font-family:monospace!important;
+    font-size: smaller!important;
   }
   .form-label {
     font-family:monospace!important;
+    font-weight: bolder!important;
     margin-bottom: 1px!important;
     padding-left: 5px;
     margin-top: 5px;
@@ -72,6 +74,9 @@
     color: white;
     background-color: rgb(226, 96, 31)!important;
     border-color: rgb(226, 96, 31)!important;
+  }
+  .col .form-checkbox {
+    font-size: 12px!important;
   }
   
   

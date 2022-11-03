@@ -40,7 +40,7 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=21f14b60305aa9b0449170550a54b7e5">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Basic.css?h=561e53509f5bc926993a2226fdbdf2f4">
-    <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -68,44 +68,40 @@ if(isset($_SESSION['auth'])){
                 </nav>
             </div>
         </nav>
-<section class="position-relative py-4 py-xl-5">
-    <div class="container" style="margin-top:50px;">
-        <div class="row d-flex justify-content-center align-items-md-end">
-            <div class="col-md-6 col-xl-4">
-                <div class="card mb-5" style="border-style: none;">
-                    <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
-                        <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="height:110px; width:110px; border-style: solid;border-color: rgb(255, 128, 64);background: transparent;">
-                            <picture><img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap></picture>
-                            <map name="workmap">
-                                <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
-                            </map>
-                        </div>
-            <form class="text-center" method="post" action="functions/busiauthcode.php" enctype="multipart/form-data">
-            <p class="text-center" style="text-align: left;font-size: 20px;font-weight: bold;">BUSINESS DETAILS</p>
-                <p style="text-align: left;font-size: 16px; font-weight:bold;">Upload Business Logo</p>
-                <input class="form-control" type="file" name="image" style="margin-bottom: 10px;" required>
-                <div class="row row-cols-1" style="margin-bottom: 10px;">
+    <form method="post" action="functions/busiauthcode.php" enctype="multipart/form-data">
+        <!-- Start: 1 Row 2 Columns -->
+        <div class="containe">
+            <h5>Create a Business Account</h5>
+            <hr>
+            <label class="form-label">Upload your Business Logo (max 2mb)</label>
+            <input class="form-control" type="file" name="image" required>
+            <label class="form-label">Upload your Business Permit (max 2mb)</label>
+            <input class="form-control" name="image_cert" type="file" required>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Business Name</label>
                     <!-- /* Checking if the name is set, if it is, it will display the name in the input
                     field. If it is not set, it will display the input field without the name. */ -->
                     <?php if (isset($_GET['business_name'])){?>
                         <div class="col">
-                            <input class="form-control" type="text" name="business_name" placeholder="Business Name" value="<?= $_GET['business_name']?>" required style="margin-bottom: 10px;"></div>
+                            <input class="form-control" type="text" name="business_name" value="<?= $_GET['business_name']?>" required></div>
                     <?php }else{?>
                         <div class="col">
-                            <input class="form-control" type="text" name='business_name' placeholder="Business Name" style="margin-bottom: 10px;" required></div>
+                            <input class="form-control" type="text" name='business_name' required></div>
                     <?php }?>
 
-
+                    <label class="form-label">Business Address</label>
                     <!-- /* Checking if the variable business_address is set. If it is, it will display the
                     value of the variable. If it is not set, it will display the placeholder. */ -->
                     <?php if (isset($_GET['business_address'])){?>
                         <div class="col">
-                            <input class="form-control" type="text" name="business_address" placeholder="Business Address" value="<?= $_GET['business_address']?>" required style="margin-bottom: 10px;"></div>
+                            <input class="form-control" type="text" name="business_address" value="<?= $_GET['business_address']?>" required ></div>
                     <?php }else{?>
                         <div class="col">
-                            <input class="form-control" type="text" name='business_address' placeholder="Business Address" style="margin-bottom: 10px;" required></div>
+                            <input class="form-control" type="text" name='business_address' required></div>
                     <?php }?>
 
+                    <label class="form-label">Municipality where it located</label>
                     <!-- /* The above code is checking if the municipalityid is set. If it is set, it will
                     display the municipalityid. If it is not set, it will display the
                     municipalityid. */ -->
@@ -134,7 +130,7 @@ if(isset($_SESSION['auth'])){
                     <?php }else{?>
                         <div class="col">
                         <select class="form-select" name="municipalityid" style="margin-bottom: 10px;" required>
-                            <option disabled selected hidden>Select your Business Location</option>
+                            
                             <?php 
                                 //$municipality = getAllActive("municipality");
                                 $query_municipality = "SELECT * FROM municipality WHERE status= '0'";
@@ -155,19 +151,37 @@ if(isset($_SESSION['auth'])){
                         </select> 
                     </div>
                     <?php }?>
-
-                    
                 </div>
-
-                <!-- /* The above code is creating a map and pinning the location of the user. */ -->
-                <p style="text-align: left;font-size: 16px; font-weight:bold;">Pin Location</p>
-                    <input type="hidden" id="address" name="address">
-                    <input type="hidden" id="latitude" name="latitude">
-                    <input type="hidden" id="longitude" name="longitude">
-                <div id="map" style="height: 300px"></div>
-
-                <p style="text-align: left;font-size: 16px; font-weight:bold;">Cuisine Type</p>
-                <div class="row" style="margin-bottom: 10px;">
+                <div class="col-md-6">
+                    <label class="form-label">Pin Location</label>
+                     <!-- /* The above code is creating a map and pinning the location of the user. */ -->
+                        <input type="hidden" id="address" name="address">
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="longitude" name="longitude">
+                    <div id="map" style=" height: 300px;"></div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Opening Time</label>
+                    <!-- /* Checking if the business name is set, if it is then it will display the business
+                    name, if not then it will display the opening time. */ -->
+                    <?php if (isset($_GET['opening'])){?>
+                        <div class="col">
+                            <input type="time" name="opening" value="<?= $_GET['opening'] ?>"  required placeholder="Opening"></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" type="time" name="opening"  required></div>
+                    <?php }?>
+                    <label class="form-label">Closing Time</label>
+                    <?php if (isset($_GET['closing'])){?>
+                        <div class="col">
+                            <input type="time" name="closing" value="<?= $_GET['closing'] ?>"  required placeholder="Opening"></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" type="time" name="closing" required></div>
+                    <?php }?>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label mb-2">Cuisine Type</label>
                     <!-- /* The above code is a PHP code that is used to display the cuisine type in the
                     form of checkboxes. */ -->
                     <?php if (isset($_GET['cuisinename[]'])){?>
@@ -181,7 +195,7 @@ if(isset($_SESSION['auth'])){
                                         foreach ($query_mealcategory_run as $item)
                                             {
                                                 ?>
-                                                <input type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"
+                                                <input class= "form-checkbox" type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>"
                                                 <?php
                                                 $cuisine = str_word_count($_GET['cuisinename'],1);
                                                 foreach ($cuisine as $itemcuisine)
@@ -200,7 +214,7 @@ if(isset($_SESSION['auth'])){
                                                     echo "No Cuisine Type Available";
                                                 }
                                         ?>
-                                        <a class="btn d-block w-100" name="addcuisinebtn" href="addcuisine.php" style="text-decoration:underline;">Add Cuisine Type</a>
+                                        <a name="addcuisinebtn" href="addcuisine.php" >&nbspAdd Cuisine Type</a> 
                         </div>  
                     <?php }else{?>
                         <div class="col">
@@ -223,127 +237,93 @@ if(isset($_SESSION['auth'])){
                                             echo "No Cuisine Type Available";
                                         }
                                 ?>
-                                        <a class="btn d-block w-100" name="addcuisinebtn" onclick="openForm()" href="addcuisine.php" style="text-decoration:underline;">Add Cuisine Type</a>
-                                            <!-- <div class="form-popup bg-light p-3" id="myForm" style="border-radius:10px; border: solid 2px rgb(255,128,64); ">
-                                                <form name="form" method="post" action="functions/busiauthcode.php" class="form-container">
-                                                    <i class="far fa-times-circle" onclick="closeForm()" style="float:right;"></i>
-                                                    <p class="fw-bold mt-2 mb-1">Add Cuisine Type</p>
-                                                    <input class="form-control" type="text" name="categoryname"></input>
-                                                    <input type = "hidden" name="status" value = '0'>
-                                                    <button type="submit" class="btn btn-primary d-block w-50 mt-2 fw-light text-center" name="add_category_btn"  style="background-color:rgb(255,128,64);border:none;" href="#">Add</button>
-                                                </form>
-                                                <script>
-                                                    function openForm() {
-                                                        document.getElementById("myForm").style.display = "block";
-                                                    }
-                                                    function closeForm() {
-                                                        document.getElementById("myForm").style.display = "none";
-                                                    }
-                                                </script>
-                                            </div> -->
+                                <a name="addcuisinebtn" href="addcuisine.php" >&nbspAdd Cuisine Type</a>   
                             </div>
                         </div>
                     <?php }?>
-
-                    
-                    <p style="text-align:left;font-size: 16px;font-weight:bold;">Upload Business Permit</p>
-                    <input class="form-control" name="image_cert" type="file" style="margin-bottom: 10px;" required>
-                <div class="row" style="margin-bottom: 10px;">
-                    <!-- /* Checking if the business name is set, if it is then it will display the business
-                    name, if not then it will display the opening time. */ -->
-                    <?php if (isset($_GET['opening'])){?>
-                        <div class="col mb-3">
-                        <p style="text-align: left;font-size: 16px;">Opening Time</p>
-                            <input type="time" name="opening" value="<?= $_GET['opening'] ?>"  required placeholder="Opening"></div>
-                    <?php }else{?>
-                        <div class="col mb-3">
-                        <p style="text-align: left;font-size: 16px;">Opening Time</p>
-                            <input class="form-control" type="time" name="opening"  required></div>
-                    <?php }?>
-                    
-                    <?php if (isset($_GET['closing'])){?>
-                        <div class="col mb-3">
-                        <p style="text-align: left;font-size: 16px;">Closing Time</p>
-                            <input type="time" name="closing" value="<?= $_GET['closing'] ?>"  required placeholder="Opening"></div>
-                    <?php }else{?>
-                        <div class="col">
-                        <p style="text-align: left;font-size: 16px;">Closing Time</p>
-                            <input class="form-control" type="time" name="closing" required></div>
-                    <?php }?>
-                    
                 </div>
-                <div class="mb-3">
-                    <p class="text-center" style="text-align: left;font-size: 20px;font-weight: bold;">OWNER INFORMATION</p>
-                    <div class="row" style="margin-bottom: 10px;">
+            </div>
+            <h5 style="margin-top:30px;">Owner Information</h5>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Firstname</label>
                     <!-- /* Checking if the variable business_firstname is set. If it is, it will display
                     the value of the variable. If it is not set, it will display a blank input
                     field. */ -->
                     <?php if (isset($_GET['business_firstname'])){?>
                         <div class="col">
-                        <input class="form-control" name='business_firstname' type="text" value="<?= $_GET['business_firstname']?>" placeholder="Firstname" required ></div>
+                        <input class="form-control" name='business_firstname' type="text" value="<?= $_GET['business_firstname']?>" required ></div>
                     <?php }else{?>
                         <div class="col">
-                            <input class="form-control" name='business_firstname' type="text" placeholder="Firstname" required ></div>
+                            <input class="form-control" name='business_firstname' type="text" required ></div>
                     <?php }?>
-
-                    <!-- /* Checking if the variable business_firstname is set. If it is, it will display
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Lastname</label>
+                    <!-- /* Checking if the variable business_lastname is set. If it is, it will display
                     the value of the variable. If it is not set, it will display the placeholder. */ -->
-                    <?php if (isset($_GET['business_firstname'])){?>
+                    <?php if (isset($_GET['business_lastname'])){?>
                         <div class="col">
-                            <input class="form-control" name='business_lastname' type="text" value="<?= $_GET['business_lastname']?>" placeholder="Lastname" required ></div>
+                            <input class="form-control" name='business_lastname' type="text" value="<?= $_GET['business_lastname']?>" required ></div>
                     <?php }else{?>
                         <div class="col">
-                            <input class="form-control" name='business_lastname' type="text" placeholder="Lastname" required ></div>
+                            <input class="form-control" name='business_lastname' type="text" required ></div>
                     <?php }?>
-                        
-                    </div>
                 </div>
-
-                <!-- /* Checking if the variable business_phonenumber is set. If it is, it will display
-                the value of the variable. If it is not set, it will display a blank input
-                field. */ -->
-                <?php if (isset($_GET['business_phonenumber'])){?>
-                    <div class="mb-3">
-                        <input class="form-control" name='business_phonenumber' type="text" value="<?= $_GET['business_phonenumber']?>" placeholder="Phone Number" required></div>
-                <?php }else{?>
-                    <div class="mb-3">
-                        <input class="form-control" name='business_phonenumber' type="text" placeholder="Phone Number" required></div>
-                <?php }?>
-
-                <!-- /* Checking if the variable business_owneraddress is set. If it is, it will display
-                the value of the variable. If it is not set, it will display a blank input
-                field. */ -->
-                <?php if (isset($_GET['business_owneraddress'])){?>
-                    <div class="mb-3">
-                        <input class="form-control" name='business_owneraddress' type="text" value="<?= $_GET['business_owneraddress']?>" placeholder="Address" required></div>
-                <?php }else{?>
-                    <div class="mb-3">
-                        <input class="form-control" name='business_owneraddress' type="text" placeholder="Address" required></div>
-                <?php }?>
-                
-                <!-- /* Checking if the business_email is set in the URL. If it is, it will display the
-                value in the input field. If it is not, it will display a blank input field. */ -->
-                <?php if (isset($_GET['business_email'])){?>
-                    <div class="mb-3">
-                        <input class="form-control" name='business_email' type="email" value="<?= $_GET['business_email']?>" placeholder="Email Address" required></div>
-                <?php }else{?>
-                    <div class="mb-3">
-                        <input class="form-control" name='business_email' type="email" placeholder="Email Address" required></div>
-                <?php }?>
-                
-                <div class="row" style="margin-bottom: 10px;">
-                    <div class="col"><input class="form-control" name='business_password' type="password" placeholder="Password" required></div>
+                <div class="col-md-6">
+                    <label class="form-label">Contact Number</label>
+                    <!-- /* Checking if the variable business_phonenumber is set. If it is, it will display
+                    the value of the variable. If it is not set, it will display a blank input
+                    field. */ -->
+                    <?php if (isset($_GET['business_phonenumber'])){?>
+                        <div class="col">
+                            <input class="form-control" name='business_phonenumber' type="text" value="<?= $_GET['business_phonenumber']?>" required></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" name='business_phonenumber' type="text" required></div>
+                    <?php }?>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email Address</label>
+                    <!-- /* Checking if the business_email is set in the URL. If it is, it will display the
+                    value in the input field. If it is not, it will display a blank input field. */ -->
+                    <?php if (isset($_GET['business_email'])){?>
+                        <div class="col">
+                            <input class="form-control" name='business_email' type="email" value="<?= $_GET['business_email']?>" required></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" name='business_email' type="email" required></div>
+                    <?php }?>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Address</label>
+                    <!-- /* Checking if the variable business_owneraddress is set. If it is, it will display
+                    the value of the variable. If it is not set, it will display a blank input
+                    field. */ -->
+                    <?php if (isset($_GET['business_owneraddress'])){?>
+                        <div class="col">
+                            <input class="form-control" name='business_owneraddress' type="text" value="<?= $_GET['business_owneraddress']?>" required></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" name='business_owneraddress' type="text" required></div>
+                    <?php }?>
+                </div>
+                <div class="col"></div>
+                <div class="col-md-6">
+                    <label class="form-label">Password</label>
+                    <input class="form-control" name='business_password' type="password" required></div>
                     <input type="hidden" name="status" value = '0'>
-                    <div class="col"><input class="form-control" name='business_confirmpassword' type="password" placeholder="Confirm Password" required></div>
+                <div class="col-md-6">
+                    <label class="form-label">Confirm Password</label>
+                    <input class="form-control" name='business_confirmpassword' type="password" required>
                 </div>
-                <div class="mb-3">
-                    <button class="btn btn-primary d-block w-100" type="submit" name="business_register_btn" style="background: rgb(255, 128, 64);border-style: none;">Register</button>
-                </div>
-                    <p><a class="d-flex justify-content-center" href="index.php" style="color: var(--bs-dark);font-weight: bold;">Back to Home</a></p>
-    </form>
-    </div> </div> </div> </div> </div>
+            </div>
+            <button class="btn btn-primary" type="submit" name="business_register_btn">Register</button>
+            <p>Already have an account ?&nbsp;&nbsp;<a href="ownerlogin.php">Login</a>&nbsp;</p>
+        </div><!-- End: 1 Row 2 Columns -->
+    </form>    
 
-</section>
 
     <!-- <script type="text/javascript" src="map.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
