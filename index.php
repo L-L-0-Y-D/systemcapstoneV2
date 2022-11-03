@@ -12,8 +12,8 @@
                 <div class="intro-heading text-uppercase ">
                     <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.</span></div>
                     <form action="search.php" method="POST">
-                        <input class="form-control-lg" type="text" name="search" style="font-size:15px;border-radius: 20px;border: 1px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Cuisines...">
-                        <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
+                        <input class="form-control-lg" type="text" name="search" style="font-size:18px;border-radius: 20px;border: 1px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Foods...">
+                        <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 5px;padding-bottom: 5px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
                     </form>
                 </div>
@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/mld.jpg">
+                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/melodeee.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Melodee Bantog</h4>
                         <p class="text-muted">Front-End Developer</p>
                         <ul class="list-inline social-buttons">
