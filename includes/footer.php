@@ -1,3 +1,4 @@
+
 <footer class="text-white sticky-footer" style="background-color:rgb(255,128,64); ">
     <div class="container " >
         <div class="row ">
@@ -35,7 +36,8 @@
                     <ul class="list-inline social-buttons ">
                         <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="ieatwebsite@gmail.com"><i class="fa fa-google"></i></a></li>
+                        <li class="list-inline-item"><a href="ieatwebsite@gmail.com
+"><i class="fa fa-google"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
