@@ -98,7 +98,7 @@
     </section>
     <section class="bg-light" id="team">
         <!-- Start: 1 Row 4 Columns -->
-        <div class="container">
+        <div class="container w-80">
             <div class="col-lg-12 text-center pt-0">
                 <h2 class="text-uppercase section-heading">TEAM</h2>
             </div>

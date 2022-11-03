@@ -1,0 +1,78 @@
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 10px;
+    margin-bottom: 0px!important;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    font-family:'Segoe UI'!important;
+   
+  }
+  .form-control {
+    font-family:monospace!important;
+  }
+  .form-label {
+    font-family:monospace!important;
+    margin-bottom: 1px!important;
+    padding-left: 5px;
+    margin-top: 5px;
+    text-align: left!important;
+  }
+  
+  p {
+    font-family:monospace!important;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .containe,  .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 60%;
+    padding-top: 15px;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    border-color: rgb(255,128,64)!important;
+    border: solid 2px;
+    border-radius: 15px;
+    margin-top: 100px;
+    margin-bottom: 10px !important;
+  }
+  
+  .containe a {
+    color: rgb(95, 95, 95)!important;
+    text-decoration: underline;
+    font-weight: bold;
+    font-family:monospace!important;
+  }
+  
+  .containe a:hover {
+    color:inherit!important;
+    font-weight: bolder!important;
+  }
+  .containe.btn:active +.containe .btn:focus {
+    box-shadow: none !important;
+  }
+  .containe .btn {
+    width: 100%!important;
+    margin-top: 20px;
+    font-family:monospace!important;
+    background-color: rgb(255,128,64);
+    border: none;
+  }
+
+  .containe.btn-check:checked + .containe.btn, .containe.btn-check:active + .containe.btn, .containe.btn:active, .containe.btn.active, .containe.btn.show {
+    color: white;
+    background-color: rgb(255,128,64);
+    border-color: rgb(255,128,64);
+  }
+  .containe .btn:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+  
+  
+  
