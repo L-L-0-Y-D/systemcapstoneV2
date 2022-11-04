@@ -54,7 +54,7 @@ include('../config/dbcon.php');
                                                 ?>
                                                     <tr>
                                                         
-                                                        <td><?= $item['table_number']; ?></td>
+                                                        <td>Table <?= $item['table_number']; ?></td>
                                                         <td><?= $item['chair']; ?></td>
                                                         <td><?= $item['status']== '0'? "Not Available":"Available"  ?></td>
                                                         <td>

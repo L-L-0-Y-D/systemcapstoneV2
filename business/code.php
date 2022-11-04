@@ -510,7 +510,7 @@ else if(isset($_POST['add_table_btn']))
 
      if(mysqli_num_rows($check_table_query_run)>0)
      {
-         redirect("table.php?id=$businessid", "Table Already Exist.");
+         redirect("table.php?id=$businessid", "Table Number Already Exist.");
      }
      else
      {
@@ -522,7 +522,7 @@ else if(isset($_POST['add_table_btn']))
 
         if($table_query_run)
         {
-            redirect("table.php?id=$businessid", "Product Added Successfully");
+            redirect("table.php?id=$businessid", "Table Added Successfully");
         }else
         {
             redirect("add-table.php?id=$businessid", "Something Went Wrong");

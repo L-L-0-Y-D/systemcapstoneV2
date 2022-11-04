@@ -1,9 +1,59 @@
 <?php
 
+    
+      
+
+function timeslots($duration, $cleanup, $start, $end)
+{
+    // $id = $_GET['id'];
+    // $business = businessGetByIDActives($id);
+    // $data = mysqli_fetch_array($business);
+    // $duration = 60;
+    // $cleanup = 10;
+    // $start = $data['opening'];
+    // $end = $data['closing']; 
+
+    $start = new DateTime($start);
+    $end = new DateTime($end);
+    $interval = new DateInterval("PT".$duration."M");
+    $cleanupInterval = new DateInterval("PT".$cleanup."M");
+    $slots = array();
+
+    for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
+    {
+        $endPeriod = clone $intStart;
+        $endPeriod -> add($interval);
+        if($endPeriod > $end)
+        {
+            break;
+        }
+
+        $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
+        // count($slots);
+    }
+
+    return $slots;
+
+}
 
 function build_calendar($month,$year,$resourceid){
-    // Part 2
     $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');
+
+    //slots data
+    $id = $_GET['id'];
+    $business = "SELECT business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    FROM business
+    WHERE business.businessid='$id' 
+    AND business.status='1' ";
+    $query_reservation_run = mysqli_query($mysqli, $business);
+    $business = $query_reservation_run;
+    $data = mysqli_fetch_array($business);
+    $duration = 60;
+    $cleanup = 10;
+    $start = $data['opening'];
+    $end = $data['closing'];  
+    // Part 2
+    
     // $stmt = $mysqli->prepare("SELECT * FROM bookings WHERE MONTH(date) = ? AND YEAR(date) = ?");
     // $stmt -> bind_param('ss', $month, $year);
     // $bookings = array();
@@ -69,7 +119,7 @@ function build_calendar($month,$year,$resourceid){
             {
                 
                 $selected = $resourceid==$row['tableid'] ? 'selected':'';
-                $calendar.= "<option $selected value='{$row['tableid']}'>{$row['table_number']} - {$row['chair']}</option>";
+                $calendar.= "<option $selected value='{$row['tableid']}'> Table {$row['table_number']} - {$row['chair']}</option>";
             }
         }
     }
@@ -145,17 +195,18 @@ function build_calendar($month,$year,$resourceid){
             $calendar .= "<td class='$today'><h4>$currentDay</h4> ";
         }
         else
-        {
+        {   $timeslots = timeslots($duration, $cleanup, $start, $end);
             $totalbookings = checkSlots($mysqli, $date, $resourceid);
+
             // $slots = timeslots($duration, $cleanup, $start, $end);
 
-            if($totalbookings == 7)
+            if($totalbookings == count($timeslots))
             {
                 $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='' class='btn btn-danger btn-xs'>All Booked</a>";
             }
             else
             {
-                $availableslots = 7 - $totalbookings;
+                $availableslots = count($timeslots) - $totalbookings;
                 $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."&tableid=".$resourceid."&id=".$id."' class='btn btn-success btn-xs'>Book</a> <small><i>$availableslots slots available</i></small>";
             }
         }
@@ -240,6 +291,11 @@ function redirect($url, $message)
     header('Location: '.$url);
     exit();
 }
+
+
+
+
+
 
 // $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');
 // $id = $_GET['id'];

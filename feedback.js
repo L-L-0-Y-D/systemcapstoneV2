@@ -3,13 +3,32 @@
 $(document).ready(function(){
 
     var rating_data = 0;
-
-    // $('#add_review').click(function(){
-
-    //     $('#review_modal').modal('show');
-
-    // });
+    var reservationid = $('#reservationid').val();
+    // var modals = document.getElementsByClassName('modal');
+    // var btns = document.getElementsByClassName("addreview");
+    // var spans = document.getElementsByClassName("close")[0];
+    // var save_review = document.getElementsByClassName('save_review');
     
+    // span.onclick = function() {
+    //     modal.style.display = "none";
+    //   }
+      
+    //   // When the user clicks anywhere outside of the modal, close it
+    //   window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //       modal.style.display = "none";
+    //     }
+    //   }
+    // for(let i=0;i<btns.length;i++){
+    //     btns[i].onclick = function() {
+    //        modals[i].style.display = "block";
+    //     }
+    //  }
+    //  for(let i=0;i<spans.length;i++){
+    //      spans[i].onclick = function() {
+    //         modals[i].style.display = "none";
+    //      }
+    //   }
 
     $(document).on('mouseenter', '.submit_star', function(){
 
@@ -64,7 +83,7 @@ $(document).ready(function(){
 
         var businessid = $('#businessid').val();
 
-        var tableid = $('#tableid').val();
+        var reservationid = $('#reservationid').val();
 
         var review_status = $('#review_status').val();
 
@@ -83,7 +102,7 @@ $(document).ready(function(){
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
-                data:{rating_data:rating_data, userid:userid, businessid:businessid, tableid:tableid, review_status:review_status, user_name:user_name, user_review:user_review},
+                data:{rating_data:rating_data, userid:userid, businessid:businessid, reservationid:reservationid, review_status:review_status, user_name:user_name, user_review:user_review},
                 success:function(data)
                 {
                     $('#review_modal').modal('hide');

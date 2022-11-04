@@ -34,7 +34,7 @@ if(isset($_GET['id']))
                     </div>
                     <div class="col-md-12">
                         <label class="mb-0">Table number</label>
-                        <input type="text" name="table" required placeholder="Example: Table 1 " class="form-control mb-2">
+                        <input type="number" name="table" required placeholder="Table No. " class="form-control mb-2">
                     </div>
                     <div class="col-md-12">
                         <label class="control-label">Number Of Chairs</label>
