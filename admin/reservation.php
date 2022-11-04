@@ -30,7 +30,9 @@ include('includes/header.php');
                             <thead>
                                 <tr>
                                     <th>Business Name</th>
-                                    <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Name Reserveunder</th>
+                                    <th>Table Number</th>
                                     <th>No. of Guest</th>
                                     <th>Phonenumber</th>
                                     <th>Email</th>
@@ -43,7 +45,17 @@ include('includes/header.php');
                             
                             <tbody style="text-align:center">
                                 <?php
-                                    $reservations = reservationGetAll();
+                                    $query_reservation = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name,business.businessid,business.business_name
+                                    FROM reservations
+                                    JOIN managetable 
+                                    ON reservations.tableid=managetable.tableid
+                                    JOIN users
+                                    ON reservations.userid=users.userid
+                                    JOIN business
+                                    ON reservations.businessid=business.businessid
+                                    ORDER BY business_name DESC";
+                                    $query_reservation_run = mysqli_query($con, $query_reservation);
+                                    $reservations = $query_reservation_run;
 
                                     if(mysqli_num_rows($reservations) > 0)
                                     {
@@ -53,8 +65,10 @@ include('includes/header.php');
                                                 ?>
                                                     <tr>
                                                         <td><?= $item['business_name']; ?></td>
+                                                        <td><?= $item['name']; ?></td>
                                                         <td><?= $item['namereserveunder']; ?></td>
-                                                        <td><?= $item['numberofguest']; ?></td>
+                                                        <td><?= $item['table_number']; ?></td>
+                                                        <td><?= $item['chair']; ?></td>
                                                         <td><?= $item['reservation_phonenumber']; ?></td>
                                                         <td><?= $item['reservation_email']; ?></td>
                                                         <td><?= $item['reservation_date']; ?></td>

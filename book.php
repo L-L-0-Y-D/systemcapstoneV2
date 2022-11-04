@@ -125,6 +125,7 @@ function timeslots($duration, $cleanup, $start, $end)
         }
 
         $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
+        // count($slots);
     }
 
     return $slots;
@@ -166,7 +167,8 @@ function timeslots($duration, $cleanup, $start, $end)
                 <?php echo isset($msg)?$msg:""; ?>
             </div>
             <!-- /* Creating a button for each time slot. */ -->
-            <?php $timeslots = timeslots($duration, $cleanup, $start, $end); 
+            <?php $timeslots = timeslots($duration, $cleanup, $start, $end);
+            // echo count($timeslots); 
             foreach ($timeslots as $ts)
             {
             ?>
