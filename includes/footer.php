@@ -2,7 +2,7 @@
 <footer class="text-white sticky-footer" style="background-color:rgb(255,128,64); ">
     <div class="container " >
         <div class="row ">
-                <h3 class="fs-8 text-black fw-bold p-2" style="font-family: Acme, sans-serif;" >POPULAR CUISINES </h3>
+                <h3 class="fs-8 text-black fw-bold p-2" style="font-family:'Segoe UI'!important;" >POPULAR CUISINES </h3>
             <?php
             $query = "SELECT * FROM mealcategory";
             $query_run = mysqli_query($con, $query);

@@ -12,7 +12,7 @@
                 <div class="intro-heading text-uppercase ">
                     <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.</span></div>
                     <form action="search.php" method="POST">
-                        <input class="form-control-lg" type="text" name="search" style="font-size:15px;border-radius: 20px;border: 1px solid var(--bs-secondary) ;" placeholder="Search Restaurants,Locations,Cuisines...">
+                        <input class="form-control-lg" type="text" name="search" style="font-size:15px;border-radius: 20px;border: 1px solid;  font-family:monospace;" placeholder="Search Restaurants,Locations,Cuisines...">
                         <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
                     </form>
@@ -58,8 +58,49 @@
             </div>
         </div>
     </section>
-   
-    <section id="contact" class="py-5 mt-0" style="background: url(uploads/layout1.jpg)center; background-size:cover;">
+    <section id="contact" >
+        <div class="container">
+            <div>
+                <section class="position-relative py-5">
+                    <div class="d-md-none">
+                        <iframe allowfullscreen="" frameborder="0" src="https://cdn.bootstrapstudio.io/placeholders/map.html" width="100%" height="100%"></iframe>
+                        </div>
+                    <div class="d-none d-md-block position-absolute top-0 start-0 w-100 h-100">
+                        <iframe allowfullscreen="" frameborder="0" src="https://cdn.bootstrapstudio.io/placeholders/map.html" width="100%" height="100%"></iframe>
+                        </div>
+                    <div class="position-relative mx-2 my-5 m-md-5">
+                        <div class="container position-relative">
+                            <div class="row">
+                                <div class="col-md-6 col-xl-5 col-xxl-4 offset-md-6 offset-xl-7 offset-xxl-8">
+                                    <div>
+                                        <form class="border rounded shadow p-3 p-md-4 p-lg-5" method="post" style="background: var(--bs-body-bg);">
+                                            <h2>SERVE WITH US</h2>
+                                            <p>Do you want your business listed on I -Eat ? You can register your business for listing or message us directly.<br></p>
+                                            <div class="row socials mb-2">
+                                                <div class="col-xxl-12">
+                                                    <div class="bs-icon-md bs-icon-circle bs-icon-primary-light d-inline-flex flex-shrink-0 justify-content-center align-items-center order-last ms-4 d-inline-block bs-icon xl"><i class="fab fa-google"></i></div>
+                                                    <p class="float-end socialmed"><a href="mailto:ieatwebsite@gmail.com">ieatwebsite@gmail.com</a><br></p>
+                                                </div>
+                                            </div>
+                                            <div class="row socials mb-2">
+                                                <div class="col-xxl-12">
+                                                    <div class="bs-icon-md bs-icon-circle bs-icon-primary-light d-inline-flex flex-shrink-0 justify-content-center align-items-center order-last ms-4 d-inline-block bs-icon xl"><i class="fas fa-phone-alt"></i></div>
+                                                    <p class="float-end socialmed">+63-912-3456-789<br></p>
+                                                </div>
+                                            </div>
+                                            <p class="or">or</p>
+                                            <div class="mb-2"><button class="btn btn-primary d-block register" name="businessregbtn" onclick="location.href='businessreg.php'" type="button">REGISTER NOW !</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+   <!-- <section id="contact" class="py-5 mt-0" style="background: url(uploads/layout1.jpg)center; background-size:cover;">
         <div class="container py-5">
             <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex align-items-md-center align-items-xl-center">
                 <div class="col offset-xl-2 mb-4">
@@ -85,7 +126,7 @@
                 <div class="col mb-4" style="background: transparent;"><img src="uploads/forcontact.png" style="height: 500px;width: 370px;border-radius: 10px;"></div>
             </div>
         </div>
-    </section>
+    </section>-->
     <section id="about" style="margin-top:100px;padding-top: 0px;">
         <section class="py-4 py-xl-5" style="background: url(uploads/forabout2.png)center;height:300px; background-size:contain;">
             <div class="container">
@@ -115,7 +156,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/melodeee.jpg">
+                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/melodee.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Melodee Bantog</h4>
                         <p class="text-muted">Front-End Developer</p>
                         <ul class="list-inline social-buttons">

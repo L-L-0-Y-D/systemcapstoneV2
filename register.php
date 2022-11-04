@@ -69,7 +69,12 @@ if(isset($_SESSION['auth'])){
 
     <form method="post" action="functions/authcode.php" enctype="multipart/form-data" class="registration">
         <div class="containe">
-            <h5>Create a User Account</h5>
+            <h5>
+                <img class= "logo" src="uploads/logoT.png" usemap=#workmap>
+                    <map name="workmap">
+                        <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+                    </map>
+            Create a User Account</h5>
             <hr>
                 <label class="form-label mt-0">Upload your profile (max 2mb)</label>
                 <input class="form-control" type="file" name="image" required>
@@ -146,7 +151,7 @@ if(isset($_SESSION['auth'])){
                                 <input class="form-control mb-2" name="phonenumber" type="text" required ></div>
                         <?php }?> 
                 </div>
-                <div class="col-md-6">
+                <div class="col-mb-3">
                     <label class="form-label">Address</label>
                     <!-- /* Checking if the address is set, if it is then it will display
                     the address in the input field. If it is not set then it will
@@ -159,7 +164,6 @@ if(isset($_SESSION['auth'])){
                                 <input class="form-control" name="address" type="text" required></div>
                         <?php }?>
                 </div>
-                <div class="col"></div>
                 <div class="col-md-6">
                     <label class="form-label">Password</label>
                     <input class="form-control" type="password" name="password" required>
@@ -171,7 +175,7 @@ if(isset($_SESSION['auth'])){
                 </div>
             </div>
             <button class="btn btn-primary" type="submit" name="register_btn">Register</button>
-            <p>Already have an account ?&nbsp;<a href="login.php">Login</a>&nbsp;</p>
+            <p>Already have an account?<a href="login.php">Login</a></p>
         </div>
     </form>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
