@@ -18,7 +18,7 @@ if(isset($_POST["rating_data"]))
 	);
 
 	$review = array(
-		':tableid'			=>	$_POST["tableid"],
+		':reservationid'	=>	$_POST["reservationid"],
 		':review_status'	=>	$_POST["review_status"]
 		
 	);
@@ -30,7 +30,7 @@ if(isset($_POST["rating_data"]))
 	VALUES (:user_name, :userid, :businessid, :user_rating, :user_review, :datetime)
 	";
 
-	$review_query = "UPDATE reservations SET review=:review_status WHERE tableid=:tableid";
+	$review_query = "UPDATE reservations SET review=:review_status WHERE reservationid=:reservationid";
 
 
 

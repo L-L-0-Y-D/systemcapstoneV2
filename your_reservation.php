@@ -314,12 +314,12 @@ if(isset($_GET['id']))
                                                     if($item['review'] == 0)
                                                     {
                                                 ?>
-                                                    <button href="#review_modal<?= $item['businessid'] ?>" class="btn btn-primary mb-3 mt-3 add_review" data-bs-toggle="modal" type="submit" id="add_review" style="background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
+                                                    <button href="#review_modal<?= $item['reservationid'] ?>" class="btn btn-primary mb-3 mt-3 add_review" data-bs-toggle="modal" type="submit" id="add_review" style="background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
                                                 <?php
                                                     }
                                                 ?>                                                                                                <!-- <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button> -->
                                                 <!-- /* A modal that is used to submit a review. */ -->
-                                                <div id="review_modal<?= $item['businessid'] ?>" class="modal" tabindex="-1" role="dialog">
+                                                <div id="review_modal<?= $item['reservationid'] ?>" class="modal" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -337,7 +337,7 @@ if(isset($_GET['id']))
                                                                 <div class="form-group">
                                                                     <input type="text" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
                                                                     <input type="text" name="businessid" id="businessid" value="<?= $item['businessid'] ?>">
-                                                                    <input type="text" name="tableid" id="tableid" value="<?= $item['tableid'] ?>">
+                                                                    <input type="text" name="reservationid" id="reservationid" value="<?= $item['reservationid'] ?>">
                                                                     <input type="hidden" name="review_status" id="review_status" value="1">
                                                                     <input type="text" readonly name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" value="<?= $_SESSION['auth_user']['name']?>" />
                                                                 </div>
