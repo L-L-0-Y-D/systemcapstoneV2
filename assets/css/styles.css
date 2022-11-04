@@ -26,13 +26,64 @@
     margin-top: 5px;
     text-align: left!important;
   }
-  
+  .text-muted {
+    padding-top:5px!important; 
+    padding-left:2px;
+  }
+  .text-muted:hover {
+    color:inherit!important;
+    font-weight: bolder!important;
+  }
+  .btn-group .active  {
+    font-family:monospace!important;
+    background-color: rgb(255,128,64);
+    border: none;
+    color: white;
+  }
+  .btn-group .active:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+  .btn-group .unactive {
+    background: transparent;
+    font-family:monospace!important;
+    color: gray;
+    border-style: solid;
+    border-color: rgb(255, 128, 64);
+  }
+  .btn-group .unactive:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+  p a {
+    color: rgb(95, 95, 95)!important;
+    text-decoration: none;
+    font-weight: bold;
+    font-family:monospace!important;    
+  }
+  p a:hover {
+    color:inherit!important;
+    font-weight: bolder!important;
+  }
   p {
     font-family:monospace!important;
     margin-top: 10px;
     text-align: center;
   }
-  
+  .mb-3 .btn-primary {
+    width: 100%!important;
+    font-family:monospace!important;
+    background-color: rgb(255,128,64);
+    border: none;
+  }
+  .mb-3 .btn-primary:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+
   .containe,  .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
