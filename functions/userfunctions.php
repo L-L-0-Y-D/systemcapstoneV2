@@ -169,9 +169,10 @@ function businessGetByIDActives($id)
 }
 
 
-function redirect($url, $message)
+function redirect($url, $message, $alert)
 {
     $_SESSION['message'] = $message;
+    $_SESSION['alert'] = $alert;
     header('Location: '.$url);
     exit();
 }

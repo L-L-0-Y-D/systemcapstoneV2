@@ -250,9 +250,10 @@ function getByID($table, $id, $tabledata)
 
 
 //for the Notification Message
-function redirect($url, $message)
+function redirect($url, $message, $alert)
 {
     $_SESSION['message'] = $message;
+    $_SESSION['alert'] = $alert;
     header('Location: '.$url);
     exit();
 }

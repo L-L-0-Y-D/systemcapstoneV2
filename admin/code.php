@@ -28,16 +28,16 @@ if(isset($_POST['add_municipality_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("add-municipality.php", "Choose image file to upload.");
+        redirect("add-municipality.php", "Choose image file to upload.", "warning");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("add-municipality.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("add-municipality.php", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
    }    // Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 10000000)) {
 
-       redirect("add-municipality.php", "Image size exceeds 10MB");
+       redirect("add-municipality.php", "Image size exceeds 10MB", "warning");
    }
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
@@ -52,10 +52,10 @@ if(isset($_POST['add_municipality_btn']))
     if($muni_query_run){
 
         move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-        redirect("municipality.php", "Municipality Added Successfully");
+        redirect("municipality.php", "Municipality Added Successfully", "success");
     }else{
 
-        redirect("municipality.php", "Something Went Wrong");
+        redirect("municipality.php", "Something Went Wrong", "error");
 
     }
 
@@ -86,16 +86,16 @@ else if(isset($_POST['update_municipality_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("edit-municipality.php?id=$municipalityid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+            redirect("edit-municipality.php?id=$municipalityid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 2000000)) {
 
-            redirect("edit-municipality.php?id=$municipalityid", "Image size less than 2MB");
+            redirect("edit-municipality.php?id=$municipalityid", "Image size less than 2MB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("edit-municipality.php?id=$municipalityid", "Image size exceeds 10MB");
+            redirect("edit-municipality.php?id=$municipalityid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -119,11 +119,11 @@ else if(isset($_POST['update_municipality_btn']))
                 unlink("../uploads/".$old_image);
             }
         }
-        redirect("municipality.php", "Category Updated Successfully");
+        redirect("municipality.php", "Category Updated Successfully", "success");
     }
     else
     {
-        redirect("edit-municipality.php?id=$municipalityid", "Something Went Wrong"); 
+        redirect("edit-municipality.php?id=$municipalityid", "Something Went Wrong", "error"); 
     }
 }
 /* This is the code for deleting a municipality. */

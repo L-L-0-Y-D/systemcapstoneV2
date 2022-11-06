@@ -6,6 +6,7 @@ session_start();
 page and display a message. */
 if(isset($_SESSION['auth'])){
     $_SESSION['message'] = "You are Already Login";
+    $_SESSION['alert'] = "warning";
     header('Location: index.php');
     exit();
 }
@@ -47,7 +48,11 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <title>Login | I-Eat</title>
-
+    <style>
+        .swal-modal .swal-title {
+            text-align: center;
+        }
+    </style>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 
@@ -128,14 +133,25 @@ if(isset($_SESSION['auth'])){
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
-          alertify.set('notifier','position', 'top-center');
-         var msg = alertify.message('Default message');
-        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        //   alertify.set('notifier','position', 'top-center');
+        //  var msg = alertify.message('Default message');
+        // msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        
+        swal({
+            title: "<?= $_SESSION['message']; ?>",
+            icon: "<?= $_SESSION['alert']; ?>",
+            button: "Okay",
+            timer: 1500,
+            });
+
         <?php 
         unset($_SESSION['message']);
+        unset($_SESSION['alert']);
+
     }
     ?> 
     </script>
