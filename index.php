@@ -119,7 +119,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/lloyd.jpg">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/lloyd.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">John Lloyd Agorita</h4>
                         <p class="text-muted">Back-End Developer</p>
                         <ul class="list-inline social-buttons">
@@ -130,7 +130,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/melodee.jpg">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/melodee.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Melodee Bantog</h4>
                         <p class="text-muted">Front-End Developer</p>
                         <ul class="list-inline social-buttons">
@@ -141,7 +141,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/kimberly.jpg">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/kimberly.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Kimberly Escober</h4>
                         <p class="text-muted">Documenter</p>
                         <ul class="list-inline social-buttons">
@@ -152,7 +152,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="uploads/karen.jpg">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/karen.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Karen Guinto</h4>
                         <p class="text-muted">Documenter</p>
                         <ul class="list-inline social-buttons">
