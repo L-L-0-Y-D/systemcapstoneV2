@@ -1080,23 +1080,23 @@
 
 <!-- START OF REVIEW SECTION-->
     <section id="review"  class="bg-dark">
-        <div class="container">
-            <div class="card">
+        <div class="container col d-flex justify-content-center" >
+            <div class="card col d-flex justify-content-center">
                 <div class="card-header"> <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">REVIEWS AND FEEDBACKS</h1></div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 text-center">
-                            <h1 class="text-warning mt-4 mb-4">
+                            <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
                                 <b><span id="average_rating">0.0</span> / 5</b>
                             </h1>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
-                            </div>
-                            <h3><span class="mb-3" id="total_review">0</span> Review/s</h3>
+                            </div> -->
+                            <h3 class="col d-flex justify-content-center"><span id="total_review">0</span> Review/s</h3>
                         </div>
                         <div class="col-sm-5">
                             <p>
