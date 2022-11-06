@@ -38,7 +38,7 @@ if(isset($_SESSION['auth'])){
     <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +63,7 @@ if(isset($_SESSION['auth'])){
                         <map name="workmap">
                             <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                         </map>I - Eat</a>
-                <nav class="navbar navbar-expand">
+                <nav class="navbar navbar-expand text-black" style="background-color:white;">
                     <div class="container-fluid">
                         <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
                         <a href="index.php"><i class="fa fa-home" style="float:right; color:white;"></i></a>
@@ -71,29 +71,32 @@ if(isset($_SESSION['auth'])){
                 </nav>
             </div>
         </nav>
-<section class="position-relative py-4 py-xl-5 ">
+<section class="login">
         <div class="container" >
-            <div class="row d-flex justify-content-center align-items-md-end ">
+            <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4 ">
-                    <div class="card mb-5 " style="border-style: none; margin-top:100px;">
-                        <div class="card-body d-flex flex-column align-items-center " style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
-                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="height:110px; width:110px; border-style: solid;border-color: rgb(255, 128, 64);background: transparent;">
-                                <picture><img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap></picture>
+                    <div class="card mb-5 ">
+                        <div class="card-body d-flex flex-column">
+                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-3">
+                                <img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap>
                                 <map name="workmap">
                                     <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                                 </map>
                             </div>
                             <form class="text-center" method="post" action="functions/authcode.php">
-                                <div class="d-flex d-md-flex justify-content-end justify-content-md-end mb-3" style="text-align: left;border-bottom-width: 1px;border-bottom-style: solid;">
-                                    <i class="fas fa-at d-md-flex justify-content-md-end align-items-md-end" style="height: 28px;width: 15px;opacity: 0.65;"></i>
-                                    <input class="form-control" type="email" name="email" placeholder="Email" required style="text-align: left;border-style: none;border-bottom-style: none;padding-left: 7px;">
+                                <div class="inputs">
+                                    <i class="fas fa-at d-md-flex align-items-md-end"></i>
+                                    <input class="form-control" type="email" name="email" placeholder="Email" required>
                                 </div>
-                                <div class="d-flex d-md-flex justify-content-end justify-content-md-end mb-3" style="border-bottom-width: 1px;border-bottom-style: solid;">
-                                    <i class="fas fa-key d-md-flex align-items-md-end" style="width: 15px;height: 28px;opacity: 0.65;"></i>
-                                    <input class="form-control" type="password" name="password" placeholder="Password" required style="border-style: none;border-bottom-style: none;padding-left: 7px;">
+                                <div class="inputs">
+                                    <i class="fas fa-key d-md-flex align-items-md-end" ></i>
+                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
                                 </div>
-                                <div class="mb-3">
-                                    <button class="btn btn-primary d-block w-100" type="submit" name="login_btn" style="background: rgb(255, 128, 64);border-style: none;">Login</button>
+                                <div class="showpass d-md-flex justify-content-md-end">
+                                    <input type="checkbox" onclick="myFunction()"> Show Password
+                                </div>
+                                <div class="mb-1">
+                                    <button class="btn btn-primary" type="submit" name="login_btn">Login</button>
                                 </div>
                             </form> 
                         </div>

@@ -50,7 +50,7 @@ function initialize_map() {
 
 
     var myOptions = {
-      zoom: 12,
+      zoom: 16,
       center: latlng,
       mapTypeId: google.maps.MapTypeId.HYBRID
     }
@@ -65,7 +65,7 @@ function initialize_map() {
             title: 'address',
             map: map,
             draggable: true,
-            // shadow: shadow,
+            //shadow: shadow,
           });
 
       geocodePosition(latlng);
