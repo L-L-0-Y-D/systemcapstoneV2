@@ -285,9 +285,10 @@ if(isset($_POST['month']) && isset($_POST['year']))
 
 }
 
-function redirect($url, $message)
+function redirect($url, $message, $status)
 {
     $_SESSION['message'] = $message;
+    $_SESSION['status'] = $status;
     header('Location: '.$url);
     exit();
 }

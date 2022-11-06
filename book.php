@@ -65,7 +65,7 @@ if(isset($_POST['submit']))
             // $stmt -> close();
 
             $msg = "<div class='alert alert-danger'>Already Booked</div>";
-            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", 'Time Already Booked');
+            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", 'Time Already Booked', "warning");
 
         }else{
             if(preg_match("/^[0-9]\d{10}$/",$_POST['reservation_phonenumber']))
@@ -83,11 +83,11 @@ if(isset($_POST['submit']))
                 $stmt -> close();
                 $mysqli -> close();
             
-                redirect("businessview.php?id=$businessid", 'Reservation Successfully');
+                redirect("businessview.php?id=$businessid", 'Reservation Successfully', "success");
             }
             else
             {
-                redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Phone Number must be 11 digits");
+                redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Phone Number must be 11 digits", "warning");
             }
             
         }
@@ -262,11 +262,16 @@ function timeslots($duration, $cleanup, $start, $end)
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
-          alertify.set('notifier','position', 'top-center');
-         var msg = alertify.message('Default message');
-        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        swal({
+            title: "<?= $_SESSION['message']; ?>",
+            icon: "<?= $_SESSION['alert']; ?>",
+            button: "Okay",
+            timer: 1500,
+            });
+
         <?php 
         unset($_SESSION['message']);
+        unset($_SESSION['alert']);
     }
     ?> 
     </script> 

@@ -8,13 +8,13 @@ if(isset($_SESSION['auth'])){
 
     if($_SESSION['role_as'] != 0){
 
-    redirect("index.php", "You are not authorized to access this page");
+    redirect("index.php", "You are not authorized to access this page", "warning");
 
     }
 
 }else{
 
-    redirect("login.php", "Login to Continue");
+    redirect("login.php", "Login to Continue", "warning");
 
 }
 

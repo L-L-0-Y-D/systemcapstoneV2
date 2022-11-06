@@ -41,40 +41,40 @@ if(isset($_POST['business_register_btn']))
      // Validate file input to check if is not empty
     if (! file_exists($_FILES["image"]["tmp_name"])) {
         
-         redirect("../businessreg.php?error=Choose image file to upload&$business_data", "Choose image file to upload.");
+         redirect("../businessreg.php?error=Choose image file to upload&$business_data", "Choose image file to upload.", "warning");
      
     }// Validate file input to check if is not empty
     else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
         
-        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image certificate file to upload.");
+        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image certificate file to upload.", "warning");
             
     }    // Validate file input to check if is with valid extension
     else if (! in_array($file_extension, $allowed_image_extension)) {
  
-        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
     }    // Validate file input to check if is with valid extension
     else if (! in_array($file_cert_extension, $allowed_image_extension)) {
     
-        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
        
     }    // Validate image file size less than
     else if (($_FILES["image"]["size"] < 0)) {
  
-        redirect("../businessreg.php?error=Image size less than 800KB&$business_data", "Image size less than 800KB");
+        redirect("../businessreg.php?error=Image size less than 800KB&$business_data", "Image size less than 800KB", "warning");
 
     }    // Validate image file size less than
     else if (($_FILES["image_cert"]["size"] < 0)) {
  
-        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB");
+        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
 
     }    // Validate image file size that is greater
     else if (($_FILES["image"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php?error=Image size exceeds 800KB&$business_data", "Image size exceeds 800KB");
+        redirect("../businessreg.php?error=Image size exceeds 800KB&$business_data", "Image size exceeds 800KB", "warning");
     }    // Validate image file size
     else if (($_FILES["image_cert"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB");
+        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
 
     }
 
@@ -101,7 +101,7 @@ if(isset($_POST['business_register_btn']))
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("../businessreg.php", "Email Already Use");
+        redirect("../businessreg.php", "Email Already Use", "warning");
     }
     else
     {
@@ -123,26 +123,26 @@ if(isset($_POST['business_register_btn']))
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
-                                redirect("../ownerlogin.php", "Register Successfully");
+                                redirect("../ownerlogin.php", "Register Successfully", "success");
                             }
                             else{
-                                redirect("../businessreg.php?error=Something went wrong&$business_data", "Something went wrong");
+                                redirect("../businessreg.php?error=Something went wrong&$business_data", "Something went wrong", "error");
                             }
                         }
                     else
                         {
-                            redirect("../businessreg.php?error=Your password must be at least 8 characters&$business_data", "Your password must be at least 8 characters"); 
+                            redirect("../businessreg.php?error=Your password must be at least 8 characters&$business_data", "Your password must be at least 8 characters", "warning"); 
                         }
                 }
             else
                 {
-                    redirect("../businessreg.php?error=Phone number error detected&$business_data", "Phone number error detected");
+                    redirect("../businessreg.php?error=Phone number error detected&$business_data", "Phone number error detected", "error");
                 }
 
         }
         else
         {
-            redirect("../businessreg.php?error=Passwords do not match&$business_data", "Passwords do not match");
+            redirect("../businessreg.php?error=Passwords do not match&$business_data", "Passwords do not match", "warning");
         }
     }
 }
@@ -183,7 +183,7 @@ else if(isset($_POST['business_login']))
                                 $_SESSION['auth_user'] = [
                                     'businessid' => $businessid,
                                     'business_name' => $businessnames,
-                                    'business_email' => $useremail,
+                                    'business_email' => $businessemail,
                                     'image' => $image,
                                     'latitude' => $latitude,
                                     'longitude' => $longitude,
@@ -192,34 +192,34 @@ else if(isset($_POST['business_login']))
                                 ];
                                 $_SESSION['role_as'] = $role_as;
                                 
-                                redirect("../business/index.php?id=$businessid", "Welcome to dashboard");
+                                redirect("../business/index.php?id=$businessid", "Welcome to dashboard", "success");
                             }
                             elseif($status == '2')
                             {
-                                redirect("../ownerlogin.php", "Account Closed");
+                                redirect("../ownerlogin.php", "Account Closed", "warning");
                             }
                             else
                             {
-                                redirect("../ownerlogin.php", "You are not Verify Yet");
+                                redirect("../ownerlogin.php", "You are not Verify Yet", "warning");
                             }
                             
                         }
                         else
                         {
-                            redirect("../ownerlogin.php", "Invalid Credentials");
+                            redirect("../ownerlogin.php", "Invalid Credentials", "error");
                         }
 
                 }
                 else
                 {
-                    redirect("../ownerlogin.php", "Wrong Email or Password");
+                    redirect("../ownerlogin.php", "Wrong Email or Password", "warning");
                 }
 
             }
     }
     else
     {  
-        redirect("../ownerlogin.php", "No Email Exist");
+        redirect("../ownerlogin.php", "No Email Exist", "warning");
     }
 }
 
@@ -232,11 +232,11 @@ if(isset($_POST["recover"])){
 
     if(mysqli_num_rows($sql) <= 0){
 
-            redirect("../forgetbusinesspassword.php", "Sorry, no emails exists ");
+            redirect("../forgetbusinesspassword.php", "Sorry, no emails exists ", "warning");
 
     }else if($fetch["status"] == 0){
 
-            redirect("../index.php", "Sorry, your account must verify first, before you recover your password !");
+            redirect("../index.php", "Sorry, your account must verify first, before you recover your password !", "warning");
        
     }else{
         // generate token by binaryhexa 
@@ -247,7 +247,7 @@ if(isset($_POST["recover"])){
         $_SESSION['business_email'] = $business_email;
 
         sendemail_forgetpassword("$business_email","$token");
-        redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email");
+        redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email", "success");
     }
 }
 
@@ -273,21 +273,21 @@ if(isset($_POST["reset"])){
                 $new_pass = $hash;
                 mysqli_query($con, "UPDATE business SET business_password='$new_pass' WHERE business_email='$business_email'");
 
-                    redirect("../index.php", "Your Password has been succesful reset");
+                    redirect("../index.php", "Your Password has been succesful reset", "success");
             }
             else
             {
-                    redirect("../resetpassword.php", "Please try again");
+                    redirect("../resetpassword.php", "Please try again", "error");
             }
         }
         else
         {
-            redirect("../resetpassword.php", "Passwords do not match");
+            redirect("../resetpassword.php", "Passwords do not match", "warning");
         }
     }
     else
     {  
-        redirect("../businessreg.php", "Your password must be at least 8 characters"); 
+        redirect("../businessreg.php", "Your password must be at least 8 characters", "warning"); 
     }
 }
 
@@ -303,10 +303,10 @@ if(isset($_POST['add_category_btn']))
     $cate_query_run = mysqli_query($con, $cate_query);
 
     if($cate_query_run){
-        redirect("../businessreg.php", "Cuisine Added Successfully");
+        redirect("../businessreg.php", "Cuisine Added Successfully", "success");
     }else{
 
-        redirect("../businessreg.php", "Something Went Wrong");
+        redirect("../businessreg.php", "Something Went Wrong", "error");
 
     }
 }

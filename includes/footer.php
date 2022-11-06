@@ -60,11 +60,16 @@
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
-          alertify.set('notifier','position', 'top-center');
-         var msg = alertify.message('Default message');
-        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        swal({
+            title: "<?= $_SESSION['message']; ?>",
+            icon: "<?= $_SESSION['alert']; ?>",
+            button: "Okay",
+            timer: 1500,
+            });
+
         <?php 
         unset($_SESSION['message']);
+        unset($_SESSION['alert']);
     }
     ?> 
     </script>
@@ -286,7 +291,7 @@ $(document).ready(function(){
 
                     for(var count = 0; count < data.review_data.length; count++)
                     {
-                        html += '<div class="card-header"><b>'+data.review_data[count].businessid+'</b></div>';
+                        // html += '<div class="card-header"><b>'+data.review_data[count].businessid+'</b></div>';
 
                         html += '<div class="row mb-3">';
 

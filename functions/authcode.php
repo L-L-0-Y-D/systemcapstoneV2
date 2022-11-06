@@ -45,16 +45,16 @@ if(isset($_POST['register_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("../register.php?error=Choose image file to upload&$user_data", "Choose image file to upload.");
+        redirect("../register.php?error=Choose image file to upload&$user_data", "Choose image file to upload.", "warning");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("../register.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$user_data", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("../register.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$user_data", "Upload valid images. Only PNG and JPEG are allowed in image.", "warning");
    }// Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 5000000)) {
 
-       redirect("../register.php?error=Image size exceeds 5MB&$user_data", "Image size exceeds 5MB");
+       redirect("../register.php?error=Image size exceeds 5MB&$user_data", "Image size exceeds 5MB", "warning");
    }
    
     // Check if email already registered
@@ -67,7 +67,7 @@ if(isset($_POST['register_btn']))
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("../register.php", "Email Already Exist.");
+        redirect("../register.php", "Email Already Exist.", "warning");
     }
     else
     {
@@ -90,32 +90,32 @@ if(isset($_POST['register_btn']))
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 sendemail_verify("$name","$email","$verify_token");
-                                redirect("../login.php", "Registration Success Please verify Email Address to login");
+                                redirect("../login.php", "Registration Success Please verify Email Address to login", "success");
                             }
                             else
                             {
-                                redirect("../register.php?error=Something went wrong&$user_data", "Something went wrong");
+                                redirect("../register.php?error=Something went wrong&$user_data", "Something went wrong", "error");
                             }
                     }
                     else
                     {
-                        redirect("../register.php?error=Your password must be at least 8 characters&$user_data", "Your password must be at least 8 characters"); 
+                        redirect("../register.php?error=Your password must be at least 8 characters&$user_data", "Your password must be at least 8 characters", "warning"); 
                     }
                 }
                 else
                 {
-                    redirect("../register.php?error=Phone Number must be 11 digits&$user_data", "Phone Number must be 11 digits");
+                    redirect("../register.php?error=Phone Number must be 11 digits&$user_data", "Phone Number must be 11 digits", "warning");
                 }
             }
             else
             {
-                redirect("../register.php?error=User is Under Age&$user_data", "User is Under Age.");
+                redirect("../register.php?error=User is Under Age&$user_data", "User is Under Age.", "warning");
             }
 
         }
         else
         {
-            redirect("../register.php?error=Passwords do not match&$user_data", "Passwords do not match");
+            redirect("../register.php?error=Passwords do not match&$user_data", "Passwords do not match", "warning");
         }
     }
     
@@ -146,28 +146,28 @@ if(isset($_POST['edit_password_btn']))
                                         $update_query_run = mysqli_query($con, $update_query);
                                         if($update_query_run)
                                         {   
-                                            redirect("../index.php", "Password Updated Successfully");
+                                            redirect("../index.php", "Password Updated Successfully", "success");
                                         }
                                         else
                                         {
-                                            redirect("../changepassword.php?id=$userid", "Something Went Wrong"); 
+                                            redirect("../changepassword.php?id=$userid", "Something Went Wrong", "error"); 
                                         }
                                         
                                     }
                                     else
                                     {
-                                        redirect("../changepassword.php?id=$userid", "Passwords do not match");
+                                        redirect("../changepassword.php?id=$userid", "Passwords do not match", "warning");
                                     }
 
                                 }
                                 else
                                 {
-                                    redirect("../changepassword.php?id=$userid", "Your password must be at least 8 characters"); 
+                                    redirect("../changepassword.php?id=$userid", "Your password must be at least 8 characters", "warning"); 
                                 }
                     }
                     else
                     {
-                        redirect("../changepassword.php?id=$userid", "Wrong Current Password");
+                        redirect("../changepassword.php?id=$userid", "Wrong Current Password", "warning");
                     }
     
                 }
@@ -211,16 +211,16 @@ if(isset($_POST['update_profile_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.");
+            redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 80000)) {
 
-            redirect("../profile.php?id=$userid", "Image size less than 800KB");
+            redirect("../profile.php?id=$userid", "Image size less than 800KB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("../profile.php?id=$userid", "Image size exceeds 10MB");
+            redirect("../profile.php?id=$userid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -235,7 +235,7 @@ if(isset($_POST['update_profile_btn']))
     $check_email_query_run = mysqli_query($con, $check_email_query);
     if(mysqli_num_rows($check_email_query_run)>1)
     {
-        redirect("../profile.php", "Email Already Use");
+        redirect("../profile.php", "Email Already Use", "warning");
     }
     else
     {
@@ -260,22 +260,22 @@ if(isset($_POST['update_profile_btn']))
                         else
                         {
                             
-                            redirect("../profile.php?id=$userid", "Your password must be at least 8 characters"); 
+                            redirect("../profile.php?id=$userid", "Your password must be at least 8 characters", "warning"); 
                         }
                     }
                     else
                     {
-                        redirect("../profile.php?id=$userid", "Phone number error detected");
+                        redirect("../profile.php?id=$userid", "Phone number error detected", "warning");
                     }
                 }
                 else
                 {
-                    redirect("../profile.php?id=$userid", "Underage Detected");
+                    redirect("../profile.php?id=$userid", "Underage Detected", "warning");
                 }
             }
             else
             {
-                redirect("../profile.php?id=$userid", "Wrong Password");
+                redirect("../profile.php?id=$userid", "Wrong Password", "warning");
             }
 
         }
@@ -292,11 +292,11 @@ if(isset($_POST['update_profile_btn']))
                 unlink("../uploads/".$old_image);
             }
         }
-        redirect("../index.php", "Profile Updated Successfully");
+        redirect("../index.php", "Profile Updated Successfully", "success");
     }
     else
     {
-        redirect("../profile.php?id=$userid", "Something Went Wrong"); 
+        redirect("../profile.php?id=$userid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -340,22 +340,22 @@ if(isset($_POST['login_btn'])){ // LogIn
                     
                             if($role_as == 1)
                             {
-                                redirect("../admin/index.php", "Welcome to dashboard");
+                                redirect("../admin/index.php", "Welcome to dashboard", "success");
                                 exit(0);
                             }
                             else
                             {
-                                redirect("../index.php", "Logged In Successfully");
+                                redirect("../index.php", "Logged In Successfully", "success");
                                 exit(0);
                             }
                         }
                         elseif($row['status'] == "2")
                         {
-                            redirect("../login.php", "Your Account has been closed");
+                            redirect("../login.php", "Your Account has been closed", "warning");
                         }
                         else
                         {
-                            redirect("../login.php", "Please Verify your Email to Login");
+                            redirect("../login.php", "Please Verify your Email to Login", "warning");
                             // $_SESSION['status'] = "Please Verify your Email to Login";
                             // header("Location: login.php");
                             exit(0);
@@ -363,13 +363,13 @@ if(isset($_POST['login_btn'])){ // LogIn
                     }
                 else
                     {  
-                            redirect("../login.php", "Wrong Email or Password");
+                            redirect("../login.php", "Wrong Email or Password", "warning");
                             exit(0);
                     }
             }
             else
             {
-                redirect("../login.php", "Wrong Email or Password");
+                redirect("../login.php", "Wrong Email or Password", "warning");
                 exit(0);
             }
 
@@ -378,7 +378,7 @@ if(isset($_POST['login_btn'])){ // LogIn
     }
     else
     {  
-        redirect("../login.php", "No Email Exist");
+        redirect("../login.php", "No Email Exist", "error");
         exit(0);
     }
 }
@@ -392,11 +392,11 @@ if(isset($_POST["recover"])){
 
     if(mysqli_num_rows($sql) <= 0){
 
-            redirect("../forgetpassword.php", "Sorry, no emails exists ");
+            redirect("../forgetpassword.php", "Sorry, no emails exists ", "error");
 
     }else if($fetch["status"] == 0){
 
-            redirect("../index.php", "Sorry, your account must verify first, before you recover your password !");
+            redirect("../index.php", "Sorry, your account must verify first, before you recover your password !", "warning");
        
     }else{
         // generate token by binaryhexa 
@@ -407,7 +407,7 @@ if(isset($_POST["recover"])){
         $_SESSION['email'] = $email;
 
         sendemail_forgetpassword("$email","$token");
-        redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email");
+        redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email", "success");
     }
 }
 
@@ -431,16 +431,16 @@ if(isset($_POST["reset"])){
             $new_pass = $hash;
             mysqli_query($con, "UPDATE users SET password='$new_pass' WHERE email='$Email'");
 
-                redirect("../index.php", "Your Password has been succesful reset");
+                redirect("../index.php", "Your Password has been succesful reset", "success");
         }
         else
         {
-                redirect("../resetpassword.php", "Please try again");
+                redirect("../resetpassword.php", "Please try again", "error");
         }
     }
     else
     {
-        redirect("../resetpassword.php", "Passwords do not match");
+        redirect("../resetpassword.php", "Passwords do not match", "warning");
     }
 }
 
