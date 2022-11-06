@@ -193,7 +193,11 @@
     padding-top: 20px;
     height: 100%;
   }
-  
+  .mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+    
   .team-member p {
     margin-top: 0;
     color: rgb(255,128,64)!important;
