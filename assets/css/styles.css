@@ -1,11 +1,17 @@
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    margin-top: 10px;
     margin-bottom: 0px!important;
-    font-weight: bold;
-    line-height: 1.2;
-    text-align: center;
     font-family:'Segoe UI'!important;
-   
+    text-align: left!important;
+    font-weight: 600!important;
+  }
+  .logo {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px!important;
+  }
+  hr {
+    padding:0px!important;
+    margin:0 0 5 0 !important;
   }
   .form-control {
     font-family:monospace!important;
@@ -13,26 +19,148 @@
   }
   .form-label {
     font-family:monospace!important;
-    font-weight: bolder!important;
+    font-weight: 600!important;
+    font-size: 16px!important;
     margin-bottom: 1px!important;
     padding-left: 5px;
     margin-top: 5px;
     text-align: left!important;
   }
-  
+  .login .forget {
+    display: flex;
+    justify-content:end;
+    color: rgb(95, 95, 95)!important;
+    text-decoration: none!important;
+    font-weight: bold;
+    font-size: smaller;
+    font-family:monospace!important; 
+  }
+  .login .forget:hover {
+    color:inherit!important;
+    font-weight: bolder!important;
+    text-decoration: underline!important;
+  }
+  .login .inputs {
+    display:flex ;
+    text-align: left;
+    border-bottom: 1px solid gray;
+    margin-bottom: 20px;
+    justify-content:end ;
+  }
+  .login {
+    max-width: 100%;
+  }
+  .inputs .form-control {
+    text-align: left;
+    border-style: none;
+    padding-left: 10px;
+    box-shadow: none;
+  }
+  .inputs i {
+    height: 28px;
+    width: 15px;
+    opacity: 0.85;
+    padding-bottom: 2px;
+    padding-left: 5px;
+  }
+
+  .login .showpass {
+    display: flex;
+    margin-bottom: 10px;
+    color: rgb(95, 95, 95)!important;
+    font-weight: bold;
+    font-size: smaller;
+    font-family:monospace!important; 
+  }
+ .login .card-body {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: rgb(255, 128, 64);
+  box-shadow: 0px 0px 5px var(--bs-gray);
+  display: flex;
+  align-items: center;
+ }
+  .bs-icon-xl {
+    height:110px; 
+    width:110px;
+    border-style: solid;
+    border-color: rgb(255, 128, 64);
+    background: white!important;
+  }
+  .btn-group {
+    margin-bottom: 30px;
+    box-shadow: none;
+    display: flex;
+  }
+  .btn-group .active  {
+    font-family:monospace!important;
+    background-color: rgb(255,128,64);
+    border: none;
+    color: white;
+  }
+  .btn-group .active:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+  .btn-group .unactive {
+    background-color: transparent;
+    font-family:monospace!important;
+    color: gray;
+    border-style: solid;
+    border-color: rgb(255, 128, 64);
+  }
+  .btn-group .unactive:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+  .login a {
+    color: rgb(95, 95, 95)!important;
+    text-decoration: underline;
+    font-weight: bold;
+    font-family:monospace!important; 
+ 
+  }
+  .login a:hover {
+    color:inherit!important;
+    font-weight: bolder!important;
+  }
   p {
     font-family:monospace!important;
     margin-top: 10px;
     text-align: center;
   }
-  
+  .mb-1 .btn-primary {
+    width: 100%!important;
+    font-family:monospace!important;
+    background-color: rgb(255,128,64);
+    border: none;
+  }
+  .mb-1 .btn-primary:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+  .mb-2 .btn-primary {
+    width: 30%!important;
+    font-family:monospace!important;
+    background-color: rgb(255,128,64);
+    border: none;
+    float: right;
+  }
+  .mb-2 .btn-primary:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+
   .containe,  .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
-    width: 60%;
-    padding-top: 15px;
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    padding-left: calc(var(--bs-gutter-x) * .5);
+    width: 55%;
+    padding-right: calc(var(--bs-gutter-x) * 1.5);
+    padding-left: calc(var(--bs-gutter-x) * 1.5);
     margin-right: auto;
     margin-left: auto;
     background-color: white;
@@ -75,8 +203,21 @@
     background-color: rgb(226, 96, 31)!important;
     border-color: rgb(226, 96, 31)!important;
   }
-  .col .form-checkbox {
-    font-size: 12px!important;
+  .col .form-check {
+    font-weight: lighter!important;
+    font-family:monospace!important;
+ 
+  }
+  .form-select {
+    font-weight: lighter!important;
+    font-family:monospace!important;
+  }
+  option {
+    font-weight: lighter!important;
+    font-family:monospace!important;
+  }
+  option:hover {
+    background-color: rgb(255,128,64)!important;
   }
   
   

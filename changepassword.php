@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
-
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
@@ -41,9 +41,10 @@
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
-    <div class="container" >
-        <div class="row d-flex justify-content-center align-items-md-end">
-            <div class="col-md-6 col-xl-4" style="margin-top:150px;">
+<section class="login">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
             <?php 
             if(isset($_GET['id']))
             {
@@ -56,30 +57,28 @@
                     
                 
                 ?>
-                <div class="card mb-5" style="border-style:none;">
-                    <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
+                <div class="card mb-5">
+                    <div class="card-body d-flex flex-column">
                         <form action="functions/authcode.php" method="POST"> 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4 class="mt-1">
-                                        <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a>
-                                    </h4>   
+                            <div class="row d-flex">
+                                <div class="mb-2">
+                                    <button class="btn btn-primary" onclick="location.href='index.php'">Back</button>
                                 </div>
                                 <div class="col-md-12">
                                     <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                    <label for="">Enter Current Password</label>
+                                    <label class="form-label"for="currentpassword">Enter Current Password</label>
                                     <input type="password" name="oldpassword"  class="form-control" required>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="" class="mt-2">Enter New Password</label>
+                                    <label class="form-label" for="newpass">Enter New Password</label>
                                     <input type="password" name="password"  class="form-control" required>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="" class="mt-2">Confirm New Password</label>
+                                    <label class="form-label" for="confirmnewpass">Confirm New Password</label>
                                     <input type="password" name="confirmpassword"  class="form-control" required>
                                 </div>
-                                <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-primary mt-2" name="edit_password_btn" style="background-color:rgb(255,128,64); border:none;">Update Password</button>
+                                <div class="mb-1">
+                                    <button class="btn btn-primary mt-3" type="submit" name="edit_password_btn">Update Password</button>
                                 </div>
                                 </div>
                         </form>

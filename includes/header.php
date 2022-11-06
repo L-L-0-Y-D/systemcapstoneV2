@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="assets/assets/css/Montserrat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
     <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">

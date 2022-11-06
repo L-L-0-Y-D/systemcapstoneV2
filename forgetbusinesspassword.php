@@ -23,6 +23,7 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Forgot Password | I-Eat</title>
 
     <!-- Favicon -->
@@ -30,26 +31,24 @@ if(isset($_SESSION['auth'])){
 
 </head>
 <body >
-    <section class="position-relative py-4 py-xl-5">
-        <div class="container" style="margin-top:50px;">
-            <div class="row d-flex justify-content-center align-items-md-end">
+    <section class="login">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
-                    <div class="card mb-5" style="border-style: none;">
-                        <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
+                    <div class="card mb-5">
+                        <div class="card-body flex-column">
                         <form method="post" action="functions/busiauthcode.php"> 
-                            <div class="row d-flex justify-content-center align-items-md-end">
-                                <div class="col-md-12 mb-5">
-                                    <h4 class="mt-1">
-                                        <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a>
-                                    </h4>   
+                            <div class="row d-flex">
+                                <div class="mb-2">
+                                    <button class="btn btn-primary" onclick="location.href='index.php'">Back</button>
                                 </div>
-                                <p class="fw-bold text-center " style="margin-bottom: 5px; font-size:20px;">Forget Password?</p>
+                                <p class="text-center fs-5">Forget Password?</p>
                                 <div class="mb-1">
-                                    <label class="form-label" for="email" style="font-weight: bold;">Enter your email</label>
-                                    <input type="email" name="business_email" id="email" class="form-control form-control-sm item mb-3" style="font-size: 14px;height: 50px;" required/>
+                                    <label class="form-label" for="email">Enter your Email Address</label>
+                                    <input type="email" name="business_email" id="email" class="form-control mb-3"required/>
                                 </div>
-                                <div class="mb-3">
-                                    <button class="btn btn-primary d-block w-100" type="submit" name='recover' style="background: rgb(255, 128, 64);border-style: none;">Reset</button>
+                                <div class="mb-1">
+                                    <button class="btn btn-primary" type="submit" name='recover'>Reset</button>
                                 </div>
                             </div>
                         </form>

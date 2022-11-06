@@ -71,7 +71,12 @@ if(isset($_SESSION['auth'])){
     <form method="post" action="functions/busiauthcode.php" enctype="multipart/form-data">
         <!-- Start: 1 Row 2 Columns -->
         <div class="containe">
-            <h5>Create a Business Account</h5>
+            <h5>
+                <img class= "logo" src="uploads/logoT.png" usemap=#workmap>
+                    <map name="workmap">
+                        <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+                    </map>
+            Create a Business Account</h5>
             <hr>
             <label class="form-label">Upload your Business Logo (max 2mb)</label>
             <input class="form-control" type="file" name="image" required>
@@ -151,37 +156,8 @@ if(isset($_SESSION['auth'])){
                         </select> 
                     </div>
                     <?php }?>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Pin Location</label>
-                     <!-- /* The above code is creating a map and pinning the location of the user. */ -->
-                        <input type="hidden" id="address" name="address">
-                        <input type="hidden" id="latitude" name="latitude">
-                        <input type="hidden" id="longitude" name="longitude">
-                    <div id="map" style=" height: 300px;"></div>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Opening Time</label>
-                    <!-- /* Checking if the business name is set, if it is then it will display the business
-                    name, if not then it will display the opening time. */ -->
-                    <?php if (isset($_GET['opening'])){?>
-                        <div class="col">
-                            <input type="time" name="opening" value="<?= $_GET['opening'] ?>"  required placeholder="Opening"></div>
-                    <?php }else{?>
-                        <div class="col">
-                            <input class="form-control" type="time" name="opening"  required></div>
-                    <?php }?>
-                    <label class="form-label">Closing Time</label>
-                    <?php if (isset($_GET['closing'])){?>
-                        <div class="col">
-                            <input type="time" name="closing" value="<?= $_GET['closing'] ?>"  required placeholder="Opening"></div>
-                    <?php }else{?>
-                        <div class="col">
-                            <input class="form-control" type="time" name="closing" required></div>
-                    <?php }?>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label mb-2">Cuisine Type</label>
+ 
+                    <label class="form-label ">Cuisine Type</label>
                     <!-- /* The above code is a PHP code that is used to display the cuisine type in the
                     form of checkboxes. */ -->
                     <?php if (isset($_GET['cuisinename[]'])){?>
@@ -214,7 +190,7 @@ if(isset($_SESSION['auth'])){
                                                     echo "No Cuisine Type Available";
                                                 }
                                         ?>
-                                        <a name="addcuisinebtn" href="addcuisine.php" >&nbspAdd Cuisine Type</a> 
+                                        <br><a name="addcuisinebtn" href="addcuisine.php" >Add Cuisine Type</a> 
                         </div>  
                     <?php }else{?>
                         <div class="col">
@@ -237,9 +213,39 @@ if(isset($_SESSION['auth'])){
                                             echo "No Cuisine Type Available";
                                         }
                                 ?>
-                                <a name="addcuisinebtn" href="addcuisine.php" >&nbspAdd Cuisine Type</a>   
+                                <br><a name="addcuisinebtn" href="addcuisine.php" >Add Cuisine Type</a>   
                             </div>
                         </div>
+                    <?php }?>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Pin Location</label>
+                     <!-- /* The above code is creating a map and pinning the location of the user. */ -->
+                        <input type="hidden" id="address" name="address">
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="longitude" name="longitude">
+                    <div id="map" style=" height: 300px;"></div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Opening Time</label>
+                    <!-- /* Checking if the business name is set, if it is then it will display the business
+                    name, if not then it will display the opening time. */ -->
+                    <?php if (isset($_GET['opening'])){?>
+                        <div class="col">
+                            <input type="time" name="opening" value="<?= $_GET['opening'] ?>"  required placeholder="Opening"></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" type="time" name="opening"  required></div>
+                    <?php }?>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Closing Time</label>
+                    <?php if (isset($_GET['closing'])){?>
+                        <div class="col">
+                            <input type="time" name="closing" value="<?= $_GET['closing'] ?>"  required placeholder="Opening"></div>
+                    <?php }else{?>
+                        <div class="col">
+                            <input class="form-control" type="time" name="closing" required></div>
                     <?php }?>
                 </div>
             </div>
@@ -296,7 +302,7 @@ if(isset($_SESSION['auth'])){
                             <input class="form-control" name='business_email' type="email" required></div>
                     <?php }?>
                 </div>
-                <div class="col-md-6">
+                <div class="col-mb-3">
                     <label class="form-label">Address</label>
                     <!-- /* Checking if the variable business_owneraddress is set. If it is, it will display
                     the value of the variable. If it is not set, it will display a blank input
@@ -309,7 +315,6 @@ if(isset($_SESSION['auth'])){
                             <input class="form-control" name='business_owneraddress' type="text" required></div>
                     <?php }?>
                 </div>
-                <div class="col"></div>
                 <div class="col-md-6">
                     <label class="form-label">Password</label>
                     <input class="form-control" name='business_password' type="password" required></div>
@@ -320,7 +325,7 @@ if(isset($_SESSION['auth'])){
                 </div>
             </div>
             <button class="btn btn-primary" type="submit" name="business_register_btn">Register</button>
-            <p>Already have an account ?&nbsp;&nbsp;<a href="ownerlogin.php">Login</a>&nbsp;</p>
+            <p>Already have an account?<a href="ownerlogin.php">Login</a></p>
         </div><!-- End: 1 Row 2 Columns -->
     </form>    
 

@@ -185,6 +185,7 @@
   .team-member p {
     margin-top: 0;
     color: rgb(255,128,64)!important;
+    font-family:'Segoe UI'!important;
   }
   
   .btn-check:focus + .btn, .btn:focus {
