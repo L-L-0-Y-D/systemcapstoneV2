@@ -74,9 +74,10 @@
                                 <div class="col-md-6 col-xl-5 col-xxl-4 offset-md-6 offset-xl-7 offset-xxl-8">
                                     <div>
                                         <form class="border rounded shadow p-3 p-md-4 p-lg-5" method="post" style="background: var(--bs-body-bg);">
+                                            <p class="fw-bold">Want to be part of I - Eat ?</p>
                                             <h2>SERVE WITH US</h2>
-                                            <p>Do you want your business listed on I -Eat ? You can register your business for listing or message us directly.<br></p>
-                                            <div class="row socials mb-2">
+                                            <p>Do you want your business listed on&nbsp I -Eat ? You can register your business for listing.<br></p>
+                                            <!--<div class="row socials mb-2">
                                                 <div class="col-xxl-12">
                                                     <div class="bs-icon-md bs-icon-circle bs-icon-primary-light d-inline-flex flex-shrink-0 justify-content-center align-items-center order-last ms-4 d-inline-block bs-icon xl"><i class="fab fa-google"></i></div>
                                                     <p class="float-end socialmed"><a href="mailto:ieatwebsite@gmail.com">ieatwebsite@gmail.com</a><br></p>
@@ -88,7 +89,7 @@
                                                     <p class="float-end socialmed">+63-912-3456-789<br></p>
                                                 </div>
                                             </div>
-                                            <p class="or">or</p>
+                                            <p class="or">or</p>-->
                                             <div class="mb-2"><button class="btn btn-primary d-block register" name="businessregbtn" onclick="location.href='businessreg.php'" type="button">REGISTER NOW !</button></div>
                                         </form>
                                     </div>
@@ -100,33 +101,6 @@
             </div>
         </div>
     </section>
-   <!-- <section id="contact" class="py-5 mt-0" style="background: url(uploads/layout1.jpg)center; background-size:cover;">
-        <div class="container py-5">
-            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex align-items-md-center align-items-xl-center">
-                <div class="col offset-xl-2 mb-4">
-                    <div class="card bg-light border-light">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <p style="margin-bottom:0px;font-family: Montserrat, sans-serif;font-weight: bold;">Want to be part of I - Eat ?</p>
-                                    <h3 class="fw-bold mb-0" style="font-size: 50px;font-family: 'Kaushan Script', serif;text-align: left;">CONTACT US</h3>
-                                </div>
-                            </div>
-                            <div>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex mb-2" style="margin-top: 11px;">
-                                        <span style="font-family: Montserrat, sans-serif;">Do you want your business listed on&nbsp; I -Eat ? You can register your business for listing and we will contact you.<br><br></span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <button class="btn btn-primary d-block w-100" name="businessregbtn" onclick="location.href='businessreg.php'" type="button" style="background: rgb(255,128,64);border-style: none;border-right-style: none;">REGISTER NOW !</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4" style="background: transparent;"><img src="uploads/forcontact.png" style="height: 500px;width: 370px;border-radius: 10px;"></div>
-            </div>
-        </div>
-    </section>-->
     <section id="about" style="margin-top:100px;padding-top: 0px;">
         <section class="py-4 py-xl-5" style="background: url(uploads/forabout2.png)center;height:300px; background-size:contain;">
             <div class="container">

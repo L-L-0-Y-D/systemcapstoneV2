@@ -1,8 +1,8 @@
-
-<footer class="text-white sticky-footer" style="background-color:rgb(255,128,64); ">
+<link rel="stylesheet" href="assets/css/untitled.css">
+<footer class="text-white sticky-footer" >
     <div class="container " >
         <div class="row ">
-                <h3 class="fs-8 text-black fw-bold p-2 text-center" style="font-family:'Segoe UI'!important;" >POPULAR CUISINES </h3>
+                <h3>POPULAR CUISINES</h3>
             <?php
             $query = "SELECT * FROM mealcategory";
             $query_run = mysqli_query($con, $query);
@@ -13,7 +13,7 @@
                 {
             ?>
             <div class="col-md-2">
-                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-8 text-white " style="text-decoration:none;"><?= $item['categoryname']; ?></a>
+                <a href="cuisine.php?name=<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></a>
             </div>
             <?php
                 }
@@ -36,8 +36,8 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#" style="color: white; font-family:monospace">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="#" style="color: white;font-family:monospace">Terms of Use</a></li>
+                        <li class="list-inline-item"><a href="#" style="color: white;">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="#" style="color: white;">Terms of Use</a></li>
                     </ul>
                 </div>
             </div>
