@@ -1087,7 +1087,7 @@
                     <div class="row">
                         <div class="col-sm-6 text-center">
                             <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
-                                <i class="fas fa-star fa-sm star-light mr-1 main_star"></i><b><span id="average_rating">0.0</span> / 5</b>
+                                <i class="fas fa-star fa-sm"> </i><b><span id="average_rating">0.0</span> / 5</b>
                             </h1>
                             <!-- <?php
                                 // $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
@@ -1095,47 +1095,47 @@
                                 // $row_rating = mysqli_fetch_assoc($query_rating_run);
                                 // if(!$row_rating['averagerating'])
                                 // {
-                                //     echo'<i class="fas fa-star fa-2x star-light mr-1 main_star"></i>
-                                //         <i class="fas fa-star fa-2x star-light mr-1 main_star"></i>
-                                //         <i class="fas fa-star fa-2x star-light mr-1 main_star"></i>
-                                //         <i class="fas fa-star fa-2x star-light mr-1 main_star"></i>
-                                //         <i class="fas fa-star fa-2x star-light mr-1 main_star"></i>';
+                                //     echo'<i class="fas fa-star star-light mr-1 main_star"></i>
+                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                //         <i class="fas fa-star star-light mr-1 main_star"></i>';
                                 // }
                                 // else if($row_rating['averagerating'] == 5.0)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="fas fa-star"></i></span>';
                                 // }
                                 // else if($row_rating['averagerating'] >= 4.1)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star-half-alt fa-2x"></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span>';
                                 // }
                                 // else if($row_rating['averagerating'] == 4.0)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class="far fa-star fa-2x"></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i></span>';
                                 // }
                                 // else if($row_rating['averagerating'] >= 3.1)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star-half-alt fa-2x"></i><i class="far fa-star fa-2x"></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>';
                                 // }
                                 // else if($row_rating['averagerating'] == 3.0)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
                                 // }
                                 // else if($row_rating['averagerating'] >= 2.1)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class ="fas fa-star-half-alt fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
                                 // }
                                 // else if($row_rating['averagerating'] == 2.0)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x"></i><i class ="fas fa-star fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
                                 // }
                                 // else if($row_rating['averagerating'] >= 1.1)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x""></i><i class ="fas fa-star-half-alt fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star""></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
                                 // }
                                 // else if($row_rating['averagerating'] == 1.0)
                                 // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i><i class="far fa-star fa-2x"></i></i></span>';
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
                                 // }
                                 // else
                                 // {
