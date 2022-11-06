@@ -66,7 +66,7 @@ if(isset($_POST["rating_data"]))
 		$review_content = array();
 
 		$query = "
-		SELECT * FROM review_table WHERE businessid = $businessid
+		SELECT * FROM review_table WHERE businessid = $id
 		ORDER BY review_id DESC
 		";
 

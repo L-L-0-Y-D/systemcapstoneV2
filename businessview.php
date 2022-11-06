@@ -1096,7 +1096,7 @@
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                             </div>
-                            <h3><span id="total_review">0</span> Review/s</h3>
+                            <h3><span class="mb-3" id="total_review">0</span> Review/s</h3>
                         </div>
                         <div class="col-sm-5">
                             <p>
