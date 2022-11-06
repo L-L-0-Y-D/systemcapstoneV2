@@ -119,44 +119,6 @@ include('../config/dbcon.php');
     
     }
 
-//     //Required if your environment does not handle autoloading
-//     require '../vendor/autoload.php';
-
-//     // Use the REST API Client to make requests to the Twilio REST API
-//     use Twilio\Rest\Client;
-
-// function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$businame,$businessid)
-// {
-//     // Your Account SID and Auth Token from twilio.com/console
-//     $sid = 'AC319119520487be0445e890d2ae09e4b2';
-//     $token = '0ce8c987fa2abc718cccb6a0a863e1ef';
-//     $client = new Client($sid, $token);
-
-//     $receiver = ltrim($phonenumber,"0");
-
-//     // Use the client to do fun stuff like send text messages!
-//     $message = $client->messages->create(
-//     // the number you'd like to send the message to
-//         '+63'.$receiver,
-//     [
-//         // A Twilio phone number you purchased at twilio.com/console
-//         'from' => '+16195030287',
-//         // the body of the text message you'd like to send
-//         'body' => 'Hello '.$name.'! Your table reservation for '.$numguest.' at '.$businame.' on ' .$date." ".date("g:i a", strtotime($time)).' are confirm'
-//     ]
-//     );
-
-//     if($message)
-//     {
-//         redirect("../business/reservation.php?id=$businessid", "Message Sent");
-//     }
-//     else
-//     {
-//         redirect("../business/reservation.php?id=$businessid", "Message not sent");
-//     }
-    
-    
-// }
     
 function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$tableno,$businame,$businessid)
 {
@@ -311,9 +273,10 @@ function businessGetByIDActives($id)
     return $query_run = mysqli_query($con, $query);
 }
 
-function redirect($url, $message)
+function redirect($url, $message, $alert)
 {
     $_SESSION['message'] = $message;
+    $_SESSION['alert'] = $alert;
     header('Location: '.$url);
     exit();
 }
