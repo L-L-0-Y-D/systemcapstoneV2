@@ -1,8 +1,8 @@
-
-<footer class="text-white sticky-footer" style="background-color:rgb(255,128,64); ">
+<link rel="stylesheet" href="assets/css/untitled.css">
+<footer class="text-white sticky-footer" >
     <div class="container " >
         <div class="row ">
-                <h3 class="fs-8 text-black fw-bold p-2" style="font-family:'Segoe UI'!important;" >POPULAR CUISINES </h3>
+                <h3>POPULAR CUISINES</h3>
             <?php
             $query = "SELECT * FROM mealcategory";
             $query_run = mysqli_query($con, $query);
@@ -13,7 +13,7 @@
                 {
             ?>
             <div class="col-md-2">
-                <a href="cuisine.php?name=<?= $item['categoryname']; ?>" class=" fs-8 text-white " style="text-decoration:none;"><?= $item['categoryname']; ?></a>
+                <a href="cuisine.php?name=<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></a>
             </div>
             <?php
                 }
@@ -22,11 +22,6 @@
             {
                 echo "No Cuisine Available";
             }?>
-            <!--<div class="col-md-3">
-                <h3 class="fs-8 text-black fw-bold">Contacts</h3>
-                <h6 style="font-size:12px;">Do you want yourself listed on I-Eat? You can register yourself for listing and we will contact you: <span><a style="color:black; text-decoration:underline;" href="businessreg.php">Partner with Us</a></span></h6>
-                <h6 style="font-size:12px;">Are you already a partner of ours and have questions about the service? Then email: <a style="color:black; text-decoration:underline;"href="mailto:2022ieat@gmail.com">2022ieat@gmail.com</a></h6>
-            </div>-->
             <hr>
             <div class="row ">
                 <div class="col-md-4 text-white"><span class="copyright">Copyright&nbsp;© I-EAT 2022</span>
@@ -36,8 +31,7 @@
                     <ul class="list-inline social-buttons ">
                         <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="ieatwebsite@gmail.com
-"><i class="fa fa-google"></i></a></li>
+                        <li class="list-inline-item"><a href="ieatwebsite@gmail.com"><i class="fa fa-google"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
