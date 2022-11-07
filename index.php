@@ -37,11 +37,11 @@
                         foreach($municipality as $item)
                         {
                             ?>
-                <div class="col-sm-6 col-md-4 portfolio-item" data-bss-hover-animate="pulse" >
+                <div class="col-md-3 portfolio-item" data-bss-hover-animate="pulse" >
                     <a class="portfolio-link" href="business.php?id=<?= $item['municipalityid']; ?>">
                         <div class="portfolio-hover" style="border-radius:10px;">
                             <div class="portfolio-hover-content">
-                                <h4 style="font-family: 'Vujahday Script', serif;font-size: 70px;" style="margin-left: 15px;padding-bottom: 5px;"><?= $item['municipality_name']; ?></h4>
+                                <h4 style="font-family: 'Vujahday Script', serif;font-size: 50px;" style="margin-left: 15px;padding-bottom: 5px;"><?= $item['municipality_name']; ?></h4>
                             </div>
                         </div>
                         <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="Municipality Image"style="border-radius:10px;height:300px; width:400px;" >
@@ -118,7 +118,7 @@
                 <h2 class="text-uppercase section-heading">TEAM</h2>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 mb-2">
                     <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/lloyd.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">John Lloyd Agorita</h4>
                         <p class="text-muted">Back-End Developer</p>
@@ -129,7 +129,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-2">
                     <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/melodee.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Melodee Bantog</h4>
                         <p class="text-muted">Front-End Developer</p>
@@ -140,7 +140,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-2">
                     <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/kimberly.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Kimberly Escober</h4>
                         <p class="text-muted">Documenter</p>
@@ -151,7 +151,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-2">
                     <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/karen.jpg">
                         <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Karen Guinto</h4>
                         <p class="text-muted">Documenter</p>
