@@ -186,18 +186,27 @@
   }
   
   .team-member {
-    margin-bottom: 50px;
+
+
     text-align: center;
     background-color: var(--bs-gray-dark);
     border-radius: 10px;
     padding-top: 20px;
     height: 100%;
   }
-  .mx-auto {
+  .team-member .mx-auto {
     margin-right: auto !important;
     margin-left: auto !important;
+    margin-bottom:30px;
+    width:75%;
+    height:50%;
+
   }
-    
+  .team-member h4 {
+    font-family:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif!important;
+    color:white;
+    font-size:20px;
+  }
   .team-member p {
     margin-top: 0;
     color: rgb(255,128,64)!important;
@@ -219,10 +228,10 @@
     background-position: center;
   }
   /*FOR BUSINESS.PHP*/
-  .business .h1, h1 {
-    font-size: calc(1.375rem + 1.5vw);
-    text-align: center;
-    margin-bottom: 2.5rem!important;
+  .business .h2, h2 {
+    font-size: 24px;
+    text-align: left;
+
     font-weight: bold;
     font-family:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif!important;
   }

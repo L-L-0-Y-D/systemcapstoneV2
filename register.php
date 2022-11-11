@@ -175,7 +175,7 @@ if(isset($_SESSION['auth'])){
                 </div>
             </div>
             <button class="btn btn-primary" type="submit" name="register_btn">Register</button>
-            <p>Already have an account?<a href="login.php">Login</a></p>
+            <p>Already have an account?&nbsp &nbsp<a href="login.php">Login</a></p>
         </div>
     </form>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>

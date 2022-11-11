@@ -40,9 +40,10 @@ if(isset($_SESSION['auth'])){
                         <form method="post" action="functions/busiauthcode.php"> 
                             <div class="row d-flex">
                                 <div class="mb-2">
-                                    <button class="btn btn-primary" onclick="location.href='index.php'">Back</button>
+                                    <button class="btn btn-primary" onclick="location.href='ownerlogin.php'">Back</button>
                                 </div>
                                 <p class="text-center fs-5">Forget Password?</p>
+                                <p class="text-left"> We'll check if you have already an account</p>
                                 <div class="mb-1">
                                     <label class="form-label" for="email">Enter your Email Address</label>
                                     <input type="email" name="business_email" id="email" class="form-control mb-3"required/>

@@ -325,7 +325,7 @@ if(isset($_SESSION['auth'])){
                 </div>
             </div>
             <button class="btn btn-primary" type="submit" name="business_register_btn">Register</button>
-            <p>Already have an account?<a href="ownerlogin.php">Login</a></p>
+            <p>Already have an account?&nbsp&nbsp<a href="ownerlogin.php">Login</a></p>
         </div><!-- End: 1 Row 2 Columns -->
     </form>    
 

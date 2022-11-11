@@ -20,10 +20,108 @@
     <main class="page projects-page">
         <section class="business">
             <div class="container">
-                <div class="heading">
-                    <h1>Restaurants in <?= $data['municipality_name']; ?></h1>
-                </div>
-                <div class="container justify-content-center d-flex">
+                <h2>Top Restaurants in <?= $data['municipality_name']; ?></h2>
+                        <div class="carousel slide" data-bs-ride="false" id="carousel-1">
+                            <div class="carousel-inner carousel-bottom">
+                                <div class="carousel-item active">
+                                    <div class="row sliderow">
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1654525834.png">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">Ichiraku</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1655660851.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">The Food Project</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1655663226.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">The WingHub</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1661483025.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">Hapchan</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1654525834.png">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">Ichiraku</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1655660851.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">The Food Project</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1655663226.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">The WingHub</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1661483025.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">Hapchan</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1654525834.png">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">Ichiraku</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1655660851.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">The Food Project</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1655663226.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">The WingHub</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="project-card-no-image" style="background: white;height: 50%;"><img class="rounded img-fluid" src="assets/img/1661483025.jpg">
+                                                <h3 style="font-family: Acme, sans-serif;font-weight: bold;">Hapchan</h3><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star-half text-warning"></i>(5)</span>
+                                                <p class="text-muted">pasta, buffalo wings, salad</p><button class="btn btn-outline-primary btn-sm view" type="button" data-bs-target="#menu_description" data-bs-toggle="modal">View Details</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <!-- Start: Previous --><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon text-bg-dark"></span><span class="visually-hidden">Previous</span></a><!-- End: Previous -->
+                                <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon text-bg-dark"></span><span class="visually-hidden">Next</span></a><!-- End: Next -->
+                            </div>
+                            <ol class="carousel-indicators">
+                                <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
+                                <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
+                                <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+                            </ol>
+                        </div>
+                        <div class="heading mt-5">
+                            <h2>All</h2>
+                        </div>
+                        <div class="container justify-content-center d-flex">
                     <div class="row">
                         <?php
                             if(mysqli_num_rows($business) > 0)
@@ -107,6 +205,8 @@
                             }
                         ?>
                     </div>   
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>

@@ -25,19 +25,30 @@
     margin-top: 5px;
     text-align: left!important;
   }
+  .login .far {
+    display:inline-block;
+    --bs-body-line-height:1;
+    margin-right:7%;
+    color:rgb(255,128,64);
+    font-size:large;
+  }
+  .login .far:hover {
+    cursor:pointer;
+  }
   .login .forget {
     display: flex;
     justify-content:end;
-    color: rgb(95, 95, 95)!important;
     text-decoration: none!important;
+    margin-bottom: 10px;
+    color: rgb(95, 95, 95)!important;
     font-weight: bold;
-    font-size: smaller;
-    font-family:monospace!important; 
+    font-size: 14px;
+    font-family:Segoe!important; 
   }
   .login .forget:hover {
-    color:inherit!important;
-    font-weight: bolder!important;
-    text-decoration: underline!important;
+    font-weight:bolder!important;
+    color:var(--bs-dark)!important;
+    text-decoration:underline!important;
   }
   .login .inputs {
     display:flex ;
@@ -54,6 +65,7 @@
     border-style: none;
     padding-left: 10px;
     box-shadow: none;
+    font-family:Monsterrat!important;
   }
   .inputs i {
     height: 28px;
@@ -62,20 +74,11 @@
     padding-bottom: 2px;
     padding-left: 5px;
   }
-
-  .login .showpass {
-    display: flex;
-    margin-bottom: 10px;
-    color: rgb(95, 95, 95)!important;
-    font-weight: bold;
-    font-size: smaller;
-    font-family:monospace!important; 
-  }
  .login .card-body {
   border-radius: 5px;
   border-style: solid;
-  border-color: rgb(255, 128, 64);
-  box-shadow: 0px 0px 5px var(--bs-gray);
+  border-color: white;
+  box-shadow: 0px 0px 15px var(--bs-gray);
   display: flex;
   align-items: center;
  }
@@ -92,7 +95,8 @@
     display: flex;
   }
   .btn-group .active  {
-    font-family:monospace!important;
+    font-family:Monsterrat!important;
+    font-weight:lighter;
     background-color: rgb(255,128,64);
     border: none;
     color: white;
@@ -104,37 +108,45 @@
   }
   .btn-group .unactive {
     background-color: transparent;
-    font-family:monospace!important;
+    font-weight:lighter;
+    font-family:Monsterrat!important;
     color: gray;
     border-style: solid;
     border-color: rgb(255, 128, 64);
   }
   .btn-group .unactive:hover {
-    color: white;
-    background-color: rgb(226, 96, 31)!important;
+    color: rgb(255,128,64);
+    background-color: transparent!important;
     border-color: rgb(226, 96, 31)!important;
+  }
+  .btn-group .unactive:focus {
+    color: rgb(255,128,64);
+    background-color: transparent!important;
+    border-color: rgb(226, 96, 31)!important;
+    box-shadow:none;
   }
   .login a {
     color: rgb(95, 95, 95)!important;
     text-decoration: underline;
     font-weight: bold;
-    font-family:monospace!important; 
- 
+    font-family:Monsterrat!important; 
   }
   .login a:hover {
     color:inherit!important;
     font-weight: bolder!important;
   }
   p {
-    font-family:monospace!important;
+    font-family:Monsterrat!important;
     margin-top: 10px;
     text-align: center;
+    font-size:14px;
   }
   .mb-1 .btn-primary {
     width: 100%!important;
-    font-family:monospace!important;
+    font-family:Monsterrat!important;
     background-color: rgb(255,128,64);
     border: none;
+    border-radius:30px;;
   }
   .mb-1 .btn-primary:hover {
     color: white;
@@ -167,14 +179,14 @@
     border: solid 2px;
     border-radius: 15px;
     margin-top: 100px;
-    margin-bottom: 10px !important;
+    margin-bottom: 20px !important;
   }
   
   .containe a {
     color: rgb(95, 95, 95)!important;
     text-decoration: underline;
     font-weight: bold;
-    font-family:monospace!important;
+    font-family:Monsterrat!important;
   }
   
   .containe a:hover {
@@ -187,9 +199,10 @@
   .containe .btn {
     width: 100%!important;
     margin-top: 20px;
-    font-family:monospace!important;
+    font-family:Monsterrat!important;
     background-color: rgb(255,128,64);
     border: none;
+    border-radius:30px;
   }
 
   .containe.btn-check:checked + .containe.btn, .containe.btn-check:active + .containe.btn, .containe.btn:active, .containe.btn.active, .containe.btn.show {
@@ -202,22 +215,12 @@
     background-color: rgb(226, 96, 31)!important;
     border-color: rgb(226, 96, 31)!important;
   }
-  .col .form-check {
+  .col .form-check,  .form-select ,  option {
     font-weight: lighter!important;
-    font-family:monospace!important;
+    font-family:Monsterrat!important;
+    font-size:smaller;
  
   }
-  .form-select {
-    font-weight: lighter!important;
-    font-family:monospace!important;
-  }
-  option {
-    font-weight: lighter!important;
-    font-family:monospace!important;
-  }
-  option:hover {
-    background-color: rgb(255,128,64)!important;
-  }
-  
-  
+ 
+
   

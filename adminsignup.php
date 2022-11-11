@@ -82,15 +82,13 @@ if(isset($_SESSION['auth'])){
                             <form class="text-center" method="post" action="functions/authcode.php">
                                 <div class="inputs">
                                     <i class="fas fa-at d-md-flex align-items-md-end"></i>
-                                    <input class="form-control" type="email" name="email" placeholder="Email" required>
+                                    <input class="form-control" type="email" name="email" placeholder="email address" required>
                                 </div>
                                 <div class="inputs">
                                     <i class="fas fa-key d-md-flex align-items-md-end" ></i>
-                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                                    <input class="form-control" type="password" name="password" id="inputpassword" placeholder="password" required>
+                                    <i class="far fa-eye d-md-flex align-items-md-end" id="showicon" onclick="myFunction(this)"></i>
                                 </div>
-                                <!--<div class="showpass d-md-flex justify-content-md-end">
-                                    <input type="checkbox" onclick="myFunction()"> Show Password
-                                </div>-->
                                 <div class="mb-1">
                                     <button class="btn btn-primary" type="submit" name="login_btn">Login</button>
                                 </div>
@@ -116,5 +114,16 @@ if(isset($_SESSION['auth'])){
     }
     ?> 
     </script> 
+    <script>
+        function myFunction(x) {
+            x.classList.toggle("fa-eye-slash");
+        var x = document.getElementById("inputpassword");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        }
+    </script>
 </body>
 </html>

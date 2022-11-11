@@ -12,7 +12,7 @@
                 <div class="intro-heading text-uppercase ">
                     <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.</span></div>
                     <form action="search.php" method="POST">
-                        <input class="form-control-lg" type="text" name="search" style="font-size:15px;border-radius: 20px;border: 1px solid;  font-family:monospace;" placeholder="Search Restaurants,Locations,Cuisines...">
+                        <input class="form-control-lg " type="text" name="search" style="width:30%;font-size:13px;border-radius: 20px;border: 1px solid;  font-family:Monsterrat;" placeholder="Search Restaurants, Locations, Cuisines...">
                         <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
                     </form>
@@ -101,8 +101,8 @@
             </div>
         </div>
     </section>
-    <section id="about" style="margin-top:100px;padding-top: 0px;">
-        <section class="py-4 py-xl-5" style="background: url(uploads/forabout2.png)center;height:300px; background-size:contain;">
+    <!--<section id="about" style="padding-top: 0px;">
+        <section class="py-4 py-xl-5" style="background: url(uploads/aboutbg.png)center;height:300px; background-size:cover;">
             <div class="container">
                 <div class="text-center p-lg-5">
                     <h1 class="text-uppercase section-heading fw-bold mb-0" style="font-size:60px;margin-top: 20px;">ABOUT&nbsp; &nbsp;| &nbsp; &nbsp; I - EAT</h1>
@@ -110,17 +110,17 @@
             </div>
         </section>  
         <p class="fs-5 mt-2" style="font-family:Acme;margin-left:100px;margin-right:100px;">I-Eat: established in 2022, an online international cuisine management system. I-Eat aims to improve the management of the growing community of food industry within Bataan. The system is designed intending to manage customer information, to provide an efficient, contactless, and a more accurate business process. It is capable of locating specialty restaurants and displaying various menus from specialty restaurants.</p>      
-    </section>
+    </section>-->
     <section class="bg-light" id="team">
-        <!-- Start: 1 Row 4 Columns -->
+        <!-- Start: 1 Row 4 Columns for Team Section -->
         <div class="container w-80">
             <div class="col-lg-12 text-center pt-0">
-                <h2 class="text-uppercase section-heading">TEAM</h2>
+                <h2 class="text-uppercase section-heading">OUR TEAM</h2>
             </div>
             <div class="row">
-                <div class="col-md-3 mb-2">
+                <div class="col-md-3 mb-3">
                     <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/lloyd.jpg">
-                        <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">John Lloyd Agorita</h4>
+                        <h4>John Lloyd Agorita</h4>
                         <p class="text-muted">Back-End Developer</p>
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item"><a href="https://www.instagram.com/l_l_o_y_d_y_y/"><i class="fa fa-instagram"></i></a></li>
@@ -129,9 +129,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 mb-2">
+                <div class="col-md-3 mb-3">
                     <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/melodee.jpg">
-                        <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Melodee Bantog</h4>
+                        <h4>Melodee Bantog</h4>
                         <p class="text-muted">Front-End Developer</p>
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item"><a href="https://www.instagram.com/mldbntg"><i class="fa fa-instagram"></i></a></li>
@@ -140,9 +140,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 mb-2">
+                <div class="col-md-3 mb-3">
                     <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/kimberly.jpg">
-                        <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Kimberly Escober</h4>
+                        <h4>Kimberly Escober</h4>
                         <p class="text-muted">Documenter</p>
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item"><a href="https://www.instagram.com/yesno.elle"><i class="fa fa-instagram"></i></a></li>
@@ -151,9 +151,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 mb-2">
+                <div class="col-md-3 mb-3">
                     <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/karen.jpg">
-                        <h4 style="font-family: 'Kaushan Script', serif;color: white;font-size: 30px;">Karen Guinto</h4>
+                        <h4>Karen Guinto</h4>
                         <p class="text-muted">Documenter</p>
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item"><a href="https://www.instagram.com/_krnaqn/"><i class="fa fa-instagram"></i></a></li>
