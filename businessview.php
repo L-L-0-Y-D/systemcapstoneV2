@@ -289,58 +289,52 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
-                                                        </div>
-                                                    </div></a>   
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
                                                 </div>
-                                            </section>
-                                        </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                               
                                         <?php
                                             }
                                             else
                                             {
                                         ?>
-                                            <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
-                                                        </div>
-                                                    </div></a>   
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
                                                 </div>
-                                            </section>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                        </div>
                                         <?php  
                                             }
                                             }
@@ -376,59 +370,53 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
                                                         </div>
-                                                    </div></a>   
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <?php
-                                                }
-                                                else
-                                                {
-                                            ?>
-                                                <div class="col-md-4">
-                                                <section class="py-4 py-xl-3">
-                                                    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                        <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                        <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                            <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                    <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                        <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                        <div class="my-3"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                    <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                                </div>
-                                                            </div>
-                                                        </div></a>   
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
                                                     </div>
-                                                </section>
                                                 </div>
-                                            <?php  
+                                            </div>
+                                        </div>                               
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
+                                                </div>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  
                                                 }
                                             }
                                         }
@@ -463,59 +451,53 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
                                                         </div>
-                                                    </div></a>   
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <?php
-                                                }
-                                                else
-                                                {
-                                            ?>
-                                                <div class="col-md-4">
-                                                <section class="py-4 py-xl-3">
-                                                    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                        <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                        <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                            <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                    <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                        <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                        <div class="my-3"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                    <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                                </div>
-                                                            </div>
-                                                        </div></a>   
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
                                                     </div>
-                                                </section>
                                                 </div>
-                                            <?php  
+                                            </div>
+                                        </div>                               
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
+                                                </div>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  
                                                 }
                                             }
                                         }
@@ -550,59 +532,53 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
                                                         </div>
-                                                    </div></a>   
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <?php
-                                                }
-                                                else
-                                                {
-                                            ?>
-                                                <div class="col-md-4">
-                                                <section class="py-4 py-xl-3">
-                                                    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                        <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                        <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                            <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                    <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                        <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                        <div class="my-3"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                    <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                                </div>
-                                                            </div>
-                                                        </div></a>   
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
                                                     </div>
-                                                </section>
                                                 </div>
-                                            <?php  
+                                            </div>
+                                        </div>                               
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
+                                                </div>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  
                                                 }
                                             }
                                         }
@@ -636,59 +612,53 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
                                                         </div>
-                                                    </div></a>   
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <?php
-                                                }
-                                                else
-                                                {
-                                            ?>
-                                                <div class="col-md-4">
-                                                <section class="py-4 py-xl-3">
-                                                    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                        <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                        <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                            <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                    <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                        <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                        <div class="my-3"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                    <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                                </div>
-                                                            </div>
-                                                        </div></a>   
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
                                                     </div>
-                                                </section>
                                                 </div>
-                                            <?php  
+                                            </div>
+                                        </div>                               
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
+                                                </div>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  
                                                 }
                                             }
                                         }
@@ -723,59 +693,53 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
                                                         </div>
-                                                    </div></a>   
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <?php
-                                                }
-                                                else
-                                                {
-                                        ?>
-                                                <div class="col-md-4">
-                                                <section class="py-4 py-xl-3">
-                                                    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                        <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                        <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                            <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                    <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                        <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                        <div class="my-3"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                    <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                                </div>
-                                                            </div>
-                                                        </div></a>   
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
                                                     </div>
-                                                </section>
                                                 </div>
-                                            <?php  
+                                            </div>
+                                        </div>                               
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
+                                                </div>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  
                                                 }
                                             }
                                         }
@@ -810,59 +774,53 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
                                                         </div>
-                                                    </div></a>   
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <?php
-                                                }
-                                                else
-                                                {
-                                            ?>
-                                                <div class="col-md-4">
-                                                <section class="py-4 py-xl-3">
-                                                    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                        <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                        <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                            <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                    <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                        <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                        <div class="my-3"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                    <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                                </div>
-                                                            </div>
-                                                        </div></a>   
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
                                                     </div>
-                                                </section>
                                                 </div>
-                                            <?php  
+                                            </div>
+                                        </div>                               
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
+                                                </div>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  
                                                 }
                                             }
                                         }
@@ -897,59 +855,53 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
                                                         </div>
-                                                    </div></a>   
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <?php
-                                                }
-                                                else
-                                                {
-                                            ?>
-                                                <div class="col-md-4">
-                                                <section class="py-4 py-xl-3">
-                                                    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                        <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                        <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                            <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                    <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                        <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                        <div class="my-3"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                    <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                                </div>
-                                                            </div>
-                                                        </div></a>   
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
                                                     </div>
-                                                </section>
                                                 </div>
-                                            <?php  
+                                            </div>
+                                        </div>                               
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
+                                                </div>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  
                                                 }
                                             }
                                         }
@@ -984,59 +936,53 @@
                                                 if( $item['status'] == '1')
                                                 {
                                         ?>                                      
-						                <div class="col-md-4">
-                                            <section class="py-4 py-xl-3">
-                                                <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                    <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                    <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                        <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                            <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                    <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                    <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                    <p class="mb-1" style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                    <div class="my-3"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                            </div>
+						                <div class="col-md-3">
+                                            <div class="clean-pricing-item">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p>₱<?= $item['price']; ?></p>
                                                         </div>
-                                                    </div></a>   
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <?php
-                                                }
-                                                else
-                                                {
-                                            ?>
-                                                <div class="col-md-4">
-                                                <section class="py-4 py-xl-3">
-                                                    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-                                                        <div class=" border rounded border-0 border-dark overflow-hidden" style="height:250px;box-shadow: 0px 0px 10px;">
-                                                        <a href="businessview.php?id=<?=$item['businessid'];?>" style="color:black; text-decoration:none;">
-                                                            <div class="row g-0" style="border: 1px none rgb(255,128,64);box-shadow: 0px 0px 0px;">
-                                                                <div class="col-md-6" style="font-family: Acme, sans-serif;">
-                                                                    <div class="text-black p-4 p-md-5" style="background: url(uploads/formenu3.png)center; background-size:cover;height: 100%;">
-                                                                        <h2 class="fw-bold  mb-2" style="font-size: 20px;"><?= $item['name']; ?></h2>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['description']; ?></p>
-                                                                        <p class="mb-1" style="font-size: 12px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                        <p class="mb-1 " style="font-weight: bold;font-size: 18px;">₱<?= $item['price']; ?></p>
-                                                                        <p class="mb-1 text-danger" style="font-weight: bold;font-size: 18px;">SOLD OUT</p>
-                                                                        <div class="my-3"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-                                                                    <img class="img-fluid w-100" src="uploads/<?= $item['image']; ?>" style="object-position:contain; height:250px;">
-                                                                </div>
-                                                            </div>
-                                                        </div></a>   
+                                                        <div class="col">
+                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        </div>
                                                     </div>
-                                                </section>
                                                 </div>
-                                            <?php  
+                                            </div>
+                                        </div>                               
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                <div class="ribbon">
+                                                    <span>SOLD OUT</span>
+                                                </div>
+                                                <div class="heading">
+                                                    <h5><?= $item['name']; ?></h5>
+                                                </div>
+                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                <div class="price">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-dark disabled d-block w-100" type="submit" disabled="">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  
                                                 }
                                             }
                                         }
