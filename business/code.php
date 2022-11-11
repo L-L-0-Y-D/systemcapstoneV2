@@ -34,21 +34,21 @@ if(isset($_POST['add_product_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("add-menu.php?id=$businessid&Choose image file to upload", "Choose image file to upload.");
+        redirect("add-menu.php?id=$businessid&Choose image file to upload", "Choose image file to upload.", "warning");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
    }// Validate image file size less than
    else if (($_FILES["image"]["size"] < 80000)) {
 
-       redirect("add-menu.php?id=$businessid", "Image size less than 800KB");
+       redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
 
    }    // Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 100000000)) {
 
-       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
    }
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
@@ -60,7 +60,7 @@ if(isset($_POST['add_product_btn']))
 
     if(mysqli_num_rows($check_product_query_run)>0)
     {
-        redirect("menu.php?id=$businessid", "Product Already Exist.");
+        redirect("menu.php?id=$businessid", "Product Already Exist.", "warning");
     }
     else
     {
@@ -73,10 +73,10 @@ if(isset($_POST['add_product_btn']))
         if($product_query_run)
         {
             move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-            redirect("menu.php?id=$businessid", "Product Added Successfully");
+            redirect("menu.php?id=$businessid", "Product Added Successfully", "success");
         }else
         {
-            redirect("add-menu.php?id=$businessid", "Something Went Wrong");
+            redirect("add-menu.php?id=$businessid", "Something Went Wrong", "error");
         }
     }
 }
@@ -114,16 +114,16 @@ elseif (isset($_POST['update_product_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$productid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+            redirect("add-menu.php?id=$productid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 8000)) {
 
-            redirect("add-menu.php?id=$productid", "Image size less than 800KB");
+            redirect("add-menu.php?id=$productid", "Image size less than 800KB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 1000000)) {
 
-            redirect("add-menu.php?id=$productid", "Image size exceeds 10MB");
+            redirect("add-menu.php?id=$productid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -144,12 +144,12 @@ elseif (isset($_POST['update_product_btn']))
                 unlink("../uploads/".$old_image);
             }
         }
-        redirect("menu.php?id=$businessid", "Product Updated Successfully");
+        redirect("menu.php?id=$businessid", "Product Updated Successfully", "success");
 
     }
     else
     {
-        redirect("edit-menu.php?id=$productid", "Something Went Wrong"); 
+        redirect("edit-menu.php?id=$productid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -218,14 +218,14 @@ elseif (isset($_POST['update_reservation_btn']))
         }
         else
         {
-            redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
+            redirect("reservation.php?id=$businessid", "Reservation Updated Successfully", "success");
         }
 
         
     }
     else
     {
-        redirect("edit-reservation.php?id=$reservationid", "Something Went Wrong"); 
+        redirect("edit-reservation.php?id=$reservationid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -267,16 +267,16 @@ else if(isset($_POST['edit_business_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+            redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 800)) {
 
-            redirect("profile.php?id=$businessid", "Image size less than 800KB");
+            redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("profile.php?id=$businessid", "Image size exceeds 10MB");
+            redirect("profile.php?id=$businessid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -299,16 +299,16 @@ else if(isset($_POST['edit_business_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_cert_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.");
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image_cert"]["size"] < 800)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 800KB");
+            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image_cert"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB");
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -324,7 +324,7 @@ else if(isset($_POST['edit_business_btn']))
 
     if(mysqli_num_rows($check_email_query_run)>1)
     {
-        redirect("profile.php?=$businessid", "Email Already Use");
+        redirect("profile.php?=$businessid", "Email Already Use", "warning");
     }
     else
     {
@@ -367,27 +367,27 @@ else if(isset($_POST['edit_business_btn']))
                                             }
                                         }
 
-                                        redirect("index.php", "Business Updated Successfully");
+                                        redirect("index.php", "Business Updated Successfully", "success");
                                     }
                                     else
                                     {
-                                        redirect("profile.php?id=$businessid", "Something Went Wrong"); 
+                                        redirect("profile.php?id=$businessid", "Something Went Wrong", "error"); 
                                     }
 
                                 }
                                 else
                                 {
-                                    redirect("profile.php?id=$businessid", "Your password must be at least 8 characters"); 
+                                    redirect("profile.php?id=$businessid", "Your password must be at least 8 characters", "warning"); 
                                 }
                         }
                         else
                         {
-                            redirect("profile.php?id=$businessid", "Phone number error detected");
+                            redirect("profile.php?id=$businessid", "Phone number error detected", "warning");
                         }
                     }
                     else
                     {
-                        redirect("profile.php?id=$businessid", "Wrong Password");
+                        redirect("profile.php?id=$businessid", "Wrong Password", "warning");
                     }
     
                 }
@@ -421,28 +421,28 @@ else if(isset($_POST['edit_password_btn']))
                                         $update_query_run = mysqli_query($con, $update_query);
                                         if($update_query_run)
                                         {   
-                                            redirect("index.php", "Password Updated Successfully");
+                                            redirect("index.php", "Password Updated Successfully", "success");
                                         }
                                         else
                                         {
-                                            redirect("changepassword.php?id=$businessid", "Something Went Wrong"); 
+                                            redirect("changepassword.php?id=$businessid", "Something Went Wrong", "error"); 
                                         }
                                         
                                     }
                                     else
                                     {
-                                        redirect("changepassword.php?id=$businessid", "Passwords do not match");
+                                        redirect("changepassword.php?id=$businessid", "Passwords do not match", "warning");
                                     }
 
                                 }
                                 else
                                 {
-                                    redirect("changepassword.php?id=$businessid", "Your password must be at least 8 characters"); 
+                                    redirect("changepassword.php?id=$businessid", "Your password must be at least 8 characters", "warning"); 
                                 }
                     }
                     else
                     {
-                        redirect("changepassword.php?id=$businessid", "Wrong Old Password");
+                        redirect("changepassword.php?id=$businessid", "Wrong Old Password", "warning");
                     }
     
                 }
@@ -465,12 +465,12 @@ elseif (isset($_POST['delete_reservation_btn']))
     if($delete_query_run)
     {
 
-        redirect("reservation.php?=$reservationid", "Reservation Deleted Successfully");
+        redirect("reservation.php?=$reservationid", "Reservation Deleted Successfully", "success");
         echo 900;
     }
     else
     {
-        redirect("reservation.php?=$reservationid", "Something went wrong");
+        redirect("reservation.php?=$reservationid", "Something went wrong", "error");
         echo 800;
     }
 
@@ -489,11 +489,11 @@ else if(isset($_POST['update_location_btn']))
 
     if($update_location_query_run)
     {
-        redirect("location.php?id=$businessid", "Location Updated Successfully");
+        redirect("location.php?id=$businessid", "Location Updated Successfully", "success");
     }
     else
     {
-        redirect("pin-location.php?id=$businessid", "Something Went Wrong"); 
+        redirect("pin-location.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -522,10 +522,10 @@ else if(isset($_POST['add_table_btn']))
 
         if($table_query_run)
         {
-            redirect("table.php?id=$businessid", "Table Added Successfully");
+            redirect("table.php?id=$businessid", "Table Added Successfully", "success");
         }else
         {
-            redirect("add-table.php?id=$businessid", "Something Went Wrong");
+            redirect("add-table.php?id=$businessid", "Something Went Wrong", "error");
         }
      }
 }
@@ -545,11 +545,11 @@ else if(isset($_POST['update_table_btn']))
 
     if($update_table_query_run)
     {
-        redirect("table.php?id=$businessid", "Location Updated Successfully");
+        redirect("table.php?id=$businessid", "Table Updated Successfully", "success");
     }
     else
     {
-        redirect("edit-table.php?id=$businessid", "Something Went Wrong"); 
+        redirect("edit-table.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -568,17 +568,17 @@ else if(isset($_POST['update_arrived_btn']))
     {
         if($arrived == 1)
         {
-            redirect("reservation.php?id=$businessid", "User Arrived");
+            redirect("reservation.php?id=$businessid", "User Arrived", "success");
         }
         elseif($arrived == 2)
         {
-            redirect("reservation.php?id=$businessid", "User Not Arrived");
+            redirect("reservation.php?id=$businessid", "User Not Arrived", "warning");
         }
 
     }
     else
     {
-        redirect("reservation.php?id=$businessid", "Something Went Wrong"); 
+        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -597,17 +597,17 @@ else if(isset($_POST['update_not_arrived_btn']))
     {
         if($arrived == 1)
         {
-            redirect("reservation.php?id=$businessid", "User Arrived");
+            redirect("reservation.php?id=$businessid", "User Arrived", "success");
         }
         elseif($arrived == 2)
         {
-            redirect("reservation.php?id=$businessid", "User Not Arrived");
+            redirect("reservation.php?id=$businessid", "User Not Arrived", "warning");
         }
 
     }
     else
     {
-        redirect("reservation.php?id=$businessid", "Something Went Wrong"); 
+        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }

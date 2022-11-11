@@ -1080,23 +1080,81 @@
 
 <!-- START OF REVIEW SECTION-->
     <section id="review"  class="bg-dark">
-        <div class="container">
-            <div class="card">
+        <div class="container col d-flex justify-content-center" >
+            <div class="card col d-flex justify-content-center">
                 <div class="card-header"> <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">REVIEWS AND FEEDBACKS</h1></div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 text-center">
-                            <h1 class="text-warning mt-4 mb-4">
-                                <b><span id="average_rating">0.0</span> / 5</b>
+                            <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
+                                <i class="fas fa-star fa-sm"> </i><b><span id="average_rating">0.0</span> / 5</b>
                             </h1>
-                            <div class="mb-3">
+                            <!-- <?php
+                                // $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                                // $query_rating_run = mysqli_query($con, $query_rating);
+                                // $row_rating = mysqli_fetch_assoc($query_rating_run);
+                                // if(!$row_rating['averagerating'])
+                                // {
+                                //     echo'<i class="fas fa-star star-light mr-1 main_star"></i>
+                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                //         <i class="fas fa-star star-light mr-1 main_star"></i>';
+                                // }
+                                // else if($row_rating['averagerating'] == 5.0)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="fas fa-star"></i></span>';
+                                // }
+                                // else if($row_rating['averagerating'] >= 4.1)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span>';
+                                // }
+                                // else if($row_rating['averagerating'] == 4.0)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i></span>';
+                                // }
+                                // else if($row_rating['averagerating'] >= 3.1)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>';
+                                // }
+                                // else if($row_rating['averagerating'] == 3.0)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                // }
+                                // else if($row_rating['averagerating'] >= 2.1)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
+                                // }
+                                // else if($row_rating['averagerating'] == 2.0)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                // }
+                                // else if($row_rating['averagerating'] >= 1.1)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star""></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
+                                // }
+                                // else if($row_rating['averagerating'] == 1.0)
+                                // {
+                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                // }
+                                // else
+                                // {
+                                //     echo 'something went wrong';
+                                // }
+                                // $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                                // $query_rating_count_run = mysqli_query($con, $query_rating_count);
+                                // $row_rating_count = mysqli_num_rows($query_rating_count_run);
+                                // echo '<span> ('.$row_rating_count.')</span>'
+                                
+                                ?> -->
+                            <!-- <div class="mb-3">
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
-                            </div>
-                            <h3><span id="total_review">0</span> Review/s</h3>
+                            </div> -->
+                            <h3 class="col d-flex justify-content-center"><span id="total_review">0</span> Review/s</h3>
                         </div>
                         <div class="col-sm-5">
                             <p>

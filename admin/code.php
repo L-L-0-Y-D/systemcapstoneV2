@@ -192,21 +192,21 @@ else if(isset($_POST['add_product_btn']))
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("add-products.php", "Choose image file to upload.");
+        redirect("add-products.php", "Choose image file to upload.", "warning");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("add-products.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("add-products.php", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
    }// Validate image file size less than
    else if (($_FILES["image"]["size"] < 2000000)) {
 
-       redirect("add-products.php", "Image size less than 2MB");
+       redirect("add-products.php", "Image size less than 2MB", "warning");
 
    }    // Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 10000000)) {
 
-       redirect("add-products.php", "Image size exceeds 10MB");
+       redirect("add-products.php", "Image size exceeds 10MB", "warning");
    }
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
@@ -220,10 +220,10 @@ else if(isset($_POST['add_product_btn']))
     if($product_query_run)
     {
         move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-        redirect("add-products.php", "Product Added Successfully");
+        redirect("add-products.php", "Product Added Successfully", "success");
     }else
     {
-        redirect("add-products.php", "Something Went Wrong");
+        redirect("add-products.php", "Something Went Wrong", "error");
     }
 }
 //Update Product
@@ -267,16 +267,16 @@ else if(isset($_POST['update_product_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("index.php", "Upload valid images. Only PNG and JPEG are allowed in product image.");
+            redirect("index.php", "Upload valid images. Only PNG and JPEG are allowed in product image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 2000000)) {
 
-            redirect("index.php", "Image size less than 2MB");
+            redirect("index.php", "Image size less than 2MB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("index.php", "Image size exceeds 10MB");
+            redirect("index.php", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -298,12 +298,12 @@ else if(isset($_POST['update_product_btn']))
                 
             }
         }
-        redirect("edit-product.php?id=$product_id", "Product Updated Successfully");
+        redirect("edit-product.php?id=$product_id", "Product Updated Successfully", "success");
 
     }
     else
     {
-        redirect("edit-product.php?id=$product_id", "Something Went Wrong"); 
+        redirect("edit-product.php?id=$product_id", "Something Went Wrong", "error"); 
     }
 
 
@@ -352,10 +352,10 @@ else if(isset($_POST['add_category_btn']))
     $cate_query_run = mysqli_query($con, $cate_query);
 
     if($cate_query_run){
-        redirect("category.php", "Cuisine Added Successfully");
+        redirect("category.php", "Cuisine Added Successfully", "success");
     }else{
 
-        redirect("category.php", "Something Went Wrong");
+        redirect("category.php", "Something Went Wrong", "error");
 
     }
 }
@@ -373,11 +373,11 @@ else if(isset($_POST['update_category_btn']))
 
     if($update_query_run)
     {
-        redirect("category.php", "Category Updated Successfully");
+        redirect("category.php", "Category Updated Successfully", "success");
     }
     else
     {
-        redirect("edit-category.php?id=$categoryid", "Something Went Wrong"); 
+        redirect("edit-category.php?id=$categoryid", "Something Went Wrong", "error"); 
     }
 }
 else if(isset($_POST['delete_category_btn']))
@@ -438,21 +438,21 @@ else if(isset($_POST['add_customer_btn'])){
     // Validate file input to check if is not empty
    if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-        redirect("index.php", "Choose image file to upload.");
+        redirect("index.php", "Choose image file to upload.", "warning");
     
    }  // Validate file input to check if is with valid extension
    else if (! in_array($file_extension, $allowed_image_extension)) {
 
-       redirect("index.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+       redirect("index.php", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
    }// Validate image file size less than
    else if (($_FILES["image"]["size"] < 2000000)) {
 
-       redirect("index.php", "Image size less than 2MB");
+       redirect("index.php", "Image size less than 2MB", "warning");
 
    }    // Validate image file size that is greater
    else if (($_FILES["image"]["size"] > 10000000)) {
 
-       redirect("index.php", "Image size exceeds 10MB");
+       redirect("index.php", "Image size exceeds 10MB", "warning");
    }
 
     
@@ -466,7 +466,7 @@ else if(isset($_POST['add_customer_btn'])){
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("add-customer.php", "Email Already Use");
+        redirect("add-customer.php", "Email Already Use","warning");
     }
     else
     {
@@ -491,42 +491,42 @@ else if(isset($_POST['add_customer_btn'])){
                             {
                                 if($users_query_run){
                                     move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                                    redirect("customers.php", "Register Successfully");
+                                    redirect("customers.php", "Register Successfully", "success");
                                 }
                                 else{
-                                    redirect("add-customer.php", "Something went wrong");;
+                                    redirect("add-customer.php", "Something went wrong", "error");;
                                 }
                             }
                             else
                             {
                                 if($users_query_run){
                                     move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                                    redirect("admin.php", "Register Successfully");
+                                    redirect("admin.php", "Register Successfully", "success");
                                 }
                                 else{
-                                    redirect("add-customer.php", "Something went wrong");;
+                                    redirect("add-customer.php", "Something went wrong", "error");;
                                 }
                             }
                         }
                         else
                         {
-                            redirect("add-customer.php", "Your password must be at least 8 characters"); 
+                            redirect("add-customer.php", "Your password must be at least 8 characters", "warning"); 
                         }
                     }
                     else
                     {
-                        redirect("add-customer.php", "Phone number error detected");
+                        redirect("add-customer.php", "Phone number error detected", "warning");
                     }
                 }
                 else
                 {
-                    redirect("add-customer.php", "Underage Detected");
+                    redirect("add-customer.php", "Underage Detected", "warning");
                 }
 
         }
         else
         {
-            redirect("add-customers.php", "Passwords do not match");
+            redirect("add-customers.php", "Passwords do not match", "warning");
         }
     }
     
@@ -564,16 +564,16 @@ else if(isset($_POST['update_customer_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("edit-customer.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+            redirect("edit-customer.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 2000000)) {
 
-            redirect("edit-customer.php?id=$userid", "Image size less than 2MB");
+            redirect("edit-customer.php?id=$userid", "Image size less than 2MB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("edit-customer.php?id=$userid", "Image size exceeds 10MB");
+            redirect("edit-customer.php?id=$userid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -597,18 +597,18 @@ else if(isset($_POST['update_customer_btn']))
                     }
                     else
                     {
-                        redirect("add-customers.php", "Phone number error detected");
+                        redirect("add-customers.php", "Phone number error detected", "warning");
                     }
                 }
                 else
                 {
-                    redirect("add-customers.php", "Underage Detected");
+                    redirect("add-customers.php", "Underage Detected", "warning");
                 }
 
         }
         else
         {
-            redirect("add-customers.php", "Passwords do not match");
+            redirect("add-customers.php", "Passwords do not match", "warning");
         }
     
 
@@ -624,7 +624,7 @@ else if(isset($_POST['update_customer_btn']))
                     unlink("../uploads/".$old_image);
                 }
             }
-            redirect("customers.php", "Register Updated Successfully");
+            redirect("customers.php", "Register Updated Successfully", "success");
         }
         else
         {
@@ -636,12 +636,12 @@ else if(isset($_POST['update_customer_btn']))
                     unlink("../uploads/".$old_image);
                 }
             }
-            redirect("admin.php", "Register Updated Successfully");
+            redirect("admin.php", "Register Updated Successfully", "success");
         }
     }
     else
     {
-        redirect("edit-customer.php?id=$userid", "Something Went Wrong"); 
+        redirect("edit-customer.php?id=$userid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -679,16 +679,16 @@ else if(isset($_POST['update_admin_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.");
+            redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 80000)) {
 
-            redirect("../profile.php?id=$userid", "Image size less than 800KB");
+            redirect("../profile.php?id=$userid", "Image size less than 800KB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("../profile.php?id=$userid", "Image size exceeds 10MB");
+            redirect("../profile.php?id=$userid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -703,7 +703,7 @@ else if(isset($_POST['update_admin_btn']))
     $check_email_query_run = mysqli_query($con, $check_email_query);
     if(mysqli_num_rows($check_email_query_run)>1)
     {
-        redirect("../profile.php", "Email Already Use");
+        redirect("../profile.php", "Email Already Use", "warning");
     }
     else
     {
@@ -722,16 +722,16 @@ else if(isset($_POST['update_admin_btn']))
                             $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
                             //mysqli_query($con,$update_query) or die("bad query: $update_query");
                             $update_query_run = mysqli_query($con, $update_query);
-                            redirect("index.php?id=$userid", "Update Succesfully");
+                            redirect("index.php?id=$userid", "Update Succesfully", "success");
                     }
                     else
                     {
-                        redirect("admin.php?id=$userid", "Phone number error detected");
+                        redirect("admin.php?id=$userid", "Phone number error detected", "error");
                     }
                 }
                 else
                 {
-                    redirect("admin.php?id=$userid", "Underage Detected");
+                    redirect("admin.php?id=$userid", "Underage Detected", "warning");
                 }
 
         }
@@ -801,40 +801,40 @@ else if(isset($_POST['add_business_btn']))
      // Validate file input to check if is not empty
     if (! file_exists($_FILES["image"]["tmp_name"])) {
         
-         redirect("../businessreg.php", "Choose image file to upload.");
+         redirect("../businessreg.php", "Choose image file to upload.", "warning");
      
     }// Validate file input to check if is not empty
     else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
         
-        redirect("../businessreg.php", "Choose image certificate file to upload.");
+        redirect("../businessreg.php", "Choose image certificate file to upload.", "warning");
             
     }    // Validate file input to check if is with valid extension
     else if (! in_array($file_extension, $allowed_image_extension)) {
  
-        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business image.");
+        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
     }    // Validate file input to check if is with valid extension
     else if (! in_array($file_cert_extension, $allowed_image_extension)) {
     
-        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business certificate.");
+        redirect("../businessreg.php", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
        
     }    // Validate image file size less than
     else if (($_FILES["image"]["size"] < 2000000)) {
  
-        redirect("../businessreg.php", "Image size less than 2MB");
+        redirect("../businessreg.php", "Image size less than 2MB", "warning");
 
     }    // Validate image file size less than
     else if (($_FILES["image_cert"]["size"] < 2000000)) {
  
-        redirect("../businessreg.php", "Image size less than 2MB");
+        redirect("../businessreg.php", "Image size less than 2MB", "warning");
 
     }    // Validate image file size that is greater
     else if (($_FILES["image"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php", "Image size exceeds 5MB");
+        redirect("../businessreg.php", "Image size exceeds 5MB", "warning");
     }    // Validate image file size
     else if (($_FILES["image_cert"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php", "Image size exceeds 5MB");
+        redirect("../businessreg.php", "Image size exceeds 5MB", "warning");
 
     }
 
@@ -860,7 +860,7 @@ else if(isset($_POST['add_business_btn']))
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("../businessreg.php", "Email Already Use");
+        redirect("../businessreg.php", "Email Already Use", "warning");
     }
     else
     {
@@ -881,26 +881,26 @@ else if(isset($_POST['add_business_btn']))
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
-                                redirect("businowner.php", "Register Successfully");
+                                redirect("businowner.php", "Register Successfully", "success");
                             }
                             else{
-                                redirect("add-business.php", "Something went wrong");
+                                redirect("add-business.php", "Something went wrong", "error");
                             }
                         }
                     else
                         {
-                            redirect("add-business.php", "Your password must be at least 8 characters"); 
+                            redirect("add-business.php", "Your password must be at least 8 characters", "warning"); 
                         }
                 }
             else
                 {
-                    redirect("add-business.php", "Phone number error detected");
+                    redirect("add-business.php", "Phone number error detected", "error");
                 }
 
         }
         else
         {
-            redirect("add-business.php", "Passwords do not match");
+            redirect("add-business.php", "Passwords do not match", "warning");
         }
     }
 }
@@ -924,21 +924,21 @@ else if(isset($_POST['edit_business_btn']))
         if($status == 1)
         {
             sendemail_businessconfirm($business_email,$business_name);
-            redirect("busiowner.php", "Email Send Business Updated Successfully");
+            redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
         }
         elseif($status == 0)
         {
-            redirect("busiowner.php", "Business Updated Successfully");
+            redirect("busiowner.php", "Business Updated Successfully", "success");
         }
         elseif($status == 2)
         {
             sendemail_businesdeclined($business_email,$business_name);
-            redirect("busiowner.php", "Email Send Business Updated Successfully");
+            redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
         }
     }
     else
     {
-        redirect("edit-business.php?id=$businessid", "Something Went Wrong"); 
+        redirect("edit-business.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -997,28 +997,28 @@ else if(isset($_POST['edit_password_btn']))
                                         $update_query_run = mysqli_query($con, $update_query);
                                         if($update_query_run)
                                         {   
-                                            redirect("index.php", "Admin Password Updated Successfully");
+                                            redirect("index.php", "Admin Password Updated Successfully", "success");
                                         }
                                         else
                                         {
-                                            redirect("changepassword.php?id=$userid", "Something Went Wrong"); 
+                                            redirect("changepassword.php?id=$userid", "Something Went Wrong", "error"); 
                                         }
                                         
                                     }
                                     else
                                     {
-                                        redirect("changepassword.php?id=$userid", "Passwords do not match");
+                                        redirect("changepassword.php?id=$userid", "Passwords do not match", "warning");
                                     }
 
                                 }
                                 else
                                 {
-                                    redirect("changepassword.php?id=$userid", "Your password must be at least 8 characters"); 
+                                    redirect("changepassword.php?id=$userid", "Your password must be at least 8 characters", "warning"); 
                                 }
                     }
                     else
                     {
-                        redirect("changepassword.php?id=$userid", "Wrong Old Password");
+                        redirect("changepassword.php?id=$userid", "Wrong Old Password", "warning");
                     }
     
                 }

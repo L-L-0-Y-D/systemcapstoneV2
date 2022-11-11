@@ -5,6 +5,7 @@ page and display a message. */
 if(!isset($_GET['token']))
 {   
     $_SESSION['message'] = "token missing from url";
+    $_SESSION['status'] = "error";
     header('Location: '."index.php");
     exit();
 }
@@ -67,11 +68,16 @@ if(!isset($_GET['token']))
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
-         alertify.set('notifier','position', 'top-center');
-         var msg = alertify.message('Default message');
-        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        swal({
+            title: "<?= $_SESSION['message']; ?>",
+            icon: "<?= $_SESSION['alert']; ?>",
+            button: "Okay",
+            timer: 1500,
+            });
+
         <?php 
         unset($_SESSION['message']);
+        unset($_SESSION['alert']);
     }
     ?> 
     </script> 

@@ -106,7 +106,7 @@ $(document).on('change','#resource_select', function(){
 }
 else
 {
-    redirect("index.php", "No Table and Chairs created");
+    redirect("index.php", "No Table and Chairs created", "error");
 }
 ?>
 </script> 

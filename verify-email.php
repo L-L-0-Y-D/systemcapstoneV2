@@ -22,6 +22,7 @@ if(isset($_GET['token']))
             {
                 //redirect("login.php", "Your Account has been verified Successfully");
                  $_SESSION['message'] = "Your Account has been verified Successfully";
+                 $_SESSION['status'] = "success";
                  header("Location: login.php");
                 exit(0);
             }
@@ -29,6 +30,7 @@ if(isset($_GET['token']))
             {
                 //redirect("login.php", "Verification Failed");
                  $_SESSION['message'] = "Verification Failed";
+                 $_SESSION['status'] = "error";
                  header("Location: login.php");
                 exit(0);
             }
@@ -38,6 +40,7 @@ if(isset($_GET['token']))
         {
             //redirect("login.php", "Email Already Verify");
              $_SESSION['message'] = "Email Already Verify";
+             $_SESSION['status'] = "warning";
              header("Location: login.php");
             exit(0);
         }
@@ -47,6 +50,7 @@ if(isset($_GET['token']))
     {
         //redirect("login.php", "This Token does not Exists");
          $_SESSION['message'] = "This Token does not Exists";
+         $_SESSION['status'] = "error";
          header("Location: login.php");
     }
 }
@@ -54,6 +58,7 @@ else
 {
     //redirect("login.php", "Not Allowed");
      $_SESSION['message'] = "Not Allowed";
+     $_SESSION['status'] = "error";
      header("location: login.php");
 }
 

@@ -144,11 +144,11 @@ function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numg
     //Show the server response
     if($output)
     {
-        redirect("../business/reservation.php?id=$businessid", "Reservation Approved Message will be sent");
+        redirect("../business/reservation.php?id=$businessid", "Reservation Approved Message will be sent", "success");
     }
     else
     {
-        redirect("../business/reservation.php?id=$businessid", "Message not sent");
+        redirect("../business/reservation.php?id=$businessid", "Message not sent", "error");
     }
     
 }
@@ -177,11 +177,11 @@ function sendphonenumber_declinedreservation($name,$phonenumber,$date,$time,$num
     //Show the server response
     if($output)
     {
-        redirect("../business/reservation.php?id=$businessid", "Reservation Declined Message will be sent");
+        redirect("../business/reservation.php?id=$businessid", "Reservation Declined Message will be sent", "success");
     }
     else
     {
-        redirect("../business/reservation.php?id=$businessid", "Message not sent");
+        redirect("../business/reservation.php?id=$businessid", "Message not sent", "error");
     }
     
 }

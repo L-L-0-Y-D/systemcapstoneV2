@@ -6,6 +6,7 @@ session_start();
 page and display a message. */
 if(isset($_SESSION['auth'])){
     $_SESSION['message'] = "You are Already Login";
+    $_SESSION['alert'] = "warning";
     header('Location: index.php');
     exit();
 }
