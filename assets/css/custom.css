@@ -1,7 +1,177 @@
-*{
-    font-family: 'Tiro Kannada', serif;
-}
+.clean-pricing-item .ribbon {
+    width: 250px;
+    height: 50px;
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0px 2px 3px rgba(136,136,136,.25);
+    background: red;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -65px;
+    top: 30px;
+    padding-top: 10px;
+  }
+  .clean-pricing-item .heading {
+    border-bottom: none;
+    padding-bottom: 0px!important;
+    margin-bottom: 0px!important;
+    padding-top: 2%;
+  }
+  .clean-pricing-item p {
+    text-align: left;
+    margin-top: 0px;
+    opacity: .7;
+   font-size: smaller;
+  }  
+  .vanilla-zoom {
+    width: 100%;
+    /*display: flex;*/
+  }
+  
+  .vanilla-zoom .sidebar {
+    /*flex-basis: 30%;*/
+    width: 100%;
+    display: flex;
+    /*flex-direction: column;*/
+  }
+  
+  .vanilla-zoom .sidebar img.small-preview {
+    width: 60px;
+    margin-right: 5px;
+    cursor: pointer;
+    opacity: .5;
+  }
+  
+  .vanilla-zoom .sidebar img.small-preview.active, .vanilla-zoom .sidebar img.small-preview:hover {
+    opacity: 1;
+  }
+  
+  .vanilla-zoom .sidebar img.small-preview:last-child {
+    margin-right: 0;
+  }
+  
+  .vanilla-zoom .zoomed-image {
+    width: 100%;
+    height: 300px;
+    flex: 1;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+    margin-bottom: 5px;
+  }
+  .clean-pricing-item {
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.075);
+    border-top: none!important;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .clean-pricing-item .price h4, .clean-pricing-item .price .h4 {
+    margin: 0px;
+    font-size: large;
+    text-align: left!important;
+    color: inherit;
+    font-weight: bold;
+  }
+  
+  .clean-pricing-item button {
+    font-weight: 600;
+    text-align: center;
+    font-size: 12px!important;
+  }
+  
+  .price {
+    line-height: 1;
+    font-weight: bolder;
+    font-size: large;
+    
+  }  
+  .clean-pricing-item .rounded {
+    border-radius: 0px!important;
+    width: 100%;
+    height: 200px;
+  }
+  .clean-pricing-item button {
+    font-weight: 600;
+    text-align: center;
+    font-size: 12px!important;
+  }
+  /*for modal*/
+  .menu_description {
+    text-align: left;
+    padding-left: 15%;
 
-a{
-    text-decoration: none;
-}
+  }
+  
+  .modal-title {
+    margin-bottom: 0;
+    line-height: var(--bs-modal-title-line-height);
+    font-weight: bold;
+    text-align: left;
+  }
+  .modal_img {
+    width: 70%;
+    height: 200px!important;
+    border:1px solid;
+  }
+  
+  .modal {
+    --bs-modal-zindex: 1055;
+    --bs-modal-width: 300px;
+    --bs-modal-padding: 1rem;
+    --bs-modal-margin: 0.5rem;
+    --bs-modal-bg: #fff;
+    --bs-modal-border-color: var(--bs-border-color-translucent);
+    --bs-modal-border-width: 1px;
+    --bs-modal-border-radius: 0.5rem;
+    --bs-modal-box-shadow: none!important;
+    --bs-modal-inner-border-radius: calc(0.5rem - 1px);
+    --bs-modal-header-padding-x: 1rem;
+    --bs-modal-header-padding-y: 1rem;
+    --bs-modal-header-padding: 1rem 1rem;
+    --bs-modal-header-border-color: var(--bs-border-color);
+    --bs-modal-header-border-width: 1px;
+    --bs-modal-title-line-height: 1.5;
+    --bs-modal-footer-gap: 0.5rem;
+    --bs-modal-footer-border-color: var(--bs-border-color);
+    --bs-modal-footer-border-width: 1px;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--bs-modal-zindex);
+    display: none;
+    width: 80%!important;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    justify-content: center ;
+  }
+ .clean-pricing-item .btn-primary {
+    --bs-btn-color: rgb(255,128,64);
+    --bs-btn-bg: white;
+    --bs-btn-border-color: rgb(255, 128, 64);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: rgb(226, 96, 31);
+    --bs-btn-hover-border-color: rgb(226, 96, 31);
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: rgb(255,128,64);
+    --bs-btn-active-border-color: rgb(255,128,64);
+    --bs-btn-active-shadow: none;
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: gray;
+    --bs-btn-disabled-border-color: gray;
+  }
+  @media (min-width: 576px) {
+    .modal {
+      --bs-modal-margin: 1.75rem;
+      --bs-modal-box-shadow: none!important;
+    }
+  }
+  
