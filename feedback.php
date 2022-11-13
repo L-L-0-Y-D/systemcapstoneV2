@@ -185,27 +185,6 @@ if(isset($_GET['id']))
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        <?php if(isset($_SESSION['message'])) 
-    { ?>
-        alertify.set('notifier','position', 'top-center');
-        var msg = alertify.message('Default message');
-        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
-        
-        swal({
-            title: "<?= $_SESSION['message']; ?>",
-            icon: "<?= $_SESSION['alert']; ?>",
-            button: "Okay",
-            timer: 1500,
-            });
-
-        <?php 
-        unset($_SESSION['message']);
-        unset($_SESSION['alert']);
-
-    }
-    ?> 
-    </script>
-    <script>
     
 
     $(document).ready(function(){
@@ -302,7 +281,14 @@ if(isset($_GET['id']))
                     load_rating_data();
 
                     // alert(data);
+                    //redirect('your_reservation.php?id=$id', 'No Reservation Found', 'warning');
+                    swal({
+                    title: "Review Success",
+                    icon: "success",
+                    button: "Okay",
+                    });
                     window.location = 'your_reservation.php?id=' + userid;
+
 
                 }
             })
@@ -431,7 +417,29 @@ if(isset($_GET['id']))
 
 
 
-    </script>     
+    </script>
+    <script>
+        <?php if(isset($_SESSION['message'])) 
+    { ?>
+        alertify.set('notifier','position', 'top-center');
+        var msg = alertify.message('Default message');
+        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        
+        swal({
+            title: "<?= $_SESSION['message']; ?>",
+            icon: "<?= $_SESSION['alert']; ?>",
+            button: "Okay",
+            timer: 1500,
+            });
+
+        <?php 
+        unset($_SESSION['message']);
+        unset($_SESSION['alert']);
+
+    }
+    ?> 
+    </script>
+         
 </body>
 </html>
 

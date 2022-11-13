@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //submit_rating.php
 
 $con = new PDO("mysql:host=localhost;dbname=u217632220_ieatwebsite", "u217632220_ieat", "Hj1@8QuF3C");
@@ -42,9 +42,7 @@ if(isset($_POST["rating_data"]))
 	
 	$review_statement -> execute($review);
 
-	// redirect("index.php", "Your Review & Rating Successfully Submitted"); 
-
-	echo "Your Review & Rating Successfully Submitted";
+	redirect("index.php", "Your Review & Rating Successfully Submitted","success"); 
 
 }
 

@@ -121,9 +121,15 @@ if(isset($_SESSION['auth'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
+        // alertify.set('notifier','position', 'top-center');
+        // var msg = alertify.message('Default message');
+        // msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
         swal({
             title: "<?= $_SESSION['message']; ?>",
             icon: "<?= $_SESSION['alert']; ?>",

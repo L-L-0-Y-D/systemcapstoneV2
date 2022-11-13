@@ -57,20 +57,21 @@
     <script src="assets/assets/js/vanilla-zoom.js"></script>
     <script src="asset/sassets/js/theme.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
     <?php 
     if(isset($_SESSION['message']))    
         { 
         ?>
-        alertify.set('notifier','position', 'top-center');
-        var msg = alertify.message('Default message');
-        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        // alertify.set('notifier','position', 'top-center');
+        // var msg = alertify.message('Default message');
+        // msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
 
         swal({
             title: "<?= $_SESSION['message']; ?>",
             icon: "<?= $_SESSION['alert']; ?>",
             button: "Okay",
-            timer: 1500,
+            timer: 10500,
             });
 
         <?php 
