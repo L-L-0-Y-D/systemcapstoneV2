@@ -93,7 +93,7 @@ else if(isset($_POST['update_municipality_btn']))
             redirect("edit-municipality.php?id=$municipalityid", "Image size less than 2MB", "warning");
 
         }    // Validate image file size that is greater
-        else if (($_FILES["image"]["size"] > 10000000)) {
+        else if (($_FILES["image"]["size"] > 100000000)) {
 
             redirect("edit-municipality.php?id=$municipalityid", "Image size exceeds 10MB", "warning");
         }
