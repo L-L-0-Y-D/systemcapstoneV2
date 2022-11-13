@@ -43,7 +43,7 @@
     color: rgb(95, 95, 95)!important;
     font-weight: bold;
     font-size: 14px;
-    font-family:Segoe!important; 
+    font-family:'Lato'!important; 
   }
   .login .forget:hover {
     font-weight:bolder!important;
@@ -95,7 +95,7 @@
     display: flex;
   }
   .btn-group .active  {
-    font-family:Monsterrat!important;
+    font-family:'Lato'!important;
     font-weight:lighter;
     background-color: rgb(255,128,64);
     border: none;
@@ -109,7 +109,7 @@
   .btn-group .unactive {
     background-color: transparent;
     font-weight:lighter;
-    font-family:Monsterrat!important;
+    font-family:'Lato'!important;
     color: gray;
     border-style: solid;
     border-color: rgb(255, 128, 64);
@@ -129,24 +129,24 @@
     color: rgb(95, 95, 95)!important;
     text-decoration: underline;
     font-weight: bold;
-    font-family:Monsterrat!important; 
+    font-family:'Lato'!important; 
   }
   .login a:hover {
     color:inherit!important;
     font-weight: bolder!important;
   }
   p {
-    font-family:Monsterrat!important;
+    font-family:'Lato'!important;
     margin-top: 10px;
     text-align: center;
     font-size:14px;
   }
   .mb-1 .btn-primary {
     width: 100%!important;
-    font-family:Monsterrat!important;
+    font-family:'Lato'!important;
     background-color: rgb(255,128,64);
     border: none;
-    border-radius:30px;;
+    border-radius:30px;
   }
   .mb-1 .btn-primary:hover {
     color: white;
@@ -155,7 +155,7 @@
   }
   .mb-2 .btn-primary {
     width: 30%!important;
-    font-family:monospace!important;
+    font-family:'Lato'!important;
     background-color: rgb(255,128,64);
     border: none;
     float: right;
@@ -199,7 +199,7 @@
   .containe .btn {
     width: 100%!important;
     margin-top: 20px;
-    font-family:Monsterrat!important;
+    font-family:'Lato'!important;
     background-color: rgb(255,128,64);
     border: none;
     border-radius:30px;
@@ -217,10 +217,27 @@
   }
   .col .form-check,  .form-select ,  option {
     font-weight: lighter!important;
-    font-family:Monsterrat!important;
+    font-family:'Lato'!important;
     font-size:smaller;
  
   }
+  .profile .text-primary {
+    --bs-text-opacity: 1;
+    color: rgb(255,128,64)!important;
+    text-align: left!important;
+  }
+  .profile .btn-primary {
+    font-family:Monsterrat!important;
+    background-color: rgb(255,128,64);
+    border: none;
+
+  }
+  .profile .btn-primary:hover {
+    color: white;
+    background-color: rgb(226, 96, 31)!important;
+    border-color: rgb(226, 96, 31)!important;
+  }
+  
  
 
   
