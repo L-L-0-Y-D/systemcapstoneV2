@@ -43,7 +43,7 @@
                                         <a href="businessview.php?id=<?=$item['businessid'];?>">
                                             <img class="card-img-top scale-on-hover" height="200px;" src="uploads/<?= $item['image']; ?>" alt="Card Image" style="border-radius: 30px;"></a>
                                             <div class="card-body" style=" height: 250px;padding-top: 10px;">
-                                                <p class="text-center" style="font-family: Acme, sans-serif;font-weight: bold;font-size: 20px;"><?= $item['business_name']; ?></p>
+                                                <p class="text-center" style="font-family: Acme, sans-serif;font-weight: bold;font-size: 20px;"><?= $item['business_name']; ?>(<?= $item['municipality_name']; ?>)</p>
                                                 <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Located at <?= $item['business_address']; ?></p>
                                                 <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?> - Closing: <?= date("g:i a", strtotime($item['closing'])); ?></p>
                                                 <p class="text-muted card-text" style="text-align: left; margin-bottom:0px;"><?= $item['cuisinename']; ?> Cuisine</p>
