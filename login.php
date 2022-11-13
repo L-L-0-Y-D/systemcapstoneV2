@@ -104,7 +104,7 @@ if(isset($_SESSION['auth'])){
                                 <div class="mb-1">
                                     <button class="btn btn-primary" type="submit" name="login_btn">Login</button>
                                 </div>
-                                <p>Don't have an account?&nbsp&nbsp<a href="register.php" >Sign Up</a></p>
+                                <p>Don't have an account?&nbsp&nbsp<a href="register.php" >Sign Up Here</a></p>
                             </form> 
                         </div>
                     </div>

@@ -302,11 +302,27 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!--FOR MODAL PER MENU--> 
+                                            <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                        <div class="modal-body">
+                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                <h4 class="modal-title"><?= $item['name']; ?></h4>
+                                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <p><?= $item['description']; ?></p>
+                                                            </div>
+                                                            <h4 class="modal-title text-end p-2">₱<?= $item['price']; ?></h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!--CLOSING FOR MODAL PER MENU-->    
                                         </div>                               
                                         <?php
                                             }
@@ -383,7 +399,7 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -464,7 +480,7 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -545,7 +561,7 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -625,7 +641,7 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -706,7 +722,7 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -787,7 +803,7 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -868,7 +884,7 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -949,7 +965,7 @@
                                                             <p>₱<?= $item['price']; ?></p>
                                                         </div>
                                                         <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" data-bs-target="#menu_description" data-bs-toggle="modal">See More</button>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">See More</button>
                                                         </div>
                                                     </div>
                                                 </div>

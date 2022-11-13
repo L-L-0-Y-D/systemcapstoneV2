@@ -5,11 +5,11 @@
 
     
 ?>
-<section class="portfolio-block projects-cards" style="padding-top: 140px;">
+<section class="business">
     <div class="container">
                 <div class="heading">
-                    <h2 style="margin-bottom: 20px;font-size: 50px;font-weight: bold;font-family: Acme, sans-serif;text-align: center;">Search Result</h2>
-                </div>
+                    <h2>Search Result</h2>
+                </div><hr>
                     <div class="row">
                                     <?php
                                         /* A PDO connection to the database. */
@@ -37,18 +37,13 @@
                                                 foreach($results as $item)
                                                 {
                                                     ?>
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="card" style="border-style:none;box-shadow: 0px 0px 5px var(--bs-dark);border-radius: 30px;">
-                                        <a href="businessview.php?id=<?=$item['businessid'];?>">
-                                            <img class="card-img-top scale-on-hover" height="200px;" src="uploads/<?= $item['image']; ?>" alt="Card Image" style="border-radius: 30px;"></a>
-                                            <div class="card-body" style=" height: 250px;padding-top: 10px;">
-                                                <p class="text-center" style="font-family: Acme, sans-serif;font-weight: bold;font-size: 20px;"><?= $item['business_name']; ?></p>
-                                                <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Located at <?= $item['business_address']; ?></p>
-                                                <p class="text-muted card-text" style="margin-bottom: 0px;text-align: left;">Opening: <?= date("g:i a", strtotime($item['opening'])); ?> - Closing: <?= date("g:i a", strtotime($item['closing'])); ?></p>
-                                                <p class="text-muted card-text" style="text-align: left; margin-bottom:0px;"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <span style="color:yellow; margin-bottom: 30px;"><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span>
-                                                <button onclick="location='reservation.php?id=<?= $item['businessid']; ?>'" class="btn btn-primary text-center justify-content-end" type="button" style=" position: absolute; bottom: 0; height: 29px;background: RGB(255,128,64);border: none;border-radius: 20px;font-size: 14px;width: 152.328px; margin-bottom:20px;">Make Reservation</button>
-                                            </div>
+                                    <div class="col-md-3 mb-5">
+                                        <div class="project-card-no-image">
+                                            <a href="businessview.php?id=<?=$item['businessid'];?>">
+                                            <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="Card Image"></a>
+                                            <h3><?= $item['business_name']; ?></h3>
+                                            <p class="text-muted">Opening: <?= date("g:i a", strtotime($item['opening'])); ?> - Closing: <?= date("g:i a", strtotime($item['closing'])); ?></p>
+                                            <button class="btn btn-outline-primary btn-sm view" type="button"onclick="location='businessview.php?id=<?= $item['businessid']; ?>'" >View Details</button>   
                                         </div>
                                     </div>
                                     <?php
@@ -59,7 +54,7 @@
                                             
                                             echo "<p class='text-center'>No Business Found</p>";
                                             ?>
-                                            <br><a href="Index.php" style="margin-bottom:76px;">Go Back</a>
+                                            <br><a href="Index.php" style="margin-bottom:75px;">Go Back</a>
                                             <?php
                                         }
                                         
@@ -112,7 +107,7 @@
                             {
                                 echo "<p class='text-center'>No Business Found</p>";
                                 ?>
-                                <br><a href="Index.php" style="margin-bottom:76px;">Go Back</a>
+                                <br><a href="index.php" style="padding-bottom:75px;">Go Back</a>
                                 <?php
                             }
                             
