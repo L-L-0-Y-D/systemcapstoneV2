@@ -35,15 +35,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="businessreg.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>I-Eat | Home </title> 
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
-<body>
+<body class="profile">
 <div class="container ">
-  <div class="row d-flex justify-content-center align-items-md-end">
+  <div class="row d-flex justify-content-center ">
     <div class="col-md-9 mt-4">
         <?php 
         if(isset($_GET['id']))
@@ -57,65 +57,113 @@
                 
             
             ?>
-            <div class="card mb-5" style="border-style:none;">
-                <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
+            <div class="card mb-5">
+                <div class="card-body d-flex ">
                     <form action="functions/authcode.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 class="mt-3 fw-bold mb-3 pb-md-3" style="border-bottom:solid 1px;">Profile<span> 
-                                    <a href="index.php" class="btn btn-primary float-end" style="background-color:rgb(255,128,64); border:none;">Back</a></span>
+                                    <button class="btn btn-primary btn-sm float-end" type="submit"onclick="location.href='index.php'">Back</button>
                                 </h4>   
                             </div>
-                                <div class="col-md-12">
-                                <label for="">Current Image</label>
-                                <img src="uploads/<?= $data['image'] ?>" height="50px" width="50px">
-                                <input type="hidden" name="old_image" value="<?= $data['image'] ?>"><br>
-                                <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control"><br>
+                            <div class="row mb-3">
+                                <div class="col-lg-4">
+                                    <div class="card mb-3">
+                                        <div class="card-body text-center shadow">
+                                            <img class="rounded-circle mb-3 mt-4" src="uploads/<?= $data['image'] ?>"  width="160" height="160">
+                                            <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                                            <div class="mb-3">
+                                                <label for="">Upload Image</label>
+                                                <input type="file" name="image" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card shadow mb-3">
+                                        <div class="card-header py-3">
+                                            <p class="text-primary m-0 fw-bold">User Settings</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="username"><strong>Username</strong></label>
+                                                        <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
+                                                        <input name="name" value="<?= $data['name'] ?>" required placeholder="Enter Username" class="form-control" type="text" id="username">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="email"><strong>Email Address</strong></label>
+                                                        <input name="email" value="<?= $data['email'] ?>" required placeholder="Enter Email Address" class="form-control" type="email" id="email">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="first_name"><strong>First Name</strong></label>
+                                                        <input name="firstname" value="<?= $data['firstname'] ?>" required placeholder="Enter FirstName"  class="form-control" type="text" id="first_name">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="last_name"><strong>Last Name</strong></label>
+                                                        <input name="lastname" value="<?= $data['lastname'] ?>" required placeholder="Enter LastName" type="text" id="last_name" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <!--Needed-->
-                                <label for="">Username</label>
-                                <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                <input type="text" name="name" value="<?= $data['name'] ?>" required placeholder="Enter Username" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="" >Email</label>
-                                <input type="email" name="email" value="<?= $data['email'] ?>" required placeholder="Enter Email" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="" class="mt-2">First Name</label>
-                                <input type="text" name="firstname" value="<?= $data['firstname'] ?>" required placeholder="Enter First Name" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="" class="mt-2">Last Name</label>
-                                <input type="text" name="lastname" value="<?= $data['lastname'] ?>" required placeholder="Enter Last Name" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="" class="mt-2">Date of birth</label>
-                                <input type="date" name='dateofbirth' value="<?= $data['dateofbirth'] ?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="" class="mt-2">Phone Number</label>
-                                <input type="text" name="phonenumber" value="<?= $data['phonenumber'] ?>" required placeholder="Enter Phone Number" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="" class="mt-2">Address</label>
-                                <input type="text" name="address" value="<?= $data['address'] ?>" required placeholder="Enter Address" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="" class="mt-2">Password</label>
-                                <input type="password" name="password" required placeholder="Enter Password" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <input type = "hidden" name='role_as' value = '0'>
-                            </div>
-                            <div class="col-md-12">
-                            <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
-                            </div>
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary mt-2" name="update_profile_btn" style="background-color:rgb(255,128,64); border:none;">Update Profile</button>
-                            </div>
+                            <div class="card shadow">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 fw-bold">More Information</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="first_name"><strong>Date of Birth</strong></label>
+                                                <input name='dateofbirth' value="<?= $data['dateofbirth'] ?>" required class="form-control" type="date">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="phonenum"><strong>Phone Number</strong></label>
+                                                <input name="phonenumber" value="<?= $data['phonenumber'] ?>" required placeholder="Enter Phone Number" class="form-control" type="text" id="phonenum">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="address"><strong>Address</strong></label>
+                                        <input name="address" value="<?= $data['address'] ?>" required placeholder="Enter Address" class="form-control" type="text" id="address">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="city"><strong>Password</strong></label>
+                                                <input name="password" required placeholder="Enter Password"class="form-control" type="password">
+                                            </div>
+                                            <div class="col-mb-3">
+                                                <input type = "hidden" name='role_as' value = '0'>
+                                            </div>
+                                            <div class="col-mb-3">
+                                                <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="formCheck-1">
+                                            <label class="form-check-label" for="formCheck-1"><strong>Notify me about new replies</strong></label>
+                                        </div>
+                                        <button name="update_profile_btn" class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
+                                    </div>
+                                </div>
+                            </div>                      
                         </div>
                     </form>
                 </div>
