@@ -75,14 +75,14 @@
                         <div class="col-lg-6 order-lg-1" style="background: url(&quot;uploads/enjoybg.png&quot;) no-repeat;opacity: 0.63;">
                             <div class="p-5">
                                 <h2 class="display-4" data-aos="fade-down" data-aos-duration="500">ENJOY !&nbsp;<img class="img-fluid gif" src="uploads/food.gif"></h2>
-                                <p data-aos="fade-right" data-aos-duration="500"><span style="color: rgb(0, 0, 0); background-color: transparent;">I-Eat is an online international cuisine information management system with 2D mapping and SMS technology, operated by BPSU students.&nbsp;</span><br></p><span style="color: rgb(0, 0, 0); background-color: transparent;">I-Eat: established in 2022, an online international cuisine management system. I-Eat aims to improve the management of the growing community of food industry within Bataan. The system is designed intending to manage customer information, to provide an efficient, contactless, and a more accurate business process. It is capable of locating specialty restaurants and displaying various menus from specialty restaurants.</span><br></p>
+                                <p data-aos="fade-right" data-aos-duration="500"><span style="color: rgb(0, 0, 0); background-color: transparent;">I-Eat is an online international cuisine information management system with 2D mapping and SMS technology, operated by BPSU students.&nbsp;</span><br><span style="color: rgb(0, 0, 0); background-color: transparent;">I-Eat: established in 2022, an online international cuisine management system. I-Eat aims to improve the management of the growing community of food industry within Bataan. The system is designed intending to manage customer information, to provide an efficient, contactless, and a more accurate business process. It is capable of locating specialty restaurants and displaying various menus from specialty restaurants.</span><br></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-        <section class="bg-light" id="team">
+        <section class="bg-light" id="team" style="padding:50px!important;">
         <!-- Start: 1 Row 4 Columns for Team Section -->
         <div class="container w-80">
             <div class="col-lg-12 text-center pt-0">
@@ -90,7 +90,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3 mb-3">
-                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/lloyd.jpg">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" data-bss-hover-animate="jello" src="uploads/lloyd.jpg">
                         <h4>John Lloyd Agorita</h4>
                         <p class="text-muted">Back-End Developer</p>
                         <ul class="list-inline social-buttons">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/melodee.jpg">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" data-bss-hover-animate="jello" src="uploads/melodee.jpg">
                         <h4>Melodee Bantog</h4>
                         <p class="text-muted">Front-End Developer</p>
                         <ul class="list-inline social-buttons">
@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/kimberly.jpg">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" data-bss-hover-animate="jello" src="uploads/kimberly.jpg">
                         <h4>Kimberly Escober</h4>
                         <p class="text-muted">Documenter</p>
                         <ul class="list-inline social-buttons">
@@ -123,7 +123,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/karen.jpg">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" data-bss-hover-animate="jello" src="uploads/karen.jpg">
                         <h4>Karen Guinto</h4>
                         <p class="text-muted">Documenter</p>
                         <ul class="list-inline social-buttons">
