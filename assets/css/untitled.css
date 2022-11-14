@@ -42,7 +42,17 @@
     background-color: rgb(241,141,91);
     border-color: rgb(241,141,91);
   }
-  
+  .form-group .btn-primary ,.form-group .btn-primary:active, .form-group .btn-primary:focus {
+    color: #fff;
+    background-color: rgb(255,128,64)!important;
+    border-color: rgb(255,128,64)!important;
+    box-shadow: none!important;
+  }
+  .form-group .btn-primary:hover {
+    border-color: rgb(226, 96, 31)!important;
+    box-shadow: none!important;
+    background-color: rgb(226, 96, 31)!important;
+  }
   #mainNav {
     background-color: rgb(255,128,64)!important;
   }
