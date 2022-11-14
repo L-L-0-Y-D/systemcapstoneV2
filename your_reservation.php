@@ -141,7 +141,7 @@ if(isset($_GET['id']))
                                                 <p style="color:yellow; margin-bottom: 10px;"for="quantity"><strong>STATUS :&nbsp;<?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></strong></p>
                                                 <p style="margin-bottom: 0px;">RESERVATION DATE:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_date']; ?></span></p>
                                                 <p style="margin-bottom: 0px;">RESERVATION TIME:<span class="value" style="font-weight:bold; padding-left: 5px;"><?= $data['reservation_time']; ?></span></p>
-                                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['numberofguest'];?>&nbsp;persons</span></p>
+                                                <p style="margin-bottom: 0px;">NUMBER OF GUEST:<span class="value" style="font-weight:bold; padding-left: 6px;"><?= $data['chair'];?>&nbsp;persons</span></p>
                                                 <p style="margin-bottom: 0px;">CUSTOMER NAME:<span style="font-weight:bold; padding-left: 17px;"><?= $data['namereserveunder']; ?></span></p>
                                                 <p style="margin-bottom: 0px;">EMAIL ADDRESS:<span class="value" style="font-weight:bold; padding-left: 30px;"><?= $data['reservation_email']; ?></span></p>
                                                 <p style="margin-bottom: 0px;">CONTACT NUMBER:&nbsp;<span class="value" style="font-weight:bold; padding-left: 4px;"><?= $data['reservation_phonenumber']; ?></span></p>
@@ -314,43 +314,16 @@ if(isset($_GET['id']))
                                                     if($item['review'] == 0)
                                                     {
                                                 ?>
-                                                    <button href="#review_modal<?= $item['reservationid'] ?>" class="btn btn-primary mb-3 mt-3 add_review" data-bs-toggle="modal" type="submit" id="add_review" style="background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button>
+                                                    <a href="feedback.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">Review</a>
+                                                    <!-- <button href="#review_modal<?= $item['reservationid'] ?>" class="btn btn-primary mb-3 mt-3 add_review" data-bs-toggle="modal" type="submit" id="add_review" style="background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button> -->
+                                                <?php
+                                                    }else
+                                                    {
+                                                ?>
+                                                        <a href="reservation.php?id=<?= $item['businessid']; ?>" class="btn btn-sm btn-primary">Reserve Again</a>
                                                 <?php
                                                     }
                                                 ?>                                                                                                <!-- <button class="btn btn-primary" type="submit" name="add_review" id="add_review" style="margin-top: 10px;background: rgb(255,128,64);font-family: Acme, sans-serif;color: white;border-style: none;margin-left: 15px;">ADD REVIEW</button> -->
-                                                <!-- /* A modal that is used to submit a review. */ -->
-                                                <div id="review_modal<?= $item['reservationid'] ?>" class="modal" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                
-                                                                <h5 class="modal-title text-center">Submit Review</h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h4 class="text-center mt-2 mb-4">
-                                                                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
-                                                                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
-                                                                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
-                                                                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
-                                                                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
-                                                                </h4>
-                                                                <div class="form-group">
-                                                                    <input type="text" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
-                                                                    <input type="text" name="businessid" id="businessid" value="<?= $item['businessid'] ?>">
-                                                                    <input type="text" name="reservationid" id="reservationid" value="<?= $item['reservationid'] ?>">
-                                                                    <input type="hidden" name="review_status" id="review_status" value="1">
-                                                                    <input type="text" readonly name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" value="<?= $_SESSION['auth_user']['name']?>" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
-                                                                </div>
-                                                                <div class="form-group text-center mt-4">
-                                                                    <button type="button" class="btn btn-primary" id="save_review">Submit</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                         </div>
                                     </div>                                                          
 									<?php
@@ -365,40 +338,7 @@ if(isset($_GET['id']))
                                     {
                                         echo "No Data";
                                     }
-										
-                                        
 									?>
-                                    <!-- /* A modal that is used to submit a review. */ -->
-                                    <div id="review_modal" class="modal" tabindex="-1" role="dialog">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            
-                                                            <h5 class="modal-title text-center">Submit Review</h5>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <h4 class="text-center mt-2 mb-4">
-                                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
-                                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
-                                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
-                                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
-                                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
-                                                            </h4>
-                                                            <div class="form-group">
-                                                                <input type="hidden" name="userid" id="userid" value="<?= $_SESSION['auth_user']['userid'];?>">
-                                                                <input type="hidden" name="businessid" id="businessid" value="<?= $data['businessid'] ?>">
-                                                                <input type="text" readonly name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" value="<?= $_SESSION['auth_user']['name']?>" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
-                                                            </div>
-                                                            <div class="form-group text-center mt-4">
-                                                                <button type="button" class="btn btn-primary" id="save_review">Submit</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                 </div>
                             </div>
                         </div>

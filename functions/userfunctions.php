@@ -23,6 +23,18 @@ function reservationGetByID($id)
     WHERE reservations.userid = $id";
     return $query_run = mysqli_query($con, $query);
 }
+function reservationGetByIDreservation($id)
+{
+    global $con;
+    $query = "SELECT reservations.reservationid,reservations.tableid,reservations.reservation_date,reservations.namereserveunder,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,managetable.tableid,managetable.table_number,managetable.chair
+    FROM reservations
+    JOIN business 
+    ON reservations.businessid=business.businessid
+    JOIN managetable
+    ON reservations.tableid=managetable.tableid
+    WHERE reservations.reservationid = $id";
+    return $query_run = mysqli_query($con, $query);
+}
 
 function getReservationByUser($id)
 {
@@ -40,10 +52,12 @@ function getReservationByUser($id)
 function reservationGetByIDWaiting($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.reservation_date,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status
+    $query = "SELECT reservations.reservationid,reservations.reservation_date,managetable.tableid,managetable.table_number,managetable.chair,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
+    JOIN managetable
+    ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = $id 
     AND reservations.status = 0";
     return $query_run = mysqli_query($con, $query);
@@ -85,6 +99,20 @@ function reservationGetByIDReview($id)
     JOIN managetable
     ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = $id 
+    AND reservations.arrived = 1";
+    return $query_run = mysqli_query($con, $query);
+}
+
+function reservationIDGetByIDReview($id)
+{
+    global $con;
+    $query = "SELECT reservations.reservationid,reservations.arrived,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status
+    FROM reservations
+    JOIN business 
+    ON reservations.businessid=business.businessid
+    JOIN managetable
+    ON reservations.tableid=managetable.tableid
+    WHERE reservations.reservationid = $id 
     AND reservations.arrived = 1";
     return $query_run = mysqli_query($con, $query);
 }
@@ -168,6 +196,12 @@ function businessGetByIDActives($id)
     return $query_run = mysqli_query($con, $query);
 }
 
+function getBusiByMunicipalityandReview($municipality_id)
+{
+    global $con;
+    $query = "SELECT ROUND(AVG(review_table.user_rating),1) AS averagerating,business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at,review_table.review_id FROM business JOIN review_table ON business.businessid = review_table.businessid WHERE business.municipalityid='$municipality_id' AND business.status='1' group by business.businessid order by averagerating DESC";
+    return $query_run = mysqli_query($con, $query);
+}
 
 function redirect($url, $message, $alert)
 {
@@ -176,7 +210,6 @@ function redirect($url, $message, $alert)
     header('Location: '.$url);
     exit();
 }
-
 
 
 
