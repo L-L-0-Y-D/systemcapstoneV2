@@ -23,8 +23,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                         <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
                         <li class="nav-item"><a class="nav-link" href="index.php#contact">CONTACT</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php#team">TEAM</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">ABOUT</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>
                         <li class="nav-item"><a class="nav-link" href="register.php">SIGNUP</a></li>
                 <?php 
@@ -53,8 +52,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
                             <li class="nav-item"><a class="nav-link" href="index.php#contact">CONTACT</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>  
-                            <li class="nav-item"><a class="nav-link" href="index.php#team">TEAM</a></li>             
+                            <li class="nav-item"><a class="nav-link" href="about.php">ABOUT</a></li>             
                 <?php
                 }
                 else if($_SESSION['auth_user']['role_as'] == "2")
@@ -77,8 +75,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
                             <li class="nav-item"><a class="nav-link" href="index.php#contact">CONTACT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>  
-                            <li class="nav-item"><a class="nav-link" href="index.php#team">TEAM</a></li>   
+                            <li class="nav-item"><a class="nav-link" href="about.php">ABOUT</a></li>    
                 <?php
                 }
                 else
@@ -101,8 +98,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
                             <li class="nav-item"><a class="nav-link" href="index.php#contact">CONTACT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>    
-                            <li class="nav-item"><a class="nav-link" href="index.php#team">TEAM</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.php">ABOUT</a></li>    
                 <?php 
                 }  
                     ?> 
@@ -129,8 +125,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="index.php#portfolio">LOCATIONS</a></li>
                             <li class="nav-item"><a class="nav-link" href="index.php#contact">CONTACT</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php#about">ABOUT</a></li>    
-                            <li class="nav-item"><a class="nav-link" href="index.php#team">TEAM</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="about.php">ABOUT</a></li>    
                     <?php } ?>
                 </ul>
             </div>

@@ -1,0 +1,118 @@
+.bg-pic {
+  width: 80%;
+}
+
+header.masthead .bg-circle-3 {
+  height: 20rem;
+  width: 20rem;
+  bottom: -7rem;
+  right: 12%;
+}
+
+.btn-xl.btn-view {
+  margin-top: 50px!important;
+  background-color: rgb(255,128,64)!important;
+  border-color: rgb(255,128,64)!important;
+  margin-right: 10px;
+}
+
+.btn-xl.btn-team {
+  margin-top: 50px!important;
+  background-color: #fff;
+  border-color: rgb(255,128,64)!important;
+  color: rgb(255,128,64)!important;
+}
+
+.btn-xl.btn-view:hover {
+  margin-top: 50px!important;
+  background-color: rgb(226, 96, 31)!important;
+  border-color: rgb(226, 96, 31)!important;
+  box-shadow: none;
+  color: #fff!important;
+}
+
+.btn-xl.btn-team:hover {
+  margin-top: 50px!important;
+  background-color: rgb(226, 96, 31)!important;
+  border-color: rgb(226, 96, 31)!important;
+  box-shadow: none;
+  color: #fff!important;
+}
+
+.btn-check:checked + .btn:focus, .btn-check:active + .btn:focus, .btn:active:focus, .btn.active:focus, .btn.show:focus {
+  box-shadow: none;
+}
+
+.btn-primary:focus {
+  box-shadow: none;
+}
+
+.gif {
+  max-width: 100%;
+  height: auto;
+  width: 100px;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  color: rgb(255,128,64)!important;
+  background-color: #fff!important;
+  border-color: rgb(255,128,64)!important;
+}
+
+header.masthead {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(7rem + 72px);
+  padding-bottom: 7rem;
+  background: linear-gradient(0deg, #be4f00 0%, #f75353 100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.scroll-to-top:hover {
+  background-color: rgb(226,96,31)!important;
+  color: #fff;
+}
+
+.scroll-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  text-align: center;
+  color: #fff;
+  background: rgba(90,92,105,.5);
+  line-height: 46px;
+}
+
+header.masthead .bg-circle-1 {
+  height: 40rem;
+  width: 41rem;
+  bottom: -23rem;
+  left: -15rem;
+}
+
+header.masthead .bg-circle-2 {
+  height: 50rem;
+  width: 47rem;
+  top: -23rem;
+  right: -20rem;
+}
+
+header.masthead .bg-circle-4 {
+  height: 25rem;
+  width: 25rem;
+  top: -5rem;
+  right: 60%;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: Monsterrat;
+}
+
