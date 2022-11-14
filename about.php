@@ -82,6 +82,60 @@
                 </div>
             </section>
         </div>
+        <section class="bg-light" id="team">
+        <!-- Start: 1 Row 4 Columns for Team Section -->
+        <div class="container w-80">
+            <div class="col-lg-12 text-center pt-0">
+                <h2 class="text-uppercase section-heading">OUR TEAM</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/lloyd.jpg">
+                        <h4>John Lloyd Agorita</h4>
+                        <p class="text-muted">Back-End Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item"><a href="https://www.instagram.com/l_l_o_y_d_y_y/"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/johnlloydyulipagorita"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:johnlloyd.professional@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/melodee.jpg">
+                        <h4>Melodee Bantog</h4>
+                        <p class="text-muted">Front-End Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item"><a href="https://www.instagram.com/mldbntg"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/MelodeeNunez"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:bantogmelodee02212000@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/kimberly.jpg">
+                        <h4>Kimberly Escober</h4>
+                        <p class="text-muted">Documenter</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item"><a href="https://www.instagram.com/yesno.elle"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/elyescober"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:escoberkimberly@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="team-member"><img class="rounded-circle img-fluid mx-auto" src="uploads/karen.jpg">
+                        <h4>Karen Guinto</h4>
+                        <p class="text-muted">Documenter</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item"><a href="https://www.instagram.com/_krnaqn/"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/KRNAQN"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:karenguinto9@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End: 1 Row 4 Columns -->
+    </section>
         <a class="border rounded d-inline scroll-to-top float-end" href="#page-top"><i class="fas fa-angle-up" style="font-size: 23px;"></i></a>
     </section>
     <script src="assets/assets/assets/bootstrap/js/bootstrap.min.js"></script>
