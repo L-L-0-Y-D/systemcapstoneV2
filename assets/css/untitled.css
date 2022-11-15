@@ -222,10 +222,11 @@
     box-shadow: var(--bs-btn-focus-box-shadow);
   }
   
-  section#contact {
+  #contact {
     background-color: transparent!important;
     background-repeat: no-repeat;
     background-position: center;
+    padding:50px 0;
   }
   /*FOR BUSINESS.PHP*/
   .business .h2, h2 {
