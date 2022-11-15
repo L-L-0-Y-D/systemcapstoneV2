@@ -23,7 +23,7 @@
     <main class="page projects-page">
         <section class="business">
             <div class="container">
-                <h2>Top Restaurants in <?= $data['municipality_name']; ?></h2>
+                <!--<h2>Top Restaurants in <?= $data['municipality_name']; ?></h2>
                         <div class="carousel slide" data-bs-ride="false" id="carousel-1">
                             <div class="carousel-inner carousel-bottom">
                                 <div class="carousel-item active">
@@ -252,7 +252,7 @@
                                 <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
                                 <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
                             </ol>
-                        </div>
+                        </div>-->
                         <div class="heading mt-5">
                             <h2 class='text-center'>All Restaurants in <?= $data['municipality_name']; ?></h2>
                         </div>
