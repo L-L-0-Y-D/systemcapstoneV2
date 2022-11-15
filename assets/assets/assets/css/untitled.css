@@ -1,7 +1,12 @@
 .bg-pic {
   width: 80%;
 }
-
+.masthead-subheading {
+ color:rgb(48,45,45);
+}
+#about {
+  padding:0px!important;
+}
 header.masthead .bg-circle-3 {
   height: 20rem;
   width: 20rem;
@@ -60,11 +65,12 @@ header.masthead .bg-circle-3 {
 }
 
 header.masthead {
+  margin-top: 80px;
   position: relative;
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: linear-gradient(0deg, #be4f00 0%, #f75353 100%);
+  background: linear-gradient(0deg, #fff 0%, #ff974d 100%)!important;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
