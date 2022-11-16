@@ -83,11 +83,11 @@ if(isset($_SESSION['auth'])){
                             <form class="text-center" method="post" action="functions/authcode.php">
                                 <div class="inputs">
                                     <i class="fas fa-at d-md-flex align-items-md-end"></i>
-                                    <input class="form-control" type="email" name="email" placeholder="email address" required>
+                                    <input class="form-control" type="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="inputs">
                                     <i class="fas fa-key d-md-flex align-items-md-end" ></i>
-                                    <input class="form-control" type="password" name="password" id="inputpassword" placeholder="password" required>
+                                    <input class="form-control" type="password" name="password" id="inputpassword" placeholder="Password" required>
                                     <i class="far fa-eye d-md-flex align-items-md-end" id="showicon" onclick="myFunction(this)"></i>
                                 </div>
                                 <div class="mb-1">

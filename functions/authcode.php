@@ -58,7 +58,7 @@ if(isset($_POST['register_btn']))
    }
    
     // Check if email already registered
-    $check_email_query = "SELECT email FROM users WHERE email='$email' AND status=0";
+    $check_email_query = "SELECT email,name FROM users WHERE email='$email' AND name='$name' AND status=0";
     $check_email_query_run = mysqli_query($con, $check_email_query);
     
     /* This is checking if the email is already registered. If it is, it will redirect the user to the
@@ -66,6 +66,10 @@ if(isset($_POST['register_btn']))
     password. If it does, it will insert the user data into the database. If it does not, it will
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
+    {
+        redirect("../register.php", "Username Already Exist.", "warning");
+    }
+    elseif(mysqli_num_rows($check_email_query_run)>0)
     {
         redirect("../register.php", "Email Already Exist.", "warning");
     }
@@ -306,7 +310,7 @@ if(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
 
-    $login_query = "SELECT * FROM users WHERE email='$email'";
+    $login_query = "SELECT * FROM users WHERE email='$email' OR name='$email'";
     $login_query_run = mysqli_query($con, $login_query);
 
     if(mysqli_num_rows($login_query_run) > 0)
