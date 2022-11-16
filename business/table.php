@@ -56,7 +56,7 @@ include('../config/dbcon.php');
                                                         <td><?= $item['chair']; ?></td>
                                                         <td><?= $item['status']== '0'? "Not Available":"Available"  ?></td>
                                                         <td>
-                                                            <a href="edit-table.php?id=<?= $item['tableid']; ?>" class="btn btn-sm edit-btn">Edit</a>
+                                                            <a href="edit-table.php?id=<?= $item['tableid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-home"></i></a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['productid']; ?>" >Delete</button>
