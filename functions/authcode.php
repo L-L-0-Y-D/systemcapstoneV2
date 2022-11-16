@@ -373,7 +373,7 @@ if(isset($_POST['login_btn'])){ // LogIn
             }
             else
             {
-                redirect("../login.php", "Wrong Email or Password", "warning");
+                redirect("../login.php", "Wrong Email, Username or Password", "warning");
                 exit(0);
             }
 
@@ -382,7 +382,7 @@ if(isset($_POST['login_btn'])){ // LogIn
     }
     else
     {  
-        redirect("../login.php", "No Email Exist", "error");
+        redirect("../login.php", "Wrong Email, Username or Password", "error");
         exit(0);
     }
 }
