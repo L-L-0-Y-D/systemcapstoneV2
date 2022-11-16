@@ -18,6 +18,7 @@
                     <li class="nav-item"><a class="nav-link <?= $page == "menu.php"? 'active':'';  ?>" href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-list"></i><span>Menu Management</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "feedback.php"? 'active':'';  ?>" href="feedback.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-list-alt"></i><span>Feedback</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "location.php"? 'active':'';  ?>" href="location.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-map-marker"></i></i><span>Location</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?= $page == "blockdate.php"? 'active':'';  ?>" href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-calendar-times"></i></i><span>Block Date</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="margin-left: 37px;"></button></div>
             </div>

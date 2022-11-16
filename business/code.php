@@ -611,6 +611,38 @@ else if(isset($_POST['update_not_arrived_btn']))
     }
 
 }
+else if(isset($_POST['add_blockdate_btn']))
+{
+    $businessid = $_POST['businessid'];
+    $reason = $_POST['reason'];
+    $blockdate = $_POST['blockdate'];
+    $status = isset($_POST['status']) ? "1":"0";
+
+    // Check if email already registered
+     $check_date_query = "SELECT blockdates FROM blockdate WHERE blockdates='$blockdate'";
+     $check_date_query_run = mysqli_query($con, $check_date_query);
+
+     if(mysqli_num_rows($check_date_query_run)>0)
+     {
+         redirect("blockdate.php?id=$businessid", "Date Already Occupied Exist.", "error");
+     }
+     else
+     {
+
+        $date_query = "INSERT INTO blockdate (businessid,reason,blockdates,status) 
+        VALUES ('$businessid','$reason','$blockdate','$status')";
+        // mysqli_query($con,$table_query) or die("bad query: $table_query");
+        $date_query_run = mysqli_query($con, $date_query);
+
+        if($date_query_run)
+        {
+            redirect("blockdate.php?id=$businessid", "Date Added Successfully", "success");
+        }else
+        {
+            redirect("add-blockdate.php?id=$businessid", "Something Went Wrong", "error");
+        }
+     }
+}
 else
 {
     header('Location: ../index.php');
