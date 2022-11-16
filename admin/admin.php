@@ -6,10 +6,8 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">Admin's List</h3>
-            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-customer.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Admin</a>
-        </div>
+        <h4 class="text-dark">Admin's List
+        <a class="btn btn-primary btn-sm float-end" role="button" href="add-admin.php" id="addbtn">Add Admin</a></h4>
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >
                 <div class="row">
@@ -71,7 +69,7 @@ include('includes/header.php');
                                                                 ?></td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
-                                                            <a href="edit-admin.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">View</a>
+                                                            <a href="edit-admin.php?id=<?= $item['userid']; ?>" class="btn edit-btn"><i class="fas fa-edit"></i></a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>

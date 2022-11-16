@@ -8,7 +8,7 @@ include('includes/header.php');
 ?>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-9">
+    <div class="col-md-6">
         <?php 
         if(isset($_GET['id']))
         {
@@ -24,7 +24,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                 <h4>Change Password
-                    <a href="index.php" class="back btn-close float-end"></a>
+                    <a href="index.php" class="back btn-sm btn-close float-end"></a>
                 </h4>   
                 </div>
                 <div class="card-body">
@@ -44,7 +44,7 @@ include('includes/header.php');
                                 <input type="password" name="business_confirmpassword" class="form-control" required>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn save-btn mt-2" name="edit_password_btn">Update Password</button>
+                                <button type="submit" class="btn update-btn mt-2" name="edit_password_btn">Update Password</button>
                             </div>
                         </div>
                     </form>

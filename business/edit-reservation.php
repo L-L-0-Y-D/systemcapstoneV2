@@ -34,7 +34,7 @@ include('includes/header.php');
                     <div class="card">
                         <div class="card-header">
                         <h4>Approval of Reservation
-                        <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-close float-end"></a>
+                        <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
                         </h4>
                             
                         </div>
@@ -99,7 +99,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn save-btn" name="update_reservation_btn">Save</button>
+                                <button type="submit" class="btn update-btn" name="update_reservation_btn">Update</button>
                             </div>
                         </div>
                     </form>

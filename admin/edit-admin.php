@@ -7,8 +7,8 @@ include('includes/header.php');
 ?>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
         <?php 
         if(isset($_GET['id']))
         {
@@ -24,19 +24,21 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                 <h4>Edit Admin
-                    <a href="admin.php" class="btn btn-primary float-end">Back</a>
+                    <a href="admin.php" class="back btn-sm btn-close float-end"></a>
                 </h4>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
-                                <div class="col-md-12">
-                                <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control" readonly>
+                            <div class="col-md-6">
                                 <label for="">Current Image</label>
-                                <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
+                                <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
                             </div>
+                            <div class="col-md-6">
+                                <label for="">Update Image</label>
+                                <input type="file" name="image" class="form-control" readonly>
+                            </div>               
                             <div class="col-md-6">
                                 <!--Needed-->
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
@@ -90,7 +92,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="update_admin_btn">Save</button>
+                                <button type="submit" class="btn update-btn" name="update_admin_btn">Update</button>
                             </div>
                         </div>
                     </form>

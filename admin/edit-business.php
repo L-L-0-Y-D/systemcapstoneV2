@@ -7,8 +7,8 @@ include('includes/header.php');
 ?>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
         <?php 
         if(isset($_GET['id']))
         {
@@ -23,19 +23,30 @@ include('includes/header.php');
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Edit Business
-                    <a href="busiowner.php" class="btn btn-primary float-end">Back</a>
-                </h4>   
+                    <h4>Edit Business
+                        <a href="busiowner.php" class="back btn-sm btn-close float-end"></a>
+                    </h4>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
-                                <div class="col-md-12">
-                                <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control" disabled>
-                                <label for="">Current Image</label>
-                                <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
+                            <div class="col-md-6">
+                                <label for="">Current Business Image</label>
+                                <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Update Business Image</label>
+                                <input type="file" name="image" class="form-control" disabled>
+                            </div>
+                            <div class="col-md-6">  
+                                <label for="">Current Business Certificate</label>
+                                <img src="../certificate/<?= $data['image_cert'] ?>" height="100" width="100">
+                                <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Update Business Certificate</label>
+                                <input type="file" name="image_cert" class="form-control" disabled >
                             </div>
                             <div class="col-md-6">
                                 <!--Needed-->
@@ -71,14 +82,7 @@ include('includes/header.php');
                             <div class="col-md-6">
                                 <label for="">Select Cuisine Type</label><br>
                                 <input type="text" name="cuisinename" value="<?= $data['cuisinename'] ?>"  required placeholder="Cuisine Type" class="form-control" readonly>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">Business Certificate</label>
-                                <input type="file" name="image_cert" class="form-control" disabled >
-                                <label for="">Current Image</label>
-                                <img src="../certificate/<?= $data['image_cert'] ?>" height="50px" width="50px">
-                                <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
-                            </div>
+                            </div>                                                      
                             <div class="col-md-6">
                                 <label for="">Openig Time</label>
                                 <input type="text" name="opening" value="<?= date('h:i A', strtotime($data['opening'])); ?>"  required placeholder="opening" class="form-control" readonly>
@@ -87,7 +91,7 @@ include('includes/header.php');
                                 <label for="">Closing Time</label>
                                 <input type="text" name="closing" value="<?= date('h:i A', strtotime($data['closing'])); ?>"  required placeholder="closing" class="form-control" readonly>
                             </div>
-                            <h3>OWNER DETAILS</h3>
+                            <h4 class="mt-3">OWNER DETAILS</h4>
                             <div class="col-md-6">
                                 <label for="">First Name</label>
                                 <input type="text" name="business_firstname" required value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name" class="form-control" readonly>
@@ -101,7 +105,7 @@ include('includes/header.php');
                                 <input type="text" name="business_phonenumber" required value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Email</label>
+                                <label for="">Email Address</label>
                                 <input type="text" name="business_email" required value="<?= $data['business_email'] ?>"  required placeholder="Owner Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
@@ -140,7 +144,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="edit_business_btn">Save</button>
+                                <button type="submit" class="btn update-btn" name="edit_business_btn">Update</button>
                             </div>
                             </div>
                     </form>

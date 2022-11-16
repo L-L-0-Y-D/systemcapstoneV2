@@ -7,8 +7,8 @@ include('includes/header.php');
 ?>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
         <?php 
         if(isset($_GET['id']))
         {
@@ -24,7 +24,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                 <h4>Edit Municipality
-                    <a href="municipality.php" class="btn btn-primary float-end">Back</a>
+                    <a href="municipality.php" class="back btn-sm btn-close float-end"></a>
                 </h4>
                     
                 </div>
@@ -32,24 +32,28 @@ include('includes/header.php');
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
+                                <label for="">Current Municipality Image</label>
+                                <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
+                                <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Update Image</label>
+                                <input type="file" name="image" class="form-control">    
+                            </div>
+                            <div class="col-md-12">
                                 <!--Needed-->
                                 <input type="hidden" name="municipalityid" value="<?= $data['municipalityid'] ?>">
                                 <label for="">Municipality Name</label>
                                 <input type="text" name="municipality_name" required value="<?= $data['municipality_name'] ?>" placeholder="Enter Municipality Name" class="form-control">
                             </div>
-                            <div class="col-md-12">
-                                <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control">
-                                <label for="">Current Image</label>
-                                <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
-                                <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                            <div class="row">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" <?= $data['status'] ? "":"checked"?>> 
+                                    <label class="form-check-label m-0" for="formCheck-1"><strong>Status</strong></label>
+                                </div>
                             </div>
                             <div class="col-md-12">
-                                <label for="">Status</label>
-                                <input type="checkbox" <?= $data['status'] ? "":"checked"?> name="status" >
-                            </div>
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" name="update_municipality_btn">Update</button>
+                                <button type="submit" class="btn update-btn" name="update_municipality_btn">Update</button>
                             </div>
                         </div>
                     </form>
