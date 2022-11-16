@@ -18,7 +18,7 @@ include('../config/dbcon.php');
             <div class="card-header">
                 <form method="post" action="code.php">
                     <h4 class="text-center">Pin-Location 
-                    <a href="location.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back float-start">x</a>
+                    <a href="location.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-close float-start"></a>
                     <!-- <input hidden type="text" id="address" name="address"> -->
                     <input hidden type="text" name="businessid" value="<?= $_SESSION['auth_user']['businessid'];?>">
                     <input hidden type="text" id="latitude" name="latitude" value="<?= $data['latitude'] ?>">

@@ -142,7 +142,7 @@ include('includes/header.php');
                                                             <?php
                                                             }
                                                         ?>
-                                                        ><?= $item['categoryname']; ?></input>
+                                                        >&nbsp<?= $item['categoryname']; ?></input>
                                                         <?php
                                                     }
                                                 }

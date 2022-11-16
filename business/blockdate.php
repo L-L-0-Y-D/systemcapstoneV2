@@ -15,10 +15,8 @@ include('../config/dbcon.php');
             $data = mysqli_fetch_array($blockdates);    
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-        <h3 class="text-dark mb-4">Block Date</h3>
-        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add block date</a> 
-        </div>
+        <h4 class="text-dark">Block Date(s)
+        <a class="btn btn-primary float-end" role="button" href="add-blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Block Date</a> </h4>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
                 <div class="row">
@@ -42,7 +40,7 @@ include('../config/dbcon.php');
                                     <th>Reason</th>
                                     <th>Date</th>
                                     <th>Status</th>
-                                    <th>View</th>
+                                    <th>Update</th>
                                     <!-- <th>Delete</th> -->
                                 </tr>
                             </thead>
@@ -71,7 +69,7 @@ include('../config/dbcon.php');
                                                                     {echo 'Declined';}  
                                                         ?></td>                                                                                                         
                                                         <td>
-                                                            <a href="edit-reservation.php?id=<?= $item['blockdateid']; ?>" class="btn btn-sm btn-primary">View</a>
+                                                            <a href="edit-reservation.php?id=<?= $item['blockdateid']; ?>" class="btn btn-sm update-btn">Update</a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>

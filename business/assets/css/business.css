@@ -26,23 +26,23 @@
     border:none;
     box-shadow:none!important;
 }
-.edit-btn {
+.update-btn {
     color:white;
-    background-color: rgb(236, 236, 38)!important;
+    background-color: rgb(214, 214, 12)!important;
     border:none;
 }
-.edit-btn:hover {
+.update-btn:hover {
     color:white;
     background-color:darkgoldenrod!important;
     border:none;
     box-shadow:none!important;
 }
-.view-btn {
+.edit-btn {
     color:white;
     background-color: rgb(46, 46, 235)!important;
     border:none;
 }
-.view-btn:hover {
+.edit-btn:hover {
     color:white;
     background-color:darkblue!important;
     border:none;
@@ -79,6 +79,9 @@ iframe {
     height:500px!important;
     width: 1200px!important;
 }
+.text-primary {
+    color:rgb(255,128,64)!important;
+}
 h4 {
     font-weight: bolder;
     padding-left: 5px;
@@ -96,4 +99,20 @@ h4 {
 td ,option{
     font-size: 14px!important;
     line-height: 4;
+}
+/*FOR INDEX */
+h6 {
+    font-weight:bolder;
+}
+.first-tab {
+    color:rgb(11, 194, 11)!important ;
+}
+.second-tab {
+    color: rgb(214, 214, 12)!important;
+}
+.third-tab {
+    color: rgb(46, 46, 235)!important;
+}
+.fourth-tab {
+    color: rgb(255, 128, 64)!important;
 }

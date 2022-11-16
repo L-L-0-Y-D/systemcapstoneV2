@@ -15,12 +15,12 @@ if(isset($_GET['id']))
 
 ?>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
       <div class="card">
         <div class="card-header">
           <h4>Block date
-          <a href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end" style="background:rgb(255,128,64); border:none;">Back</a></h4>
+          <a href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-close float-end"></a></h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -34,20 +34,20 @@ if(isset($_GET['id']))
                     </div>
                     <div class="col-md-12">
                         <label class="mb-0">Reasons</label>
-                        <input type="text" name="reason" required placeholder="Reason" required class="form-control mb-2">
+                        <input type="text" name="reason" required placeholder="Type your reason here" required class="form-control mb-2">
                     </div>
                     <div class="col-md-12">
                         <label class="mb-0">Select Date</label>
                         <input class="form-control" type="date" id="blockdate" name="blockdate" min="<?php echo date("Y-m-d"); ?>" required>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
-                            <label class="mb-0">Status</label> <br>
-                            <input type="checkbox" name="status" >
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > 
+                            <label class="form-check-label" for="formCheck-1"><strong>Status</strong></label>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary" name="add_blockdate_btn" >Save</button>
+                        <button type="submit" class="btn save-btn" name="add_blockdate_btn" >Save</button>
                     </div>
                 </div>
             </form>
