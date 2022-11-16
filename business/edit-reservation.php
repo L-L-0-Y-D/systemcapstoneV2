@@ -34,7 +34,7 @@ include('includes/header.php');
                     <div class="card">
                         <div class="card-header">
                         <h4>Approval of Reservation
-                        <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back float-end">x</a>
+                        <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-close float-end"></a>
                         </h4>
                             
                         </div>

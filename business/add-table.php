@@ -20,7 +20,7 @@ if(isset($_GET['id']))
       <div class="card">
         <div class="card-header">
           <h4>Add Table
-          <a href="table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back float-end">x</a></h4>
+          <a href="table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-close float-end"></a></h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">

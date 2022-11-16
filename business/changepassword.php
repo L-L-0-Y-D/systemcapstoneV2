@@ -24,7 +24,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                 <h4>Change Password
-                    <a href="index.php" class="back float-end">x</a>
+                    <a href="index.php" class="back btn-close float-end"></a>
                 </h4>   
                 </div>
                 <div class="card-body">
