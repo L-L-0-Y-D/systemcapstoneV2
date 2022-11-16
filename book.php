@@ -1,6 +1,7 @@
 <?php
 include('middleware/userMiddleware.php');
 $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');
+
 if(isset($_GET['date']))
 {
     $resourceid = $_GET['tableid'];
@@ -36,7 +37,6 @@ if(isset($_GET['date']))
         }
     }
 }
-
 if(isset($_POST['submit']))
 {
 
@@ -50,7 +50,8 @@ if(isset($_POST['submit']))
     //part 5
     $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=?");
     $stmt -> bind_param('ssi', $date, $reservation_time, $resourceid);
-    // $bookings = array();
+    
+    $bookings = array();
 
     if($stmt -> execute())
     {
@@ -65,7 +66,7 @@ if(isset($_POST['submit']))
             // $stmt -> close();
 
             $msg = "<div class='alert alert-danger'>Already Booked</div>";
-            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", 'Time Already Booked', "warning");
+            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Time Already Booked", "warning");
 
         }else{
             if(preg_match("/^[0-9]\d{10}$/",$_POST['reservation_phonenumber']))
@@ -83,7 +84,7 @@ if(isset($_POST['submit']))
                 $stmt -> close();
                 $mysqli -> close();
             
-                redirect("businessview.php?id=$businessid", 'Reservation Successfully', "success");
+                redirect("businessview.php?id=$businessid", "Reservation for Approval", "success");
             }
             else
             {
@@ -161,7 +162,7 @@ function timeslots($duration, $cleanup, $start, $end)
   </head>
   <body>
     <div class="container">
-        <h1 class="text-center">Booking for resource "<?php echo $resourcename; ?> - <?php echo $resourcetable; ?>" Date:<?= date('m/d/Y', strtotime($date)); ?></h1><hr>
+        <h1 class="text-center">Booking for Table <?php echo $resourcename; ?> - <?php echo $resourcetable; ?> Date:<?= date('m/d/Y', strtotime($date)); ?></h1><hr>
         <div class="row">
             <div class="col-md-12">
                 <?php echo isset($msg)?$msg:""; ?>
@@ -198,8 +199,8 @@ function timeslots($duration, $cleanup, $start, $end)
             <!-- Modal content-->
             <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Booking: <span id="slot"></span></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -262,6 +263,10 @@ function timeslots($duration, $cleanup, $start, $end)
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
+         alertify.set('notifier','position', 'top-center');
+         var msg = alertify.message('Default message');
+         msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+
         swal({
             title: "<?= $_SESSION['message']; ?>",
             icon: "<?= $_SESSION['alert']; ?>",
