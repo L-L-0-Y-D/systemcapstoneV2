@@ -19,7 +19,7 @@ if(isset($_GET['id']))
     <div class="col-md-9">
       <div class="card">
         <div class="card-header">
-          <h4>Block date
+          <h4>Add Block Date
           <a href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a></h4>
         </div>
         <div class="card-body">
