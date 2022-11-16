@@ -4,8 +4,10 @@
 .masthead-subheading {
  color:rgb(48,45,45);
 }
-#about {
-  padding:0px!important;
+section {
+ padding:0px!important;
+  margin-top: 0!important;
+  margin-bottom: 0%!important;
 }
 header.masthead .bg-circle-3 {
   height: 20rem;
@@ -65,7 +67,7 @@ header.masthead .bg-circle-3 {
 }
 
 header.masthead {
-  margin-top: 80px;
+  margin-top:80px;
   position: relative;
   overflow: hidden;
   padding-top: calc(7rem + 72px);
@@ -121,4 +123,37 @@ p {
   margin-bottom: 1rem;
   font-family: Monsterrat;
 }
+#team {
+  padding-top: 30px!important;
+  padding-bottom: 100px!important;
+}
+.team-member img {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #000!important;
+  padding: 10px!important;
+} 
+.team-member {
+  padding-bottom: 50px;
+  text-align: center;
+  margin-bottom: 0px!important;
+  border-radius: 10px;
+  padding-top: 30px;
+  box-shadow: 0px 0px 5px;
+}
+.team-member p {
+  font-family: Lato;
+}
+.team-member h4, .team-member .h4 {
+  margin-top: 30px;
+  margin-bottom: 0;
+  text-transform: none;
+}
+.team-member .mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  margin-bottom:30px;
+  width:75%;
+  height:50%;
 
+}
