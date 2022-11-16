@@ -22,9 +22,7 @@ include('../config/dbcon.php');
             $data = mysqli_fetch_array($reservations);    
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-        <h3 class="text-dark mb-4">Reservation</h3>
-        </div>
+        <h4 class="text-dark">Reservation List</h4>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
                 <div class="row">
@@ -89,7 +87,7 @@ include('../config/dbcon.php');
                                                                     {echo 'Declined';}  
                                                         ?></td>                                                                                                         
                                                         <td>
-                                                            <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm btn-primary">View</a>
+                                                            <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm edit-btn">Edit</a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>

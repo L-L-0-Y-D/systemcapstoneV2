@@ -8,8 +8,8 @@ include('includes/header.php');
 
 ?>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
         <?php 
             if(isset($_GET['id']))
             {
@@ -24,7 +24,7 @@ include('includes/header.php');
                     <div class="card">
                         <div class="card-header">
                         <h4>Edit Products
-                        <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end">Back</a>
+                        <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back float-end">x</a>
                         </h4>
                             
                         </div>
@@ -37,20 +37,25 @@ include('includes/header.php');
                                         <input type="hidden" name="businessid" value="<?= $_SESSION['auth_user']['businessid'];?>">
                                         <?php
                                         ?>
+                                    </div>                                  
+                                    <div class="col-md-6">
+                                        <label class="mb-0">Current Image</label>
+                                        <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="mb-0">Update Product Image</label>
+                                        <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                                        <input type="file" name="image" class="form-control mb-2">
                                     </div>
                                     <div class="col-md-6">
                                         <input type="hidden" name="productid" value="<?= $data['productid']?>">
-                                        <label class="mb-0">Name</label>
-                                        <input type="text" name="name" value="<?= $data['name']?>" required placeholder="Enter Product Name" class="form-control mb-2">
+                                        <label class="mb-0">Product Name</label>
+                                        <input type="text" name="name" value="<?= $data['name']?>" required class="form-control mb-2">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="mb-0">Price</label>
-                                        <input type="text" name="price" value="<?= $data['price']?>" required placeholder="Enter Price" class="form-control mb-2">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-0">Description</label>
-                                        <textarea rows="3" name="description"  required placeholder="Enter Description" class="form-control mb-2"><?= $data['description']?></textarea>
-                                    </div>
+                                        <input type="text" name="price" value="<?= $data['price']?>" required class="form-control mb-2">
+                                    </div>                                   
                                     <div class="col-md-6">
                                         <label class="control-label">Course Menu</label>
                                         <select  name="food_type" value="<?= $data['food_type'] ?>" required class="form-control mb-2">
@@ -88,22 +93,19 @@ include('includes/header.php');
                                                     }
                                             ?>
                                         </select> 
-                                    </div>
+                                    </div>  
                                     <div class="col-md-12">
-                                        <label class="mb-0">Upload Image</label>
-                                        <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
-                                        <input type="file" name="image" class="form-control mb-2">
-                                        <label class="mb-0">Current Image</label>
-                                        <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
-                                    </div>
+                                        <label class="mb-0">Product Description</label>
+                                        <textarea rows="3" name="description"  required class="form-control mb-2"><?= $data['description']?></textarea>
+                                    </div>              
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <label class="mb-0">Status</label> <br>
-                                            <input type="checkbox" name="status" <?= $data['status'] == '0'? '':'checked' ?>>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" <?= $data['status'] == '0'? '':'checked' ?>> 
+                                            <label class="form-check-label" for="formCheck-1"><strong>Status</strong></label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary" name="update_product_btn">Save</button>
+                                        <button type="submit" class="btn save-btn" name="update_product_btn">Save</button>
                                     </div>
                                 </div>
                             </form>

@@ -156,10 +156,6 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="formCheck-1">
-                                            <label class="form-check-label" for="formCheck-1"><strong>Notify me about new replies</strong></label>
-                                        </div>
                                         <button name="update_profile_btn" class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
                                     </div>
                                 </div>

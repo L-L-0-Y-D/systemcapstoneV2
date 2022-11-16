@@ -11,10 +11,8 @@ include('../config/dbcon.php');
             $businessuserid = $_SESSION['auth_user']['businessid'];
 ?>
 <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-        <h3 class="text-dark mb-4">Reservations Arriving</h3><br/>
-        <h3 class="text-dark mb-4"><?php echo "Today is " . date("m/d/Y") . "<br>";?></h3>
-        </div>
+        <h4 class="text-dark">Reservations Arriving
+        <span class="text-dark float-end"><?php echo "Today is " . date("m/d/Y") . "<br>";?></span></h4>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
                 <div class="row">
@@ -93,8 +91,8 @@ include('../config/dbcon.php');
                                                                     {echo 'Declined';}  
                                                         ?></td> -->
                                                         <td>
-                                                            <button type="submit" class="btn btn-success" value = "<?= $item['reservationid']; ?>" name="update_arrived_btn">✓</button>
-                                                            <button type="submit" class="btn btn-danger" value = "<?= $item['reservationid']; ?>"  name="update_not_arrived_btn">X</button>
+                                                            <button type="submit" class="btn btn-sm edit-btn" value = "<?= $item['reservationid']; ?>" name="update_arrived_btn">✓</button>
+                                                            <button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['reservationid']; ?>"  name="update_not_arrived_btn">X</button>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>

@@ -20,12 +20,14 @@ if(isset($_GET['id']))
                     $longitude = $data['longitude'];
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-        <h3 class="text-dark mb-4">Location</h3>
-            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="pin-location.php?id=<?= $_SESSION['auth_user']['businessid'];?>" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Relocate</a> 
+        <div class="row justify-content-center mb-5">
+            <h4 class="text-dark">Business Location
+            <a class="btn btn-primary float-end" role="button" href="pin-location.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Relocate</a> </h4>
+            <div class="col-md-12">
+                <iframe src="https://maps.google.com/maps?q=<?= $latitude ?>+<?= $longitude ?>&t=k&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
         </div>
-        <iframe src="https://maps.google.com/maps?q=<?= $latitude ?>+<?= $longitude ?>&t=k&z=13&ie=UTF8&iwloc=&output=embed" style="width: 1600px; height: 700px;"></iframe>
-
+    </div>
 <?php
                 } 
             else

@@ -9,10 +9,8 @@ include('../config/dbcon.php');
         {
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-        <h3 class="text-dark mb-4">Table List</h3>
-            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Table</a> 
-        </div>
+        <h4 class="text-dark">Table List
+            <a class="btn btn-primary float-end" role="button" href="add-table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Table</a> </h4>
         <div class="card shadow">
             <div class="card-body" id="tablemanage">
                 <div class="row">
@@ -58,7 +56,7 @@ include('../config/dbcon.php');
                                                         <td><?= $item['chair']; ?></td>
                                                         <td><?= $item['status']== '0'? "Not Available":"Available"  ?></td>
                                                         <td>
-                                                            <a href="edit-table.php?id=<?= $item['tableid']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="edit-table.php?id=<?= $item['tableid']; ?>" class="btn btn-sm edit-btn">Edit</a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['productid']; ?>" >Delete</button>

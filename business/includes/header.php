@@ -22,6 +22,7 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="assets/css/material-dashboard.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
+    <link rel="stylesheet" href="assets/css/business.css">
     <!-- Alertify js CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>

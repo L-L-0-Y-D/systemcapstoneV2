@@ -8,8 +8,8 @@ include('includes/header.php');
 
 ?>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
         <?php 
             if(isset($_GET['id']))
             {
@@ -34,7 +34,7 @@ include('includes/header.php');
                     <div class="card">
                         <div class="card-header">
                         <h4>Approval of Reservation
-                        <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end">Back</a>
+                        <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back float-end">x</a>
                         </h4>
                             
                         </div>
@@ -43,7 +43,7 @@ include('includes/header.php');
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="">Table No.</label>
-                                <input type="text" name="table_number" value="<?= $data['table_number'] ?>" placeholder="Enter Number of Guest" class="form-control" readonly>
+                                <input type="text" name="table_number" value="<?= $data['table_number'] ?>" placeholder="Enter Table Number of Guest" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Number of Guest</label>
@@ -64,11 +64,11 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 
-                                <label for="">Email</label>
+                                <label for="">Email Address</label>
                                 <input type="email" name="reservation_email" value="<?= $data['reservation_email'] ?>" placeholder="Enter Reservation Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Phonenumber</label>
+                                <label for="">Phone Number</label>
                                 <input type="text" name="reservation_phonenumber" value="<?= $data['reservation_phonenumber'] ?>" placeholder="Enter Phonenumber" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
@@ -99,7 +99,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="update_reservation_btn">Save</button>
+                                <button type="submit" class="btn save-btn" name="update_reservation_btn">Save</button>
                             </div>
                         </div>
                     </form>

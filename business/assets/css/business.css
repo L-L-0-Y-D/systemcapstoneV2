@@ -1,0 +1,99 @@
+* {
+    font-family: Monsterrat!important;
+}
+.scroll-to-top:hover {
+    background-color: rgb(226,96,31)!important;
+    color: #fff;
+}
+.back {
+    text-decoration: none!important;
+    color:darkgrey;
+    padding-right: 10px;
+}
+.back:hover {
+    font-weight: bolder;
+    color: inherit;
+}
+.btn-primary {
+    color:white;
+    background-color: rgb(255,128,64)!important;
+    border:none;
+}
+
+.btn-primary:hover {
+    color:white;
+    background-color: rgb(226, 96, 31)!important;
+    border:none;
+    box-shadow:none!important;
+}
+.edit-btn {
+    color:white;
+    background-color: rgb(236, 236, 38)!important;
+    border:none;
+}
+.edit-btn:hover {
+    color:white;
+    background-color:darkgoldenrod!important;
+    border:none;
+    box-shadow:none!important;
+}
+.view-btn {
+    color:white;
+    background-color: rgb(46, 46, 235)!important;
+    border:none;
+}
+.view-btn:hover {
+    color:white;
+    background-color:darkblue!important;
+    border:none;
+    box-shadow:none!important;
+}
+.save-btn {
+    color:white;
+    background-color: rgb(11, 194, 11)!important;
+    border:none;
+}
+.save-btn:hover {
+    color:white;
+    background-color:darkgreen!important;
+    border:none;
+    box-shadow:none!important;
+}
+.btn-danger {
+    color:white;
+    background-color: rgb(247, 58, 58)!important;
+    border:none;
+}
+.form-check {
+    margin:5px 10px;
+
+}
+input {
+    font-size: smaller!important;
+}
+input:focus, textarea:focus, select:focus, option:focus {
+    box-shadow:none!important;
+}
+iframe {
+    max-width: 100%!important;
+    height:500px!important;
+    width: 1200px!important;
+}
+h4 {
+    font-weight: bolder;
+    padding-left: 5px;
+    padding-top: 10px;
+    line-height: 1!important;
+    margin-bottom: 30px!important;
+}
+.card {
+    margin-bottom: 50px;
+}
+.card-header {
+    margin-bottom:0px!important;
+    padding-bottom: 0%!important;
+}
+td ,option{
+    font-size: 14px!important;
+    line-height: 4;
+}

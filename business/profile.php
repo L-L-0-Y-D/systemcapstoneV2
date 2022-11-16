@@ -19,9 +19,9 @@ include('includes/header.php');
                 
             
             ?>
-        <h3 class="text-dark mb-4">Profile
-            <a href="index.php" class="btn btn-primary float-end" style="background:rgb(255,128,64); border:none;">Back</a>
-        </h3>
+        <h4 class="text-dark mb-4">Your Business Profile
+            <a href="index.php" class="btn btn-primary float-end">Back</a>
+        </h4>
     <form action="code.php" method="POST" enctype="multipart/form-data">
     <div class="row mb-3">
         <div class="col-lg-4">
@@ -198,7 +198,7 @@ include('includes/header.php');
                                 <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-sm" type="submit" name="edit_business_btn" style="background: rgb(255,128,64);color: var(--bs-white);">UPDATE BUSINESS PROFILE&nbsp;</button>
+                                <button class="btn btn-sm" type="submit" name="edit_business_btn">UPDATE BUSINESS PROFILE&nbsp;</button>
                             </div>
                         </div>
                     </div>
