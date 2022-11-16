@@ -167,7 +167,7 @@ include('includes/header.php');
                                                     echo "No Cuisine Type Available";
                                                 }
                                         ?>
-                                        <a style="color: black;" href="insert.php">Add Cuisine Type</a>  
+                                        <a style="color: black;" href="addcuisine.php">Add Cuisine Type</a>  
                                     </div>
                                 </div>
                             </div>
