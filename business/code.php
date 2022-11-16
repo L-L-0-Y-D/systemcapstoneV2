@@ -643,6 +643,26 @@ else if(isset($_POST['add_blockdate_btn']))
         }
      }
 }
+else if(isset($_POST['add_cuisine_btn']))
+{
+    $businessid = $_POST['businessid'];
+    $categoryname = $_POST['categoryname'];
+    $status = isset($_POST['status']) ? "1":"0";
+
+    $cate_query = "INSERT INTO mealcategory (categoryname, status) 
+    VALUES ('$categoryname', '$status')";
+    //mysqli_query($con,$cate_query) or die("bad query: $cate_query");
+
+    $cate_query_run = mysqli_query($con, $cate_query);
+
+    if($cate_query_run){
+        redirect("profile.php?id=$businessid", "Cuisine Added Successfully", "success");
+    }else{
+
+        redirect("profile.php?id=$businessid", "Something Went Wrong", "error");
+
+    }
+}
 else
 {
     header('Location: ../index.php');
