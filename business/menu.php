@@ -7,6 +7,7 @@ include('../config/dbcon.php');
  <?php 
         if(isset($_GET['id']))
         {
+            $id = $_GET['id'];
 ?>
     <div class="container-fluid">
         <h4 class="text-dark">Menu List
@@ -15,19 +16,19 @@ include('../config/dbcon.php');
             <div class="card-body" id="products_table">
                 <div class="row"> 
                     <!--SORTING-->  
-                    <div class="col-md-6 text-nowrap">
+                    <div class="col-md-6 text-nowrap" id="filters">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                             <label class="form-label">Sorted by:&nbsp;
                                 <select  id="mySelect" onchange="myFunction()" class="d-inline-block form-select form-select-sm">
-                                    <option value="all" selected="">All Menu</option>
-                                    <option value="main">Main Course</option>
-                                    <option value="appetizer">Appetizer</option>
-                                    <option value="soup">Soup</option>
-                                    <option value="fishdish">Fish Dish</option>
-                                    <option value="meatdish">Meat Dish</option>
-                                    <option value="salad">Salad</option>
-                                    <option value="dessert">Dessert</option>
-                                    <option value="drinks">Drinks</option>
+                                    <option value="All" selected="">All Menu</option>
+                                    <option value="Main">Main Course</option>
+                                    <option value="Appetizer">Appetizer</option>
+                                    <option value="Soup">Soup</option>
+                                    <option value="Fishdish">Fish Dish</option>
+                                    <option value="Meatdish">Meat Dish</option>
+                                    <option value="Salad">Salad</option>
+                                    <option value="Dessert">Dessert</option>
+                                    <option value="Drinks">Drinks</option>
                                 </select>
                             </label>
                         </div>
@@ -53,7 +54,7 @@ include('../config/dbcon.php');
                                 </tr>
                             </thead>
                             <form action="code.php" method="POST" enctype="multipart/form-data">
-                            <tbody id="dataContent" style="text-align:center">
+                            <tbody style="text-align:center">
                                 <?php
                                     $products = getAllNotArchive("products");
 
@@ -94,13 +95,30 @@ include('../config/dbcon.php');
                         </table>
                     </div>
                     <!--SCRIPT FOR SORTING-->
-                        <script>
-                        function myFunction() {
-                        var x = document.getElementById("mySelect").value;
-                        document.getElementById("dataContent").innerHTML = x;
-                        }
-                        </script>
+                    <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#mySelect").on('change',function(){
+                                    var value = $(this).val();
+                                    //alert(value);
 
+                                    $.ajax({
+                                        url:"fetch.php?id=<?= $id; ?>",
+                                        type:"POST",
+                                        data:'request=' + value,
+                                        beforeSend:function(){
+                                            $(".container").html("<span>Working...</span>");
+                                        },
+                                        success:function(data){
+                                            $(".container").html(data);
+                                        }
+                                    });
+                                });
+                            });
+                        // function myFunction() {
+                        // var x = document.getElementById("mySelect").value;
+                        // document.getElementById("dataContent").innerHTML = x;
+                        // }
+                    </script>
                     <div class="row">
                         <div class="col-md-6 align-self-center">
                             <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
