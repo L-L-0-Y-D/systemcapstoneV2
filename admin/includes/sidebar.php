@@ -4,7 +4,7 @@
 ?>
 <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(255,128,64);">
     <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-1" href="#">
-        <div class="sidebar-brand-icon"><img class=" img-profile" src="../uploads/I-EatLogo.png" width="80" height="80"></div>
+        <div class="sidebar-brand-icon"><img class=" img-profile" src="../uploads/logoT.png" width="50" height="50"></div>
             <div class="sidebar-brand-text mx-1"><span>I - Eat</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">

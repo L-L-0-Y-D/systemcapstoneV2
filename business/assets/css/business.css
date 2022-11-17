@@ -63,7 +63,13 @@ body {
 .btn-danger {
     color:white;
     background-color: rgb(247, 58, 58)!important;
-    border:none;
+    border:grey 1px solid !important;
+    padding:10px!important;
+}
+.btn-danger:hover {
+    color:white;
+    background-color:rgb(247, 44, 44)!important;
+    box-shadow:none!important;
 }
 .form-check {
     margin:5px 10px;
