@@ -9,7 +9,7 @@ include('../config/dbcon.php');
         if(isset($_GET['id']))
         {
             $businessuserid = $_SESSION['auth_user']['businessid'];
-            $query_blockdates = "SELECT * FROM blockdate WHERE businessid = $businessuserid";
+            $query_blockdates = "SELECT * FROM blockdate WHERE NOT status = '2'";
             $query_blockdates_run = mysqli_query($con, $query_blockdates);
             $blockdates = $query_blockdates_run;
             $data = mysqli_fetch_array($blockdates);    
@@ -42,9 +42,10 @@ include('../config/dbcon.php');
                                     <th>Status</th>
                                     <th>Action</th>
                                     <!-- <th>Delete</th> -->
+                                    <th>Archive</th>
                                 </tr>
                             </thead>
-                            
+                            <form action="code.php" method="POST" enctype="multipart/form-data">
                             <tbody style="text-align:center">
                                 <?php
                                     // $reservations = getAll("reservations");
@@ -74,6 +75,7 @@ include('../config/dbcon.php');
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
                                                         </td> -->
+                                                        <td><button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['blockdateid']; ?>"  name="archive_blockdate_btn"><i class="fas fa-archive"></i></button></td>
                                                     </tr>
                                                 <?php
                                                 }
@@ -85,6 +87,7 @@ include('../config/dbcon.php');
                                     }
                                 ?>
                             </tbody>
+                        </form>
                         </table>
                     </div>
                     <div class="row">

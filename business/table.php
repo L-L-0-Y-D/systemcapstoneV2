@@ -36,12 +36,13 @@ include('../config/dbcon.php');
                                     <th>Status</th>
                                     <th>Action</th>
                                     <!-- <th>Delete</th> -->
+                                    <th>Archive</th>
                                 </tr>
                             </thead>
-                            
+                            <form action="code.php" method="POST" enctype="multipart/form-data">
                             <tbody style="text-align:center">
                                 <?php
-                                    $table = getAll("managetable");
+                                    $table = getAllNotArchive("managetable");
 
                                     if(mysqli_num_rows($table) > 0)
                                     {
@@ -61,6 +62,7 @@ include('../config/dbcon.php');
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['productid']; ?>" >Delete</button>
                                                         </td> -->
+                                                        <td><button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['tableid']; ?>"  name="archive_table_btn"><i class="fas fa-archive"></i></button></td>
                                                     </tr>
                                                 <?php
                                                 }
@@ -72,6 +74,7 @@ include('../config/dbcon.php');
                                     }
                                 ?>
                             </tbody>
+                        </form>
                         </table>
                     </div>
                     <div class="row">

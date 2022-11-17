@@ -194,6 +194,13 @@ function getAll($table)
     return $query_run = mysqli_query($con, $query);
 }
 
+function getAllNotArchive($table)
+{
+    global $con;
+    $query = "SELECT * FROM $table WHERE NOT status = '2'";
+    return $query_run = mysqli_query($con, $query);
+}
+
 function getAllActive($table)
 {
     global $con;

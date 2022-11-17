@@ -39,7 +39,7 @@ include('includes/header.php');
                                     <div class="col-md-12">
                                         <input type="hidden" name="tableid" value="<?= $data['tableid']?>">
                                         <label class="mb-0">Table number</label>
-                                        <input type="text" name="table" value="<?= $data['table_number']?>" required placeholder="Example: Table 1 " class="form-control mb-2">
+                                        <input type="number" name="table" value="<?= $data['table_number']?>" required placeholder="Example: Table 1 " class="form-control mb-2">
                                     </div>
                                     <div class="col-md-12">
                                         <label class="control-label">Number Of Chairs</label>

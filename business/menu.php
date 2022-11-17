@@ -48,13 +48,14 @@ include('../config/dbcon.php');
                                     <th>Cuisine Type</th>
                                     <th>Status</th>
                                     <th>Action</th>
+                                    <th>Archive</th>
                                     <!--<th>Delete</th>-->
                                 </tr>
                             </thead>
-                            
+                            <form action="code.php" method="POST" enctype="multipart/form-data">
                             <tbody id="dataContent" style="text-align:center">
                                 <?php
-                                    $products = getAll("products");
+                                    $products = getAllNotArchive("products");
 
                                     if(mysqli_num_rows($products) > 0)
                                     {
@@ -77,6 +78,7 @@ include('../config/dbcon.php');
                                                         <!--<td>
                                                             <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>
                                                         </td>-->
+                                                        <td><button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
                                                     </tr>
                                                 <?php
                                                 }
@@ -88,6 +90,7 @@ include('../config/dbcon.php');
                                     }
                                 ?>
                             </tbody>
+                        </form>
                         </table>
                     </div>
                     <!--SCRIPT FOR SORTING-->

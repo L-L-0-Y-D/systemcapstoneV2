@@ -663,6 +663,93 @@ else if(isset($_POST['add_cuisine_btn']))
 
     }
 }
+else if(isset($_POST['archive_menu_btn']))
+{
+    $status = 2;
+    $businessid = $_POST['businessid'];
+    $productid = $_POST['archive_menu_btn'];
+
+    $update_table_query = "UPDATE products SET status= '$status' WHERE productid='$productid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 2)
+        {
+            redirect("menu.php?id=$businessid", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("menu.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("menu.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['archive_table_btn']))
+{
+    $status = 2;
+    $businessid = $_POST['businessid'];
+    $tableid = $_POST['archive_table_btn'];
+
+    $update_table_query = "UPDATE managetable SET status= '$status' WHERE tableid='$tableid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 2)
+        {
+            redirect("table.php?id=$businessid", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("table.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("table.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['archive_blockdate_btn']))
+{
+    $status = 2;
+    $businessid = $_POST['businessid'];
+    $blockdateid  = $_POST['archive_blockdate_btn'];
+
+    $update_table_query = "UPDATE blockdate SET status= '$status' WHERE blockdateid ='$blockdateid '";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 2)
+        {
+            redirect("blockdate.php?id=$businessid", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("blockdate.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("blockdate.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');

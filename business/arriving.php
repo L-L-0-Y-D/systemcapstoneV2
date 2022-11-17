@@ -91,8 +91,9 @@ include('../config/dbcon.php');
                                                                     {echo 'Declined';}  
                                                         ?></td> -->
                                                         <td>
-                                                            <button type="submit" class="btn btn-sm edit-btn" value = "<?= $item['reservationid']; ?>" name="update_arrived_btn">✓</button>
-                                                            <button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['reservationid']; ?>"  name="update_not_arrived_btn">X</button>
+                                                            <button type="submit" class="btn btn-lg btn-success" value = "<?= $item['reservationid']; ?>" name="update_arrived_btn">✓</button>
+                                                            <button type="submit" class="btn btn-l btn-danger" value = "<?= $item['reservationid']; ?>"  name="update_not_arrived_btn">X</button>
+                                                            
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
