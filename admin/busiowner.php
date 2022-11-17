@@ -5,7 +5,6 @@ include('includes/header.php');
 
 
 ?>
-
     <div class="container-fluid">
     <h4 class="text-dark">BUSINESS PARTNERS</h4>         
         <div class="card shadow">
@@ -43,7 +42,7 @@ include('includes/header.php');
                                     <th>Firstname</th>
                                     <th>Lastname</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Edit</th>
                                     <!--<th>Delete</th>-->
                                 </tr>
                             </thead>
@@ -62,8 +61,27 @@ include('includes/header.php');
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
                                                             <td class="col-md-6 col-lg-4 item">
-                                                            <img src="../certificate/<?= $item['image_cert']; ?>" width="30px" height="50px" alt="<?= $item['image_cert']; ?>">
-                                                             </td>
+                                                                <!-- Button to Open the Modal for Business Cert-->
+                                                                <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
+                                                                    <img src="../certificate/<?= $item['image_cert']; ?>" width="30px" height="50px" alt="<?= $item['image_cert']; ?>">
+                                                                </button>
+                                                                <!-- The Modal -->
+                                                                <div class="modal fade" id="myModal">
+                                                                    <div class="modal-dialog modal-sm">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <img src="../certficate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- The Close Modal -->
+                                                            </td>
                                                             <td><a href="https://google.com/maps?q=<?= $item['latitude'] ?>,<?= $item['longitude'] ?>" style="width: 100px; height: 100px;">View Location</a></td>
                                                             <td><?= $item['business_name']; ?></td>
                                                             <td><?= $item['cuisinename']; ?></td>
@@ -119,6 +137,11 @@ include('includes/header.php');
             </div>
         </div>
     </div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> 
+
 <?php 
 
 //include('../middleware/adminMiddleware.php');
