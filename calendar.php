@@ -171,16 +171,14 @@ function build_calendar($month,$year,$resourceid){
         $blockdates = $query_blockdates_run;
         $data = mysqli_fetch_array($blockdates);  
 
-        foreach($blockdates as $item)
-        {
-            $reason = $item['reason'];
+        
         //part 6 specific date
-            if($date==$item['blockdates'])
-            {
-                $calendar .= "<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>$reason</button>";
-                //part 6
-            }
+        if($date=="2022-11-01")
+        {
+            $calendar .= "<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Holiday</button>";
+            //part 6
         }
+        //  }
         // elseif($dayname=='sunday')
         // {   // specific day
         //     $calendar .= "<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>No Work</button>";
@@ -191,7 +189,7 @@ function build_calendar($month,$year,$resourceid){
         //     $calendar .= "<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>No Work</button>";
         //     //end part 6
         // }
-        if($date<date('Y-m-d'))
+        elseif($date<date('Y-m-d'))
         {
             $calendar .= "<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
         }
