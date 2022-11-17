@@ -13,7 +13,8 @@ include('../config/dbcon.php');
         <a class="btn btn-primary float-end" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Menu</a></h4>
         <div class="card shadow">
             <div class="card-body" id="products_table">
-                <div class="row">   
+                <div class="row"> 
+                    <!--SORTING-->  
                     <div class="col-md-6 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                             <label class="form-label">Sorted by:&nbsp;
