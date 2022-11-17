@@ -7,7 +7,7 @@ include('includes/header.php');
 ?>
     <div class="container-fluid">
         <h4 class="text-dark">Admin's List
-        <a class="btn btn-primary btn-sm float-end" role="button" href="add-admin.php" id="addbtn">Add Admin</a></h4>
+        <a class="btn btn-primary float-end" role="button" href="add-admin.php" id="addbtn">Add Admin</a></h4>
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >
                 <div class="row">
@@ -36,7 +36,7 @@ include('includes/header.php');
                                     <th>Age</th>
                                     <th>Status</th>
                                     <th>Role</th>
-                                    <th>Edit</th>
+                                    <th>Action</th>
                                     <!-- <th>Delete</th> -->
                                     </tr>
                                 </thead>
@@ -69,7 +69,7 @@ include('includes/header.php');
                                                                 ?></td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
-                                                            <a href="edit-admin.php?id=<?= $item['userid']; ?>" class="btn edit-btn"><i class="fas fa-edit"></i></a>
+                                                            <a href="edit-admin.php?id=<?= $item['userid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>

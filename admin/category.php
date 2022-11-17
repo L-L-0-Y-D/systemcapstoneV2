@@ -30,7 +30,7 @@ include('includes/header.php');
                                     <tr>
                                         <th>Cuisine</th>
                                         <th>Status</th>
-                                        <th>Edit</th>
+                                        <th>Action</th>
                                         <!-- <th>Delete</th> -->
                                     </tr>
                                 </thead>
@@ -49,7 +49,7 @@ include('includes/header.php');
                                                         <td><?= $item['categoryname']; ?></td>
                                                         <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
                                                         <td>
-                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-edit"></i></a>
+                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>

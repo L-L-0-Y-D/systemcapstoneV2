@@ -16,8 +16,8 @@
                     <li class="nav-item"><a class="nav-link <?= $page == "category.php"? 'active':'';  ?>" href="category.php"><i class="fas fa-bookmark"></i><span class="align-middle">&nbsp;Category</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "municipality.php"? 'active':'';  ?>" href="municipality.php"><i class="fas fa-map-marker"></i><span class="align-middle">&nbsp;Municipality</span></a></li>
                     <li class="nav-item"><a class="nav-link <?= $page == "menu.php"? 'active':'';  ?>" href="menu.php"><i class="fas fa-store"></i><span class="align-middle">&nbsp;Menu</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "reservation.php"? 'active':'';  ?>" href="reservation.php"><i class="far fa-calendar alt"></i><span class="align-middle">&nbsp;Reservation</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?= $page == "feedback.php"? 'active':'';  ?>" href="feedback.php"><i class="fas fa-list-alt"></i><span class="align-middle">&nbsp;Feedback</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?= $page == "reservation.php"? 'active':'';  ?>" href="reservation.php"><i class="fas fa-list"></i><span class="align-middle">&nbsp;Reservation</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?= $page == "feedback.php"? 'active':'';  ?>" href="feedback.php"><i class="far fa-file-alt"></i><span class="align-middle">&nbsp;Feedback</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="margin-left: 35px;"></button></div>
             </div>

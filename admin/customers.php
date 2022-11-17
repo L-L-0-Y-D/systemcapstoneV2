@@ -35,7 +35,7 @@ include('includes/header.php');
                                     <th>Age</th>
                                     <th>Status</th>
                                     <th>Role</th>
-                                    <th>Edit</th>
+                                    <th>Action</th>
                                     <!--<th>Delete</th>-->
                                     </tr>
                                 </thead>
@@ -69,7 +69,7 @@ include('includes/header.php');
                                                         </td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
-                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-edit"></i></a>
+                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <td>
                                                            <!-- <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>-->

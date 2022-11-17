@@ -9,7 +9,7 @@ include('includes/header.php');
 ?>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-9">
+    <div class="col-md-6">
         <?php 
             if(isset($_GET['id']))
             {

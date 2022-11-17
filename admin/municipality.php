@@ -17,7 +17,7 @@ include('includes/header.php');
                             <th>Municipality</th>
                             <th>Image</th>
                             <th>Status</th>
-                            <th>Edit</th>
+                            <th>Action</th>
                             <!-- <th>Delete</th> -->
                         </tr>
                         </thead>
@@ -38,7 +38,7 @@ include('includes/header.php');
                                             </td>
                                             <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
                                            <td>
-                                               <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-edit"></i></a>
+                                               <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                            </td>
                                            <!-- <td>
                                                <button type="button" class="btn btn-sm btn-danger delete_municipality_btn" value="<?= $item['municipalityid']; ?>" >Delete</button>

@@ -43,7 +43,7 @@ include('includes/header.php');
                                     <th>Firstname</th>
                                     <th>Lastname</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
+                                    <th>Action</th>
                                     <!--<th>Delete</th>-->
                                 </tr>
                             </thead>
@@ -81,7 +81,7 @@ include('includes/header.php');
                                                                     {echo 'Declined';}  
                                                                 ?></td>
                                                             <td>
-                                                            <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-edit"></i></a>
+                                                            <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                             </td>
                                                         <td>
                                                             <!--<button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>-->

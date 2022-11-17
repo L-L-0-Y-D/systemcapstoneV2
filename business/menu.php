@@ -38,7 +38,7 @@ include('../config/dbcon.php');
                                     <th>Course Menu</th>
                                     <th>Cuisine Type</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
+                                    <th>Action</th>
                                     <!--<th>Delete</th>-->
                                 </tr>
                             </thead>
@@ -63,7 +63,7 @@ include('../config/dbcon.php');
                                                         <td><?= $item['cuisinename']; ?></td>
                                                         <td><?= $item['status']== '0'? "Sold Out":"Available"  ?></td>
                                                         <td>
-                                                            <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn"><i class="fas fa-edit"></i></a>
+                                                            <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <!--<td>
                                                             <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>

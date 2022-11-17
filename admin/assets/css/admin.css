@@ -72,7 +72,7 @@ body {
 label {
     margin:3px 10px;
 }
-input {
+input ,.form-control, .form-select {
     font-size: smaller!important;
 }
 input:focus, textarea:focus, select:focus, option:focus {
