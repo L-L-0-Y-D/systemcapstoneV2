@@ -115,7 +115,7 @@ include('includes/header.php');
                                             <div class="col-md-12 mb-4">
                                                 <div class="card shadow mb-4">
                                                     <div class="card-header py-3">
-                                                        <h6 class="text-primary fw-bold m-0"><br><strong>TOTAL USERS</strong><br></h6>
+                                                        <h6 class="text-primary fw-bold mb-3"><br><strong>TOTAL USERS</strong><br></h6>
                                                     </div>
                                                     <div class="card-body">
                                                         <table class="table my-0" id="dataTable" style="text-align:center">
@@ -165,7 +165,7 @@ include('includes/header.php');
                                         <div class="col-md-12 mb-4">
                                             <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h6 class="text-primary fw-bold m-0"><br><strong>TOTAL BUSINESS</strong><br></h6>
+                                                    <h6 class="text-primary fw-bold mb-3"><br><strong>TOTAL BUSINESS</strong><br></h6>
                                                 </div>
                                                 <div class="card-body">
                                                     <table class="table my-0" id="dataTable" style="text-align:center">
@@ -217,7 +217,7 @@ include('includes/header.php');
                                             <div class="col">
                                                 <div class="card shadow mb-4">
                                                     <div class="card-header py-3">
-                                                        <h6 class="text-primary fw-bold m-0"><br><strong>PENDING BUSINESS CONFIRM</strong><br></h6>
+                                                        <h6 class="text-primary fw-bold mb-3"><br><strong>PENDING BUSINESS CONFIRM</strong><br></h6>
                                                     </div>
                                                     <div class="card-body">
                                                         <table class="table my-0" id="dataTable" style="text-align:center">
@@ -271,7 +271,7 @@ include('includes/header.php');
                                             <div class="col">
                                                 <div class="card shadow mb-4">
                                                     <div class="card-header py-3">
-                                                        <h6 class="text-primary fw-bold m-0"><br><strong>TOTAL CUISINES</strong><br></h6>
+                                                        <h6 class="text-primary fw-bold mb-3"><br><strong>TOTAL CUISINES</strong><br></h6>
                                                     </div>
                                                     <div class="card-body">
                                                     <table class="table my-0" id="dataTable" style="text-align:center">
