@@ -105,7 +105,7 @@ function build_calendar($month,$year,$resourceid){
     //Add
    
     
-    $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE businessid = ?");
+    $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE businessid = ? AND status = '1'");
     $stmt -> bind_param('i', $id);
     if($stmt -> execute())
     {

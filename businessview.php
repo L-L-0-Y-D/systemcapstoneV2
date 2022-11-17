@@ -326,7 +326,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
@@ -407,7 +407,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
@@ -488,7 +488,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
@@ -569,7 +569,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
@@ -649,7 +649,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
@@ -730,7 +730,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
@@ -811,7 +811,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
@@ -892,7 +892,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
@@ -973,7 +973,7 @@
                                         </div>                               
                                         <?php
                                             }
-                                            else
+                                            elseif( $item['status'] == '0')
                                             {
                                         ?>
                                         <div class="col-md-3">
