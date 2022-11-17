@@ -52,7 +52,7 @@ include('../config/dbcon.php');
                                 </tr>
                             </thead>
                             
-                            <tbody style="text-align:center">
+                            <tbody id="dataContent" style="text-align:center">
                                 <?php
                                     $products = getAll("products");
 
@@ -94,7 +94,7 @@ include('../config/dbcon.php');
                         <script>
                         function myFunction() {
                         var x = document.getElementById("mySelect").value;
-                        document.getElementById("dataTable").innerHTML = x;
+                        document.getElementById("dataContent").innerHTML = x;
                         }
                         </script>
 
