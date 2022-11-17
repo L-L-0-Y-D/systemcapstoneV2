@@ -53,9 +53,11 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 order-lg-1">
-                            <div class="p-5"><video width="450" height="315" controls="" autoplay="">
-                                    <source type="video/webm">
-                                </video></div>
+                            <div class="p-5">
+                                <video width="450" height="315" controls="">
+                                    <source src="uploads/vidclip.mp4" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
                         <div class="col-lg-6 order-lg-2" style="background: url(&quot;uploads/book.png&quot;) top left no-repeat;">
                             <div class="p-5">

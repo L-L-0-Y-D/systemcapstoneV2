@@ -13,14 +13,23 @@ include('../config/dbcon.php');
         <a class="btn btn-primary float-end" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Menu</a></h4>
         <div class="card shadow">
             <div class="card-body" id="products_table">
-                <div class="row">
+                <div class="row"> 
+                    <!--SORTING-->  
                     <div class="col-md-6 text-nowrap">
-                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
-                            <option value="10" selected="">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                            </select>&nbsp;</label>
+                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                            <label class="form-label">Sorted by:&nbsp;
+                                <select  id="mySelect" onchange="myFunction()" class="d-inline-block form-select form-select-sm">
+                                    <option value="all" selected="">All Menu</option>
+                                    <option value="main">Main Course</option>
+                                    <option value="appetizer">Appetizer</option>
+                                    <option value="soup">Soup</option>
+                                    <option value="fishdish">Fish Dish</option>
+                                    <option value="meatdish">Meat Dish</option>
+                                    <option value="salad">Salad</option>
+                                    <option value="dessert">Dessert</option>
+                                    <option value="drinks">Drinks</option>
+                                </select>
+                            </label>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -38,7 +47,7 @@ include('../config/dbcon.php');
                                     <th>Course Menu</th>
                                     <th>Cuisine Type</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
+                                    <th>Action</th>
                                     <!--<th>Delete</th>-->
                                 </tr>
                             </thead>
@@ -63,7 +72,7 @@ include('../config/dbcon.php');
                                                         <td><?= $item['cuisinename']; ?></td>
                                                         <td><?= $item['status']== '0'? "Sold Out":"Available"  ?></td>
                                                         <td>
-                                                            <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-sm edit-btn">Edit</a>
+                                                            <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <!--<td>
                                                             <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>
@@ -81,6 +90,14 @@ include('../config/dbcon.php');
                             </tbody>
                         </table>
                     </div>
+                    <!--SCRIPT FOR SORTING-->
+                        <script>
+                        function myFunction() {
+                        var x = document.getElementById("mySelect").value;
+                        document.getElementById("dataTable").innerHTML = x;
+                        }
+                        </script>
+
                     <div class="row">
                         <div class="col-md-6 align-self-center">
                             <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>

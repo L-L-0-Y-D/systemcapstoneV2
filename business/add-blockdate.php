@@ -16,11 +16,11 @@ if(isset($_GET['id']))
 ?>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-9">
+    <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h4>Block date
-          <a href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-close float-end"></a></h4>
+          <h4>Add Block Date
+          <a href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a></h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">

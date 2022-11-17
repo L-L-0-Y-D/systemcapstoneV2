@@ -9,15 +9,19 @@
     <title>Dashboard | I- Eat</title>
     <!-- Favicon -->
     <link rel="icon" href="../uploads/favicon.ico"/>
-    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5.min.css">
+    <link rel="stylesheet" href="form.css"> 
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="assets/css/material-dashboard.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="form.css"> 
     <link rel="stylesheet" href="assets/css/business.css">
     <!-- Alertify js CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -34,7 +38,7 @@
       }
 </style>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 
 <body id="page-top">

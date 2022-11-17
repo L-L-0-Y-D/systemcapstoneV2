@@ -7,9 +7,7 @@ include('includes/header.php');
 ?>
 
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">BUSINESS PARTNERS</h3>         
-        </div>
+    <h4 class="text-dark">BUSINESS PARTNERS</h4>         
         <div class="card shadow">
             <div class="card-body" id="business_table">
                 <div class="row">
@@ -45,8 +43,8 @@ include('includes/header.php');
                                     <th>Firstname</th>
                                     <th>Lastname</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Action</th>
+                                    <!--<th>Delete</th>-->
                                 </tr>
                             </thead>
                             
@@ -63,9 +61,9 @@ include('includes/header.php');
                                                 ?>
                                                     <tr>
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
-                                                        <td class="col-md-6 col-lg-4 item">
-                                                            <a href="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>">
-                                                            <img class="img-thumbnail img-fluid image" src="../certificate/<?= $item['image_cert']; ?>" width="50px" height="50px" alt="<?= $item['image_cert']; ?>"> </td>
+                                                            <td class="col-md-6 col-lg-4 item">
+                                                            <img src="../certificate/<?= $item['image_cert']; ?>" width="30px" height="50px" alt="<?= $item['image_cert']; ?>">
+                                                             </td>
                                                             <td><a href="https://google.com/maps?q=<?= $item['latitude'] ?>,<?= $item['longitude'] ?>" style="width: 100px; height: 100px;">View Location</a></td>
                                                             <td><?= $item['business_name']; ?></td>
                                                             <td><?= $item['cuisinename']; ?></td>
@@ -83,10 +81,10 @@ include('includes/header.php');
                                                                     {echo 'Declined';}  
                                                                 ?></td>
                                                             <td>
-                                                            <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm btn-primary">View</a>
+                                                            <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                             </td>
                                                         <td>
-                                                            <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>
+                                                            <!--<button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>-->
                                                         </td>
                                                     </tr>
                                                 <?php

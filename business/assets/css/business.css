@@ -1,4 +1,4 @@
-* {
+body {
     font-family: Monsterrat!important;
 }
 .scroll-to-top:hover {
@@ -10,9 +10,10 @@
     color:darkgrey;
     padding-right: 10px;
 }
-.back:hover {
+.back:hover, .back:focus {
     font-weight: bolder;
     color: inherit;
+    box-shadow: none!important;
 }
 .btn-primary {
     color:white;
@@ -28,24 +29,24 @@
 }
 .update-btn {
     color:white;
-    background-color: rgb(214, 214, 12)!important;
+    background-color: rgb(0, 152, 212)!important;
     border:none;
 }
 .update-btn:hover {
     color:white;
-    background-color:darkgoldenrod!important;
+    background-color:rgb(17, 17, 255)!important;
     border:none;
     box-shadow:none!important;
 }
 .edit-btn {
-    color:white;
-    background-color: rgb(46, 46, 235)!important;
-    border:none;
+    color:grey;
+    background-color: #fff!important;
+    border:grey 1px solid;
+    padding:10px!important;
 }
 .edit-btn:hover {
     color:white;
-    background-color:darkblue!important;
-    border:none;
+    background-color:grey!important;
     box-shadow:none!important;
 }
 .save-btn {
@@ -62,13 +63,20 @@
 .btn-danger {
     color:white;
     background-color: rgb(247, 58, 58)!important;
-    border:none;
+    border:rgb(247, 58, 58) 1px solid !important;
+    padding:10px 13px!important;
+}
+.btn-danger:hover {
+    color:white;
+    background-color:rgb(223, 13, 13)!important;
+    border:rgb(223, 13, 13) 1px solid !important;
+    box-shadow:none!important;
 }
 .form-check {
     margin:5px 10px;
 
 }
-input {
+input , .form-control, .form-select {
     font-size: smaller!important;
 }
 input:focus, textarea:focus, select:focus, option:focus {
@@ -108,10 +116,10 @@ h6 {
     color:rgb(11, 194, 11)!important ;
 }
 .second-tab {
-    color: rgb(214, 214, 12)!important;
+    color: rgb(0, 152, 212)!important;
 }
 .third-tab {
-    color: rgb(46, 46, 235)!important;
+    color: grey!important;
 }
 .fourth-tab {
     color: rgb(255, 128, 64)!important;

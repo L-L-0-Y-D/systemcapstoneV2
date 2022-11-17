@@ -27,7 +27,7 @@ include('includes/header.php');
         <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-header py-3">
-                    <h6 class="text-primary fw-bold m-0">Upload Profile</h6>
+                    <h6 class="text-primary fw-bold">Upload Profile</h6>
                 </div>
                 <div class="card-body text-center shadow">
                     <img class="rounded-circle mb-3 mt-4" src="../uploads/<?= $data['image'] ?>" width="160" height="160">
@@ -37,7 +37,7 @@ include('includes/header.php');
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="text-primary fw-bold m-0">Business Time</h6>
+                    <h6 class="text-primary fw-bold">Business Time</h6>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -62,7 +62,7 @@ include('includes/header.php');
             </div>
             <div class="card shadow mb-4">                  
                 <div class="card-header py-3">
-                    <h6 class="text-primary fw-bold m-0">Business Certificate</h6>
+                    <h6 class="text-primary fw-bold">Business Certificate</h6>
                 </div>
                 <div class="card-body text-center shadow">
                     <a href="../certificate/<?= $data['image_cert'] ?>">   
@@ -77,7 +77,7 @@ include('includes/header.php');
                 <div class="col">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Business Information</p>
+                            <p class="text-primary fw-bold">Business Information</p>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -159,7 +159,7 @@ include('includes/header.php');
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Business Owner Details</p>
+                            <p class="text-primary fw-bold">Business Owner Details</p>
                         </div>
                         <div class="card-body">                            
                             <div class="row">
@@ -198,7 +198,7 @@ include('includes/header.php');
                                 <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-sm save-btn" type="submit" name="edit_business_btn">UPDATE BUSINESS PROFILE</button>
+                                <button class="btn update-btn" type="submit" name="edit_business_btn">Update Business Profile</button>
                             </div>
                         </div>
                     </div>

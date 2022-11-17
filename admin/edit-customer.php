@@ -7,8 +7,8 @@ include('includes/header.php');
 ?>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
         <?php 
         if(isset($_GET['id']))
         {
@@ -24,18 +24,20 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                 <h4>Edit Customer Information
-                    <a href="customers.php" class="btn btn-primary float-end">Back</a>
+                    <a href="customers.php" class="back btn-sm btn-close float-end"></a>
                 </h4>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
-                                <div class="col-md-12">
-                                <label for="">Upload Image</label>
-                                <input type="file" name="image" class="form-control" disabled>
+                            <div class="col-md-6">
                                 <label for="">Current Image</label>
-                                <img src="../uploads/<?= $data['image'] ?>" height="50px" width="50px">
+                                <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Update Image</label>
+                                <input type="file" name="image" class="form-control" disabled>                               
                             </div>
                             <div class="col-md-6">
                                 <!--Needed-->
@@ -44,7 +46,7 @@ include('includes/header.php');
                                 <input type="text" name="name" required value="<?= $data['name'] ?>" placeholder="Enter Username" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Email</label>
+                                <label for="">Email Address</label>
                                 <input type="email" name="email" required value="<?= $data['email'] ?>" placeholder="Enter Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
@@ -98,7 +100,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary" name="update_customer_btn">Save</button>
+                                <button type="submit" class="btn update-btn" name="update_customer_btn">Update</button>
                             </div>
                         </div>
                     </form>

@@ -5,8 +5,8 @@ include('includes/header.php');
 
 ?>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
         <?php 
         if(isset($_GET['id']))
         {
@@ -22,7 +22,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                 <h4>Change Password
-                    <a href="index.php" class="btn btn-primary float-end" style="background:rgb(255,128,64); border:none;">Back</a>
+                    <a href="index.php" class="back btn-sm btn-close float-end"></a>
                 </h4>   
                 </div>
                 <div class="card-body">
@@ -31,18 +31,18 @@ include('includes/header.php');
                             <div class="col-md-12">
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
                                 <label for="">Current Password</label>
-                                <input type="password" name="oldpassword" placeholder="Enter Current Password" class="form-control" required>
+                                <input type="password" name="oldpassword" class="form-control" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="">New Password</label>
-                                <input type="password" name="password" placeholder="Enter New Password" class="form-control" required>
+                                <input type="password" name="password" class="form-control" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Confirm Password</label>
-                                <input type="password" name="confirmpassword" placeholder="Enter Confirm New Password" class="form-control" required>
+                                <input type="password" name="confirmpassword" class="form-control" required>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class=" mt-2 btn btn-primary" name="edit_password_btn" style="background:rgb(255,128,64); border:none;">Update Password</button>
+                                <button type="submit" class="btn update-btn mt-2" name="edit_password_btn" >Update Password</button>
                             </div>
                             </div>
                     </form>

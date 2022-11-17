@@ -16,11 +16,11 @@ if(isset($_GET['id']))
 ?>
 <div class="container">
   <div class="row  justify-content-center">
-    <div class="col-md-9">
+    <div class="col-md-6">
       <div class="card">
         <div class="card-header">
           <h4>Add Products
-          <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-close float-end"></a></h4>
+          <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a></h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">

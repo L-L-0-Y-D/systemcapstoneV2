@@ -6,10 +6,8 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">Cuisine List</h3>
-            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-category.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Cuisine Type</a>
-        </div>
+            <h4 class="text-dark mb-4">Cuisines List
+            <a class="btn btn-primary float-end" role="button" href="add-category.php" id="addbtn">Add Cuisine Type</a></h4>
         <div class="card shadow">
             <div class="card-body" id = "category_table">
                 <div class="row">
@@ -32,7 +30,7 @@ include('includes/header.php');
                                     <tr>
                                         <th>Cuisine</th>
                                         <th>Status</th>
-                                        <th>Edit</th>
+                                        <th>Action</th>
                                         <!-- <th>Delete</th> -->
                                     </tr>
                                 </thead>
@@ -51,7 +49,7 @@ include('includes/header.php');
                                                         <td><?= $item['categoryname']; ?></td>
                                                         <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
                                                         <td>
-                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm btn-primary">View</a>
+                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
@@ -69,9 +67,7 @@ include('includes/header.php');
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row">
-            
-                            <div>
+                        <div class="row justify-content-end">
                             <div class="col-md-6">
                                 <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                     <ul class="pagination">
@@ -88,7 +84,6 @@ include('includes/header.php');
                 </div>
             </div>
         </div>
-    </div>
 <?php 
 
 //include('../middleware/adminMiddleware.php');

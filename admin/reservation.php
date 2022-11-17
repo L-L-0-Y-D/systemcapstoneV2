@@ -6,9 +6,7 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">Reservation</h3>   
-        </div>
+        <h4 class="text-dark mb-4">Reservation</h4>   
         <div class="card shadow">
             <div class="card-body" id="products_table">
                 <div class="row">

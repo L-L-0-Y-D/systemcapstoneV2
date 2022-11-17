@@ -6,10 +6,8 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">Municipality List</h3>
-            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-municipality.php" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Municipality</a>
-        </div>
+            <h4 class="text-dark mb-4">Municipality List
+            <a class="btn btn-primary float-end" role="button" href="add-municipality.php" id="addbtn">Add Municipality</a></h4>
         <div class="card shadow">
             <div class="card-body">
                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -19,7 +17,7 @@ include('includes/header.php');
                             <th>Municipality</th>
                             <th>Image</th>
                             <th>Status</th>
-                            <th>Edit</th>
+                            <th>Action</th>
                             <!-- <th>Delete</th> -->
                         </tr>
                         </thead>
@@ -40,7 +38,7 @@ include('includes/header.php');
                                             </td>
                                             <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
                                            <td>
-                                               <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm btn-primary">View</a>
+                                               <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                            </td>
                                            <!-- <td>
                                                <button type="button" class="btn btn-sm btn-danger delete_municipality_btn" value="<?= $item['municipalityid']; ?>" >Delete</button>

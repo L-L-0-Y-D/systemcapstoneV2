@@ -129,7 +129,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                             <div class="col-lg-6 mb-4">
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="text-primary fw-bold m-0"><br><strong>OVERALL RESERVATION</strong><br></h6>
+                                        <h6 class="text-primary fw-bold"><br><strong>OVERALL RESERVATION</strong><br></h6>
                                     </div>
                                     <div class="card-body">
                                     <table class="table my-0" id="dataTable" style="text-align:center">
@@ -190,7 +190,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                             <div class="col-lg-6 mb-4">
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="text-primary fw-bold m-0"><br><strong>PENDING RESERVATION</strong><br></h6>
+                                        <h6 class="text-primary fw-bold"><br><strong>PENDING RESERVATION</strong><br></h6>
                                     </div>
                                     <div class="card-body">
                                         <table class="table my-0" id="dataTable" style="text-align:center">
@@ -255,7 +255,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                             <div class="col">
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="text-primary fw-bold m-0"><br><strong>FEEDBACK AND REVIEW</strong><br></h6>
+                                        <h6 class="text-primary fw-bold"><br><strong>FEEDBACK AND REVIEW</strong><br></h6>
                                     </div>
                                     <div class="card-body">
                                     <table class="table my-0" id="dataTable">

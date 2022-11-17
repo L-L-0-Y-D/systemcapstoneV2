@@ -6,9 +6,7 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-4">CUSTOMER'S LIST</h3>
-        </div>
+            <h4 class="text-dark">CUSTOMER'S LIST</h4>
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >
                 <div class="row">
@@ -37,8 +35,8 @@ include('includes/header.php');
                                     <th>Age</th>
                                     <th>Status</th>
                                     <th>Role</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Action</th>
+                                    <!--<th>Delete</th>-->
                                     </tr>
                                 </thead>
                             
@@ -71,10 +69,10 @@ include('includes/header.php');
                                                         </td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
-                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm btn-primary">View</a>
+                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <td>
-                                                            <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>
+                                                           <!-- <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>-->
                                                         </td>
                                                     </tr>
                                                 <?php

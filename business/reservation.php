@@ -52,7 +52,7 @@ include('../config/dbcon.php');
                                     <th>Reservation Date</th>
                                     <th>Reservation Time</th>
                                     <th>Status</th>
-                                    <th>Update</th>
+                                    <th>Action</th>
                                     <!-- <th>Delete</th> -->
                                 </tr>
                             </thead>
@@ -87,7 +87,7 @@ include('../config/dbcon.php');
                                                                     {echo 'Declined';}  
                                                         ?></td>                                                                                                         
                                                         <td>
-                                                            <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn btn-sm update-btn">Update</a>
+                                                            <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
