@@ -1,0 +1,92 @@
+.nav-justified > .nav-link, .nav-justified .nav-item {
+  flex-basis: 0;
+  flex-grow: 1;
+  margin:5px!important;
+  text-align: left;
+  border-radius: 10px!important;
+}
+
+.text-dark {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
+  text-align: left!important;
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  padding: 20px!important;
+}
+.nav {
+  --bs-nav-link-padding-x: 0!important;
+  --bs-nav-link-padding-y: 0!important;
+  --bs-nav-link-color: var(--bs-link-color);
+  --bs-nav-link-hover-color: var(--bs-link-hover-color);
+  --bs-nav-link-disabled-color: #858796;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-width: 1px;
+  --bs-nav-tabs-border-color: #dddfeb;
+  --bs-nav-tabs-border-radius: 3rem;
+  --bs-nav-tabs-link-hover-border-color: #fff!important;
+  --bs-nav-tabs-link-active-color: #6e707e;
+  --bs-nav-tabs-link-active-bg: #fff;
+  --bs-nav-tabs-link-active-border-color: #fff!important;
+  border-bottom: none!important;
+  margin-bottom: 0px!important;
+}
+
+#totalreservation .card {
+  color: #36b9cc;
+}
+#totalreservation .card:hover {
+  font-size: 18px!important;
+}
+#pendingreservation .card {
+  color: #1cc88a;
+}
+#pendingreservation .card:hover {
+  font-size: 18px!important;
+}
+#totalmenu .card {
+  padding-bottom:9px!important;
+  color: #e74a3b;
+}
+#totalmenu .card:hover {
+  font-size: 18px!important;
+}
+#rating .card {
+  color: #f6c23e;
+}
+#rating .card:hover {
+  font-size: 18px!important;
+}
+
+.nav-tabs .nav-link {
+  margin-bottom: calc(var(--bs-nav-tabs-border-width) * -1);
+  background: none;
+  border: var(--bs-nav-tabs-border-width) solid transparent;
+  border-top-left-radius: var(--bs-nav-tabs-border-radius);
+  border-top-right-radius: var(--bs-nav-tabs-border-radius);
+  color: var(--bs-gray-dark);
+  height:118px;
+}
+.nav-tabs .nav-link.active {
+  margin:0px!important;
+  padding:0px!important;
+  background-color:rgb(252, 252, 252)!important;
+
+}
+.tab-pane {
+  margin-top:30px;
+}
+h6 {
+  font-weight: bold;
+  font-size: large;
+}
+
