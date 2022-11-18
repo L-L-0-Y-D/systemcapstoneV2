@@ -285,7 +285,7 @@ if(isset($_GET['id']))
                     // alert(data);
                     //redirect('your_reservation.php?id=$id', 'No Reservation Found', 'warning');
                     swal({
-                    title: "Review Success",
+                    title: data,
                     icon: "success",
                     button: "Okay",
                     });
