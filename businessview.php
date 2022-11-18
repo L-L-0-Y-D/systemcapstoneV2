@@ -1029,7 +1029,7 @@
                     <div class="row">
                         <div class="col-sm-6 text-center">
                             <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
-                                <i class="fas fa-star fa-sm"> </i><b><span id="average_rating">0.0</span> / 5</b>
+                                <i class="fas fa-star fa-sm"> </i><b><span id="average_rating">0</span> / 5</b>
                             </h1>
                             <!-- <?php
                                 // $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
