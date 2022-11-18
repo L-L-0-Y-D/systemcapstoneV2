@@ -54,7 +54,7 @@ if(isset($_POST["rating_data"]))
 		$id = $_GET['id'];
 		$businessid = $id;
 		$userid = 0;
-		$average_rating = 0;
+		$average_rating = 0.0;
 		$total_review = 0;
 		$five_star_review = 0;
 		$four_star_review = 0;
