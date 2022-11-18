@@ -1028,9 +1028,26 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 text-center">
-                            <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
-                                <i class="fas fa-star fa-sm"> </i><b><span id="average_rating">0</span> / 5</b>
-                            </h1>
+                            <?php 
+                                $query_rating_count = "SELECT * FROM review_table WHERE businessid = $id";
+                                $query_rating_count_run = mysqli_query($con, $query_rating_count);
+                                $row_rating_count = mysqli_num_rows($query_rating_count_run);
+                                if($row_rating_count > 0)
+                                { 
+                            ?>
+                                <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
+                                    <i class="fas fa-star fa-sm"> </i><b><span id="average_rating">0</span> / 5</b>
+                                </h1>
+                            <?php
+                                }else
+                                {
+                            ?>
+                                <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
+                                    <i class="fas fa-star fa-sm"> </i><b><span>0</span> / 5</b>
+                                </h1>  
+                            <?php
+                                }
+                            ?>
                             <!-- <?php
                                 // $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                                 // $query_rating_run = mysqli_query($con, $query_rating);
