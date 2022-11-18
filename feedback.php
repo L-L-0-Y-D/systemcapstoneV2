@@ -83,7 +83,7 @@ if(isset($_GET['id']))
                 </nav>
             </div>
         </nav>
-<section class="login ">
+<section class="feedback ">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-9 col-xl-5">
@@ -95,7 +95,7 @@ if(isset($_GET['id']))
                                     <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                                 </map>
                             </div>
-                            <form class="text-center" method="post" action="functions/authcode.php">
+                            <!-- <form class="text-center" method="post" action="functions/authcode.php"> -->
                                 <div class="col-md-12">                          
                                     <h3 class="modal-title text-center">How was <?= $data['business_name'] ?> ?</h3>
                                     <p>We appreciate feedback about your experience.</p><hr>
@@ -147,7 +147,7 @@ if(isset($_GET['id']))
 										
                                         
 									?>
-                            </form> 
+                            <!-- </form>  -->
                         </div>
                     </div>
                 </div>

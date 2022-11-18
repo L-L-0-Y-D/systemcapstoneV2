@@ -37,6 +37,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
+    <script src="assets/autocomplete.js"></script>
     <title>I-EAT </title> 
 
     <!-- Favicon -->
