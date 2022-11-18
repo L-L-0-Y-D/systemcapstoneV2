@@ -83,10 +83,10 @@ if(isset($_GET['id']))
                 </nav>
             </div>
         </nav>
-<section class="feedback">
+<section class="login ">
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="col-md-9 col-xl-5">
+                <div class="col-md-6 col-xl-4">
                     <div class="card mb-5">
                         <div class="card-body flex-column">
                             <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-3" >
@@ -97,9 +97,7 @@ if(isset($_GET['id']))
                             </div>
                             <form class="text-center" method="post" action="functions/authcode.php">
                                 <div class="col-md-12">                          
-                                    <h3 class="modal-title text-center">How was <?= $data['business_name'] ?> ?</h3>
-                                    <p>We appreciate feedback about your experience.</p><hr>
-                                    <h5 class="modal-title text-center">How likely are  you to recommend the <?= $data['business_name'] ?> to others?</h5>
+                                    <h5 class="modal-title text-center">Submit Review</h5>
                                 </div>
                                 <?php 
                                     if(mysqli_num_rows($result_review) > 0)
@@ -126,7 +124,7 @@ if(isset($_GET['id']))
                                         <input type="text" readonly name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" value="<?= $_SESSION['auth_user']['name']?>" />
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="user_review" id="user_review" class="form-control" placeholder="Share your experience or after the suggestions to the staff.."></textarea>
+                                        <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
                                     </div>
                                     <div class="form-group text-center mt-4">
                                         <button type="button" class="btn btn-primary" id="save_review">Submit</button>
@@ -147,7 +145,7 @@ if(isset($_GET['id']))
 										
                                         
 									?>
-                            <!-- </form>  -->
+                            </form> 
                         </div>
                     </div>
                 </div>
