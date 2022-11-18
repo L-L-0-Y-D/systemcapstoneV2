@@ -72,10 +72,13 @@ $(document).ready(function(){
 
         var user_review = $('#user_review').val();
 
-        if(user_name == '' || user_review == '')
+        if(user_name == '' || user_review == '' || rating_data == 0)
         {
-            // $_SESSION['Please Fill Both Field'];
-            alert("Please Fill Both Field");
+            swal({
+            title: "Please fill all fields",
+            icon: "warning",
+            button: "Okay",
+            });
             return false;
         }
         else
@@ -83,7 +86,7 @@ $(document).ready(function(){
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
-                data:{rating_data:rating_data, userid:userid, businessid:businessid, tableid:tableid, review_status:review_status, user_name:user_name, user_review:user_review},
+                data:{rating_data:rating_data, userid:userid, businessid:businessid, reservationid:reservationid, review_status:review_status, user_name:user_name, user_review:user_review},
                 success:function(data)
                 {
                     $('#review_modal').modal('hide');
@@ -91,7 +94,14 @@ $(document).ready(function(){
                     load_rating_data();
 
                     // alert(data);
+                    //redirect('your_reservation.php?id=$id', 'No Reservation Found', 'warning');
+                    swal({
+                    title: "Review Success",
+                    icon: "success",
+                    button: "Okay",
+                    });
                     window.location = 'your_reservation.php?id=' + userid;
+
 
                 }
             })
