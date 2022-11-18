@@ -125,8 +125,9 @@ if(isset($_POST["rating_data"]))
 			'one_star_review'	=>	$one_star_review,
 			'review_data'		=>	$review_content
 		);
+		$result = array_filter($output);
 
-		echo json_encode($output);
+		echo json_encode($result);
 
 	}
 		
