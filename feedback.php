@@ -97,7 +97,9 @@ if(isset($_GET['id']))
                             </div>
                             <form class="text-center" method="post" action="functions/authcode.php">
                                 <div class="col-md-12">                          
-                                    <h5 class="modal-title text-center">Submit Review</h5>
+                                    <h3 class="modal-title text-center">How was <?= $data['business_name'] ?> ?</h3>
+                                    <p>We appreciate feedback about your experience.</p><hr>
+                                    <h5 class="modal-title text-center">How likely are  you to recommend the <?= $data['business_name'] ?> to others?</h5>
                                 </div>
                                 <?php 
                                     if(mysqli_num_rows($result_review) > 0)
