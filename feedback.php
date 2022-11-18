@@ -289,7 +289,7 @@ if(isset($_GET['id']))
                     icon: "success",
                     button: "Okay",
                     });
-                    window.location = 'your_reservation.php?id=' + userid;
+                    window.location = 'index.php';
 
 
                 }
