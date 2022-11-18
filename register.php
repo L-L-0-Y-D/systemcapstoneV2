@@ -70,7 +70,7 @@ if(isset($_SESSION['auth'])){
 
     <form method="post" action="functions/authcode.php" enctype="multipart/form-data" class="registration">
         <div class="containe">
-            <h5 class="mt-2">Create a User Account</h5>
+            <h5 class="pt-4">Create a User Account</h5>
             <hr>
                 <label class="form-label mt-0">Upload your profile (max 2mb)</label>
                 <input class="form-control" type="file" name="image" required>

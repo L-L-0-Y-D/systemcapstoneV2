@@ -62,9 +62,9 @@
                     <form action="functions/authcode.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4 class="mt-3 fw-bold mb-3 pb-md-3" style="border-bottom:solid 1px;">Profile<span> 
+                                <h4 class="m-3 ">Profile<span> 
                                     <button class="btn btn-primary btn-sm float-end" type="submit"onclick="location.href='index.php'">Back</button>
-                                </h4>   
+                                </h4>   <hr>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-lg-4">
@@ -118,47 +118,49 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card shadow">
-                                <div class="card-header py-3">
-                                    <p class="text-primary m-0 fw-bold">More Information</p>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="first_name"><strong>Date of Birth</strong></label>
-                                                <input name='dateofbirth' value="<?= $data['dateofbirth'] ?>" required class="form-control" type="date">
+                            <div class="col-md-12">
+                                <div class="card shadow">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 fw-bold">More Information</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="first_name"><strong>Date of Birth</strong></label>
+                                                    <input name='dateofbirth' value="<?= $data['dateofbirth'] ?>" required class="form-control" type="date">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="phonenum"><strong>Phone Number</strong></label>
+                                                    <input name="phonenumber" value="<?= $data['phonenumber'] ?>" required placeholder="Enter Phone Number" class="form-control" type="text" id="phonenum">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="phonenum"><strong>Phone Number</strong></label>
-                                                <input name="phonenumber" value="<?= $data['phonenumber'] ?>" required placeholder="Enter Phone Number" class="form-control" type="text" id="phonenum">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="address"><strong>Address</strong></label>
+                                            <input name="address" value="<?= $data['address'] ?>" required placeholder="Enter Address" class="form-control" type="text" id="address">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="city"><strong>Password</strong></label>
+                                                    <input name="password" required placeholder="Enter Password"class="form-control" type="password">
+                                                </div>
+                                                <div class="col-mb-3">
+                                                    <input type = "hidden" name='role_as' value = '0'>
+                                                </div>
+                                                <div class="col-mb-3">
+                                                    <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="address"><strong>Address</strong></label>
-                                        <input name="address" value="<?= $data['address'] ?>" required placeholder="Enter Address" class="form-control" type="text" id="address">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="city"><strong>Password</strong></label>
-                                                <input name="password" required placeholder="Enter Password"class="form-control" type="password">
-                                            </div>
-                                            <div class="col-mb-3">
-                                                <input type = "hidden" name='role_as' value = '0'>
-                                            </div>
-                                            <div class="col-mb-3">
-                                                <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
-                                            </div>
+                                        <div class="mb-3">
+                                            <button name="update_profile_btn" class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <button name="update_profile_btn" class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
-                                    </div>
-                                </div>
+                                </div>  
                             </div>                      
                         </div>
                     </form>
