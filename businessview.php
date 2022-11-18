@@ -1106,13 +1106,13 @@
                                 // echo '<span> ('.$row_rating_count.')</span>'
                                 
                                 ?> -->
-                            <!-- <div class="mb-3">
+                            <div class="mb-3">
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
                                 <i class="fas fa-star star-light mr-1 main_star"></i>
-                            </div> -->
+                            </div>
                             <h3 class="col d-flex justify-content-center"><span id="total_review">0</span> Review/s</h3>
                         </div>
                         <div class="col-sm-5">
