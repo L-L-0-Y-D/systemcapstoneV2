@@ -62,11 +62,11 @@ include('includes/header.php');
                                                         <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
                                                             <td class="col-md-6 col-lg-4 item">
                                                                 <!-- Button to Open the Modal for Business Cert-->
-                                                                <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
+                                                                <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal<?= $item['businessid'] ?>">
                                                                     <img src="../certificate/<?= $item['image_cert']; ?>" width="30px" height="50px" alt="<?= $item['image_cert']; ?>">
                                                                 </button>
                                                                 <!-- The Modal -->
-                                                                <div class="modal fade" id="myModal">
+                                                                <div class="modal fade" id="myModal<?= $item['businessid'] ?>">
                                                                     <div class="modal-dialog modal-sm">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
