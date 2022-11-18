@@ -42,7 +42,8 @@ if(isset($_POST["rating_data"]))
 	
 	$review_statement -> execute($review);
 
-	redirect("index.php", "Your Review & Rating Successfully Submitted","success"); 
+	// redirect("index.php", "Your Review & Rating Successfully Submitted","success");
+	echo "Your Review & Rating Successfully Submitted"; 
 
 }
 
