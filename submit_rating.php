@@ -126,7 +126,7 @@ if(isset($_POST["rating_data"]))
 			'review_data'		=>	$review_content
 		);
 		$result = array_filter($output);
-
+		var_dump($result);
 		echo json_encode($result);
 
 	}
