@@ -655,14 +655,16 @@ else if(isset($_POST['update_admin_btn']))
     $dateofbirth = $_POST['dateofbirth'];
     $phonenumber = $_POST['phonenumber'];
     $address = $_POST['address'];
+    $password = $_POST['password'];
     $role_as = $_POST['role_as'];
-    $status = $_POST['status'];
+    $status = isset($_POST['status']) ? "1":"0";
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
 
     $today = date("Y-m-d");
     $difference = date_diff(date_create($dateofbirth), date_create($today));
     $age = $difference->format('%y');
+
 
     if($new_image != "")
     {
@@ -679,16 +681,16 @@ else if(isset($_POST['update_admin_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
+            redirect("profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 80000)) {
 
-            redirect("../profile.php?id=$userid", "Image size less than 800KB", "warning");
+            redirect("profile.php?id=$userid", "Image size less than 800KB", "warning");
 
         }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
-            redirect("../profile.php?id=$userid", "Image size exceeds 10MB", "warning");
+            redirect("profile.php?id=$userid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -703,7 +705,7 @@ else if(isset($_POST['update_admin_btn']))
     $check_email_query_run = mysqli_query($con, $check_email_query);
     if(mysqli_num_rows($check_email_query_run)>1)
     {
-        redirect("../profile.php", "Email Already Use", "warning");
+        redirect("profile.php", "Email Already Use", "warning");
     }
     else
     {
@@ -712,31 +714,61 @@ else if(isset($_POST['update_admin_btn']))
 
         while($row = mysqli_fetch_array($login_query_run))
         {
-            
+            if(password_verify($password, $row["password"]))
+            {
                 if($age >= 18)
                 {
                     if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
                     {
-                        
+                        if(strlen($_POST['password']) >= 8 )
+                        {
                             //$hash = password_hash($password, PASSWORD_DEFAULT);
                             $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
                             //mysqli_query($con,$update_query) or die("bad query: $update_query");
                             $update_query_run = mysqli_query($con, $update_query);
-                            redirect("index.php?id=$userid", "Update Succesfully", "success");
+                        }
+                        else
+                        {
+                            
+                            redirect("profile.php?id=$userid", "Your password must be at least 8 characters", "warning"); 
+                        }
                     }
                     else
                     {
-                        redirect("admin.php?id=$userid", "Phone number error detected", "error");
+                        redirect("profile.php?id=$userid", "Phone number error detected", "warning");
                     }
                 }
                 else
                 {
-                    redirect("admin.php?id=$userid", "Underage Detected", "warning");
+                    redirect("profile.php?id=$userid", "Underage Detected", "warning");
                 }
+            }
+            else
+            {
+                redirect("profile.php?id=$userid", "Wrong Password", "warning");
+            }
 
         }
 
     }
+
+    if($update_query_run)
+    {
+        if($_FILES['image']['name'] != "")
+        {
+            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
+            if(file_exists("../uploads/".$old_image))
+            {
+                unlink("../uploads/".$old_image);
+            }
+        }
+        redirect("index.php", "Profile Updated Successfully", "success");
+    }
+    else
+    {
+        redirect("profile.php?id=$userid", "Something Went Wrong", "error"); 
+    }
+
 }
 else if(isset($_POST['delete_customer_btn']))
 {
