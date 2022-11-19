@@ -5,9 +5,18 @@ if(isset($_POST['request'])){
     $id = $_GET['id'];
     $request = $_POST['request'];
 
-    $query = "SELECT * FROM products WHERE food_type = '$request' AND businessid = '$id'";
-    $result = mysqli_query($con,$query);
-    $count = mysqli_num_rows($result);
+    if($request == "All")
+    {
+        $query = "SELECT * FROM products WHERE businessid = '$id'";
+        $result = mysqli_query($con,$query);
+        $count = mysqli_num_rows($result);
+    }
+    else
+    {
+        $query = "SELECT * FROM products WHERE food_type = '$request' AND businessid = '$id'";
+        $result = mysqli_query($con,$query);
+        $count = mysqli_num_rows($result); 
+    }
 
 ?>
 

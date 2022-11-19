@@ -97,6 +97,7 @@ include('../config/dbcon.php');
                                 $("#mySelect").on('change',function(){
                                     var value = $(this).val();
                                     //alert(value);
+                                    var all= $('#all').val();
 
                                     $.ajax({
                                         url:"fetch.php?id=<?= $id; ?>",
