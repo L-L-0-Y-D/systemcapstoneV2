@@ -37,7 +37,7 @@ include('../config/dbcon.php');
                         <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
                         </div>
                     </div> 
-                    <!--<table class="table my-0" id="dataTable" style="text-align:center">
+                    <table  id="container" class="table my-0" id="dataTable" style="text-align:center">
                             <thead>
                                 <tr>
                                     <th>Image</th>
@@ -75,7 +75,7 @@ include('../config/dbcon.php');
                                                         <td>
                                                             <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
-                                                            <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>
+                                                            <!--<button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>-->
                                                   
                                                         <td><button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
                                                     </tr>
@@ -90,7 +90,7 @@ include('../config/dbcon.php');
                                 ?>
                             </tbody>
                         </form>
-                        </table>-->
+                        </table>
                     <!--SCRIPT FOR SORTING-->
                     <script type="text/javascript">
                             $(document).ready(function(){
@@ -104,17 +104,35 @@ include('../config/dbcon.php');
                                         type:"POST",
                                         data:'request=' + value,
                                         beforeSend:function(){
-                                            $(".container").html("<span>Working...</span>");
+                                            $("#container").html("<span>Working...</span>");
                                         },
                                         success:function(data){
-                                            $(".container").html(data);
+                                            $("#container").html(data);
+                                        
                                         }
                                     });
                                 });
                             });
                   
                     </script>
+                    <div class="row mt-3">
+                        <div class="col-md-6 align-self-center">
+                            <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                        </div>
+                        <div class="col-md-6">
+                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination">
+                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
+            </div>
 <?php
 
         }
