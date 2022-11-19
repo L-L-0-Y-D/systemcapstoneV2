@@ -368,7 +368,45 @@ $(document).ready(function(){
 
 </script>
 
+
 <?php
 
         }
 ?>
+<script>
+
+var search = new Autocomplete(document.getElementById('search'),{
+
+        data:<?php echo json_encode($data); ?>,
+        maximumItems:10,
+        highlightTyped:true,
+        highlightClass : 'fw-bold text-primary'
+
+});
+
+</script>
+<!-- <script>
+
+$(document).ready(function(){
+
+    $('#search').typeahead({
+        source: function(query, result)
+        {
+            alert(query);
+            $.ajax({
+                url:"querysearch.php",
+                method:"POST",
+                data:{query:query},
+                dataType:"json",
+                success:function(data)
+                {
+                    result($.map(data,function(item){
+                        return item;
+                    }));
+                }
+            })
+        }
+    })
+})
+
+</script> -->
