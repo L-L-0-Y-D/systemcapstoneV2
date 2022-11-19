@@ -11,8 +11,24 @@
                 </div>
                 <div class="intro-heading text-uppercase ">
                     <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.</span></div>
+                    <?php
+                        $query_search = "SELECT business_name
+                        FROM business 
+                        ORDER BY business_name ASC";
+                        $result = $con->query($query_search);
+                        $data = array();
+                        foreach($result as $row)
+                        {
+                            $data[] = array(
+                                'label' => $row['business_name'],
+                                'value' => $row['business_name'],
+                            ); 
+                           
+                            
+                        }
+                    ?>
                     <form action="search.php" method="POST">
-                        <input class="form-control-lg " type="text" name="search" style="width:30%;font-size:13px;border-radius: 20px;border: 1px solid;  font-family:Monsterrat;" placeholder="Search Restaurants, Locations, Cuisines...">
+                        <input class="form-control-lg " type="text" name="search" id="search" autocomplete="off" style="width:30%;font-size:13px;border-radius: 20px;border: 1px solid;  font-family:Monsterrat;" placeholder="Search Restaurants, Locations, Cuisines...">
                         <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
                     </form>

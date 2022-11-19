@@ -21,8 +21,8 @@ include('../config/dbcon.php');
                     <a href="location.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-start"></a>
                     <!-- <input hidden type="text" id="address" name="address"> -->
                     <input hidden type="text" name="businessid" value="<?= $_SESSION['auth_user']['businessid'];?>">
-                    <input hidden type="text" id="latitude" name="latitude" value="<?= $data['latitude'] ?>">
-                    <input hidden type="text" id="longitude" name="longitude" value="<?= $data['longitude'] ?>">
+                    <input hidden  type="text" id="latitude" name="latitude" value="<?= $data['latitude'] ?>">
+                    <input hidden  type="text" id="longitude" name="longitude" value="<?= $data['longitude'] ?>">
                     <button class="btn save-btn float-end" type="submit" name="update_location_btn" >Save</button>
                 </form></h4>
             </div>
