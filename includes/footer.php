@@ -373,6 +373,7 @@ $(document).ready(function(){
 
         }
 ?>
+<!-- /* Creating a new Autocomplete object and passing it the search input element and the data array. */ -->
 <script>
 
 var search = new Autocomplete(document.getElementById('search'),{
