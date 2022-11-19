@@ -39,7 +39,7 @@ include('includes/header.php');
                             </div>
                             <div class="row">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" <?= $data['status'] ? "":"checked"?>> 
+                                    <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" <?= $data['status'] ? "checked":""?>> 
                                     <label class="form-check-label m-0" for="formCheck-1"><strong>Status</strong></label>
                                 </div>
                             </div>

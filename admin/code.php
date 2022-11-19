@@ -364,7 +364,7 @@ else if(isset($_POST['update_category_btn']))
 {
     $categoryid = $_POST['categoryid'];
     $categoryname = $_POST['categoryname'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = isset($_POST['status']) ? "1":"0";
 
     $update_query = "UPDATE mealcategory SET categoryname='$categoryname', status='$status' WHERE categoryid='$categoryid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
