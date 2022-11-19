@@ -47,7 +47,7 @@ include('includes/header.php');
                                                     ?>
                                                     <tr>
                                                         <td><?= $item['categoryname']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
+                                                        <td><?= $item['status']== '1'? "Active":"Hidden"  ?></td>
                                                         <td>
                                                             <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
