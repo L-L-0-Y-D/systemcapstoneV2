@@ -64,12 +64,22 @@ function initialize_map() {
             position: latlng,
             title: 'address',
             map: map,
-            draggable: true,
+            draggable: false,
             //shadow: shadow,
           });
 
       geocodePosition(latlng);
 
+  google.maps.event.addListener(map, 'center_changed', function() {
+  // 0.1 seconds after the center of the map has changed,
+  // set back the marker position.
+    window.setTimeout(function() {
+    var center = map.getCenter();
+    marker.setPosition(center);
+    }, 1);
+    updateMarkerPosition(marker.getPosition());
+    geocodePosition(marker.getPosition());
+  });
 
   google.maps.event.addListener(marker, 'drag', function() {
     updateMarkerPosition(marker.getPosition());
