@@ -58,19 +58,14 @@ if(isset($_SESSION['auth'])){
                     <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
                         <map name="workmap">
                             <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
-                        </map>I - Eat</a>
-                <nav class="navbar navbar-expand">
-                    <div class="container-fluid">
-                        <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                        <a href="index.php"><i class="fa fa-home" style="float:right; color:white;"></i></a>
-                        </span></div>
-                </nav>
+                        </map>I - Eat</a>               
             </div>
         </nav>
 
     <form method="post" action="functions/authcode.php" enctype="multipart/form-data" class="registration">
         <div class="containe">
-            <h5 class="pt-4">Create a User Account</h5>
+            <button class="btn-lg btn-close float-end pt-4" onclick="location.href='index.php'"></button>
+             <h5 class="pt-4">Create a User Account </h5>
             <hr>
                 <label class="form-label mt-0">Upload your profile (max 2mb)</label>
                 <input class="form-control" type="file" name="image" required>
@@ -170,7 +165,11 @@ if(isset($_SESSION['auth'])){
                     <input type = "hidden" name='role_as' value = '0'>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit" name="register_btn">Register</button>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <button class="btn btn-primary" type="submit" name="register_btn">Register</button>
+                </div>
+            </div>
             <p>Already have an account?&nbsp &nbsp<a href="login.php">Login</a></p>
         </div>
     </form>

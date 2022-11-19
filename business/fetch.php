@@ -63,6 +63,7 @@ if(isset($_POST['request'])){
         ?>
     </tbody>
 </table>
+
 <?php
 }
 ?>

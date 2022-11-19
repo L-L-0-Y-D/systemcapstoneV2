@@ -41,7 +41,7 @@ if(isset($_SESSION['auth'])){
                         <form method="post" action="functions/busiauthcode.php"> 
                             <div class="row d-flex">
                                 <div class="mb-2">
-                                    <button class="btn btn-primary" onclick="location.href='ownerlogin.php'">Back</button>
+                                    <button class="btn btn-sm btn-close float-end" onclick="location.href='ownerlogin.php'"></button>
                                 </div>
                                 <p class="text-center fs-5">Forget Password?</p>
                                 <p class="text-left"> We'll check if you have already an account</p>

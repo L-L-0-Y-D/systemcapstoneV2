@@ -62,7 +62,7 @@
                         <form action="functions/authcode.php" method="POST"> 
                             <div class="row d-flex">
                                 <div class="mb-2">
-                                    <button class="btn btn-primary btn-sm" onclick="location.href='index.php'">Back</button>
+                                    <button class="btn btn-close btn-sm float-end" onclick="location.href='index.php'"></button>
                                 </div>
                                 <div class="col-md-12">
                                     <input type="hidden" name="userid" value="<?= $data['userid'] ?>">

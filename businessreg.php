@@ -61,17 +61,12 @@ if(isset($_SESSION['auth'])){
                         <map name="workmap">
                             <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                         </map>I - Eat</a>
-                <nav class="navbar navbar-expand">
-                    <div class="container-fluid">
-                        <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                        <a href="index.php"><i class="fa fa-home" style="float:right; color:white;"></i></a>
-                        </span></div>
-                </nav>
             </div>
         </nav>
     <form method="post" action="functions/busiauthcode.php" enctype="multipart/form-data">
         <!-- Start: 1 Row 2 Columns -->
         <div class="containe">
+            <button class="btn-lg btn-close float-end pt-4" onclick="location.href='index.php'"></button>
             <h5 class="pt-4">Create a Business Account</h5>
             <hr>
             <label class="form-label">Upload your Business Logo (max 2mb)</label>
@@ -320,7 +315,11 @@ if(isset($_SESSION['auth'])){
                     <input class="form-control" name='business_confirmpassword' type="password" required>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit" name="business_register_btn">Register</button>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <button class="btn btn-primary" type="submit" name="business_register_btn">Register</button>
+                </div>
+            </div>
             <p>Already have an account?&nbsp&nbsp<a href="ownerlogin.php">Login</a></p>
         </div><!-- End: 1 Row 2 Columns -->
     </form>    

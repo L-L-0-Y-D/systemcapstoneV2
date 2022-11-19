@@ -50,6 +50,7 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/Login-Form-Basic.css?h=561e53509f5bc926993a2226fdbdf2f4">
     <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="reg.css">
     <title>Add Cuisine | I-Eat</title>
 
@@ -64,33 +65,30 @@ if(isset($_SESSION['auth'])){
                         <map name="workmap">
                             <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                         </map>I - Eat</a>
-                <nav class="navbar navbar-expand">
-                    <div class="container-fluid">
-                        <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                        <a href="index.php"><i class="fa fa-home" style="float:right; color:white;"></i></a>
-                        </span></div>
-                </nav>
             </div>
         </nav>
-<section class="position-relative py-4 py-xl-5 ">
+<section class="login">
         <div class="container" >
-            <div class="row d-flex justify-content-center align-items-md-end ">
+            <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4 ">
-                    <div class="card mb-5 " style="border-style: none; margin-top:100px;">
-                        <div class="card-body d-flex flex-column align-items-center " style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
-                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="height:110px; width:110px; border-style: solid;border-color: rgb(255, 128, 64);background: transparent;">
-                                <picture><img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap></picture>
+                    <div class="card mb-5 ">
+                        <div class="card-body flex-column">
+                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4">
+                                <img src="uploads/I-EatLogo.png" style="width: 150px;height: 150px;" usemap=#workmap>
                                 <map name="workmap">
                                     <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                                 </map>
                             </div>
-                            <form name="form" method="post" action="functions/busiauthcode.php" class="form-container">
-                                <!-- <i class="far fa-times-circle" onclick="closeForm()" style="float:right;"></i> -->
-                                <div class="col-md-12 text-center">
-                                    <p class="fw-bold mt-2 mb-1">Add Cuisine Type</p>
-                                    <input class="form-control" type="text" name="categoryname"></input>
-                                    <input type = "hidden" name="status" value = '0'>
-                                    <button type="submit" class="btn btn-primary d-block w-50 mt-2 fw-light" name="add_category_btn"  style="background-color:rgb(255,128,64);border:none;" href="#">Add</button>
+                            <form name="form" method="post" action="functions/busiauthcode.php">
+                                <div class="row d-flex">
+                                    <p class="text-center fs-5">Add Cuisine Type</p>
+                                    <div class="mb-1">
+                                        <input class="form-control mb-3" type="text" name="categoryname" placeholder="Enter cuisine type"></input>
+                                        <input type = "hidden" name="status" value = '0'>
+                                    </div>
+                                    <div class="mb-1">
+                                        <button type="submit" class="btn btn-primary" name="add_category_btn" href="#">Add</button>
+                                    </div>
                                 </div>
                             </form> 
                         </div>
