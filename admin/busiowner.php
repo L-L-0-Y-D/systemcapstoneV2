@@ -67,7 +67,7 @@ include('includes/header.php');
                                                                 </button>
                                                                 <!-- The Modal -->
                                                                 <div class="modal fade" id="myModal<?= $item['businessid'] ?>">
-                                                                    <div class="modal-dialog modal-sm">
+                                                                    <div class="modal-dialog modal-lg">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>

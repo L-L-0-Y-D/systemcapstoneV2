@@ -140,6 +140,7 @@
     margin-top: 10px;
     text-align: center;
     font-size:14px;
+    padding-top: 10px !important;
   }
   .mb-1 .btn-primary {
     width: 100%!important;
@@ -175,11 +176,12 @@
     margin-right: auto;
     margin-left: auto;
     background-color: white;
-    border-color: rgb(255,128,64)!important;
-    border: solid 2px;
+    box-shadow: 0px 0px 15px var(--bs-gray)!important;
+    border: none;
     border-radius: 15px;
     margin-top: 100px;
     margin-bottom: 20px !important;
+    padding-bottom: 10px !important;
   }
   
   .containe a {

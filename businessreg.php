@@ -72,7 +72,7 @@ if(isset($_SESSION['auth'])){
     <form method="post" action="functions/busiauthcode.php" enctype="multipart/form-data">
         <!-- Start: 1 Row 2 Columns -->
         <div class="containe">
-            <h5 class="mt-2">Create a Business Account</h5>
+            <h5 class="pt-4">Create a Business Account</h5>
             <hr>
             <label class="form-label">Upload your Business Logo (max 2mb)</label>
             <input class="form-control" type="file" name="image" required>
