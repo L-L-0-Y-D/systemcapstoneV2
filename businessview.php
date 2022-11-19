@@ -239,7 +239,6 @@
 <!-- START OF MENU SECTION-->
 <section id="menu">
         <div class="container">
-            <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">MENU</h1>
             <div>
                 <ul class="nav nav-tabs d-lg-flex justify-content-lg-center" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -276,7 +275,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">ALL</h1>
+                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">ALL MENU</h1>
                                 <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
                                     <div class="row">   
                                         <?php

@@ -16,6 +16,18 @@ if(mysqli_num_rows($managetable_query_run) > 0)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Acme.css">
+    <link rel="stylesheet" href="assets/css/Aldrich.css">
+    <link rel="stylesheet" href="assets/css/Amaranth.css">
+    <link rel="stylesheet" href="assets/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/assets/css/Montserrat.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=21f14b60305aa9b0449170550a54b7e5">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
@@ -36,7 +48,7 @@ if(mysqli_num_rows($managetable_query_run) > 0)
 
         td
         {
-          width: 33%;  
+          width: 30%;  
         }
 
         .today
@@ -46,15 +58,47 @@ if(mysqli_num_rows($managetable_query_run) > 0)
     </style>
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="calendar"></div>
+
+<main class="page shopping-cart-page">
+        <section class="clean-block clean-cart dark">
+            <div class="container">
+                <div class="content mt-5">
+                    <div class="row g-0">
+                        <div class="col-md-12 col-lg-8">
+                            <!--<div class="mt-4">
+                                <h4 style="margin-left: 36px;">
+                                <i class="far fa-calendar-alt"></i>&nbsp; November 2022<div class="btn-group float-end gap-2" role="group"><button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-arrow-left"></i>PREVIOUS</button><button class="btn btn-primary btn-sm" type="button">NEXT&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button></div>
+                                </h4>
+                            </div>
+                            <hr>-->
+                            <div class="items">
+                                <div class="product">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col">
+                                            <div class="p-3">
+                                                <!--<h3 class="text-center fw-bold"><span style="color: rgb(33, 37, 41);">&nbsp;November 20 , 2022 (Napili ng customer)</span><br></h3>-->
+                                                    <div id="calendar">
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4 col-md-3">
+                            <div class="summary">
+                                <h3>SELECT WHAT TIME IS YOUR RESERVATION</h3>
+                                <div class="shadow"><button class="btn btn-primary btn-lg d-block w-100" type="button" style="background: rgb(255,128,64);border-style: none;">8:00 am - 9:00 am</button></div>
+                                <div class="shadow"><button class="btn btn-primary btn-lg d-block w-100" type="button" style="background: rgb(255,128,64);border-style: none;">9:10 am - 10:10 am</button></div>
+                                <div class="shadow"><button class="btn btn-primary btn-lg d-block w-100" type="button" style="background: rgb(255,128,64);border-style: none;">10:20 am - 11:20 am</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</body>
+        </section>
+    </main>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <script>
@@ -110,4 +154,6 @@ else
 }
 ?>
 </script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 </html>

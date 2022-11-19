@@ -75,7 +75,7 @@ function build_calendar($month,$year,$resourceid){
     $id = $_GET['id'];
 
     /* Creating an array of the days of the week. */
-    $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+    $daysOfWeek = array('Sun','Mon','Tues','Wed','Thurs','Fri','Sat');
 
     /* Creating a timestamp for the first day of the month. */
     $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
@@ -94,12 +94,12 @@ function build_calendar($month,$year,$resourceid){
 
     /* Setting the variable  to the current date. */
     $dateToday = date('Y-m-d');
-
+    
     $calendar = "<table class='table table-bordered'>";
-    $calendar .= "<center><h2>$monthName $year</h2>";
-    $calendar .= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</button> ";
-    $calendar .= "<button class='changemonth btn btn-xs btn-primary' id='current_month' data-month='".date('m')."' data-year='".date('Y')."'>Current Month</button> ";
-    $calendar .= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</button></center><br>";
+    $calendar .= "<h4>&nbsp;$monthName $year  ";
+    $calendar .= "<button class='changemonth btn btn-sm btn-primary' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</button> ";
+    $calendar .= "<button class='changemonth btn btn-sm btn-primary' id='current_month' data-month='".date('m')."' data-year='".date('Y')."'>Current Month</button> ";
+    $calendar .= "<button class='changemonth btn btn-sm btn-primary' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</i></button></center><br></h4><hr>";
 
     //Adding table
     //Add
@@ -112,14 +112,14 @@ function build_calendar($month,$year,$resourceid){
         $result = $stmt -> get_result();
         if($result -> num_rows > 0)
         {
-            $calendar.="<labe>Select Table</label><select id='resource_select' class='form-control' required>";
+            $calendar.="<label class='float-start'>Choose table you'll accomodate :&nbsp; &nbsp;</label><select id='resource_select' class='form-select-sm border-1' required>";
             $calendar.="<option value='' disabled selected hidden>Please Select Table</option>";
 
             while($row = $result -> fetch_assoc())
             {
                 
                 $selected = $resourceid==$row['tableid'] ? 'selected':'';
-                $calendar.= "<option $selected value='{$row['tableid']}'> Table {$row['table_number']} - {$row['chair']}</option>";
+                $calendar.= "<option $selected value='{$row['tableid']}'> {$row['table_number']} - for {$row['chair']}</option>";
             }
         }
     }
@@ -175,7 +175,7 @@ function build_calendar($month,$year,$resourceid){
         //part 6 specific date
         if($date=="2022-11-01")
         {
-            $calendar .= "<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Holiday</button>";
+            $calendar .= "<td><h4 class='text-muted'>$currentDay</h4> <button class=' btn-danger btn-xs'>Holiday</button>";
             //part 6
         }
         //  }
@@ -191,7 +191,7 @@ function build_calendar($month,$year,$resourceid){
         // }
         elseif($date<date('Y-m-d'))
         {
-            $calendar .= "<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
+            $calendar .= "<td><h4>$currentDay</h4> <button class=' btn-warning btn-xs'>N/A</button>";
         }
         // elseif(in_array($date, $bookings))
         // {
@@ -209,12 +209,12 @@ function build_calendar($month,$year,$resourceid){
 
             if($totalbookings == count($timeslots))
             {
-                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='' class='btn btn-danger btn-xs'>All Booked</a>";
+                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='' class=' btn-danger btn-xs'>All Booked</a>";
             }
             else
             {
                 $availableslots = count($timeslots) - $totalbookings;
-                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."&tableid=".$resourceid."&id=".$id."' class='btn btn-success btn-xs'>Book</a> <small><i>$availableslots slots available</i></small>";
+                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."&tableid=".$resourceid."&id=".$id."' class=' btn-success btn-xs'>Book</a> <small><i>$availableslots slots available</i></small>";
             }
         }
 

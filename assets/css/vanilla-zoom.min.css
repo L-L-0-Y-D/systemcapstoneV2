@@ -35,3 +35,90 @@
   margin-bottom: 5px;
 }
 
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  height: 100px!important;
+  width: 100px!important;
+}
+
+.clean-block.clean-cart .summary {
+  background-color: rgba(255,85,0,0.07)!important;
+  height: 100%;
+  padding: 30px;
+}
+
+.items strong {
+  font-weight: bolder;
+  color: rgb(255,128,64)!important;
+}
+
+.float-start {
+  font-size: 14px;
+}
+
+.shopping-cart-page span {
+  color: var(--bs-gray);
+  font-size: 14px;
+  margin: 0% 2%;
+}
+
+thead, tbody, tfoot, tr, td, th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  text-align: center;
+}
+
+.btn-group {
+  border-radius: .375rem;
+  padding-right: 2%;
+}
+
+.btn-check:checked + .btn, .btn-check:active + .btn, .btn:active,  .btn.active,  .btn.show {
+  color: var(--bs-btn-active-color);
+  background-color: var(--bs-btn-active-bg);
+  border-color: var(--bs-btn-active-border-color);
+}
+
+.btn-group > .btn, .btn-group-vertical > .btn {
+  position: relative;
+  flex: 1 1 auto;
+  background-color: rgb(255,128,64)!important;
+  border: none;
+  width: 120px;
+}
+
+ td .btn {
+  border: none;
+  background-color: transparent;
+  color: initial;
+  font-weight: bold;
+}
+
+ td .btn:active,  td .btn:focus,  td .btn:hover {
+  background-color: rgb(255,128,64);
+  color: #fff;
+  box-shadow: none;
+}
+.product .btn,.summary .btn  {
+  background-color: rgb(255,128,64);
+  color: #fff;
+  box-shadow: none;
+  border: none;
+}
+.product .btn:hover,.product .btn:focus,.product  .btn:active , .summary .btn:hover,.summary .btn:focus,.summary  .btn:active  {
+  color: #fff;
+  background-color: rgb(179,60,0)!important;
+  border-color: inherit;
+  box-shadow: none!important;
+}
+.summary .disabled {
+  background-color: grey!important;
+}
+.summary .value {
+  line-height: 2.5!important;
+  float:right!important;
+}
+
+
