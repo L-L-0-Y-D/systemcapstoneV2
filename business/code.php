@@ -504,8 +504,8 @@ else if(isset($_POST['add_table_btn']))
     $chair = $_POST['chair'];
     $status = isset($_POST['status']) ? "1":"0";
 
-    // Check if email already registered
-     $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table'";
+    // Check if table already registered
+     $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table' AND businessid = '$businessid'";
      $check_table_query_run = mysqli_query($con, $check_table_query);
 
      if(mysqli_num_rows($check_table_query_run)>0)
@@ -537,19 +537,29 @@ else if(isset($_POST['update_table_btn']))
     $chair = $_POST['chair'];
     $status = isset($_POST['status']) ? "1":"0";
 
-
-    $update_table_query = "UPDATE managetable SET table_number='$table',chair='$chair',status='$status' WHERE tableid='$tableid'";
-    //mysqli_query($con,$update_query) or die("bad query: $update_query");
-
-    $update_table_query_run = mysqli_query($con, $update_table_query);
-
-    if($update_table_query_run)
+    // Check if table already registered
+    $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table' AND businessid = '$businessid'";
+    $check_table_query_run = mysqli_query($con, $check_table_query);
+    if(mysqli_num_rows($check_table_query_run)>0)
     {
-        redirect("table.php?id=$businessid", "Table Updated Successfully", "success");
+        redirect("table.php?id=$businessid", "Table Number Already Exist.", "error");
     }
     else
     {
-        redirect("edit-table.php?id=$businessid", "Something Went Wrong", "error"); 
+
+        $update_table_query = "UPDATE managetable SET table_number='$table',chair='$chair',status='$status' WHERE tableid='$tableid'";
+        //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+        $update_table_query_run = mysqli_query($con, $update_table_query);
+
+        if($update_table_query_run)
+        {
+            redirect("table.php?id=$businessid", "Table Updated Successfully", "success");
+        }
+        else
+        {
+            redirect("edit-table.php?id=$businessid", "Something Went Wrong", "error"); 
+        }
     }
 
 }

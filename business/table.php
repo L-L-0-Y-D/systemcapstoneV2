@@ -7,7 +7,9 @@ include('../config/dbcon.php');
  <?php 
         if(isset($_GET['id']))
         {
+
             $id = $_GET['id'];
+
             if(isset($_GET['page_no']) && $_GET['page_no']) {
                 $page_no = $_GET['page_no'];
             } else {
@@ -37,6 +39,8 @@ include('../config/dbcon.php');
             $table_query = "SELECT * FROM managetable WHERE NOT status = 2  AND businessid = $id ORDER BY tableid DESC LIMIT $offset, $total_records_per_page";
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
+
+
             
 ?>
     <div class="container-fluid">

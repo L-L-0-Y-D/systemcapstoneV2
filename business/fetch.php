@@ -7,13 +7,13 @@ if(isset($_POST['request'])){
 
     if($request == "All")
     {
-        $query = "SELECT * FROM products WHERE businessid = '$id'";
+        $query = "SELECT * FROM products WHERE businessid = '$id' AND NOT status = 2";
         $result = mysqli_query($con,$query);
         $count = mysqli_num_rows($result);
     }
     else
     {
-        $query = "SELECT * FROM products WHERE food_type = '$request' AND businessid = '$id'";
+        $query = "SELECT * FROM products WHERE food_type = '$request' AND businessid = '$id' AND NOT status = 2";
         $result = mysqli_query($con,$query);
         $count = mysqli_num_rows($result); 
     }
@@ -46,6 +46,7 @@ if(isset($_POST['request'])){
         }
     ?>
     </thead>
+
     <tbody style="text-align:center">
         <?php
         while($item = mysqli_fetch_assoc($result))
@@ -65,14 +66,15 @@ if(isset($_POST['request'])){
             <!--<td>
                 <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>
             </td>-->
-            <td><button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
+
+            <td><button type="submit" class="btn btn-sm btn-danger archive_menu_btn" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
         </tr>
         <?php
         }
         ?>
     </tbody>
 </table>
-
 <?php
 }
+
 ?>
