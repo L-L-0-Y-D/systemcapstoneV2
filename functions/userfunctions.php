@@ -88,6 +88,17 @@ function reservationGetByIDDeclined($id)
     AND reservations.status = 2";
     return $query_run = mysqli_query($con, $query);
 }
+function reservationGetByIDCancelled($id)
+{
+    global $con;
+    $query = "SELECT reservations.reservationid,reservations.reservation_date,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status
+    FROM reservations
+    JOIN business 
+    ON reservations.businessid=business.businessid
+    WHERE reservations.userid = $id 
+    AND reservations.status = 3";
+    return $query_run = mysqli_query($con, $query);
+}
 
 function reservationGetByIDReview($id)
 {

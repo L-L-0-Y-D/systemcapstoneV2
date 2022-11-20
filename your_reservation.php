@@ -73,7 +73,7 @@ if(isset($_GET['id']))
                             <div class="mt-4">
                                 <h4 style="margin-left: 36px;"><i class="far fa-calendar-check"></i>&nbsp; All reservations
                                 <span class="float-end fs-6">Sorted By:&nbsp; &nbsp;
-                                    <select id="myStat" onchange="myFunction()" class="form-select-sm">
+                                    <select id="reservationInfo" onchange="myFunction()" class="form-select-sm">
                                         <option value="All" selected="">All Status</option>
                                         <option value="Waiting">Waiting</option>
                                         <option value="Approved">Approved</option>
@@ -111,7 +111,7 @@ if(isset($_GET['id']))
                                         </div>
                                         <div class="col p-0"><hr class="mb-0">
                                             <p class="float-start m-2 text-muted">Reservation Id : #<?= $data['reservationid']; ?></p>
-                                            <p class="float-end m-2 text-muted">Status:&nbsp;<strong><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></strong></p>
+                                            <p class="float-end m-2 text-muted">Status:&nbsp;<strong><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}elseif($data['status'] == 3){echo 'Cancelled';}  ?></strong></p>
                                         </div><hr class="mt-0">
                                     </div>
                                 </div>
