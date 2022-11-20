@@ -25,7 +25,7 @@ include('../config/dbcon.php');
             //get the next page
             $next_page = $page_no + 1;
             //get the total count of records
-            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM products WHERE businessid = $id AND NOT status = 2") or die(mysqli_error($con));
+            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM products WHERE NOT status = 2 AND businessid = '$id'") or die(mysqli_error($con));
             //total records
             $records = mysqli_fetch_array($result_count);
             //store total_records to a variable
@@ -34,7 +34,7 @@ include('../config/dbcon.php');
             $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
             //query string
-            $table_query = "SELECT * FROM products WHERE NOT status = 2  AND businessid = $id ORDER BY productid DESC LIMIT $offset, $total_records_per_page";
+            $table_query = "SELECT * FROM products WHERE NOT status = 2 AND businessid = '$id' ORDER BY productid DESC LIMIT $offset, $total_records_per_page";
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
@@ -107,7 +107,7 @@ include('../config/dbcon.php');
                                                             <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                             <!--<button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>-->
-                                                  
+                                                            <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
                                                         <td><button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
                                                     </tr>
                                                 <?php

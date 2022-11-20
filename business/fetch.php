@@ -66,8 +66,9 @@ if(isset($_POST['request'])){
             <!--<td>
                 <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>
             </td>-->
-
+            <form action="code.php" method="POST" enctype="multipart/form-data">
             <td><button type="submit" class="btn btn-sm btn-danger archive_menu_btn" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
+            </form>
         </tr>
         <?php
         }
