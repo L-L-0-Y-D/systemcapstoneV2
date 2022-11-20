@@ -48,7 +48,7 @@ include('../config/dbcon.php');
             $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
             //query string
-            $table_query = "SELECT * FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $id  AND reservations.businessid = $id LIMIT $offset, $total_records_per_page";
+            $table_query = "SELECT * FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $id  AND reservations.businessid = $id ORDER BY reservationid DESC LIMIT $offset, $total_records_per_page";
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>

@@ -34,7 +34,7 @@ include('includes/header.php');
             $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
             //query string
-            $table_query = "SELECT * FROM review_table WHERE businessid = $id LIMIT $offset, $total_records_per_page";
+            $table_query = "SELECT * FROM review_table WHERE businessid = $id ORDER BY review_id DESC LIMIT $offset, $total_records_per_page";
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
