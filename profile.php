@@ -61,18 +61,18 @@
                 <div class="card-body d-flex ">
                     <form action="functions/authcode.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 ">
                                 <h4 class="m-3 ">Profile<span> 
                                     <button class="btn btn-primary btn-sm float-end" type="submit"onclick="location.href='index.php'">Back</button>
                                 </h4>   <hr>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <div class="col-lg-4">
                                     <div class="card mb-3">
                                         <div class="card-body text-center shadow">
-                                            <img class="rounded-circle mb-3 mt-4" src="uploads/<?= $data['image'] ?>"  width="160" height="160">
+                                            <img class="rounded-circle mb-2" src="uploads/<?= $data['image'] ?>"  width="140" height="140">
                                             <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
-                                            <div class="mb-3">
+                                            <div class="mb-2">
                                                 <label for="">Upload Image</label>
                                                 <input type="file" name="image" class="form-control">
                                             </div>
