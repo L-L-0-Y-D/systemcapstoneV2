@@ -47,7 +47,7 @@ if(isset($_GET['id']))
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
+    <nav class="navbar navbar-expand-md fixed-top navbar-shrink" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
         <div class="container ml-2">
             <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">
             <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
@@ -65,7 +65,7 @@ if(isset($_GET['id']))
     </nav>
 
     <main class="page shopping-cart-page">
-        <section class="clean-block clean-cart dark">
+        <section class="clean-block clean-cart dark p-5 mt-5">
             <div class="container">
                 <div class="content">
                     <div class="row g-0">
@@ -84,7 +84,7 @@ if(isset($_GET['id']))
                                 </span></h4>
                             </div>
                             <hr>
-                            <div class="items">
+                            <div class="items" id="product">
                             <?php 
 
                             // $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
@@ -94,7 +94,7 @@ if(isset($_GET['id']))
                                 {
                                 
                             ?>
-                                <div class="product" id="product">
+                                <div class="product" >
                                     <div class="row justify-content-center pb">
                                         <div class="col-md-3">
                                             <div class="product-image"><img class="img-fluid d-block mx-auto image" src="uploads/<?= $data['image']; ?>"></div>
@@ -102,7 +102,7 @@ if(isset($_GET['id']))
                                         <div class="product-info col-md-9">
                                             <div class="product-specs">
                                                 <h5>&nbsp;&nbsp;<?= $data['business_name']; ?>
-                                                <button class="btn btn-primary btn-sm float-end" type="submit">View</button></h5>
+                                                <button class="btn btn-primary btn-sm float-end" type="submit" id="viewBtn" onclick="myFunction()">View</button></h5>
                                                 <div><span>Reserved By:&nbsp;</span><span class="value"><?= $data['namereserveunder']; ?></span></div>
                                                 <div><span>Email Address:</span><span class="value"><?= $data['reservation_email']; ?></span></div>
                                                 <div><span>Contact Number:&nbsp;</span><span class="value"><?= $data['reservation_phonenumber']; ?></span></div>
@@ -168,11 +168,31 @@ if(isset($_GET['id']))
                             });
                   
                     </script>
+                    <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#viewBtn").on('click',function(){
+                                    var value = $(this).val();
+                                    //alert(value);
+                                    var all= $('#all').val();
 
-
-
-    
-    <?php
+                                    $.ajax({
+                                        url:"fetch.php?id=<?= $id; ?>",
+                                        type:"POST",
+                                        data:'request=' + value,
+                                        beforeSend:function(){
+                                            $("#summary").html("<span>Working...</span>");
+                                        },
+                                        success:function(data){
+                                            $("#summary").html(data);
+                                        
+                                        }
+                                    });
+                                });
+                            });
+                  
+                    </script>
+                  
+       <?php
         }
         else
         {

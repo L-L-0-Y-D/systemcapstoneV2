@@ -97,10 +97,9 @@ function build_calendar($month,$year,$resourceid){
     
     $calendar = "<table class='table table-bordered'>";
     $calendar .= "<h4>&nbsp;$monthName $year  ";
-    $calendar .= "<button class='changemonth btn btn-sm btn-primary' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</button> ";
-    $calendar .= "<button class='changemonth btn btn-sm btn-primary' id='current_month' data-month='".date('m')."' data-year='".date('Y')."'>Current Month</button> ";
-    $calendar .= "<button class='changemonth btn btn-sm btn-primary' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</i></button></center><br></h4><hr>";
-
+    $calendar .= "<button class='changemonth btn btn-sm btn-primary float-end m-1' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</i></button>";
+    $calendar .= "<button class='changemonth btn btn-sm btn-primary float-end m-1' id='current_month' data-month='".date('m')."' data-year='".date('Y')."'>Current Month</button> ";
+    $calendar .= "<button class='changemonth btn btn-sm btn-primary float-end m-1' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</button><br></h4><hr> ";
     //Adding table
     //Add
    
@@ -112,7 +111,7 @@ function build_calendar($month,$year,$resourceid){
         $result = $stmt -> get_result();
         if($result -> num_rows > 0)
         {
-            $calendar.="<label class='float-start'>Choose table you'll accomodate :&nbsp; &nbsp;</label><select id='resource_select' class='form-select-sm border-1' required>";
+            $calendar.="<label class='float-start pt-1'>Choose table you'll accomodate :&nbsp; &nbsp;</label><select id='resource_select' class='form-select-sm border-1 mb-3' required>";
             $calendar.="<option value='' disabled selected hidden>Please Select Table</option>";
 
             while($row = $result -> fetch_assoc())
@@ -175,7 +174,7 @@ function build_calendar($month,$year,$resourceid){
         //part 6 specific date
         if($date=="2022-11-01")
         {
-            $calendar .= "<td><h4 class='text-muted'>$currentDay</h4> <button class=' btn-danger btn-xs'>Holiday</button>";
+            $calendar .= "<td><h4 class='text-muted'>$currentDay</h4> <button class='btn-danger btn-sm'>Holiday</button>";
             //part 6
         }
         //  }
@@ -191,7 +190,7 @@ function build_calendar($month,$year,$resourceid){
         // }
         elseif($date<date('Y-m-d'))
         {
-            $calendar .= "<td><h4>$currentDay</h4> <button class=' btn-warning btn-xs'>N/A</button>";
+            $calendar .= "<td><h5 class='text-muted fw-lighter'>$currentDay</h5>";
         }
         // elseif(in_array($date, $bookings))
         // {
@@ -209,12 +208,12 @@ function build_calendar($month,$year,$resourceid){
 
             if($totalbookings == count($timeslots))
             {
-                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='' class=' btn-danger btn-xs'>All Booked</a>";
+                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='' class=' btn-danger btn-sm'>All Booked</a>";
             }
             else
             {
                 $availableslots = count($timeslots) - $totalbookings;
-                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."&tableid=".$resourceid."&id=".$id."' class=' btn-success btn-xs'>Book</a> <small><i>$availableslots slots available</i></small>";
+                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."&tableid=".$resourceid."&id=".$id."' class=' btn-success btn-sm'>Book</a> <small><i>$availableslots slots available</i></small>";
             }
         }
 
