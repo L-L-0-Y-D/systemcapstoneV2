@@ -58,9 +58,19 @@ if(mysqli_num_rows($managetable_query_run) > 0)
     </style>
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-shrink" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
+        <div class="container ml-2">
+            <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">
+            <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
+            <map name="workmap">
+                <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
+            </map>I - Eat</a>
+        </div>
+    </nav>
 
 <main class="page shopping-cart-page">
-        <section class="clean-block clean-cart dark">
+        <section class="clean-block clean-cart dark p-5 mt-2">
             <div class="container">
                 <div class="content mt-5">
                     <div class="row g-0">
