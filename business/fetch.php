@@ -20,7 +20,7 @@ if(isset($_POST['request'])){
 
 ?>
 
-<table class="table">
+<table id="container" class="table my-0" id="dataTable" style="text-align:center">
     <?php
     if($count)
         {
@@ -46,7 +46,7 @@ if(isset($_POST['request'])){
         }
     ?>
     </thead>
-
+    <form action="menu.php" method="POST" enctype="multipart/form-data">
     <tbody style="text-align:center">
         <?php
         while($item = mysqli_fetch_assoc($result))
@@ -66,15 +66,16 @@ if(isset($_POST['request'])){
             <!--<td>
                 <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>
             </td>-->
-            <form action="code.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
-            <td><button type="submit" class="btn btn-sm btn-danger archive_menu_btn" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
-            </form>
+            
+                <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
+            <td><button  type="submit" class="btn btn-sm btn-danger archive_menu_btn" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
+
         </tr>
         <?php
         }
         ?>
     </tbody>
+    </form>
 </table>
 <?php
 }
