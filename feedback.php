@@ -288,8 +288,10 @@ if(isset($_GET['id']))
                     title: data,
                     icon: "success",
                     button: "Okay",
+                    timer: 3000
+                    }).then(() => {
+                    window.location = 'your_reservation.php?id='+ userid;
                     });
-                    window.location = 'index.php';
 
 
                 }

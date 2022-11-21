@@ -1,5 +1,5 @@
 <?php
-
+$key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
 session_start();
 include('../config/dbcon.php');
 
