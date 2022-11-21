@@ -108,7 +108,8 @@ include('../config/dbcon.php');
                                                         </td>
                                                             <!--<button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>-->
                                                             <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
-                                                        <td><button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
+                                                            <!-- <input type="hidden" name="productid" value="<?= $item['productid']; ?>"> -->
+                                                        <td><button type="submit" class="btn btn-sm btn-danger"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
                                                     </tr>
                                                 <?php
                                                 }

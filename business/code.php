@@ -760,6 +760,35 @@ else if(isset($_POST['archive_blockdate_btn']))
     }
 
 }
+else if(isset($_POST['archive_menusort_btn']))
+{
+    $status = 2;
+    $businessid = $_POST['businessid'];
+    $productid = $_POST['productid'];
+
+    $update_table_query = "UPDATE products SET status= '$status' WHERE productid='$productid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 2)
+        {
+            redirect("menu.php?id=$businessid", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("menu.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("menu.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');

@@ -46,7 +46,7 @@ if(isset($_POST['request'])){
         }
     ?>
     </thead>
-    <form action="menu.php" method="POST" enctype="multipart/form-data">
+    <!-- <form action="menu.php" method="POST" enctype="multipart/form-data"> -->
     <tbody style="text-align:center">
         <?php
         while($item = mysqli_fetch_assoc($result))
@@ -67,16 +67,44 @@ if(isset($_POST['request'])){
                 <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>
             </td>-->
             
-                <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
-            <td><button  type="submit" class="btn btn-sm btn-danger archive_menu_btn" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
+            <!-- <input type="hidden" name="businessid" class="bisnes" value="<?= $item['businessid']; ?>"> -->
+            <td><button  type="submit" class="btn btn-sm btn-danger archive_menu_btn" id="<?= $item['businessid']; ?>" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
 
         </tr>
         <?php
         }
         ?>
     </tbody>
-    </form>
+    <!-- </form> -->
 </table>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.archive_menu_btn').click(function () {
+            var value = $(this).val();
+            var id = $(this).attr('id');
+            var name = $(this).attr('name');
+            // alert (value);
+            // alert (id);
+            $.ajax({
+                type: "POST",
+                url: "code.php",
+                data: {productid: value, businessid: id, archive_menusort_btn: name},
+                success:function(data){
+                    swal({
+                    title: "Archive Success",
+                    icon: "success",
+                    button: "Okay",
+                    timer: 1500,
+                    }).then(() => {
+                        location.reload();
+                        });
+                }
+            });
+        });
+    });
+
+</script>
 <?php
 }
 
