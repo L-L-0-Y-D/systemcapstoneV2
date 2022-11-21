@@ -115,6 +115,7 @@ thead, tbody, tfoot, tr, td, th {
 }
 .summary .disabled {
   background-color: grey!important;
+  margin-top:0!important;
 }
 .summary .value {
   line-height: 2.5!important;

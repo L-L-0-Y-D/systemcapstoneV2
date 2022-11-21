@@ -106,7 +106,7 @@
                             }
                             else if($row_rating['averagerating'] == 3.0)
                             {
-                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i>';
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="fas fa-star-half-alt"></i>';
                             }
                             else if($row_rating['averagerating'] >= 2.1)
                             {
@@ -114,7 +114,7 @@
                             }
                             else if($row_rating['averagerating'] == 2.0)
                             {
-                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i>';
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
                             }
                             else if($row_rating['averagerating'] >= 1.1)
                             {
@@ -122,7 +122,7 @@
                             }
                             else if($row_rating['averagerating'] == 1.0)
                             {
-                                echo '<i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i>';
+                                echo '<i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
                             }
                             else
                             {

@@ -151,20 +151,15 @@ if(isset($_POST['request'])){
     {
         while($data = mysqli_fetch_assoc($result))
         {?>
-        <div class="col-md-12 col-lg-4 col-md-3">
-            <div class="summary">
-                <h3>RESERVATION SUMMARY</h3>
-                <div class="shadow" id="summary">
-                    <h4><span class="text">Reservation ID</span><span class="value"><?= $data['reservationid']; ?></span></h4>
-                    <h4><span class="text">Table Number</span><span class="value"><?= strtoupper($data['table_number']); ?></span></h4>
-                    <h4><span class="text">Number of Guest</span><span class="value"><?= $data['chair'];?>&nbsp;</span></h4>
-                    <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
-                    <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
-                    <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <!-- <button class="btn btn-primary w-100" type="submit">ADD REVIEW</button> -->
-                </div>
+            <div class="shadow" id="summary">
+                <h4><span class="text">Reservation ID</span><span class="value"><?= $data['reservationid']; ?></span></h4>
+                <h4><span class="text">Table Number</span><span class="value"><?= strtoupper($data['table_number']); ?></span></h4>
+                <h4><span class="text">Number of Guest</span><span class="value"><?= $data['chair'];?>&nbsp;</span></h4>
+                <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
+                <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
+                <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
+                <button class="btn btn-primary disabled w-100" type="submit">ADD REVIEW</button> 
             </div>
-        </div>
         <?php
         }
     }
@@ -172,9 +167,7 @@ if(isset($_POST['request'])){
     {
         while($data = mysqli_fetch_assoc($result))
         {?>
-        <div class="col-md-12 col-lg-4 col-md-3">
-            <div class="summary">
-                <h3>RESERVATION SUMMARY</h3>
+        
                 <div class="shadow" id="summary">
                     <h4><span class="text">Reservation ID</span><span class="value"><?= $data['reservationid']; ?></span></h4>
                     <h4><span class="text">Table Number</span><span class="value"><?= strtoupper($data['table_number']); ?></span></h4>
@@ -182,10 +175,9 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <!-- <button class="btn btn-primary w-100" type="submit">ADD REVIEW</button> -->
+                    <button class="btn btn-primary disabled w-100" type="submit">ADD REVIEW</button>
                 </div>
-            </div>
-        </div>
+         
         <?php
         }
     }
@@ -193,9 +185,7 @@ if(isset($_POST['request'])){
     {
         while($data = mysqli_fetch_assoc($result))
         {?>
-        <div class="col-md-12 col-lg-4 col-md-3">
-            <div class="summary">
-                <h3>RESERVATION SUMMARY</h3>
+    
                 <div class="shadow" id="summary">
                     <h4><span class="text">Reservation ID</span><span class="value"><?= $data['reservationid']; ?></span></h4>
                     <h4><span class="text">Table Number</span><span class="value"><?= strtoupper($data['table_number']); ?></span></h4>
@@ -205,8 +195,7 @@ if(isset($_POST['request'])){
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
                     <a href="feedback.php?id=<?= $reservationid;?>" class="btn btn-primary w-100" type="submit">ADD REVIEW</a>
                 </div>
-            </div>
-        </div>
+          
         <?php
         }
     }
@@ -214,9 +203,7 @@ if(isset($_POST['request'])){
     {
         while($data = mysqli_fetch_assoc($result))
         {?>
-        <div class="col-md-12 col-lg-4 col-md-3">
-            <div class="summary">
-                <h3>RESERVATION SUMMARY</h3>
+     
                 <div class="shadow" id="summary">
                     <h4><span class="text">Reservation ID</span><span class="value"><?= $data['reservationid']; ?></span></h4>
                     <h4><span class="text">Table Number</span><span class="value"><?= strtoupper($data['table_number']); ?></span></h4>
@@ -226,8 +213,7 @@ if(isset($_POST['request'])){
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
                     <a href="reservation.php?id=<?= $businessid;?>" class="btn btn-primary w-100" type="submit">RESERVE AGAIN</a>
                 </div>
-            </div>
-        </div>
+           
         <?php
         }
     }
