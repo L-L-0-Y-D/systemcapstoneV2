@@ -36,10 +36,10 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Montserrat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/business.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="stylesheet" href="assets/css/business.css"> 
     <!--Owl Carousel-->
     <link rel="stylesheet" href="owl_carousel/owl.carousel.css">
     <link rel="stylesheet" href="owl_carousel/owl.theme.default.css">
@@ -152,7 +152,7 @@
         </div>
     </div><hr>
     <div class="container">
-        <div class="rowm-0 ">
+        <div class="row m-0 ">
             <div class="heading mt-5">
                <h2 >All Restaurants in <?= $data['municipality_name']; ?></h2>   
             </div>
@@ -258,6 +258,7 @@
     <!--Owl Carousel-->
     <script src="owl_carousel/owl.carousel.js"></script>
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 </body>
 <?php
         } 
