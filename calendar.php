@@ -1,6 +1,6 @@
 <?php
 
-    
+$mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');    
       
 
 function timeslots($duration, $cleanup, $start, $end)
@@ -118,7 +118,7 @@ function build_calendar($month,$year,$resourceid){
             {
                 
                 $selected = $resourceid==$row['tableid'] ? 'selected':'';
-                $calendar.= "<option $selected value='{$row['tableid']}'> {$row['table_number']} - for {$row['chair']}</option>";
+                $calendar.= "<option $selected value='{$row['tableid']}'> Table {$row['table_number']} - for {$row['chair']}</option>";
             }
         }
     }
@@ -190,7 +190,7 @@ function build_calendar($month,$year,$resourceid){
         // }
         elseif($date<date('Y-m-d'))
         {
-            $calendar .= "<td><h5 class='text-muted fw-lighter'>$currentDay</h5>";
+            $calendar .= "<td><h5 class='text-muted fw-lighter'>$currentDay</h5><button href='' class=' btn-danger btn-sm'>N/A</button>";
         }
         // elseif(in_array($date, $bookings))
         // {
@@ -208,12 +208,12 @@ function build_calendar($month,$year,$resourceid){
 
             if($totalbookings == count($timeslots))
             {
-                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='' class=' btn-danger btn-sm'>All Booked</a>";
+                $calendar .= "<td class='$today'><h4>$currentDay</h4> <button href='' class=' btn-danger btn-sm'>All Booked</button>";
             }
             else
             {
                 $availableslots = count($timeslots) - $totalbookings;
-                $calendar .= "<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."&tableid=".$resourceid."&id=".$id."' class=' btn-success btn-sm'>Book</a> <small><i>$availableslots slots available</i></small>";
+                $calendar .= "<td class='$today'><h4>$currentDay</h4> <button value='reserveBtn' date=".$date." tableid=".$resourceid." id=".$id." class=' btn-success btn-sm reserveBtn'>Book</button> <small><i>$availableslots slots available</i></small>";
             }
         }
 
@@ -229,6 +229,8 @@ function build_calendar($month,$year,$resourceid){
         //     $calendar .= "<td><h4>$currentDay</h4>";
 
         // }
+
+        
 
 
         $calendar .= "</td>";
@@ -322,4 +324,132 @@ function redirect($url, $message, $status)
     //     }
     // }
 
+
+if(isset($_GET['date']))
+{
+    $resourceid = $_GET['tableid'];
+    $businessid = $_GET['id'];
+    $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE tableid = ?");
+    $stmt -> bind_param('i', $resourceid);
+    $stmt -> execute();
+    $result = $stmt -> get_result();
+    if($result -> num_rows > 0)
+    {
+        $row = $result -> fetch_assoc();
+        $resourcename = $row['table_number'];
+        $resourcetable = $row['chair'];
+    }
+
+
+    $date = $_GET['date'];
+
+    //part 5
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND businessid=?");
+    $stmt -> bind_param('sii', $date, $resourceid, $businessid);
+    $bookings = array();
+
+    if($stmt -> execute())
+    {
+        $result = $stmt -> get_result();
+        if($result -> num_rows > 0)
+        {
+            while($row = $result -> fetch_assoc())
+            {
+                $bookings[] = $row['reservation_time'];
+            }
+        }
+    }
+}
+if(isset($_POST['submit']))
+{
+
+    $namereserveunder = $_POST['namereserveunder'];
+    $reservation_email = $_POST['reservation_email'];
+    $reservation_phonenumber = $_POST['reservation_phonenumber'];
+    $userid = $_POST['userid'];
+    $businessid = $_POST['businessid'];
+    $reservation_time = $_POST['timeslot'];
+    $date = $_GET['date'];
+    //part 5
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=?");
+    $stmt -> bind_param('ssi', $date, $reservation_time, $resourceid);
+    
+    $bookings = array();
+
+    if($stmt -> execute())
+    {
+        $result = $stmt -> get_result();
+        if($result -> num_rows > 0)
+        {
+            // while($row = $result -> fetch_assoc())
+            // {
+            //     $bookings[] = $row['timeslot'];
+            // }
+
+            // $stmt -> close();
+
+            $msg = "<div class='alert alert-danger'>Already Booked</div>";
+            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Time Already Booked", "warning");
+
+        }else{
+            if(preg_match("/^[0-9]\d{10}$/",$_POST['reservation_phonenumber']))
+            {
+
+                $stmt = $mysqli->prepare("INSERT INTO reservations (namereserveunder, reservation_time,reservation_phonenumber, reservation_email, reservation_date, tableid, businessid, userid) VALUES (?,?,?,?,?,?,?,?)");
+                $stmt -> bind_param('sssssiii',$namereserveunder,$reservation_time,$reservation_phonenumber,$reservation_email,$date,$resourceid,$businessid,$userid);
+                $stmt -> execute();
+                $msg = "<div class='alert alert-sucess'>Booking Successfull</div>";
+            
+                //part 5
+                $bookings[] = $reservation_time;
+                // endpart5
+            
+                $stmt -> close();
+                $mysqli -> close();
+            
+                redirect("businessview.php?id=$businessid", "Reservation for Approval", "success");
+            }
+            else
+            {
+                redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Phone Number must be 11 digits", "warning");
+            }
+            
+        }
+    }
+
+
+
+}
+
+
+
+// function timeslots($duration, $cleanup, $start, $end)
+// {
+//     $start = new DateTime($start);
+//     $end = new DateTime($end);
+//     $interval = new DateInterval("PT".$duration."M");
+//     $cleanupInterval = new DateInterval("PT".$cleanup."M");
+//     $slots = array();
+
+//     for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
+//     {
+//         $endPeriod = clone $intStart;
+//         $endPeriod -> add($interval);
+//         if($endPeriod > $end)
+//         {
+//             break;
+//         }
+
+//         $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
+//         // count($slots);
+//     }
+
+//     return $slots;
+
+// }
+
+if(isset($_POST['value']))
+{
+    redirect("index.php", "test", "success");
+}
 ?>

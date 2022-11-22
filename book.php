@@ -2,10 +2,15 @@
 include('middleware/userMiddleware.php');
 $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');
 
-if(isset($_GET['date']))
+$value = $_POST['value'];
+$date = $_POST['date'];
+$tableid = $_POST['tableid'];
+$id = $_POST['id'];
+
+if(isset($date))
 {
-    $resourceid = $_GET['tableid'];
-    $businessid = $_GET['id'];
+    $resourceid = $_POST['tableid'];
+    $businessid = $_POST['id'];
     $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE tableid = ?");
     $stmt -> bind_param('i', $resourceid);
     $stmt -> execute();
@@ -18,7 +23,7 @@ if(isset($_GET['date']))
     }
 
 
-    $date = $_GET['date'];
+    $date = $_POST['date'];
 
     //part 5
     $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND businessid=?");
@@ -46,7 +51,7 @@ if(isset($_POST['submit']))
     $userid = $_POST['userid'];
     $businessid = $_POST['businessid'];
     $reservation_time = $_POST['timeslot'];
-    $date = $_GET['date'];
+    $date = $_POST['date'];
     //part 5
     $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=?");
     $stmt -> bind_param('ssi', $date, $reservation_time, $resourceid);
@@ -99,7 +104,7 @@ if(isset($_POST['submit']))
 }
 
 $id = $_GET['id'];
-$tableid = $_GET['tableid'];
+$tableid = $_POST['tableid'];
 $business = businessGetByIDActives($id);
 $data = mysqli_fetch_array($business);
 
@@ -133,67 +138,37 @@ function timeslots($duration, $cleanup, $start, $end)
 
 }
 
-
-
+if(isset($_POST['value'])){
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-  <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Montserrat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
-    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Inter.css">
-    <link rel="stylesheet" href="reg.css">
-    <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
-    <title>Reservation | I-Eat</title>
-    <link rel="icon" href="uploads/favicon.ico"/>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>I EAT | Booking</title>
-  </head>
-  <body>
-    <div class="container">
-        <h1 class="text-center">Booking for Table <?php echo $resourcename; ?> - <?php echo $resourcetable; ?> Date:<?= date('m/d/Y', strtotime($date)); ?></h1><hr>
-        <div class="row">
-            <div class="col-md-12">
-                <?php echo isset($msg)?$msg:""; ?>
-            </div>
-            <!-- /* Creating a button for each time slot. */ -->
+        <div class="col-md-12 col-lg-4 col-md-3">
+            <div class="summary" id="book">
+                    <h3>SELECT WHAT TIME IS YOUR RESERVATION</h3>
+    <!-- /* Creating a button for each time slot. */ -->
             <?php $timeslots = timeslots($duration, $cleanup, $start, $end);
             // echo count($timeslots); 
             foreach ($timeslots as $ts)
             {
             ?>
-            <div class="col-md-2">
-                <div class="form-group mb-2">
+            
                     <?php if(in_array($ts, $bookings)){ ?>
 
                         <button class="btn btn-danger"><?php echo $ts; ?></button>
+                        <!-- <div class="shadow"><button class="btn btn-danger btn-lg d-block w-100" data-timeslot="<?php echo $ts; ?>" type="button" style="background: rgb(255,128,64);border-style: none;"><?php echo $ts; ?></button></div> -->
 
                     <?php } else { ?>
-                        
+
+                        <!-- <div class="shadow"><button class="btn btn-primary btn-lg d-block w-100" data-timeslot="<?php echo $ts; ?>" type="button" style="background: rgb(255,128,64);border-style: none;"><?php echo $ts; ?></button></div> -->
                         <button class="btn btn-success book" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
 
                     <?php } ?>
-                </div>
-            </div>
+
             <?php
             }          
             ?>
-        </div>
-    </div>
-    <!-- part 4  -->
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
+            </div>
+        </div>			
+			
+			<div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -205,13 +180,15 @@ function timeslots($duration, $cleanup, $start, $end)
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="" method="post">
+                        <form action="functions/codereservation.php" method="post">
                             <div class="form-group">
                                 <label for="">Timeslots</label>
                                 <input required type="text" readonly name="timeslot" id="timeslot" class="form-control">
                             </div>
                             <div class="form-group">
                                 <input required type="hidden" value="<?= $id;?>" name="businessid" class="form-control">
+                                <input required type="hidden" value="<?= $_POST['date'];?>" name="date" class="form-control">
+                                <input required type="hidden" value="<?= $_POST['tableid'];?>" name="tableid" class="form-control">
                             </div>
                             <div class="form-group">
                                 <input required type="hidden" value="<?= $_SESSION['auth_user']['userid'];?>" name="userid" class="form-control">
@@ -229,7 +206,7 @@ function timeslots($duration, $cleanup, $start, $end)
                                 <input required type="text"  value="<?= $_SESSION['auth_user']['phonenumber'];?>" name="reservation_phonenumber" class="form-control">
                             </div>
                             <div class="form-group  pull-right">
-                                <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                                <button class="btn btn-primary" type="submit" name="reserve_btn">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -239,19 +216,10 @@ function timeslots($duration, $cleanup, $start, $end)
             </div>
 
         </div>
-    </div>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script>
+		
+		
+		
+		<script>
         $(".book").click(function(){
             var timeslot = $(this).attr('data-timeslot');
             $("#slot").html(timeslot);
@@ -259,27 +227,9 @@ function timeslots($duration, $cleanup, $start, $end)
             $("#myModal").modal("show");
         })
 
-    </script>
-    <script>
-        <?php if(isset($_SESSION['message'])) 
-    { ?>
-         alertify.set('notifier','position', 'top-center');
-         var msg = alertify.message('Default message');
-         msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+		</script>
+    </div>
+<?php   
+}
 
-        swal({
-            title: "<?= $_SESSION['message']; ?>",
-            icon: "<?= $_SESSION['alert']; ?>",
-            button: "Okay",
-            timer: 1500,
-            });
-
-        <?php 
-        unset($_SESSION['message']);
-        unset($_SESSION['alert']);
-    }
-    ?> 
-    </script> 
-    
-  </body>
-</html>
+?>
