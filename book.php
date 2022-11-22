@@ -140,82 +140,76 @@ function timeslots($duration, $cleanup, $start, $end)
 
 if(isset($_POST['value'])){
 ?>
-        <div class="col-md-12 col-lg-4 col-md-3">
-            <div class="summary" id="book">
-                    <h3>SELECT WHAT TIME IS YOUR RESERVATION</h3>
+         <hr><h6 class="text-dark">Time Slots for <?= $_POST['date'];?></h6><hr>
     <!-- /* Creating a button for each time slot. */ -->
             <?php $timeslots = timeslots($duration, $cleanup, $start, $end);
             // echo count($timeslots); 
             foreach ($timeslots as $ts)
             {
             ?>
-            
                     <?php if(in_array($ts, $bookings)){ ?>
 
-                        <button class="btn btn-danger"><?php echo $ts; ?></button>
+                        <button class="btn btn-danger book w-100"><?php echo $ts; ?></button>
                         <!-- <div class="shadow"><button class="btn btn-danger btn-lg d-block w-100" data-timeslot="<?php echo $ts; ?>" type="button" style="background: rgb(255,128,64);border-style: none;"><?php echo $ts; ?></button></div> -->
 
                     <?php } else { ?>
 
                         <!-- <div class="shadow"><button class="btn btn-primary btn-lg d-block w-100" data-timeslot="<?php echo $ts; ?>" type="button" style="background: rgb(255,128,64);border-style: none;"><?php echo $ts; ?></button></div> -->
-                        <button class="btn btn-success book" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+                        <button class="btn btn-success book w-100" data-timeslot="<?php echo $ts; ?>"> <?php echo $ts; ?></button>
 
                     <?php } ?>
 
             <?php
             }          
             ?>
-            </div>
-        </div>			
+            </div>		
 			
 			<div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Booking: <span id="slot"></span></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form action="functions/codereservation.php" method="post">
-                            <div class="form-group">
-                                <label for="">Timeslots</label>
-                                <input required type="text" readonly name="timeslot" id="timeslot" class="form-control">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div><button type="button" class="btn-close float-end p-2 m-1" onclick="location.href='reservation.php?id=<?= $id;?>'"></button></div>
+                        <h3 class="pb-0">Booking: 
+                            <p class="text-muted fs-6" id="slot"></p>
+                        </h3><hr>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="functions/codereservation.php" method="post">
+                                    <div class="form-group mb-2">
+                                        <label for="">Time Slot:</label>
+                                        <input required type="text" readonly name="timeslot" id="timeslot" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input required type="hidden" value="<?= $id;?>" name="businessid" class="form-control">
+                                        <input required type="hidden" value="<?= $_POST['date'];?>" name="date" class="form-control">
+                                        <input required type="hidden" value="<?= $_POST['tableid'];?>" name="tableid" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input required type="hidden" value="<?= $_SESSION['auth_user']['userid'];?>" name="userid" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="">Customer's Name:</label>
+                                        <input required type="text" value="<?= $_SESSION['auth_user']['name'];?>" name="namereserveunder" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="">Email Address:</label>
+                                        <input required type="email"  value="<?= $_SESSION['auth_user']['email'];?>" name="reservation_email" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="">Phone Number:</label>
+                                        <input required type="text"  value="<?= $_SESSION['auth_user']['phonenumber'];?>" name="reservation_phonenumber" class="form-control">
+                                    </div>
+                                    <div class="form-group  pull-right text-center">
+                                        <button class="btn btn-primary w-50" type="submit" name="reserve_btn">Submit</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <input required type="hidden" value="<?= $id;?>" name="businessid" class="form-control">
-                                <input required type="hidden" value="<?= $_POST['date'];?>" name="date" class="form-control">
-                                <input required type="hidden" value="<?= $_POST['tableid'];?>" name="tableid" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <input required type="hidden" value="<?= $_SESSION['auth_user']['userid'];?>" name="userid" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Name</label>
-                                <input required type="text" value="<?= $_SESSION['auth_user']['name'];?>" name="namereserveunder" class="form-control">
-                            </div>
-                            <div class="form-group mb-2">
-                                <label for="">Email</label>
-                                <input required type="email"  value="<?= $_SESSION['auth_user']['email'];?>" name="reservation_email" class="form-control">
-                            </div>
-                            <div class="form-group mb-2">
-                                <label for="">Phonenumber</label>
-                                <input required type="text"  value="<?= $_SESSION['auth_user']['phonenumber'];?>" name="reservation_phonenumber" class="form-control">
-                            </div>
-                            <div class="form-group  pull-right">
-                                <button class="btn btn-primary" type="submit" name="reserve_btn">Submit</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            </div>
 
-        </div>
 		
 		
 		

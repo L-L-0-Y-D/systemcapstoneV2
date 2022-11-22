@@ -97,9 +97,10 @@ if(mysqli_num_rows($managetable_query_run) > 0)
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-4 col-md-3">
-                            <div class="summary" id="book">
-                                <h3>SELECT WHAT TIME IS YOUR RESERVATION</h3>
-                                
+                            <div class="summary">
+                                <h3 >SELECT WHAT TIME IS YOUR RESERVATION</h3>
+                                <div id="book">
+                                </div>
                             </div>
                         </div>
                     </div>
