@@ -56,11 +56,14 @@
                     $results = $query->fetchAll();
                     $row = $query->rowCount();
 
+
                     if($row!= 0)
                     {
                         foreach($results as $item)
                         {
+                            $businessid=$item['businessid'];
             ?>
+
             <div class="col-md-3 p-2 shadow border-dark">
                 <div class="product-img">
                     <a href="businessview.php?id=<?=$item['businessid'];?>">
@@ -79,6 +82,60 @@
                     <div class="rating d-flex ">
                         <span>
                         <!--HINDI GUMAGANA RATING -->
+                        <?php
+                            $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                            $query_rating_run = mysqli_query($con, $query_rating);
+                            $row_rating = mysqli_fetch_assoc($query_rating_run);
+                            if(!$row_rating['averagerating'])
+                            {
+                                echo '<span> No Rating </span>';
+                            }
+                            else if($row_rating['averagerating'] == 5.0)
+                            {
+                                echo '<i class ="fas fa-star "></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="fas fa-star"></i>';
+                            }
+                            else if($row_rating['averagerating'] >= 4.1)
+                            {
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i>';
+                            }
+                            else if($row_rating['averagerating'] == 4.0)
+                            {
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i>';
+                            }
+                            else if($row_rating['averagerating'] >= 3.1)
+                            {
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i>';
+                            }
+                            else if($row_rating['averagerating'] == 3.0)
+                            {
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="fas fa-star-half-alt"></i>';
+                            }
+                            else if($row_rating['averagerating'] >= 2.1)
+                            {
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+                            }
+                            else if($row_rating['averagerating'] == 2.0)
+                            {
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+                            }
+                            else if($row_rating['averagerating'] >= 1.1)
+                            {
+                                echo '<i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+                            }
+                            else if($row_rating['averagerating'] == 1.0)
+                            {
+                                echo '<i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+                            }
+                            else
+                            {
+                                echo 'something went wrong';
+                            }
+                            $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                            $query_rating_count_run = mysqli_query($con, $query_rating_count);
+                            $row_rating_count = mysqli_num_rows($query_rating_count_run);
+                                echo '<span> ('.$row_rating_count.')</span>'
+                                        
+                            ?>
                         </span>
                     </div>
                 </div>
