@@ -97,11 +97,9 @@ if(mysqli_num_rows($managetable_query_run) > 0)
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-4 col-md-3">
-                            <div class="summary">
+                            <div class="summary" id="book">
                                 <h3>SELECT WHAT TIME IS YOUR RESERVATION</h3>
-                                <div class="shadow"><button class="btn btn-primary btn-lg d-block w-100" type="button" style="background: rgb(255,128,64);border-style: none;">8:00 am - 9:00 am</button></div>
-                                <div class="shadow"><button class="btn btn-primary btn-lg d-block w-100" type="button" style="background: rgb(255,128,64);border-style: none;">9:10 am - 10:10 am</button></div>
-                                <div class="shadow"><button class="btn btn-primary btn-lg d-block w-100" type="button" style="background: rgb(255,128,64);border-style: none;">10:20 am - 11:20 am</button></div>
+                                
                             </div>
                         </div>
                     </div>
@@ -113,6 +111,36 @@ if(mysqli_num_rows($managetable_query_run) > 0)
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <script>
     
+    $(document).on('click','.reserveBtn',function(){
+                var values = $(this).val();
+                var dates = $(this).attr('date');
+                var tableids = $(this).attr('tableid');
+                var ids = $(this).attr('id');
+                // alert(values);
+                // alert(dates);
+                // alert(tableids);
+                // alert(ids);
+                // alert(ID);
+                // alert(id);
+                // alert(Review);
+                // var all= $('#all').val();
+
+                $.ajax({
+                    url:"book.php?id=<?= $id; ?>",
+                    type:"POST",
+                    data:{value: values, date: dates, tableid: tableids, id: ids},
+                    beforeSend:function(){
+                        $("#book").html("<span>Working...</span>");
+                    },
+                    success:function(data){
+                        $("#book").html(data);
+                    
+                    }
+                });
+            // });
+        });
+
+
 $.ajax({
     url: "calendar.php?id=<?= $id; ?>",
     type:"POST",
@@ -121,6 +149,9 @@ $.ajax({
         $("#calendar").html(data);
     }
 });
+
+
+
 
 $(document).on('click','.changemonth', function(){
     var resource_id = $("#resource_select").val();
@@ -145,6 +176,8 @@ $(document).on('change','#resource_select', function(){
         }
     });
 });
+
+
 </script>
 <script>
         <?php if(isset($_SESSION['message'])) 

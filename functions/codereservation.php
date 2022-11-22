@@ -1,29 +1,63 @@
 <?php
-include('../config/dbcon.php');
+
 include('../functions/myfunctions.php');
 
 if(isset($_POST['reserve_btn']))
 {
-    $businessid = $_POST['businessid'];
-    $numberofguest = $_POST['numberofguest'];
-    $userid = $_POST['userid'];
+    $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');
     $namereserveunder = $_POST['namereserveunder'];
     $reservation_email = $_POST['reservation_email'];
     $reservation_phonenumber = $_POST['reservation_phonenumber'];
-    $reservation_date = $_POST['reservation_date'];
-    $reservation_time = $_POST['reservation_time'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $userid = $_POST['userid'];
+    $businessid = $_POST['businessid'];
+    $reservation_time = $_POST['timeslot'];
+    $date = $_POST['date'];
+    $resourceid = $_POST['tableid'];
+    //part 5
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=?");
+    $stmt -> bind_param('ssi', $date, $reservation_time, $resourceid);
+    
+    $bookings = array();
 
-    $insert_query = "INSERT INTO reservations (namereserveunder, numberofguest, reservation_date, reservation_time, reservation_phonenumber, reservation_email, businessid, userid, status) 
-    VALUES ('$namereserveunder','$numberofguest','$reservation_date','$reservation_time', '$reservation_phonenumber', '$reservation_email', '$businessid', '$userid', '$status')";
-    //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-    $reserve_query_run = mysqli_query($con, $insert_query);
+    if($stmt -> execute())
+    {
+        $result = $stmt -> get_result();
+        if($result -> num_rows > 0)
+        {
+            // while($row = $result -> fetch_assoc())
+            // {
+            //     $bookings[] = $row['timeslot'];
+            // }
 
-    if($reserve_query_run){
-        redirect("../index.php", "Reservation Successfully", "success");
-    }
-    else{
-        redirect("../reservation.php", "Something went wrong", "error");;
+            // $stmt -> close();
+
+            $msg = "<div class='alert alert-danger'>Already Booked</div>";
+            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Time Already Booked", "warning");
+
+        }else{
+            if(preg_match("/^[0-9]\d{10}$/",$_POST['reservation_phonenumber']))
+            {
+
+                $stmt = $mysqli->prepare("INSERT INTO reservations (namereserveunder, reservation_time,reservation_phonenumber, reservation_email, reservation_date, tableid, businessid, userid) VALUES (?,?,?,?,?,?,?,?)");
+                $stmt -> bind_param('sssssiii',$namereserveunder,$reservation_time,$reservation_phonenumber,$reservation_email,$date,$resourceid,$businessid,$userid);
+                $stmt -> execute();
+                $msg = "<div class='alert alert-sucess'>Booking Successfull</div>";
+            
+                //part 5
+                $bookings[] = $reservation_time;
+                // endpart5
+            
+                $stmt -> close();
+                $mysqli -> close();
+            
+                redirect("../businessview.php?id=$businessid", "Reservation for Approval", "success");
+            }
+            else
+            {
+                redirect("../book.php?date=$date&tableid=$resourceid&id=$businessid", "Phone Number must be 11 digits", "warning");
+            }
+            
+        }
     }
 }
 else
