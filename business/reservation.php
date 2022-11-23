@@ -93,14 +93,15 @@ include('../config/dbcon.php');
                                     // $reservations = getAll("reservations");
                                     //$reservations = getAll("reservations");
                                      
-                                    if(mysqli_num_rows($result) > 0)
+                                    if(mysqli_num_rows($reservations) > 0)
                                     {
-                                        foreach($result as $item)
+                                        foreach($reservations as $item)
                                         {
                                             if($item['businessid'] == $_SESSION['auth_user']['businessid'])
                                                 {
                                                 ?>
-                                                    
+
+                                                        <td><?= $item['reservationid']; ?></td>
                                                         <td><?= $item['name']; ?></td>
                                                         <td><?= $item['namereserveunder']; ?></td>
                                                         <td><?= $item['table_number']; ?></td>
@@ -115,7 +116,9 @@ include('../config/dbcon.php');
                                                                 elseif($item['status'] == 1)
                                                                     { echo 'Approved';}
                                                                 elseif($item['status'] == 2)
-                                                                    {echo 'Declined';}  
+                                                                    {echo 'Declined';}
+                                                                elseif($item['status'] == 3)
+                                                                    {echo 'Cancelled';}  
                                                         ?></td>                                                                                                         
                                                         <td>
                                                             <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
