@@ -77,7 +77,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="">Reservation Time</label>
-                                <input type="time" name="reservation_time" value="<?= $data['reservation_time'] ?>" placeholder="Enter Reservation Time" class="form-control" readonly>
+                                <input type="text" name="reservation_time" value="<?= $data['reservation_time'] ?>" placeholder="Enter Reservation Time" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Status</label>
