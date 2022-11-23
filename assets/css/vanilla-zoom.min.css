@@ -107,6 +107,12 @@ thead, tbody, tfoot, tr, td, th {
   box-shadow: none;
   border: none!important;
 }
+.changemonth:hover,.changemonth:focus,.changemonth:active {
+  color: rgb(216, 15, 15)!important;
+  background-color: rgb(179,60,0)!important;
+  border-color: inherit;
+  box-shadow: none!important;
+}
 .summary .btn-success, .summary .btn {
   background-color: rgb(255,128,64);
   color: #fff;
@@ -119,7 +125,7 @@ thead, tbody, tfoot, tr, td, th {
 .summary .btn-danger:hover ,.summary .btn-danger:focus, .summary .btn-danger:active {
   background-color:darkred!important;
 }
- .changemonth:hover,.changemonth:focus,.changemonth:active, .summary .btn-success:hover,.summary .btn-success:focus,.summary .btn-success:active   {
+.summary .btn-success:hover,.summary .btn-success:focus,.summary .btn-success:active   {
   color: #fff;
   background-color: rgb(179,60,0)!important;
   border-color: inherit;
