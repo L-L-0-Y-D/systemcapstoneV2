@@ -101,7 +101,7 @@ include('../config/dbcon.php');
                                                 {
                                                 ?>
 
-                                                        <td><?= $item['reservationid']; ?></td>
+                                                        <!-- <td><?= $item['reservationid']; ?></td> -->
                                                         <td><?= $item['name']; ?></td>
                                                         <td><?= $item['namereserveunder']; ?></td>
                                                         <td><?= $item['table_number']; ?></td>
