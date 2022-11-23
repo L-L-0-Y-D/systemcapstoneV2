@@ -102,10 +102,10 @@ thead, tbody, tfoot, tr, td, th {
   box-shadow: none;
 }
 .changemonth {
-  background-color: rgb(255,128,64);
+  background-color: rgb(255,128,64)!important;
   color: #fff;
   box-shadow: none;
-  border: none;
+  border: none!important;
 }
 .summary .btn-success, .summary .btn {
   background-color: rgb(255,128,64);
