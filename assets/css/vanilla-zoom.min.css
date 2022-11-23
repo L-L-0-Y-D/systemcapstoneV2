@@ -113,6 +113,9 @@ thead, tbody, tfoot, tr, td, th {
   box-shadow: none;
   border: none;
 }
+.summary .btn-danger {
+  color:red!important;
+}
 .product .btn:hover,.product .btn:focus,.product  .btn:active , .summary .btn:hover,.summary .btn:focus,.summary  .btn:active  {
   color: #fff;
   background-color: rgb(179,60,0)!important;
