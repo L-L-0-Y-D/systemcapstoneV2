@@ -152,7 +152,7 @@ if(isset($_POST['value'])){
             ?>
                     <?php if(in_array($ts, $bookings)){ ?>
 
-                        <button class="btn btn-danger w-100"><?php echo $ts; ?> (Occupied)</button>
+                        <button class="btn-danger w-100"><?php echo $ts; ?> (Occupied)</button>
                         <!-- <div class="shadow"><button class="btn btn-danger btn-lg d-block w-100" data-timeslot="<?php echo $ts; ?>" type="button" style="background: rgb(255,128,64);border-style: none;"><?php echo $ts; ?></button></div> -->
 
                     <?php } else { ?>
