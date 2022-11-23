@@ -7,16 +7,16 @@ $('.owl-carousel').owlCarousel({
             items: 1,
         },
         576:{
-            items: 2,
-        },
-        768:{
             items: 3,
         },
-        1100:{
+        768:{
             items: 4,
         },
-        1400:{
+        1100:{
             items: 5,
+        },
+        1400:{
+            items: 6,
             loop: false,
         }
     }
