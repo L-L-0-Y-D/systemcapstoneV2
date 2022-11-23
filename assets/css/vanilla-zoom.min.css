@@ -116,12 +116,12 @@ thead, tbody, tfoot, tr, td, th {
 .summary .btn-danger {
   background-color:darkred!important;
 }
-.summary .btn-danger:hover {
+.summary .btn-danger:hover ,.summary .btn-danger:focus, .summary .btn-danger:active {
   background-color:darkred!important;
 }
 .product .btn:hover,.product .btn:focus,.product  .btn:active , .summary .btn:hover,.summary .btn:focus,.summary  .btn:active  {
   color: #fff;
-  background-color: rgb(179,60,0)!important;
+  background-color: rgb(179,60,0);
   border-color: inherit;
   box-shadow: none!important;
 }
