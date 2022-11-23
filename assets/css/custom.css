@@ -101,23 +101,26 @@
     text-align: center;
     font-size: 12px!important;
   }
-  /*for modal*/
+  /*for modal*/ 
   .menu_description {
-    text-align: left;
-    padding-left: 15%;
-
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
   }
-  
   .modal-title {
     margin-bottom: 0;
+    margin-top: 10px!important;
     line-height: var(--bs-modal-title-line-height);
     font-weight: bold;
-    text-align: left;
+    font-size:16px;
+  }
+  .menu_description  p {
+    font-size:14px!important;
   }
   .modal_img {
-    width: 70%;
+    width: 100%;
     height: 200px!important;
-    border:1px solid;
+    box-shadow: 0px 0px 15px var(--bs-gray)!important;
   }
   
   .modal {
@@ -145,7 +148,7 @@
     left: 0;
     z-index: var(--bs-modal-zindex);
     display: none;
-    width: 80%!important;
+    width: 100%!important;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
@@ -174,7 +177,56 @@
       --bs-modal-box-shadow: none!important;
     }
   }
-
-  
+  #aboutrestaurant {
+    margin-top: 130px;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 0%;
+  }
+  #aboutrestaurant p {
+    font-size: 20px;
+    font-family: Acme, sans-serif;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    color:#fff;
+  }
+  #aboutrestaurant h1 {
+    font-size: 60px;
+    font-family: 'Kaushan Script', serif;
+    color: RGB(255,128,64);
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  #aboutrestaurant img {
+    height: 500px;
+    width: 100%;
+    box-shadow: 0px 0px 5px var(--bs-dark);
+    border-radius: 10px;
+  }
+  #aboutrestaurant .col-md-4 {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background: var(--bs-gray-700);
+    color: var(--bs-dark);
+    box-shadow: 0px 0px 2px var(--bs-dark);
+    border-style: none;
+  }
+  #aboutrestaurant i {
+    color:darkorange;
+  }
+  #aboutrestaurant span {
+    font-size: 20px;
+    font-family: Acme, sans-serif;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    color:#fff;
+  }
+  #aboutrestaurant .btn-primary {
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+ 
   
   

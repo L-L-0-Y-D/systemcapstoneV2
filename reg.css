@@ -8,4 +8,5 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
+    background-blend-mode: lighten;
 }
