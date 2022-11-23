@@ -13,9 +13,11 @@ if(isset($_POST['reserve_btn']))
     $reservation_time = $_POST['timeslot'];
     $date = $_POST['date'];
     $resourceid = $_POST['tableid'];
+    $statusDeclined = "2";
+    $statusCancelled = "3";
     //part 5
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=?");
-    $stmt -> bind_param('ssi', $date, $reservation_time, $resourceid);
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=? AND NOT status=? AND NOT status=?");
+    $stmt -> bind_param('ssiss', $date, $reservation_time, $resourceid,$statusDeclined,$statusCancelled);
     
     $bookings = array();
 
@@ -32,7 +34,7 @@ if(isset($_POST['reserve_btn']))
             // $stmt -> close();
 
             $msg = "<div class='alert alert-danger'>Already Booked</div>";
-            redirect("../reservation.php", "Time Already Booked", "warning");
+            redirect("../reservation.php?id=$businessid", "Time Already Booked", "warning");
 
         }else{
             if(preg_match("/^[0-9]\d{10}$/",$_POST['reservation_phonenumber']))
@@ -54,7 +56,7 @@ if(isset($_POST['reserve_btn']))
             }
             else
             {
-                redirect("../reservation.php", "Phone Number must be 11 digits", "warning");
+                redirect("../reservation.php?id=$businessid", "Phone Number must be 11 digits", "warning");
             }
             
         }

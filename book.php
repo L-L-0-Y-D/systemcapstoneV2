@@ -11,6 +11,8 @@ if(isset($date))
 {
     $resourceid = $_POST['tableid'];
     $businessid = $_POST['id'];
+    $statusDeclined = "2";
+    $statusCancelled = "3";
     $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE tableid = ?");
     $stmt -> bind_param('i', $resourceid);
     $stmt -> execute();
@@ -26,8 +28,8 @@ if(isset($date))
     $date = $_POST['date'];
 
     //part 5
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND businessid=?");
-    $stmt -> bind_param('sii', $date, $resourceid, $businessid);
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND businessid=? AND NOT status=? AND NOT status=?");
+    $stmt -> bind_param('ssiss', $date, $resourceid, $businessid,$statusDeclined,$statusCancelled);
     $bookings = array();
 
     if($stmt -> execute())
@@ -52,9 +54,10 @@ if(isset($_POST['submit']))
     $businessid = $_POST['businessid'];
     $reservation_time = $_POST['timeslot'];
     $date = $_POST['date'];
+
     //part 5
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=?");
-    $stmt -> bind_param('ssi', $date, $reservation_time, $resourceid);
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = '$date' AND reservation_time = '$reservation_time' AND tableid='$resourceid'");
+    $stmt -> bind_param('ssiii', $date, $reservation_time, $resourceid);
     
     $bookings = array();
 
@@ -219,7 +222,7 @@ if(isset($_POST['value'])){
             $("#slot").html(timeslot);
             $("#timeslot").val(timeslot);
             $("#myModal").modal("show");
-            
+
             $("#btn_close").click(function(){
                 $("#myModal").modal("hide");
                 });

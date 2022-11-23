@@ -3,6 +3,8 @@
 include('middleware/userMiddleware.php');
 
 $id = $_GET['id'];
+if(isset($_GET['id']))
+{
 $managetable = "SELECT * FROM managetable WHERE businessid=$id AND status='1' ";
 $managetable_query_run = mysqli_query($con, $managetable);
 if(mysqli_num_rows($managetable_query_run) > 0)
@@ -201,3 +203,9 @@ else
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 </html>
+<?php
+}
+else
+{
+    redirect("index.php", "Somthing went Wrong", "error");
+}

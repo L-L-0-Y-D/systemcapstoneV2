@@ -257,8 +257,10 @@ function build_calendar($month,$year,$resourceid){
 }
 
 function checkSlots($mysqli, $date, $resourceid){
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=?");
-    $stmt -> bind_param('ss', $date, $resourceid);
+    $statusDeclined = "2";
+    $statusCancelled = "3";
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND NOT status=? AND NOT status=?");
+    $stmt -> bind_param('ssss', $date, $resourceid,$statusDeclined,$statusCancelled);
     $totalbookings = 0;
 
     if($stmt -> execute())
