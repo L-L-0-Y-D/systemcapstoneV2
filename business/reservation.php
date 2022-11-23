@@ -39,7 +39,7 @@ include('../config/dbcon.php');
             //get the next page
             $next_page = $page_no + 1;
             //get the total count of records
-            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $id") or die(mysqli_error($con));
+            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid") or die(mysqli_error($con));
             //total records
             $records = mysqli_fetch_array($result_count);
             //store total_records to a variable
@@ -48,7 +48,7 @@ include('../config/dbcon.php');
             $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
             //query string
-            $table_query = "SELECT * FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $id  AND reservations.businessid = $id ORDER BY reservationid DESC LIMIT $offset, $total_records_per_page";
+            $table_query = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid  AND reservations.businessid = $businessuserid ORDER BY reservationid DESC LIMIT $offset, $total_records_per_page";
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
@@ -93,9 +93,9 @@ include('../config/dbcon.php');
                                     // $reservations = getAll("reservations");
                                     //$reservations = getAll("reservations");
                                      
-                                    if(mysqli_num_rows($reservations) > 0)
+                                    if(mysqli_num_rows($result) > 0)
                                     {
-                                        foreach($reservations as $item)
+                                        foreach($result as $item)
                                         {
                                             if($item['businessid'] == $_SESSION['auth_user']['businessid'])
                                                 {
