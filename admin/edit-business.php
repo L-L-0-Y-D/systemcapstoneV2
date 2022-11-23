@@ -5,7 +5,11 @@ include('includes/header.php');
 
 
 ?>
-
+<style>
+   #hideValuesOnSelect {
+      display: none;
+   }
+</style>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-9">
@@ -126,7 +130,7 @@ include('includes/header.php');
                             </div> <br> -->
                             <div class="col-md-12">
                                 <label for="">Status</label>
-                                <select name='status' required class="form-select mb-2">
+                                <select name='status' required class="form-select mb-2" onchange="displayInput('hideValuesOnSelect', this)">
                                     <?php
                                     if($data['status'] == 0)
                                     { echo '<option value="0" selected hidden>Waiting</option>
@@ -142,8 +146,9 @@ include('includes/header.php');
                                             <option value="2" selected>Declined</option>';} 
                                     ?>
                                 </select>
+                                <input class="form-control mb-2" id="hideValuesOnSelect" placeholder="Reason for declining"></input>
                             </div>
-                            <div class="col-md-6">
+                                <div class="col-md-6">
                                 <button type="submit" class="btn update-btn" name="edit_business_btn">Update</button>
                             </div>
                             </div>
@@ -165,7 +170,15 @@ include('includes/header.php');
     </div>
   </div>  
 </div>
-
-
+<script>
+   function displayInput(id, elementValue) {
+      document.getElementById(id).style.display = elementValue.value == 2 ? 'block' : 'none';
+   }
+</script>
+   
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
 
 <?php include('includes/footer.php');?>

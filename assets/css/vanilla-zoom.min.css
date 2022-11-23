@@ -101,7 +101,13 @@ thead, tbody, tfoot, tr, td, th {
   color: #fff;
   box-shadow: none;
 }
-.product .btn,.summary .btn  {
+.product .btn {
+  background-color: rgb(255,128,64);
+  color: #fff;
+  box-shadow: none;
+  border: none;
+}
+.summary .btn-success, .summary .btn {
   background-color: rgb(255,128,64);
   color: #fff;
   box-shadow: none;
@@ -121,5 +127,46 @@ thead, tbody, tfoot, tr, td, th {
   line-height: 2.5!important;
   float:right!important;
 }
+.clean-block.clean-cart .summary h3{
+ padding-bottom:0px!important;
+}
+.table-bordered td{
+  width:110px!important;
+  height:110px!important;
+}
+.table-bordered td h4{
+  padding-top: 33px;
+  font-size: 14px;
+}
+.table-bordered td .reserveBtn {
+  border:none;
+  background-color: transparent;
+  padding:10px 15px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.table-bordered td .currentDay {
+  border:none;
+  background-color: transparent;
+  padding:10px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.table-bordered td .disabled {
+  border:none;
+  background-color: transparent;
+  padding:10px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.table-bordered td .reserveBtn:hover, .table-bordered td .reserveBtn:focus,.table-bordered td .reserveBtn:active {
+  background-color: rgb(255,128,64);
+}
 
-
+.table-bordered td p {
+  font-size:12px;
+  line-height:normal;
+  margin-bottom: 0px;
+}
