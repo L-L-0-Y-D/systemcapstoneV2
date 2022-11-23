@@ -32,7 +32,7 @@ if(isset($_POST['reserve_btn']))
             // $stmt -> close();
 
             $msg = "<div class='alert alert-danger'>Already Booked</div>";
-            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Time Already Booked", "warning");
+            redirect("../reservation.php", "Time Already Booked", "warning");
 
         }else{
             if(preg_match("/^[0-9]\d{10}$/",$_POST['reservation_phonenumber']))
@@ -54,7 +54,7 @@ if(isset($_POST['reserve_btn']))
             }
             else
             {
-                redirect("../book.php?date=$date&tableid=$resourceid&id=$businessid", "Phone Number must be 11 digits", "warning");
+                redirect("../reservation.php", "Phone Number must be 11 digits", "warning");
             }
             
         }

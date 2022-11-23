@@ -149,7 +149,7 @@ if(isset($_POST['value'])){
             ?>
                     <?php if(in_array($ts, $bookings)){ ?>
 
-                        <button class="btn btn-danger book w-100"><?php echo $ts; ?></button>
+                        <button class="btn btn-danger w-100"><?php echo $ts; ?> (Occupied)</button>
                         <!-- <div class="shadow"><button class="btn btn-danger btn-lg d-block w-100" data-timeslot="<?php echo $ts; ?>" type="button" style="background: rgb(255,128,64);border-style: none;"><?php echo $ts; ?></button></div> -->
 
                     <?php } else { ?>
@@ -168,7 +168,7 @@ if(isset($_POST['value'])){
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <div><button type="button" class="btn-close float-end p-2 m-1" onclick="location.href='reservation.php?id=<?= $id;?>'"></button></div>
+                        <div><button type="button" class="btn-close float-end p-2 m-1" id="btn_close"></button></div>
                         <h3 class="pb-0">Booking: 
                             <p class="text-muted fs-6" id="slot"></p>
                         </h3><hr>
@@ -219,6 +219,10 @@ if(isset($_POST['value'])){
             $("#slot").html(timeslot);
             $("#timeslot").val(timeslot);
             $("#myModal").modal("show");
+            
+            $("#btn_close").click(function(){
+                $("#myModal").modal("hide");
+                });
         })
 
 		</script>
