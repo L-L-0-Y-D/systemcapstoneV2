@@ -97,9 +97,9 @@ function build_calendar($month,$year,$resourceid){
     
     $calendar = "<table class='table table-bordered table-responsive'>";
     $calendar .= "<h4><i class='fa fa-calendar-alt'></i>&nbsp;$monthName $year  ";
-    $calendar .= "<button class='changemonth btn btn-sm btn-primary float-end m-1' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next <i class='fa fa-arrow-right'></i></button>";
-    $calendar .= "<button class='changemonth btn btn-sm btn-primary float-end m-1' id='current_month' data-month='".date('m')."' data-year='".date('Y')."'>Current Month</button> ";
-    $calendar .= "<button class='changemonth btn btn-sm btn-primary float-end m-1' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'><i class='fa fa-arrow-left'></i>Previous</button><br></h4><hr> ";
+    $calendar .= "<button class='changemonth btn btn-sm float-end m-1' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next <i class='fa fa-arrow-right'></i></button>";
+    $calendar .= "<button class='changemonth btn btn-sm float-end m-1' id='current_month' data-month='".date('m')."' data-year='".date('Y')."'>Current Month</button> ";
+    $calendar .= "<button class='changemonth btn btn-sm float-end m-1' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'><i class='fa fa-arrow-left'></i>Previous</button><br></h4><hr> ";
     //Adding table
     //Add
    
