@@ -941,6 +941,7 @@ else if(isset($_POST['edit_business_btn']))
     $businessid = $_POST['businessid'];
     $business_name = $_POST['business_name'];
     $business_email = $_POST['business_email'];
+    $reason = $_POST['reason'];
     $status = $_POST['status'];
 
 
@@ -964,7 +965,7 @@ else if(isset($_POST['edit_business_btn']))
         }
         elseif($status == 2)
         {
-            sendemail_businesdeclined($business_email,$business_name);
+            sendemail_businesdeclined($business_email,$business_name,$reason);
             redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
         }
     }

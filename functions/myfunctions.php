@@ -140,7 +140,7 @@ function sendemail_businessconfirm($email,$name)
 
 // }
 
-function sendemail_businesdeclined($email,$name)
+function sendemail_businesdeclined($email,$name,$reason)
 {
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
@@ -172,7 +172,7 @@ function sendemail_businesdeclined($email,$name)
     $email_template = "
     <b>Dear $name</b>
     <h3>Sorry to Inform you.</h3>
-    <p>We check your business details and all the files you send and sorry to inform you that you are been declined <p>
+    <p>We check your business details and all the files you send and sorry to inform you that you are been declined for the reason of $reason <p>
     https://ieat.store
     ";
 
