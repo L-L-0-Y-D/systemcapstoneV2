@@ -110,6 +110,11 @@ $id = $_GET['id'];
 $tableid = $_POST['tableid'];
 $business = businessGetByIDActives($id);
 $data = mysqli_fetch_array($business);
+// $tables=reservationGettable($tableid);
+// $row = mysqli_fetch_array($tables);
+// $tablenumber = $row['table_number'];
+// $tablechair = $row['chair'];
+
 
 $duration = 60;
 $cleanup = 10;
@@ -133,7 +138,7 @@ function timeslots($duration, $cleanup, $start, $end)
             break;
         }
 
-        $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
+        $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
         // count($slots);
     }
 
@@ -150,9 +155,10 @@ if(isset($_POST['value'])){
             foreach ($timeslots as $ts)
             {
             ?>
+                <?php //if(date("h:i:s") < $start){ ?>
                     <?php if(in_array($ts, $bookings)){ ?>
 
-                        <button class="btn btn-danger w-100"><?php echo $ts; ?> (Occupied)</button>
+                        <button class="btn btn-danger w-100" disabled><?php echo $ts; ?> (Occupied)</button>
                         <!-- <div class="shadow"><button class="btn btn-danger btn-lg d-block w-100" data-timeslot="<?php echo $ts; ?>" type="button" style="background: rgb(255,128,64);border-style: none;"><?php echo $ts; ?></button></div> -->
 
                     <?php } else { ?>
@@ -161,6 +167,7 @@ if(isset($_POST['value'])){
                         <button class="btn btn-success book w-100" data-timeslot="<?php echo $ts; ?>"> <?php echo $ts; ?></button>
 
                     <?php } ?>
+                <?php // } ?>
 
             <?php
             }          
@@ -185,8 +192,14 @@ if(isset($_POST['value'])){
                                     </div>
                                     <div class="form-group">
                                         <input required type="hidden" value="<?= $id;?>" name="businessid" class="form-control">
-                                        <input required type="hidden" value="<?= $_POST['date'];?>" name="date" class="form-control">
+                                        <!-- <input required type="hidden" value="<?= $_POST['date'];?>" name="date" class="form-control"> -->
                                         <input required type="hidden" value="<?= $_POST['tableid'];?>" name="tableid" class="form-control">
+                                        <!-- <label for="">Table No:</label>
+                                        <input required type="text" readonly value="Table <?php //if($row['tableid'] == $tableid){ echo " $tablenumber for $tablechair";}?>" class="form-control"> -->
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="">Date of Reservation:</label>
+                                        <input required type="text" readonly value="<?= $_POST['date'];?>" name="date" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <input required type="hidden" value="<?= $_SESSION['auth_user']['userid'];?>" name="userid" class="form-control">
