@@ -66,3 +66,26 @@ else
 {
     echo"reservation not complete";
 }
+
+if(isset($_POST['cancelled_btn']))
+{
+    $cancelled = 3;
+    $reservationid = $_POST['reservationid'];
+    $userid = $_POST['userid'];
+
+    $update_cancelled_query = "UPDATE reservations SET status='$cancelled' WHERE reservationid='$reservationid'";
+    $update_cancelled_query_run = mysqli_query($con,$update_cancelled_query) or die("bad query: $update_cancelled_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_cancelled_query_run)
+    {
+        //redirect("../your_reservation.php?id=$userid", "Reservation Cancelled", "success");
+        redirect("../index.php", "Reservation Cancelled", "success");
+        
+    }
+    else
+    {
+        redirect("../index.php", "Something Went Wrong", "error"); 
+    }
+}

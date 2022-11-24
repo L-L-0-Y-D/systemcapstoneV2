@@ -121,7 +121,18 @@ include('../config/dbcon.php');
                                                                     {echo 'Cancelled';}  
                                                         ?></td>                                                                                                         
                                                         <td>
-                                                            <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                                                            <?php
+                                                            if($item['status'] == 3)
+                                                            {
+                                                            ?>
+                                                                <a href="#" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                                                            <?php
+                                                            }else{
+                                                            ?>
+                                                                <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                                                            <?php
+                                                            }
+                                                            ?>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>

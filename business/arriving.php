@@ -81,7 +81,7 @@ include('../config/dbcon.php');
                                                         <td name="reservation_phonenumber"><?= $item['reservation_phonenumber']; ?></td>
                                                         <!-- <td><?= $item['reservation_email']; ?></td> -->
                                                         <!-- <td><?= $item['reservation_date']; ?></td> -->
-                                                        <td name="reservation_time"><?=date("g:i a", strtotime($item['reservation_time'])); ?></td>
+                                                        <td name="reservation_time"><?=$item['reservation_time']; ?></td>
                                                         <!-- <td><?php 
                                                                 if($item['status'] == 0)
                                                                     { echo 'Waiting'; } 
