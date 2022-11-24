@@ -19,8 +19,8 @@ if(isset($_GET['id']))
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h4>Add Products
-          <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a></h4>
+          <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
+          <h4>Add Products</h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -37,15 +37,15 @@ if(isset($_GET['id']))
                         <input type="file" name="image" required class="form-control mb-2">
                     </div>
                     <div class="col-md-6">
-                        <label class="mb-0">Product Name</label>
+                        <label class="mb-0">Product Name:</label>
                         <input type="text" name="name" required class="form-control mb-2">
                     </div>
                     <div class="col-md-6">
-                        <label class="mb-0">Price</label>
+                        <label class="mb-0">Price:</label>
                         <input type="text" name="price" required class="form-control mb-2">
                     </div>                   
                     <div class="col-md-6">
-                        <label class="control-label">Course Menu</label>
+                        <label class="control-label">Course Menu:</label>
 						<select  name="food_type" required class="form-control mb-2">
 							<option disabled selected hidden> Select your Course Menu </option>
 							<option value="Appetizer">Appetizer</option>
@@ -59,7 +59,7 @@ if(isset($_GET['id']))
 						</select>
                     </div>
                     <div class="col-md-6">
-                        <label class="control-label">Cuisine Type</label>
+                        <label class="control-label">Cuisine Type:</label>
 						<select class= "border rounded form-select mb-3" name="cuisinename" required>
                         <option disabled selected hidden>Select your Type of Cuisine</option>
                             <?php 
@@ -84,7 +84,7 @@ if(isset($_GET['id']))
                         </select> 
                     </div>
                     <div class="col-md-12">
-                        <label class="mb-0">Product Description</label>
+                        <label class="mb-0">Product Description:</label>
                         <textarea rows="3" name="description" required class="form-control mb-2"></textarea>
                     </div>
                     <div class="row">

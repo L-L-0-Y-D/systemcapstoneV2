@@ -19,11 +19,10 @@ include('includes/header.php');
                 
             
             ?>
-        <h4 class="text-dark">Your Business Profile
-            <a href="index.php" class="btn btn-primary float-end">Back</a>
-        </h4>
+            <a href="index.php" class="btn btn-primary float-end me-4">Back</a>
+            <h4 class="text-dark">Your Business Profile</h4>
     <form action="code.php" method="POST" enctype="multipart/form-data">
-    <div class="row mb-3">
+    <div class="row mb-3 w-100">
         <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-header py-3">
@@ -122,7 +121,7 @@ include('includes/header.php');
                                 </div>
                                 <div class="col">
                                     <div class="mb-3">
-                                        <label class="form-label" for=""><strong>Cuisine Type</strong></label>
+                                        <label class="form-label" for=""><strong>Cuisine Type:</strong></label>
                                         <?php 
                                             //$category = getAllActive("mealcategory");
                                             $query = "SELECT * FROM mealcategory ";

@@ -6,7 +6,7 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <h4 class="text-dark mb-4">Reservation</h4>   
+        <h4 class="text-dark mb-4">Reservations</h4>   
         <div class="card shadow">
             <div class="card-body" id="products_table">
                 <div class="row">
@@ -29,10 +29,10 @@ include('includes/header.php');
                                 <tr>
                                     <th>Business Name</th>
                                     <th>Username</th>
-                                    <th>Name Reserveunder</th>
+                                    <th>Reserved By</th>
                                     <th>Table Number</th>
                                     <th>No. of Guest</th>
-                                    <th>Phonenumber</th>
+                                    <th>Phone Number</th>
                                     <th>Email</th>
                                     <th>Reservation Date</th>
                                     <th>Reservation Time</th>

@@ -23,10 +23,8 @@ include('includes/header.php');
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Edit Municipality
                     <a href="municipality.php" class="back btn-sm btn-close float-end"></a>
-                </h4>
-                    
+                    <h4>Edit Municipality</h4>     
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -43,7 +41,7 @@ include('includes/header.php');
                             <div class="col-md-12">
                                 <!--Needed-->
                                 <input type="hidden" name="municipalityid" value="<?= $data['municipalityid'] ?>">
-                                <label for="">Municipality Name</label>
+                                <label for="">Municipality Name:</label>
                                 <input type="text" name="municipality_name" required value="<?= $data['municipality_name'] ?>" placeholder="Enter Municipality Name" class="form-control">
                             </div>
                             <div class="row">

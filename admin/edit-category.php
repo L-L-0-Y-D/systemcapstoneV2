@@ -23,10 +23,8 @@ include('includes/header.php');
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Edit Cuisine
                     <a href="category.php" class="back btn-sm btn-close float-end"></a>
-                </h4>
-                    
+                    <h4>Edit Cuisine</h4>
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -34,7 +32,7 @@ include('includes/header.php');
                             <div class="col-md-12">
                                 <!--Needed-->
                                 <input type="hidden" name="categoryid" value="<?= $data['categoryid'] ?>">
-                                <label for="">Cuisine Name</label>
+                                <label for="">Cuisine Name:</label>
                                 <input type="text" name="categoryname" required value="<?= $data['categoryname'] ?>" placeholder="Enter Cuisine Type" class="form-control">
                             </div>
                             <div class="row">

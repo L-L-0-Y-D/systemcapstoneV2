@@ -19,8 +19,8 @@ if(isset($_GET['id']))
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h4>Add Block Date
-          <a href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a></h4>
+          <a href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
+          <h4>Add Block Date</h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -33,11 +33,11 @@ if(isset($_GET['id']))
                         ?>
                     </div>
                     <div class="col-md-12">
-                        <label class="mb-0">Reasons</label>
+                        <label class="mb-0">Reason(s):</label>
                         <input type="text" name="reason" required placeholder="Type your reason here" required class="form-control mb-2">
                     </div>
                     <div class="col-md-12">
-                        <label class="mb-0">Select Date</label>
+                        <label class="mb-0">Select Date:</label>
                         <input class="form-control" type="date" id="blockdate" name="blockdate" min="<?php echo date("Y-m-d"); ?>" required>
                     </div>
                     <div class="row">

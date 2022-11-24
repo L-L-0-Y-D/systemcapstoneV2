@@ -6,8 +6,8 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <h4 class="text-dark">Admin's List
-        <a class="btn btn-primary float-end" role="button" href="add-admin.php" id="addbtn">Add Admin</a></h4>
+        <a class="btn btn-primary float-end" role="button" href="add-admin.php" id="addbtn">Add Admin</a>
+        <h4 class="text-dark">Admin's List</h4>
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >
                 <div class="row">
@@ -20,18 +20,18 @@ include('includes/header.php');
                                 </select>&nbsp;</label>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <!--<div class="col-md-6">
                         <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                         <table class="table my-0" id="dataTable">
                             <thead style="text-align:center">
                                 <tr>
                                     <th>Image</th>
                                     <th>Username</th>
-                                    <th>Firstname</th>
-                                    <th>Lastname</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
                                     <th>Address</th>
                                     <th>Age</th>
                                     <th>Status</th>

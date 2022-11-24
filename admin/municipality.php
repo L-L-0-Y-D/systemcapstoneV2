@@ -6,15 +6,15 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-            <h4 class="text-dark mb-4">Municipality List
-            <a class="btn btn-primary float-end" role="button" href="add-municipality.php" id="addbtn">Add Municipality</a></h4>
+            <a class="btn btn-primary float-end mb-2" role="button" href="add-municipality.php" id="addbtn">Add Municipality</a>
+            <h4 class="text-dark mb-4">Municipality List</h4>
         <div class="card shadow">
             <div class="card-body">
                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                     <table class="table my-0" id="dataTable">
                         <thead style="text-align:center">
                         <tr>
-                            <th>Municipality</th>
+                            <th>Municipality Name</th>
                             <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>

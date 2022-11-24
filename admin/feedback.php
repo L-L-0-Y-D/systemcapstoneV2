@@ -13,7 +13,7 @@ include('includes/header.php');
                     <table class="table my-0" id="dataTable">
                         <thead style="text-align:center">
                         <tr>
-                            <th>BusinessName</th>
+                            <th>Business Name</th>
                             <th>Name</th>
                             <th>Rating</th>
                             <th>Review</th>

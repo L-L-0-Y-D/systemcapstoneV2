@@ -43,23 +43,18 @@ include('../config/dbcon.php');
             
 ?>
     <div class="container-fluid">
-        <h2 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>
-        <a class="btn btn-primary float-end" role="button" href="add-table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Table</a></h2>
+    <a class="btn btn-primary float-end mt-2" role="button" href="add-table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Table</a>
+        <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Table List</h4>
+
         
         <div class="card shadow">
             <div class="card-body" id="tablemanage">
-                <div class="row">
-                    <div class="col-md-6 text-nowrap">
-                    <h4 class="text-dark">Table List</h4>
-                    </div>
-                    
-                </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                         <table class="table my-0" id="dataTable" style="text-align:center">
                             <thead>
                                 <tr>
-                                    <th>Table</th>
-                                    <th>No. of Chairs
+                                    <th>Table No.</th>
+                                    <th>No. of Chairs</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                     <!-- <th>Delete</th> -->

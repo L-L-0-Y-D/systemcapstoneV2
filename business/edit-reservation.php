@@ -32,11 +32,9 @@ include('includes/header.php');
                     $data = mysqli_fetch_array($query_reservation_run);
                     ?>
                     <div class="card">
-                        <div class="card-header">
-                        <h4>Approval of Reservation
-                        <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
-                        </h4>
-                            
+                        <div class="card-header">                       
+                            <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
+                            <h4>Approval of Reservation</h4>     
                         </div>
                         <div class="card-body">
                         <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -46,7 +44,7 @@ include('includes/header.php');
                                 <input type="text" name="table_number" value="<?= $data['table_number'] ?>" placeholder="Enter Table Number of Guest" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Number of Guest</label>
+                                <label for="">Number of Guest:</label>
                                 <input type="text" name="chair" value="<?= $data['chair'] ?>" placeholder="Enter Number of Guest" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
@@ -55,7 +53,7 @@ include('includes/header.php');
                                 <input type="hidden" name="reservationid" value="<?= $data['reservationid'] ?>">
                                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                <label for="namereserveunder">Name Reserved Under:</label>
+                                <label for="namereserveunder">Reserved By:</label>
                                 <input type="text" name="namereserveunder" value="<?= $data['namereserveunder'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
@@ -64,19 +62,19 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 
-                                <label for="">Email Address</label>
+                                <label for="">Email Address:</label>
                                 <input type="email" name="reservation_email" value="<?= $data['reservation_email'] ?>" placeholder="Enter Reservation Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Phone Number</label>
+                                <label for="">Phone Number:</label>
                                 <input type="text" name="reservation_phonenumber" value="<?= $data['reservation_phonenumber'] ?>" placeholder="Enter Phonenumber" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Reservation Date</label>
+                                <label for="">Reservation Date:</label>
                                 <input type="date" name="reservation_date" value="<?= $data['reservation_date'] ?>" placeholder="Enter Reservation Date" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Reservation Time</label>
+                                <label for="">Reservation Time:</label>
                                 <input type="text" name="reservation_time" value="<?= $data['reservation_time'] ?>" placeholder="Enter Reservation Time" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">

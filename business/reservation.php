@@ -53,7 +53,7 @@ include('../config/dbcon.php');
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid">
-        <h4 class="text-dark">Reservation List</h4>
+    <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Reservation List</h4>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
                 <div class="row">
@@ -75,10 +75,10 @@ include('../config/dbcon.php');
                             <thead>
                                 <tr>
                                     <th>Account Name</th>
-                                    <th>Name Reserveunder</th>
+                                    <th>Reserved By</th>
                                     <th>Table No.</th>
                                     <th>No. of Guest</th>
-                                    <th>Phonenumber</th>
+                                    <th>Phone Number</th>
                                     <th>Email</th>
                                     <th>Reservation Date</th>
                                     <th>Reservation Time</th>

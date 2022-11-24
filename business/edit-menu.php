@@ -23,9 +23,8 @@ include('includes/header.php');
                     ?>
                     <div class="card">
                         <div class="card-header">
-                        <h4>Edit Products
                         <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
-                        </h4>
+                        <h4>Edit Products</h4>
                             
                         </div>
                         <div class="card-body">
@@ -49,15 +48,15 @@ include('includes/header.php');
                                     </div>
                                     <div class="col-md-6">
                                         <input type="hidden" name="productid" value="<?= $data['productid']?>">
-                                        <label class="mb-0">Product Name</label>
+                                        <label class="mb-0">Product Name:</label>
                                         <input type="text" name="name" value="<?= $data['name']?>" required class="form-control mb-2">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="mb-0">Price</label>
+                                        <label class="mb-0">Price:</label>
                                         <input type="text" name="price" value="<?= $data['price']?>" required class="form-control mb-2">
                                     </div>                                   
                                     <div class="col-md-6">
-                                        <label class="control-label">Course Menu</label>
+                                        <label class="control-label">Course Menu:</label>
                                         <select  name="food_type" value="<?= $data['food_type'] ?>" required class="form-control mb-2">
                                             <option selected hidden value="<?= $data['food_type'] ?>"> <?= $data['food_type'] ?> </option>
                                             <option value="Appetizer">Appetizer</option>
@@ -71,7 +70,7 @@ include('includes/header.php');
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="control-label">Cuisine Type</label>
+                                        <label class="control-label">Cuisine Type:</label>
                                         <select class= "border rounded form-select mb-3" name="cuisinename" value="<?= $data['cuisinename'] ?>" style="height:40px; border-style:none;"  required>
                                         <option selected hidden value="<?= $data['cuisinename'] ?>"><?= $data['cuisinename'] ?></option>
                                             <?php 
@@ -95,7 +94,7 @@ include('includes/header.php');
                                         </select> 
                                     </div>  
                                     <div class="col-md-12">
-                                        <label class="mb-0">Product Description</label>
+                                        <label class="mb-0">Product Description:</label>
                                         <textarea rows="3" name="description"  required class="form-control mb-2"><?= $data['description']?></textarea>
                                     </div>              
                                     <div class="row">

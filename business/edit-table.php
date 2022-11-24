@@ -23,8 +23,8 @@ include('includes/header.php');
                     ?>
                     <div class="card">
                         <div class="card-header">
-                        <h4>Edit Table
-                        <a href="table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a></h4>       
+                            <a href="table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>       
+                            <h4>Edit Table</h4>
                         </div>
                         <div class="card-body">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -38,11 +38,11 @@ include('includes/header.php');
                                     </div>
                                     <div class="col-md-12">
                                         <input type="hidden" name="tableid" value="<?= $data['tableid']?>">
-                                        <label class="mb-0">Table number</label>
+                                        <label class="mb-0">Table number:</label>
                                         <input type="number" name="table" value="<?= $data['table_number']?>" required placeholder="Example: Table 1 " class="form-control mb-2">
                                     </div>
                                     <div class="col-md-12">
-                                        <label class="control-label">Number Of Chairs</label>
+                                        <label class="control-label">Number Of Chairs:</label>
                                         <select  name="chair" value="<?= $data['chair'] ?>" required class="form-control mb-2">
                                             <option disabled selected hidden value="<?= $data['chair'] ?>"> <?= $data['chair'] ?></option>
                                             <option value="1 Person">1 Chair</option>

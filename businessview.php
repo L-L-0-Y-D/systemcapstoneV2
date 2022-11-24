@@ -292,7 +292,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -334,7 +334,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -403,7 +403,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -445,7 +445,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -514,7 +514,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -556,7 +556,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -625,7 +625,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -667,7 +667,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -735,7 +735,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -777,7 +777,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -846,7 +846,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -888,7 +888,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -957,7 +957,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -999,7 +999,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -1068,7 +1068,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -1110,7 +1110,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -1179,7 +1179,7 @@
                                             <div class="clean-pricing-item">
                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">
@@ -1221,7 +1221,7 @@
                                                     <span>SOLD OUT</span>
                                                 </div>
                                                 <div class="heading">
-                                                    <h5><?= $item['name']; ?></h5>
+                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
                                                 </div>
                                                 <p><?= $item['cuisinename']; ?> Cuisine</p>
                                                 <div class="price">

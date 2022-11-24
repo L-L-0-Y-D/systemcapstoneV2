@@ -38,8 +38,8 @@
 .mx-auto {
   margin-right: auto !important;
   margin-left: auto !important;
-  height: 100px!important;
-  width: 100px!important;
+  height: 100px;
+  width: 100px;
 }
 
 .clean-block.clean-cart .summary {

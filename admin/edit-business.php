@@ -27,9 +27,8 @@ include('includes/header.php');
             ?>
             <div class="card">
                 <div class="card-header">
-                    <h4>Edit Business
                         <a href="busiowner.php" class="back btn-sm btn-close float-end"></a>
-                    </h4>   
+                        <h4>Edit Business</h4>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -55,15 +54,15 @@ include('includes/header.php');
                             <div class="col-md-6">
                                 <!--Needed-->
                                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
-                                <label for="">Business Name</label>
+                                <label for="">Business Name:</label>
                                 <input type="text" name="business_name"  value="<?= $data['business_name'] ?>" required placeholder="Enter Business Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Business address</label>
+                                <label for="">Business Address:</label>
                                 <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Select Business Municipality</label>
+                                <label for="">Select Business Municipality:</label>
                                 <select name='municipalityid' readonly required class="form-select mb-2" disabled>
                                     <option value="" disabled selected hidden>Municipality</option>
                                     <?php 
@@ -84,44 +83,44 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Select Cuisine Type</label><br>
+                                <label for="">Select Cuisine Type:</label><br>
                                 <input type="text" name="cuisinename" value="<?= $data['cuisinename'] ?>"  required placeholder="Cuisine Type" class="form-control" readonly>
                             </div>                                                      
                             <div class="col-md-6">
-                                <label for="">Openig Time</label>
+                                <label for="">Openig Time:</label>
                                 <input type="text" name="opening" value="<?= date('h:i A', strtotime($data['opening'])); ?>"  required placeholder="opening" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Closing Time</label>
+                                <label for="">Closing Time:</label>
                                 <input type="text" name="closing" value="<?= date('h:i A', strtotime($data['closing'])); ?>"  required placeholder="closing" class="form-control" readonly>
                             </div>
                             <h4 class="mt-3">OWNER DETAILS</h4>
                             <div class="col-md-6">
-                                <label for="">First Name</label>
+                                <label for="">First Name:</label>
                                 <input type="text" name="business_firstname" required value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Last Name</label>
+                                <label for="">Last Name:</label>
                                 <input type="text" name="business_lastname" required value="<?= $data['business_lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Phone Number</label>
+                                <label for="">Phone Number:</label>
                                 <input type="text" name="business_phonenumber" required value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Email Address</label>
+                                <label for="">Email Address:</label>
                                 <input type="text" name="business_email" required value="<?= $data['business_email'] ?>"  required placeholder="Owner Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
-                                <label for="">Address</label>
+                                <label for="">Complete Address:</label>
                                 <input type="text" name="business_owneraddress" required value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Password</label>
+                                <label for="">Password:</label>
                                 <input type="password" name="business_password" required value="<?= $data['business_password'] ?>"  placeholder="Enter Password" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Confirm Password</label>
+                                <label for="">Confirm Password:</label>
                                 <input type="password" name="business_confirmpassword" required value="<?= $data['business_password'] ?>"  placeholder="Enter Confirm Password" class="form-control" readonly>
                             </div>
                             <!-- <div class="col-md-12">
