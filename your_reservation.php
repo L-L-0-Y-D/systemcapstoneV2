@@ -65,7 +65,7 @@ if(isset($_GET['id']))
     </nav>
 
     <main class="page shopping-cart-page">
-        <section class="clean-block clean-cart dark p-5 mt-5">
+        <section class="clean-block clean-cart dark pt-5 mt-5">
             <div class="container">
                 <div class="content">
                     <div class="row g-0">
@@ -102,7 +102,7 @@ if(isset($_GET['id']))
                                         <div class="product-info col-md-9">
                                             <div class="product-specs">
                                                 <h5>&nbsp;&nbsp;<?= $data['business_name']; ?>
-                                                <button class="btn btn-primary btn-sm float-end viewBtn<?= $data['reservationid']; ?>" type="submit" arrived="<?= $data['arrived']; ?>" Review="<?= $data['review']; ?>" value="<?= $data['userid']; ?>" status="<?= $data['status'] ?>" reserveId="<?= $data['reservationid']; ?>" busiid="<?= $data['businessid']; ?>" id="viewBtn<?= $data['reservationid']; ?>" onclick="myFunction()">View</button></h5>
+                                                <button class="btn btnView btn-sm float-end viewBtn<?= $data['reservationid']; ?>" type="submit" arrived="<?= $data['arrived']; ?>" Review="<?= $data['review']; ?>" value="<?= $data['userid']; ?>" status="<?= $data['status'] ?>" reserveId="<?= $data['reservationid']; ?>" busiid="<?= $data['businessid']; ?>" id="viewBtn<?= $data['reservationid']; ?>" onclick="myFunction()">View</button></h5>
                                                 <div><span>Reserved By:&nbsp;</span><span class="value"><?= $data['namereserveunder']; ?></span></div>
                                                 <div><span>Email Address:</span><span class="value"><?= $data['reservation_email']; ?></span></div>
                                                 <div><span>Contact Number:&nbsp;</span><span class="value"><?= $data['reservation_phonenumber']; ?></span></div>
@@ -111,8 +111,9 @@ if(isset($_GET['id']))
                                         </div>
                                         <div class="col p-0"><hr class="mb-0">
                                             <p class="float-start m-2 text-muted">Reservation Id : #<?= $data['reservationid']; ?></p>
-                                            <p class="float-end m-2 text-muted">Status:&nbsp;<strong><?php if($data['status'] == 0){echo "Waiting";}elseif($data['status']  == 2){echo "Declined";}elseif($data['status']  == 3){echo "Cancelled";}elseif($data['status']  == 1 && $data['arrived']  == 0){echo "Waiting for Arrival";}elseif($data['status']  == 1 && $data['arrived']  == 2){echo "Not Arrived";}elseif($data['status']  == 1 && $data['arrived']  == 1 && $review == 0){echo "Add Review";}elseif($data['status']  == 1 && $data['arrived']  == 1 && $review == 1){echo "Reviewed";}?>
-                                            </strong></p>
+                                            <!--<p class="float-end m-2 text-muted">Status:&nbsp;<strong><?php if($data['status'] == 0){echo "Waiting";}elseif($data['status']  == 2){echo "Declined";}elseif($data['status']  == 3){echo "Cancelled";}elseif($data['status']  == 1 && $data['arrived']  == 0){echo "Waiting for Arrival";}elseif($data['status']  == 1 && $data['arrived']  == 2){echo "Not Arrived";}elseif($data['status']  == 1 && $data['arrived']  == 1 && $review == 0){echo "Add Review";}elseif($data['status']  == 1 && $data['arrived']  == 1 && $review == 1){echo "Reviewed";}?>
+                                            </strong></p>-->
+                                            <p class="float-end m-2 text-muted">Status:&nbsp;<strong><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}elseif($data['status'] == 3){echo 'Cancelled';}  ?></strong></p>
                                         </div><hr class="mt-0">
                                     </div>
                                 </div>

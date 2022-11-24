@@ -10,22 +10,24 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
     <div id="wrapper">
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                <div class="container-fluid">
-                <h3 class="text-dark mb-0">Business Dashboard</h3>
-                <span class="text-dark float-end me-3"><?php echo "Today is " . date("m/d/Y") . "<br>";?></span><br>
+                <div class="container-fluid p-1">
+                <h3 class="text-dark mb-0 mx-3">Business Dashboard</h3>
+                <span class="text-dark float-end me-4"><?php echo "Today is " . date("m/d/Y") . "<br>";?></span><br>
                     <div class="row m-0"> 
                         <div class="col">
                             <div>
-                                <ul class="nav nav-tabs gap-1 nav-justified" role="tablist" id="myTab">
+                                <ul class="nav nav-tabs nav-justified" role="tablist" id="myTab">
                                         <li class="nav-item" role="presentation" >
                                             <a class="nav-link active" role="tab" data-bs-toggle="tab" id="totalreservation" href="#totalreservationtab">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <div class="row">
-                                                            <div class="col col-md-9">
+                                                            <div class="col col-md-7">
                                                                 <h6>Total <br>Reservation</h6>
-                                                            
-                                                            <span class="float end"><i class="fas fa-users fa-2x"></i></span></div>
+                                                            </div>
+                                                            <div class="col-auto col-md-5">
+                                                                <span class="float-end"><i class="fas fa-users fa-2x float-end me-3"></i></span>
+                                                            </div>
                                                             <div class="text-dark fw-bold h5 pb-0 mb-0">
                                                             <?php
                                                                 $businessuser = $_SESSION['auth_user']['businessid'];
@@ -45,10 +47,12 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col col-md-9">
-                                                            <h6>Pending Reservation</h6>
+                                                        <div class="col col-md-7">
+                                                            <h6>Pending <br>Reservation</h6>
                                                         </div>
-                                                        <div class="col-auto col-md-3 justify-content-center"><i class="fas fa-clipboard-list fa-2x"></i></div>
+                                                        <div class="col col-md-5 ">
+                                                            <span class="float-end"><i class="fas fa-clipboard-list fa-2x float-end me-3"></i></span>
+                                                        </div>
                                                         <div class="text-dark fw-bold h5 mb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
@@ -68,11 +72,13 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col col-md-9">
-                                                            <h6>Total Menu</h6>
+                                                        <div class="col col-md-7">
+                                                            <h6>Total <br>Menu(s)</h6>
                                                         </div>
-                                                        <div class="col-auto col-md-3 justify-content-center"><i class="fas fa-utensils fa-2x"></i></div>
-                                                        <div class="text-dark fw-bold h5 ">
+                                                        <div class="col-auto col-md-5 ">
+                                                            <span class="float-end"><i class="fas fa-utensils fa-2x float-end me-3"></i></span>
+                                                        </div>
+                                                        <div class="text-dark fw-bold h5  mb-0 pb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query_menu = "SELECT productid FROM products WHERE businessid = $businessuser ORDER BY productid";
@@ -91,11 +97,13 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col col-md-9">
-                                                            <h6>Rating</h6>
+                                                        <div class="col col-md-7">
+                                                            <h6>Business <br>Rating</h6>
                                                         </div>
-                                                        <div class="col-auto col-md-3 mb-2"><i class="fas fa-star fa-2x"></i></div>
-                                                        <div class="text-dark fw-bold h5 mb-2">
+                                                        <div class="col-auto col-md-5">
+                                                            <span class="float-end"><i class="fas fa-star fa-2x float-end me-3"></i></span>
+                                                        </div>
+                                                        <div class="text-dark fw-bold h5 mb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessuser ORDER BY review_id";
