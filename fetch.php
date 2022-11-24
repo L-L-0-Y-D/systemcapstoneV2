@@ -158,7 +158,7 @@ if(isset($_POST['request'])){
                 <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                 <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                 <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                <button class="btn btn-primary w-100" type="submit">ADD REVIEW</button> 
+                <button class="btn btn-primary disable w-100" type="submit">ADD REVIEW</button> 
             </div>
         <?php
         }
@@ -175,7 +175,7 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <button class="btn btn-primary  w-100" type="submit">ADD REVIEW</button>
+                    <button class="btn btn-primary disable w-100" type="submit">ADD REVIEW</button>
                 </div>
          
         <?php
