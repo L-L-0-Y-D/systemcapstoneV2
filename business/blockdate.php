@@ -42,14 +42,11 @@ include('../config/dbcon.php');
                 
 ?>
     <div class="container-fluid">
-        <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>
-        <a class="btn btn-primary float-end" role="button" href="add-blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Block Date</a> </h4>
+        <a class="btn btn-primary float-end mb-2" role="button" href="add-blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Block Date</a> 
+        <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Block Date(s)</h4>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
                 <div class="row">
-                    <div class="col-md-6 text-nowrap">
-                        <h4 class="text-dark">Block Date(s)</h4>
-                    </div>
                     <div class="col-md-6">
                         <!-- <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div> -->
                     </div>

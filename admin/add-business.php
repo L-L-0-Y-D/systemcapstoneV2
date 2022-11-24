@@ -26,15 +26,15 @@ include('includes/header.php');
                         <input type="file" name="image_cert" required class="form-control">
                     </div>
                     <div class="col-md-12">
-                        <label for="">Business Name</label>
+                        <label for="">Business Name:</label>
                         <input type="text" name="business_name" required placeholder="Enter Business Name" class="form-control">
                     </div>
                     <div class="col-md-12">
-                        <label for="">Business address</label>
+                        <label for="">Business Address:</label>
                         <input type="text" name='business_address' required placeholder="Business Address" class="form-control">
                     </div>
                     <div class="col-md-6">
-                        <label for="">Select Business Municipality</label>
+                        <label for="">Select Business Municipality:</label>
                         <select name='municipalityid' class="form-select mb-2">
                             <option value="" disabled selected hidden>Municipality</option>
                             <?php 
@@ -55,7 +55,7 @@ include('includes/header.php');
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="">Select Cuisine Type</label>
+                        <label for="">Select Cuisine Type:</label>
                         <select name='categoryid' required class="form-select mb-2">
                             <option value="" disabled selected hidden>Cuisine Type</option>
                             <?php 
@@ -76,40 +76,40 @@ include('includes/header.php');
                         </select>
                     </div>                    
                     <div class="col-md-6">
-                        <label class="form-label" for="">Opening Time</label>
+                        <label class="form-label" for="">Opening Time:</label>
                         <input class="form-control" type="time" name="opening" required >
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label" for="">Closing Time</label>
+                        <label class="form-label" for="">Closing Time:</label>
                         <input class="form-control" type="time" name="closing" required >
                     </div>
                     <h4>OWNER DETAILS</h4>
                     <div class="col-md-6">
-                        <label for="">First Name</label>
+                        <label for="">First Name:</label>
                         <input type="text" name="business_firstname" required placeholder="Enter First Name" class="form-control">
                     </div>
                     <div class="col-md-6">
-                        <label for="">Last Name</label>
+                        <label for="">Last Name:</label>
                         <input type="text" name="business_lastname" required placeholder="Enter Last Name" class="form-control">
                     </div>
                     <div class="col-md-6">
-                        <label for="">Phone Number</label>
+                        <label for="">Phone Number:</label>
                         <input type="text" name='business_phonenumber' required required placeholder="Contact Number" class="form-control"/>
                     </div>
                     <div class="col-md-6">
-                        <label for="">Email</label>
+                        <label for="">Email Address:</label>
                         <input type="text" name='business_email' required placeholder="Owner Email" class="form-control"/>
                     </div>
                     <div class="col-md-12">
-                        <label for="">Address</label>
+                        <label for="">Address:</label>
                         <input type="text" name='business_owneraddress' required placeholder="Owner Address" class="form-control"/>
                     </div>
                     <div class="col-md-6">
-                        <label for="">Password</label>
+                        <label for="">Password:</label>
                         <input type="password" name="business_password" required placeholder="Enter Password" class="form-control">
                     </div>
                     <div class="col-md-6">
-                        <label for="">Confirm Password</label>
+                        <label for="">Confirm Password:</label>
                         <input type="password" name="business_confirmpassword" required placeholder="Enter Confirm Password" class="form-control">
                     </div>
                     <div class="row">

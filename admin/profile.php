@@ -16,9 +16,8 @@ include('includes/header.php');
             {
                 $data = mysqli_fetch_array($user)          
         ?>
-        <h4 class="text-dark">Admin's Profile
             <a href="index.php" class="btn btn-primary float-end">Back</a>
-        </h4>
+            <h4 class="text-dark">Admin's Profile</h4>
     <form action="code.php" method="POST" enctype="multipart/form-data">
     <div class="row mb-3">
         <div class="col-lg-4">

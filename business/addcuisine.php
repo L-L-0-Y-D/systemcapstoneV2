@@ -19,8 +19,8 @@ include('includes/header.php');
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h4>Add Cuisine Type
-          <a href="profile.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a></h4>
+          <a href="profile.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
+          <h4>Add Cuisine Type</h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">

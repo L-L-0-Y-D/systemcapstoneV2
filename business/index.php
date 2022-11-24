@@ -11,21 +11,22 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <div class="container-fluid">
-                <h3 class="text-dark mb-0">Business Dashboard<span class="text-dark float-end"><?php echo "Today is " . date("m/d/Y") . "<br>";?></span></h3>
-                    <div class="row m-2">
+                <h3 class="text-dark mb-0">Business Dashboard</h3>
+                <span class="text-dark float-end me-3"><?php echo "Today is " . date("m/d/Y") . "<br>";?></span><br>
+                    <div class="row m-0"> 
                         <div class="col">
                             <div>
-                                <ul class="nav nav-tabs nav-justified" role="tablist" id="myTab">
-                                        <li class="nav-item" role="presentation">
+                                <ul class="nav nav-tabs gap-1 nav-justified" role="tablist" id="myTab">
+                                        <li class="nav-item" role="presentation" >
                                             <a class="nav-link active" role="tab" data-bs-toggle="tab" id="totalreservation" href="#totalreservationtab">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col col-md-9">
-                                                                <h6>Total Reservation</h6>
-                                                            </div>
-                                                            <div class="col-auto col-md-3"><i class="fas fa-users fa-2x"></i></div>
-                                                            <div class="text-dark fw-bold h5 mb-3">
+                                                                <h6>Total <br>Reservation</h6>
+                                                            
+                                                            <span class="float end"><i class="fas fa-users fa-2x"></i></span></div>
+                                                            <div class="text-dark fw-bold h5 pb-0 mb-0">
                                                             <?php
                                                                 $businessuser = $_SESSION['auth_user']['businessid'];
                                                                 $query = "SELECT reservationid FROM reservations WHERE businessid = $businessuser ORDER BY reservationid";
@@ -112,7 +113,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                             $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessuser ORDER BY review_id";
                                                             $query_rating_count_run = mysqli_query($con, $query_rating_count);
                                                             $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                                                            echo '<span> ('.$row_rating_count.')</span>'
+                                                            echo '<span> ('.$row_rating_count.' reviews)</span>'
                                                         ?> 
                                                         </div>
                                                     </div>
@@ -131,12 +132,13 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                         <h6 class="text-primary fw-bold"><br><strong>OVERALL RESERVATION</strong><br></h6>
                                                     </div>
                                                     <div class="card-body">
-                                                    <table class="table my-0" id="dataTable" style="text-align:center">
+                                                    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                                        <table class="table my-0" id="dataTable" style="text-align:center">
                                                             <thead>
                                                                 <tr>
                                                                     <th>Account Name</th>
-                                                                    <th>Table Reserveunder</th>
-                                                                    <th>table No.</th>
+                                                                    <th>Table Reserved By</th>
+                                                                    <th>Table No.</th>
                                                                     <th>No. of Guest</th>
                                                                     <th>Reservation Date</th>
                                                                     <th>Reservation Time</th>
@@ -182,6 +184,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                                 ?>
                                                             </tbody>
                                                         </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -195,59 +198,62 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                     <h6 class="text-primary fw-bold"><br><strong>PENDING RESERVATION</strong><br></h6>
                                                 </div>
                                                 <div class="card-body">
-                                                    <table class="table my-0" id="dataTable" style="text-align:center">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Account Name</th>
-                                                                <th>Table Reserveunder</th>
-                                                                <th>No. of Guest</th>
-                                                                <th>Reservation Date</th>
-                                                                <th>Reservation Time</th>
-                                                                <th>Status</th>
-                                                            </tr>
-                                                        </thead>
+                                                    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                                        <table class="table my-0" id="dataTable" style="text-align:center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Account Name</th>
+                                                                    <th>Table Reserved By</th>
+                                                                    <th>Table No.</th>
+                                                                    <th>No. of Guest</th>
+                                                                    <th>Reservation Date</th>
+                                                                    <th>Reservation Time</th>
+                                                                    <th>Status</th>
+                                                                </tr>
+                                                            </thead>
                                                         
-                                                        <tbody style="text-align:center">
-                                                            <?php
-                                                                //$reservations = getAll("reservations");
-                                                                $query_reservation = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
-                                                                FROM reservations
-                                                                JOIN managetable 
-                                                                ON reservations.tableid=managetable.tableid
-                                                                JOIN users
-                                                                ON reservations.userid=users.userid
-                                                                WHERE reservations.businessid = $businessuserid
-                                                                AND reservations.status = 0
-                                                                ORDER BY reservationid DESC";
-                                                                $query_reservation_run = mysqli_query($con, $query_reservation);
+                                                            <tbody style="text-align:center">
+                                                                <?php
+                                                                    //$reservations = getAll("reservations");
+                                                                    $query_reservation = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
+                                                                    FROM reservations
+                                                                    JOIN managetable 
+                                                                    ON reservations.tableid=managetable.tableid
+                                                                    JOIN users
+                                                                    ON reservations.userid=users.userid
+                                                                    WHERE reservations.businessid = $businessuserid
+                                                                    AND reservations.status = 0
+                                                                    ORDER BY reservationid DESC";
+                                                                    $query_reservation_run = mysqli_query($con, $query_reservation);
 
-                                                                if(mysqli_num_rows($query_reservation_run) > 0)
-                                                                {
-                                                                    foreach($query_reservation_run as $item)
+                                                                    if(mysqli_num_rows($query_reservation_run) > 0)
                                                                     {
-                                                                        if($item['businessid'] == $_SESSION['auth_user']['businessid'])
-                                                                            {
-                                                                            ?>
-                                                                                <tr>
-                                                                                    <td><?= $item['name']; ?></td>
-                                                                                    <td><?= $item['namereserveunder']; ?></td>
-                                                                                    <td><?= $item['table_number']; ?></td>
-                                                                                    <td><?= $item['chair']; ?></td>
-                                                                                    <td><?= $item['reservation_date']; ?></td>
-                                                                                    <td><?= $item['reservation_time']; ?></td>
-                                                                                    <td><?= $item['status']== '0'? "Waiting":"Activated"; ?></td>
-                                                                                </tr>
-                                                                            <?php
-                                                                            }
+                                                                        foreach($query_reservation_run as $item)
+                                                                        {
+                                                                            if($item['businessid'] == $_SESSION['auth_user']['businessid'])
+                                                                                {
+                                                                                ?>
+                                                                                    <tr>
+                                                                                        <td><?= $item['name']; ?></td>
+                                                                                        <td><?= $item['namereserveunder']; ?></td>
+                                                                                        <td><?= $item['table_number']; ?></td>
+                                                                                        <td><?= $item['chair']; ?></td>
+                                                                                        <td><?= $item['reservation_date']; ?></td>
+                                                                                        <td><?= $item['reservation_time']; ?></td>
+                                                                                        <td><?= $item['status']== '0'? "Waiting":"Activated"; ?></td>
+                                                                                    </tr>
+                                                                                <?php
+                                                                                }
+                                                                        }
                                                                     }
-                                                                }
-                                                                else
-                                                                {
-                                                                    
-                                                                }
-                                                            ?>
-                                                        </tbody>
-                                                    </table>
+                                                                    else
+                                                                    {
+                                                                        
+                                                                    }
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -261,42 +267,44 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                         <h6 class="text-primary fw-bold"><br><strong>FEEDBACK AND REVIEW</strong><br></h6>
                                                     </div>
                                                     <div class="card-body">
-                                                    <table class="table my-0" id="dataTable">
-                                                        <thead style="text-align:center">
-                                                            <tr>
-                                                                <th>Name</th>
-                                                                <th>Rating</th>
-                                                                <th>Review</th>
-                                                            </tr>
-                                                            </thead>
-                                                    
-                                                        <tbody style="text-align:center">
-                                                            <?php
-                                                                $review = getAll("review_table");
+                                                    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                                        <table class="table my-0" id="dataTable">
+                                                            <thead style="text-align:center">
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Rating</th>
+                                                                    <th>Review</th>
+                                                                </tr>
+                                                                </thead>
+                                                        
+                                                            <tbody style="text-align:center">
+                                                                <?php
+                                                                    $review = getAll("review_table");
 
-                                                                if(mysqli_num_rows($review) > 0)
-                                                                {
-                                                                    foreach($review as $item)
+                                                                    if(mysqli_num_rows($review) > 0)
                                                                     {
-                                                                        if($item['businessid'] == $_SESSION['auth_user']['businessid'])
-                                                                            {
-                                                                        ?>
-                                                                        <tr>
-                                                                                <td><?= $item['user_name']; ?></td>
-                                                                                <td><?= $item['user_rating']; ?></td>
-                                                                                <td><?= $item['user_review'];?></td>
-                                                                        </tr>
-                                                                        <?php
-                                                                            }
+                                                                        foreach($review as $item)
+                                                                        {
+                                                                            if($item['businessid'] == $_SESSION['auth_user']['businessid'])
+                                                                                {
+                                                                            ?>
+                                                                            <tr>
+                                                                                    <td><?= $item['user_name']; ?></td>
+                                                                                    <td><?= $item['user_rating']; ?></td>
+                                                                                    <td><?= $item['user_review'];?></td>
+                                                                            </tr>
+                                                                            <?php
+                                                                                }
+                                                                        }
                                                                     }
-                                                                }
-                                                                    else
-                                                                    {
-                                                                        
-                                                                    }
-                                                                ?>
-                                                            </tbody>
-                                                        </table>
+                                                                        else
+                                                                        {
+                                                                            
+                                                                        }
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

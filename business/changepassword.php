@@ -23,9 +23,8 @@ include('includes/header.php');
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Change Password
                     <a href="index.php" class="back btn-sm btn-close float-end"></a>
-                </h4>   
+                    <h4>Change Password</h4>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST">

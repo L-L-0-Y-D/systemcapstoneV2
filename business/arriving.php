@@ -11,8 +11,8 @@ include('../config/dbcon.php');
             $businessuserid = $_SESSION['auth_user']['businessid'];
 ?>
 <div class="container-fluid">
-        <h4 class="text-dark">Reservations Arriving
-        <span class="text-dark float-end"><?php echo "Today is " . date("m/d/Y") . "<br>";?></span></h4>
+        <h4 class="text-dark">Arriving Reservations </h4>
+        <span class="fw-bold text-dark float-end me-3"><?php echo "Today is " . date("m/d/Y") . "";?></span><br>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
                 <div class="row">
@@ -35,10 +35,10 @@ include('../config/dbcon.php');
                                 <tr>
                                     <!-- <th>Account Name</th> -->
                                     <!-- <th>Reservation No.</th> -->
-                                    <th>Name Reserveunder</th>
+                                    <th>Reserved By</th>
                                     <th>Table No.</th>
                                     <th>No. of Guest</th>
-                                    <th>Phonenumber</th>
+                                    <th>Phone Number</th>
                                     <!-- <th>Email</th> -->
                                     <!-- <th>Reservation Date</th> -->
                                     <th>Reservation Time</th>
@@ -116,7 +116,7 @@ include('../config/dbcon.php');
                                 }
                             ?> 
                         </form>
-                        </table>
+                    </table>
                         
                     </div>
                     <div class="row">

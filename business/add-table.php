@@ -19,8 +19,8 @@ if(isset($_GET['id']))
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h4>Add Table
-          <a href="table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a></h4>
+          <a href="table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
+          <h4>Add Table</h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -33,11 +33,11 @@ if(isset($_GET['id']))
                         ?>
                     </div>
                     <div class="col-md-12">
-                        <label class="mb-0">Table Number</label>
+                        <label class="mb-0">Table Number:</label>
                         <input type="number" name="table" required class="form-control mb-2">
                     </div>
                     <div class="col-md-12">
-                        <label class="control-label">Number Of Chairs</label>
+                        <label class="control-label">Number Of Chairs:</label>
 						<select  name="chair" required class="form-control mb-2">
 							<option disabled selected hidden> Select number of chairs</option>
 							<option value="1 Person">1 Chair</option>

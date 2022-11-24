@@ -23,9 +23,8 @@ include('includes/header.php');
             ?>
             <div class="card">
                 <div class="card-header">
-                <h4>Edit Admin
                     <a href="admin.php" class="back btn-sm btn-close float-end"></a>
-                </h4>   
+                    <h4>Edit Admin</h4>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -42,31 +41,31 @@ include('includes/header.php');
                             <div class="col-md-6">
                                 <!--Needed-->
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                <label for="">Username</label>
+                                <label for="">Username:</label>
                                 <input type="text" name="name" required value="<?= $data['name'] ?>" placeholder="Enter Username" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Email</label>
+                                <label for="">Email Address:</label>
                                 <input type="email" name="email" required value="<?= $data['email'] ?>" placeholder="Enter Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">First Name</label>
+                                <label for="">First Name:</label>
                                 <input type="text" name="firstname" required value="<?= $data['firstname'] ?>" placeholder="Enter First Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Last Name</label>
+                                <label for="">Last Name:</label>
                                 <input type="text" name="lastname" required value="<?= $data['lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                            <label for="" class="mt-2">Date of birth</label>
+                            <label for="" class="mt-2">Date of Birth:</label>
                                     <input type="date" name='dateofbirth' value="<?= $data['dateofbirth'] ?>" class="form-control form-control-sm item" style="font-size: 14px;height: 40px;" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Phone Number</label>
+                                <label for="">Phone Number:</label>
                                 <input type="text" name="phonenumber" required value="<?= $data['phonenumber'] ?>" placeholder="Enter Phone Number" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
-                                <label for="">Address</label>
+                                <label for="">Complete Address:</label>
                                 <input type="text" name="address" required value="<?= $data['address'] ?>" placeholder="Enter Address" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">

@@ -6,8 +6,8 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-            <h4 class="text-dark mb-4">Cuisines List
-            <a class="btn btn-primary float-end" role="button" href="add-category.php" id="addbtn">Add Cuisine Type</a></h4>
+            <a class="btn btn-primary float-end mb-2" role="button" href="add-category.php" id="addbtn">Add Cuisine Type</a>
+            <h4 class="text-dark mb-4">Cuisines List</h4>
         <div class="card shadow">
             <div class="card-body" id = "category_table">
                 <div class="row">
@@ -20,10 +20,10 @@ include('includes/header.php');
                             </select>&nbsp;</label>
                         </div>
                     </div>
-                        <div class="col-md-6">
+                        <!--<div class="col-md-6">
                             <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
                             </div>
-                        </div>
+                        </div-->
                         <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                             <table class="table my-0" id="dataTable">
                                 <thead style="text-align:center">

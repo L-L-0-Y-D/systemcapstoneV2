@@ -10,9 +10,8 @@ include('includes/header.php');
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h4>Add municipality
           <a href="municipality.php" class="back btn-sm btn-close float-end"></a>
-          </h4>
+          <h4>Add municipality</h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -22,7 +21,7 @@ include('includes/header.php');
                         <input type="file" name="image" required class="form-control">
                     </div>
                     <div class="col-md-12">
-                        <label for="">Municipality</label>
+                        <label for="">Municipality Name:</label>
                         <input type="text" name="municipality_name" required placeholder="Enter municipality Name" class="form-control">
                     </div>                  
                     <div class="row">

@@ -39,12 +39,9 @@ include('includes/header.php');
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid">
-            <h2 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?></h2>
+            <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Feedback List</h4>
         <div class="card shadow">
             <div class="card-body">
-                <div class="row">
-                    <h4 class="text-dark">Feedback List</h4>
-                </div>
                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                     <table class="table my-0" id="dataTable">
                         <thead style="text-align:center">

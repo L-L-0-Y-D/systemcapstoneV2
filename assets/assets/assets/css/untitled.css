@@ -128,7 +128,7 @@ p {
   padding-bottom: 100px!important;
 }
 .team-member img {
-  width: 200px;
+  width: 200px!important;
   height: 200px;
   border: 2px solid #000!important;
   padding: 10px!important;

@@ -39,20 +39,18 @@ include('../config/dbcon.php');
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid">
-        <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>
-        <a class="btn btn-primary float-end" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Menu</a></h4>
+        <a class="btn btn-primary float-end mt-2" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Menu</a>  
+        <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Menu List</h4>
         <div class="card shadow">
             <div class="card-body" id="products_table">
-                <div class="row"> 
-                    <div class="col-md-6 text-nowrap">
-                        <h4 class="text-dark">Menu List</h4>
-                    </div>
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table my-0" id="dataTable" style="text-align:center">
                     <div class="col-md-6 text-nowrap">
                         <!--SORTING-->
                         <div class="col-md-6 text-nowrap" id="filters">
                             <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                                 <label class="form-label">Sorted by:&nbsp;
-                                    <select  id="mySelect" onchange="myFunction()" class="d-inline-block form-select form-select-sm">
+                                    <select  id="mySelect" onchange="myFunction()" class="d-inline-block form-select form-select-sm w-75">
                                         <option value="All" selected="">All Menu</option>
                                         <option value="Main">Main Course</option>
                                         <option value="Appetizer">Appetizer</option>
@@ -67,8 +65,6 @@ include('../config/dbcon.php');
                             </div>
                         </div>  
                     </div>
-                </div> 
-                    <table  id="container" class="table my-0" id="dataTable" style="text-align:center">
                             <thead>
                                 <tr>
                                     <th>Image</th>
@@ -122,7 +118,7 @@ include('../config/dbcon.php');
                                 ?>
                             </tbody>
                         </form>
-                        </table>
+                    </table>
                     <!--SCRIPT FOR SORTING-->
                     <script type="text/javascript">
                             $(document).ready(function(){
@@ -172,6 +168,8 @@ include('../config/dbcon.php');
                     </div>
                 </div>
             </div>
+        </div>
+
 <?php
 
         }
