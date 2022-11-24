@@ -101,11 +101,17 @@ thead, tbody, tfoot, tr, td, th {
   color: #fff;
   box-shadow: none;
 }
-.product .btn {
-  background-color: rgb(255,128,64);
-  color: #fff;
+.changemonth {
+  background-color: rgb(255,128,64)!important;
+  color: #fff!important;
   box-shadow: none;
-  border: none;
+  border: none!important;
+}
+.changemonth:hover,.changemonth:focus,.changemonth:active {
+  color: #fff;
+  background-color: rgb(179,60,0)!important;
+  border-color: inherit;
+  box-shadow: none!important;
 }
 .summary .btn-success, .summary .btn {
   background-color: rgb(255,128,64);
@@ -119,9 +125,9 @@ thead, tbody, tfoot, tr, td, th {
 .summary .btn-danger:hover ,.summary .btn-danger:focus, .summary .btn-danger:active {
   background-color:darkred!important;
 }
-.product .btn:hover,.product .btn:focus,.product  .btn:active , .summary .btn:hover,.summary .btn:focus,.summary  .btn:active  {
+.summary .btn-success:hover,.summary .btn-success:focus,.summary .btn-success:active   {
   color: #fff;
-  background-color: rgb(179,60,0);
+  background-color: rgb(179,60,0)!important;
   border-color: inherit;
   box-shadow: none!important;
 }

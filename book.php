@@ -204,7 +204,7 @@ if(isset($_POST['value'])){
                                         <input required type="text"  value="<?= $_SESSION['auth_user']['phonenumber'];?>" name="reservation_phonenumber" class="form-control">
                                     </div>
                                     <div class="form-group  pull-right text-center">
-                                        <button class="btn btn-primary w-50" type="submit" name="reserve_btn">Submit</button>
+                                        <button class="btn btn-success btn-primary w-50" type="submit" name="reserve_btn">Submit</button>
                                     </div>
                                 </form>
                             </div>
