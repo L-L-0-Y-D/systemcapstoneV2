@@ -147,7 +147,7 @@ if(isset($_POST['request'])){
     $result = mysqli_query($con, $reservation_query);
     $count = mysqli_num_rows($result);
 
-    if($status == 0 || $status == 2 || $status == 3)
+    if($status == 0)
     {
         while($data = mysqli_fetch_assoc($result))
         {?>
@@ -158,12 +158,16 @@ if(isset($_POST['request'])){
                 <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                 <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                 <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                <button class="btn btn-primary disable w-100" type="submit">ADD REVIEW</button> 
+                <form method="post" action="functions/codereservation.php" enctype="multipart/form-data" class="registration">
+                    <input type="hidden" name="userid" value="<?= $data['userid']; ?>">
+                    <input type="hidden" name="reservationid" value="<?= $data['reservationid']; ?>">
+                    <button class="btn btn-primary w-100" type="submit" name="cancelled_btn">Cancelled Reservation</button>
+                </form> 
             </div>
         <?php
         }
     }
-    elseif($status == 1 && $arrived == 0 || $status == 1 && $arrived == 2)
+    elseif($status == 2)
     {
         while($data = mysqli_fetch_assoc($result))
         {?>
@@ -175,7 +179,61 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <button class="btn btn-primary disable w-100" type="submit">ADD REVIEW</button>
+                    <button class="btn btn-primary disable w-100" disabled type="submit">DECLINED</button>
+                </div>
+         
+        <?php
+        }
+    }
+    elseif($status == 3)
+    {
+        while($data = mysqli_fetch_assoc($result))
+        {?>
+        
+                <div class="shadow" id="summary">
+                    <h4><span class="text">Reservation ID</span><span class="value"><?= $data['reservationid']; ?></span></h4>
+                    <h4><span class="text">Table Number</span><span class="value"><?= strtoupper($data['table_number']); ?></span></h4>
+                    <h4><span class="text">Number of Guest</span><span class="value"><?= $data['chair'];?>&nbsp;</span></h4>
+                    <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
+                    <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
+                    <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
+                    <button class="btn btn-primary disable w-100" disabled type="submit">CANCELLED</button>
+                </div>
+         
+        <?php
+        }
+    }
+    elseif($status == 1 && $arrived == 0)
+    {
+        while($data = mysqli_fetch_assoc($result))
+        {?>
+        
+                <div class="shadow" id="summary">
+                    <h4><span class="text">Reservation ID</span><span class="value"><?= $data['reservationid']; ?></span></h4>
+                    <h4><span class="text">Table Number</span><span class="value"><?= strtoupper($data['table_number']); ?></span></h4>
+                    <h4><span class="text">Number of Guest</span><span class="value"><?= $data['chair'];?>&nbsp;</span></h4>
+                    <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
+                    <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
+                    <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
+                    <button class="btn btn-primary disable w-100" disabled type="submit">WAITING FOR ARRIVAL</button>
+                </div>
+         
+        <?php
+        }
+    }
+    elseif($status == 1 && $arrived == 2)
+    {
+        while($data = mysqli_fetch_assoc($result))
+        {?>
+        
+                <div class="shadow" id="summary">
+                    <h4><span class="text">Reservation ID</span><span class="value"><?= $data['reservationid']; ?></span></h4>
+                    <h4><span class="text">Table Number</span><span class="value"><?= strtoupper($data['table_number']); ?></span></h4>
+                    <h4><span class="text">Number of Guest</span><span class="value"><?= $data['chair'];?>&nbsp;</span></h4>
+                    <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
+                    <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
+                    <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
+                    <button class="btn btn-primary disable w-100" disabled type="submit">NOT ARRIVED</button>
                 </div>
          
         <?php
