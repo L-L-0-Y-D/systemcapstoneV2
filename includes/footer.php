@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="assets/css/untitled.css">
-<footer class="text-white sticky-footer">
+<footer class="text-white page-footer">
     <div class="container " >
         <div class="row ">
                 <h3>POPULAR CUISINES</h3>

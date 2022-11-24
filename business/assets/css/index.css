@@ -43,24 +43,28 @@
 
 #totalreservation .card {
   color: #36b9cc;
+  width:260px;
 }
 #totalreservation .card:hover {
   font-size: 18px!important;
 }
 #pendingreservation .card {
   color: #1cc88a;
+  width:260px;
 }
 #pendingreservation .card:hover {
   font-size: 18px!important;
 }
 #totalmenu .card {
   color: #e74a3b;
+  width:260px;
 }
 #totalmenu .card:hover {
   font-size: 18px!important;
 }
 #rating .card {
   color: #f6c23e;
+  width:260px;
 }
 #rating .card:hover {
   font-size: 18px!important;
@@ -79,7 +83,7 @@
   margin:0px!important;
   padding:0px!important;
   background-color:rgb(252, 252, 252)!important;
-
+  width:260px;
 }
 .tab-pane {
   margin-top:30px;

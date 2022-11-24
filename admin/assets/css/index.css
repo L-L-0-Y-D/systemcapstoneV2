@@ -27,6 +27,7 @@
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
+  justify-content: center;
 }
 
 .nav-tabs {
@@ -42,15 +43,15 @@
 }
 
 #totaluser .card {
-  color: #36b9cc;
   width:260px;
+  color: #36b9cc;
 }
 #totaluser .card:hover {
   font-size: 18px!important;
 }
 #totalbusiness .card {
-  color: #1cc88a;
   width:260px;
+  color: #1cc88a;
 }
 #totalbusiness .card:hover {
   font-size: 18px!important;
@@ -83,7 +84,7 @@
   margin:0px!important;
   padding:0px!important;
   background-color:rgb(252, 252, 252)!important;
-
+  width:260px;
 }
 .tab-pane {
   margin-top:30px;
