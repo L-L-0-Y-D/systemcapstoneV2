@@ -174,7 +174,7 @@ if(isset($_GET['id']))
                                     <h4><span class="text">Reservation Date</span><span class="reservationDat"></span></h4>
                                     <h4><span class="text">Reservation Time</span><span class="reservationTime"></span></h4>
                                     <!--<h4><span class="text">Status</span><span class="status"></span></h4>-->
-                                    <button class="btn btn-primary disabled m-0 w-100" disabled type="submit">ADD REVIEW</button>
+                                    <!-- <button class="btn btn-primary disabled m-0 w-100" disabled type="submit">ADD REVIEW</button> -->
                                 </div>
                             </div>
                         </div>

@@ -168,15 +168,36 @@ function build_calendar($month,$year,$resourceid){
         $query_blockdates = "SELECT * FROM blockdate WHERE businessid = $id AND status = 1";
         $query_blockdates_run = mysqli_query($mysqli, $query_blockdates);
         $blockdates = $query_blockdates_run;
-        $data = mysqli_fetch_array($blockdates);  
+        $data = mysqli_fetch_array($blockdates);
+        // $users = array($data['blockdates']);  
 
+
+        // // $users = ['john', 'dave', 'tim'];
+
+        // function print_item($item, $key)
+        // {
+        //     echo "$item test <br>";
+        // }
+
+        // $data = array_walk($users, 'print_item');
         
+
         //part 6 specific date
         if($date=="2022-11-01")
         {
             $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Holiday</i></p>";
             //part 6
+            
         }
+        elseif($date=="2022-11-02")
+        {
+            $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Holiday</i></p>";
+            //part 6
+            
+        }
+
+
+        
         //  }
         // elseif($dayname=='sunday')
         // {   // specific day
@@ -217,6 +238,7 @@ function build_calendar($month,$year,$resourceid){
             }
         }
 
+
         /* This is checking if the current day is equal to the current date. If it is, it will add a
         class of today to the table data tag. If it is not, it will add a table data tag without the
         class of today. */
@@ -229,6 +251,7 @@ function build_calendar($month,$year,$resourceid){
         //     $calendar .= "<td><button class='currentDay'>$currentDay</button>";
 
         // }
+
 
         
 

@@ -128,6 +128,14 @@ function reservationIDGetByIDReview($id)
     return $query_run = mysqli_query($con, $query);
 }
 
+function reservationGettable($id)
+{
+    global $con;
+    $query = "SELECT * FROM managetable JOIN reservations ON managetable.tableid=reservations.tableid WHERE reservations.tableid = $id";
+    return $query_run = mysqli_query($con, $query);
+}
+
+
 
 function getAll($table)
 {
