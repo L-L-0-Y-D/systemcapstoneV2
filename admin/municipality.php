@@ -6,8 +6,9 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-            <a class="btn btn-primary float-end mb-2" role="button" href="add-municipality.php" id="addbtn">Add Municipality</a>
-            <h4 class="text-dark mb-4">Municipality List</h4>
+            <h4 class="text-dark mb-4">Municipality List
+            <a class="btn btn-primary btn-sm float-end " role="button" href="add-municipality.php" id="addbtn">Add Municipality</a>
+            </h4><div>&nbsp;</div>
         <div class="card shadow">
             <div class="card-body">
                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">

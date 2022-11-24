@@ -43,24 +43,27 @@
 
 #totaluser .card {
   color: #36b9cc;
+  width:260px;
 }
 #totaluser .card:hover {
   font-size: 18px!important;
 }
 #totalbusiness .card {
   color: #1cc88a;
+  width:260px;
 }
 #totalbusiness .card:hover {
   font-size: 18px!important;
 }
 #busiconfirm .card {
-  padding-bottom:9px!important;
+  width:260px;
   color: #e74a3b;
 }
 #busiconfirm .card:hover {
   font-size: 18px!important;
 }
 #totalcuisines .card {
+  width:260px;
   color: #f6c23e;
 }
 #totalcuisines .card:hover {

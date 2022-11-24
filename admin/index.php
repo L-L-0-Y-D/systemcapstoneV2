@@ -8,10 +8,10 @@ include('includes/header.php');
 <body id="page-top">
     <div id="wrapper">
         <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
-                <div class="container-fluid">
-                    <h3 class="text-dark mb-0">Admin's Dashboard</h3>
-                    <div class="row m-2">
+            <div id="content ">
+                <div class="container-fluid p-1">
+                    <h3 class="text-dark mb-0 mx-3">Admin's Dashboard</h3>
+                    <div class="row m-0">
                         <div class="col">
                             <div>
                                 <ul class="nav nav-tabs nav-justified" role="tablist" id="myTab">
@@ -20,11 +20,13 @@ include('includes/header.php');
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col col-md-9">
-                                                            <h6>Total Users</h6>
-                                                        </div>
-                                                        <div class="col-auto col-md-3"><i class="fas fa-users fa-2x"></i></div>
-                                                        <div class="text-dark fw-bold h5 mb-3">
+                                                        <div class="col col-md-7">
+                                                                <h6>Total <br>Users</h6>
+                                                            </div>
+                                                            <div class="col-auto col-md-5">
+                                                                <span class="float-end"><i class="fas fa-users fa-2x float-end me-3"></i></span>
+                                                            </div>
+                                                            <div class="text-dark fw-bold h5 pb-0 mb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query = "SELECT userid FROM users WHERE role_as = 0 ORDER BY userid";
@@ -43,11 +45,13 @@ include('includes/header.php');
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col col-md-9">
-                                                            <h6>Total Business</h6>
+                                                        <div class="col col-md-7">
+                                                            <h6>Business<br> Partners</h6>
                                                         </div>
-                                                        <div class="col-auto col-md-3 justify-content-center"><i class="fas fa-building fa-2x"></i></div>
-                                                        <div class="text-dark fw-bold h5 mb-3">
+                                                        <div class="col col-md-5">
+                                                            <span class="float-end"><i class="fas fa-handshake fa-2x float-end me-3"></i></span>
+                                                        </div>
+                                                        <div class="text-dark fw-bold h5 pb-0 mb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query_business = "SELECT businessid FROM business WHERE status = 1 ORDER BY businessid";
@@ -66,11 +70,13 @@ include('includes/header.php');
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col col-md-9 text-nowrap">
-                                                            <h6>Business Confirm</h6>
+                                                        <div class="col col-md-7">
+                                                            <h6>Business <br>Confirm</h6>
                                                         </div>
-                                                        <div class="col-auto col-md-3 justify-content-center"><i class="fas fa-handshake fa-2x"></i></div>
-                                                        <div class="text-dark fw-bold h5">
+                                                        <div class="col-auto col-md-5">
+                                                            <span class="float-end"><i class="fas fa-store fa-2x float-end me-3"></i></span>
+                                                        </div>
+                                                        <div class="text-dark fw-bold h5 mb-0 pb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query_business = "SELECT businessid FROM business WHERE status = 0 ORDER BY businessid";
@@ -89,11 +95,13 @@ include('includes/header.php');
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col col-md-9">
-                                                            <h6>Total Cuisines</h6>
+                                                        <div class="col col-md-7">
+                                                            <h6>Total <br>Cuisines</h6>
                                                         </div>
-                                                        <div class="col-auto col-md-3 justify-content-center"><i class="fas fa-clipboard-list fa-2x"></i></div>
-                                                        <div class="text-dark fw-bold h5 mb-3">
+                                                        <div class="col-auto col-md-5">
+                                                            <span class="float-end"><i class="fas fa-clipboard-list fa-2x float-end me-3"></i></span>
+                                                        </div>
+                                                        <div class="text-dark fw-bold h5 pb-0 mb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query_cuisine = "SELECT categoryid FROM mealcategory ORDER BY categoryid";
