@@ -42,8 +42,9 @@ include('../config/dbcon.php');
                 
 ?>
     <div class="container-fluid">
-        <a class="btn btn-primary float-end mb-2" role="button" href="add-blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Block Date</a> 
-        <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Block Date(s)</h4>
+    <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Block Date(s)
+        <a class="btn btn-primary btn-sm float-end mb-2" role="button" href="add-blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Block Date</a> 
+        </h4>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
                 <div class="row">

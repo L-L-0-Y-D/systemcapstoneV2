@@ -72,11 +72,11 @@ if(mysqli_num_rows($managetable_query_run) > 0)
     </nav>
 
 <main class="page shopping-cart-page">
-        <section class="clean-block clean-cart dark p-5 mt-2">
+        <section class="clean-block clean-cart dark pt-5 mt-5">
             <div class="container">
                 <div class="content mt-5">
                     <div class="row g-0">
-                        <div class="col-md-12 col-lg-8">
+                        <div class="col-md-12 col-lg-8 p">
                             <!--<div class="mt-4">
                                 <h4 style="margin-left: 36px;">
                                 <i class="far fa-calendar-alt"></i>&nbsp; November 2022<div class="btn-group float-end gap-2" role="group"><button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-arrow-left"></i>PREVIOUS</button><button class="btn btn-primary btn-sm" type="button">NEXT&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button></div>
@@ -87,7 +87,7 @@ if(mysqli_num_rows($managetable_query_run) > 0)
                                 <div class="product">
                                     <div class="row justify-content-center align-items-center">
                                         <div class="col">
-                                            <div class="p-3">
+                                            <div class="p-0">
                                                 <!--<h3 class="text-center fw-bold"><span style="color: rgb(33, 37, 41);">&nbsp;November 20 , 2022 (Napili ng customer)</span><br></h3>-->
                                                     <div id="calendar">
                                                     </div>

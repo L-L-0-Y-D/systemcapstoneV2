@@ -153,7 +153,7 @@
                 {                          
                     echo "<p class='text-center'>No Business Found</p>";
             ?>
-                    <br><a href="Index.php" style="margin-bottom:75px;">Go Back</a>
+                    <br><a href="Index.php" >Go Back</a>
             <?php
             }                           
             ?>

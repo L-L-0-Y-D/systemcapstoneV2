@@ -69,7 +69,10 @@ thead, tbody, tfoot, tr, td, th {
   border-width: 0;
   text-align: center;
 }
-
+.product-image {
+  width:130px;
+  height:130px;
+}
 .btn-group {
   border-radius: .375rem;
   padding-right: 2%;
@@ -119,6 +122,18 @@ thead, tbody, tfoot, tr, td, th {
   box-shadow: none;
   border: none;
 }
+.product .btnView {
+  background-color: rgb(255,128,64)!important;
+  color: #fff;
+  box-shadow: none;
+  border: none;
+}
+.product .btnView:hover,.produt .btnView:focus,.product .btnView:active   {
+  color: #fff;
+  background-color: rgb(179,60,0)!important;
+  border-color: inherit;
+  box-shadow: none!important;
+}
 .summary .btn-danger {
   background-color:darkred!important;
 }
@@ -126,6 +141,12 @@ thead, tbody, tfoot, tr, td, th {
   background-color:darkred!important;
 }
 .summary .btn-success:hover,.summary .btn-success:focus,.summary .btn-success:active   {
+  color: #fff;
+  background-color: rgb(179,60,0)!important;
+  border-color: inherit;
+  box-shadow: none!important;
+}
+.summary .btnSummary:hover,.summary .btnSummary:focus,.summary .btnSummary:active   {
   color: #fff;
   background-color: rgb(179,60,0)!important;
   border-color: inherit;
@@ -142,9 +163,9 @@ thead, tbody, tfoot, tr, td, th {
 .clean-block.clean-cart .summary h3{
  padding-bottom:0px!important;
 }
-.table-bordered td{
-  width:110px!important;
-  height:110px!important;
+.table-bordered td {
+  width: auto;
+  height:7vw;
 }
 .table-bordered td h4{
   padding-top: 33px;
@@ -181,4 +202,11 @@ thead, tbody, tfoot, tr, td, th {
   font-size:12px;
   line-height:normal;
   margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px){
+	.table-bordered {
+    display: -webkit-flex;
+    table-layout: fixed!important;
+	}
 }

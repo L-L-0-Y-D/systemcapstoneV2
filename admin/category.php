@@ -6,8 +6,9 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-            <a class="btn btn-primary float-end mb-2" role="button" href="add-category.php" id="addbtn">Add Cuisine Type</a>
-            <h4 class="text-dark mb-4">Cuisines List</h4>
+            <h4 class="text-dark mb-4">Cuisines List
+            <a class="btn btn-primary btn-sm float-end" role="button" href="add-category.php" id="addbtn">Add Cuisine Type</a>
+            </h4><div>&nbsp;</div>
         <div class="card shadow">
             <div class="card-body" id = "category_table">
                 <div class="row">

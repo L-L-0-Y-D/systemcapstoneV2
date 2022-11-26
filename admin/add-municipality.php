@@ -11,7 +11,7 @@ include('includes/header.php');
       <div class="card">
         <div class="card-header">
           <a href="municipality.php" class="back btn-sm btn-close float-end"></a>
-          <h4>Add municipality</h4>
+          <h4>Add Municipality</h4>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">

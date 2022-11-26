@@ -6,7 +6,7 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-    <h4 class="text-dark">BUSINESS PARTNERS</h4>         
+        <h4 class="text-dark">BUSINESS PARTNERS</h4>         
         <div class="card shadow">
             <div class="card-body" id="business_table">
                 <div class="row">

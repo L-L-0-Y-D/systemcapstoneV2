@@ -73,7 +73,7 @@ if(isset($_POST['request'])){
                 <div class="product-info col-md-9">
                     <div class="product-specs">
                         <h5>&nbsp;&nbsp;<?= $data['business_name']; ?>
-                        <button class="btn btn-primary btn-sm float-end viewBtn<?= $data['reservationid']; ?>" type="submit" arrived="<?= $data['arrived']; ?>" Review="<?= $data['review']; ?>" value="<?= $data['userid']; ?>" status="<?= $data['status'] ?>" reserveId="<?= $data['reservationid']; ?>" busiid="<?= $data['businessid']; ?>" id="viewBtn<?= $data['reservationid']; ?>" onclick="myFunction()">View</button></h5>
+                        <button class="btn btnView btn-sm float-end viewBtn<?= $data['reservationid']; ?>" type="submit" arrived="<?= $data['arrived']; ?>" Review="<?= $data['review']; ?>" value="<?= $data['userid']; ?>" status="<?= $data['status'] ?>" reserveId="<?= $data['reservationid']; ?>" busiid="<?= $data['businessid']; ?>" id="viewBtn<?= $data['reservationid']; ?>" onclick="myFunction()">View</button></h5>
                         <div><span>Reserved By:&nbsp;</span><span class="value"><?= $data['namereserveunder']; ?></span></div>
                         <div><span>Email Address:</span><span class="value"><?= $data['reservation_email']; ?></span></div>
                         <div><span>Contact Number:&nbsp;</span><span class="value"><?= $data['reservation_phonenumber']; ?></span></div>                    
@@ -158,10 +158,10 @@ if(isset($_POST['request'])){
                 <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                 <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                 <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                <form method="post" action="functions/codereservation.php" enctype="multipart/form-data" class="registration">
+                <form method="post" action="functions/codereservation.php" enctype="multipart/form-data" class="registration pb-0">
                     <input type="hidden" name="userid" value="<?= $data['userid']; ?>">
                     <input type="hidden" name="reservationid" value="<?= $data['reservationid']; ?>">
-                    <button class="btn btn-primary w-100" type="submit" name="cancelled_btn">Cancelled Reservation</button>
+                    <button class="btn btnSummary w-100" type="submit" name="cancelled_btn">Cancel Reservation</button>
                 </form> 
             </div>
         <?php
@@ -179,7 +179,7 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <button class="btn btn-primary disable w-100" disabled type="submit">DECLINED</button>
+                    <button class="btn btn-primary disabled w-100" disabled type="submit">DECLINED</button>
                 </div>
          
         <?php
@@ -197,7 +197,7 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <button class="btn btn-primary disable w-100" disabled type="submit">CANCELLED</button>
+                    <button class="btn btn-primary disabled w-100" disabled type="submit">CANCELLED</button>
                 </div>
          
         <?php
@@ -215,7 +215,7 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <button class="btn btn-primary disable w-100" disabled type="submit">WAITING FOR ARRIVAL</button>
+                    <button class="btn btn-primary disabled w-100" disabled type="submit">WAITING FOR ARRIVAL</button>
                 </div>
          
         <?php
@@ -233,7 +233,7 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <button class="btn btn-primary disable w-100" disabled type="submit">NOT ARRIVED</button>
+                    <button class="btn btn-primary disabled w-100" disabled type="submit">NOT ARRIVED</button>
                 </div>
          
         <?php
@@ -251,7 +251,7 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <a href="feedback.php?id=<?= $reservationid;?>" class="btn btn-primary w-100" type="submit">ADD REVIEW</a>
+                    <a href="feedback.php?id=<?= $reservationid;?>" class="btn btnSummary w-100" type="submit">ADD REVIEW</a>
                 </div>
           
         <?php
@@ -269,7 +269,7 @@ if(isset($_POST['request'])){
                     <h4><span class="text">Reservation Date</span><span class="value"><?= $data['reservation_date']; ?></span></h4>
                     <h4><span class="text">Reservation Time</span><span class="value"><?= $data['reservation_time']; ?></span></h4>
                     <!-- <h4><span class="text">Status</span><span class="value"><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}  ?></span></h4>---->
-                    <a href="reservation.php?id=<?= $businessid;?>" class="btn btn-primary w-100" type="submit">RESERVE AGAIN</a>
+                    <a href="reservation.php?id=<?= $businessid;?>" class="btn btnSummary w-100" type="submit">RESERVE AGAIN</a>
                 </div>
            
         <?php
