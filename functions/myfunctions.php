@@ -187,7 +187,7 @@ function sendemail_businesdeclined($email,$name,$reason)
 function getAll($table)
 {
     global $con;
-    $query = "SELECT * FROM $table";
+    $query = "SELECT * FROM $table WHERE NOT status='3'";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -198,6 +198,7 @@ function businessGetAll()
     FROM business
     JOIN municipality
     ON business.municipalityid=municipality.municipalityid
+    WHERE NOT business.status = '3'
     ORDER BY business.businessid DESC";
     return $query_run = mysqli_query($con, $query);
 }

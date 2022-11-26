@@ -42,7 +42,8 @@ include('includes/header.php');
                                     <th>Firstname</th>
                                     <th>Lastname</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
+                                    <th>Action</th>
+                                    <th>Archive</th>
                                     <!--<th>Delete</th>-->
                                 </tr>
                             </thead>
@@ -101,9 +102,13 @@ include('includes/header.php');
                                                             <td>
                                                             <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                             </td>
-                                                        <td>
-                                                            <!--<button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>-->
-                                                        </td>
+                                                            <!-- <td>
+                                                                <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>
+                                                            </td> -->
+                                                            <form action="code.php" method="POST" enctype="multipart/form-data">
+                                                            <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
+                                                            <td><button type="submit" class="btn btn-sm btn-danger"  name="archive_business_btn"><i class="fas fa-archive"></i></button></td>
+                                                            </form>
                                                     </tr>
                                                 <?php
                                             }
