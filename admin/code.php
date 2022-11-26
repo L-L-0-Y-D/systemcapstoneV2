@@ -683,7 +683,7 @@ else if(isset($_POST['update_admin_btn']))
 
             redirect("profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 80000)) {
+        else if (($_FILES["image"]["size"] < 8000)) {
 
             redirect("profile.php?id=$userid", "Image size less than 800KB", "warning");
 

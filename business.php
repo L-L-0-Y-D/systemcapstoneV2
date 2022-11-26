@@ -44,8 +44,10 @@
     <link rel="stylesheet" href="owl_carousel/owl.carousel.css">
     <link rel="stylesheet" href="owl_carousel/owl.theme.default.css">
     <!-- Favicon -->
-    <link rel="icon" href="uploads/favicon.ico"/>
+
     <title>I-EAT </title> 
+    
+    <link rel="icon" href="uploads/favicon.ico"/>
 
 </head>
 <body>
