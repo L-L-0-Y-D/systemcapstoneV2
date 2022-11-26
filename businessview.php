@@ -55,7 +55,8 @@
     <link rel="stylesheet" href="assets/css/untitled-3.css">
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">    
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>    
     <title>I-Eat | Business View </title> 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
@@ -1418,10 +1419,20 @@
         <hr>
     <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">LOCATED AT</h1>
         <div class="mapouter">
-            <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 1020px; height: 600px;"></iframe>
-                <br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style>
-                <style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
-            </div>
+            <?php 
+                $query_business_location = "SELECT * FROM business WHERE businessid = $id";
+                $query_business_location_run = mysqli_query($con, $query_business_location);
+                $data = mysqli_fetch_array($query_business_location_run);
+            ?>
+            <input type="hidden" id="address" name="address">
+                <input type="hidden" id="latitude" name="latitude" value="<?=$data['latitude'];?>">
+                <input type="hidden" id="longitude" name="longitude" value="<?=$data['longitude'];?>">
+                <input type="hidden" id="business_name" name="business_name" value="<?=$data['business_name'];?>">
+                <input type="hidden" id="business_address" name="business_address" value="<?=$data['business_address'];?>">
+                <input type="hidden" id="cuisinename" name="cuisinename" value="<?=$data['cuisinename'];?>">
+                <input type="hidden" id="opening" name="opening" value="<?=$data['opening'];?>">
+                <input type="hidden" id="closing" name="closing" value="<?=$data['closing'];?>">
+            <div id="map" style=" height: 700px;"></div>
         </div>
     </section>
 </body>
@@ -1432,6 +1443,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script type="text/javascript" src="maplocation.js"></script>
     <?php
         } 
         else

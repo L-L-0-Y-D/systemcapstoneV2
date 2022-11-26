@@ -4,7 +4,7 @@ var map;
 var lng = 120.5113;
 var lat = 14.6741;
 var infoWindow = new google.maps.InfoWindow({ map: map });
-const image = "../uploads/spoonandfork.png";
+const image = "uploads/spoonandfork.png";
 // var content = "<b>Business Name</b>: "+ location.name +
 //   "<br><b>Business Address</b>: "+ location.address +
 //   "<br><b>Cuisine</b>: "+ location.cuisine +
