@@ -118,6 +118,8 @@ $data = mysqli_fetch_array($business);
 
 $duration = 60;
 $cleanup = 10;
+date_default_timezone_set("Asia/Singapore");
+// $start = date("H:i:s");
 $start = $data['opening'];
 $end = $data['closing'];
 

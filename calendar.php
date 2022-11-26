@@ -167,8 +167,10 @@ function build_calendar($month,$year,$resourceid){
 
         $query_blockdates = "SELECT * FROM blockdate WHERE businessid = $id AND status = 1";
         $query_blockdates_run = mysqli_query($mysqli, $query_blockdates);
-        $blockdates = $query_blockdates_run;
-        $data = mysqli_fetch_array($blockdates);
+        $blockdates = mysqli_fetch_array($query_blockdates_run);
+        $reason=$blockdates['reason'];
+
+        // $data = $blockdates;
         // $users = array($data['blockdates']);  
 
 
@@ -183,21 +185,23 @@ function build_calendar($month,$year,$resourceid){
         
 
         //part 6 specific date
-        if($date=="2022-11-01")
-        {
-            $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Holiday</i></p>";
-            //part 6
-            
-        }
-        elseif($date=="2022-11-02")
-        {
-            $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Holiday</i></p>";
-            //part 6
-            
-        }
 
-
+            if($date==$blockdates['blockdates'])
+            {
+                $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>$reason</i></p>";
+                //part 6
+                
+            }
         
+
+        /* Checking if the date is equal to 2022-11-02. If it is, it will display the date and a
+        message saying "Holiday". */
+        // if($date=="2022-11-02")
+        // {
+        //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Holiday</i></p>";
+        //     //part 6
+            
+        // }
         //  }
         // elseif($dayname=='sunday')
         // {   // specific day
@@ -235,8 +239,11 @@ function build_calendar($month,$year,$resourceid){
             {
                 $availableslots = count($timeslots) - $totalbookings;
                 $calendar .= "<td class='$today'><button value='reserveBtn' date=".$date." tableid=".$resourceid." id=".$id." class='reserveBtn rounded-circle'>$currentDay</button><p><i>$availableslots slots available</i></p>";
+
             }
+            
         }
+    
 
 
         /* This is checking if the current day is equal to the current date. If it is, it will add a

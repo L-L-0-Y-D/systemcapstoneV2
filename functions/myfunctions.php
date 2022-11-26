@@ -476,6 +476,13 @@ function sendemail_verify($name,$email,$verify_token)
 
 }
 
+function getlocation()
+{
+    global $con;
+    $query = "SELECT * FROM business WHERE status='1'";
+    return $query_run = mysqli_query($con, $query);
+}
+
 
 
 ?>
