@@ -280,7 +280,7 @@ include('includes/header.php');
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" role="tabpanel" id="totalcuisinetab">
-                                        <!-- FOR CUISINES
+                                        FOR CUISINES
                                         <div class="row">
                                             <div class="col">
                                                 <div class="card shadow mb-4">
@@ -291,39 +291,33 @@ include('includes/header.php');
                                                     <table class="table my-0" id="dataTable" style="text-align:center">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Image</th>
-                                                                    <th>Business Name</th>
-                                                                    <th>Address</th>
-                                                                    <th>Cuisine Type</th>
+                                                                    <th>Cuisine Name</th>
                                                                     <th>Status</th>
                                                                 </tr>
                                                             </thead>
                                                             
                                                             <tbody style="text-align:center">
                                                             <?php
-                                                                    //$reservations = getAll("reservations");
+                                                                    $mealcategory = getAll("mealcategory");
                                                                     // $query_business = "SELECT * FROM business WHERE status = '0' ORDER BY businessid DESC";
                                                                     // $query_business_run = mysqli_query($con, $query_business);
                                                                     
-                                                                    // if(mysqli_num_rows($query_business_run) > 0)
-                                                                    // {
-                                                                    //     foreach($query_business_run as $item)
-                                                                    //     {
-                                                                    //         ?>
-                                                                    //             <tr>
-                                                                    //                 <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
-                                                                    //                 <td><?= $item['business_name']; ?></td>
-                                                                    //                 <td><?= $item['business_address']; ?></td>
-                                                                    //                 <td><?= $item['cuisinename']; ?></td>
-                                                                    //                 <td><?= $item['status']== '0'? "Denied":"Confirmed"; ?></td>
-                                                                    //             </tr>
-                                                                    //         <?php
-                                                                    //     }
-                                                                    // }
-                                                                    // else
-                                                                    // {
-                                                                    //     echo "No records Found";
-                                                                    // }
+                                                                    if(mysqli_num_rows($mealcategory) > 0)
+                                                                    {
+                                                                        foreach($mealcategory as $item)
+                                                                        {
+                                                                            ?>
+                                                                                <tr>
+                                                                                    <td><?= $item['categoryname']; ?></td>
+                                                                                    <td><?= $item['status']== '0'? "Denied":"Confirmed"; ?></td>
+                                                                                </tr>
+                                                                            <?php
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        echo "No records Found";
+                                                                    }
                                                                     
                                                                 ?>
                                                             </tbody>
@@ -331,7 +325,7 @@ include('includes/header.php');
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
