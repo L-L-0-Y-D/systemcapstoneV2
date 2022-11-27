@@ -18,6 +18,10 @@ if(isset($_GET['token']))
             $update_query = "UPDATE users SET status='1' WHERE verify_token='$clicked_token' ";
             $update_query_run = mysqli_query($con, $update_query);
 
+            $insert_notification = "INSERT INTO comments  (comment_subject,comment_text,usertype) 
+            VALUES ('NEW USER', 'You have new USER ', '1')";
+            $insert_notification_run = mysqli_query($con, $insert_notification);
+
             if($update_query_run)
             {
                 //redirect("login.php", "Your Account has been verified Successfully");

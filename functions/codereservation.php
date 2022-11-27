@@ -15,6 +15,9 @@ if(isset($_POST['reserve_btn']))
     $resourceid = $_POST['tableid'];
     $statusDeclined = "2";
     $statusCancelled = "3";
+    $comment_subject = "NEW RESERVATION";
+    $comment_text = "You have new reservation from $namereserveunder";
+    $usertype = "3";
     //part 5
     $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=? AND NOT status=? AND NOT status=?");
     $stmt -> bind_param('ssiss', $date, $reservation_time, $resourceid,$statusDeclined,$statusCancelled);
@@ -44,12 +47,17 @@ if(isset($_POST['reserve_btn']))
                 $stmt -> bind_param('sssssiii',$namereserveunder,$reservation_time,$reservation_phonenumber,$reservation_email,$date,$resourceid,$businessid,$userid);
                 $stmt -> execute();
                 $msg = "<div class='alert alert-sucess'>Booking Successfull</div>";
+
+                $stmtnotif = $mysqli->prepare("INSERT INTO comments (businessid, comment_subject, comment_text, usertype) VALUES (?,?,?,?)");
+                $stmtnotif -> bind_param('ssss',$businessid,$comment_subject,$comment_text,$usertype);
+                $stmtnotif -> execute();
             
                 //part 5
                 $bookings[] = $reservation_time;
                 // endpart5
             
                 $stmt -> close();
+                $stmtnotif -> close();
                 $mysqli -> close();
             
                 redirect("../businessview.php?id=$businessid", "Reservation for Approval", "success");

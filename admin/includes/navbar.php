@@ -2,34 +2,82 @@
     <div class="container-fluid">
         <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
         <ul class="navbar-nav flex-nowrap ms-auto">
-            <!--<li class="nav-item dropdown no-arrow mx-1">
-                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
-                        <h6 class="dropdown-header">alerts center</h6><a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="me-3">
-                                <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
-                            </div>
-                            <div><span class="small text-gray-500">December 12, 2019</span>
-                                <p>A new monthly report is ready to download!</p>
-                            </div>
-                        </a><a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="me-3">
-                                <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
-                            </div>
-                            <div><span class="small text-gray-500">December 7, 2019</span>
-                                <p>$290.29 has been deposited into your account!</p>
-                            </div>
-                        </a><a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="me-3">
-                                <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text-white"></i></div>
-                            </div>
-                            <div><span class="small text-gray-500">December 2, 2019</span>
-                                <p>Spending Alert: We&#39;ve noticed unusually high spending for your account.</p>
-                            </div>
-                        </a><a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <li class="nav-item dropdown no-arrow mx-1">
+                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle notificationtoggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter count"></span><i class="fas fa-bell fa-fw"></i></a>
+                    <div class="dropdown-menu notification dropdown-menu-end dropdown-list animated--grow-in">
+                        <h6 class="dropdown-header">Notification</h6>
                     </div>
                 </div>
-            </li>-->
+            </li>
+            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+                    <ul class="dropdown-menu"></ul>
+                </li>
+            </ul> -->
+
+            <script>
+            $(document).ready(function(){
+            
+            function load_unseen_notification(view = '')
+            {
+            $.ajax({
+            url:"fetch.php",
+            method:"POST",
+            data:{view:view},
+            dataType:"json",
+            success:function(data)
+            {
+                $('.notification').html(data.notification);
+                if(data.unseen_notification > 0)
+                {
+                $('.count').html(data.unseen_notification);
+                }
+            }
+            });
+            }
+            
+            load_unseen_notification();
+            
+            //  $('#comment_form').on('submit', function(event){
+            //   event.preventDefault();
+            //   if($('#subject').val() != '' && $('#comment').val() != '')
+            //   {
+            //     alert($('#subject').val());
+            //     alert($('#comment').val());
+            //    var form_data = $(this).serialize();
+            //    $.ajax({
+            //     url:"insert.php",
+            //     method:"POST",
+            //     data:form_data,
+            //     success:function(data)
+            //     {
+            //      $('#comment_form')[0].reset();
+            //      load_unseen_notification();
+            //     }
+            //    });
+            //   }
+            //   else
+            //   {
+            //    alert("Both Fields are Required");
+            //   }
+            //  });
+            
+            $(document).on('click', '.notificationtoggle', function(){
+            $('.count').html('');
+            load_unseen_notification('yes');
+            });
+            
+            setInterval(function(){ 
+            load_unseen_notification();; 
+            }, 5000);
+            
+            });
+            </script>
             <div class="d-none d-sm-block topbar-divider"></div>
             <li class="nav-item dropdown no-arrow">
                 <div class="nav-item dropdown no-arrow">
