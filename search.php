@@ -59,7 +59,7 @@
                     JOIN
                     products
                     ON products.businessid = business.businessid
-                    WHERE business.business_name LIKE :keyword OR business.cuisinename LIKE :keyword OR municipality.municipality_name LIKE :keyword OR products.name LIKE :keyword AND business.status = '1' ORDER BY business.business_name ASC");
+                    WHERE business.business_name LIKE :keyword OR business.cuisinename LIKE :keyword OR municipality.municipality_name LIKE :keyword OR products.name LIKE :keyword AND business.status = '1'");
                     $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll();
