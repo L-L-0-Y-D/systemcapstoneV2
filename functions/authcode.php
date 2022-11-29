@@ -58,7 +58,7 @@ if(isset($_POST['register_btn']))
    }
    
     // Check if email already registered
-    $check_email_query = "SELECT * FROM users WHERE email='$email' OR name='$name'";
+    $check_email_query = "SELECT * FROM users WHERE email='$email'";
     $check_email_query_run = mysqli_query($con, $check_email_query);
 
     $check_name_query = "SELECT * FROM users WHERE name='$name'";
