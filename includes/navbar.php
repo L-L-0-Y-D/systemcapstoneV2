@@ -44,7 +44,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                                 // Creating database connection
                                 $con = mysqli_connect($host,$username,$password,$database);
                                 $userid = $_SESSION['auth_user']['userid']; 
-                                $sql = "SELECT * FROM `users` WHERE businessid = $userid;";
+                                $sql = "SELECT * FROM `users` WHERE userid = $userid;";
                                 $result = $con->query($sql);
                                 $item = mysqli_fetch_assoc($result);
                             ?>
