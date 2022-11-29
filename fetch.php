@@ -81,7 +81,7 @@ if(isset($_POST['request'])){
                 </div>
                 <div class="col p-0"><hr class="mb-0">
                     <p class="float-start m-2 text-muted">Reservation Id : #<?= $data['reservationid']; ?></p>
-                    <p class="float-end m-2 text-muted">Status:&nbsp;<strong><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved';}elseif($data['status'] == 2){echo 'Declined';}elseif($data['status'] == 3){echo 'Cancelled';}  ?></strong></p>
+                    <p class="float-end m-2 text-muted">Status:&nbsp;<strong><?php if($data['status'] == 0){ echo 'Waiting'; } elseif($data['status'] == 1){ echo 'Approved(Waiting to Arrived)';}elseif($data['status'] == 2){echo 'Declined';}elseif($data['status'] == 3){echo 'Cancelled';}  ?></strong></p>
                  </div><hr class="mt-0">
             </div>
         </div>
