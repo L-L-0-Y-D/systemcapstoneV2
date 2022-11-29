@@ -82,7 +82,7 @@ if(isset($_SESSION['auth'])){
                             <form class="text-center" method="post" action="functions/busiauthcode.php">
                                 <div class="inputs">
                                 <i class="fas fa-user d-md-flex align-items-md-end"></i>&nbsp
-                                    <input class="form-control" type="email" name="business_email" placeholder="Email or Username" required>
+                                    <input class="form-control" type="email" name="business_email" placeholder="Email" required>
                                 </div>
                                 <div class="inputs">
                                     <i class="fas fa-key d-md-flex align-items-md-end" ></i>&nbsp
