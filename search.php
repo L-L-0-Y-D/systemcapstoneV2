@@ -51,7 +51,7 @@
                 if (isset($_POST["submit"]))
                 {
                     $key = $_POST["search"];
-                    $query =$conn->prepare("SELECT business.image as businessimage,*
+                    $query =$conn->prepare("SELECT *,business.image as businessimage
                     FROM business 
                     JOIN 
                     municipality
