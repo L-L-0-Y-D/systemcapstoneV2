@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link rel="stylesheet" href="assets/css/business.css"> 
     <!-- Favicon -->
-    <link rel="icon" href="uploads/favicon.ico"/>
+    <link rel="icon" href="uploads/favicon.ico" type="image/ico">
 </head>
 <body>
     <div class="container pt-5">
@@ -51,12 +51,12 @@
                 if (isset($_POST["submit"]))
                 {
                     $key = $_POST["search"];
-                    $query =$conn->prepare("SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.cuisinename,business.opening,business.closing,business.image as businessimage,business.role_as,business.status,municipality.municipalityid,municipality.municipality_name
+                    $query =$conn->prepare("SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.cuisinename,business.opening,business.closing,business.image,business.role_as,business.status,municipality.municipalityid,municipality.municipality_name
                     FROM business 
                     JOIN 
                     municipality
                     ON business.municipalityid = municipality.municipalityid
-                    WHERE business.business_name LIKE :keyword OR business.cuisinename LIKE :keyword OR municipality.municipality_name LIKE :keyword AND business.status = '1'");
+                    WHERE business.business_name LIKE :keyword OR business.cuisinename LIKE :keyword OR municipality.municipality_name LIKE :keyword AND business.status = '1' ORDER BY business.business_name ASC");
                     $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll();
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <a href="#" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
+                    <a href="#" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?>(<?= $item['municipality_name']; ?>)</a>
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>
                     <div class="rating d-flex ">
