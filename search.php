@@ -51,7 +51,7 @@
                 if (isset($_POST["submit"]))
                 {
                     $key = $_POST["search"];
-                    $query =$conn->prepare("SELECT *
+                    $query =$conn->prepare("SELECT *,business.image
                     FROM business 
                     JOIN 
                     municipality
@@ -76,7 +76,7 @@
             <div class="col-md-3 p-2 shadow border-dark">
                 <div class="product-img">
                     <a href="businessview.php?id=<?=$item['businessid'];?>">
-                        <img src="uploads/<?= $item['business']['image']; ?>" alt="Business Image" class="img-fluid d-block mx-auto"></a>
+                        <img src="uploads/<?= $item['image']; ?>" alt="Business Image" class="img-fluid d-block mx-auto"></a>
                     <!--<span class="heart-icon">
                         <i class="far fa-heart"></i>
                     </span>-->
