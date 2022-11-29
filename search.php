@@ -51,12 +51,15 @@
                 if (isset($_POST["submit"]))
                 {
                     $key = $_POST["search"];
-                    $query =$conn->prepare("SELECT business.businessid,business.business_name,business.business_address,business.municipalityid,business.cuisinename,business.opening,business.closing,business.image,business.role_as,business.status,municipality.municipalityid,municipality.municipality_name
+                    $query =$conn->prepare("SELECT *
                     FROM business 
                     JOIN 
                     municipality
                     ON business.municipalityid = municipality.municipalityid
-                    WHERE business.business_name LIKE :keyword OR business.cuisinename LIKE :keyword OR municipality.municipality_name LIKE :keyword AND business.status = '1' ORDER BY business.business_name ASC");
+                    JOIN
+                    products
+                    ON products.businessid = business.businessid
+                    WHERE business.business_name LIKE :keyword OR business.cuisinename LIKE :keyword OR municipality.municipality_name LIKE :keyword OR products.name LIKE :keyword AND business.status = '1' ORDER BY business.business_name ASC");
                     $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll();
