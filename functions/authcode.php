@@ -70,11 +70,11 @@ if(isset($_POST['register_btn']))
     redirect the user to the register page with a message. */
     if(mysqli_num_rows($check_email_query_run)>0)
     {
-        redirect("../register.php", "Email Already Exist.", "warning");
+        redirect("../register.php?error=Email Already Exist&$user_data", "Email Already Exist.", "warning");
     }
     elseif(mysqli_num_rows($check_name_query_run)>0)
     {
-        redirect("../register.php", "Username Already Exist.", "warning");
+        redirect("../register.php?error=Username Already Exist&$user_data", "Username Already Exist.", "warning");
     }
     else
     {
