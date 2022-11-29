@@ -16,10 +16,10 @@ if(isset($_POST["view"]))
 
     if($_POST["view"] != '')
     {
-        $update_query = "UPDATE comments SET comment_status=1 WHERE comment_status=0 AND businessid = $id";
+        $update_query = "UPDATE notifications SET comment_status=1 WHERE comment_status=0 AND businessid = $id";
         mysqli_query($connect, $update_query);
     }
-        $query = "SELECT * FROM comments WHERE usertype=3 AND businessid = $id ORDER BY comment_id DESC LIMIT 5";
+        $query = "SELECT * FROM notifications WHERE usertype=3 AND businessid = $id ORDER BY comment_id DESC LIMIT 5";
         $result = mysqli_query($connect, $query);
         $output = '';
     
@@ -49,7 +49,7 @@ if(isset($_POST["view"]))
                     </a>';
     }
     
-    $query_1 = "SELECT * FROM comments WHERE businessid = $id AND comment_status=0 AND usertype=3";
+    $query_1 = "SELECT * FROM notifications WHERE businessid = $id AND comment_status=0 AND usertype=3";
     $result_1 = mysqli_query($connect, $query_1);
     $count = mysqli_num_rows($result_1);
     $data = array(

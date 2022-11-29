@@ -1,21 +1,22 @@
 <?php
 //fetch.php;
+$host = "localhost";
+$username = "u217632220_ieat";
+$password = "Hj1@8QuF3C";
+$database = "u217632220_ieatwebsite";
+
+// Creating database connection
+$connect = mysqli_connect($host,$username,$password,$database);
 if(isset($_POST["view"]))
 {
-    $host = "localhost";
-    $username = "u217632220_ieat";
-    $password = "Hj1@8QuF3C";
-    $database = "u217632220_ieatwebsite";
 
-    // Creating database connection
-    $connect = mysqli_connect($host,$username,$password,$database);
 
     if($_POST["view"] != '')
     {
-        $update_query = "UPDATE comments SET comment_status=1 WHERE comment_status=0";
+        $update_query = "UPDATE notifications SET comment_status=1 WHERE comment_status=0";
         mysqli_query($connect, $update_query);
     }
-        $query = "SELECT * FROM comments WHERE usertype=1 ORDER BY comment_id DESC LIMIT 5";
+        $query = "SELECT * FROM notifications WHERE usertype=1 ORDER BY comment_id DESC LIMIT 5";
         $result = mysqli_query($connect, $query);
         $output = '';
     
@@ -45,7 +46,7 @@ if(isset($_POST["view"]))
                     </a>';
     }
     
-    $query_1 = "SELECT * FROM comments WHERE comment_status=0 AND usertype=1";
+    $query_1 = "SELECT * FROM notifications WHERE comment_status=0 AND usertype=1";
     $result_1 = mysqli_query($connect, $query_1);
     $count = mysqli_num_rows($result_1);
     $data = array(
@@ -54,4 +55,20 @@ if(isset($_POST["view"]))
     );
     echo json_encode($data);
 }
+
+// if(isset($_GET["users"]))
+// {
+// $query_user = "SELECT userid FROM users WHERE role_as = 0 ORDER BY userid";
+// $query_user_run = mysqli_query($connect, $query_user);
+// $row_user = mysqli_num_rows($query_user_run);
+// echo $row_user;
+// }
+
+// if(isset($_GET["all_business"]))
+// {
+// $query_business = "SELECT businessid FROM business WHERE status = 1 ORDER BY businessid";
+// $query_business_run = mysqli_query($connect, $query_business);
+// $row_business = mysqli_num_rows($query_business_run);
+// echo $row_business;
+// }
 ?>

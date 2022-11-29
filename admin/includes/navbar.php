@@ -70,6 +70,8 @@
             $(document).on('click', '.notificationtoggle', function(){
             $('.count').html('');
             load_unseen_notification('yes');
+            }).then(() => {
+            location.reload();
             });
             
             setInterval(function(){ 

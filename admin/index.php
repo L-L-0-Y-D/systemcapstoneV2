@@ -27,13 +27,28 @@ include('includes/header.php');
                                                                 <span class="float-end"><i class="fas fa-users fa-2x float-end me-3"></i></span>
                                                             </div>
                                                             <div class="text-dark fw-bold h5 pb-0 mb-0">
+                                                            <span id="users">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query = "SELECT userid FROM users WHERE role_as = 0 ORDER BY userid";
                                                             $query_run = mysqli_query($con, $query);
                                                             $row = mysqli_num_rows($query_run);
-                                                            echo '<span>'.$row.'</span>'
+                                                            echo $row;
                                                         ?>
+                                                            <!-- <script type="text/javascript">
+                                                                function loadDoc() {
+                                                                var xhttp = new XMLHttpRequest();
+                                                                xhttp.onreadystatechange = function() {
+                                                                    if (this.readyState == 4 && this.status == 200) {
+                                                                    document.getElementById("users").innerHTML = this.responseText;
+                                                                    }
+                                                                };
+                                                                xhttp.open("GET", "fetch.php", true);
+                                                                xhttp.send();
+                                                                }
+                                                                loadDoc();
+                                                            </script> -->
+                                                        </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -52,13 +67,28 @@ include('includes/header.php');
                                                             <span class="float-end"><i class="fas fa-handshake fa-2x float-end me-3"></i></span>
                                                         </div>
                                                         <div class="text-dark fw-bold h5 pb-0 mb-0">
+                                                        <span id="all_business">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query_business = "SELECT businessid FROM business WHERE status = 1 ORDER BY businessid";
                                                             $query_business_run = mysqli_query($con, $query_business);
                                                             $row_business = mysqli_num_rows($query_business_run);
-                                                            echo '<span>'.$row_business.'</span>'
+                                                            echo $row_business;
                                                         ?>
+                                                        </span>
+                                                        <!-- <script type="text/javascript">
+                                                                function loadDoc() {
+                                                                var xhttp = new XMLHttpRequest();
+                                                                xhttp.onreadystatechange = function() {
+                                                                    if (this.readyState == 4 && this.status == 200) {
+                                                                    document.getElementById("all_business").innerHTML = this.responseText;
+                                                                    }
+                                                                };
+                                                                xhttp.open("GET", "fetch.php", true);
+                                                                xhttp.send();
+                                                                }
+                                                                loadDoc();
+                                                            </script> -->
                                                         </div>
                                                     </div>
                                                 </div>
