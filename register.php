@@ -173,7 +173,10 @@ if(isset($_SESSION['auth'])){
             <p>Already have an account?&nbsp &nbsp<a href="login.php">Login</a></p>
         </div>
     </form>
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
