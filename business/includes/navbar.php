@@ -71,8 +71,21 @@
             <li class="nav-item dropdown no-arrow">
                 <div class="nav-item dropdown no-arrow">
                     <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">
-                        <span class="d-none d-lg-inline me-2 text-gray-600 small"><?= $_SESSION['auth_user']['business_name'];?></span>
-                        <img class="border rounded-circle img-profile" src="../uploads/<?= $_SESSION['auth_user']['image'];?>">
+                        <?php
+                        $host = "localhost";
+                        $username = "u217632220_ieat";
+                        $password = "Hj1@8QuF3C";
+                        $database = "u217632220_ieatwebsite";
+
+                        // Creating database connection
+                        $con = mysqli_connect($host,$username,$password,$database);
+                        $businessid = $_SESSION['auth_user']['businessid']; 
+                        $sql = "SELECT * FROM `business` WHERE businessid = $businessid;";
+                        $result = $con->query($sql);
+                        $item = mysqli_fetch_assoc($result);
+                        ?>
+                        <span class="d-none d-lg-inline me-2 text-gray-600 small"><?= $item['business_name'];?></span>
+                        <img class="border rounded-circle img-profile" src="../uploads/<?= $item['image'];?>">
                     </a>
                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
                         <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['businessid'];?>">
