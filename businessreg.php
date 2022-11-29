@@ -347,21 +347,17 @@ if(isset($_SESSION['auth'])){
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        <?php if(isset($_SESSION['message'])) 
+    <?php if(isset($_SESSION['message'])) 
     { ?>
-        swal({
-            title: "<?= $_SESSION['message']; ?>",
-            icon: "<?= $_SESSION['alert']; ?>",
-            button: "Okay",
-            timer: 1500,
-            });
-
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('<?= $_SESSION['message']; ?>');
         <?php 
         unset($_SESSION['message']);
         unset($_SESSION['alert']);
     }
-    ?> 
-    </script> 
+    
+    ?>
+    </script>  
     <script type="text/javascript" src="map.js"></script>
 
     
