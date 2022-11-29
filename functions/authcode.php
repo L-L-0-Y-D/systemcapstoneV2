@@ -58,7 +58,7 @@ if(isset($_POST['register_btn']))
    }
    
     // Check if email already registered
-    $check_email_query = "SELECT email,name FROM users WHERE email='$email' AND name='$name' AND status=0";
+    $check_email_query = "SELECT * FROM users WHERE email='$email' OR name='$name' OR status=0";
     $check_email_query_run = mysqli_query($con, $check_email_query);
     
     /* This is checking if the email is already registered. If it is, it will redirect the user to the
