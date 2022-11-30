@@ -56,7 +56,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                         <div class="text-dark fw-bold h5 mb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
-                                                            $query_table = "SELECT tableid FROM managetable WHERE businessid = $businessuser AND status = 0 ORDER BY tableid";
+                                                            $query_table = "SELECT tableid FROM managetable WHERE businessid = $businessuser AND status = 1 ORDER BY tableid";
                                                             $query_table_run = mysqli_query($con, $query_table);
                                                             $row_table = mysqli_num_rows($query_table_run);
                                                             echo '<span>'.$row_table.'</span>'
@@ -219,7 +219,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                             <tbody style="text-align:center">
                                                                 <?php
                                                                     //$reservations = getAll("reservations");
-                                                                    $query_table = "SELECT * FROM managetable WHERE businessid = $businessuser AND status = 1 ORDER BY tableid";
+                                                                    $query_table = "SELECT * FROM managetable WHERE businessid = $businessuserid AND status = 1";
                                                                     $query_table_run = mysqli_query($con, $query_table);
 
                                                                     if(mysqli_num_rows($query_table_run) > 0)
@@ -230,7 +230,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                                                 {
                                                                                 ?>
                                                                                     <tr>
-                                                                                        <td><?= $item['table_number']; ?></td>
+                                                                                        <td>Table <?= $item['table_number']; ?></td>
                                                                                         <td><?= $item['chair']; ?></td>
                                                                                         <td><?= $item['status']== '0'? "Waiting":"Activated"; ?></td>
                                                                                     </tr>
