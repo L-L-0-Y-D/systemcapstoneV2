@@ -219,7 +219,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                             <tbody style="text-align:center">
                                                                 <?php
                                                                     //$reservations = getAll("reservations");
-                                                                    $query_table = "SELECT tableid FROM managetable WHERE businessid = $businessuser AND status = 1 ORDER BY tableid";
+                                                                    $query_table = "SELECT * FROM managetable WHERE businessid = $businessuser AND status = 1 ORDER BY tableid";
                                                                     $query_table_run = mysqli_query($con, $query_table);
 
                                                                     if(mysqli_num_rows($query_table_run) > 0)
