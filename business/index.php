@@ -48,7 +48,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col col-md-7">
-                                                            <h6>Total <br>Table</h6>
+                                                            <h6>Total <br>Table(s)</h6>
                                                         </div>
                                                         <div class="col col-md-5 ">
                                                             <span class="float-end"><i class="fas fa-clipboard-list fa-2x float-end me-3"></i></span>

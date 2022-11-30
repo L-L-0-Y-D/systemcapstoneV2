@@ -168,7 +168,13 @@ function build_calendar($month,$year,$resourceid){
         $query_blockdates = "SELECT * FROM blockdate WHERE businessid = $id AND status = 1";
         $query_blockdates_run = mysqli_query($mysqli, $query_blockdates);
         $blockdates = mysqli_fetch_array($query_blockdates_run);
-        $reason=$blockdates['reason'];
+        $reasons="";
+        $blocks = "";
+        // $stmtblock = $mysqli->prepare("SELECT * FROM blockdate WHERE businessid = ? AND status = 1");
+        // $stmtblock -> bind_param('i', $id);
+        // $stmtblock -> execute();
+        // $resultblock = $stmtblock -> get_result();
+        // $resultblock -> fetch_assoc();
 
         // $data = $blockdates;
         // $users = array($data['blockdates']);  
@@ -184,16 +190,21 @@ function build_calendar($month,$year,$resourceid){
         // $data = array_walk($users, 'print_item');
         
 
+
         //part 6 specific date
+        foreach ($query_blockdates_run as $value) {
+            $blocks .=  $date == "{$value['blockdates']}";
 
-            if($date==$blockdates['blockdates'])
-            {
-                $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>$reason</i></p>";
-                //part 6
+            
+        }
+
+
+        if($blocks)
+        {
+            $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Blockdate</i></p>";
+            //part 6
                 
-            }
-        
-
+        }
         /* Checking if the date is equal to 2022-11-02. If it is, it will display the date and a
         message saying "Holiday". */
         // if($date=="2022-11-02")
@@ -221,10 +232,10 @@ function build_calendar($month,$year,$resourceid){
         // {
         //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Already Booked</i></p>";
         // }
-        elseif($date<$today)
-        {
-            $calendar .= "<td class='$today'><button class='currentDay'>$currentDay</button> ";
-        }
+        // elseif($date<$today)
+        // {
+        //     $calendar .= "<td class='$today'><button class='currentDay'>$currentDay</button> ";
+        // }
         else
         {   $timeslots = timeslots($duration, $cleanup, $start, $end);
             $totalbookings = checkSlots($mysqli, $date, $resourceid);

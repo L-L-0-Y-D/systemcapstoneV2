@@ -20,7 +20,8 @@ function reservationGetByID($id)
     ON reservations.businessid=business.businessid
     JOIN managetable
     ON reservations.tableid=managetable.tableid
-    WHERE reservations.userid = $id";
+    WHERE reservations.userid = $id
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 function reservationGetByIDreservation($id)
@@ -32,7 +33,8 @@ function reservationGetByIDreservation($id)
     ON reservations.businessid=business.businessid
     JOIN managetable
     ON reservations.tableid=managetable.tableid
-    WHERE reservations.reservationid = $id";
+    WHERE reservations.reservationid = $id
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -45,7 +47,8 @@ function getReservationByUser($id)
     ON reservations.businessid=business.businessid
     JOIN managetable
     ON reservations.tableid=managetable.tableid
-    WHERE reservations.userid = '$id'";
+    WHERE reservations.userid = '$id'
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -59,7 +62,8 @@ function reservationGetByIDWaiting($id)
     JOIN managetable
     ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = $id 
-    AND reservations.status = 0";
+    AND reservations.status = 0
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -73,7 +77,8 @@ function reservationGetByIDApproved($id)
     JOIN managetable
     ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = $id 
-    AND reservations.status = 1";
+    AND reservations.status = 1
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -85,7 +90,8 @@ function reservationGetByIDDeclined($id)
     JOIN business 
     ON reservations.businessid=business.businessid
     WHERE reservations.userid = $id 
-    AND reservations.status = 2";
+    AND reservations.status = 2
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 function reservationGetByIDCancelled($id)
@@ -96,7 +102,8 @@ function reservationGetByIDCancelled($id)
     JOIN business 
     ON reservations.businessid=business.businessid
     WHERE reservations.userid = $id 
-    AND reservations.status = 3";
+    AND reservations.status = 3
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -110,7 +117,8 @@ function reservationGetByIDReview($id)
     JOIN managetable
     ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = $id 
-    AND reservations.arrived = 1";
+    AND reservations.arrived = 1
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
@@ -124,7 +132,8 @@ function reservationIDGetByIDReview($id)
     JOIN managetable
     ON reservations.tableid=managetable.tableid
     WHERE reservations.reservationid = $id 
-    AND reservations.arrived = 1";
+    AND reservations.arrived = 1
+    ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
