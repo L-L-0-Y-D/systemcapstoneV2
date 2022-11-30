@@ -538,14 +538,14 @@ else if(isset($_POST['update_table_btn']))
     $status = isset($_POST['status']) ? "1":"0";
 
     // Check if table already registered
-    $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table' AND businessid = '$businessid'";
-    $check_table_query_run = mysqli_query($con, $check_table_query);
-    if(mysqli_num_rows($check_table_query_run)>0)
-    {
-        redirect("table.php?id=$businessid", "Table Number Already Exist.", "error");
-    }
-    else
-    {
+    // $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table' AND businessid = '$businessid'";
+    // $check_table_query_run = mysqli_query($con, $check_table_query);
+    // if(mysqli_num_rows($check_table_query_run)>0)
+    // {
+    //     redirect("table.php?id=$businessid", "Table Number Already Exist.", "error");
+    // }
+    // else
+    // {
 
         $update_table_query = "UPDATE managetable SET table_number='$table',chair='$chair',status='$status' WHERE tableid='$tableid'";
         //mysqli_query($con,$update_query) or die("bad query: $update_query");
@@ -560,7 +560,7 @@ else if(isset($_POST['update_table_btn']))
         {
             redirect("edit-table.php?id=$businessid", "Something Went Wrong", "error"); 
         }
-    }
+    // }
 
 }
 else if(isset($_POST['update_arrived_btn']))

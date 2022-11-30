@@ -48,7 +48,7 @@ if(isset($_POST['reserve_btn']))
                 $stmt -> execute();
                 $msg = "<div class='alert alert-sucess'>Booking Successfull</div>";
 
-                $stmtnotif = $mysqli->prepare("INSERT INTO comments (businessid, comment_subject, comment_text, usertype) VALUES (?,?,?,?)");
+                $stmtnotif = $mysqli->prepare("INSERT INTO notifications (businessid, comment_subject, comment_text, usertype) VALUES (?,?,?,?)");
                 $stmtnotif -> bind_param('ssss',$businessid,$comment_subject,$comment_text,$usertype);
                 $stmtnotif -> execute();
             

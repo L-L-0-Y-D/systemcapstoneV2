@@ -39,12 +39,12 @@ include('includes/header.php');
                                     <div class="col-md-12">
                                         <input type="hidden" name="tableid" value="<?= $data['tableid']?>">
                                         <label class="mb-0">Table number:</label>
-                                        <input type="number" name="table" value="<?= $data['table_number']?>" required placeholder="Example: Table 1 " class="form-control mb-2">
+                                        <input type="number" name="table" value="<?= $data['table_number']?>" required placeholder="Input table number" class="form-control mb-2">
                                     </div>
                                     <div class="col-md-12">
                                         <label class="control-label">Number Of Chairs:</label>
                                         <select  name="chair" value="<?= $data['chair'] ?>" required class="form-control mb-2">
-                                            <option disabled selected hidden value="<?= $data['chair'] ?>"> <?= $data['chair'] ?></option>
+                                            <option selected hidden value="<?= $data['chair'] ?>"> <?= $data['chair'] ?></option>
                                             <option value="1 Person">1 Chair</option>
                                             <option value="2 People">2 Chairs</option>
                                             <option value="3 People">3 Chairs</option>
