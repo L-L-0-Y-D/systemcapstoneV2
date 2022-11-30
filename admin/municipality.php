@@ -37,7 +37,7 @@ include('includes/header.php');
                                             <td>
                                                 <img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>">
                                             </td>
-                                            <td><?= $item['status']== '0'? "Active":"Hidden"  ?></td>
+                                            <td><?= $item['status']== '1'? "Active":"Hidden"  ?></td>
                                            <td>
                                                <a href="edit-municipality.php?id=<?= $item['municipalityid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                            </td>
