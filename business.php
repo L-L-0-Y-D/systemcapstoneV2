@@ -266,7 +266,7 @@
         } 
         else
         {
-            echo "Something Went Wrong";
+            echo "Something Went Wrongs";
             ?>
             <br><a href="Index.php" style="margin-bottom:76px;">Go Back</a>
             <?php
