@@ -7,7 +7,7 @@ include('../functions/myfunctions.php');
 if(isset($_POST['add_municipality_btn']))
 {
     $municipality_name = $_POST['municipality_name'];
-    $status = isset($_POST['status']) ? "1":"0";
+    $status = isset($_POST['status']) ? "0":"1";
 
     $image = $_FILES['image']['name'];
 
@@ -65,7 +65,7 @@ else if(isset($_POST['update_municipality_btn']))
 {
     $municipalityid = $_POST['municipalityid'];
     $municipality_name = $_POST['municipality_name'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
