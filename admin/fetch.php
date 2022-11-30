@@ -25,15 +25,29 @@ if(isset($_POST["view"]))
         $output .= '<h6 class="dropdown-header">Notification</h6>';
         while($row = mysqli_fetch_array($result))
         {
-        $output .= '
-        <a class="dropdown-item d-flex align-items-center" href="#">
-            <div>
-                <span class="small text-gray-500"><strong>'.$row["comment_subject"].'</strong></span>
-                <span class="small text-gray-500" style="text-align: center;">'.$row["createdat"].'</span>
-                <p>'.$row["comment_text"].'</p>
-            </div>
-        </a>
-        ';
+            if($row['comment_subject'] == "NEW BUSINESS FOR VERIFICATION")
+            {
+                $output .= '
+                <a class="dropdown-item d-flex align-items-center" href="busiowner.php">
+                    <div>
+                        <span class="small text-gray-500"><strong>'.$row["comment_subject"].'</strong></span>
+                        <span class="small text-gray-500" style="text-align: center;"></span>
+                        <p>'.$row["comment_text"].'</p>
+                    </div>
+                </a>
+                ';
+            }elseif($row['comment_subject'] == "NEW USER")
+            {
+                $output .= '
+                <a class="dropdown-item d-flex align-items-center" href="customers.php">
+                    <div>
+                        <span class="small text-gray-500"><strong>'.$row["comment_subject"].'</strong></span>
+                        <span class="small text-gray-500" style="text-align: center;"></span>
+                        <p>'.$row["comment_text"].'</p>
+                    </div>
+                </a>
+                ';
+            }
         }
     }
     else
