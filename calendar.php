@@ -198,15 +198,15 @@ function build_calendar($month,$year,$resourceid){
             
         }
 
+        
 
         if($blocks)
         {
-            $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Blockdate</i></p>";
-            //part 6
-                
+            $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Blockdates</i></p>";
+            //part 6   
         }
         /* Checking if the date is equal to 2022-11-02. If it is, it will display the date and a
-        message saying "Holiday". */
+        message saying "Holiday". <p><i>{$value['reason']}</i></p>"*/
         // if($date=="2022-11-02")
         // {
         //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Holiday</i></p>";
