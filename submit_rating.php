@@ -3,7 +3,9 @@ session_start();
 //submit_rating.php
 
 $con = new PDO("mysql:host=localhost;dbname=u217632220_ieatwebsite", "u217632220_ieat", "Hj1@8QuF3C");
-
+// $comment_subject = "NEW FEEDBACK";
+// $comment_text = "You have new feedback";
+// $usertype = "3";
 
 if(isset($_POST["rating_data"]))
 {
@@ -32,11 +34,18 @@ if(isset($_POST["rating_data"]))
 
 	$review_query = "UPDATE reservations SET review=:review_status WHERE reservationid=:reservationid";
 
+	// $stmtnotif_query = "INSERT INTO notifications (businessid, comment_subject, comment_text, usertype) VALUES (:businessid,$comment_subject,$comment_text,$usertype)";
 
+
+	// $statement_notif = $con->prepare($stmtnotif_query);
+
+    // $stmtnotif -> execute();
+	//
 
 	$statement = $con->prepare($query);
 
 	$statement->execute($data);
+	//
 
 	$review_statement = $con->prepare($review_query);
 	

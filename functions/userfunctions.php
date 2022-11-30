@@ -78,6 +78,7 @@ function reservationGetByIDApproved($id)
     ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = $id 
     AND reservations.status = 1
+    AND NOT reservations.arrived = 1
     ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
