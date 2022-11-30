@@ -48,7 +48,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col col-md-7">
-                                                            <h6>Pending <br>Reservation</h6>
+                                                            <h6>Total <br>Table</h6>
                                                         </div>
                                                         <div class="col col-md-5 ">
                                                             <span class="float-end"><i class="fas fa-clipboard-list fa-2x float-end me-3"></i></span>
@@ -56,10 +56,10 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                         <div class="text-dark fw-bold h5 mb-0">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
-                                                            $query_reservation = "SELECT reservationid FROM reservations WHERE businessid = $businessuser AND status = 0 ORDER BY reservationid";
-                                                            $query_reservation_run = mysqli_query($con, $query_reservation);
-                                                            $row_reservation = mysqli_num_rows($query_reservation_run);
-                                                            echo '<span>'.$row_reservation.'</span>'
+                                                            $query_table = "SELECT tableid FROM managetable WHERE businessid = $businessuser AND status = 0 ORDER BY tableid";
+                                                            $query_table_run = mysqli_query($con, $query_table);
+                                                            $row_table = mysqli_num_rows($query_table_run);
+                                                            echo '<span>'.$row_table.'</span>'
                                                         ?>
                                                         </div>
                                                     </div>
@@ -203,19 +203,15 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                         <div class="col-md-12 mb-4">
                                             <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h6 class="text-primary fw-bold"><br><strong>PENDING RESERVATION</strong><br></h6>
+                                                    <h6 class="text-primary fw-bold"><br><strong>Total Table Management</strong><br></h6>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                                         <table class="table my-0" id="dataTable" style="text-align:center">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Account Name</th>
-                                                                    <th>Table Reserved By</th>
                                                                     <th>Table No.</th>
-                                                                    <th>No. of Guest</th>
-                                                                    <th>Reservation Date</th>
-                                                                    <th>Reservation Time</th>
+                                                                    <th>No. of Chairs</th>
                                                                     <th>Status</th>
                                                                 </tr>
                                                             </thead>
@@ -223,31 +219,19 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                             <tbody style="text-align:center">
                                                                 <?php
                                                                     //$reservations = getAll("reservations");
-                                                                    $query_reservation = "SELECT reservations.reservationid,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
-                                                                    FROM reservations
-                                                                    JOIN managetable 
-                                                                    ON reservations.tableid=managetable.tableid
-                                                                    JOIN users
-                                                                    ON reservations.userid=users.userid
-                                                                    WHERE reservations.businessid = $businessuserid
-                                                                    AND reservations.status = 0
-                                                                    ORDER BY reservationid DESC";
-                                                                    $query_reservation_run = mysqli_query($con, $query_reservation);
+                                                                    $query_table = "SELECT tableid FROM managetable WHERE businessid = $businessuser AND status = 0 ORDER BY tableid";
+                                                                    $query_table_run = mysqli_query($con, $query_table);
 
-                                                                    if(mysqli_num_rows($query_reservation_run) > 0)
+                                                                    if(mysqli_num_rows($query_table_run) > 0)
                                                                     {
-                                                                        foreach($query_reservation_run as $item)
+                                                                        foreach($query_table_run as $item)
                                                                         {
                                                                             if($item['businessid'] == $_SESSION['auth_user']['businessid'])
                                                                                 {
                                                                                 ?>
                                                                                     <tr>
-                                                                                        <td><?= $item['name']; ?></td>
-                                                                                        <td><?= $item['namereserveunder']; ?></td>
                                                                                         <td><?= $item['table_number']; ?></td>
                                                                                         <td><?= $item['chair']; ?></td>
-                                                                                        <td><?= $item['reservation_date']; ?></td>
-                                                                                        <td><?= $item['reservation_time']; ?></td>
                                                                                         <td><?= $item['status']== '0'? "Waiting":"Activated"; ?></td>
                                                                                     </tr>
                                                                                 <?php
