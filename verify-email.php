@@ -5,8 +5,9 @@ include('config/dbcon.php');
 if(isset($_GET['token']))
 {
     $token = $_GET['token'];
-    $verify_query = "SELECT verify_token,status FROM users WHERE verify_token='$token' ";
+    $verify_query = "SELECT verify_token,status,name FROM users WHERE verify_token='$token' ";
     $verify_query_run = mysqli_query($con,$verify_query);
+    $row = $verify_query_run -> fetch_assoc();
 
     if(mysqli_num_rows($verify_query_run) > 0)
     {
@@ -19,7 +20,7 @@ if(isset($_GET['token']))
             $update_query_run = mysqli_query($con, $update_query);
 
             $insert_notification = "INSERT INTO notifications (comment_subject,comment_text,usertype) 
-            VALUES ('NEW USER', 'You have new USER ', '1')";
+            VALUES ('NEW USER', 'You have new user named {$row['name']} ', '1')";
             $insert_notification_run = mysqli_query($con, $insert_notification);
 
             if($update_query_run)
