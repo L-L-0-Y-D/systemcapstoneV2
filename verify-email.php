@@ -7,7 +7,6 @@ if(isset($_GET['token']))
     $token = $_GET['token'];
     $verify_query = "SELECT verify_token,status,name FROM users WHERE verify_token='$token' ";
     $verify_query_run = mysqli_query($con,$verify_query);
-    $row = $verify_query_run -> fetch_assoc();
 
     if(mysqli_num_rows($verify_query_run) > 0)
     {
