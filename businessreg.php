@@ -188,7 +188,7 @@ if(isset($_SESSION['auth'])){
                             <div class="form-check">        
                                 <?php 
                                     //$category = getAllActive("mealcategory");
-                                    $query = "SELECT * FROM mealcategory WHERE status= '0'";
+                                    $query = "SELECT * FROM mealcategory WHERE status= '1'";
                                     $query_run = mysqli_query($con, $query);
                                     if(mysqli_num_rows($query_run) > 0)
                                         {
