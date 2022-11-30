@@ -107,7 +107,7 @@ if(isset($_SESSION['auth'])){
                                 <option value="" disabled selected hidden>Municipality</option>
                                 <?php 
                                     //$municipality = getAll("municipality");
-                                    $query_municipality = "SELECT * FROM municipality WHERE status= '0'";
+                                    $query_municipality = "SELECT * FROM municipality WHERE status= '1'";
                                     $query_municipality_run = mysqli_query($con, $query_municipality);
                                     if(mysqli_num_rows($query_municipality_run) > 0)
                                         {
@@ -129,7 +129,7 @@ if(isset($_SESSION['auth'])){
                             
                             <?php 
                                 //$municipality = getAllActive("municipality");
-                                $query_municipality = "SELECT * FROM municipality WHERE status= '0'";
+                                $query_municipality = "SELECT * FROM municipality WHERE status= '1'";
                                 $query_municipality_run = mysqli_query($con, $query_municipality);
                                 if(mysqli_num_rows($query_municipality_run) > 0)
                                     {
@@ -155,7 +155,7 @@ if(isset($_SESSION['auth'])){
                         <div class="col">
                             <?php 
                                 //$category = getAllActive("mealcategory");
-                                $query_mealcategory = "SELECT * FROM mealcategory ";
+                                $query_mealcategory = "SELECT * FROM mealcategory WHERE status= '1'";
                                 $query_mealcategory_run = mysqli_query($con, $query_mealcategory);
                                 if(mysqli_num_rows($query_mealcategory_run) > 0)
                                     {
