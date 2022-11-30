@@ -63,12 +63,12 @@
   }
   .clean-pricing-item {
     background-color: #fff;
-    box-shadow: 0px 2px 10px rgba(0,0,0,.075);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.13);
     border-top: none!important;
-    padding: 20px;
+    padding: 10px;
     overflow: hidden;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .clean-pricing-item .price h4, .clean-pricing-item .price .h4 {
@@ -78,7 +78,9 @@
     color: inherit;
     font-weight: bold;
   }
-  
+  .clean-pricing-item .heading {
+    font-style: normal;
+  }
   .clean-pricing-item button {
     font-weight: 600;
     text-align: center;
@@ -89,6 +91,7 @@
     line-height: 1;
     font-weight: bolder;
     font-size: large;
+    font-style: normal;
     
   }  
   .clean-pricing-item .rounded {
@@ -177,41 +180,42 @@
       --bs-modal-box-shadow: none!important;
     }
   }
-  #aboutrestaurant {
-    margin-top: 130px;
-    padding-top: 30px;
-    padding-bottom: 0px;
-    margin-bottom: 0%;
+  .busiContainer {
+    margin-top: 105px;
+    padding-bottom: 20px;
+    box-shadow:  0px 0px 7px var(--bs-gray);
   }
-  #aboutrestaurant p {
-    font-size: 20px;
-    font-family: Acme, sans-serif;
+  #aboutrestaurant {
+    padding: 0px;
+  }
+  #aboutrestaurant p, #location p ,#aboutrestaurant span{
+    font-size: 16px;
+    font-family: Monsterrat;
+    font-style: normal;
     margin-left: 15px;
     margin-bottom: 0px;
-    color:#fff;
+    color:rgb(37, 37, 37)!important;
   }
   #aboutrestaurant h1 {
-    font-size: 60px;
+    font-size: 50px;
     font-family: 'Kaushan Script', serif;
     color: RGB(255,128,64);
     padding-left: 15px;
     padding-right: 15px;
     font-weight: bold;
-    margin-top: 8px;
+    margin-bottom: 20px;
   }
   #aboutrestaurant img {
     height: 500px;
     width: 100%;
-    box-shadow: 0px 0px 5px var(--bs-dark);
-    border-radius: 10px;
+    padding: 10px 10px;
+   
   }
   #aboutrestaurant .col-md-4 {
     padding-top: 90px;
-    padding-bottom: 90px;
-    background: var(--bs-gray-700);
-    color: var(--bs-dark);
-    box-shadow: 0px 0px 2px var(--bs-dark);
-    border-style: none;
+    padding-bottom: 50px;
+    border-left: 1px solid rgb(175, 175, 175);
+    background: rgb(240, 240, 240);
   }
   #aboutrestaurant i {
     color:darkorange;
@@ -226,7 +230,25 @@
   #aboutrestaurant .btn-primary {
     margin-top: 20px;
     margin-left: 15px;
+    background-color: rgb(255, 128, 64);
   }
- 
+  #aboutrestaurant .btn-primary:hover {
+   background-color: rgb(226, 96, 31)!important;
+  }
+  #menu {
+    padding:20px 5px;
+  }
+  #menu .nav-link {
+    color:#000;
+    font-size: 16px;
+    font-style: normal;
+  }
+  #menu .text-start {
+    font-size: 28px;
+    padding: 20px 10px;
+    font-family: Monsterrat;
+    font-style: normal;
+  }
+
   
   

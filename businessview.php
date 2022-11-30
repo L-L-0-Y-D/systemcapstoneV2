@@ -104,9 +104,9 @@
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#location">LOCATION</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
                             <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATION</a></li>
                           
                 <?php
                 }
@@ -129,9 +129,9 @@
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#location">LOCATION</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
                             <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATION</a></li>
                            
                 <?php
                 }
@@ -154,9 +154,9 @@
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#location">LOCATION</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
                             <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATION</a></li>
                            
                 <?php 
                 }  
@@ -183,9 +183,9 @@
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
                             <li class="nav-item"><a class="nav-link" href="index.php#page-top" active>HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#aboutrestaurant">ABOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#location">LOCATION</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
                             <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#locations">LOCATION</a></li>
                             
                     <?php } ?>
                 </ul>
@@ -193,1237 +193,1228 @@
         </div>
     </nav> 
 <!--END OF LOGIN-->
-
-<!-- START OF ABOUT SECTION-->
-    <div class="container" id="aboutrestaurant">
-        <div class="row">
-            <div class="col-md-8 p-0">
-                <div><a class="portfolio-link" href="#portfolioModal1" data-bs-toggle="modal">
-                        <div class="portfolio-hover"></div>
-                        <img class="img-fluid" data-bss-hover-animate="pulse" src="uploads/<?= $data['image']; ?>">
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4" >
-                <h1 ><?= $data['business_name']; ?></h1>
-                <p>Located at  &nbsp;<?= $data['business_address']; ?></p>
-                <p><?= $data['cuisinename']; ?></p>
-                <p><?= $data['business_phonenumber']; ?></p>
-                <p>Open : &nbsp;<?=  date("g:i a", strtotime($opening));?> - Close: &nbsp; <?= date("g:i a", strtotime($closing)); ?></p>
-                <?php
-                    //$businessuser = $_SESSION['auth_user']['businessid'];
-                    $businessid = $data['businessid'];
-                    $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
-                    $query_rating_run = mysqli_query($con, $query_rating);
-                    $row_rating = mysqli_fetch_assoc($query_rating_run);
-
-                    if(!$row_rating['averagerating'])
-                    {
-                        echo '<span> No Rating</span>';
-                    }
-                    else
-                    {
-                        echo '<span><i class="fas fa-star"></i>'.$row_rating['averagerating'].'/5</span>';
-                    }
-                    $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
-                    $query_rating_count_run = mysqli_query($con, $query_rating_count);
-                    $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                    echo '<span> ('.$row_rating_count.' reviews)</span><br>';
-                ?>
-               <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                    
-            </div>
-        </div>
-    </div>
-<!--END OF ABOUT SECTION-->
-
-<!-- START OF MENU SECTION-->
-<section id="menu">
-        <div class="container">
-            <div>
-                <ul class="nav nav-tabs d-lg-flex justify-content-lg-center" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" role="tab" data-bs-toggle="tab" href="#allmenu">
-                            <span style="color: rgba(0, 0, 0, 0.9);">ALL</span><br></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#maincourse">
-                            <span style="color: rgba(0, 0, 0, 0.7);">MAIN COURSE</span><br></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#soup">
-                            <span style="color: rgba(0, 0, 0, 0.7);">SOUP</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#appetizer">
-                            <span style="color: rgba(0, 0, 0, 0.7);">APPETIZER</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#fishdish">
-                            <span style="color: rgba(0, 0, 0, 0.7);">FISH DISH</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#meatdish">
-                            <span style="color: rgba(0, 0, 0, 0.7);">MEAT DISH</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#dessert">
-                            <span style="color: rgba(0, 0, 0, 0.7);">DESSERT</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#salad" style="color: var(--bs-dark);">
-                            <span style="color: rgba(0, 0, 0, 0.7);">SALAD</span></a></li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" role="tab" data-bs-toggle="tab" href="#drinks">
-                            <span style="color: rgba(0, 0, 0, 0.7);">DRINKS</span></a></li>
-                </ul>
-            <div class="tab-content">
-                <!--All-->
-                <div class="tab-pane active" role="tabpanel" id="allmenu">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">ALL MENU</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                    <div class="row">   
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {                           
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--FOR MODAL PER MENU--> 
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--FOR MODAL PER MENU--> 
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                            }
-                                            }
-                                        }
-                                            else
-                                            {
-                                                echo "";
-                                            ?>
-                                        <?php
-                                        }
-                                        ?> 
-                                    </div>        
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                     
-                <!--APPETIZER-->
-                <div class="tab-pane" role="tabpanel" id="appetizer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">APPETIZER</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                    <div class="row">  
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {                           
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            echo "";
-                                        ?>
-                                        <?php
-                                        }
-                                        ?>                                             
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             
-                <!--SOUP-->
-                <div class="tab-pane" role="tabpanel" id="soup">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">SOUP</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                    <div class="row">    
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {                                       
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup';";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                                }
-                                            }
-                                        }
-                                            else
-                                            {
-                                                echo "";
-                                            ?>
-                                        <?php
-                                        }
-                                        ?>                                               
-                                    </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
-                <!--DRINKS-->
-                <div class="tab-pane" role="tabpanel" id="drinks">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">DRINKS</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                    <div class="row"> 
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {                                        
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks';";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                                }
-                                            }
-                                        }
-                                            else
-                                            {
-                                                echo "";
-                                            ?>
-                                        <?php
-                                        }
-                                        ?>                                              
-                                    </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--MEAT DISH-->
-                <div class="tab-pane" role="tabpanel" id="meatdish">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">MEAT DISH</h1>
-                                    <div class="row">   
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {                  
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish';";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                                }
-                                            }
-                                        }
-                                            else
-                                            {
-                                                echo "";
-                                            ?>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>        
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--MAIN COURSE-->
-                <div class="tab-pane" role="tabpanel" id="maincourse">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">MAIN COURSE</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                    <div class="row">   
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {                                     
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main';";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                                }
-                                            }
-                                        }
-                                            else
-                                            {
-                                                echo "";
-                                            ?>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>          
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--SALAD-->
-                <div class="tab-pane" role="tabpanel" id="salad">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">SALAD</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                    <div class="row">  
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {                  
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad';";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                                }
-                                            }
-                                        }
-                                            else
-                                            {
-                                                echo "";
-                                            ?>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>        
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--DESSERT-->
-                <div class="tab-pane" role="tabpanel" id="dessert">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">DESSERT</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                    <div class="row">
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {                                     
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert';";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                                }
-                                            }
-                                        }
-                                            else
-                                            {
-                                                echo "";
-                                            ?>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>         
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--FISH DISH-->
-                <div class="tab-pane" role="tabpanel" id="fishdish">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="text-start" style="font-family: Acme, sans-serif;font-size: 30px;margin-bottom: 0px;margin-top: 15px;margin-left: 35px;">FISH DISH</h1>
-                                <p class="text-muted" style="margin-left: 35px;font-family: Acme, sans-serif;margin-bottom: 0px;">Paragraph</p>
-                                    <div class="row"> 
-                                        <?php
-                                            if(mysqli_num_rows($product) > 0)
-                                            {     
-                                            $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish';";
-                                            $result = $con->query($sql);
-                                            foreach($result as $item)
-                                            {
-                                                if( $item['status'] == '1')
-                                                {
-                                        ?>                                      
-						                <div class="col-md-3">
-                                            <div class="clean-pricing-item">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p>₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>                               
-                                        <?php
-                                            }
-                                            elseif( $item['status'] == '0')
-                                            {
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="clean-pricing-item" style="opacity: 0.70;">
-                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
-                                                <div class="ribbon">
-                                                    <span>SOLD OUT</span>
-                                                </div>
-                                                <div class="heading">
-                                                    <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                </div>
-                                                <p><?= $item['cuisinename']; ?> Cuisine</p>
-                                                <div class="price">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <p class="text-muted">₱<?= $item['price']; ?></p>
-                                                        </div>
-                                                        <div class="col">
-                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <!--FOR MODAL PER MENU--> 
-                                             <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                        <div class="modal-body">
-                                                            <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                <p><?= $item['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--CLOSING FOR MODAL PER MENU-->    
-                                        </div>
-                                        <?php  
-                                                }
-                                            }
-                                        }
-                                            else
-                                            {
-                                                echo "";
-                                            ?>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>       
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div>
-    </div>
-</section>
-<!-- END OF MENU SECTION-->
-
-<!-- START OF REVIEW SECTION-->
-    <section id="review"  class="bg-dark">
-        <div class="container col d-flex justify-content-center" >
-            <div class="card col d-flex justify-content-center">
-                <div class="card-header"> <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">REVIEWS AND FEEDBACKS</h1></div>
-                <div class="card-body">
+<main class="page project-page ">
+    <section class="portfolio-block project p-0">
+        <div class="container w-75 busiContainer">
+            <!-- START OF ABOUT SECTION-->
+                <div class="container mb-4" id="aboutrestaurant">
                     <div class="row">
-                        <div class="col-sm-6 text-center">
-                            <?php 
-                                $query_rating_count = "SELECT * FROM review_table WHERE businessid = $id";
+                        <div class="col-md-8 p-0">
+                            <div><a class="portfolio-link" href="#portfolioModal1" data-bs-toggle="modal">
+                                    <div class="portfolio-hover"></div>
+                                    <img class="img-fluid" data-bss-hover-animate="pulse" src="uploads/<?= $data['image']; ?>">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4" >
+                            <h1 ><?= $data['business_name']; ?></h1>
+                            
+                            <p><i class="fas fa-utensils"></i><?= $data['cuisinename']; ?> Cuisine</p>
+                            <p><i class="fas fa-phone-alt"></i><?= $data['business_phonenumber']; ?></p>
+                            <p><i class="fas fa-clock"></i>Open : &nbsp;<?=  date("g:i a", strtotime($opening));?> - Close: &nbsp; <?= date("g:i a", strtotime($closing)); ?></p>
+                            <?php
+                                //$businessuser = $_SESSION['auth_user']['businessid'];
+                                $businessid = $data['businessid'];
+                                $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                                $query_rating_run = mysqli_query($con, $query_rating);
+                                $row_rating = mysqli_fetch_assoc($query_rating_run);
+
+                                if(!$row_rating['averagerating'])
+                                {
+                                    echo '<span> No Rating</span>';
+                                }
+                                else
+                                {
+                                    echo '<span><i class="fas fa-star"></i>'.$row_rating['averagerating'].'/5</span>';
+                                }
+                                $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                                 $query_rating_count_run = mysqli_query($con, $query_rating_count);
                                 $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                                if($row_rating_count > 0)
-                                { 
+                                echo '<span> ('.$row_rating_count.' reviews)</span><br>';
                             ?>
-                                <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
-                                    <i class="fas fa-star fa-sm"> </i><b><span id="average_rating">0</span> / 5</b>
-                                </h1>
-                            <?php
-                                }else
-                                {
-                            ?>
-                                <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
-                                    <i class="fas fa-star fa-sm"> </i><b><span>0</span> / 5</b>
-                                </h1>  
-                            <?php
-                                }
-                            ?>
-                            <!-- <?php
-                                // $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
-                                // $query_rating_run = mysqli_query($con, $query_rating);
-                                // $row_rating = mysqli_fetch_assoc($query_rating_run);
-                                // if(!$row_rating['averagerating'])
-                                // {
-                                //     echo'<i class="fas fa-star star-light mr-1 main_star"></i>
-                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
-                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
-                                //         <i class="fas fa-star star-light mr-1 main_star"></i>
-                                //         <i class="fas fa-star star-light mr-1 main_star"></i>';
-                                // }
-                                // else if($row_rating['averagerating'] == 5.0)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="fas fa-star"></i></span>';
-                                // }
-                                // else if($row_rating['averagerating'] >= 4.1)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span>';
-                                // }
-                                // else if($row_rating['averagerating'] == 4.0)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i></span>';
-                                // }
-                                // else if($row_rating['averagerating'] >= 3.1)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>';
-                                // }
-                                // else if($row_rating['averagerating'] == 3.0)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
-                                // }
-                                // else if($row_rating['averagerating'] >= 2.1)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
-                                // }
-                                // else if($row_rating['averagerating'] == 2.0)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
-                                // }
-                                // else if($row_rating['averagerating'] >= 1.1)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star""></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
-                                // }
-                                // else if($row_rating['averagerating'] == 1.0)
-                                // {
-                                //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
-                                // }
-                                // else
-                                // {
-                                //     echo 'something went wrong';
-                                // }
-                                // $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
-                                // $query_rating_count_run = mysqli_query($con, $query_rating_count);
-                                // $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                                // echo '<span> ('.$row_rating_count.')</span>'
-                                
-                                ?> -->
-                            <div class="mb-3">
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                                <i class="fas fa-star star-light mr-1 main_star"></i>
-                            </div>
-                            <h3 class="col d-flex justify-content-center"><span id="total_review">0</span> Review/s</h3>
+                        <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                    
                         </div>
-                        <div class="col-sm-5">
-                            <p>
-                                <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
-                                <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
-                                </div>
-                            </p>
-                            <p>
-                                <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>  
-                                <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
-                                </div>               
-                            </p>
-                            <p>
-                                <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div> 
-                                <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
-                                </div>               
-                            </p>
-                            <p>
-                                <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>  
-                                <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
-                                </div>               
-                            </p>
-                            <p>
-                                <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
-                                <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
-                                </div>               
-                            </p>
+                    </div><hr class="m-0 w-100">
+                </div>
+                 <!--END OF ABOUT SECTION-->
+                <!-- START OF LOCATION SECTION-->
+                <div class="col-md-12 p-2 mb-4" id="location">
+                    <h1 class="mx-4 fs-4"><i class="fas fa-pin"></i>Located at  &nbsp;<?= $data['business_address']; ?></h1>
+                    <div class="mapouter">
+                        <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 100%; height: 300px;"></iframe>
+                            <br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style>
+                            <style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
                         </div>
-                        <div class="mt-5" id="review_content"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-<!-- END OF REVIEW SECTION-->
+                <!--END OF LOCATIONa SECTION-->    
+                    <!-- START OF MENU SECTION-->
+                    <h1 class="mx-4 fs-3"><i class="fas fa-utensils"></i>MENUS</h1>
+                    <div class="container mb-4" id="menu">
+                        <div>
+                            <ul class="nav nav-tabs d-md-flex " role="tablist">
+                                <li class="nav-item" style="font-size:12px;" role="presentation">
+                                    <a class="nav-link active" role="tab" data-bs-toggle="tab" href="#allmenu">
+                                        <span>ALL</span><br></a></li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-bs-toggle="tab" href="#maincourse">
+                                        <span>MAIN COURSE</span><br></a></li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-bs-toggle="tab" href="#soup">
+                                        <span>SOUP</span></a></li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-bs-toggle="tab" href="#appetizer">
+                                        <span>APPETIZER</span></a></li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-bs-toggle="tab" href="#fishdish">
+                                        <span>FISH DISH</span></a></li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-bs-toggle="tab" href="#meatdish">
+                                        <span>MEAT DISH</span></a></li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-bs-toggle="tab" href="#dessert">
+                                        <span>DESSERT</span></a></li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-bs-toggle="tab" href="#salad" >
+                                        <span>SALAD</span></a></li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-bs-toggle="tab" href="#drinks">
+                                        <span>DRINKS</span></a></li>
+                            </ul>
+                        <div class="tab-content">
+                            <!--All-->
+                            <div class="tab-pane active" role="tabpanel" id="allmenu">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                                <div class="row mt-5">   
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {                           
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                        }
+                                                        }
+                                                    }
+                                                        else
+                                                        {
+                                                            echo "";
+                                                        ?>
+                                                    <?php
+                                                    }
+                                                    ?> 
+                                                </div>        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <!--APPETIZER-->
+                            <div class="tab-pane" role="tabpanel" id="appetizer">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>APPETIZER</h1>                                        
+                                                <div class="row">  
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {                           
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "";
+                                                    ?>
+                                                    <?php
+                                                    }
+                                                    ?>                                             
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!--SOUP-->
+                            <div class="tab-pane" role="tabpanel" id="soup">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>SOUP</h1>                                          
+                                                <div class="row">    
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {                                       
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup';";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                    <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                            }
+                                                        }
+                                                    }
+                                                        else
+                                                        {
+                                                            echo "";
+                                                        ?>
+                                                    <?php
+                                                    }
+                                                    ?>                                               
+                                                </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!--DRINKS-->
+                            <div class="tab-pane" role="tabpanel" id="drinks">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>DRINKS</h1>                                      
+                                                <div class="row"> 
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {                                        
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks';";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                            }
+                                                        }
+                                                    }
+                                                        else
+                                                        {
+                                                            echo "";
+                                                        ?>
+                                                    <?php
+                                                    }
+                                                    ?>                                              
+                                                </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--MEAT DISH-->
+                            <div class="tab-pane" role="tabpanel" id="meatdish">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>MEAT DISH</h1>
+                                                <div class="row">   
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {                  
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish';";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                            }
+                                                        }
+                                                    }
+                                                        else
+                                                        {
+                                                            echo "";
+                                                        ?>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--MAIN COURSE-->
+                            <div class="tab-pane" role="tabpanel" id="maincourse">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>MAIN COURSE</h1>                                         
+                                                <div class="row">   
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {                                     
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main';";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                            }
+                                                        }
+                                                    }
+                                                        else
+                                                        {
+                                                            echo "";
+                                                        ?>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--SALAD-->
+                            <div class="tab-pane" role="tabpanel" id="salad">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>SALAD</h1>                                       
+                                                <div class="row">  
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {                  
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad';";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                            }
+                                                        }
+                                                    }
+                                                        else
+                                                        {
+                                                            echo "";
+                                                        ?>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--DESSERT-->
+                            <div class="tab-pane" role="tabpanel" id="dessert">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>DESSERT</h1>                                
+                                                <div class="row">
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {                                     
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert';";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                            }
+                                                        }
+                                                    }
+                                                        else
+                                                        {
+                                                            echo "";
+                                                        ?>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>         
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--FISH DISH-->
+                            <div class="tab-pane" role="tabpanel" id="fishdish">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>FISH DISH</h1>                                   
+                                                <div class="row"> 
+                                                    <?php
+                                                        if(mysqli_num_rows($product) > 0)
+                                                        {     
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish';";
+                                                        $result = $con->query($sql);
+                                                        foreach($result as $item)
+                                                        {
+                                                            if( $item['status'] == '1')
+                                                            {
+                                                    ?>                                      
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>                               
+                                                    <?php
+                                                        }
+                                                        elseif( $item['status'] == '0')
+                                                        {
+                                                    ?>
+                                                    <div class="col-md-3">
+                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
+                                                            <div class="ribbon">
+                                                                <span>SOLD OUT</span>
+                                                            </div>
+                                                            <div class="heading">
+                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
+                                                            </div>
+                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <div class="price">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                    <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--FOR MODAL PER MENU--> 
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                                                    <div class="modal-body">
+                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
+                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p><?= $item['description']; ?></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                    </div>
+                                                    <?php  
+                                                            }
+                                                        }
+                                                    }
+                                                        else
+                                                        {
+                                                            echo "";
+                                                        ?>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div><hr>
+            <!-- END OF MENU SECTION-->
 
-<!-- START OF LOCATION SECTION-->
-    <section id="locations">
-        <hr>
-    <h1 style="font-family: 'Kaushan Script', serif;font-weight: bold;text-align: center;font-size: 40px;margin-bottom: 10px;">LOCATED AT</h1>
-        <div class="mapouter">
-            <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 1020px; height: 600px;"></iframe>
-                <br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style>
-                <style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
+            <!-- START OF REVIEW SECTION-->
+            <h1 class="mx-4 fs-3"><i class="fas fa-sticky-note"></i>REVIEWS AND FEEDBACKS</h1>
+                    <div class="container col d-flex justify-content-center" id="review">
+                        <div class="card col d-flex justify-content-center border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6 text-center">
+                                        <?php 
+                                            $query_rating_count = "SELECT * FROM review_table WHERE businessid = $id";
+                                            $query_rating_count_run = mysqli_query($con, $query_rating_count);
+                                            $row_rating_count = mysqli_num_rows($query_rating_count_run);
+                                            if($row_rating_count > 0)
+                                            { 
+                                        ?>
+                                            <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
+                                                <i class="fas fa-star fa-sm"> </i><b><span id="average_rating">0</span> / 5</b>
+                                            </h1>
+                                        <?php
+                                            }else
+                                            {
+                                        ?>
+                                            <h1 class="text-warning mt-4 mb-4 col d-flex justify-content-center">
+                                                <i class="fas fa-star fa-sm"> </i><b><span>0</span> / 5</b>
+                                            </h1>  
+                                        <?php
+                                            }
+                                        ?>
+                                        <!-- <?php
+                                            // $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                                            // $query_rating_run = mysqli_query($con, $query_rating);
+                                            // $row_rating = mysqli_fetch_assoc($query_rating_run);
+                                            // if(!$row_rating['averagerating'])
+                                            // {
+                                            //     echo'<i class="fas fa-star star-light mr-1 main_star"></i>
+                                            //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            //         <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            //         <i class="fas fa-star star-light mr-1 main_star"></i>';
+                                            // }
+                                            // else if($row_rating['averagerating'] == 5.0)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="fas fa-star"></i></span>';
+                                            // }
+                                            // else if($row_rating['averagerating'] >= 4.1)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i></span>';
+                                            // }
+                                            // else if($row_rating['averagerating'] == 4.0)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i></span>';
+                                            // }
+                                            // else if($row_rating['averagerating'] >= 3.1)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>';
+                                            // }
+                                            // else if($row_rating['averagerating'] == 3.0)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                            // }
+                                            // else if($row_rating['averagerating'] >= 2.1)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
+                                            // }
+                                            // else if($row_rating['averagerating'] == 2.0)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                            // }
+                                            // else if($row_rating['averagerating'] >= 1.1)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star""></i><i class ="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>';
+                                            // }
+                                            // else if($row_rating['averagerating'] == 1.0)
+                                            // {
+                                            //     echo '<span style="color:orange; margin-bottom: 30px;"<i class ="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></span>';
+                                            // }
+                                            // else
+                                            // {
+                                            //     echo 'something went wrong';
+                                            // }
+                                            // $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
+                                            // $query_rating_count_run = mysqli_query($con, $query_rating_count);
+                                            // $row_rating_count = mysqli_num_rows($query_rating_count_run);
+                                            // echo '<span> ('.$row_rating_count.')</span>'
+                                            
+                                            ?> -->
+                                        <div class="mb-3">
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                        </div>
+                                        <h3 class="col d-flex justify-content-center"><span id="total_review">0</span> Review/s</h3>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <p>
+                                            <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
+                                            <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
+                                            </div>
+                                        </p>
+                                        <p>
+                                            <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>  
+                                            <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
+                                            </div>               
+                                        </p>
+                                        <p>
+                                            <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div> 
+                                            <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
+                                            </div>               
+                                        </p>
+                                        <p>
+                                            <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>  
+                                            <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
+                                            </div>               
+                                        </p>
+                                        <p>
+                                            <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
+                                            <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
+                                            </div>               
+                                        </p>
+                                    </div>
+                                    <div class="mt-5" id="review_content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- END OF REVIEW SECTION-->
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 </body>
 <!-- END OF LOCATION SECTION-->
 
