@@ -6,7 +6,7 @@
     if(isset($_GET['id']))
         {
             $id = $_GET['id'];
-            $municipality = getByIDActive("municipality",$id,"municipalityid");
+            $municipality = getByIDActives("municipality",$id,"municipalityid");
 
                 if(mysqli_num_rows($municipality) > 0)
                     {
