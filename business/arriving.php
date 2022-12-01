@@ -70,8 +70,8 @@ include('../config/dbcon.php');
                                         {
                                             if($item['businessid'] == $_SESSION['auth_user']['businessid'])
                                                 {
-                                                    if(date("h:i:s")>$item['reservation_time'])
-                                                    {
+                                                    // if(date("h:i:s")>$item['reservation_time'])
+                                                    // {
                                                 ?>
                                                     <tr>
                                                         <!-- <td><?= $item['name']; ?></td> -->
@@ -101,7 +101,7 @@ include('../config/dbcon.php');
                                                         </td> -->
                                                     </tr>
                                                 <?php
-                                                    }
+                                                    // }
                                                 }
                                         }
                                     
