@@ -32,6 +32,7 @@ include('includes/header.php');
                                         <th>Cuisine</th>
                                         <th>Status</th>
                                         <th>Action</th>
+                                        <th>Archive</th>
                                         <!-- <th>Delete</th> -->
                                     </tr>
                                 </thead>
@@ -55,6 +56,10 @@ include('includes/header.php');
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>
                                                         </td> -->
+                                                        <form action="code.php" method="POST" enctype="multipart/form-data">
+                                                            <input type="hidden" name="categoryid" value="<?= $item['categoryid']; ?>">
+                                                            <td><button type="submit" class="btn btn-sm btn-danger"  name="archive_category_btn"><i class="fas fa-archive"></i></button></td>
+                                                        </form>
                                                     </tr>
                                                     <?php
                                                 }

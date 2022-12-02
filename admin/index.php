@@ -27,13 +27,28 @@ include('includes/header.php');
                                                                 <span class="float-end"><i class="fas fa-users fa-2x float-end me-3"></i></span>
                                                             </div>
                                                             <div class="text-dark fw-bold h5 pb-0 mb-0">
+                                                            <span id="users">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query = "SELECT userid FROM users WHERE role_as = 0 ORDER BY userid";
                                                             $query_run = mysqli_query($con, $query);
                                                             $row = mysqli_num_rows($query_run);
-                                                            echo '<span>'.$row.'</span>'
+                                                            echo $row;
                                                         ?>
+                                                            <!-- <script type="text/javascript">
+                                                                function loadDoc() {
+                                                                var xhttp = new XMLHttpRequest();
+                                                                xhttp.onreadystatechange = function() {
+                                                                    if (this.readyState == 4 && this.status == 200) {
+                                                                    document.getElementById("users").innerHTML = this.responseText;
+                                                                    }
+                                                                };
+                                                                xhttp.open("GET", "fetch.php", true);
+                                                                xhttp.send();
+                                                                }
+                                                                loadDoc();
+                                                            </script> -->
+                                                        </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -52,13 +67,28 @@ include('includes/header.php');
                                                             <span class="float-end"><i class="fas fa-handshake fa-2x float-end me-3"></i></span>
                                                         </div>
                                                         <div class="text-dark fw-bold h5 pb-0 mb-0">
+                                                        <span id="all_business">
                                                         <?php
                                                             //$businessuser = $_SESSION['auth_user']['businessid'];
                                                             $query_business = "SELECT businessid FROM business WHERE status = 1 ORDER BY businessid";
                                                             $query_business_run = mysqli_query($con, $query_business);
                                                             $row_business = mysqli_num_rows($query_business_run);
-                                                            echo '<span>'.$row_business.'</span>'
+                                                            echo $row_business;
                                                         ?>
+                                                        </span>
+                                                        <!-- <script type="text/javascript">
+                                                                function loadDoc() {
+                                                                var xhttp = new XMLHttpRequest();
+                                                                xhttp.onreadystatechange = function() {
+                                                                    if (this.readyState == 4 && this.status == 200) {
+                                                                    document.getElementById("all_business").innerHTML = this.responseText;
+                                                                    }
+                                                                };
+                                                                xhttp.open("GET", "fetch.php", true);
+                                                                xhttp.send();
+                                                                }
+                                                                loadDoc();
+                                                            </script> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -280,7 +310,7 @@ include('includes/header.php');
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" role="tabpanel" id="totalcuisinetab">
-                                        <!-- FOR CUISINES
+                                        FOR CUISINES
                                         <div class="row">
                                             <div class="col">
                                                 <div class="card shadow mb-4">
@@ -291,39 +321,33 @@ include('includes/header.php');
                                                     <table class="table my-0" id="dataTable" style="text-align:center">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Image</th>
-                                                                    <th>Business Name</th>
-                                                                    <th>Address</th>
-                                                                    <th>Cuisine Type</th>
+                                                                    <th>Cuisine Name</th>
                                                                     <th>Status</th>
                                                                 </tr>
                                                             </thead>
                                                             
                                                             <tbody style="text-align:center">
                                                             <?php
-                                                                    //$reservations = getAll("reservations");
+                                                                    $mealcategory = getAll("mealcategory");
                                                                     // $query_business = "SELECT * FROM business WHERE status = '0' ORDER BY businessid DESC";
                                                                     // $query_business_run = mysqli_query($con, $query_business);
                                                                     
-                                                                    // if(mysqli_num_rows($query_business_run) > 0)
-                                                                    // {
-                                                                    //     foreach($query_business_run as $item)
-                                                                    //     {
-                                                                    //         ?>
-                                                                    //             <tr>
-                                                                    //                 <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
-                                                                    //                 <td><?= $item['business_name']; ?></td>
-                                                                    //                 <td><?= $item['business_address']; ?></td>
-                                                                    //                 <td><?= $item['cuisinename']; ?></td>
-                                                                    //                 <td><?= $item['status']== '0'? "Denied":"Confirmed"; ?></td>
-                                                                    //             </tr>
-                                                                    //         <?php
-                                                                    //     }
-                                                                    // }
-                                                                    // else
-                                                                    // {
-                                                                    //     echo "No records Found";
-                                                                    // }
+                                                                    if(mysqli_num_rows($mealcategory) > 0)
+                                                                    {
+                                                                        foreach($mealcategory as $item)
+                                                                        {
+                                                                            ?>
+                                                                                <tr>
+                                                                                    <td><?= $item['categoryname']; ?></td>
+                                                                                    <td><?= $item['status']== '0'? "Denied":"Confirmed"; ?></td>
+                                                                                </tr>
+                                                                            <?php
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        echo "No records Found";
+                                                                    }
                                                                     
                                                                 ?>
                                                             </tbody>
@@ -331,7 +355,7 @@ include('includes/header.php');
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>

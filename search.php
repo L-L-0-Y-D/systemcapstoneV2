@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link rel="stylesheet" href="assets/css/business.css"> 
     <!-- Favicon -->
-    <link rel="icon" href="uploads/favicon.ico"/>
+    <link rel="icon" href="uploads/favicon.ico" type="image/ico">
 </head>
 <body>
     <div class="container pt-5">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <a href="#" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
+                    <a href="#" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?>(<?= $item['municipality_name']; ?>)</a>
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>
                     <div class="rating d-flex ">

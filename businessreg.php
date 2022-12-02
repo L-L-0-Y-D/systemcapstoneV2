@@ -107,7 +107,7 @@ if(isset($_SESSION['auth'])){
                                 <option value="" disabled selected hidden>Municipality</option>
                                 <?php 
                                     //$municipality = getAll("municipality");
-                                    $query_municipality = "SELECT * FROM municipality WHERE status= '0'";
+                                    $query_municipality = "SELECT * FROM municipality WHERE status= '1'";
                                     $query_municipality_run = mysqli_query($con, $query_municipality);
                                     if(mysqli_num_rows($query_municipality_run) > 0)
                                         {
@@ -129,7 +129,7 @@ if(isset($_SESSION['auth'])){
                             
                             <?php 
                                 //$municipality = getAllActive("municipality");
-                                $query_municipality = "SELECT * FROM municipality WHERE status= '0'";
+                                $query_municipality = "SELECT * FROM municipality WHERE status= '1'";
                                 $query_municipality_run = mysqli_query($con, $query_municipality);
                                 if(mysqli_num_rows($query_municipality_run) > 0)
                                     {
@@ -155,7 +155,7 @@ if(isset($_SESSION['auth'])){
                         <div class="col">
                             <?php 
                                 //$category = getAllActive("mealcategory");
-                                $query_mealcategory = "SELECT * FROM mealcategory ";
+                                $query_mealcategory = "SELECT * FROM mealcategory WHERE status= '1'";
                                 $query_mealcategory_run = mysqli_query($con, $query_mealcategory);
                                 if(mysqli_num_rows($query_mealcategory_run) > 0)
                                     {
@@ -188,7 +188,7 @@ if(isset($_SESSION['auth'])){
                             <div class="form-check">        
                                 <?php 
                                     //$category = getAllActive("mealcategory");
-                                    $query = "SELECT * FROM mealcategory WHERE status= '0'";
+                                    $query = "SELECT * FROM mealcategory WHERE status= '1'";
                                     $query_run = mysqli_query($con, $query);
                                     if(mysqli_num_rows($query_run) > 0)
                                         {
@@ -345,22 +345,19 @@ if(isset($_SESSION['auth'])){
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        <?php if(isset($_SESSION['message'])) 
+    <?php if(isset($_SESSION['message'])) 
     { ?>
-        swal({
-            title: "<?= $_SESSION['message']; ?>",
-            icon: "<?= $_SESSION['alert']; ?>",
-            button: "Okay",
-            timer: 1500,
-            });
-
+        alertify.set('notifier','position', 'top-center');
+        alertify.success('<?= $_SESSION['message']; ?>');
         <?php 
         unset($_SESSION['message']);
         unset($_SESSION['alert']);
     }
-    ?> 
-    </script> 
+    
+    ?>
+    </script>  
     <script type="text/javascript" src="map.js"></script>
 
     

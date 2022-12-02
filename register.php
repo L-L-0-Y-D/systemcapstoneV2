@@ -45,6 +45,7 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Register | I-Eat</title>
 
     <!-- Favicon -->
@@ -173,22 +174,21 @@ if(isset($_SESSION['auth'])){
             <p>Already have an account?&nbsp &nbsp<a href="login.php">Login</a></p>
         </div>
     </form>
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script>
-        <?php if(isset($_SESSION['message'])) 
-    { ?>
-        swal({
-            title: "<?= $_SESSION['message']; ?>",
-            icon: "<?= $_SESSION['alert']; ?>",
-            button: "Okay",
-            timer: 1500,
-            });
 
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script>
+    <?php if(isset($_SESSION['message'])) 
+    { ?>
+        alertify.set('notifier','position', 'top-center');
+        alertify.success('<?= $_SESSION['message']; ?>');
         <?php 
         unset($_SESSION['message']);
         unset($_SESSION['alert']);
     }
-    ?> 
+    
+    ?>
     </script>     
 </body>
 </html>

@@ -36,6 +36,7 @@ include('includes/header.php');
                                     <th>Status</th>
                                     <th>Role</th>
                                     <th>Action</th>
+                                    <th>Archive</th>
                                     <!--<th>Delete</th>-->
                                     </tr>
                                 </thead>
@@ -71,9 +72,11 @@ include('includes/header.php');
                                                         <td>
                                                             <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
-                                                        <td>
-                                                           <!-- <button type="button" class="btn btn-sm btn-danger delete_customer_btn" value="<?= $item['userid']; ?>" >Delete</button>-->
-                                                        </td>
+                                                        
+                                                        <form action="code.php" method="POST" enctype="multipart/form-data">
+                                                            <input type="hidden" name="userid" value="<?= $item['userid']; ?>">
+                                                            <td><button type="submit" class="btn btn-sm btn-danger"  name="archive_user_btn"><i class="fas fa-archive"></i></button></td>
+                                                        </form>
                                                     </tr>
                                                 <?php
                                             }

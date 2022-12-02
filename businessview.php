@@ -55,7 +55,8 @@
     <link rel="stylesheet" href="assets/css/untitled-3.css">
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">    
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>    
     <title>I-Eat | Business View </title> 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
@@ -209,9 +210,9 @@
                         <div class="col-md-4" >
                             <h1 ><?= $data['business_name']; ?></h1>
                             
-                            <p><i class="fas fa-utensils"></i><?= $data['cuisinename']; ?> Cuisine</p>
-                            <p><i class="fas fa-phone-alt"></i><?= $data['business_phonenumber']; ?></p>
-                            <p><i class="fas fa-clock"></i>Open : &nbsp;<?=  date("g:i a", strtotime($opening));?> - Close: &nbsp; <?= date("g:i a", strtotime($closing)); ?></p>
+                            <p><i class="fas fa-utensils text-black"></i>&nbsp;&nbsp;<?= $data['cuisinename']; ?> Cuisine</p>
+                            <p><i class="fas fa-phone-alt text-black"></i>&nbsp;&nbsp;<?= $data['business_phonenumber']; ?></p>
+                            <p><i class="fas fa-clock text-black"></i>&nbsp;&nbsp;Open : <?=  date("g:i a", strtotime($opening));?> - Close: <?= date("g:i a", strtotime($closing)); ?></p>
                             <?php
                                 //$businessuser = $_SESSION['auth_user']['businessid'];
                                 $businessid = $data['businessid'];
@@ -225,7 +226,7 @@
                                 }
                                 else
                                 {
-                                    echo '<span><i class="fas fa-star"></i>'.$row_rating['averagerating'].'/5</span>';
+                                    echo '<span><i class="fas fa-star text-gray"></i>&nbsp;&nbsp;'.$row_rating['averagerating'].'/5</span>';
                                 }
                                 $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                                 $query_rating_count_run = mysqli_query($con, $query_rating_count);
@@ -239,17 +240,27 @@
                  <!--END OF ABOUT SECTION-->
                 <!-- START OF LOCATION SECTION-->
                 <div class="col-md-12 p-2 mb-4" id="location">
-                    <h1 class="mx-4 fs-4"><i class="fas fa-pin"></i>Located at  &nbsp;<?= $data['business_address']; ?></h1>
+                    <h1 class="mx-4 fs-4"><i class="fas fa-map-marked"></i>&nbsp;&nbsp;Located at  &nbsp;<?= $data['business_address']; ?></h1>
                     <div class="mapouter">
-                        <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=<?=$latitude?>,<?=$longitude?>&output=embed" style="width: 100%; height: 300px;"></iframe>
-                            <br><style>.mapouter{position:relative;text-align:center;height:100%;width:100%;}</style>
-                            <style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
-                        </div>
+                        <?php 
+                            $query_business_location = "SELECT * FROM business WHERE businessid = $id";
+                            $query_business_location_run = mysqli_query($con, $query_business_location);
+                            $data = mysqli_fetch_array($query_business_location_run);
+                        ?>
+                        <input type="hidden" id="address" name="address">
+                            <input type="hidden" id="latitude" name="latitude" value="<?=$data['latitude'];?>">
+                            <input type="hidden" id="longitude" name="longitude" value="<?=$data['longitude'];?>">
+                            <input type="hidden" id="business_name" name="business_name" value="<?=$data['business_name'];?>">
+                            <input type="hidden" id="business_address" name="business_address" value="<?=$data['business_address'];?>">
+                            <input type="hidden" id="cuisinename" name="cuisinename" value="<?=$data['cuisinename'];?>">
+                            <input type="hidden" id="opening" name="opening" value="<?=$data['opening'];?>">
+                            <input type="hidden" id="closing" name="closing" value="<?=$data['closing'];?>">
+                        <div id="map" style=" height: 300px;"></div>
                     </div>
                 </div>
                 <!--END OF LOCATIONa SECTION-->    
                     <!-- START OF MENU SECTION-->
-                    <h1 class="mx-4 fs-3"><i class="fas fa-utensils"></i>MENUS</h1>
+                    <h1 class="mx-4 fs-3"><i class="fas fa-utensils"></i>&nbsp;&nbsp;MENUS</h1>
                     <div class="container mb-4" id="menu">
                         <div>
                             <ul class="nav nav-tabs d-md-flex " role="tablist">
@@ -1276,7 +1287,7 @@
             <!-- END OF MENU SECTION-->
 
             <!-- START OF REVIEW SECTION-->
-            <h1 class="mx-4 fs-3"><i class="fas fa-sticky-note"></i>REVIEWS AND FEEDBACKS</h1>
+            <h1 class="mx-4 fs-3"><i class="fas fa-edit"></i>&nbsp;&nbsp;REVIEWS AND FEEDBACKS</h1>
                     <div class="container col d-flex justify-content-center" id="review">
                         <div class="card col d-flex justify-content-center border-0">
                             <div class="card-body">
@@ -1415,14 +1426,12 @@
             </div>
         </section>
     </main>
-</body>
-<!-- END OF LOCATION SECTION-->
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script type="text/javascript" src="maplocation.js"></script>
     <?php
         } 
         else

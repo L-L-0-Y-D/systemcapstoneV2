@@ -44,8 +44,10 @@
     <link rel="stylesheet" href="owl_carousel/owl.carousel.css">
     <link rel="stylesheet" href="owl_carousel/owl.theme.default.css">
     <!-- Favicon -->
-    <link rel="icon" href="uploads/favicon.ico"/>
+
     <title>I-EAT </title> 
+    
+    <link rel="icon" href="uploads/favicon.ico"/>
 
 </head>
 <body>
@@ -57,9 +59,9 @@
         </div>
         <div class="row mt-0 g-1 my-5 mx-auto owl-carousel owl-theme">
             <?php
-                if(mysqli_num_rows($business) > 0)
+                if(mysqli_num_rows($businessreview) > 0)
                 {
-                foreach($business as $item)
+                foreach($businessreview as $item)
             {
                 $businessid = $item['businessid'];
             ?>

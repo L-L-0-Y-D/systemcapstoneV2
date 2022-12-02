@@ -7,7 +7,7 @@ include('../functions/myfunctions.php');
 if(isset($_POST['add_municipality_btn']))
 {
     $municipality_name = $_POST['municipality_name'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = isset($_POST['status']) ? "1":"0";
 
     $image = $_FILES['image']['name'];
 
@@ -65,7 +65,7 @@ else if(isset($_POST['update_municipality_btn']))
 {
     $municipalityid = $_POST['municipalityid'];
     $municipality_name = $_POST['municipality_name'];
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = isset($_POST['status']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
@@ -683,7 +683,7 @@ else if(isset($_POST['update_admin_btn']))
 
             redirect("profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 80000)) {
+        else if (($_FILES["image"]["size"] < 8000)) {
 
             redirect("profile.php?id=$userid", "Image size less than 800KB", "warning");
 
@@ -1056,6 +1056,90 @@ else if(isset($_POST['edit_password_btn']))
     
                 }
 
+
+}
+else if(isset($_POST['archive_business_btn']))
+{
+    $status = 3;
+    $businessid = $_POST['businessid'];
+
+    $update_table_query = "UPDATE business SET status= '$status' WHERE businessid='$businessid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 3)
+        {
+            redirect("busiowner.php", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("busiowner.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("busiowner.php", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['archive_user_btn']))
+{
+    $status = 3;
+    $userid = $_POST['userid'];
+
+    $update_table_query = "UPDATE users SET status= '$status' WHERE userid='$userid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 3)
+        {
+            redirect("customers.php", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("customers.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("customers.php", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['archive_category_btn']))
+{
+    $status = 3;
+    $categoryid = $_POST['categoryid'];
+
+    $update_table_query = "UPDATE mealcategory SET status= '$status' WHERE categoryid='$categoryid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 3)
+        {
+            redirect("category.php", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("category.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("category.php", "Something Went Wrong", "error"); 
+    }
 
 }
 else

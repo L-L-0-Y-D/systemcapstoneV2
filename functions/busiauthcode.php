@@ -120,6 +120,10 @@ if(isset($_POST['business_register_btn']))
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 
+                            $insert_notification = "INSERT INTO notifications (comment_subject,comment_text,usertype) 
+                            VALUES ('NEW BUSINESS FOR VERIFICATION', 'You have new Business named $business_name', '1')";
+                            $insert_notification_run = mysqli_query($con, $insert_notification);
+
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
