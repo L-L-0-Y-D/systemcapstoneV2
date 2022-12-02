@@ -46,11 +46,13 @@
             </div>
             <div class="row">
             <?php
-                    $municipality = getAllActive("municipality");
+                    // $municipality = getAllActive("municipality");
+                    $query_municipality = "SELECT * FROM municipality WHERE status= '1'";
+                    $query_municipality_run = mysqli_query($con, $query_municipality);
 
-                    if(mysqli_num_rows($municipality) > 0)
+                    if(mysqli_num_rows($query_municipality_run) > 0)
                     {
-                        foreach($municipality as $item)
+                        foreach($query_municipality_run as $item)
                         {
                             ?>
                 <div class="col-md-3 portfolio-item" data-bss-hover-animate="pulse" >

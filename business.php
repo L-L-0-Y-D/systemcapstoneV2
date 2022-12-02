@@ -6,7 +6,7 @@
     if(isset($_GET['id']))
         {
             $id = $_GET['id'];
-            $municipality = getByIDActive("municipality",$id,"municipalityid");
+            $municipality = getByIDActives("municipality",$id,"municipalityid");
 
                 if(mysqli_num_rows($municipality) > 0)
                     {
@@ -266,7 +266,7 @@
         } 
         else
         {
-            echo "Something Went Wrong";
+            echo "Something Went Wrongs";
             ?>
             <br><a href="Index.php" style="margin-bottom:76px;">Go Back</a>
             <?php
