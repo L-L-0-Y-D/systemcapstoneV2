@@ -221,6 +221,15 @@
   .business .project-card-no-image {
     background: white;height: 50%;
   }
+
+  /*FOR POLICY AND TERMS*/
+  #policy_terms {
+    margin-top:120px;
+  }
+  #policy_terms .policy_content, #policy_terms .terms_content {
+    text-indent: 30px!important;
+    text-align: left;
+  }
   :root {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;

@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#" style="color: white;">Privacy Policy&nbsp&nbsp•</a></li>
+                        <li class="list-inline-item"><a href="policy_terms.php" style="color: white;">Privacy Policy&nbsp&nbsp•</a></li>
                         <li class="list-inline-item"><a href="#" style="color: white;">Terms of Use</a></li>
                     </ul>
                 </div>
