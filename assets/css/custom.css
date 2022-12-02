@@ -217,9 +217,7 @@
     border-left: 1px solid rgb(175, 175, 175);
     background: rgb(240, 240, 240);
   }
-  #aboutrestaurant i {
-    color:darkorange;
-  }
+ 
   #aboutrestaurant span {
     font-size: 20px;
     font-family: Acme, sans-serif;
