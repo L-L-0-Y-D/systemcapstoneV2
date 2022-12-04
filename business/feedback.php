@@ -38,7 +38,7 @@ include('includes/header.php');
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
-    <div class="container-fluid">
+    <div class="container-fluid pt-3">
             <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Feedback List</h4>
         <div class="card shadow">
             <div class="card-body">

@@ -6,7 +6,7 @@ include('includes/header.php');
 
 
 ?>
-<div class="container">
+<div class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
         <?php 
@@ -24,7 +24,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                     <a href="index.php" class="back btn-sm btn-close float-end"></a>
-                    <h4>Change Password</h4>   
+                    <h5 class="fw-bold">Change Password</h5>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST">
@@ -43,7 +43,7 @@ include('includes/header.php');
                                 <input type="password" name="business_confirmpassword" class="form-control" required>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn update-btn mt-2" name="edit_password_btn">Update Password</button>
+                                <button type="submit" class="btn update-btn mt-2 btn-sm" name="edit_password_btn">Update Password</button>
                             </div>
                         </div>
                     </form>

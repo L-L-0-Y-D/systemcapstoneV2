@@ -20,24 +20,12 @@ if(isset($_POST['request'])){
 
 ?>
 
-<table id="container" class="table my-0" id="dataTable" style="text-align:center">
+<div class="container" id="container">
     <?php
     if($count)
         {
     ?>
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Course Menu</th>
-            <th>Cuisine Type</th>
-            <th>Status</th>
-            <th>Action</th>
-            <th>Archive</th>
-            <!--<th>Delete</th>-->
-        </tr>
+
     <?php
         }
     else
@@ -45,38 +33,38 @@ if(isset($_POST['request'])){
             echo "Sorry! no Record Found";
         }
     ?>
-    </thead>
     <!-- <form action="menu.php" method="POST" enctype="multipart/form-data"> -->
-    <tbody style="text-align:center">
+
         <?php
         while($item = mysqli_fetch_assoc($result))
         {
         ?>
-        <tr>
-            <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
-            <td><?= $item['name']; ?></td>
-            <td><?= $item['price']; ?></td>
-            <td><?= $item['description']; ?></td>
-            <td><?= $item['food_type']; ?></td>
-            <td><?= $item['cuisinename']; ?></td>
-            <td><?= $item['status']== '0'? "Sold Out":"Available"  ?></td>
-            <td>
-                <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
-            </td>
-            <!--<td>
-                <button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>
-            </td>-->
-            
-            <!-- <input type="hidden" name="businessid" class="bisnes" value="<?= $item['businessid']; ?>"> -->
-            <td><button  type="submit" class="btn btn-sm btn-danger archive_menu_btn" id="<?= $item['businessid']; ?>" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
-
-        </tr>
+        <div class="row mx-auto shadow-sm justify-content-center mb-2">
+            <div class="col col-md-2">
+                <div><img class="p-3" src="../uploads/<?= $item['image']; ?>" height="170px" width="150px"></div>
+            </div>
+            <div class="col p-4 col-md-5 info">
+                <h6 class="fw-bold p-0 m-1"><?= $item['name']; ?></h6>
+                <p class="p-0 m-1">₱<?= $item['price']; ?>.00</p>
+                <p class="p-0 m-1">Course Menu:&nbsp;<?= $item['food_type']; ?></p>
+                <p class="p-0 m-1">Cuisine Type:&nbsp;<?= $item['cuisinename']; ?></p>
+                <p class="p-0 m-1">Product Description:&nbsp;<?= $item['description']; ?></p>
+                <p class="p-0 m-1 fw-bold">Status:&nbsp;<?= $item['status']== '0'? "Sold Out":"Available"  ?></p>
+            </div>
+            <div class="col p-3 col-md-4 ">
+                <div class="btn-group m-3" role="group">
+                    <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
+                    <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>                                                           
+                    <button class="btn btn-danger btn-sm" type="submit" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
+                </div>
+            </div>
+        </div>
         <?php
         }
         ?>
-    </tbody>
+
     <!-- </form> -->
-</table>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {

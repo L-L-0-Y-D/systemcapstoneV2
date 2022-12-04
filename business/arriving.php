@@ -10,7 +10,7 @@ include('../config/dbcon.php');
         {
             $businessuserid = $_SESSION['auth_user']['businessid'];
 ?>
-<div class="container-fluid">
+<div class="container-fluid pt-3">
         <h4 class="text-dark">Arriving Reservations </h4>
         <span class="fw-bold text-dark float-end me-3"><?php echo "Today is " . date("m/d/Y") . "";?></span><br>
         <div class="card shadow">

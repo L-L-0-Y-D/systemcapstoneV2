@@ -10,7 +10,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
     <div id="wrapper">
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                <div class="container-fluid p-1">
+                <div class="container-fluid p-1 pt-3">
                 <h3 class="text-dark mb-0 mx-3">Business Dashboard</h3>
                 <span class="text-dark float-end me-4"><?php echo "Today is " . date("m/d/Y") . "<br>";?></span><br>
                     <div class="row m-0"> 

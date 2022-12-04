@@ -44,7 +44,7 @@ if(isset($_SESSION['auth'])){
                                     <button class="btn btn-sm btn-close float-end" onclick="location.href='ownerlogin.php'"></button>
                                 </div>
                                 <p class="text-center fs-5">Forget Password?</p>
-                                <p class="text-left"> We'll check if you have already an account</p>
+                                <p class="text-left">Enter the email associated with your account and we'll send you a reset link.</p>
                                 <div class="mb-1">
                                     <label class="form-label" for="email">Enter your Email Address</label>
                                     <input type="email" name="business_email" id="email" class="form-control mb-3"required/>

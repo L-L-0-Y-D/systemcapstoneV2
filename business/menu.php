@@ -38,14 +38,10 @@ include('../config/dbcon.php');
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
-    <div class="container-fluid">
-        <a class="btn btn-primary float-end mt-2" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Menu</a>  
+    <div class="container-fluid bg-white mt-0 pt-3">
+        <a class="btn btn-primary float-end mt-2 btn-sm" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Menu</a>  
         <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Menu List</h4>
-        <div class="card shadow">
-            <div class="card-body" id="products_table">
-                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                    <table class="table my-0" id="dataTable" style="text-align:center">
-                    <div class="col-md-6 text-nowrap">
+       
                         <!--SORTING-->
                         <div class="col-md-6 text-nowrap" id="filters">
                             <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
@@ -64,23 +60,8 @@ include('../config/dbcon.php');
                                 </label>
                             </div>
                         </div>  
-                    </div>
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Description</th>
-                                    <th>Course Menu</th>
-                                    <th>Cuisine Type</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                    <th>Archive</th>
-                                 
-                                </tr>
-                            </thead>
+                        <div class="container" id="container">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
-                            <tbody style="text-align:center">
                                 <?php
                                     // $products = getAllNotArchive("products");
 
@@ -91,22 +72,27 @@ include('../config/dbcon.php');
                                               if($item['businessid'] == $_SESSION['auth_user']['businessid'])
                                                 {
                                                 ?>
-                                                    <tr>
-                                                        <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
-                                                        <td><?= $item['name']; ?></td>
-                                                        <td><?= $item['price']; ?></td>
-                                                        <td><?= $item['description']; ?></td>
-                                                        <td><?= $item['food_type']; ?></td>
-                                                        <td><?= $item['cuisinename']; ?></td>
-                                                        <td><?= $item['status']== '0'? "Sold Out":"Available"  ?></td>
-                                                        <td>
-                                                            <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
-                                                        </td>
-                                                            <!--<button type="button" class="btn btn-sm btn-danger" value="<?= $item['productid']; ?>" >Delete</button>-->
-                                                            <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
-                                                            <!-- <input type="hidden" name="productid" value="<?= $item['productid']; ?>"> -->
-                                                        <td><button type="submit" class="btn btn-sm btn-danger"  name="archive_menu_btn"><i class="fas fa-archive"></i></button></td>
-                                                    </tr>
+                                                    <div class="row mx-auto shadow-sm justify-content-center mb-2">
+                                                        <div class="col col-md-2">
+                                                            <div><img class="p-3" src="../uploads/<?= $item['image']; ?>" height="170px" width="150px"></div>
+                                                        </div>
+                                                        <div class="col p-4 col-md-5 info">
+                                                            <h6 class="fw-bold p-0 m-1"><?= $item['name']; ?></h6>
+                                                            <p class="p-0 m-1">₱<?= $item['price']; ?>.00</p>
+                                                            <p class="p-0 m-1">Course Menu:&nbsp;<?= $item['food_type']; ?></p>
+                                                            <p class="p-0 m-1">Cuisine Type:&nbsp;<?= $item['cuisinename']; ?></p>
+                                                            <p class="p-0 m-1">Product Description:&nbsp;<?= $item['description']; ?></p>
+                                                            <p class="p-0 m-1 fw-bold">Status:&nbsp;<?= $item['status']== '0'? "Sold Out":"Available"  ?></p>
+                                                        </div>
+                                                        <div class="col p-3 col-md-4 ">
+                                                            <div class="btn-group m-3" role="group">
+                                                                <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
+                                                                <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>
+                                                              
+                                                                <button class="btn btn-danger btn-sm" type="submit" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 <?php
                                                 }
                                         }
@@ -116,9 +102,9 @@ include('../config/dbcon.php');
                                         echo "No records Found";
                                     }
                                 ?>
-                            </tbody>
+                
                         </form>
-                    </table>
+       
                     <!--SCRIPT FOR SORTING-->
                     <script type="text/javascript">
                             $(document).ready(function(){
@@ -166,8 +152,6 @@ include('../config/dbcon.php');
                             </nav>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
 
 <?php

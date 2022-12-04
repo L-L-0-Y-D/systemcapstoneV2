@@ -14,13 +14,13 @@ if(isset($_GET['id']))
     // $business = getByID("business", $id,"businessid");
 
 ?>
-<div class="container">
+<div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
           <a href="blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
-          <h4>Add Block Date</h4>
+          <h5 class="fw-bold">Add Block Date</h5>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -47,7 +47,7 @@ if(isset($_GET['id']))
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn save-btn" name="add_blockdate_btn" >Save</button>
+                        <button type="submit" class="btn save-btn btn-sm" name="add_blockdate_btn" >Save</button>
                     </div>
                 </div>
             </form>

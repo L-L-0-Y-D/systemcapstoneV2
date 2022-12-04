@@ -42,8 +42,8 @@ include('../config/dbcon.php');
 
             
 ?>
-    <div class="container-fluid">
-    <a class="btn btn-primary float-end mt-2" role="button" href="add-table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Table</a>
+    <div class="container-fluid pt-3">
+    <a class="btn btn-primary float-end mt-2 btn-sm" role="button" href="add-table.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Table</a>
         <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Table List</h4>
 
         

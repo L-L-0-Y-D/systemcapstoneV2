@@ -42,7 +42,8 @@ body {
     color:grey;
     background-color: #fff!important;
     border:grey 1px solid;
-    padding:10px!important;
+    padding:10px 13px!important;
+
 }
 .edit-btn:hover {
     color:white;
@@ -90,6 +91,14 @@ iframe {
 .text-primary {
     color:rgb(255,128,64)!important;
 }
+.back {
+    color: black;
+}
+.back:hover ,.back:focus {
+    font-weight: bolder;
+    color: initial;
+    text-decoration: underline!important;
+}
 h4 {
     font-weight: bolder;
     padding-left: 5px;
@@ -104,9 +113,12 @@ h4 {
     margin-bottom:0px!important;
     padding-bottom: 0%!important;
 }
-td ,option{
+td ,option, .info p{
     font-size: 14px!important;
     line-height: 1;
+}
+.info {
+    border-right: solid 1px rgb(197, 197, 197);
 }
 /*FOR INDEX */
 h6 {

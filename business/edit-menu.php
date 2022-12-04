@@ -7,7 +7,7 @@ include('includes/header.php');
 
 
 ?>
-<div class="container">
+<div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
         <?php 
@@ -24,7 +24,7 @@ include('includes/header.php');
                     <div class="card">
                         <div class="card-header">
                         <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
-                        <h4>Edit Products</h4>
+                        <h5 class="fw-bold">Edit Products</h5>
                             
                         </div>
                         <div class="card-body">
@@ -104,7 +104,7 @@ include('includes/header.php');
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn update-btn" name="update_product_btn">Update</button>
+                                        <button type="submit" class="btn update-btn btn-sm" name="update_product_btn">Update</button>
                                     </div>
                                 </div>
                             </form>

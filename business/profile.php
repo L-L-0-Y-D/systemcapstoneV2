@@ -6,7 +6,7 @@ include('includes/header.php');
 
 
 ?>
-<div class="container-fluid">
+<div class="container-fluid pt-3">
     <?php 
         if(isset($_GET['id']))
         {
@@ -19,41 +19,38 @@ include('includes/header.php');
                 
             
             ?>
-            <a href="index.php" class="btn btn-primary float-end me-4">Back</a>
+            <a href="index.php" class="back float-end me-5 mt-2">Back&nbsp;<i class="fas fa-arrow-right"></i></a>
             <h4 class="text-dark">Your Business Profile</h4>
     <form action="code.php" method="POST" enctype="multipart/form-data">
     <div class="row mb-3 w-100">
         <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-header py-3">
-                    <h6 class="text-primary fw-bold">Upload Profile</h6>
+                    <p class="text-primary fw-bold">Upload Profile</p>
                 </div>
                 <div class="card-body text-center shadow">
                     <img class="rounded-circle mb-3 mt-4" src="../uploads/<?= $data['image'] ?>" width="160" height="160">
-                    <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                    <input type="hidden" name="old_image" value="<?= $data['image'] ?>"><br>
+                    <label class="form-label float-start" ><strong>Change Profile:</strong><br></label>
                     <div class="mb-3"><input type="file" name="image" class="form-control"></div>
                 </div>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="text-primary fw-bold">Business Time</h6>
+                    <p class="text-primary fw-bold">Business Time</p>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">  
-                                <h4 class="small fw-bold">
-                                    <label class="form-label" for="username"><strong>Opening Time:</strong><br></label>
+                                    <label class="form-label" for=""><strong>Opening Time:</strong><br></label>
                                     <input type="time" name="opening" value="<?= $data['opening'] ?>"  required placeholder="Opening">
-                                </h4>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3"> 
-                                <h4 class="small fw-bold">
-                                    <label class="form-label" for="username"><strong>Closing Time:</strong><br></label>
+                                    <label class="form-label" for=""><strong>Closing Time:</strong><br></label>
                                     <input type="time" name="closing" value="<?= $data['closing'] ?>"  required placeholder="Closing">
-                                </h4>
                             </div>
                         </div>
                     </div>
@@ -61,7 +58,7 @@ include('includes/header.php');
             </div>
             <div class="card shadow mb-4">                  
                 <div class="card-header py-3">
-                    <h6 class="text-primary fw-bold">Business Certificate</h6>
+                    <p class="text-primary fw-bold">Business Certificate</p>
                 </div>
                 <div class="card-body text-center shadow">
                     <a href="../certificate/<?= $data['image_cert'] ?>">   
@@ -197,7 +194,7 @@ include('includes/header.php');
                                 <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
                             </div>
                             <div class="mb-3">
-                                <button class="btn update-btn" type="submit" name="edit_business_btn">Update Business Profile</button>
+                                <button class="btn update-btn btn-sm" type="submit" name="edit_business_btn">Update Business Profile</button>
                             </div>
                         </div>
                     </div>

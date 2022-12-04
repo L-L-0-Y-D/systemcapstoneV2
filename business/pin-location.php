@@ -17,14 +17,14 @@ include('../config/dbcon.php');
         <div class="card">
             <div class="card-header">
                 <form method="post" action="code.php">
-                    <a href="location.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-start"></a>
-                    <h4 class="text-center">Pin Location
+                    <a href="location.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
+                    <h5 class="text-center fw-bold">Pin Location
                     <!-- <input hidden type="text" id="address" name="address"> -->
                     <input hidden type="text" name="businessid" value="<?= $_SESSION['auth_user']['businessid'];?>">
                     <input hidden  type="text" id="latitude" name="latitude" value="<?= $data['latitude'] ?>">
                     <input hidden  type="text" id="longitude" name="longitude" value="<?= $data['longitude'] ?>">
-                    <button class="btn save-btn float-end" type="submit" name="update_location_btn" >Save</button>
-                </form></h4>
+                    <button class="btn save-btn float-start btn-sm" type="submit" name="update_location_btn" >Save</button>
+                </form></h5>
             </div>
             <div class="card-body">
                 <div id="map"  style="height: 700px"></div>

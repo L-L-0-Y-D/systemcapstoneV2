@@ -41,7 +41,7 @@ include('../config/dbcon.php');
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
                 
 ?>
-    <div class="container-fluid">
+    <div class="container-fluid pt-3">
     <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Block Date(s)
         <a class="btn btn-primary btn-sm float-end mb-2" role="button" href="add-blockdate.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Block Date</a> 
         </h4>
