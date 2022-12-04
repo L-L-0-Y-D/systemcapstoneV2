@@ -104,6 +104,14 @@ td ,option{
     font-size: 14px!important;
     line-height: 1;
 }
+.back {
+    color: black;
+}
+.back:hover ,.back:focus {
+    font-weight: bolder;
+    color: initial;
+    text-decoration: underline!important;
+}
 /*FOR INDEX */
 h6 {
     font-weight:bolder;

@@ -5,13 +5,13 @@ include('includes/header.php');
 
 ?>
 
-<div class="container">
+<div class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
           <a href="category.php" class="back btn-sm btn-close float-end"></a>
-          <h4>Add Cuisine Type</h4>
+          <h5 class="fw-bold">Add Cuisine Type</h5>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -27,7 +27,7 @@ include('includes/header.php');
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <button type="submit" class="btn save-btn" name="add_category_btn">Save</button>
+                        <button type="submit" class="btn save-btn btn-sm" name="add_category_btn">Save</button>
                     </div>
                 </div>
             </form>

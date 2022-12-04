@@ -45,7 +45,6 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Basic.css?h=561e53509f5bc926993a2226fdbdf2f4">
     <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
-    <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <title>Login Admin | I-Eat</title>
 
@@ -68,7 +67,7 @@ if(isset($_SESSION['auth'])){
                 </nav>
             </div>
         </nav>
-<section class="login">
+<section class="login" style="background-image: url(uploads/layout1.jpg)!important;background-attachment:fixed;background-position:center;background-repeat: no-repeat;background-size: cover;">
         <div class="container" >
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4 ">

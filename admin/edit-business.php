@@ -10,7 +10,7 @@ include('includes/header.php');
       display: none;
    }
 </style>
-<div class="container">
+<div class="container pt-3">
   <div class="row justify-content-center">
     <div class="col-md-9">
         <?php 
@@ -28,7 +28,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                         <a href="busiowner.php" class="back btn-sm btn-close float-end"></a>
-                        <h4>Edit Business</h4>   
+                        <h5 class="fw-bold">Edit Business</h5>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -148,7 +148,7 @@ include('includes/header.php');
                                 <input class="form-control mb-2" id="hideValuesOnSelect" name="reason" placeholder="Reason for declining"></input>
                             </div>
                                 <div class="col-md-6">
-                                <button type="submit" class="btn update-btn" name="edit_business_btn">Update</button>
+                                <button type="submit" class="btn update-btn btn-sm" name="edit_business_btn">Update</button>
                             </div>
                             </div>
                     </form>

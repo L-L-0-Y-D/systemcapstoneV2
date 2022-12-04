@@ -6,7 +6,7 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <a class="btn btn-primary float-end" role="button" href="add-admin.php" id="addbtn">Add Admin</a>
+        <a class="btn btn-primary float-end btn-sm mt-2" role="button" href="add-admin.php" id="addbtn">Add Admin</a>
         <h4 class="text-dark">Admin's List</h4>
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >

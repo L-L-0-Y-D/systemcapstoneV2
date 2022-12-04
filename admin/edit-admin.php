@@ -24,7 +24,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                     <a href="admin.php" class="back btn-sm btn-close float-end"></a>
-                    <h4>Edit Admin</h4>   
+                    <h5 class="fw-bold">Edit Admin</h5>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -91,7 +91,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn update-btn" name="update_admin_btn">Update</button>
+                                <button type="submit" class="btn update-btn btn-sm" name="update_admin_btn">Update</button>
                             </div>
                         </div>
                     </form>

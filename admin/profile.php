@@ -16,18 +16,19 @@ include('includes/header.php');
             {
                 $data = mysqli_fetch_array($user)          
         ?>
-            <a href="index.php" class="btn btn-primary float-end">Back</a>
+            <a href="index.php" class="back float-end me-3 mt-2">Back&nbsp;<i class="fas fa-arrow-right"></i></a>
             <h4 class="text-dark">Admin's Profile</h4>
     <form action="code.php" method="POST" enctype="multipart/form-data">
     <div class="row mb-3">
         <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-header py-3">
-                    <h6 class="text-primary fw-bold">Upload Profile</h6>
+                    <p class="text-primary fw-bold">Upload Profile</p>
                 </div>
                 <div class="card-body text-center shadow">
                     <img class="rounded-circle mb-3 mt-4" src="../uploads/<?= $data['image'] ?>" width="160" height="160">
-                    <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                    <input type="hidden" name="old_image" value="<?= $data['image'] ?>"><br>
+                    <label class="form-label float-start" ><strong>Change Profile:</strong><br></label>
                     <div class="mb-3"><input type="file" name="image" class="form-control"></div>
                 </div>
             </div>
@@ -100,7 +101,7 @@ include('includes/header.php');
                                 <input type="hidden" name="status" value = '1'>
                             </div>
                             <div>
-                                <button class="btn update-btn" type="submit" name="update_admin_btn">Update Admin Profile</button>
+                                <button class="btn update-btn btn-sm" type="submit" name="update_admin_btn">Update Admin Profile</button>
                             </div>
                         </div>
                     </div>
