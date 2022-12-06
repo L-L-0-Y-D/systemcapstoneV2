@@ -55,7 +55,7 @@ if(isset($_POST['request'])){
                 <div class="btn-group m-3" role="group">
                     <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
                     <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>                                                           
-                    <button class="btn btn-danger btn-sm" type="submit" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
+                    <td><button  type="submit" class="btn btn-sm btn-danger archive_menu_btn" id="<?= $item['businessid']; ?>" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive">Archive&nbsp;&nbsp;</i></button></td>
                 </div>
             </div>
         </div>

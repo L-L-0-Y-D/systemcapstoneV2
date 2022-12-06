@@ -89,7 +89,7 @@ include('../config/dbcon.php');
                                                                 <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
                                                                 <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>
                                                               
-                                                                <button class="btn btn-danger btn-sm" type="submit" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
+                                                                <button class="btn btn-danger btn-sm" type="submit" value = "<?= $item['productid']; ?>" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
                                                             </div>
                                                         </div>
                                                     </div>

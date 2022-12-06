@@ -578,17 +578,17 @@ else if(isset($_POST['update_arrived_btn']))
     {
         if($arrived == 1)
         {
-            redirect("reservation.php?id=$businessid", "User Arrived", "success");
+            redirect("arriving.php?id=$businessid", "User Arrived", "success");
         }
         elseif($arrived == 2)
         {
-            redirect("reservation.php?id=$businessid", "User Not Arrived", "warning");
+            redirect("arriving.php?id=$businessid", "User Not Arrived", "warning");
         }
 
     }
     else
     {
-        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
+        redirect("arriving.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -607,17 +607,17 @@ else if(isset($_POST['update_not_arrived_btn']))
     {
         if($arrived == 1)
         {
-            redirect("reservation.php?id=$businessid", "User Arrived", "success");
+            redirect("arriving.php?id=$businessid", "User Arrived", "success");
         }
         elseif($arrived == 2)
         {
-            redirect("reservation.php?id=$businessid", "User Not Arrived", "warning");
+            redirect("arriving.php?id=$businessid", "User Not Arrived", "warning");
         }
 
     }
     else
     {
-        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
+        redirect("arriving.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -786,6 +786,35 @@ else if(isset($_POST['archive_menusort_btn']))
     else
     {
         redirect("menu.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['archive_reservation_btn']))
+{
+    $status = 4;
+    $businessid = $_POST['businessid'];
+    $reservationid = $_POST['archive_reservation_btn'];
+
+    $update_table_query = "UPDATE reservations SET status= '$status' WHERE reservationid='$reservationid'";
+    $update_table_query_run = mysqli_query($con,$update_table_query) or die("bad query: $update_table_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 4)
+        {
+            redirect("reservation.php?id=$businessid", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("reservation.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
