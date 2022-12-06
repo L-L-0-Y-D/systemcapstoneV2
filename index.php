@@ -12,26 +12,45 @@
                 <div class="intro-heading text-uppercase ">
                     <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.</span></div>
                     <?php
-                        $query_search = "SELECT business_name
-                        FROM business 
-                        ORDER BY business_name ASC";
-                        $result = $con->query($query_search);
-                        $data = array();
-                        foreach($result as $row)
-                        {
-                            $data[] = array(
-                                'label' => $row['business_name'],
-                                'value' => $row['business_name'],
-                            ); 
-                           
-                            
-                        }
+                        // $query_search = "SELECT business_name
+                        // FROM business 
+                        // ORDER BY business_name ASC";
+                        // $result = $con->query($query_search);
+                        // $data = array();
+                        // if (mysqli_num_rows($result) > 0) 
+                        // {
+                        //     foreach ($result as $row) {
+                        //         $data[] = array(
+                        //             'label' => $row['business_name'],
+                        //             'value' => $row['business_name'],
+                        //         );
+
+
+                        //     }
+                        // }
+                        // else
+                        // {
+                        //     $data = "No business found";
+                        // }
                     ?>
+                    <style>
+                        ul
+                        {
+                            background-color:#eee;
+                            cursor:pointer;
+                        }
+                        li
+                        {
+                            padding:12px;
+                        }
+                    </style>
                     <form action="search.php" method="POST">
                         <input class="form-control-lg " type="text" name="search" id="search" autocomplete="off" style="width:30%;font-size:13px;border-radius: 20px;border: 1px solid;  font-family:Monsterrat;" placeholder="Search Restaurants, Locations, Cuisines...">
                         <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
+                        <div class="form-control-lg " id="searchlist"></div>
                     </form>
+
                 </div>
             </div>
         </div>
