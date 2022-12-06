@@ -9,7 +9,7 @@
 if(isset($_POST["query"]))
 {
     $output = '';
-    $query_business = "SELECT * FROM business WHERE business_name LIKE '%".$_POST["query"]."%' ORDER BY business_name ASC";
+    $query_business = "SELECT * FROM business WHERE business_name LIKE '%".$_POST["query"]."%' AND status='1' OR cuisinename LIKE '%".$_POST["query"]."%' AND status='1' OR business_address LIKE '%".$_POST["query"]."%' AND status='1' ORDER BY business_name ASC LIMIT 5";
     $result = mysqli_query($con, $query_business);
     $output = '<ul class="list-unstyled">';
     if(mysqli_num_rows($result) > 0)

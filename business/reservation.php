@@ -58,16 +58,16 @@ include('../config/dbcon.php');
             <div class="card-body" id="reservation_table">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
-                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
+                        <!-- <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
                             <option value="10" selected="">10</option>
                             <option value="25">25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
                             </select>&nbsp;</label>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-md-6">
-                        <!-- <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div> -->
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a href="https://www.w3schools.com" class="btn-danger">Archives</a></div>
                         </div>
                     </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">

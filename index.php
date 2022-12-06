@@ -34,11 +34,11 @@
                         // }
                     ?>
                     <style>
-                        ul
+                        /* ul
                         {
                             background-color:#eee;
                             cursor:pointer;
-                        }
+                        } */
                         li
                         {
                             padding:12px;
