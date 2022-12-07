@@ -126,6 +126,7 @@ if(isset($_SESSION['auth'])){
                     <?php }else{?>
                         <div class="col">
                         <select class="form-select" name="municipalityid" style="margin-bottom: 10px;" required>
+                        <option disabled selected hidden>Select your Municipality</option>
                             
                             <?php 
                                 //$municipality = getAllActive("municipality");
