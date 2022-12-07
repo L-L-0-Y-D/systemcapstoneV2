@@ -161,6 +161,8 @@ if(isset($_POST['request'])){
                 <form method="post" action="functions/codereservation.php" enctype="multipart/form-data" class="registration pb-0">
                     <input type="hidden" name="userid" value="<?= $data['userid']; ?>">
                     <input type="hidden" name="reservationid" value="<?= $data['reservationid']; ?>">
+                    <input type="hidden" name="namereserveunder" value="<?= $data['namereserveunder']; ?>">
+                    <input type="hidden" name="businessid" value="<?= $data['businessid']; ?>">
                     <button class="btn btnSummary w-100" type="submit" name="cancelled_btn">Cancel Reservation</button>
                 </form> 
             </div>

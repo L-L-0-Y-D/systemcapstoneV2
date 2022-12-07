@@ -40,6 +40,18 @@ if(isset($_POST["view"]))
                 </a>
                 ';
             }
+            if($row['comment_subject'] == "RESERVATION Cancelled")
+            {
+                $output .= '
+                <a class="dropdown-item d-flex align-items-center" href="reservation.php?id="'.$id.'>
+                    <div>
+                        <span class="small text-gray-500"><strong>'.$row["comment_subject"].'</strong></span>
+                        <span class="small text-gray-500" style="text-align: center;"></span>
+                        <p>'.$row["comment_text"].'</p>
+                    </div>
+                </a>
+                ';
+            }
             else
             {
                 $output .= '<a class="dropdown-item d-flex align-items-center" href="#">
