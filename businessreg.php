@@ -104,7 +104,7 @@ if(isset($_SESSION['auth'])){
                     <?php if (isset($_GET['municipalityid'])){?>
                         <div class="col">
                             <select class="form-select" name="municipalityid" style="margin-bottom: 10px;" required>
-                                <option value="" disabled selected hidden>Municipality</option>
+                                <option disabled selected hidden>Select your Municipality</option>
                                 <?php 
                                     //$municipality = getAll("municipality");
                                     $query_municipality = "SELECT * FROM municipality WHERE status= '1'";
