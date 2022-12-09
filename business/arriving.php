@@ -193,7 +193,7 @@ include('../config/dbcon.php');
                         </div> -->
                     </div>
                     <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a href="https://www.w3schools.com" class="btn-danger">Archives</a></div>
+                    <!-- <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivearriving.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Archives</a></div> -->
                     </div>
                 </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -209,7 +209,7 @@ include('../config/dbcon.php');
                                     <th>Reservation Date</th>
                                     <th>Reservation Time</th>
                                     <th>Status</th>
-                                    <th>Archive</th>
+                                    <!-- <th>Archive</th> -->
                                 </tr>
                             </thead>
                             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -261,9 +261,9 @@ include('../config/dbcon.php');
                                                             <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
                                                         </td> -->
 
-                                                        <td>
+                                                        <!-- <td>
                                                             <button class="btn btn-danger btn-sm" type="submit" value = "<?= $item['reservationid']; ?>" name="archive_reservation_btn"><i class="fas fa-archive"></i> </button>
-                                                        </td>
+                                                        </td> -->
                                                         
                                                     </tr>
                                                 <?php
