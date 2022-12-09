@@ -436,7 +436,7 @@ $(document).ready(function(){
                 $('#searchlist').html(data);
             }
         });
-        $(document).on('click','li', function(){
+        $(document).on('click','list-group-item', function(){
             $('#search').val($(this).text());
             $('#searchlist').fadeOut();
         });

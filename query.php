@@ -16,12 +16,12 @@ if(isset($_POST["query"]))
     {
         while($row = mysqli_fetch_array($result))
         {
-            $output .= '<li>'.$row["business_name"].'</li>';
+            $output .= '<li class="list-group-item">'.$row["business_name"].'</li>';
         }
     }
     else
     {
-        $output .= '<li>Business Not Found</li>';
+        $output .= '<li class="list-group-item">Business Not Found</li>';
     }
     $output .= '</ul>';
     echo $output;
