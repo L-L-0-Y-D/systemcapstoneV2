@@ -58,8 +58,10 @@ include('../config/dbcon.php');
                                         <option value="Drinks">Drinks</option>
                                     </select>
                                 </label>
+                                <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Archives</a></div>  
                             </div>
-                        </div>  
+                        </div>
+                        
                         <div class="container" id="container">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
                                 <?php

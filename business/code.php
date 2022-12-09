@@ -910,6 +910,35 @@ else if(isset($_POST['restore_blockdate_btn']))
     }
 
 }
+else if(isset($_POST['restore_product_btn']))
+{
+    $status = 1;
+    $businessid = $_POST['businessid'];
+    $productid = $_POST['restore_product_btn'];
+
+    $update_product_query = "UPDATE products SET status= '$status' WHERE productid='$productid'";
+    $update_product_query_run = mysqli_query($con,$update_product_query) or die("bad query: $update_product_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_product_query_run)
+    {
+        if($status == 1)
+        {
+            redirect("menu.php?id=$businessid", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("menu.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("menu.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');

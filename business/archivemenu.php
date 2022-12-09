@@ -25,7 +25,7 @@ include('includes/header.php');
             //get the next page
             $next_page = $page_no + 1;
             //get the total count of records
-            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM blockdate WHERE status = 2 AND businessid = '$id'") or die(mysqli_error($con));
+            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM products WHERE status = 2 AND businessid = '$id'") or die(mysqli_error($con));
             //total records
             $records = mysqli_fetch_array($result_count);
             //store total_records to a variable
@@ -34,22 +34,25 @@ include('includes/header.php');
             $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
             //query string
-            $table_query = "SELECT * FROM blockdate WHERE status = 2 AND businessid = '$id' ORDER BY blockdateid DESC LIMIT $offset, $total_records_per_page";
+            $table_query = "SELECT * FROM products WHERE status = 2 AND businessid = '$id' ORDER BY productid DESC LIMIT $offset, $total_records_per_page";
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid pt-3">
-            <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Blockdate Archive</h4>
+            <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Menu Archive</h4>
         <div class="card shadow">
             <div class="card-body">
                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                     <table class="table my-0" id="dataTable">
                         <thead style="text-align:center">
                         <tr>
-                            <th>Reason</th>
-                            <th>Date</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Course Menu</th>
+                            <th>Cuisine Type</th>
                             <th>Status</th>
-                            <!-- <th>Delete</th> -->
                             <th>Restore</th>
                         </tr>
                         </thead>
@@ -66,20 +69,24 @@ include('includes/header.php');
                                         {
                                        ?>
                                        <tr>
-                                            <td><?= $item['reason']; ?></td>
-                                            <td><?= $item['blockdates']; ?></td>
+                                            <td><img class="p-3" src="../uploads/<?= $item['image']; ?>" height="75px" width="75px"></td>
+                                            <td><?= $item['name']; ?></td>
+                                            <td><?= $item['price']; ?></td>
+                                            <td><?= $item['description']; ?></td>
+                                            <td><?= $item['food_type']; ?></td>
+                                            <td><?= $item['cuisinename']; ?></td>
                                             <td><?php 
-                                                if($item['status'] == 0)
-                                                    { echo 'Waiting'; } 
+                                                if($item['status'] == 2)
+                                                    { echo 'Archive'; } 
                                                 elseif($item['status'] == 1)
-                                                    { echo 'Active';}
-                                                elseif($item['status'] == 2)
-                                                    {echo 'Archive';}  
-                                            ?></td>                                                                                      
-
+                                                    { echo 'Archive';} 
+                                                ?></td>                                                                                                         
+                                                <!-- <td>
+                                                    <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
+                                                </td> -->
                                             <td>
                                                 <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>"> 
-                                                <button class="btn btn-success btn-sm" type="submit" value = "<?= $item['blockdateid']; ?>" name="restore_blockdate_btn"><i class="fas fa-archive"></i> </button>
+                                                <button class="btn btn-success btn-sm" type="submit" value = "<?= $item['productid']; ?>" name="restore_product_btn"><i class="fas fa-archive"></i> </button>
                                             </td>
                                        </tr>
                                        <?php
