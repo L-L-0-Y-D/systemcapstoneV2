@@ -41,13 +41,14 @@ function reservationGetByIDreservation($id)
 function getReservationByUser($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
     JOIN managetable
     ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = '$id'
+    AND reservations.archive = '0'
     ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
@@ -55,7 +56,7 @@ function getReservationByUser($id)
 function reservationGetByIDWaiting($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.reservation_date,managetable.tableid,managetable.table_number,managetable.chair,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.reservation_date,managetable.tableid,managetable.table_number,managetable.chair,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -63,6 +64,7 @@ function reservationGetByIDWaiting($id)
     ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = $id 
     AND reservations.status = 0
+    AND reservations.archive = 0
     ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
@@ -70,13 +72,14 @@ function reservationGetByIDWaiting($id)
 function reservationGetByIDApproved($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
     JOIN managetable
     ON reservations.tableid=managetable.tableid
-    WHERE reservations.userid = $id 
+    WHERE reservations.userid = $id
+    AND reservations.archive = 0 
     AND reservations.status = 1
     AND NOT reservations.arrived = 1
     ORDER BY reservations.reservationid DESC";
@@ -86,24 +89,26 @@ function reservationGetByIDApproved($id)
 function reservationGetByIDDeclined($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.reservation_date,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.reservation_date,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
     WHERE reservations.userid = $id 
     AND reservations.status = 2
+    AND reservations.archive = 0 
     ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
 function reservationGetByIDCancelled($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.reservation_date,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.reservation_date,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
     WHERE reservations.userid = $id 
     AND reservations.status = 3
+    AND reservations.archive = 0 
     ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }
@@ -111,7 +116,7 @@ function reservationGetByIDCancelled($id)
 function reservationGetByIDReview($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.arrived,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.arrived,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -119,6 +124,7 @@ function reservationGetByIDReview($id)
     ON reservations.tableid=managetable.tableid
     WHERE reservations.userid = $id 
     AND reservations.arrived = 1
+    AND reservations.archive = 0 
     ORDER BY reservations.reservationid DESC";
     return $query_run = mysqli_query($con, $query);
 }

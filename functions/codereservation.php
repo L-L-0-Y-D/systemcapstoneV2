@@ -18,9 +18,10 @@ if(isset($_POST['reserve_btn']))
     $comment_subject = "NEW RESERVATION";
     $comment_text = "You have new reservation from $namereserveunder";
     $usertype = "3";
+    $archive = "0";
     //part 5
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=? AND NOT status=? AND NOT status=?");
-    $stmt -> bind_param('ssiss', $date, $reservation_time, $resourceid,$statusDeclined,$statusCancelled);
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=? AND archive=? AND NOT status=? AND NOT status=?");
+    $stmt -> bind_param('ssisss', $date, $reservation_time, $resourceid,$archive,$statusDeclined,$statusCancelled);
     
     $bookings = array();
 

@@ -52,6 +52,7 @@ function build_calendar($month,$year,$resourceid){
     $cleanup = 10;
     $start = $data['opening'];
     $end = $data['closing'];  
+    date_default_timezone_set("Asia/Singapore");
     // Part 2
     
     // $stmt = $mysqli->prepare("SELECT * FROM bookings WHERE MONTH(date) = ? AND YEAR(date) = ?");
@@ -300,8 +301,9 @@ function build_calendar($month,$year,$resourceid){
 function checkSlots($mysqli, $date, $resourceid){
     $statusDeclined = "2";
     $statusCancelled = "3";
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND NOT status=? AND NOT status=?");
-    $stmt -> bind_param('ssss', $date, $resourceid,$statusDeclined,$statusCancelled);
+    $archive= "0";
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND archive=? AND NOT status=? AND NOT status=?");
+    $stmt -> bind_param('sssss', $date, $resourceid,$archive,$statusDeclined,$statusCancelled);
     $totalbookings = 0;
 
     if($stmt -> execute())

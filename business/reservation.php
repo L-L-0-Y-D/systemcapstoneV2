@@ -39,7 +39,7 @@ include('../config/dbcon.php');
             //get the next page
             $next_page = $page_no + 1;
             //get the total count of records
-            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid") or die(mysqli_error($con));
+            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid AND reservations.archive=0") or die(mysqli_error($con));
             //total records
             $records = mysqli_fetch_array($result_count);
             //store total_records to a variable
@@ -48,7 +48,7 @@ include('../config/dbcon.php');
             $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
             //query string
-            $table_query = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid  AND reservations.businessid = $businessuserid AND NOT reservations.status = '0' AND NOT reservations.status = '4' ORDER BY reservationid DESC LIMIT $offset, $total_records_per_page";
+            $table_query = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name,reservations.archive FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid  AND reservations.businessid = $businessuserid AND reservations.archive = '0' ORDER BY reservationid DESC LIMIT $offset, $total_records_per_page";
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
@@ -162,7 +162,7 @@ include('../config/dbcon.php');
                         </div> -->
                     </div>
                     <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a href="https://www.w3schools.com" class="btn-danger">Archives</a></div>
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivereservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Archives</a></div>
                     </div>
                 </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">

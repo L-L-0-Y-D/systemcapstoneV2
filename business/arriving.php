@@ -209,7 +209,6 @@ include('../config/dbcon.php');
                                     <th>Reservation Date</th>
                                     <th>Reservation Time</th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                     <th>Archive</th>
                                 </tr>
                             </thead>
