@@ -939,6 +939,35 @@ else if(isset($_POST['restore_product_btn']))
     }
 
 }
+else if(isset($_POST['restore_table_btn']))
+{
+    $status = 1;
+    $businessid = $_POST['businessid'];
+    $tableid = $_POST['restore_table_btn'];
+
+    $update_table_query = "UPDATE managetable SET status= '$status' WHERE tableid='$tableid'";
+    $update_table_query_run = mysqli_query($con,$update_table_query) or die("bad query: $update_table_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 1)
+        {
+            redirect("table.php?id=$businessid", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("table.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("table.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');

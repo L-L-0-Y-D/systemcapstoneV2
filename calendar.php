@@ -195,6 +195,7 @@ function build_calendar($month,$year,$resourceid){
         //part 6 specific date
         foreach ($query_blockdates_run as $value) {
             $blocks .=  $date == "{$value['blockdates']}";
+            // $reasons .= "{$value['reason']}";
 
             
         }
@@ -203,7 +204,9 @@ function build_calendar($month,$year,$resourceid){
 
         if($blocks)
         {
-            $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Blockdates</i></p>";
+            // foreach ($query_blockdates_run as $value) {
+                $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>No Reservation</i></p>";
+            // }
             //part 6   
         }
         /* Checking if the date is equal to 2022-11-02. If it is, it will display the date and a

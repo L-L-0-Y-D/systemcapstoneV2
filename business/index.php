@@ -163,6 +163,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                                                     JOIN users
                                                                     ON reservations.userid=users.userid
                                                                     WHERE reservations.businessid = $businessuserid
+                                                                    AND reservations.archive = '0'
                                                                     ORDER BY reservationid DESC"; 
                                                                     $query_reservation_run = mysqli_query($con, $query_reservation);
 
