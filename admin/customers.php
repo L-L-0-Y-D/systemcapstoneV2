@@ -43,11 +43,12 @@ include('includes/header.php');
                             
                                 <tbody style="text-align:center">
                                     <?php
-                                        $users = getAll("users");
+                                        $query_users = "SELECT * FROM users WHERE NOT status='3' ORDER BY userid DESC";
+                                        $query_users_run = mysqli_query($con, $query_users);
 
-                                        if(mysqli_num_rows($users ) > 0)
+                                        if(mysqli_num_rows($query_users_run) > 0)
                                         {
-                                            foreach($users  as $item)
+                                            foreach($query_users_run  as $item)
                                             {
                                             if($item['role_as'] == 0)
                                             {
