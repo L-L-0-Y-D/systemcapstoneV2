@@ -1229,6 +1229,34 @@ else if(isset($_POST['restore_category_btn']))
     }
 
 }
+else if(isset($_POST['archive_admin_btn']))
+{
+    $archive = 1;
+    $userid = $_POST['userid'];
+
+    $update_user_query = "UPDATE users SET archive= '$archive' WHERE userid='$userid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_user_query_run = mysqli_query($con, $update_user_query);
+
+    if($update_user_query_run)
+    {
+        if($archive == 1)
+        {
+            redirect("admin.php", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("admin.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("admin.php", "Something Went Wrong", "error"); 
+    }
+
+}
 else
 {
     header('Location: ../index.php');
