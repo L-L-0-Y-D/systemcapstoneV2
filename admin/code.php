@@ -1060,19 +1060,48 @@ else if(isset($_POST['edit_password_btn']))
 }
 else if(isset($_POST['archive_business_btn']))
 {
-    $status = 3;
+    $archive = 1;
     $businessid = $_POST['businessid'];
 
-    $update_table_query = "UPDATE business SET status= '$status' WHERE businessid='$businessid'";
+    $update_table_query = "UPDATE business SET archive= '$archive' WHERE businessid='$businessid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_table_query_run = mysqli_query($con, $update_table_query);
 
     if($update_table_query_run)
     {
-        if($status == 3)
+        if($archive == 1)
         {
             redirect("busiowner.php", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("busiowner.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("busiowner.php", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['restore_business_btn']))
+{
+    $archive = 0;
+    // $businessid = $_POST['businessid'];
+    $businessid = $_POST['businessid'];
+
+    $update_business_query = "UPDATE business SET archive= '$archive' WHERE businessid='$businessid'";
+    $update_business_query_run = mysqli_query($con,$update_business_query) or die("bad query: $update_business_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_business_query_run)
+    {
+        if($archive == 0)
+        {
+            redirect("busiowner.php", "Data Restore Success", "success");
         }
         else
         {

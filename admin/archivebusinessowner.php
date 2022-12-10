@@ -1,11 +1,14 @@
 <?php 
 
+include('../config/dbcon.php');
 include('../middleware/adminMiddleware.php');
 include('includes/header.php');
 
 
 ?>
-<?php
+ <?php 
+
+    $userid = $_SESSION['auth_user']['userid'];
     if(isset($_GET['page_no']) && $_GET['page_no']) {
         $page_no = $_GET['page_no'];
     } else {
@@ -23,7 +26,7 @@ include('includes/header.php');
     //get the next page
     $next_page = $page_no + 1;
     //get the total count of records
-    $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM business WHERE archive = '0'") or die(mysqli_error($con));
+    $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM business WHERE archive = '1'") or die(mysqli_error($con));
     //total records
     $records = mysqli_fetch_array($result_count);
     //store total_records to a variable
@@ -36,50 +39,34 @@ include('includes/header.php');
     FROM business
     JOIN municipality
     ON business.municipalityid=municipality.municipalityid
-    WHERE business.archive = '0' ORDER BY businessid DESC LIMIT $offset, $total_records_per_page";
+    WHERE business.archive = '1' ORDER BY businessid DESC LIMIT $offset, $total_records_per_page";
     // result
     $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
-    <div class="container-fluid">
-        <h4 class="text-dark">BUSINESS PARTNERS</h4>         
+    <div class="container-fluid pt-3">
+            <h4 class="text-dark">Business Owner Archive</h4>
         <div class="card shadow">
-            <div class="card-body" id="business_table">
-                <div class="row">
-                    <div class="col-md-6 text-nowrap">
-                        <!-- <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
-                            <option value="10" selected="">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                            </select>&nbsp;</label>
-                        </div> -->
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivebusinessowner.php">Archives</a></div>
-                    </div>
-                </div>
-                    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                        <table class="table my-0" id="dataTable" style="text-align:center">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Business Permit</th>
-                                    <th>Map Location</th>
-                                    <th>Business Name</th>
-                                    <th>Cuisine Type</th>
-                                    <th>Municipality</th>
-                                    <th>Opening Time</th>
-                                    <th>Closing Time</th>
-                                    <th>Firstname</th>
-                                    <th>Lastname</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                    <th>Archive</th>
-                                    <!--<th>Delete</th>-->
-                                </tr>
-                            </thead>
-                            
-                            <tbody style="text-align:center">
+            <div class="card-body">
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table my-0" id="dataTable">
+                        <thead style="text-align:center">
+                        <tr>
+                            <th>Image</th>
+                            <th>Business Permit</th>
+                            <th>Map Location</th>
+                            <th>Business Name</th>
+                            <th>Cuisine Type</th>
+                            <th>Municipality</th>
+                            <th>Opening Time</th>
+                            <th>Closing Time</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Status</th>
+                            <th>Restore</th>
+                        </tr>
+                        </thead>
+                        <form action="code.php" method="POST" enctype="multipart/form-data">
+                        <tbody style="text-align:center">
                                 <?php
                                     // $business = businessGetAll();
 
@@ -123,22 +110,22 @@ include('includes/header.php');
                                                             <td><?= $item['business_firstname']; ?></td>
                                                             <td><?= $item['business_lastname']; ?></td>
                                                             <td><?php 
-                                                                if($item['status'] == 0)
-                                                                    { echo 'Waiting'; } 
-                                                                elseif($item['status'] == 1)
-                                                                    { echo 'Approved';}
+                                                                if($item['archive'] == 0)
+                                                                    { echo 'Not Archive'; } 
+                                                                elseif($item['archive'] == 1)
+                                                                    { echo 'Archive';}
                                                                 else
                                                                     {echo 'Declined';}  
                                                                 ?></td>
-                                                            <td>
+                                                            <!-- <td>
                                                             <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
-                                                            </td>
+                                                            </td> -->
                                                             <!-- <td>
                                                                 <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>
                                                             </td> -->
                                                             <form action="code.php" method="POST" enctype="multipart/form-data">
                                                             <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
-                                                            <td><button type="submit" class="btn btn-sm btn-danger"  name="archive_business_btn"><i class="fas fa-archive"></i></button></td>
+                                                            <td><button type="submit" class="btn btn-sm btn-success"  name="restore_business_btn"><i class="fas fa-archive"></i></button></td>
                                                             </form>
                                                     </tr>
                                                 <?php
@@ -151,9 +138,10 @@ include('includes/header.php');
                                     }
                                 ?>
                             </tbody>
-                        </table>
-                    </div>
-                    <div class="row">
+                        </form>
+                    </table>
+                </div>
+                <div class="row">
                         <div class="col-md-6 align-self-center">
                             <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Page <?= $page_no; ?> of <?= $total_no_of_pages; ?></p>
                         </div>
@@ -176,15 +164,9 @@ include('includes/header.php');
                             </nav>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> 
-
 <?php 
 
 //include('../middleware/adminMiddleware.php');

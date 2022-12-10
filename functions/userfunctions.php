@@ -177,7 +177,7 @@ function getNameActive($table, $name, $tabledata)
 function getBusiByMunicipality($municipality_id)
 {
     global $con;
-    $query = "SELECT * FROM business WHERE municipalityid='$municipality_id' AND status= '1'";
+    $query = "SELECT * FROM business WHERE municipalityid='$municipality_id' AND status= '1' AND archive= '0'";
     return $query_run = mysqli_query($con, $query);
 }
 function getProductByBusiness($businessid)
@@ -234,7 +234,7 @@ function businessGetByIDActives($id)
 function getBusiByMunicipalityandReview($municipality_id)
 {
     global $con;
-    $query = "SELECT ROUND(AVG(review_table.user_rating),1) AS averagerating,business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at,review_table.review_id FROM business JOIN review_table ON business.businessid = review_table.businessid WHERE business.municipalityid='$municipality_id' AND business.status='1' group by business.businessid order by averagerating DESC";
+    $query = "SELECT ROUND(AVG(review_table.user_rating),1) AS averagerating,business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.archive,business.created_at,review_table.review_id FROM business JOIN review_table ON business.businessid = review_table.businessid WHERE business.municipalityid='$municipality_id' AND business.status='1' AND business.archive='0' group by business.businessid order by averagerating DESC";
     return $query_run = mysqli_query($con, $query);
 }
 
