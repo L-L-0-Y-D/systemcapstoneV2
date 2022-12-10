@@ -21,7 +21,30 @@
     background-color: rgb(255,128,64)!important;
   }
   
-  
+  .description {
+    font-family:Monsterrat;
+      display: grid;
+      position: absolute;
+      bottom:0;
+      left: 0;
+      text-align:left !important;
+      color: black;
+      padding: 10px;
+      font-size: 17px;
+      line-height: 18px;
+      width: 100%;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      opacity: 1;
+      color: #fff;
+      border-radius:10px;
+      transition: .3s ease;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+      background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.39));
+    }
+    
+    
   .btn-check:focus + .btn, .btn:focus {
     color: white;
     background-color: rgb(255,128,64);

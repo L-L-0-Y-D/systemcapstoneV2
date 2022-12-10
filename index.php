@@ -55,14 +55,19 @@
                         foreach($query_municipality_run as $item)
                         {
                             ?>
-                <div class="col-md-3 portfolio-item" data-bss-hover-animate="pulse" >
+                <div class="col-md-3 portfolio-item position-relative" data-bss-hover-animate="pulse"  >
                     <a class="portfolio-link" href="business.php?id=<?= $item['municipalityid']; ?>">
                         <div class="portfolio-hover" style="border-radius:10px;">
                             <div class="portfolio-hover-content">
-                                <h4 style="font-family: 'Vujahday Script', serif;font-size: 50px;" style="margin-left: 15px;padding-bottom: 5px;"><?= $item['municipality_name']; ?></h4>
+                                
                             </div>
                         </div>
                         <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="Municipality Image"style="border-radius:10px;height:300px; width:400px;" >
+                        <span class="description">
+                            <span class="description-heading fs-2 mb-2"><?= $item['municipality_name']; ?>
+                            <i class="fas fa-chevron-circle-right fs-4"></i></span>
+                            <span class="description-body">4 Restaurants</span>
+                        </span>
                     </a>
                 </div>
                 <?php
@@ -75,7 +80,7 @@
                 ?>
             </div>
         </div>
-    </section>
+    </section> 
     <section id="contact" >
         <div class="container">
             <div>

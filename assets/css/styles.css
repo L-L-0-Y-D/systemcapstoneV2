@@ -223,6 +223,9 @@
     font-size:smaller;
  
   }
+  .profile {
+    padding-top:50px!important;
+  }
   .profile .text-primary {
     --bs-text-opacity: 1;
     color: rgb(255,128,64)!important;
