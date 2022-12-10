@@ -302,7 +302,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {                           
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND NOT status='2' ORDER BY productid DESC";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {
@@ -412,7 +412,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {                           
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer';";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Appetizer' AND NOT status='2' ORDER BY productid DESC;";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {
@@ -522,7 +522,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {                                       
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup';";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Soup' AND NOT status='2' ORDER BY productid DESC;";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {
@@ -632,7 +632,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {                                        
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks';";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Drinks' AND NOT status='2' ORDER BY productid DESC;";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {
@@ -742,7 +742,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {                  
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish';";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'MeatDish' AND NOT status='2' ORDER BY productid DESC;";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {
@@ -852,7 +852,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {                                     
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main';";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Main' AND NOT status='2' ORDER BY productid DESC;";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {
@@ -962,7 +962,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {                  
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad';";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Salad' AND NOT status='2' ORDER BY productid DESC;";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {
@@ -1072,7 +1072,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {                                     
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert';";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'Dessert' AND NOT status='2' ORDER BY productid DESC;";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {
@@ -1182,7 +1182,7 @@
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
                                                         {     
-                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish';";
+                                                        $sql = "SELECT * FROM `products` WHERE businessid = $bid AND food_type = 'FishDish' AND NOT status='2' ORDER BY productid DESC;";
                                                         $result = $con->query($sql);
                                                         foreach($result as $item)
                                                         {

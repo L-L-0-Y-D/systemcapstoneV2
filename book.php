@@ -13,6 +13,7 @@ if(isset($date))
     $businessid = $_POST['id'];
     $statusDeclined = "2";
     $statusCancelled = "3";
+    $archive= "0";
     $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE tableid = ?");
     $stmt -> bind_param('i', $resourceid);
     $stmt -> execute();
@@ -28,8 +29,8 @@ if(isset($date))
     $date = $_POST['date'];
 
     //part 5
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND businessid=? AND NOT status=? AND NOT status=?");
-    $stmt -> bind_param('ssiss', $date, $resourceid, $businessid,$statusDeclined,$statusCancelled);
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND tableid=? AND businessid=? AND archive=? AND NOT status=? AND NOT status=?");
+    $stmt -> bind_param('ssisss', $date, $resourceid, $businessid,$archive,$statusDeclined,$statusCancelled);
     $bookings = array();
 
     if($stmt -> execute())

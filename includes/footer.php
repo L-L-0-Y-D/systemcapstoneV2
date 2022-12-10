@@ -96,7 +96,7 @@
             
             ?>
 
-<div id="review_modal" class="modal" tabindex="-1" role="dialog">
+<!-- <div id="review_modal" class="modal" tabindex="-1" role="dialog">
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
 	      	<div class="modal-header">
@@ -125,7 +125,7 @@
 	      	</div>
     	</div>
   	</div>
-</div>
+</div> -->
 
 <?php
             }
@@ -374,7 +374,7 @@ $(document).ready(function(){
         }
 ?>
 <!-- /* Creating a new Autocomplete object and passing it the search input element and the data array. */ -->
-<script>
+<!-- <script>
 
 var search = new Autocomplete(document.getElementById('search'),{
 
@@ -385,7 +385,7 @@ var search = new Autocomplete(document.getElementById('search'),{
 
 });
 
-</script>
+</script> -->
 <!-- <script>
 
 $(document).ready(function(){
@@ -411,3 +411,35 @@ $(document).ready(function(){
 })
 
 </script> -->
+
+<script>
+    $(document).ready(function(){
+        $('#search').keyup(function(){
+            var query = $(this).val();
+            // alert(query);
+            if(query != '')
+            {
+                $.ajax({
+                    url:"query.php",
+                    method:"POST",
+                    data:{query:query},
+                    success:function(data)
+                    {
+                        $('#searchlist').fadeIn();
+                        $('#searchlist').html(data);
+                    }
+                });
+            }
+            else
+            {
+                $('#searchlist').fadeOut();
+                $('#searchlist').html(data);
+            }
+        });
+        $(document).on('click','#businesslist', function(){
+            $('#search').val($(this).text());
+            $('#searchlist').fadeOut();
+        });
+    });
+
+</script>

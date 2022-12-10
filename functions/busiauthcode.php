@@ -168,10 +168,11 @@ else if(isset($_POST['business_login']))
                 if(password_verify($business_password, $row["business_password"]))
                 {
                         $status = $row['status']; 
+                        $archive = $row['archive']; 
                         if(mysqli_num_rows($login_query_run) > 0)
                         {      
                             $_SESSION['status'] = $status;
-                            if($status == '1')  
+                            if($status == '1' && $archive == '0')  
                             { 
                                 $_SESSION['auth'] = true;
 
@@ -198,7 +199,7 @@ else if(isset($_POST['business_login']))
                                 
                                 redirect("../business/index.php?id=$businessid", "Welcome to dashboard", "success");
                             }
-                            elseif($status == '2')
+                            elseif($status == '2' || $archive == '0')
                             {
                                 redirect("../ownerlogin.php", "Account Closed", "warning");
                             }

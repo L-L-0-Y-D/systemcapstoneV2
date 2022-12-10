@@ -578,17 +578,17 @@ else if(isset($_POST['update_arrived_btn']))
     {
         if($arrived == 1)
         {
-            redirect("reservation.php?id=$businessid", "User Arrived", "success");
+            redirect("arriving.php?id=$businessid", "User Arrived", "success");
         }
         elseif($arrived == 2)
         {
-            redirect("reservation.php?id=$businessid", "User Not Arrived", "warning");
+            redirect("arriving.php?id=$businessid", "User Not Arrived", "warning");
         }
 
     }
     else
     {
-        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
+        redirect("arriving.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -607,17 +607,17 @@ else if(isset($_POST['update_not_arrived_btn']))
     {
         if($arrived == 1)
         {
-            redirect("reservation.php?id=$businessid", "User Arrived", "success");
+            redirect("arriving.php?id=$businessid", "User Arrived", "success");
         }
         elseif($arrived == 2)
         {
-            redirect("reservation.php?id=$businessid", "User Not Arrived", "warning");
+            redirect("arriving.php?id=$businessid", "User Not Arrived", "warning");
         }
 
     }
     else
     {
-        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
+        redirect("arriving.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
@@ -652,6 +652,40 @@ else if(isset($_POST['add_blockdate_btn']))
             redirect("add-blockdate.php?id=$businessid", "Something Went Wrong", "error");
         }
      }
+}
+else if(isset($_POST['update_blockdate_btn']))
+{
+    $blockdateid = $_POST['blockdateid'];
+    $blockdates= $_POST['blockdates'];
+    $reason = $_POST['reason'];
+    $businessid = $_POST['businessid'];
+    $status = isset($_POST['status']) ? "1":"0";
+
+    // Check if table already registered
+    // $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table' AND businessid = '$businessid'";
+    // $check_table_query_run = mysqli_query($con, $check_table_query);
+    // if(mysqli_num_rows($check_table_query_run)>0)
+    // {
+    //     redirect("table.php?id=$businessid", "Table Number Already Exist.", "error");
+    // }
+    // else
+    // {
+
+        $update_block_query = "UPDATE blockdate SET blockdates='$blockdates',reason='$reason',status='$status' WHERE blockdateid='$blockdateid'";
+        //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+        $update_block_query_run = mysqli_query($con, $update_block_query );
+
+        if($update_block_query_run)
+        {
+            redirect("blockdate.php?id=$businessid", "Table Updated Successfully", "success");
+        }
+        else
+        {
+            redirect("edit-blockdate.php?id=$businessid", "Something Went Wrong", "error"); 
+        }
+    // }
+
 }
 else if(isset($_POST['add_cuisine_btn']))
 {
@@ -786,6 +820,151 @@ else if(isset($_POST['archive_menusort_btn']))
     else
     {
         redirect("menu.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['archive_reservation_btn']))
+{
+    $status = 1;
+    $businessid = $_POST['businessid'];
+    $reservationid = $_POST['archive_reservation_btn'];
+
+    $update_table_query = "UPDATE reservations SET archive= '$status' WHERE reservationid='$reservationid'";
+    $update_table_query_run = mysqli_query($con,$update_table_query) or die("bad query: $update_table_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 1)
+        {
+            redirect("reservation.php?id=$businessid", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("reservation.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['restore_reservation_btn']))
+{
+    $status = 0;
+    $businessid = $_POST['businessid'];
+    $reservationid = $_POST['restore_reservation_btn'];
+
+    $update_table_query = "UPDATE reservations SET archive= '$status' WHERE reservationid='$reservationid'";
+    $update_table_query_run = mysqli_query($con,$update_table_query) or die("bad query: $update_table_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 0)
+        {
+            redirect("reservation.php?id=$businessid", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("reservation.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("reservation.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['restore_blockdate_btn']))
+{
+    $status = 1;
+    $businessid = $_POST['businessid'];
+    $blockdateid = $_POST['restore_blockdate_btn'];
+
+    $update_blockdate_query = "UPDATE blockdate SET status= '$status' WHERE blockdateid='$blockdateid'";
+    $update_blockdate_query_run = mysqli_query($con,$update_blockdate_query) or die("bad query: $update_blockdate_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_blockdate_query_run)
+    {
+        if($status == 1)
+        {
+            redirect("blockdate.php?id=$businessid", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("blockdate.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("blockdate.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['restore_product_btn']))
+{
+    $status = 1;
+    $businessid = $_POST['businessid'];
+    $productid = $_POST['restore_product_btn'];
+
+    $update_product_query = "UPDATE products SET status= '$status' WHERE productid='$productid'";
+    $update_product_query_run = mysqli_query($con,$update_product_query) or die("bad query: $update_product_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_product_query_run)
+    {
+        if($status == 1)
+        {
+            redirect("menu.php?id=$businessid", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("menu.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("menu.php?id=$businessid", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['restore_table_btn']))
+{
+    $status = 1;
+    $businessid = $_POST['businessid'];
+    $tableid = $_POST['restore_table_btn'];
+
+    $update_table_query = "UPDATE managetable SET status= '$status' WHERE tableid='$tableid'";
+    $update_table_query_run = mysqli_query($con,$update_table_query) or die("bad query: $update_table_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_table_query_run)
+    {
+        if($status == 1)
+        {
+            redirect("table.php?id=$businessid", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("table.php?id=$businessid", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("table.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }

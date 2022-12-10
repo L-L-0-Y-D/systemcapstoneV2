@@ -1,11 +1,13 @@
 <?php 
 
+include('../config/dbcon.php');
 include('../middleware/adminMiddleware.php');
 include('includes/header.php');
 
 
 ?>
-<?php
+ <?php 
+
     $userid = $_SESSION['auth_user']['userid'];
     // $id = $_GET['id'];
     if(isset($_GET['page_no']) && $_GET['page_no']) {
@@ -25,7 +27,7 @@ include('includes/header.php');
     //get the next page
     $next_page = $page_no + 1;
     //get the total count of records
-    $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM review_table") or die(mysqli_error($con));
+    $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM users WHERE archive='1' AND role_as = 1") or die(mysqli_error($con));
     //total records
     $records = mysqli_fetch_array($result_count);
     //store total_records to a variable
@@ -34,48 +36,76 @@ include('includes/header.php');
     $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
     //query string
-    $table_query = "SELECT * FROM review_table ORDER BY review_id DESC LIMIT $offset, $total_records_per_page";
+    $table_query = "SELECT * FROM users WHERE archive='1' AND role_as = 1 ORDER BY userid DESC LIMIT $offset, $total_records_per_page";
     // result
     $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
-    <div class="container-fluid">
-        <h4 class="text-dark mb-4">Feedback</h4>
+    <div class="container-fluid pt-3">
+            <h4 class="text-dark">Customer Archive</h4>
         <div class="card shadow">
             <div class="card-body">
                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                     <table class="table my-0" id="dataTable">
                         <thead style="text-align:center">
                         <tr>
-                            <th>Name</th>
-                            <th>Rating</th>
-                            <th>Review</th>
+                            <th>Image</th>
+                            <th>Username</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Address</th>
+                            <th>Age</th>
+                            <th>Status</th>
+                            <th>Role</th>
+                            <th>Restore</th>
                         </tr>
                         </thead>
-                
+                        <form action="code.php" method="POST" enctype="multipart/form-data">
                         <tbody style="text-align:center">
                             <?php
-                                // $review = feedbackGetAll();
+                                // $review = getAll("review_table");
 
-                               if(mysqli_num_rows($result) > 0)
-                               {
+                                if(mysqli_num_rows($result) > 0)
+                                {
                                    foreach($result as $item)
                                    {
-                                       ?>
-                                       <tr>
-                                            <td><?= $item['user_name']; ?></td>
-                                            <td><?= $item['user_rating']; ?></td>
-                                            <td><?= $item['user_review'];?></td>
-                                       </tr>
-                                       <?php
-                                       
+                                    if($item['role_as'] == 1)
+                                    {
+                                    ?>
+                                        <tr>
+                                            <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
+                                            <td><?= $item['name']; ?></td>
+                                            <td><?= $item['firstname']; ?></td>
+                                            <td><?= $item['lastname']; ?></td>
+                                            <td><?= $item['address']; ?></td>
+                                            <td><?= $item['age']; ?></td>
+                                            <td><?php 
+                                                if($item['archive'] == 0)
+                                                    { echo 'Not Archive'; } 
+                                                elseif($item['archive'] == 1)
+                                                    { echo 'Archive';} 
+                                                ?>
+                                            </td>
+                                            <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
+                                                        <!-- <td>
+                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                                                        </td> -->
+                                                        
+                                            <form action="code.php" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="userid" value="<?= $item['userid']; ?>">
+                                                <td><button type="submit" class="btn btn-sm btn-success"  name="restore_user_btn"><i class="fas fa-archive"></i></button></td>
+                                             </form>
+                                        </tr>
+                                    <?php
+                                    }
                                    }
-                               }
+                                }
                                 else
                                 {
                                     echo "No records Found";
                                 }
                             ?>
                         </tbody>
+                        </form>
                     </table>
                 </div>
                 <div class="row">

@@ -18,9 +18,10 @@ if(isset($_POST['reserve_btn']))
     $comment_subject = "NEW RESERVATION";
     $comment_text = "You have new reservation from $namereserveunder";
     $usertype = "3";
+    $archive = "0";
     //part 5
-    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=? AND NOT status=? AND NOT status=?");
-    $stmt -> bind_param('ssiss', $date, $reservation_time, $resourceid,$statusDeclined,$statusCancelled);
+    $stmt = $mysqli->prepare("SELECT * FROM reservations WHERE reservation_date = ? AND reservation_time = ? AND tableid=? AND archive=? AND NOT status=? AND NOT status=?");
+    $stmt -> bind_param('ssisss', $date, $reservation_time, $resourceid,$archive,$statusDeclined,$statusCancelled);
     
     $bookings = array();
 
@@ -80,9 +81,14 @@ if(isset($_POST['cancelled_btn']))
     $cancelled = 3;
     $reservationid = $_POST['reservationid'];
     $userid = $_POST['userid'];
+    $namereserveunder = $_POST['namereserveunder'];
+    $businessid = $_POST['businessid'];
 
     $update_cancelled_query = "UPDATE reservations SET status='$cancelled' WHERE reservationid='$reservationid'";
     $update_cancelled_query_run = mysqli_query($con,$update_cancelled_query) or die("bad query: $update_cancelled_query");
+
+    $insert_notification = "INSERT INTO notifications (businessid,comment_subject,comment_text,usertype) VALUES ('$businessid','RESERVATION Cancelled', 'The reservation from $namereserveunder has been cancelled', '3')";
+    $insert_notification_run = mysqli_query($con, $insert_notification) or die("bad query: $insert_notification");;
 
     // $update_table_query_run = mysqli_query($con, $update_table_query);
 

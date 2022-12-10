@@ -58,8 +58,10 @@ include('../config/dbcon.php');
                                         <option value="Drinks">Drinks</option>
                                     </select>
                                 </label>
+                                <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Archives</a></div>  
                             </div>
-                        </div>  
+                        </div>
+                        
                         <div class="container" id="container">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
                                 <?php
@@ -89,7 +91,7 @@ include('../config/dbcon.php');
                                                                 <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
                                                                 <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>
                                                               
-                                                                <button class="btn btn-danger btn-sm" type="submit" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
+                                                                <button class="btn btn-danger btn-sm" type="submit" value = "<?= $item['productid']; ?>" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
                                                             </div>
                                                         </div>
                                                     </div>

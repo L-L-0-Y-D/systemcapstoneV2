@@ -56,7 +56,7 @@
                     JOIN 
                     municipality
                     ON business.municipalityid = municipality.municipalityid
-                    WHERE business.business_name LIKE :keyword OR business.cuisinename LIKE :keyword OR municipality.municipality_name LIKE :keyword AND business.status = '1' ORDER BY business.business_name ASC");
+                    WHERE business.business_name LIKE :keyword AND business.status = '1' OR business.cuisinename LIKE :keyword AND business.status = '1' OR municipality.municipality_name LIKE :keyword AND business.status = '1' ORDER BY business.business_name ASC");
                     $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll();
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <a href="#" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?>(<?= $item['municipality_name']; ?>)</a>
+                    <a href="businessview.php?id=<?= $item['businessid']; ?>" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?>(<?= $item['municipality_name']; ?>)</a>
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>
                     <div class="rating d-flex ">

@@ -39,7 +39,7 @@ include('../config/dbcon.php');
             //get the next page
             $next_page = $page_no + 1;
             //get the total count of records
-            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid") or die(mysqli_error($con));
+            $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid AND reservations.archive=0") or die(mysqli_error($con));
             //total records
             $records = mysqli_fetch_array($result_count);
             //store total_records to a variable
@@ -48,7 +48,7 @@ include('../config/dbcon.php');
             $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
             //query string
-            $table_query = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid  AND reservations.businessid = $businessuserid ORDER BY reservationid DESC LIMIT $offset, $total_records_per_page";
+            $table_query = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name,reservations.archive FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid JOIN users ON reservations.userid=users.userid WHERE reservations.businessid = $businessuserid  AND reservations.businessid = $businessuserid AND reservations.archive = '0' ORDER BY reservationid DESC LIMIT $offset, $total_records_per_page";
             // result
             $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
@@ -56,20 +56,6 @@ include('../config/dbcon.php');
     <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Reservation List</h4>
         <div class="card shadow">
             <div class="card-body" id="reservation_table">
-                <div class="row">
-                    <div class="col-md-6 text-nowrap">
-                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
-                            <option value="10" selected="">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                            </select>&nbsp;</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <!-- <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div> -->
-                        </div>
-                    </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                         <table class="table my-0" id="dataTable" style="text-align:center">
                             <thead>
@@ -92,10 +78,20 @@ include('../config/dbcon.php');
                                 <?php
                                     // $reservations = getAll("reservations");
                                     //$reservations = getAll("reservations");
+                                    $query_reservation_waiting = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
+                                    FROM reservations
+                                    JOIN managetable 
+                                    ON reservations.tableid=managetable.tableid
+                                    JOIN users
+                                    ON reservations.userid=users.userid
+                                    WHERE reservations.businessid = $businessuserid
+                                    AND reservations.status = '0'
+                                    ORDER BY reservationid DESC";
+                                    $query_reservation_waiting_run = mysqli_query($con, $query_reservation_waiting);
                                      
-                                    if(mysqli_num_rows($result) > 0)
+                                    if(mysqli_num_rows($query_reservation_waiting_run) > 0)
                                     {
-                                        foreach($result as $item)
+                                        foreach($query_reservation_waiting_run as $item)
                                         {
                                             if($item['businessid'] == $_SESSION['auth_user']['businessid'])
                                                 {
@@ -148,6 +144,111 @@ include('../config/dbcon.php');
                                     }
                                 ?>
                             </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <div class="card shadow">
+            <div class="card-body" id="reservation_table">
+                <div class="row">
+                    <div class="col-md-6 text-nowrap">
+                        <h4 class="text-dark">Reservation History</h4>
+                        <!-- <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
+                            <option value="10" selected="">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            </select>&nbsp;</label>
+                        </div> -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivereservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Archives</a></div>
+                    </div>
+                </div>
+                    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                        <table class="table my-0" id="dataTable" style="text-align:center">
+                            <thead>
+                                <tr>
+                                    <th>Account Name</th>
+                                    <th>Reserved By</th>
+                                    <th>Table No.</th>
+                                    <th>No. of Guest</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Reservation Date</th>
+                                    <th>Reservation Time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                    <th>Archive</th>
+                                </tr>
+                            </thead>
+                            <form action="code.php" method="POST" enctype="multipart/form-data">
+                            <tbody style="text-align:center">
+                                <?php
+                                    // $reservations = getAll("reservations");
+                                    //$reservations = getAll("reservations");
+                                     
+                                    if(mysqli_num_rows($result) > 0)
+                                    {
+                                        foreach($result as $item)
+                                        {
+                                            if($item['businessid'] == $_SESSION['auth_user']['businessid'])
+                                                {
+                                                ?>
+
+                                                        <!-- <td><?= $item['reservationid']; ?></td> -->
+                                                        <td><?= $item['name']; ?></td>
+                                                        <td><?= $item['namereserveunder']; ?></td>
+                                                        <td><?= $item['table_number']; ?></td>
+                                                        <td><?= $item['chair']; ?></td>
+                                                        <td><?= $item['reservation_phonenumber']; ?></td>
+                                                        <td><?= $item['reservation_email']; ?></td>
+                                                        <td><?= $item['reservation_date']; ?></td>
+                                                        <td><?= $item['reservation_time']; ?></td>
+                                                        <td><?php 
+                                                                if($item['status'] == 0)
+                                                                    { echo 'Waiting'; } 
+                                                                elseif($item['status'] == 1)
+                                                                    { echo 'Approved';}
+                                                                elseif($item['status'] == 2)
+                                                                    {echo 'Declined';}
+                                                                elseif($item['status'] == 3)
+                                                                    {echo 'Cancelled';}  
+                                                        ?></td>                                                                                                         
+                                                        <td>
+                                                            <?php
+                                                            if($item['status'] == 3)
+                                                            {
+                                                            ?>
+                                                                <a href="#" class="btn disabled edit-btn" disabled><i class="fas fa-pencil-alt"></i></a>
+                                                            <?php
+                                                            }else{
+                                                            ?>
+                                                                <a href="edit-reservation.php?id=<?= $item['reservationid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                        <!-- <td>
+                                                            <button type="button" class="btn btn-sm btn-danger delete_reservation_btn" value="<?=$item['reservationid'];?>">Delete</button>
+                                                        </td> -->
+
+                                                        <td>
+                                                            <button class="btn btn-danger btn-sm" type="submit" value = "<?= $item['reservationid']; ?>" name="archive_reservation_btn"><i class="fas fa-archive"></i> </button>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                <?php
+                                                }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        echo "No records Found";
+                                    }
+                                ?>
+                            </tbody>
+                            </form>
                         </table>
                     </div>
                     <div class="row">

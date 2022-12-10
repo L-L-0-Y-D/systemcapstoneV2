@@ -1060,17 +1060,17 @@ else if(isset($_POST['edit_password_btn']))
 }
 else if(isset($_POST['archive_business_btn']))
 {
-    $status = 3;
+    $archive = 1;
     $businessid = $_POST['businessid'];
 
-    $update_table_query = "UPDATE business SET status= '$status' WHERE businessid='$businessid'";
+    $update_table_query = "UPDATE business SET archive= '$archive' WHERE businessid='$businessid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_table_query_run = mysqli_query($con, $update_table_query);
 
     if($update_table_query_run)
     {
-        if($status == 3)
+        if($archive == 1)
         {
             redirect("busiowner.php", "Archive Success", "success");
         }
@@ -1086,19 +1086,48 @@ else if(isset($_POST['archive_business_btn']))
     }
 
 }
+else if(isset($_POST['restore_business_btn']))
+{
+    $archive = 0;
+    // $businessid = $_POST['businessid'];
+    $businessid = $_POST['businessid'];
+
+    $update_business_query = "UPDATE business SET archive= '$archive' WHERE businessid='$businessid'";
+    $update_business_query_run = mysqli_query($con,$update_business_query) or die("bad query: $update_business_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_business_query_run)
+    {
+        if($archive == 0)
+        {
+            redirect("busiowner.php", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("busiowner.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("busiowner.php", "Something Went Wrong", "error"); 
+    }
+
+}
 else if(isset($_POST['archive_user_btn']))
 {
-    $status = 3;
+    $archive = 1;
     $userid = $_POST['userid'];
 
-    $update_table_query = "UPDATE users SET status= '$status' WHERE userid='$userid'";
+    $update_user_query = "UPDATE users SET archive= '$archive' WHERE userid='$userid'";
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
-    $update_table_query_run = mysqli_query($con, $update_table_query);
+    $update_user_query_run = mysqli_query($con, $update_user_query);
 
-    if($update_table_query_run)
+    if($update_user_query_run)
     {
-        if($status == 3)
+        if($archive == 1)
         {
             redirect("customers.php", "Archive Success", "success");
         }
@@ -1114,9 +1143,38 @@ else if(isset($_POST['archive_user_btn']))
     }
 
 }
+else if(isset($_POST['restore_user_btn']))
+{
+    $archive = 0;
+    // $businessid = $_POST['businessid'];
+    $userid = $_POST['userid'];
+
+    $update_user_query = "UPDATE users SET archive= '$archive' WHERE userid='$userid'";
+    $update_user_query_run = mysqli_query($con,$update_user_query) or die("bad query: $update_user_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_user_query_run)
+    {
+        if($archive == 0)
+        {
+            redirect("customers.php", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("customers.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("customers.php", "Something Went Wrong", "error"); 
+    }
+
+}
 else if(isset($_POST['archive_category_btn']))
 {
-    $status = 3;
+    $status = 2;
     $categoryid = $_POST['categoryid'];
 
     $update_table_query = "UPDATE mealcategory SET status= '$status' WHERE categoryid='$categoryid'";
@@ -1126,7 +1184,7 @@ else if(isset($_POST['archive_category_btn']))
 
     if($update_table_query_run)
     {
-        if($status == 3)
+        if($status == 2)
         {
             redirect("category.php", "Archive Success", "success");
         }
@@ -1139,6 +1197,63 @@ else if(isset($_POST['archive_category_btn']))
     else
     {
         redirect("category.php", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['restore_category_btn']))
+{
+    $status = 1;
+    // $businessid = $_POST['businessid'];
+    $categoryid = $_POST['restore_category_btn'];
+
+    $update_category_query = "UPDATE mealcategory SET status= '$status' WHERE categoryid='$categoryid '";
+    $update_category_query_run = mysqli_query($con,$update_category_query) or die("bad query: $update_category_query");
+
+    // $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    if($update_category_query_run)
+    {
+        if($status == 1)
+        {
+            redirect("category.php", "Data Restore Success", "success");
+        }
+        else
+        {
+            redirect("category.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("category.php", "Something Went Wrong", "error"); 
+    }
+
+}
+else if(isset($_POST['archive_admin_btn']))
+{
+    $archive = 1;
+    $userid = $_POST['userid'];
+
+    $update_user_query = "UPDATE users SET archive= '$archive' WHERE userid='$userid'";
+    //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+    $update_user_query_run = mysqli_query($con, $update_user_query);
+
+    if($update_user_query_run)
+    {
+        if($archive == 1)
+        {
+            redirect("admin.php", "Archive Success", "success");
+        }
+        else
+        {
+            redirect("admin.php", "Something Went Wrong", "error");
+        }
+
+    }
+    else
+    {
+        redirect("admin.php", "Something Went Wrong", "error"); 
     }
 
 }
