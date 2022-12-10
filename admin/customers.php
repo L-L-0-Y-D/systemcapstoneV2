@@ -25,7 +25,7 @@ include('includes/header.php');
     //get the next page
     $next_page = $page_no + 1;
     //get the total count of records
-    $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM users WHERE archive='0' AND role = 0") or die(mysqli_error($con));
+    $result_count = mysqli_query($con, "SELECT COUNT(*) as total_records FROM users WHERE archive='0' AND role_as = '0'") or die(mysqli_error($con));
     //total records
     $records = mysqli_fetch_array($result_count);
     //store total_records to a variable
@@ -34,7 +34,7 @@ include('includes/header.php');
     $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
     //query string
-    $table_query = "SELECT * FROM users WHERE archive='0' AND role = 0 ORDER BY userid DESC LIMIT $offset, $total_records_per_page";
+    $table_query = "SELECT * FROM users WHERE archive='0' AND role_as = 0 ORDER BY userid DESC LIMIT $offset, $total_records_per_page";
     // result
     $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
