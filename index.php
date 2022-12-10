@@ -38,11 +38,11 @@
                         {
                             background-color:#eee;
                             cursor:pointer;
-                        } */
+                        } 
                         li
                         {
                             padding:12px;
-                        }
+                        }*/
                     </style>
                     <form action="search.php" method="POST">
                         <input class="form-control-lg " type="text" name="search" id="search" autocomplete="off" style="width:30%;font-size:13px;border-radius: 20px;border: 1px solid;  font-family:Monsterrat;" placeholder="Search Restaurants, Locations, Cuisines...">
