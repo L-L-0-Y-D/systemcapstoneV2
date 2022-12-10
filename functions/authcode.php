@@ -324,7 +324,7 @@ if(isset($_POST['login_btn'])){ // LogIn
             {
                 if(mysqli_num_rows($login_query_run) > 0)
                     {
-                        if($row['status'] == "1")
+                        if($row['status'] == "1" && $row['archive'] == "0")
                         {
                             $_SESSION['auth'] = true;
                             $userid = $row['userid'];
@@ -356,9 +356,10 @@ if(isset($_POST['login_btn'])){ // LogIn
                                 exit(0);
                             }
                         }
-                        elseif($row['status'] == "2")
+                        elseif($row['status'] == "2" || $row['archive'] == "1")
                         {
                             redirect("../login.php", "Your Account has been closed", "warning");
+                            exit(0);
                         }
                         else
                         {

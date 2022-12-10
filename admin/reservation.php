@@ -16,7 +16,7 @@ include('includes/header.php');
     // $request = $_POST['request'];
     // $id = $_GET['id'];
     //total rows or records to display
-    $total_records_per_page = 5;
+    $total_records_per_page = 10;
     //get the page offset for the LIMIT query
     $offset = ($page_no - 1) * $total_records_per_page;
     //get previous page
