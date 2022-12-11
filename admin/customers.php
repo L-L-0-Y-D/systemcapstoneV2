@@ -91,7 +91,7 @@ include('includes/header.php');
                                                         <td><?= $item['name']; ?></td>
                                                         <td><?= $item['firstname']; ?></td>
                                                         <td><?= $item['lastname']; ?></td>
-                                                        <td><?= $item['address']; ?></td>
+                                                        <td><?= $item['email']; ?></td>
                                                         <td><?= $item['age']; ?></td>
                                                         <td><?php 
                                                                 if($item['status'] == 0)
