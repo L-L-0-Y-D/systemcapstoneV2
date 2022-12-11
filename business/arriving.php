@@ -103,6 +103,7 @@ include('../config/dbcon.php');
                                     ON reservations.userid=users.userid
                                     WHERE reservations.businessid = $businessuserid
                                     AND reservations.arrived = 0
+                                    AND reservations.status = 1
                                     AND DATE(reservation_date) = DATE(NOW())
                                     ORDER BY TIME(reservation_time) ASC";
                                     $query_reservation_run = mysqli_query($con, $query_reservation);
