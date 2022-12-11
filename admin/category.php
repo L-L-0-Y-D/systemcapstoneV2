@@ -55,7 +55,7 @@ include('includes/header.php');
                         </div> -->
                     </div>
                         <div class="col-md-6">
-                            <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivecategory.php">Archives</a></div>
+                            <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivecategory.php"><i class="fas fa-archive"></i>&nbsp;Archives</a></div>
                         </div>
                         <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                             <table class="table my-0" id="dataTable">
@@ -90,7 +90,7 @@ include('includes/header.php');
                                                                 {echo 'Archive';}  
                                                         ?></td> 
                                                         <td>
-                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                                                            <a href="edit-category.php?id=<?= $item['categoryid']; ?>" class="btn btn-sm edit-btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_category_btn" value="<?= $item['categoryid']; ?>" >Delete</button>

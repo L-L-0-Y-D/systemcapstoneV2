@@ -22,7 +22,7 @@
   }
   
   .description {
-    font-family:Monsterrat;
+      font-family:Monsterrat;
       display: grid;
       position: absolute;
       bottom:0;
