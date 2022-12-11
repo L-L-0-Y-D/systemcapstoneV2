@@ -120,14 +120,23 @@ include('../config/dbcon.php');
     }
 
     
-function sendphonenumber_confirmreservation($name,$phonenumber,$date,$time,$numguest,$tableno,$businame,$businessid)
+function sendphonenumber_confirmreservation($username,$name,$phonenumber,$date,$time,$numguest,$tableno,$businame,$businessid)
 {
 
     $ch = curl_init();
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$name.'! Your table reservation at '.$businame.' on ' .$date." at ".date("g:i a", strtotime($time)).' on '.$tableno.' for '.$numguest.' are confirm',
+        'message' => 'Hello '.$name.'! </br>
+                    Thank you for making your reservation with I-Eat. Your reservation has been confirmed.</br>
+                    Here is your reservation details</br>
+                    When: ( '.$date.' '.date("g:i a", strtotime($time)).')</br>
+                    Who:('.$username.')</br>
+                    What:('.$tableno.' for '.$numguest.')</br>
+                    Where:('.$businame.')</br>
+                    </br>
+                    Until your next reservation!',
+                
         'sendername' => 'IEAT'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
