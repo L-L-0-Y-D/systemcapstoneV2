@@ -170,9 +170,10 @@ function sendphonenumber_declinedreservation($name,$phonenumber,$date,$time,$num
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$name.'!
-        for some reason '.$businame.' can not accept reservations as of now, but you can try with a different restaurant!
-        looking forward to hearing from you again soon!',
+        'message' => 'Hello '.$name.'!,
+For some reason '.$businame.' can not accept reservations as of now, but you can try with a different restaurant!
+
+looking forward to hearing from you again soon!',
         'sendername' => 'IEAT'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
