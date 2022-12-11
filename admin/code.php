@@ -445,7 +445,7 @@ else if(isset($_POST['add_customer_btn'])){
 
        redirect("index.php", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
    }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 2000000)) {
+   else if (($_FILES["image"]["size"] < 200000)) {
 
        redirect("index.php", "Image size less than 2MB", "warning");
 
