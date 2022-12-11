@@ -38,6 +38,8 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <title>Business Register| I-Eat</title>
     <style>
         .reg {
