@@ -50,7 +50,7 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->Body    = $email_template;
     $mail->send();
    // echo 'Message has been sent';
-
+   redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email", "success");
 
 }
 
