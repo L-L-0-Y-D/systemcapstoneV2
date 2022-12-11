@@ -180,7 +180,7 @@ include('includes/header.php');
                                                                                 ?>
                                                                                     <tr>
                                                                                         <td><?= $item['name']; ?></td>
-                                                                                        <td><?= $item['address']; ?></td>
+                                                                                        <td><?= $item['email']; ?></td>
                                                                                         <td><?= $item['phonenumber']; ?></td>
                                                                                         <td><?= $item['age']; ?></td>
                                                                                     </tr>
