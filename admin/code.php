@@ -414,7 +414,7 @@ else if(isset($_POST['add_customer_btn'])){
     $password = mysqli_real_escape_string($con,$_POST['password']);
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
-    $status = isset($_POST['status']) ? "0":"1";
+    $status = mysqli_real_escape_string($con,$_POST['status']);
 
     $image = $_FILES['image']['name'];
 
