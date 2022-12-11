@@ -236,10 +236,10 @@ function build_calendar($month,$year,$resourceid){
         // {
         //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Already Booked</i></p>";
         // }
-        // elseif($date<$today)
-        // {
-        //     $calendar .= "<td class='$today'><button class='currentDay'>$currentDay</button> ";
-        // }
+        elseif($date<$today)
+        {
+            $calendar .= "<td class='$today'><button class='currentDay'>$currentDay</button> ";
+        }
         else
         {   $timeslots = timeslots($duration, $cleanup, $start, $end);
             $totalbookings = checkSlots($mysqli, $date, $resourceid);
