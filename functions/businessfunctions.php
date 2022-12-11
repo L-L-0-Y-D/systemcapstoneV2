@@ -132,7 +132,7 @@ function sendphonenumber_confirmreservation($namereserve,$username,$phonenumber,
 
                 Here is your reservation details
                 When: ( '.$date.' '.date("g:i a", strtotime($time)).')
-                Who:('.$username.')
+                Who:('.$namereserve.')
                 What:('.$tableno.' for '.$numguest.')
                 Where:('.$businame.')
                     

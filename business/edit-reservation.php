@@ -58,7 +58,7 @@ include('includes/header.php');
                             </div>
                             <div class="col-md-6">
                                 <label for="namereserveunder">Account Name:</label>
-                                <input type="text" name="namereserveunder" value="<?= $data['name'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
+                                <input type="text" name="name" value="<?= $data['name'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 
