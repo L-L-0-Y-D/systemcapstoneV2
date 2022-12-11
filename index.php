@@ -63,6 +63,29 @@
                     <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 35px;">Locate where your favorite spot is&nbsp;</h3>
                 </div>
             </div>
+            <!--<div class="row g-2">
+                <div class="col mx-auto">
+                    <?php
+                    $query = "SELECT * FROM mealcategory";
+                    $query_run = mysqli_query($con, $query);
+
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        foreach($query_run as $item)
+                        {
+                    ?>
+
+                        <a class="text-dark btn-outline-dark" href="cuisine.php?name=<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></a>
+
+                    <?php
+                        }
+                    }
+                    else
+                    {
+                        echo "No Cuisine Available";
+                    }?>
+                </div>
+            </div>-->
             <div class="row">
             <?php
                     // $municipality = getAllActive("municipality");
