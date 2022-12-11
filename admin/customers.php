@@ -64,7 +64,7 @@ include('includes/header.php');
                                     <th>Username</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
-                                    <th>Address</th>
+                                    <th>Email</th>
                                     <th>Age</th>
                                     <th>Status</th>
                                     <th>Role</th>

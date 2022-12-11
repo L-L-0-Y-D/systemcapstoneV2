@@ -161,7 +161,7 @@ include('includes/header.php');
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Username</th>
-                                                                        <th>Address</th>
+                                                                        <th>Email</th>
                                                                         <th>Phone Number</th>
                                                                         <th>Age</th>
                                                                     </tr>
