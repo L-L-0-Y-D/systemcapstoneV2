@@ -73,6 +73,7 @@
                     {
                         foreach($query_municipality_run as $item)
                         {
+                            $municipalityid = $item['municipalityid'];
                             ?>
                 <div class="col-md-3 portfolio-item position-relative" data-bss-hover-animate="pulse"  >
                     <a class="portfolio-link" href="business.php?id=<?= $item['municipalityid']; ?>">
@@ -85,7 +86,13 @@
                         <span class="description">
                             <span class="description-heading fs-2 mb-2"><?= $item['municipality_name']; ?>
                             <i class="fas fa-chevron-circle-right fs-4"></i></span>
-                            <span class="description-body">4 Restaurants</span>
+                            <?php
+                                $query_business = "SELECT COUNT(*) as total_restaurant FROM business WHERE municipalityid= $municipalityid";
+                                $query_business_run = mysqli_query($con, $query_business);
+                                $business_count = mysqli_fetch_array($query_business_run);
+                                $total_records = $business_count['total_restaurant'];
+                            ?>
+                            <span class="description-body"><?= $total_records; ?> Restaurants</span>
                         </span>
                     </a>
                 </div>
@@ -94,7 +101,7 @@
                     }
                     else
                     {
-                        echo "No Category Availables";
+                        echo "No Municipality Availables";
                     }
                 ?>
             </div>
