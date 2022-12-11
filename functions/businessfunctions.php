@@ -127,13 +127,14 @@ function sendphonenumber_confirmreservation($namereserve,$username,$phonenumber,
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$username.'!
+        'message' => 'Hello '.$username.'!,
 Thank you for making your reservation with I-Eat. Your reservation has been confirmed.
-    Here is your reservation details;
-When: ( '.$date.' '.date("g:i a", strtotime($time)).')
-Who:('.$namereserve.')
-What:('.$tableno.' for '.$numguest.')
-Where:('.$businame.')
+
+Here is your reservation details;
+When:  '.$date.' '.$time.'
+Who:'.$namereserve.'
+What:Table'.$tableno.' for '.$numguest.'
+Where:'.$businame.'
                     
 Until your next reservation!',
                 
@@ -169,7 +170,9 @@ function sendphonenumber_declinedreservation($name,$phonenumber,$date,$time,$num
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$name.'! Your table reservation at '.$businame.' on ' .$date." at ".date("g:i a", strtotime($time)).' on '.$tableno.' for '.$numguest.' are declined',
+        'message' => 'Hello '.$name.'!
+        for some reason '.$businame.' can not accept reservations as of now, but you can try with a different restaurant!
+        looking forward to hearing from you again soon!',
         'sendername' => 'IEAT'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
