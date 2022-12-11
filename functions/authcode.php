@@ -415,7 +415,7 @@ if(isset($_POST["recover"])){
         $_SESSION['email'] = $email;
 
         sendemail_forgetpassword("$email","$token");
-        redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email", "success");
+
     }
 }
 
