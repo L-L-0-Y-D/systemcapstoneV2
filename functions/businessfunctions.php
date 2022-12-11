@@ -127,14 +127,14 @@ function sendphonenumber_confirmreservation($username,$name,$phonenumber,$date,$
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$name.'! </br>
-                    Thank you for making your reservation with I-Eat. Your reservation has been confirmed.</br>
-                    Here is your reservation details</br>
-                    When: ( '.$date.' '.date("g:i a", strtotime($time)).')</br>
-                    Who:('.$username.')</br>
-                    What:('.$tableno.' for '.$numguest.')</br>
-                    Where:('.$businame.')</br>
-                    </br>
+        'message' => 'Hello '.$name.'! <br>
+                    Thank you for making your reservation with I-Eat. Your reservation has been confirmed.<br>
+                    Here is your reservation details<br>
+                    When: ( '.$date.' '.date("g:i a", strtotime($time)).')<br>
+                    Who:('.$username.')<br>
+                    What:('.$tableno.' for '.$numguest.')<br>
+                    Where:('.$businame.')<br>
+                    <br>
                     Until your next reservation!',
                 
         'sendername' => 'IEAT'

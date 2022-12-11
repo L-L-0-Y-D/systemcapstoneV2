@@ -193,7 +193,7 @@ elseif (isset($_POST['update_reservation_btn']))
     $table_number = $_POST['table_number'];
     $numberofguest = $_POST['chair'];
     $namereserveunder = $_POST['namereserveunder'];
-    $name = $_POST['name'];
+    $username = $_POST['name'];
     $reservation_email = $_POST['reservation_email'];
     $reservation_phonenumber = $_POST['reservation_phonenumber'];
     $reservation_date = $_POST['reservation_date'];
@@ -209,7 +209,7 @@ elseif (isset($_POST['update_reservation_btn']))
     {
         if($status == 1)
         {
-            sendphonenumber_confirmreservation($namereserveunder,$name,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
+            sendphonenumber_confirmreservation($namereserveunder,$username,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             //redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
         }
         elseif($status == 2)
