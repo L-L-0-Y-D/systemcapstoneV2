@@ -56,7 +56,7 @@
                     JOIN 
                     municipality
                     ON business.municipalityid = municipality.municipalityid
-                    WHERE business.business_name LIKE :keyword AND business.status = '1' OR business.cuisinename LIKE :keyword AND business.status = '1' OR municipality.municipality_name LIKE :keyword AND business.status = '1' ORDER BY business.business_name ASC");
+                    WHERE business.business_name LIKE :keyword AND business.status = '1' AND business.archive = '0' OR business.cuisinename LIKE :keyword AND business.status = '1' AND business.archive = '0' OR municipality.municipality_name LIKE :keyword AND business.status = '1' AND business.archive = '0' ORDER BY business.business_name ASC");
                     $query->bindValue(':keyword' ,'%'.$key.'%', PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll();
