@@ -62,6 +62,14 @@ if(isset($_GET['id']))
         .swal-modal .swal-title {
             text-align: center;
         }
+        .login {
+            background-image: url(uploads/layout1.jpg)!important;
+            background-attachment:fixed;
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: cover;
+           
+            }
     </style>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
