@@ -33,7 +33,7 @@ if(isset($_SESSION['auth'])){
             background-position:center;
             background-repeat: no-repeat;
             background-size: cover;
-           11
+            height:100%!important;
             }
     </style>
     <!-- Favicon -->
