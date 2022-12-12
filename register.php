@@ -44,7 +44,7 @@ if(isset($_SESSION['auth'])){
             background-attachment:fixed;
             background-position:center;
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: cover;
             padding:10px;
             }
     </style>
