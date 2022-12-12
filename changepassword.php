@@ -51,21 +51,6 @@
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
-            <div class="container ml-2">
-                <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">
-                    <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
-                        <map name="workmap">
-                            <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
-                        </map>I - Eat</a>
-                <nav class="navbar navbar-expand">
-                    <div class="container-fluid">
-                        <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                        <a href="index.php"><i class="fa fa-home" style="float:right; color:white;"></i></a>
-                        </span></div>
-                </nav>
-            </div>
-        </nav>
 <section class="login">
     <div class="container">
         <div class="row d-flex justify-content-center">
