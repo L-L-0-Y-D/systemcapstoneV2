@@ -333,9 +333,9 @@
                                                                 <div class="modal-content">
                                                                     <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
                                                                     <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
+                                                                        <div class="menu_description p-0"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
                                                                             <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                            <p class="text-start p-0"><?= $item['cuisinename']; ?> Cuisine</p>
                                                                             <p><?= $item['description']; ?></p>
                                                                         </div>
                                                                     </div>
