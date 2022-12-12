@@ -102,7 +102,7 @@
                     <a class="portfolio-link" href="business.php?id=<?= $item['municipalityid']; ?>">
                         <div class="portfolio-hover" style="border-radius:10px;">
                             <div class="portfolio-hover-content">
-                                <h4 style="font-family: 'Vujahday Script', serif;font-size: 50px;" style="margin-left: 15px;padding-bottom: 5px;"><?= $item['municipality_name']; ?></h4>
+                                <!--<h4 style="font-family: 'Vujahday Script', serif;font-size: 50px;" style="margin-left: 15px;padding-bottom: 5px;"><?= $item['municipality_name']; ?></h4>-->
                             </div>
                         </div>
                         <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="Municipality Image"style="border-radius:10px;height:300px; width:400px;" >
