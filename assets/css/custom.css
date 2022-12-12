@@ -23,8 +23,11 @@
     text-align: left;
     margin-top: 0px;
     opacity: .7;
-   font-size: smaller;
-  }  
+    font-size: smaller;
+  } 
+  .clean-pricing-item .heading h6 {
+    height: 50px!important;
+  } 
   .vanilla-zoom {
     width: 100%;
     /*display: flex;*/
