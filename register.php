@@ -63,7 +63,7 @@ if(isset($_SESSION['auth'])){
                         </map>I - Eat</a>               
             </div>
         </nav>
-<section class="reg">
+<section class="reg pt-0">
     <form method="post" action="functions/authcode.php" enctype="multipart/form-data" class="registration">
         <div class="containe">
             <button class="btn-lg btn-close float-end pt-4" onclick="location.href='index.php'"></button>
