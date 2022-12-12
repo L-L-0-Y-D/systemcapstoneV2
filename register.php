@@ -45,7 +45,7 @@ if(isset($_SESSION['auth'])){
             background-position:center;
             background-repeat: no-repeat;
             background-size: cover;
-            padding:30px;
+           
             }
     </style>
 
