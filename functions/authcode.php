@@ -89,8 +89,8 @@ if(isset($_POST['register_btn']))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as,image, verify_token) 
-                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as,'$filename', '$verify_token')";
+                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as, verify_token) 
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as, '$verify_token')";
                        $users_query_run = mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                         // $users_query_run = mysqli_query($con, $insert_query);
 
