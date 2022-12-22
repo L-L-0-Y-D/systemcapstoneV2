@@ -26,7 +26,15 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Forgot Password | I-Eat</title>
-
+    <style>
+        .login {
+            background-image: url(uploads/layout1.jpg)!important;
+            background-attachment:fixed;
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+    </style>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 

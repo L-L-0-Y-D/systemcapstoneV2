@@ -39,16 +39,7 @@ body {
     box-shadow:none!important;
 }
 .edit-btn {
-    color:grey;
-    background-color: #fff!important;
-    border:grey 1px solid;
     padding:10px 13px!important;
-
-}
-.edit-btn:hover {
-    color:white;
-    background-color:grey!important;
-    box-shadow:none!important;
 }
 .save-btn {
     color:white;

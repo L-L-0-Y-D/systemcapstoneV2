@@ -48,7 +48,7 @@
                         <input class="form-control-lg " type="text" name="search" id="search" autocomplete="off" style="width:30%;font-size:13px;border-radius: 20px;border: 1px solid;  font-family:Monsterrat;" placeholder="Search Restaurants, Locations, Cuisines...">
                         <button class="btn btn-primary btn-lg" type="submit" name="submit" style="background: rgb(255,128,64);border-style: none;border-radius: 50px;padding-top: 3px;padding-bottom: 3px;padding-left: 30px;padding-right: 30px;">
                         <i class="far fa-search"></i></button>
-                        <div class="form-control-lg " id="searchlist"></div>
+                        <div class="form-control-lg col-md-11 " id="searchlist"></div>
                     </form>
 
                 </div>
@@ -63,6 +63,29 @@
                     <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 35px;">Locate where your favorite spot is&nbsp;</h3>
                 </div>
             </div>
+            <!--<div class="row g-2">
+                <div class="col mx-auto">
+                    <?php
+                    $query = "SELECT * FROM mealcategory";
+                    $query_run = mysqli_query($con, $query);
+
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        foreach($query_run as $item)
+                        {
+                    ?>
+
+                        <a class="text-dark btn-outline-dark" href="cuisine.php?name=<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></a>
+
+                    <?php
+                        }
+                    }
+                    else
+                    {
+                        echo "No Cuisine Available";
+                    }?>
+                </div>
+            </div>-->
             <div class="row">
             <?php
                     // $municipality = getAllActive("municipality");
@@ -79,19 +102,20 @@
                     <a class="portfolio-link" href="business.php?id=<?= $item['municipalityid']; ?>">
                         <div class="portfolio-hover" style="border-radius:10px;">
                             <div class="portfolio-hover-content">
-                                
+                                <!--<h4 style="font-family: 'Vujahday Script', serif;font-size: 50px;" style="margin-left: 15px;padding-bottom: 5px;"><?= $item['municipality_name']; ?></h4>-->
                             </div>
                         </div>
                         <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="Municipality Image"style="border-radius:10px;height:300px; width:400px;" >
                         <span class="description">
                             <span class="description-heading fs-2 mb-2"><?= $item['municipality_name']; ?>
-                            <i class="fas fa-chevron-circle-right fs-4"></i></span>
-                            <?php
-                                $query_business = "SELECT COUNT(*) as total_restaurant FROM business WHERE municipalityid= $municipalityid";
-                                $query_business_run = mysqli_query($con, $query_business);
-                                $business_count = mysqli_fetch_array($query_business_run);
-                                $total_records = $business_count['total_restaurant'];
-                            ?>
+                                <i class="fas fa-chevron-circle-right fs-4"></i>
+                            </span>
+                                <?php
+                                    $query_business = "SELECT COUNT(*) as total_restaurant FROM business WHERE municipalityid= $municipalityid";
+                                    $query_business_run = mysqli_query($con, $query_business);
+                                    $business_count = mysqli_fetch_array($query_business_run);
+                                    $total_records = $business_count['total_restaurant'];
+                                ?>
                             <span class="description-body"><?= $total_records; ?> Restaurants</span>
                         </span>
                     </a>

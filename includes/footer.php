@@ -31,7 +31,7 @@
                     <ul class="list-inline social-buttons ">
                         <li class="list-inline-item"><a href="mailto:ieatwebsite@gmail.com"><i class="fa fa-google"></i></a></li>
                         <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100087262523820"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/ieat.website/"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">

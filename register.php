@@ -45,7 +45,7 @@ if(isset($_SESSION['auth'])){
             background-position:center;
             background-repeat: no-repeat;
             background-size: cover;
-            padding:10px;
+           
             }
     </style>
 
@@ -63,14 +63,14 @@ if(isset($_SESSION['auth'])){
                         </map>I - Eat</a>               
             </div>
         </nav>
-<section class="reg">
+<section class="reg pt-5">
     <form method="post" action="functions/authcode.php" enctype="multipart/form-data" class="registration">
         <div class="containe">
             <button class="btn-lg btn-close float-end pt-4" onclick="location.href='index.php'"></button>
              <h5 class="pt-4">Create a User Account </h5>
             <hr>
-                <!-- <label class="form-label mt-0">Upload your profile (max 2mb)</label>
-                <input class="form-control" type="file" name="image" required> -->
+                <label class="form-label mt-0">Upload your profile (max 2mb)</label>
+                <input class="form-control" type="file" name="image" required>
             <div class="row">
                 <div class="col">
                     <label class="form-label">Username</label>
