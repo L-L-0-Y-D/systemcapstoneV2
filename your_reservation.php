@@ -251,7 +251,6 @@ if(isset($_GET['id']))
             title: "<?= $_SESSION['message']; ?>",
             icon: "<?= $_SESSION['alert']; ?>",
             button: "Okay",
-            timer: 1500,
             });
 
         <?php 

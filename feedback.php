@@ -290,7 +290,7 @@ if(isset($_GET['id']))
 
         var user_review = $('#user_review').val();
 
-        if(user_name == '' || user_review == '' || rating_data == 0)
+        if(user_name == '' || rating_data == 0)
         {
             swal({
             title: "Please fill all fields",
@@ -317,7 +317,6 @@ if(isset($_GET['id']))
                     title: data,
                     icon: "success",
                     button: "Okay",
-                    timer: 3000
                     }).then(() => {
                     window.location = 'your_reservation.php?id='+ userid;
                     });
@@ -462,7 +461,6 @@ if(isset($_GET['id']))
             title: "<?= $_SESSION['message']; ?>",
             icon: "<?= $_SESSION['alert']; ?>",
             button: "Okay",
-            timer: 1500,
             });
 
         <?php 
