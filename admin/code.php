@@ -944,7 +944,7 @@ else if(isset($_POST['edit_business_btn']))
     $reason = $_POST['reason'];
     $status = $_POST['status'];
 
-    if($status == 'declined')
+    if($reason == '')
     {
         redirect("edit-business.php?id=$businessid", "Please add reason for declined", "warning"); 
     } else {
