@@ -145,7 +145,7 @@ include('includes/header.php');
                                             <option value="2" selected>Declined</option>';} 
                                     ?>
                                 </select>
-                                <input class="form-control mb-2" id="hideValuesOnSelect" name="reason" placeholder="Reason for declining"></input>
+                                <input class="form-control mb-2" id="hideValuesOnSelect" name="reason" required placeholder="Reason for declining"></input>
                             </div>
                                 <div class="col-md-6">
                                 <button type="submit" class="btn update-btn btn-sm" name="edit_business_btn">Update</button>
