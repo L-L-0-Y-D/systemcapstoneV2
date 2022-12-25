@@ -229,7 +229,7 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
         $mail->Subject = 'Reservation Approved'; 
 
         $email_template = "
-        <b>Hello $username!</b>
+        <h1>Hello $username!</h1>
         <h2>Thank you for making your reservation with I-Eat. Your reservation has been confirmed.</h2>
         <p>Here is your reservation details;<br>
         When:$date $time<br>
