@@ -258,7 +258,7 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
 
         $mail->Host       = "smtp.hostinger.com";
         $mail->Username   = "reservationdeclined@ieat.store";
-        $mail->Password   = "*Password5*";
+        $mail->Password   = "*Password6*";
 
         // $mail->SMTPOptions = array(
         //     'ssl' => array(
