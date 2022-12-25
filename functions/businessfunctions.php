@@ -277,8 +277,8 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
         $mail->Subject = 'Reservation Declined'; 
 
         $email_template = "
-        <b>Hello $name!</b>
-        <h2>For some reason '.$businame.' can not accept reservations as of now, but you can try with a different restaurant!</h2>
+        <h1>Hello $name!</h1>
+        <h2>For some reason $businame can not accept reservations as of now, but you can try with a different restaurant!</h2>
         <br>
         <p>looking forward to hearing from you again soon!'.</p>
         ";
