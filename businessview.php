@@ -231,7 +231,7 @@
                                 $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                                 $query_rating_count_run = mysqli_query($con, $query_rating_count);
                                 $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                                echo '<span> ('.$row_rating_count.' reviews)</span><br>';
+                                echo '<span> ('.$row_rating_count.' review/s)</span><br>';
                             ?>
                         <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                    
                         </div>

@@ -199,6 +199,97 @@ looking forward to hearing from you again soon!',
     
 }
 
+function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber,$date,$time,$numguest,$tableno,$businame,$businessid)
+    {
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+
+        //$mail->SMTPDebug = 2; 
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true; 
+
+        $mail->Host       = "smtp.hostinger.com";
+        $mail->Username   = "reservationconfirmed@ieat.store";
+        $mail->Password   = "*Password5*";
+
+        // $mail->SMTPOptions = array(
+        //     'ssl' => array(
+        //     'verify_peer' => false,
+        //     'verify_peer_name' => false,
+        //     'allow_self_signed' => true
+        //     )
+        //     );
+        $mail->SMTPSecure = "ssl";
+        $mail->Port       = 465;
+        
+        $mail->setFrom("reservationconfirmed@ieat.store", "I-EAT Reservation Confirmed");
+        $mail->addAddress($email);
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Reservation Approved'; 
+
+        $email_template = "
+        <b>Hello $username!</b>
+        <h2>Thank you for making your reservation with I-Eat. Your reservation has been confirmed.</h2>
+        <p>Here is your reservation details;<br>
+        When:$date $time<br>
+        Who:$namereserve<br>
+        What:Table $tableno for $numguest<br>
+        Where:$businame<br>
+        <br>                    
+        Until your next reservation!'</p>
+        ";
+
+        $mail->Body    = $email_template;
+        $mail->send();
+    // echo 'Message has been sent';
+    
+    
+    }
+
+    function sendemail_declinedreservation($email,$name,$businame)
+    {
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+
+        //$mail->SMTPDebug = 2; 
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true; 
+
+        $mail->Host       = "smtp.hostinger.com";
+        $mail->Username   = "reservationdeclined@ieat.store";
+        $mail->Password   = "*Password5*";
+
+        // $mail->SMTPOptions = array(
+        //     'ssl' => array(
+        //     'verify_peer' => false,
+        //     'verify_peer_name' => false,
+        //     'allow_self_signed' => true
+        //     )
+        //     );
+        $mail->SMTPSecure = "ssl";
+        $mail->Port       = 465;
+        
+        $mail->setFrom("reservationdeclined@ieat.store", "I-EAT Reservation Declined");
+        $mail->addAddress($email);
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Reservation Declined'; 
+
+        $email_template = "
+        <b>Hello $name!</b>
+        <h2>For some reason '.$businame.' can not accept reservations as of now, but you can try with a different restaurant!</h2>
+        <br>
+        <p>looking forward to hearing from you again soon!'.</p>
+        ";
+
+        $mail->Body    = $email_template;
+        $mail->send();
+    // echo 'Message has been sent';
+    
+    
+    }
+
 
 function getAll($table)
 {

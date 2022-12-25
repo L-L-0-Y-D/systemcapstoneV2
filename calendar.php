@@ -205,7 +205,7 @@ function build_calendar($month,$year,$resourceid){
         if($blocks)
         {
             // foreach ($query_blockdates_run as $value) {
-                $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>No Reservation</i></p>";
+                $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Restaurant is Closed for today</i></p>";
             // }
             //part 6   
         }
