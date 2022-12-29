@@ -72,6 +72,7 @@ if(!isset($_GET['token']))
             title: "<?= $_SESSION['message']; ?>",
             icon: "<?= $_SESSION['alert']; ?>",
             button: "Okay",
+            timer: 1500,
             });
 
         <?php 

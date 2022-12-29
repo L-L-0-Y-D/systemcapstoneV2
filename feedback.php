@@ -296,6 +296,7 @@ if(isset($_GET['id']))
                     title: data,
                     icon: "success",
                     button: "Okay",
+                    timer: 3000
                     }).then(() => {
                     window.location = 'your_reservation.php?id='+ userid;
                     });
@@ -440,6 +441,7 @@ if(isset($_GET['id']))
             title: "<?= $_SESSION['message']; ?>",
             icon: "<?= $_SESSION['alert']; ?>",
             button: "Okay",
+            timer: 1500,
             });
 
         <?php 

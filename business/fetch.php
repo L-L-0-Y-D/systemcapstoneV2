@@ -83,6 +83,7 @@ if(isset($_POST['request'])){
                     title: "Archive Success",
                     icon: "success",
                     button: "Okay",
+                    timer: 1500,
                     }).then(() => {
                         location.reload();
                         });
