@@ -69,8 +69,8 @@ if(isset($_SESSION['auth'])){
             <button class="btn-lg btn-close float-end pt-4" onclick="location.href='index.php'"></button>
              <h5 class="pt-4">Create a User Account </h5>
             <hr>
-                <!-- <label class="form-label mt-0">Upload your profile (max 2mb)</label>
-                <input class="form-control" type="file" name="image" required> -->
+                <label class="form-label mt-0">Upload your profile (max 2mb)</label>
+                <input class="form-control" type="file" name="image" required>
             <div class="row">
                 <div class="col">
                     <label class="form-label">Username</label>
@@ -144,11 +144,11 @@ if(isset($_SESSION['auth'])){
                                 <input class="form-control mb-2" name="phonenumber" type="text" required ></div>
                         <?php }?> 
                 </div>
-                <!-- <div class="col-mb-3">
+                <div class="col-mb-3">
                     <label class="form-label">Address</label>
-                    /* Checking if the address is set, if it is then it will display
+                    <!-- /* Checking if the address is set, if it is then it will display
                     the address in the input field. If it is not set then it will
-                    display the input field without the address. */
+                    display the input field without the address. */ -->
                         <?php if (isset($_GET['address'])){?>
                             <div class="col">
                                 <input class="form-control" name="address" type="text" value="<?= $_GET['address']?>" required ></div>
@@ -156,7 +156,7 @@ if(isset($_SESSION['auth'])){
                             <div class="col">
                                 <input class="form-control" name="address" type="text" required></div>
                         <?php }?>
-                </div> -->
+                </div>
                 <div class="col-md-6">
                     <label class="form-label">Password</label>
                     <input class="form-control" type="password" name="password" required>
