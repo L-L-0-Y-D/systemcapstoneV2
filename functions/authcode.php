@@ -219,7 +219,7 @@ if(isset($_POST['update_profile_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_ext, $allowed_image_extension)) {
 
-            redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
+            redirect("../profile.php?id=$userid", "Upload valid image. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
         else if (($_FILES["image"]["size"] < 80000)) {
 
