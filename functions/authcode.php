@@ -26,13 +26,13 @@ if(isset($_POST['register_btn']))
 
 //     $image = $_FILES['image']['name'];
 
-//     $path = "../uploads";
+    $path = "../uploads";
 
-//     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
-//     $filename = time().'.'.$image_ext;
+    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    $filename = time().'.'.$image_ext;
 
-//     // Get Image Dimension
-//     $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+    // Get Image Dimension
+    $fileinfo = @getimagesize($image);
 
 //     $allowed_image_extension = array(
 //         "png",
@@ -91,12 +91,12 @@ if(isset($_POST['register_btn']))
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
                         $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as, verify_token, image) 
-                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as, '$verify_token', '$image')";
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as, '$verify_token', '$filename')";
                         //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                         $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
-                                // move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 sendemail_verify("$name","$email","$verify_token");
                                 redirect("../login.php", "Registration Success Please verify Email Address to login", "success");
                             }
