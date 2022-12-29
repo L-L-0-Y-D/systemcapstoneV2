@@ -40,12 +40,11 @@ include('../config/dbcon.php');
 ?>
     <div class="container-fluid bg-white mt-0 pt-3">
         <a class="btn btn-primary float-end mt-2 btn-sm" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Menu</a>  
-        <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Menu List</h4><hr>
+        <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Menu List</h4>
        
                         <!--SORTING-->
-                    <div class="row mx-auto">
-                        <div class="col-md-6 text-nowrap " id="filters">
-                            <div id="dataTable_length" class="dataTables_length small" aria-controls="dataTable">
+                        <div class="col-md-6 text-nowrap" id="filters">
+                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                                 <label class="form-label">Sorted by:&nbsp;
                                     <select  id="mySelect" onchange="myFunction()" class="d-inline-block form-select form-select-sm w-75">
                                         <option value="All" selected="">All Menu</option>
@@ -59,13 +58,10 @@ include('../config/dbcon.php');
                                         <option value="Drinks">Drinks</option>
                                     </select>
                                 </label>
-                            </div>                           
+                                <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Archives</a></div>  
+                            </div>
                         </div>
-                        <div class="col-md-6 ">
-                            <a class="btn btn-dark float-end mb-3 mx-3 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Archives</a>
-                        </div>
-                    </div>
-                       
+                        
                         <div class="container" id="container">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
                                 <?php
@@ -93,7 +89,7 @@ include('../config/dbcon.php');
                                                         <div class="col p-3 col-md-4 ">
                                                             <div class="btn-group m-3" role="group">
                                                                 <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
-                                                                <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-outline-dark edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>
+                                                                <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>
                                                               
                                                                 <button class="btn btn-danger btn-sm" type="submit" value = "<?= $item['productid']; ?>" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
                                                             </div>

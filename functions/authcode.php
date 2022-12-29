@@ -128,7 +128,7 @@ if(isset($_POST['register_btn']))
     
 }
 
-elseif(isset($_POST['edit_password_btn']))
+if(isset($_POST['edit_password_btn']))
 {
     $userid = $_POST['userid'];
     $oldpassword = $_POST['oldpassword'];
@@ -182,7 +182,7 @@ elseif(isset($_POST['edit_password_btn']))
 
 }
 
-elseif(isset($_POST['update_profile_btn']))
+if(isset($_POST['update_profile_btn']))
 {
     $userid = $_POST['userid'];
     $name = $_POST['name'];
@@ -260,7 +260,7 @@ elseif(isset($_POST['update_profile_btn']))
                         if(strlen($_POST['password']) >= 8 )
                         {
                             //$hash = password_hash($password, PASSWORD_DEFAULT);
-                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age='$age',phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
                             //mysqli_query($con,$update_query) or die("bad query: $update_query");
                             $update_query_run = mysqli_query($con, $update_query);
                         }
@@ -309,7 +309,7 @@ elseif(isset($_POST['update_profile_btn']))
 }
 
 /* This is the code for logging in a user. */
-elseif(isset($_POST['login_btn'])){ // LogIn
+if(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
 
@@ -391,7 +391,7 @@ elseif(isset($_POST['login_btn'])){ // LogIn
     }
 }
 
-elseif(isset($_POST["recover"])){
+if(isset($_POST["recover"])){
     $email = $_POST['email'];
 
     $sql = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
@@ -419,7 +419,7 @@ elseif(isset($_POST["recover"])){
     }
 }
 
-elseif(isset($_POST["reset"])){
+if(isset($_POST["reset"])){
     $password = $_POST["password"];
     $confirmpassword = $_POST["confirmpassword"];
 
@@ -450,10 +450,6 @@ elseif(isset($_POST["reset"])){
     {
         redirect("../resetpassword.php", "Passwords do not match", "warning");
     }
-}
-else
-{
-    redirect("../index.php", "Something Went Wrong", "warning");
 }
 
 ?>

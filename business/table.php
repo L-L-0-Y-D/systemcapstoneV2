@@ -61,7 +61,7 @@ include('../config/dbcon.php');
                         </div> -->
                 </div>
                     <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivetable.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Archives</a></div>
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivetable.php?id=<?= $_SESSION['auth_user']['businessid'];?>">Archives</a></div>
                     </div>
                 </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -94,7 +94,7 @@ include('../config/dbcon.php');
                                                         <td><?= $item['chair']; ?></td>
                                                         <td><?= $item['status']== '0'? "Not Available":"Available"  ?></td>
                                                         <td>
-                                                            <a href="edit-table.php?id=<?= $item['tableid']; ?>" class="btn edit-btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></a>
+                                                            <a href="edit-table.php?id=<?= $item['tableid']; ?>" class="btn edit-btn"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         <!-- <td>
                                                             <button type="button" class="btn btn-sm btn-danger delete_product_btn" value="<?= $item['productid']; ?>" >Delete</button>

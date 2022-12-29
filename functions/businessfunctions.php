@@ -127,7 +127,7 @@ function sendphonenumber_confirmreservation($namereserve,$username,$phonenumber,
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$username.'!
+        'message' => 'Hello '.$username.'!,
 Thank you for making your reservation with I-Eat. Your reservation has been confirmed.
 
 Here is your reservation details;
@@ -170,7 +170,7 @@ function sendphonenumber_declinedreservation($name,$phonenumber,$date,$time,$num
     $parameters = array(
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
-        'message' => 'Hello '.$name.',
+        'message' => 'Hello '.$name.'!,
 For some reason '.$businame.' can not accept reservations as of now, but you can try with a different restaurant!
 
 looking forward to hearing from you again soon!',
@@ -198,7 +198,6 @@ looking forward to hearing from you again soon!',
     }
     
 }
-
 function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber,$date,$time,$numguest,$tableno,$businame,$businessid)
     {
         //Create an instance; passing `true` enables exceptions

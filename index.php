@@ -63,29 +63,6 @@
                     <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 35px;">Locate where your favorite spot is&nbsp;</h3>
                 </div>
             </div>
-            <!--<div class="row g-2">
-                <div class="col mx-auto">
-                    <?php
-                    $query = "SELECT * FROM mealcategory";
-                    $query_run = mysqli_query($con, $query);
-
-                    if(mysqli_num_rows($query_run) > 0)
-                    {
-                        foreach($query_run as $item)
-                        {
-                    ?>
-
-                        <a class="text-dark btn-outline-dark" href="cuisine.php?name=<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></a>
-
-                    <?php
-                        }
-                    }
-                    else
-                    {
-                        echo "No Cuisine Available";
-                    }?>
-                </div>
-            </div>-->
             <div class="row">
             <?php
                     // $municipality = getAllActive("municipality");
@@ -102,7 +79,7 @@
                     <a class="portfolio-link" href="business.php?id=<?= $item['municipalityid']; ?>">
                         <div class="portfolio-hover" style="border-radius:10px;">
                             <div class="portfolio-hover-content">
-                                <!--<h4 style="font-family: 'Vujahday Script', serif;font-size: 50px;" style="margin-left: 15px;padding-bottom: 5px;"><?= $item['municipality_name']; ?></h4>-->
+
                             </div>
                         </div>
                         <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="Municipality Image"style="border-radius:10px;height:300px; width:400px;" >

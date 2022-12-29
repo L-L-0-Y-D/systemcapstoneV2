@@ -50,7 +50,7 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->Body    = $email_template;
     $mail->send();
    // echo 'Message has been sent';
-   redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email", "success");
+
 
 }
 
@@ -272,13 +272,13 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->Username   = "verifyaccount@ieat.store";
     $mail->Password   = "*Password4*";
 
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-        )
-        );
+    // $mail->SMTPOptions = array(
+    //     'ssl' => array(
+    //     'verify_peer' => false,
+    //     'verify_peer_name' => false,
+    //     'allow_self_signed' => true
+    //     )
+    //     );
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     

@@ -43,27 +43,6 @@
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
-    <!-- <style>
-  #alert_popover
-  {
-   display:block;
-   position:absolute;
-   bottom:50px;
-   left:50px;
-  }
-  .wrapper {
-    display: table-cell;
-    vertical-align: bottom;
-    height: auto;
-    width:200px;
-  }
-  .alert_default
-  {
-   color: #333333;
-   background-color: #f2f2f2;
-   border-color: #cccccc;
-  }
-  </style> -->
 </head>
 
 <body>
