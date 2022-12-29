@@ -16,7 +16,7 @@ if(isset($_POST['register_btn']))
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
     $verify_token = md5(rand());
-    $image = "profile.jpg";
+    $filename = "profile.jpg";
 
     $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber;
 
