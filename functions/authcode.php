@@ -26,13 +26,13 @@ if(isset($_POST['register_btn']))
 
 //     $image = $_FILES['image']['name'];
 
-    $path = "../uploads";
+    // $path = "../uploads";
 
-    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
-    $filename = time().'.'.$image_ext;
+    // $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    // $filename = time().'.'.$image_ext;
 
-    // Get Image Dimension
-    $fileinfo = @getimagesize($image);
+    // // Get Image Dimension
+    // $fileinfo = @getimagesize($image);
 
 //     $allowed_image_extension = array(
 //         "png",
@@ -96,7 +96,7 @@ if(isset($_POST['register_btn']))
                         $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
-                                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                                // move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 sendemail_verify("$name","$email","$verify_token");
                                 redirect("../login.php", "Registration Success Please verify Email Address to login", "success");
                             }
