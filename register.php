@@ -178,9 +178,6 @@ if(isset($_SESSION['auth'])){
         </div>
     </form>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-<script src="sweetalert2.all.min.js"></script>
-<script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
