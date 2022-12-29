@@ -74,8 +74,8 @@ if(isset($_POST['submit']))
 
             // $stmt -> close();
 
-            $msg = "<div class='alert alert-danger'>Pending For Reservation</div>";
-            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Pending For Reservation", "warning");
+            $msg = "<div class='alert alert-danger'>Already Booked</div>";
+            redirect("book.php?date=$date&tableid=$resourceid&id=$businessid", "Time Already Booked", "warning");
 
         }else{
             if(preg_match("/^[0-9]\d{10}$/",$_POST['reservation_phonenumber']))
@@ -161,7 +161,7 @@ if(isset($_POST['value'])){
                 <?php //if(date("h:i:s") < $start){ ?>
                     <?php if(in_array($ts, $bookings)){ ?>
 
-                        <button class="btn btn-danger w-100" disabled><?php echo $ts; ?> (Pending For Reservation)</button>
+                        <button class="btn btn-danger w-100" disabled><?php echo $ts; ?> (Occupied)</button>
                         <!-- <div class="shadow"><button class="btn btn-danger btn-lg d-block w-100" data-timeslot="<?php echo $ts; ?>" type="button" style="background: rgb(255,128,64);border-style: none;"><?php echo $ts; ?></button></div> -->
 
                     <?php } else { ?>

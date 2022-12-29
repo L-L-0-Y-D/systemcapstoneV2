@@ -55,7 +55,7 @@ if(isset($_POST['add_product_btn']))
     $filename = time().'.'.$image_ext;
 
     // Check if email already registered
-    $check_product_query = "SELECT name FROM products WHERE name='$name' AND businessid = '$businessid'";
+    $check_product_query = "SELECT name FROM products WHERE name='$name'";
     $check_product_query_run = mysqli_query($con, $check_product_query);
 
     if(mysqli_num_rows($check_product_query_run)>0)
@@ -209,13 +209,11 @@ elseif (isset($_POST['update_reservation_btn']))
     {
         if($status == 1)
         {
-            sendemail_confirmreservation($reservation_email, $namereserveunder, $username, $reservation_phonenumber, $reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             sendphonenumber_confirmreservation($namereserveunder,$username,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             //redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
         }
         elseif($status == 2)
         {
-            sendemail_declinedreservation($reservation_email,$username,$business_name);
             sendphonenumber_declinedreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             
         }

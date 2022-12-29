@@ -39,15 +39,7 @@ body {
     box-shadow:none!important;
 }
 .edit-btn {
-    color:grey;
-    background-color: #fff!important;
-    border:grey 1px solid;
     padding:10px!important;
-}
-.edit-btn:hover {
-    color:white;
-    background-color:grey!important;
-    box-shadow:none!important;
 }
 .save-btn {
     color:white;
@@ -61,6 +53,7 @@ body {
     box-shadow:none!important;
 }
 .btn-danger {
+    padding:10px!important;
     color:white;
     background-color: rgb(247, 58, 58)!important;
     border:none;

@@ -2,7 +2,6 @@
 //session_start();
 include('myfunctions.php');
 
-
 /* This is the code for registering a user. */
 if(isset($_POST['register_btn']))
 {
@@ -12,7 +11,7 @@ if(isset($_POST['register_btn']))
     $lastname = mysqli_real_escape_string($con,$_POST['lastname']);
     $dateofbirth = date('Y-m-d',strtotime($_POST['dateofbirth']));
     $phonenumber = mysqli_real_escape_string($con,$_POST['phonenumber']);
-    $address = mysqli_real_escape_string($con,$_POST['address']);
+    // $address = mysqli_real_escape_string($con,$_POST['address']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
@@ -24,9 +23,9 @@ if(isset($_POST['register_btn']))
     $difference = date_diff(date_create($dateofbirth), date_create($today));
     $age = $difference->format('%y');
 
-    $image = $_FILES['image']['name'];
+     $image = $_FILES['image']['name'];
 
-    $path = "../uploads";
+     $path = "../uploads";
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
@@ -90,13 +89,13 @@ if(isset($_POST['register_btn']))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, address, password, role_as, verify_token) 
-                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$address', '$hash', $role_as, '$verify_token')";
-                        //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-                        $users_query_run = mysqli_query($con, $insert_query);
+                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as,image, verify_token) 
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as,'$filename', '$verify_token')";
+                       $users_query_run = mysqli_query($con,$insert_query) or die("bad query: $insert_query");
+                        // $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
-                                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                                // move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 sendemail_verify("$name","$email","$verify_token");
                                 redirect("../login.php", "Registration Success Please verify Email Address to login", "success");
                             }
@@ -221,7 +220,7 @@ if(isset($_POST['update_profile_btn']))
 
             redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 800)) {
+        else if (($_FILES["image"]["size"] < 80000)) {
 
             redirect("../profile.php?id=$userid", "Image size less than 800KB", "warning");
 
@@ -416,7 +415,7 @@ if(isset($_POST["recover"])){
         $_SESSION['email'] = $email;
 
         sendemail_forgetpassword("$email","$token");
-        redirect("../login.php", "Password Reset Link Send Successfully Please Check Your Email", "success");
+
     }
 }
 

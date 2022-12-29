@@ -53,7 +53,7 @@ include('includes/header.php');
                         </div> -->
                     </div>
                     <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archivecustomer.php">Archives</a></div>
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivecustomer.php"><i class="fas fa-archive"></i>&nbsp;Archives</a></div>
                         </div>
                     </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -87,7 +87,7 @@ include('includes/header.php');
                                             {
                                                 ?>
                                                     <tr>
-                                                        <td><img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
+                                                        <td><img  class="rounded-circle" src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['image']; ?>"></td>
                                                         <td><?= $item['name']; ?></td>
                                                         <td><?= $item['firstname']; ?></td>
                                                         <td><?= $item['lastname']; ?></td>
@@ -104,7 +104,7 @@ include('includes/header.php');
                                                         </td>
                                                         <td><?= $item['role_as']== '0'? "User":"Admin"  ?></td>
                                                         <td>
-                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                                                            <a href="edit-customer.php?id=<?= $item['userid']; ?>" class="btn btn-sm edit-btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></a>
                                                         </td>
                                                         
                                                         <form action="code.php" method="POST" enctype="multipart/form-data">

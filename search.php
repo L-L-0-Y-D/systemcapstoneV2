@@ -151,7 +151,7 @@
                 }
                 else
                 {                          
-                    echo "<p class='text-center'>No Restaurant Found</p>";
+                    echo "<p class='text-center'>No Business Found</p>";
             ?>
                     <br><a href="Index.php" >Go Back</a>
             <?php
@@ -202,7 +202,7 @@
                 }
                     else
                     {
-                        echo "<p class='text-center'>No Restaurant Found</p>";
+                        echo "<p class='text-center'>No Business Found</p>";
                 ?>
                     <br><a href="index.php" style="padding-bottom:75px;">Go Back</a>
                 <?php

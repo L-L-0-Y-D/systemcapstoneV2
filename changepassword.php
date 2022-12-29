@@ -36,7 +36,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="businessreg.css">
     <title>I-Eat | Home </title> 
-
+    <style>
+        .login {
+            background-image: url(uploads/layout1.jpg)!important;
+            background-attachment:fixed;
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height:100%; 
+           
+            }
+    </style>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
 </head>
