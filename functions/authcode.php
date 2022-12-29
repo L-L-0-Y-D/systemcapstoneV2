@@ -453,9 +453,9 @@ elseif(isset($_POST["reset"])){
     }
 }
 
-else
-{
-    redirect("../index.php", "Something Went Wrong", "warning");
-}
+// else
+// {
+//     redirect("../index.php", "Something Went Wrong", "warning");
+// }
 
 ?>
