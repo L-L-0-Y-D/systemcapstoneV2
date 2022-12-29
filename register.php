@@ -33,21 +33,19 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/assets/css/vanilla-zoom.min.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=21f14b60305aa9b0449170550a54b7e5">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic.css?h=561e53509f5bc926993a2226fdbdf2f4">
+    <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
+    <link rel="stylesheet" href="reg.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Register | I-Eat</title>
-    <style>
-        .reg {
-            background-image: url(uploads/layout1.jpg)!important;
-            background-attachment:fixed;
-            background-position:center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding:10px;
-            }
-    </style>
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
@@ -63,8 +61,8 @@ if(isset($_SESSION['auth'])){
                         </map>I - Eat</a>               
             </div>
         </nav>
-<section class="reg">
-    <form method="POST" action="functions/authcode.php" enctype="multipart/form-data" class="registration">
+
+    <form method="post" action="functions/authcode.php" enctype="multipart/form-data" class="registration">
         <div class="containe">
             <button class="btn-lg btn-close float-end pt-4" onclick="location.href='index.php'"></button>
              <h5 class="pt-4">Create a User Account </h5>
@@ -144,11 +142,11 @@ if(isset($_SESSION['auth'])){
                                 <input class="form-control mb-2" name="phonenumber" type="text" required ></div>
                         <?php }?> 
                 </div>
-                <!-- <div class="col-mb-3">
+                <div class="col-mb-3">
                     <label class="form-label">Address</label>
-                    /* Checking if the address is set, if it is then it will display
+                    <!-- /* Checking if the address is set, if it is then it will display
                     the address in the input field. If it is not set then it will
-                    display the input field without the address. */
+                    display the input field without the address. */ -->
                         <?php if (isset($_GET['address'])){?>
                             <div class="col">
                                 <input class="form-control" name="address" type="text" value="<?= $_GET['address']?>" required ></div>
@@ -156,7 +154,7 @@ if(isset($_SESSION['auth'])){
                             <div class="col">
                                 <input class="form-control" name="address" type="text" required></div>
                         <?php }?>
-                </div> -->
+                </div>
                 <div class="col-md-6">
                     <label class="form-label">Password</label>
                     <input class="form-control" type="password" name="password" required>
@@ -175,21 +173,22 @@ if(isset($_SESSION['auth'])){
             <p>Already have an account?&nbsp &nbsp<a href="login.php">Login</a></p>
         </div>
     </form>
-</section>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
-    <?php if(isset($_SESSION['message'])) 
+        <?php if(isset($_SESSION['message'])) 
     { ?>
-        alertify.set('notifier','position', 'top-center');
-        alertify.success('<?= $_SESSION['message']; ?>');
+        swal({
+            title: "<?= $_SESSION['message']; ?>",
+            icon: "<?= $_SESSION['alert']; ?>",
+            button: "Okay",
+            timer: 1500,
+            });
+
         <?php 
         unset($_SESSION['message']);
         unset($_SESSION['alert']);
     }
-    
-    ?>
+    ?> 
     </script>     
 </body>
 </html>

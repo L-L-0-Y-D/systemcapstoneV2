@@ -11,14 +11,13 @@ if(isset($_POST['register_btn']))
     $lastname = mysqli_real_escape_string($con,$_POST['lastname']);
     $dateofbirth = date('Y-m-d',strtotime($_POST['dateofbirth']));
     $phonenumber = mysqli_real_escape_string($con,$_POST['phonenumber']);
-    // $address = mysqli_real_escape_string($con,$_POST['address']);
+    $address = mysqli_real_escape_string($con,$_POST['address']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
     $verify_token = md5(rand());
-    // $filename = "profile.jpg";
 
-    $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber;
+    $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber.'&address='.$address;
 
     $today = date("Y-m-d");
     $difference = date_diff(date_create($dateofbirth), date_create($today));
@@ -32,7 +31,7 @@ if(isset($_POST['register_btn']))
     $filename = time().'.'.$image_ext;
 
     // Get Image Dimension
-    $fileinfo = @getimagesize($image);
+    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
 
     $allowed_image_extension = array(
         "png",
@@ -90,8 +89,8 @@ if(isset($_POST['register_btn']))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as, image, verify_token) 
-                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as,'$filename', '$verify_token')";
+                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, address, password, role_as, image, verify_token) 
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$verify_token')";
                         //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                         $users_query_run = mysqli_query($con, $insert_query);
 
@@ -129,7 +128,7 @@ if(isset($_POST['register_btn']))
     
 }
 
-elseif(isset($_POST['edit_password_btn']))
+if(isset($_POST['edit_password_btn']))
 {
     $userid = $_POST['userid'];
     $oldpassword = $_POST['oldpassword'];
@@ -183,7 +182,7 @@ elseif(isset($_POST['edit_password_btn']))
 
 }
 
-elseif(isset($_POST['update_profile_btn']))
+if(isset($_POST['update_profile_btn']))
 {
     $userid = $_POST['userid'];
     $name = $_POST['name'];
@@ -221,7 +220,7 @@ elseif(isset($_POST['update_profile_btn']))
 
             redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 800)) {
+        else if (($_FILES["image"]["size"] < 80000)) {
 
             redirect("../profile.php?id=$userid", "Image size less than 800KB", "warning");
 
@@ -304,13 +303,13 @@ elseif(isset($_POST['update_profile_btn']))
     }
     else
     {
-        redirect("../profile.php?id=$userid", "Something Went Wrongs", "error"); 
+        redirect("../profile.php?id=$userid", "Something Went Wrong", "error"); 
     }
 
 }
 
 /* This is the code for logging in a user. */
-elseif(isset($_POST['login_btn'])){ // LogIn
+if(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
 
@@ -325,7 +324,7 @@ elseif(isset($_POST['login_btn'])){ // LogIn
             {
                 if(mysqli_num_rows($login_query_run) > 0)
                     {
-                        if($row['status'] == "1" && $row['archive'] == "0")
+                        if($row['status'] == "1")
                         {
                             $_SESSION['auth'] = true;
                             $userid = $row['userid'];
@@ -357,10 +356,9 @@ elseif(isset($_POST['login_btn'])){ // LogIn
                                 exit(0);
                             }
                         }
-                        elseif($row['status'] == "2" || $row['archive'] == "1")
+                        elseif($row['status'] == "2")
                         {
                             redirect("../login.php", "Your Account has been closed", "warning");
-                            exit(0);
                         }
                         else
                         {
@@ -392,7 +390,7 @@ elseif(isset($_POST['login_btn'])){ // LogIn
     }
 }
 
-elseif(isset($_POST["recover"])){
+if(isset($_POST["recover"])){
     $email = $_POST['email'];
 
     $sql = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
@@ -420,7 +418,7 @@ elseif(isset($_POST["recover"])){
     }
 }
 
-elseif(isset($_POST["reset"])){
+if(isset($_POST["reset"])){
     $password = $_POST["password"];
     $confirmpassword = $_POST["confirmpassword"];
 
@@ -451,11 +449,6 @@ elseif(isset($_POST["reset"])){
     {
         redirect("../resetpassword.php", "Passwords do not match", "warning");
     }
-}
-
-else
-{
-    redirect("../index.php", "Something Went Wrong", "warning");
 }
 
 ?>
