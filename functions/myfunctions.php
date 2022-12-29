@@ -272,13 +272,13 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->Username   = "verifyaccount@ieat.store";
     $mail->Password   = "*Password4*";
 
-    // $mail->SMTPOptions = array(
-    //     'ssl' => array(
-    //     'verify_peer' => false,
-    //     'verify_peer_name' => false,
-    //     'allow_self_signed' => true
-    //     )
-    //     );
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+        )
+        );
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
