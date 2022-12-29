@@ -90,9 +90,9 @@ if(isset($_POST['register_btn']))
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
                         $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as, verify_token) 
-                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , '$age', '$phonenumber', '$hash', '$role_as', '$verify_token')";
-                        $users_query_run = mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-                        // $users_query_run = mysqli_query($con, $insert_query);
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as, '$verify_token')";
+                        //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
+                        $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
                                 // move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
@@ -127,12 +127,8 @@ if(isset($_POST['register_btn']))
     }
     
 }
-else
-{
-    redirect("../index.php", "Something went wrong", "warning");
-}
 
-if(isset($_POST['edit_password_btn']))
+elseif(isset($_POST['edit_password_btn']))
 {
     $userid = $_POST['userid'];
     $oldpassword = $_POST['oldpassword'];
@@ -186,7 +182,7 @@ if(isset($_POST['edit_password_btn']))
 
 }
 
-if(isset($_POST['update_profile_btn']))
+elseif(isset($_POST['update_profile_btn']))
 {
     $userid = $_POST['userid'];
     $name = $_POST['name'];
@@ -224,7 +220,7 @@ if(isset($_POST['update_profile_btn']))
 
             redirect("../profile.php?id=$userid", "Upload valid images. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 80000)) {
+        else if (($_FILES["image"]["size"] < 800)) {
 
             redirect("../profile.php?id=$userid", "Image size less than 800KB", "warning");
 
@@ -313,7 +309,7 @@ if(isset($_POST['update_profile_btn']))
 }
 
 /* This is the code for logging in a user. */
-if(isset($_POST['login_btn'])){ // LogIn
+elseif(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
 
@@ -395,7 +391,7 @@ if(isset($_POST['login_btn'])){ // LogIn
     }
 }
 
-if(isset($_POST["recover"])){
+elseif(isset($_POST["recover"])){
     $email = $_POST['email'];
 
     $sql = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
@@ -423,7 +419,7 @@ if(isset($_POST["recover"])){
     }
 }
 
-if(isset($_POST["reset"])){
+elseif(isset($_POST["reset"])){
     $password = $_POST["password"];
     $confirmpassword = $_POST["confirmpassword"];
 
@@ -454,6 +450,10 @@ if(isset($_POST["reset"])){
     {
         redirect("../resetpassword.php", "Passwords do not match", "warning");
     }
+}
+else
+{
+    redirect("../index.php", "Something Went Wrong", "warning");
 }
 
 ?>
