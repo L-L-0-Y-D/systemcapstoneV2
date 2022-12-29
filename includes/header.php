@@ -43,7 +43,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
-    <style>
+    <!-- <style>
   #alert_popover
   {
    display:block;
@@ -63,7 +63,7 @@
    background-color: #f2f2f2;
    border-color: #cccccc;
   }
-  </style>
+  </style> -->
 </head>
 
 <body>
