@@ -45,6 +45,10 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">  
+
     <title>Register | I-Eat</title>
 
     <!-- Favicon -->
@@ -174,6 +178,9 @@ if(isset($_SESSION['auth'])){
         </div>
     </form>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
