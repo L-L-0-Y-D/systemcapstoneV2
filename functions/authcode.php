@@ -16,6 +16,7 @@ if(isset($_POST['register_btn']))
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
     $verify_token = md5(rand());
+    $image = "profile.jpg";
 
     $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber;
 
@@ -89,8 +90,8 @@ if(isset($_POST['register_btn']))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as, verify_token) 
-                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as, '$verify_token')";
+                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as, verify_token, image) 
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as, '$verify_token', '$image')";
                         //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                         $users_query_run = mysqli_query($con, $insert_query);
 
@@ -303,7 +304,7 @@ elseif(isset($_POST['update_profile_btn']))
     }
     else
     {
-        redirect("../profile.php?id=$userid", "Something Went Wrong", "error"); 
+        redirect("../profile.php?id=$userid", "Something Went Wrongs", "error"); 
     }
 
 }
@@ -451,6 +452,7 @@ elseif(isset($_POST["reset"])){
         redirect("../resetpassword.php", "Passwords do not match", "warning");
     }
 }
+
 else
 {
     redirect("../index.php", "Something Went Wrong", "warning");
