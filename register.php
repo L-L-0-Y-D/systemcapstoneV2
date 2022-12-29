@@ -64,7 +64,7 @@ if(isset($_SESSION['auth'])){
             </div>
         </nav>
 <section class="reg">
-    <form method="post" action="functions/authcode.php" enctype="multipart/form-data" class="registration">
+    <form method="post" action="functions/authentication.php" enctype="multipart/form-data" class="registration">
         <div class="containe">
             <button class="btn-lg btn-close float-end pt-4" onclick="location.href='index.php'"></button>
              <h5 class="pt-4">Create a User Account </h5>
