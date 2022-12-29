@@ -16,7 +16,7 @@ if(isset($_POST['register_btn']))
     $confirmpassword = mysqli_real_escape_string($con,$_POST['confirmpassword']);
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
     $verify_token = md5(rand());
-    $filename = "profile.jpg";
+    // $filename = "profile.jpg";
 
     $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber;
 
@@ -24,39 +24,39 @@ if(isset($_POST['register_btn']))
     $difference = date_diff(date_create($dateofbirth), date_create($today));
     $age = $difference->format('%y');
 
-//     $image = $_FILES['image']['name'];
+    $image = $_FILES['image']['name'];
 
-    // $path = "../uploads";
+    $path = "../uploads";
 
-    // $image_ext = pathinfo($image, PATHINFO_EXTENSION);
-    // $filename = time().'.'.$image_ext;
+    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    $filename = time().'.'.$image_ext;
 
-    // // Get Image Dimension
-    // $fileinfo = @getimagesize($image);
+    // Get Image Dimension
+    $fileinfo = @getimagesize($image);
 
-//     $allowed_image_extension = array(
-//         "png",
-//         "jpg",
-//         "jpeg"
-//     );
+    $allowed_image_extension = array(
+        "png",
+        "jpg",
+        "jpeg"
+    );
     
-//     // Get image file extension
-//     $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    // Get image file extension
+    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
     
-//     // Validate file input to check if is not empty
-//    if (! file_exists($_FILES["image"]["tmp_name"])) {
+    // Validate file input to check if is not empty
+   if (! file_exists($_FILES["image"]["tmp_name"])) {
        
-//         redirect("../register.php?error=Choose image file to upload&$user_data", "Choose image file to upload.", "warning");
+        redirect("../register.php?error=Choose image file to upload&$user_data", "Choose image file to upload.", "warning");
     
-//    }  // Validate file input to check if is with valid extension
-//    else if (! in_array($file_extension, $allowed_image_extension)) {
+   }  // Validate file input to check if is with valid extension
+   else if (! in_array($file_extension, $allowed_image_extension)) {
 
-//        redirect("../register.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$user_data", "Upload valid images. Only PNG and JPEG are allowed in image.", "warning");
-//    }// Validate image file size that is greater
-//    else if (($_FILES["image"]["size"] > 5000000)) {
+       redirect("../register.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$user_data", "Upload valid images. Only PNG and JPEG are allowed in image.", "warning");
+   }// Validate image file size that is greater
+   else if (($_FILES["image"]["size"] > 5000000)) {
 
-//        redirect("../register.php?error=Image size exceeds 5MB&$user_data", "Image size exceeds 5MB", "warning");
-//    }
+       redirect("../register.php?error=Image size exceeds 5MB&$user_data", "Image size exceeds 5MB", "warning");
+   }
    
     // Check if email already registered
     $check_email_query = "SELECT * FROM users WHERE email='$email'";
@@ -96,7 +96,7 @@ if(isset($_POST['register_btn']))
                         $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
-                                // move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+                                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 sendemail_verify("$name","$email","$verify_token");
                                 redirect("../login.php", "Registration Success Please verify Email Address to login", "success");
                             }
