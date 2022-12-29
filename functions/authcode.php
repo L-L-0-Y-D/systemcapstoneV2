@@ -3,6 +3,7 @@
 include('myfunctions.php');
 
 /* This is the code for registering a user. */
+/* This is the code for registering a user. */
 if(isset($_POST['register_btn']))
 {
     $name = mysqli_real_escape_string($con,$_POST['name']);
@@ -23,9 +24,9 @@ if(isset($_POST['register_btn']))
     $difference = date_diff(date_create($dateofbirth), date_create($today));
     $age = $difference->format('%y');
 
-     $image = $_FILES['image']['name'];
+    $image = $_FILES['image']['name'];
 
-     $path = "../uploads";
+    $path = "../uploads";
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
@@ -89,10 +90,10 @@ if(isset($_POST['register_btn']))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as,image, verify_token) 
+                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as, image, verify_token) 
                         VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as,'$filename', '$verify_token')";
-                       $users_query_run = mysqli_query($con,$insert_query) or die("bad query: $insert_query");
-                        // $users_query_run = mysqli_query($con, $insert_query);
+                        //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
+                        $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
