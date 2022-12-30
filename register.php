@@ -182,8 +182,12 @@ if(isset($_SESSION['auth'])){
     <script>
     <?php if(isset($_SESSION['message'])) 
     { ?>
-        alertify.set('notifier','position', 'top-center');
-        alertify.success('<?= $_SESSION['message']; ?>');
+        swal({
+            title: "<?= $_SESSION['message']; ?>",
+            icon: "<?= $_SESSION['alert']; ?>",
+            button: "Okay",
+            timer: 10500,
+            });
         <?php 
         unset($_SESSION['message']);
         unset($_SESSION['alert']);

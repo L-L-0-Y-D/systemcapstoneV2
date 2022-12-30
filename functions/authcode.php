@@ -221,12 +221,12 @@ elseif(isset($_POST['update_profile_btn']))
 
             redirect("../profile.php?id=$userid", "Upload valid image. Only PNG and JPEG are allowed in profile image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 800)) {
+        elseif (($_FILES["image"]["size"] < 80)) {
 
             redirect("../profile.php?id=$userid", "Image size less than 800KB", "warning");
 
         }    // Validate image file size that is greater
-        else if (($_FILES["image"]["size"] > 10000000)) {
+        elseif (($_FILES["image"]["size"] > 10000000)) {
 
             redirect("../profile.php?id=$userid", "Image size exceeds 10MB", "warning");
         }

@@ -290,7 +290,7 @@ if(isset($_GET['id']))
 
         var user_review = $('#user_review').val();
 
-        if(user_name == '' || user_review == '' || rating_data == 0)
+        if(user_name == ''|| rating_data == 0)
         {
             swal({
             title: "Please fill all fields",

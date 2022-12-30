@@ -10,8 +10,13 @@ if(isset($_SESSION['auth'])){
     //unset($_SESSION['business_name']);
     $_SESSION['message'] = "Logged Out Successfully";
     $_SESSION['status'] = "success";
+
+    unset($_SESSION['message']);
+    unset($_SESSION['status']);
+
     
 }
+
 
 header('Location: index.php');
 

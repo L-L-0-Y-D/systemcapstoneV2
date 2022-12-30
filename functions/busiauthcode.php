@@ -203,6 +203,10 @@ else if(isset($_POST['business_login']))
                             {
                                 redirect("../ownerlogin.php", "Account Closed", "warning");
                             }
+                            elseif($archive == '1')
+                            {
+                                redirect("../ownerlogin.php", "Your Account is Closed and Now Archived", "warning");
+                            }
                             else
                             {
                                 redirect("../ownerlogin.php", "You are not Verify Yet", "warning");
