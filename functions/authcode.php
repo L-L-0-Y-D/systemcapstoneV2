@@ -4,7 +4,7 @@ include('myfunctions.php');
 
 /* This is the code for registering a user. */
 /* This is the code for registering a user. */
-if(isset($_POST['register_btn']))
+if(isset($_POST['registerbutton']))
 {
     $name = mysqli_real_escape_string($con,$_POST['name']);
     $email = mysqli_real_escape_string($con,$_POST['email']);
@@ -128,8 +128,7 @@ if(isset($_POST['register_btn']))
     }
     
 }
-
-if(isset($_POST['edit_password_btn']))
+elseif(isset($_POST['edit_password_btn']))
 {
     $userid = $_POST['userid'];
     $oldpassword = $_POST['oldpassword'];
@@ -183,7 +182,7 @@ if(isset($_POST['edit_password_btn']))
 
 }
 
-if(isset($_POST['update_profile_btn']))
+elseif(isset($_POST['update_profile_btn']))
 {
     $userid = $_POST['userid'];
     $name = $_POST['name'];
@@ -261,7 +260,7 @@ if(isset($_POST['update_profile_btn']))
                         if(strlen($_POST['password']) >= 8 )
                         {
                             //$hash = password_hash($password, PASSWORD_DEFAULT);
-                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',dateofbirth='$dateofbirth',age='$age',phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
                             //mysqli_query($con,$update_query) or die("bad query: $update_query");
                             $update_query_run = mysqli_query($con, $update_query);
                         }
@@ -310,7 +309,7 @@ if(isset($_POST['update_profile_btn']))
 }
 
 /* This is the code for logging in a user. */
-if(isset($_POST['login_btn'])){ // LogIn
+elseif(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
 
@@ -392,7 +391,7 @@ if(isset($_POST['login_btn'])){ // LogIn
     }
 }
 
-if(isset($_POST["recover"])){
+elseif(isset($_POST["recover"])){
     $email = $_POST['email'];
 
     $sql = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
@@ -420,7 +419,7 @@ if(isset($_POST["recover"])){
     }
 }
 
-if(isset($_POST["reset"])){
+elseif(isset($_POST["reset"])){
     $password = $_POST["password"];
     $confirmpassword = $_POST["confirmpassword"];
 
@@ -452,5 +451,9 @@ if(isset($_POST["reset"])){
         redirect("../resetpassword.php", "Passwords do not match", "warning");
     }
 }
+// else
+// {
+//     redirect("../index.php", "Something Went Wrong", "error");
+// }
 
 ?>

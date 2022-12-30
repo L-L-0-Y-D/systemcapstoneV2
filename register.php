@@ -169,7 +169,7 @@ if(isset($_SESSION['auth'])){
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <button class="btn btn-primary" type="submit" name="register_btn">Register</button>
+                    <button class="btn btn-primary" type="submit" name="registerbutton">Register</button>
                 </div>
             </div>
             <p>Already have an account?&nbsp &nbsp<a href="login.php">Login</a></p>
