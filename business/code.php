@@ -209,11 +209,13 @@ elseif (isset($_POST['update_reservation_btn']))
     {
         if($status == 1)
         {
+            sendemail_confirmreservation($reservation_email, $namereserveunder, $username, $reservation_phonenumber, $reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             sendphonenumber_confirmreservation($namereserveunder,$username,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             //redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
         }
         elseif($status == 2)
         {
+            sendemail_declinedreservation($reservation_email,$username,$business_name);
             sendphonenumber_declinedreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             
         }

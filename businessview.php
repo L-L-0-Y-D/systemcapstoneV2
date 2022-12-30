@@ -231,9 +231,34 @@
                                 $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                                 $query_rating_count_run = mysqli_query($con, $query_rating_count);
                                 $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                                echo '<span> ('.$row_rating_count.' reviews)</span><br>';
+                                echo '<span> ('.$row_rating_count.' review/s)</span><br>';
                             ?>
-                        <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>                    
+                            <?php
+                            if(isset($_SESSION['auth'])){
+                                if ($_SESSION['role_as'] == 0) 
+                                {
+                                    // redirect("index.php", "You are not authorized to access this page", "warning");
+                            ?>
+                                    <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>&uid=<?= $_SESSION['auth_user']['userid']; ?>'">Make Reservation</button>
+                            <?php
+                                }
+                                else
+                                {
+                                    // redirect("index.php", "You are not authorized to access this page", "warning");
+                            ?>
+                                    <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>
+                            <?php
+
+                                }   
+                            }
+                            else
+                            {
+                            ?>
+                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>
+                            <?php
+                            }
+                            ?>
+                        <!-- <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>-->
                         </div>
                     </div><hr class="m-0 w-100">
                 </div>

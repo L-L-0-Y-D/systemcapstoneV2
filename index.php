@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="text-uppercase text-start section-heading fw-bold">EXPLORE BATAAN !</h2>
-                    <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 35px;">Locate where your favorite spot is&nbsp;</h3>
+                    <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 35px;">Locate where your favorite spot in&nbsp;</h3>
                 </div>
             </div>
             <!--<div class="row g-2">

@@ -3,15 +3,24 @@
 include('middleware/userMiddleware.php');
 
 $id = $_GET['id'];
-if(isset($_GET['id']))
+$uid = $_GET['uid'];
+
+$query_reservations = "SELECT * FROM reservations WHERE userid = $uid AND status = 0";
+$check_reservations_run = mysqli_query($con, $query_reservations);
+
+if(mysqli_num_rows($check_reservations_run)>=3)
 {
-$managetable = "SELECT * FROM managetable WHERE businessid=$id AND status='1' ";
-$managetable_query_run = mysqli_query($con, $managetable);
-if(mysqli_num_rows($managetable_query_run) > 0)
-{
-    $data = mysqli_fetch_array($managetable_query_run);
-    $idnum = $data['tableid'];
-?>
+    
+    redirect("index.php", "Please wait for your reservation/s to approved before you can reserve again.", "error");
+
+} else {
+    if (isset($_GET['id'])) {
+        $managetable = "SELECT * FROM managetable WHERE businessid=$id AND status='1' ";
+        $managetable_query_run = mysqli_query($con, $managetable);
+        if (mysqli_num_rows($managetable_query_run) > 0) {
+            $data = mysqli_fetch_array($managetable_query_run);
+            $idnum = $data['tableid'];
+            ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,28 +74,28 @@ if(mysqli_num_rows($managetable_query_run) > 0)
             <div class="dropdown no-arrow">
                 <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
                     <?php
-                        $host = "localhost";
-                        $username = "u217632220_ieat";
-                        $password = "Hj1@8QuF3C";
-                        $database = "u217632220_ieatwebsite";
-                        
-                        // Creating database connection
-                        $con = mysqli_connect($host,$username,$password,$database);
-                        $userid = $_SESSION['auth_user']['userid']; 
-                        $sql = "SELECT * FROM `users` WHERE userid = $userid;";
-                        $result = $con->query($sql);
-                        $item = mysqli_fetch_assoc($result);
+                    $host = "localhost";
+                    $username = "u217632220_ieat";
+                    $password = "Hj1@8QuF3C";
+                    $database = "u217632220_ieatwebsite";
+
+                    // Creating database connection
+                    $con = mysqli_connect($host, $username, $password, $database);
+                    $userid = $_SESSION['auth_user']['userid'];
+                    $sql = "SELECT * FROM `users` WHERE userid = $userid;";
+                    $result = $con->query($sql);
+                    $item = mysqli_fetch_assoc($result);
                     ?>
-                    <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $item['image'];?>"></a>
+                    <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $item['image']; ?>"></a>
                     <div class="dropdown-menu ">
-                        <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>"><i class="fa fa-user "></i>&nbsp;Profile</a>
-                        <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid'];?>"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
-                        <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>"><i class="fas fa-key"></i>&nbsp;Change Password</a>
+                        <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid']; ?>"><i class="fa fa-user "></i>&nbsp;Profile</a>
+                        <a class="dropdown-item" href="your_reservation.php?id=<?= $_SESSION['auth_user']['userid']; ?>"><i class="far fa-calendar alt"></i>&nbsp;Reservations</a>
+                        <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid']; ?>"><i class="fas fa-key"></i>&nbsp;Change Password</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout.php"style="font-size:16px;text-align:left;"><i class="fa fa-sign-out alt"></i>&nbsp;Logout</a>
                     </div>
             </div>
-                <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">&nbspWelcome&nbsp&nbsp <strong style="font-family:'Lato';"><?= $item['name'];?>!</strong></a>
+                <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">&nbspWelcome&nbsp&nbsp <strong style="font-family:'Lato';"><?= $item['name']; ?>!</strong></a>
                 <nav class="navbar navbar-expand">
                     <div class="container-fluid">
                         <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
@@ -208,30 +217,26 @@ $(document).on('change','#resource_select', function(){
 
 </script>
 <script>
-        <?php if(isset($_SESSION['message'])) 
-    { ?>
+        <?php if (isset($_SESSION['message'])) { ?>
           alertify.set('notifier','position', 'top-center');
          var msg = alertify.message('Default message');
         msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
-        <?php 
-        unset($_SESSION['message']);
-    }
-    ?>
+        <?php
+                        unset($_SESSION['message']);
+                }
+        ?>
 <?php
-}
-else
-{
-    redirect("index.php", "No Table and Chairs created", "error");
-}
-?>
+                } else {
+                    redirect("index.php", "No Table and Chairs created", "error");
+                }
+                ?>
 </script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>
 <?php
-}
-else
-{
-    redirect("index.php", "Somthing went Wrong", "error");
+    } else {
+        redirect("index.php", "Somthing went Wrong", "error");
+    }
 }
