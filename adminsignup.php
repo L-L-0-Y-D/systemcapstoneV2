@@ -103,17 +103,23 @@ if(isset($_SESSION['auth'])){
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
-          alertify.set('notifier','position', 'top-center');
-         var msg = alertify.message('Default message');
-        msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
+        swal({
+            title: "<?= $_SESSION['message']; ?>",
+            icon: "<?= $_SESSION['alert']; ?>",
+            button: "Okay",
+            timer: 15000,
+            });
+
         <?php 
         unset($_SESSION['message']);
+        unset($_SESSION['alert']);
     }
     ?> 
-    </script> 
+    </script>  
     <script>
         function myFunction(x) {
             x.classList.toggle("fa-eye-slash");
