@@ -127,7 +127,8 @@ if(isset($_POST['business_register_btn']))
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
-                                redirect("../ownerlogin.php", "Register Successfully", "success");
+                                sendemail_business($business_name, $business_email);
+                                redirect("../ownerlogin.php", "Register Successfully!! Please Wait for the Admin to Process your Business Account to Login", "success");
                             }
                             else{
                                 redirect("../businessreg.php?error=Something went wrong&$business_data", "Something went wrong", "error");

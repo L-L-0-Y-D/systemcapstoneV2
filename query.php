@@ -21,7 +21,7 @@ if(isset($_POST["query"]))
     }
     else
     {
-        $output .= '<li id="businesslist">Business Not Found</li>';
+        $output .= '<li id="businesslist">No restaurant found</li>';
     }
     $output .= '</ul>';
     echo $output;

@@ -16,6 +16,8 @@
                         $businessreview = getBusiByMunicipalityandReview($id);
                         $items = mysqli_fetch_array($businessreview);  
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,7 +79,8 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <a href="#" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
+                    <a href="businessview.php?id=<?=$item['businessid'];?>" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
+                    <span class="product-type"><?= $item['business_address']; ?></span><br> 
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>
                     <div class="rating d-flex ">
@@ -133,7 +136,7 @@
                             $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                             $query_rating_count_run = mysqli_query($con, $query_rating_count);
                             $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                                echo '<span> ('.$row_rating_count.' reviews)</span>'
+                                echo '<span> ('.$row_rating_count.' Review/s)</span>'
                                         
                             ?>
                         </span>
@@ -145,7 +148,7 @@
                 }
                 else
                 {
-                echo "<p class='text-center'>No Business Found</p>";
+                echo "<p class='text-center'>No Restaurant Found</p>";
             ?>
             <br><a class="text-center text-black fw-bold " style="margin-bottom:76px;" href="index.php">Go Back</a>
             <?php
@@ -179,7 +182,8 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <a href="#" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
+                    <a href="<?=$item['businessid'];?>" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
+                    <span class="product-type"><?= $item['business_address']; ?></span><br> 
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>
                     <div class="rating d-flex ">
@@ -235,7 +239,7 @@
                             $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                             $query_rating_count_run = mysqli_query($con, $query_rating_count);
                             $row_rating_count = mysqli_num_rows($query_rating_count_run);
-                                echo '<span> ('.$row_rating_count.')</span>'
+                                echo '<span> ('.$row_rating_count.' Review/s)</span>'
                                         
                             ?>
                         </span>
@@ -247,7 +251,7 @@
                 }
                 else
                 {
-                echo "<p class='text-center'>No Business Found</p>";
+                echo "<p class='text-center'>No Restaurant Found</p>";
             ?>
             <br><a class="text-center text-black fw-bold " style="margin-bottom:76px;" href="index.php">Go Back</a>
             <?php

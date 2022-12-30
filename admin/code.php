@@ -944,34 +944,30 @@ else if(isset($_POST['edit_business_btn']))
     $reason = $_POST['reason'];
     $status = $_POST['status'];
 
-
-    $update_query = "UPDATE business SET status='$status' WHERE businessid='$businessid'";
-    //mysqli_query($con,$update_query) or die("bad query: $update_query");
-
-    $update_query_run = mysqli_query($con, $update_query);
-
-    if($update_query_run)
+    if($status != 1 && $reason == '')
     {
-        //redirect("busiowner.php", "Business Updated Successfully");
-        //Not finish
-        if($status == 1)
-        {
-            sendemail_businessconfirm($business_email,$business_name);
-            redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
+        redirect("edit-business.php?id=$businessid", "Please add reason for declined", "warning"); 
+    } else {
+        $update_query = "UPDATE business SET status='$status' WHERE businessid='$businessid'";
+        //mysqli_query($con,$update_query) or die("bad query: $update_query");
+
+        $update_query_run = mysqli_query($con, $update_query);
+
+        if ($update_query_run) {
+            //redirect("busiowner.php", "Business Updated Successfully");
+            //Not finish
+            if ($status == 1) {
+                sendemail_businessconfirm($business_email, $business_name);
+                redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
+            } elseif ($status == 0) {
+                redirect("busiowner.php", "Business Updated Successfully", "success");
+            } elseif ($status == 2) {
+                sendemail_businesdeclined($business_email, $business_name, $reason);
+                redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
+            }
+        } else {
+            redirect("edit-business.php?id=$businessid", "Something Went Wrong", "error");
         }
-        elseif($status == 0)
-        {
-            redirect("busiowner.php", "Business Updated Successfully", "success");
-        }
-        elseif($status == 2)
-        {
-            sendemail_businesdeclined($business_email,$business_name,$reason);
-            redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
-        }
-    }
-    else
-    {
-        redirect("edit-business.php?id=$businessid", "Something Went Wrong", "error"); 
     }
 
 }
