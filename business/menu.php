@@ -41,7 +41,6 @@ include('../config/dbcon.php');
     <div class="container-fluid bg-white mt-0 pt-3">
         <a class="btn btn-primary float-end mt-2 btn-sm" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" id="addbtn">Add Menu</a>  
         <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Menu List</h4><hr>
-       
                         <!--SORTING-->
                     <div class="row mx-auto">
                         <div class="col-md-6 text-nowrap " id="filters">
@@ -61,8 +60,23 @@ include('../config/dbcon.php');
                                 </label>
                             </div>                           
                         </div>
+                        <!-- Import & Export link -->
+                        <div class="col-md-6 ">
+                            <div class="float-right">
+                                <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-3 btn-sm" onclick="formToggle('importFrm');"><i class="plus"></i> Import</a>
+                                <a href="exportData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end mb-3 mx-3 btn-sm"><i class="exp"></i> Export</a>
+                            </div>
+                        </div>
+                        <!-- Archive link-->
                         <div class="col-md-6 ">
                             <a class="btn btn-dark float-end mb-3 mx-3 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Archives</a>
+                        </div>
+                        <!-- CSV file upload form -->
+                        <div class="col-md-6 " id="importFrm" style="display: none;">
+                            <form action="importData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" method="post" enctype="multipart/form-data">
+                                <input class="float-end mb-3 mx-3 btn-sm" type="file" name="file" accept=".csv" required/>
+                                <input class="btn btn-success float-end mb-3 mx-3 btn-sm" type="submit" class="btn btn-primary" name="importSubmit" value="IMPORT">
+                            </form>
                         </div>
                     </div>
                        
@@ -110,6 +124,10 @@ include('../config/dbcon.php');
                                 ?>
                 
                         </form>
+                    <!-- Show/hide CSV upload form -->
+                    <script>
+
+                    </script>
        
                     <!--SCRIPT FOR SORTING-->
                     <script type="text/javascript">
@@ -133,8 +151,18 @@ include('../config/dbcon.php');
                                     });
                                 });
                             });
+
+                            function formToggle(ID){
+                            var element = document.getElementById(ID);
+                            if(element.style.display === "none"){
+                                element.style.display = "block";
+                            }else{
+                                element.style.display = "none";
+                            }
+                        }
                   
                     </script>
+                    
                     <div class="row">
                         <div class="col-md-6 align-self-center">
                             <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Page <?= $page_no; ?> of <?= $total_no_of_pages; ?></p>

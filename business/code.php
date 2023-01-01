@@ -139,10 +139,10 @@ elseif (isset($_POST['update_product_btn']))
         if($_FILES['image']['name'] != "")
         {
             move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
-            if(file_exists("../uploads/".$old_image))
-            {
-                unlink("../uploads/".$old_image);
-            }
+            // if(file_exists("../uploads/".$old_image))
+            // {
+            //     unlink("../uploads/".$old_image);
+            // }
         }
         redirect("menu.php?id=$businessid", "Product Updated Successfully", "success");
 
