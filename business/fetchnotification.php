@@ -31,7 +31,7 @@ if(isset($_POST["view"]))
             if($row['comment_subject'] == "NEW RESERVATION")
             {
                 $output .= '
-                <a class="dropdown-item d-flex align-items-center" href="reservation.php?id="'.$id.'>
+                <a class="dropdown-item d-flex align-items-center" href="reservation.php?id='.$id.'">
                     <div>
                         <span class="small text-gray-500"><strong>'.$row["comment_subject"].'</strong></span>
                         <span class="small text-gray-500" style="text-align: center;"></span>
@@ -40,10 +40,10 @@ if(isset($_POST["view"]))
                 </a>
                 ';
             }
-            if($row['comment_subject'] == "RESERVATION Cancelled")
+            elseif($row['comment_subject'] == "RESERVATION Cancelled")
             {
                 $output .= '
-                <a class="dropdown-item d-flex align-items-center" href="reservation.php?id="'.$id.'>
+                <a class="dropdown-item d-flex align-items-center" href="reservation.php?id='.$id.'">
                     <div>
                         <span class="small text-gray-500"><strong>'.$row["comment_subject"].'</strong></span>
                         <span class="small text-gray-500" style="text-align: center;"></span>

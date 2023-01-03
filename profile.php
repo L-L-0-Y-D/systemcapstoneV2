@@ -140,7 +140,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="address"><strong>Address</strong></label>
-                                            <input name="address" value="<?= $data['address'] ?>" required placeholder="Enter Address" class="form-control" type="text" id="address">
+                                            <input name="address" value="<?= $data['address'] ?>" placeholder="Enter Address" class="form-control" type="text" id="address">
                                         </div>
                                         <div class="row">
                                             <div class="col">
