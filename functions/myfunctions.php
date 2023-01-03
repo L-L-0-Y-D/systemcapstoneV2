@@ -285,7 +285,7 @@ function sendemail_verify($name,$email,$verify_token)
 {
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
-    $key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
+    // $key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
     // $token = urlencode(encryptthis($verify_token, $key));
 
     //$mail->SMTPDebug = 2; 

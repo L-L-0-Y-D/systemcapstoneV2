@@ -1,6 +1,6 @@
 <?php
-// session_start();
-// include('config/dbcon.php');
+session_start();
+include('config/dbcon.php');
 include('functions/myfunctions.php');
 if(isset($_GET['token']))
 {
