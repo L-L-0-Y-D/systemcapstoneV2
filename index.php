@@ -10,7 +10,7 @@
                     <span><img src="uploads/logoT.png" style="width: 140px;"></span>
                 </div>
                 <div class="intro-heading text-uppercase ">
-                    <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.<?php //$random = rand(); //echo $random; ?></span></div>
+                    <span style="font-family: 'Kaushan Script', serif; font-size:55px; ">First we eat,&nbsp; i - eat.<?php //echo 'Current PHP version' . phpversion(); ?></span></div>
                     <?php
                         // $query_search = "SELECT business_name
                         // FROM business 

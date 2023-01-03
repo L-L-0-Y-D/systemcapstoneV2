@@ -452,9 +452,6 @@ elseif(isset($_POST["reset"])){
         redirect("../resetpassword.php", "Passwords do not match", "warning");
     }
 }
-else
-{
-    redirect("../index.php", "Something Went Wrong", "error");
-}
+
 
 ?>
