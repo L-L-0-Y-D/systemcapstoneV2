@@ -1,26 +1,25 @@
 <?php
 
 include('middleware/userMiddleware.php');
+if (isset($_GET['id']) && isset($_GET['uid'])) {
+    $id = $_GET['id'];
+    $uid = $_GET['uid'];
 
-$id = $_GET['id'];
-$uid = $_GET['uid'];
+    $query_reservations = "SELECT * FROM reservations WHERE userid = $uid AND status = 0";
+    $check_reservations_run = mysqli_query($con, $query_reservations);
 
-$query_reservations = "SELECT * FROM reservations WHERE userid = $uid AND status = 0";
-$check_reservations_run = mysqli_query($con, $query_reservations);
+    if (mysqli_num_rows($check_reservations_run) >= 3) {
 
-if(mysqli_num_rows($check_reservations_run)>=3)
-{
-    
-    redirect("index.php", "Please wait for your reservation/s to approved before you can reserve again.", "error");
+        redirect("index.php", "Please wait for your reservation/s to approved before you can reserve again.", "error");
 
-} else {
-    if (isset($_GET['id'])) {
-        $managetable = "SELECT * FROM managetable WHERE businessid=$id AND status='1' ";
-        $managetable_query_run = mysqli_query($con, $managetable);
-        if (mysqli_num_rows($managetable_query_run) > 0) {
-            $data = mysqli_fetch_array($managetable_query_run);
-            $idnum = $data['tableid'];
-            ?>
+    } else {
+        if (isset($_GET['id']) && isset($_GET['uid'])) {
+            $managetable = "SELECT * FROM managetable WHERE businessid=$id AND status='1' ";
+            $managetable_query_run = mysqli_query($con, $managetable);
+            if (mysqli_num_rows($managetable_query_run) > 0) {
+                $data = mysqli_fetch_array($managetable_query_run);
+                $idnum = $data['tableid'];
+                ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,21 +221,25 @@ $(document).on('change','#resource_select', function(){
          var msg = alertify.message('Default message');
         msg.delay(3).setContent('<?= $_SESSION['message']; ?>');
         <?php
-                        unset($_SESSION['message']);
-                }
-        ?>
+                                unset($_SESSION['message']);
+                        }
+            ?>
 <?php
-                } else {
-                    redirect("index.php", "No Table and Chairs created", "error");
-                }
-                ?>
+                        } else {
+                            redirect("index.php", "No Table and Chairs created", "error");
+                        }
+                        ?>
 </script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>
 <?php
-    } else {
-        redirect("index.php", "Somthing went Wrong", "error");
+        } else {
+            redirect("index.php", "Somthing went Wrong", "error");
+        }
     }
+
+} else {
+    redirect("index.php", "Something Went Wrong", "error");
 }

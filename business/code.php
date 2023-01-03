@@ -209,12 +209,19 @@ elseif (isset($_POST['update_reservation_btn']))
     {
         if($status == 1)
         {
+            $insert_notification = "INSERT INTO notifications (comment_subject,comment_text,usertype) 
+            VALUES ('Reservation', 'Your reservation in $business_name is approved', '2')";
+            $insert_notification_run = mysqli_query($con, $insert_notification);
+
             sendemail_confirmreservation($reservation_email, $namereserveunder, $username, $reservation_phonenumber, $reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             sendphonenumber_confirmreservation($namereserveunder,$username,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             //redirect("reservation.php?id=$businessid", "Reservation Updated Successfully");
         }
         elseif($status == 2)
         {
+            $insert_notification = "INSERT INTO notifications (comment_subject,comment_text,usertype) 
+            VALUES ('Reservation', 'Your reservation in $business_name is declined', '2')";
+            $insert_notification_run = mysqli_query($con, $insert_notification);
             sendemail_declinedreservation($reservation_email,$username,$business_name);
             sendphonenumber_declinedreservation($namereserveunder,$reservation_phonenumber,$reservation_date,$reservation_time,$numberofguest,$table_number,$business_name,$businessid);
             
@@ -577,6 +584,10 @@ else if(isset($_POST['update_arrived_btn']))
 
     $update_table_query_run = mysqli_query($con, $update_table_query);
 
+    $insert_notification = "INSERT INTO notifications (comment_subject,comment_text,usertype) 
+    VALUES ('Arrival', 'You have arrived in your reservation at $business_name', '2')";
+    $insert_notification_run = mysqli_query($con, $insert_notification);
+
     if($update_table_query_run)
     {
         if($arrived == 1)
@@ -605,6 +616,10 @@ else if(isset($_POST['update_not_arrived_btn']))
     //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
     $update_table_query_run = mysqli_query($con, $update_table_query);
+
+    $insert_notification = "INSERT INTO notifications (comment_subject,comment_text,usertype) 
+    VALUES ('Arrival', 'You have not arrived in your reservation at $business_name', '2')";
+    $insert_notification_run = mysqli_query($con, $insert_notification);
 
     if($update_table_query_run)
     {

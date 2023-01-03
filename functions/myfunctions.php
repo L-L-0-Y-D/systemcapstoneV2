@@ -259,10 +259,34 @@ function redirect($url, $message, $alert)
     exit();
 }
 
+function encryptthis($data, $key) {
+
+    $encryption_key = base64_decode($key);
+    
+    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+    
+    $encrypted = openssl_encrypt($data, 'aes-256-cbc', $encryption_key, 0, $iv);
+    
+    return base64_encode($encrypted . '::' . $iv);
+    
+    }
+
+function decryptthis($data, $key) {
+
+    $encryption_key = base64_decode($key);
+        
+    list($encrypted_data, $iv) = array_pad(explode('::', base64_decode($data), 2),2,null);
+        
+    return openssl_decrypt($encrypted_data, 'aes-256-cbc', $encryption_key, 0, $iv);
+        
+    }
+
 function sendemail_verify($name,$email,$verify_token)
 {
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
+    $key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
+    $token = urlencode(encryptthis($verify_token, $key));
 
     //$mail->SMTPDebug = 2; 
     $mail->isSMTP();
@@ -434,7 +458,7 @@ function sendemail_verify($name,$email,$verify_token)
                                     <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 60px 30px;'>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td align='center' style='border-radius: 3px;' bgcolor='#FFA73B'><a href='https://ieat.store/verify-email.php?token=$verify_token' target='_blank' style='font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #060505; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid rgb(255,128,64); display: inline-block;'>Confirm Account</a></td>
+                                                <td align='center' style='border-radius: 3px;' bgcolor='#FFA73B'><a href='https://ieat.store/verify-email.php?token=$token' target='_blank' style='font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #060505; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid rgb(255,128,64); display: inline-block;'>Confirm Account</a></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -482,6 +506,48 @@ function getlocation()
     global $con;
     $query = "SELECT * FROM business WHERE status='1'";
     return $query_run = mysqli_query($con, $query);
+}
+
+function sendphonenumber_confirmreservation($username,$phonenumber,$verify_token,$user_data)
+{
+    $key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
+    $token = urlencode(encryptthis($verify_token, $key));
+
+    $ch = curl_init();
+    $parameters = array(
+        'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
+        'number' => $phonenumber,
+        'message' => 'Hello '.$username.'!,
+Were excited to have you get started LLOYD123. First, you need to confirm your account. Just press the Link below..
+
+https://ieat.store/verify-email.php?token='.$token.'
+                    
+Cheers,
+I-EAT',
+                
+        'sendername' => 'IEAT'
+    );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
+
+    //Show the server response
+    if($output)
+    {
+        redirect("../login.php", "Registration Success Please verify your account to login", "success");
+    }
+    else
+    {
+        redirect("../register.php?error=Something went wrong&$user_data", "Something went wrong", "error");
+    }
+    
 }
 
 

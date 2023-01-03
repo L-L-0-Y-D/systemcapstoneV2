@@ -108,6 +108,71 @@
                             <li class="nav-item"><a class="nav-link" href="#location">LOCATION</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
                             <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle notificationtoggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter count"></span><i class="fas fa-bell fa-fw"></i></a>
+                            <div class="dropdown-menu notification dropdown-menu-end dropdown-list animated--grow-in">
+                                <h6 class="dropdown-header">Notification/s</h6>
+                            </div>
+                        </div>
+                    </li>
+                    <script>
+                    $(document).ready(function(){
+                    
+                    function load_unseen_notification(view = '')
+                    {
+                    $.ajax({
+                    url:"fetchnotification.php?id=<?= $_SESSION['auth_user']['userid'];?>",
+                    method:"POST",
+                    data:{view:view},
+                    dataType:"json",
+                    success:function(data)
+                    {
+                        $('.notification').html(data.notification);
+                        if(data.unseen_notification > 0)
+                        {
+                        $('.count').html(data.unseen_notification);
+                        }
+                    }
+                    });
+                    }
+                    
+                    load_unseen_notification();
+                    
+                    //  $('#comment_form').on('submit', function(event){
+                    //   event.preventDefault();
+                    //   if($('#subject').val() != '' && $('#comment').val() != '')
+                    //   {
+                    //     alert($('#subject').val());
+                    //     alert($('#comment').val());
+                    //    var form_data = $(this).serialize();
+                    //    $.ajax({
+                    //     url:"insert.php",
+                    //     method:"POST",
+                    //     data:form_data,
+                    //     success:function(data)
+                    //     {
+                    //      $('#comment_form')[0].reset();
+                    //      load_unseen_notification();
+                    //     }
+                    //    });
+                    //   }
+                    //   else
+                    //   {
+                    //    alert("Both Fields are Required");
+                    //   }
+                    //  });
+                    
+                    $(document).on('click', '.notificationtoggle', function(){
+                    $('.count').html('');
+                    load_unseen_notification('yes');
+                    });
+                    
+                    setInterval(function(){ 
+                    load_unseen_notification();; 
+                    }, 5000);
+                    
+                    });
+                    </script>
                           
                 <?php
                 }
@@ -158,6 +223,7 @@
                             <li class="nav-item"><a class="nav-link" href="#location">LOCATION</a></li>
                             <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
                             <li class="nav-item"><a class="nav-link" href="#review">REVIEWS</a></li>
+                            
                            
                 <?php 
                 }  
