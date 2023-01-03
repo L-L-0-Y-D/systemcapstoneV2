@@ -1,10 +1,10 @@
 <?php
-session_start();
-include('config/dbcon.php');
-
+// session_start();
+// include('config/dbcon.php');
+include('functions/myfunctions.php');
 if(isset($_GET['token']))
 {
-    $token = $_GET['token'];
+    $token = decryptthis(urldecode($_GET['token']), $key);
     $verify_query = "SELECT verify_token,status,name FROM users WHERE verify_token='$token' ";
     $verify_query_run = mysqli_query($con,$verify_query);
 

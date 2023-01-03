@@ -23,7 +23,7 @@ if(isset($_POST['business_register_btn']))
     $status = isset($_POST['status']) ? "0":"1";
     $verify_token = md5(rand());
 
-    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'$latitude='.$latitude.'$longitude='.$longitude.'&cuisinename[]='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email;
+    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'$latitude='.$latitude.'$longitude='.$longitude.'&cuisinename='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email;
      // Get Image Dimension
      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
      $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
