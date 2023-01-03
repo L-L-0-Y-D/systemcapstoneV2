@@ -99,7 +99,7 @@ if(isset($_POST['registerbutton']))
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 sendemail_verify("$name","$email","$verify_token");
-                                redirect("../login.php", "Registration Success Please verify Email Address to login", "success");
+                                sendphonenumber_confirmreservation($name, $phonenumber, $verify_token, $user_data);
                             }
                             else
                             {

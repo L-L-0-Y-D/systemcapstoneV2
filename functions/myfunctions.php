@@ -508,6 +508,48 @@ function getlocation()
     return $query_run = mysqli_query($con, $query);
 }
 
+function sendphonenumber_confirmreservation($username,$phonenumber,$verify_token,$user_data)
+{
+    $key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
+    $token = urlencode(encryptthis($verify_token, $key));
+
+    $ch = curl_init();
+    $parameters = array(
+        'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
+        'number' => $phonenumber,
+        'message' => 'Hello '.$username.'!,
+Were excited to have you get started LLOYD123. First, you need to confirm your account. Just press the Link below..
+
+https://ieat.store/verify-email.php?token='.$token.'
+                    
+Cheers,
+I-EAT',
+                
+        'sendername' => 'IEAT'
+    );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
+
+    //Show the server response
+    if($output)
+    {
+        redirect("../login.php", "Registration Success Please verify your account to login", "success");
+    }
+    else
+    {
+        redirect("../register.php?error=Something went wrong&$user_data", "Something went wrong", "error");
+    }
+    
+}
+
 
 
 ?>
