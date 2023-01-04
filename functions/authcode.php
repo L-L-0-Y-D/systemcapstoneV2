@@ -452,6 +452,131 @@ elseif(isset($_POST["reset"])){
         redirect("../resetpassword.php", "Passwords do not match", "warning");
     }
 }
+
+elseif(isset($_POST['send_otp'])){ // send OTP
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $login_query = "SELECT * FROM users WHERE email='$email' OR name='$email'";
+    $login_query_run = mysqli_query($con, $login_query);
+
+    if(mysqli_num_rows($login_query_run) > 0)
+    {  
+        while ($row = mysqli_fetch_array($login_query_run))
+        {
+            if (password_verify($password, $row["password"]))
+            {
+                if (mysqli_num_rows($login_query_run) > 0) {
+                    $phonenumber = $row["phonenumber"];
+                    $username = $row["name"];
+                    $otp = rand(11111, 99999);
+
+                    mysqli_query($con, "UPDATE users SET otp='$otp' where email='$email' OR name='$email'");
+
+                    $message = "Your OTP verification code is " . $otp;
+
+                    $_SESSION['EMAIL'] = $email;
+                    sendphonenumber_otp($username, $phonenumber, $message);
+                    
+                }
+                else
+                {
+                    redirect("../login.php", "Wrong Email, Username or Password", "warning");
+                    exit(0);
+                }
+            }
+            else
+            {
+                redirect("../login.php", "Wrong Email, Username or Password", "warning");
+                exit(0);
+            }
+
+        }
+        
+    }
+    else
+    {  
+        redirect("../login.php", "Wrong Email, Username or Password", "error");
+        exit(0);
+    }
+}
+
+elseif(isset($_POST['verify_otp'])){ // send OTP
+    $otp = $_POST['otp'];
+    $email = $_SESSION['EMAIL'];
+
+    $verify_query = "SELECT * FROM users WHERE email='$email' AND otp='$otp' ";
+    $verify_query_run = mysqli_query($con, $verify_query);
+
+    if(mysqli_num_rows($verify_query_run) > 0)
+    {  
+        while ($row = mysqli_fetch_array($verify_query_run))
+        {
+            
+            if (mysqli_num_rows($verify_query_run) > 0)
+            {
+                if($row['status'] == "1" && $row['archive'] == "0")
+                {
+                    $_SESSION['auth'] = true;
+                    $userid = $row['userid'];
+                    $username = $row['name'];
+                    $useremail = $row['email'];
+                    $userphonenumber = $row['phonenumber'];
+                    $userimage = $row['image'];
+                    $role_as = $row['role_as'];
+                    
+                    $_SESSION['auth_user'] = [
+                        'userid' => $userid,
+                        'name' => $username,
+                        'email' => $useremail,
+                        'phonenumber' => $userphonenumber,
+                        'image' => $userimage,
+                        'role_as' => $role_as
+                    ];
+                    
+                    $_SESSION['role_as'] = $role_as;
+                    
+                    if($role_as == 1)
+                    {
+                        redirect("../admin/index.php", "Welcome to dashboard", "success");
+                        exit(0);
+                    }
+                    else
+                    {
+                        redirect("../index.php", "Logged In Successfully", "success");
+                                exit(0);
+                    }
+                }
+                elseif($row['status'] == "2" || $row['archive'] == "1")
+                {
+                    redirect("../login.php", "Your Account has been closed", "warning");
+                    exit(0);
+                }
+                else
+                {
+                     redirect("../login.php", "Please Verify your Email to Login", "warning");
+                    // $_SESSION['status'] = "Please Verify your Email to Login";
+                    // header("Location: login.php");
+                    exit(0);
+                }
+                    
+            }
+            else
+            {
+                redirect("../otpverification.php", "Please Enter Valid OTP", "error");
+                exit(0);
+            }
+
+        }
+        
+    }
+    else
+    {  
+        redirect("../otpverification.php", "Please Enter Authentication Code", "error");
+        exit(0);
+    }
+}
+
 else{
     redirect("../index.php", "Something Went Wrong", "error");
 }
