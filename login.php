@@ -34,6 +34,7 @@ if(isset($_SESSION['auth'])){
     <link href="assets/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <title>Login | I-Eat</title>
     <style>
         .swal-modal .swal-title {
@@ -85,23 +86,30 @@ if(isset($_SESSION['auth'])){
                                 <button class="btn btn-primary unactive" type="submit" onclick="location.href='ownerlogin.php'">Business</button>
                                 <button class="btn btn-primary active" type="submit" onclick="location.href='login.php'">Customer</button>
                             </div>
-                            <form class="text-center" method="post" action="functions/authcode.php">
-                                <div class="inputs">
+                            <form form class="text-center" method="post" action="functions/authcode.php">
+                                <div class="inputs first_box form-group">
                                     <i class="fas fa-user d-md-flex align-items-md-end"></i>&nbsp
-                                    <input class="form-control" type="text" name="email" placeholder="Email or Username" required>
+                                    <input class="form-control" type="text" id="email" name="email" placeholder="Email or Username" required>
                                 </div>
-                                <div class="inputs">
+                                <div class="inputs first_box form-group">
                                     <i class="fas fa-key d-md-flex align-items-md-end" ></i>&nbsp
-                                    <input class="form-control" type="password" name="password" id="inputpassword" placeholder="Password" required>
+                                    <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
                                     <i class="far fa-eye d-md-flex align-items-md-end" id="showicon" onclick="myFunction(this)"></i>
                                 </div>
-                                <div class="d-md-flex justify-content-md-end">
+                                <div class="d-md-flex justify-content-md-end first_box form-group">
                                     <a class="forget" href="forgetpassword.php">Forgot password?<br></a>
                                 </div>
-                                <div class="mb-1">
-                                    <button class="btn btn-primary" type="submit" name="login_btn">Login</button>
+                                <div class="mb-1 first_box form-group">
+                                    <button class="btn btn-primary btn-block" type="submit" name="send_otp">Login</button>
+                                    <p>Don't have an account?&nbsp&nbsp<a href="register.php" >Sign Up Here</a></p>
                                 </div>
-                                <p>Don't have an account?&nbsp&nbsp<a href="register.php" >Sign Up Here</a></p>
+                                <!-- <div class="inputs second_box form-group">
+                                    <i class="fas fa-fingerprint d-md-flex align-items-md-end"></i>&nbsp
+                                    <input class="form-control" id="otp" type="number" name="otp" placeholder="OTP" required>
+                                </div>
+                                <div class="mb-1 second_box form-group">
+                                    <button class="btn btn-primary btn-block" type="button" onclick="submit_otp()">Submit OTP</button>
+                                </div> -->
                             </form> 
                         </div>
                     </div>
@@ -129,6 +137,7 @@ if(isset($_SESSION['auth'])){
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
         <?php if(isset($_SESSION['message'])) 
     { ?>
@@ -161,5 +170,57 @@ if(isset($_SESSION['auth'])){
         }
         }
     </script>
+    <!-- <script>
+    function send_otp(){
+        var email = $('#email').val();
+        var password = $('#password').val();
+        // var email=jQuery('#email').val();
+        // var password=jQuery('#password').val();
+        alert(email);
+        alert(password);
+        $.ajax({
+            url:'send_otp.php',
+            type:'post',
+            data: {email: email, password: password},
+            success:function(result){
+                if(result=='yes'){
+                    swal({
+                    title:"Login Success",
+                    icon: "success",
+                    button: "Okay",
+                    })
+                    // jQuery('.second_box').show();
+                    // jQuery('.first_box').hide();
+                }
+                if(result=='not_exist'){
+                    swal({
+                    title:"Wrong Email, Username or Password",
+                    icon: "warning",
+                    button: "Okay",
+                    }).then(() => {
+                    window.location = 'login.php';
+                    });
+                }
+            }
+        });
+    }
+
+    function submit_otp(){
+        var otp=jQuery('#otp').val();
+        jQuery.ajax({
+            url:'check_otp.php',
+            type:'post',
+            data:'otp='+otp,
+            success:function(result){
+                if(result=='yes'){
+                    window.location='dashboard.php'
+                }
+                if(result=='not_exist'){
+                    jQuery('#otp_error').html('Please enter valid otp');
+                }
+            }
+        });
+    }
+    </script> -->
 </body>
 </html>
