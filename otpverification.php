@@ -1,7 +1,7 @@
 <?php 
 
-include('middleware/userMiddleware.php');
-
+// include('middleware/userMiddleware.php');
+session_start();
 /* This is checking if the user is already logged in. If they are, it will redirect them to the index
 page and display a message. */
 if(isset($_SESSION['auth'])){
