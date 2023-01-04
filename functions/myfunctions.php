@@ -508,7 +508,7 @@ function getlocation()
     return $query_run = mysqli_query($con, $query);
 }
 
-function sendphonenumber_confirmreservation($username,$phonenumber,$verify_token,$user_data)
+function sendphonenumber_confirmverification($username,$phonenumber,$verify_token,$user_data)
 {
     $key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
     $token = urlencode(encryptthis($verify_token, $key));
@@ -518,7 +518,7 @@ function sendphonenumber_confirmreservation($username,$phonenumber,$verify_token
         'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
         'number' => $phonenumber,
         'message' => 'Hello '.$username.'!,
-Were excited to have you get started LLOYD123. First, you need to confirm your account. Just press the Link below..
+Were excited to have you get started. First, you need to confirm your account. Just press the Link below..
 
 https://ieat.store/verify-email.php?token='.$token.'
                     
