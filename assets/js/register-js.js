@@ -54,9 +54,12 @@ function checkLname() {
 function checkBirthDate() {
 	// trim to remove the whitespaces
 	const dateValue = date.value.trim();
+	let currentdate = new Date();
+	const dateValues = new Date(dateValue);
+	var diff = currentdate.getFullYear() - dateValues.getFullYear(); 
 	if(dateValue === '') {
 		setErrorFor(date, 'Date of Birth cannot be blank');
-	} else if (dateValue <= 18) {
+	} else if (diff <= 18) {
 		setErrorFor(date, 'Under Age');
 	} else {
 		setSuccessFor(date);

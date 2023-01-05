@@ -54,7 +54,7 @@ if(isset($_POST['add_product_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    // Check if email already registered
+    // Check if item already registered
     $check_product_query = "SELECT name FROM products WHERE name='$name' AND businessid='$businessid'";
     $check_product_query_run = mysqli_query($con, $check_product_query);
 
