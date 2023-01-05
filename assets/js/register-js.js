@@ -112,15 +112,15 @@ function checkPassword2() {
 
 
 function setErrorFor(input, message) {
-	const formControl = input.parentElement;
-	const small = formControl.querySelector('small');
-	formControl.className = 'form-control error';
+	const formContent = input.parentElement;
+	const small = formContent.querySelector('small');
+	formContent.className = 'form-content error';
 	small.innerText = message;
 }
 
 function setSuccessFor(input) {
-	const formControl = input.parentElement;
-	formControl.className = 'form-control success';
+	const formContent = input.parentElement;
+	formContent.className = 'form-content success';
 }
 //FOR PASSWORD VALIDATION
 var pwordValidation = document.getElementById('pwordValidation');

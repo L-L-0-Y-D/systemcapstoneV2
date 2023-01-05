@@ -34,7 +34,6 @@ if(isset($_SESSION['auth'])){
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
     <link rel="stylesheet" href="assets/css/style-for-registration.css">
-    <link rel="stylesheet" href="assets/css/style-for-userregistration.css">
     <title>Business Registration| I-Eat</title>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
@@ -418,7 +417,7 @@ if(isset($_SESSION['auth'])){
                                                         <p id="number" class="invalid">A number</p>
                                                         <p id="length" class="invalid">Must be atleast 8 characters</b></p>
                                                     </div>
-                                                   
+                                                    <input type="hidden" name="status" value = '0'>  
                                                 </div>
                                                 <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
                                                     <label class="form-label">Confirm Password</label>
@@ -442,7 +441,81 @@ if(isset($_SESSION['auth'])){
             </div>
         </div>
       
-        
+        <script>
+//FOR PASSWORD VALIDATION
+var bpassValidation = document.getElementById('bpassValidation');
+var myInput = document.getElementById("businesspassword");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+document.getElementById("bpassValidation").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+document.getElementById("bpassValidation").style.display = "none";
+}
+function checkBusiPassword() {
+    const busipasswordValue = businesspassword.value.trim();
+	// If password not entered
+	if (busipasswordValue == '')
+	setErrorFor(businesspassword); 
+	else{  
+		
+	// When the user starts to type something inside the password field
+	myInput.onkeyup = function() {
+	// Validate Special Characters
+	var lowerCaseLetters = /[a-z]/g;
+  	if(myInput.value.match(lowerCaseLetters)) {
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  	} else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+	}
+
+	// Validate capital letters
+	var upperCaseLetters = /[A-Z]/g;
+	if(myInput.value.match(upperCaseLetters)) {  
+	capital.classList.remove("invalid");
+	capital.classList.add("valid");
+	} else {
+	capital.classList.remove("valid");
+	capital.classList.add("invalid");
+	}
+
+	// Validate numbers
+	var numbers = /[0-9]/g;
+	if(myInput.value.match(numbers)) {  
+	number.classList.remove("invalid");
+	number.classList.add("valid");
+	} else {
+	number.classList.remove("valid");
+	number.classList.add("invalid");
+	}
+
+	// Validate length
+	if(myInput.value.length >= 8) {
+	length.classList.remove("invalid");
+	length.classList.add("valid");
+	} else {
+	length.classList.remove("valid");
+	length.classList.add("invalid");
+	}
+	}
+	setSuccessFor(businesspassword); 
+		return true;
+	}	
+		// If same return True.
+		
+	}
+
+        </script>
     <script  src="assets/js/function-for-registration.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
