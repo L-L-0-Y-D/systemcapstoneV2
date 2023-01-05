@@ -585,6 +585,41 @@ function sendphonenumber_otp($username,$phonenumber,$message)
     
 }
 
+function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredirect)
+{
+    $ch = curl_init();
+    $parameters = array(
+        'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
+        'number' => $phonenumber,
+        'message' => 'Hello '.$username.'!,
+'.$message.'',
+                
+        'sendername' => 'IEAT'
+    );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
+
+    //Show the server response
+    if($output)
+    {
+        redirect("$ifredirect", "Login Success", "success");
+    }
+    else
+    {
+        redirect("$elseredirect", "Something Went Wrong", "error");
+    }
+    
+    
+}
+
 
 
 ?>

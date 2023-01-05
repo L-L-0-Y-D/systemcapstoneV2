@@ -69,7 +69,10 @@ if(isset($_SESSION['auth'])){
             <!-- /* A php code that is used to check if the name is set or not. If
             it is set then it will display the name in the input field. */ -->
             <?php if (isset($_GET['name'])){?>
-                <input type="text" name="name" value="<?= $_GET['name']?>" required >
+                <input type="text" name="name" id="username" value="<?= $_GET['name']?>" oninput="checkUsername();" required >
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small >Error message</small>
             <?php }else{?>
                 <input type="text" name="name" id="username" oninput="checkUsername();" required >
                 <i class="fas fa-check-circle"></i>
@@ -82,7 +85,10 @@ if(isset($_SESSION['auth'])){
             <!-- /* Checking if the email is set or not. If it is set then it will
             display the email in the input field. */ -->
             <?php if (isset($_GET['email'])){?>
-                <input type="email" name="email" value="<?= $_GET['email']?>" required>
+                <input type="email" name="email" id="email" oninput="checkEmail();" value="<?= $_GET['email']?>" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
             <?php }else{?>
                 <input type="email" name="email" id="email" oninput="checkEmail();" required>
                 <i class="fas fa-check-circle"></i>
@@ -95,7 +101,10 @@ if(isset($_SESSION['auth'])){
             <!-- /* Checking if the firstname is set or not. If it is set then it
             will display the firstname in the input field. */ -->
             <?php if (isset($_GET['firstname'])){?>
-                <input name="firstname" type="text" value="<?= $_GET['firstname']?>" required>
+                <input name="firstname" type="text" id="firstname" value="<?= $_GET['firstname']?>" oninput="checkFname();" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
             <?php }else{?>
                 <input name="firstname" type="text" id="firstname" oninput="checkFname();" required>
                 <i id="check" class="fas fa-check-circle"></i>
@@ -109,7 +118,10 @@ if(isset($_SESSION['auth'])){
             the value of the lastname. If it is not set then it will display
             the placeholder. */ -->
             <?php if (isset($_GET['lastname'])){?>
-                <input name="lastname" type="text" value="<?= $_GET['lastname']?>"  required>
+                <input name="lastname" type="text" id="lastname" value="<?= $_GET['lastname']?>" oninput="checkLname();"  required>
+                <i id="check" class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
             <?php }else{?>
                 <input name="lastname" type="text" id="lastname" oninput="checkLname();" required>
                 <i id="check" class="fas fa-check-circle"></i>
@@ -120,7 +132,10 @@ if(isset($_SESSION['auth'])){
         <div class="form-control">
             <label for="dob">Date of Birth</label>
             <?php if (isset($_GET['dateofbirth'])){?>
-                <input name='dateofbirth' type="date" value="<?= $_GET['dateofbirth'] ?>"  required>
+                <input name='dateofbirth' type="date" id="date" value="<?= $_GET['dateofbirth'] ?>" oninput="checkBirthDate();"  required>
+                <i id="check" class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
             <?php }else{?>
                 <input name='dateofbirth' type="date" id="date" oninput="checkBirthDate();" required>
                 <i class="fas fa-check-circle"></i>
@@ -134,7 +149,10 @@ if(isset($_SESSION['auth'])){
             display the value of the variable. If it is not set, it will
             display nothing. */ -->
             <?php if (isset($_GET['phonenumber'])){?>
-                <input name="phonenumber" type="text" value="<?= $_GET['phonenumber']?>" required >
+                <input name="phonenumber" type="text" id="phonenumber" value="<?= $_GET['phonenumber']?>" oninput="checkPhoneNum();" required >
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small >Error Message</small>
             <?php }else{?>
                 <input name="phonenumber" type="text" id="phonenumber" oninput="checkPhoneNum();" required >
                 <i class="fas fa-check-circle"></i>
