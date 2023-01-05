@@ -59,7 +59,7 @@ if(isset($_SESSION['auth'])){
 <section class="reg">   
 <div class="container">
 	<div class="header">
-		<h2>Create Account</h2>
+		<h2>Create an Account</h2>
 	</div>
     <form method="post" action="functions/authcode.php" enctype="multipart/form-data" name="registrationForm" id="form" class="form">
 	<!--<label class="form-label mt-0">Upload your profile (max 2mbs)</label>

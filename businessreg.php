@@ -25,8 +25,7 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="assets/css/Navbar-Centered-Links.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>  
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
@@ -35,9 +34,11 @@ if(isset($_SESSION['auth'])){
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
     <link rel="stylesheet" href="assets/css/style-for-registration.css">
+    <link rel="stylesheet" href="assets/css/style-for-userregistration.css">
     <title>Business Registration| I-Eat</title>
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
@@ -47,20 +48,13 @@ if(isset($_SESSION['auth'])){
                 <map name="workmap">
                     <area shape="circle" coords="100,100,300,300" alt="logo" href="index.php">
                 </map>I - Eat</a>
-                <nav class="navbar navbar-expand">
-                    <div class="container-fluid">
-                        <span class="bs-icon-md d-flex justify-content-center align-items-center me-2 bs-icon" style="background: transparent;">
-                        <a href="index.php"><i class="fa fa-home" style="float:right; color:white;"></i></a>
-                        </span>
-                    </div>
-                </nav>
         </div>
     </nav>
+    <div class="content bg-white">
     <header class="header">
         <h1 class="header__title">Create a Business Account</h1>
         <!-- <button class="btn-lg btn-close float-end " onclick="location.href='index.php'"></button>-->
     </header>
-    <div class="content">
         <div class="content__inner">
             <div class="container">
                 <h2 class="content__title">Kindly fill up the information needed to create your business account.</h2>
@@ -83,57 +77,89 @@ if(isset($_SESSION['auth'])){
                                     <!--FOR BUSINESS INFO-->
                                     <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                                         <h3 class="multisteps-form__title">Business Information</h3>
-                                        <h6 class="text-muted">All fields are required<span>&nbsp;*</span></h6><hr>
-                                        <div class="multisteps-form__content">
+                                        <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
+                                        <div class="multisteps-form__content">                                   
                                             <div class="form-row mt-4">
-                                                <div class="col-12 col-md-12 mb-3">
-                                                    <label class="form-label">Upload your Business Logo (max 2mb)<span>&nbsp;*</span></label>
-                                                    <input class="form-control" type="file" name="image" required>
+                                                <div class="col-12 col-md-12 mb-3 form-content">
+                                                    <label class="form-label">Upload your Business Logo (max 2mb)</label>
+                                                    <input class="form-control" type="file" name="image" id="file" onchange="return fileValidation();" required>
+                                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div>
-                                                <div class="col-12 col-sm-6">
-                                                    <label class="form-label">Business Name<span>&nbsp;*</span></label>
+                                                <div class="col-12 col-sm-6 form-content">
+                                                    <label for="businessname">Business Name</label>
                                                     <!-- /* Checking if the name is set, if it is, it will display the name in the input
                                                     field. If it is not set, it will display the input field without the name. */ -->
                                                     <?php if (isset($_GET['business_name'])){?>
-                                                            <input class="multisteps-form__input " type="text" name="business_name" value="<?= $_GET['business_name']?>" required>
+                                                            <input type="text" name="business_name" id="businessname" value="<?= $_GET['business_name']?>" oninput="checkBusiName();" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="multisteps-form__input form-control" type="text" name='business_name' required>
+                                                            <input type="text" name='business_name' id="businessname" oninput="checkBusiName();" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                                    <label class="form-label">Business Address<span>&nbsp;*</span></label>
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                    <label for="businessname">Full Address</label>
                                                     <!-- /* Checking if the variable business_address is set. If it is, it will display the
                                                     value of the variable. If it is not set, it will display the placeholder. */ -->
                                                     <?php if (isset($_GET['business_address'])){?>
-                                                            <input class="multisteps-form__input form-control" type="text" name="business_address" value="<?= $_GET['business_address']?>" required >
+                                                            <input type="text" name="business_address" id='businessaddress' value="<?= $_GET['business_address']?>" oninput="checkBusiAddress();" required >
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="multisteps-form__input form-control" type="text" name='business_address' required>
+                                                            <input type="text" name='business_address' id='businessaddress' oninput="checkBusiAddress();" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
                                             </div>
+                                            <div class="form-row mt-4">
+                                                <div class="col-12 col-md-6 mb-3 form-content">
+                                                    <label class="form-label">Contact Number</label>
+                                                    <?php if (isset($_GET['business_number'])){?>
+                                                            <input name='business_number' id='businessnumber' oninput="checkbusiPhone();" type="text" value="<?= $_GET['business_number']?>" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    <?php }else{?>
+                                                            <input name='business_number' id='businessnumber' oninput="checkbusiPhone();" type="text" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    <?php }?>
+                                                </div>
+                                                <div class="col-12 col-sm-6 form-content">
+                                                    <label for="">Time Duration</label>
+                                                    <?php if (isset($_GET['duration'])){?>
+                                                            <input type="time" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  oninput="checkDuration();" >
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    <?php }else{?>
+                                                            <input type="time" name="duration"  id="duration" oninput="checkDuration();"  required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    <?php }?>
+                                                </div>
+                                                
+                                            </div>
                                             <div class="form-row mt-3">
-                                                <div class="col-12 col-sm-6">
-                                                    <label class="form-label">Opening Time<span>&nbsp;*</span></label>
+                                                <div class="col-12 col-sm-6 form-content">
+                                                    <label class="form-label">Opening Time</span></label>
                                                     <!-- /* Checking if the business name is set, if it is then it will display the business
                                                     name, if not then it will display the opening time. */ -->
                                                     <?php if (isset($_GET['opening'])){?>
-                                                            <input class="multisteps-form__input form-control" type="time" name="opening" value="<?= $_GET['opening'] ?>"  required placeholder="Opening">
+                                                            <input type="time" name="opening" id="opening" value="<?= $_GET['opening'] ?>"  required placeholder="Opening" oninput="checkOpening();" >
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="multisteps-form__input form-control" type="time" name="opening"  required>
+                                                            <input type="time" name="opening"  id="opening" oninput="checkOpening();"  required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                                    <label class="form-label">Closing Time<span>&nbsp;*</span></label>
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                    <label class="form-label">Closing Time</span></label>
                                                     <?php if (isset($_GET['closing'])){?>
-                                                            <input class="multisteps-form__input form-control" type="time" name="closing" value="<?= $_GET['closing'] ?>"  required placeholder="Opening">
+                                                            <input type="time" name="closing" id="closing" value="<?= $_GET['closing'] ?>" oninput="checkClosing();" required placeholder="Opening">
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="multisteps-form__input form-control" type="time" name="closing" required>
+                                                            <input type="time" name="closing" id="closing" oninput="checkClosing();"required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-3">
                                                 <div class="col">
-                                                    <label class="form-label ">Cuisine Type<span>&nbsp;*</span></label>
+                                                    <label class="form-label ">Cuisine Type</label>
                                                     <!-- /* The above code is a PHP code that is used to display the cuisine type in the
                                                     form of checkboxes. */ -->
                                                     <?php if (isset($_GET['cuisinename[]'])){?>
@@ -193,11 +219,10 @@ if(isset($_SESSION['auth'])){
                                                                 </div>
                                                             </div>
                                                         <?php }?>
-                                                </div>
+                                                </div> 
                                             </div>
                                             <div class="button-row d-flex mt-3">
-                                                <p>Already have an account?<a href="ownerlogin.php">Login</a></p>
-                                                <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                                                <button class="btn btn-primary ml-auto js-btn-next" type="submit" title="Next">Next</button>
                                             </div>
                                         </div>
                                     </div>
@@ -205,14 +230,14 @@ if(isset($_SESSION['auth'])){
                                     <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                                         <h3 class="multisteps-form__title">Business Location</h3><hr>
                                         <div class="multisteps-form__content">
-                                            <div class="form-row mt-3">
-                                                <label class="form-label pt-2">Municipality where it's located<span>&nbsp;*</span></label>
+                                            <div class="form-row mt-3 ">
+                                                <label class="form-label pt-2">Municipality where it's located</span></label>
                                                 <!-- /* The above code is checking if the municipalityid is set. If it is set, it will
                                                 display the municipalityid. If it is not set, it will display the
                                                 municipalityid. */ -->
                                                 <?php if (isset($_GET['municipalityid'])){?>
                                                     <div class="col">
-                                                        <select class="form-select" name="municipalityid" style="margin-bottom: 10px;" required>
+                                                        <select class="form-select" name="municipalityid"style="margin-bottom: 10px;" required>
                                                             <option disabled selected hidden>Select Municipality</option>
                                                             <?php 
                                                                 //$municipality = getAll("municipality");
@@ -234,7 +259,7 @@ if(isset($_SESSION['auth'])){
                                                         </select>
                                                         <?php }else{?>
                                                             <div class="col">
-                                                            <select class="form-select" name="municipalityid" style="margin-bottom: 10px;" required>
+                                                            <select class="form-select" name="municipalityid" style="margin-bottom: 10px;"  required>
                                                                 <option disabled selected hidden>Select Municipality</option>   
                                                                     <?php 
                                                                     //$municipality = getAllActive("municipality");
@@ -260,7 +285,7 @@ if(isset($_SESSION['auth'])){
                                                     </div>
                                                     <div class="form-row mt-3">
                                                         <div class="col">
-                                                            <label class="form-label">Pin Location<span>&nbsp;*</span></label>
+                                                            <label class="form-label">Pin Location</span></label>
                                                             <!-- /* The above code is creating a map and pinning the location of the user. */ -->
                                                                 <input type="hidden" id="address" name="address">
                                                                 <input type="hidden" id="latitude" name="latitude">
@@ -269,8 +294,7 @@ if(isset($_SESSION['auth'])){
                                                         </div>
                                                     </div>                            
                                                     <div class="button-row d-flex mt-4">
-                                                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Back</button>
-                                                        <p>Already have an account?<a href="ownerlogin.php">Login</a></p>
+                                                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Back</button>                                                 
                                                         <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
                                                     </div>
                                             </div>
@@ -279,28 +303,31 @@ if(isset($_SESSION['auth'])){
                                         <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                                             <h3 class="multisteps-form__title">Business Permits</h3><hr>
                                             <div class="multisteps-form__content">
-                                            <div class="row">
-                                                <div class="col-12 col-md-12 mt-3">
-                                                    <label class="form-label">Upload your DTI Business Permit (max 2mb)<span>&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_cert" type="file" required>
+                                            <div class="form-row">
+                                                <div class="col-12 col-md-12 mb-3 form-content">
+                                                    <label class="form-label">Upload your DTI Business Permit (max 2mb)</label>
+                                                    <input class="form-control" name="image_cert" id="imagecert" type="file" onchange="return certValidation();" required>
+                                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div>
-                                                <div class="col-12 col-md-12 mt-3">
-                                                    <label class="form-label">Upload your Sanitary Permit (max 2mb)<span>&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_scert" type="file" required>
+                                                <div class="col-12 col-md-12 mt-3 form-content">
+                                                    <label class="form-label">Upload your Sanitary Permit (max 2mb)</label>
+                                                    <input class="form-control" name="image_scert" id="imagescert" type="file" onchange="return scertValidation();" required>
+                                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
-                                                <div class="col-12 col-md-12 mt-3">
-                                                    <label class="form-label">Upload your Fire Safety Permit (max 2mb)<span>&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_fscert" type="file" required>
+                                                <div class="col-12 col-md-12 mt-3 form-content">
+                                                    <label class="form-label">Upload your Fire Safety Permit (max 2mb)</label>
+                                                    <input class="form-control" name="image_fscert" id="imagefscert" type="file" onchange="return fscertValidation();" required>
+                                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
-                                                <div class="col-12 col-md-12 mt-3">
-                                                    <label class="form-label">Upload your Brgy. Clearance Permit (max 2mb)<span>&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_bccert" type="file" required>
+                                                <div class="col-12 col-md-12 mt-3 form-content">
+                                                    <label class="form-label">Upload your Brgy. Clearance Permit (max 2mb)</label>
+                                                    <input class="form-control" name="image_bccert" id="imagebccert" type="file" onchange="return bccertValidation();" required>
+                                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
                                             </div>
                                             <div class="row">
                                                 <div class="button-row d-flex mt-4 col-12">
                                                 <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Back</button>
-                                                <p>Already have an account?<a href="ownerlogin.php">Login</a></p>
                                                 <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
                                                 </div>
                                             </div>
@@ -311,91 +338,111 @@ if(isset($_SESSION['auth'])){
                                             <h3 class="multisteps-form__title">Owner's Info</h3><hr>
                                             <div class="multisteps-form__content">
                                             <div class="form-row mt-3">
-                                                <div class="col-12 col-sm-6">
-                                                    <label class="form-label">Firstname<span>&nbsp;*</span></label>
+                                                <div class="col-12 col-sm-6 form-content">
+                                                    <label class="form-label">Firstname</label>
                                                     <!-- /* Checking if the variable business_firstname is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
                                                     field. */ -->
                                                     <?php if (isset($_GET['business_firstname'])){?>
-                                                        <input class="form-control" name='business_firstname' type="text" value="<?= $_GET['business_firstname']?>" required >
+                                                        <input name='business_firstname' id='businessfirstname' type="text" value="<?= $_GET['business_firstname']?>" oninput="checkbusiFname();" required >
+                                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="form-control" name='business_firstname' type="text" required >
+                                                        <input name='business_firstname' id='businessfirstname' type="text" oninput="checkbusiFname();" required >
+                                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                                    <label class="form-label">Lastname<span>&nbsp;*</span></label>
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                    <label class="form-label">Lastname</span></label>
                                                     <!-- /* Checking if the variable business_lastname is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display the placeholder. */ -->
                                                     <?php if (isset($_GET['business_lastname'])){?>
-                                                            <input class="form-control" name='business_lastname' type="text" value="<?= $_GET['business_lastname']?>" required >
+                                                            <input name='business_lastname' id='businesslastname' type="text" value="<?= $_GET['business_lastname']?>" oninput="checkbusiLname();" required >
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="form-control" name='business_lastname' type="text" required >
+                                                            <input name='business_lastname' id='businesslastname' type="text" oninput="checkbusiLname();" required >
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-3">
-                                                <div class="col-12 col-sm-6 mt-sm-0">
-                                                    <label class="form-label">Contact Number<span>&nbsp;*</span></label>
+                                                <div class="col-12 col-sm-6 mt-sm-0 form-content">
+                                                    <label class="form-label">Contact Number</span></label>
                                                     <!-- /* Checking if the variable business_phonenumber is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
                                                     field. */ -->
                                                     <?php if (isset($_GET['business_phonenumber'])){?>
-                                                            <input class="form-control" name='business_phonenumber' type="text" value="<?= $_GET['business_phonenumber']?>" required>
+                                                            <input name='business_phonenumber' id='businessphonenumber' oninput="checkbusiNum();" type="text" value="<?= $_GET['business_phonenumber']?>" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="form-control" name='business_phonenumber' type="text" required>
+                                                            <input name='business_phonenumber' id='businessphonenumber' oninput="checkbusiNum();" type="text" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                                    <label class="form-label">Email Address<span>&nbsp;*</span></label>
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                    <label class="form-label">Email Address</span></label>
                                                     <!-- /* Checking if the business_email is set in the URL. If it is, it will display the
                                                     value in the input field. If it is not, it will display a blank input field. */ -->
                                                     <?php if (isset($_GET['business_email'])){?>
-                                                            <input class="form-control" name='business_email' type="email" value="<?= $_GET['business_email']?>" placeholder="sample@gmail.com" required>
+                                                            <input name='business_email' id='businessemail' oninput="checkbusiEmail();" type="email" value="<?= $_GET['business_email']?>" placeholder="sample@gmail.com" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="form-control" name='business_email' type="email" placeholder="sample@gmail.com" required>
+                                                            <input name='business_email' id='businessemail' oninput="checkbusiEmail();" type="email" placeholder="sample@gmail.com" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-3">
-                                                <div class="col">
-                                                    <label class="form-label">Address<span>&nbsp;*</span></label>
+                                                <div class="col form-content">
+                                                    <label class="form-label">Address</span></label>
                                                     <!-- /* Checking if the variable business_owneraddress is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
                                                     field. */ -->
                                                     <?php if (isset($_GET['business_owneraddress'])){?>
-                                                            <input class="form-control" name='business_owneraddress' type="text" value="<?= $_GET['business_owneraddress']?>" required>
+                                                            <input class="form-control" name='business_owneraddress' id='businessowneraddress' oninput="checkownerAdd();" type="text" value="<?= $_GET['business_owneraddress']?>" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input class="form-control" name='business_owneraddress' type="text" required>
+                                                            <input class="form-control" name='business_owneraddress' id='businessowneraddress' oninput="checkownerAdd();" type="text" required>
+                                                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-3">
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                                    <label class="form-label">Password<span>&nbsp;*</span></label>
-                                                    <input class="form-control" name='business_password' type="password" required>     
-                                                    <input type="hidden" name="status" value = '0'>  
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                    <label class="form-label">Password</label>
+                                                    <input name='business_password' id="businesspassword" oninput="checkBusiPassword();" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
+                                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i>
+                                                    <div id="bpassValidation">
+                                                        <h3>Password must contain the following:</h3>
+                                                        <p id="letter" class="invalid">A lowercase letter</p>
+                                                        <p id="capital" class="invalid">An Uppercase letter</p>
+                                                        <p id="number" class="invalid">A number</p>
+                                                        <p id="length" class="invalid">Must be atleast 8 characters</b></p>
+                                                    </div>
+                                                   
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                                    <label class="form-label">Confirm Password<span>&nbsp;*</span></label>
-                                                    <input class="form-control" name='business_confirmpassword' type="password" required>
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                    <label class="form-label">Confirm Password</label>
+                                                    <input name='business_confirmpassword' id='businessconfirmpassword' oninput="checkCOwnerPword();"  type="password" required>
+                                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="button-row d-flex mt-3 col-12">
                                                 <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Back</button>
-                                                <p>Already have an account?<a href="ownerlogin.php">Login</a></p>
                                                 <button class="btn btn-success ml-auto" type="submit" name="business_register_btn" title="Send">Register</button>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </div>                                            
+                                    </div>   
                                 </form>
-                            </div>
+                            </div><p>Already have an account?<a href="ownerlogin.php">Login</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+      
+        
     <script  src="assets/js/function-for-registration.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -419,3 +466,4 @@ if(isset($_SESSION['auth'])){
 
 </body>
 </html>
+    
