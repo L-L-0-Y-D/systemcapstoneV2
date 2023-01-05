@@ -90,6 +90,7 @@ function checkUsername() {
 function checkPassword2() {
     const passwordValue = password.value.trim();
 	const password2Value = password2.value.trim();
+	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8}$/;
     // If password not entered
     if (passwordValue == '')
 		setErrorFor(password2, 'Please enter your password first.'); 
@@ -142,10 +143,13 @@ document.getElementById("pwordValidation").style.display = "none";
 }
 function checkPassword() {
     const passwordValue = password.value.trim();
+	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 	// If password not entered
-	if (passwordValue == '')
-	setErrorFor(password); 
-	else{  
+	if (passwordValue == ''){
+	setErrorFor(password, 'Please Enter A Password');
+	}else if (!PasswordValidation.test(passwordValue)){
+		setErrorFor(password, '');  
+	}else{  
 		
 	// When the user starts to type something inside the password field
 	myInput.onkeyup = function() {
