@@ -176,7 +176,7 @@ if(isset($_SESSION['auth'])){
             <input class="form-control" type="password" name="password" id="password" oninput="checkPassword();" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
             <i id="check" class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
-           
+            <small >Error Message</small>
             <div id="pwordValidation">
                     <h3>Password must contain the following:</h3>
                     <p id="letter" class="invalid">A lowercase letter</p>
