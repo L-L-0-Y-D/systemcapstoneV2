@@ -585,7 +585,7 @@ function sendphonenumber_otp($username,$phonenumber,$message)
     
 }
 
-function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredirect)
+function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredirect,$alert)
 {
     $ch = curl_init();
     $parameters = array(
@@ -610,11 +610,11 @@ function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredi
     //Show the server response
     if($output)
     {
-        redirect("$ifredirect", "Login Success", "success");
+        redirect("$ifredirect", "$alert", "success");
     }
     else
     {
-        redirect("$elseredirect", "Something Went Wrong", "error");
+        redirect("$elseredirect", "$alert", "error");
     }
     
     

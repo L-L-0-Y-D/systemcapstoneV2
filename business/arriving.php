@@ -9,6 +9,7 @@ include('../config/dbcon.php');
         if(isset($_GET['id']))
         {
             $businessuserid = $_SESSION['auth_user']['businessid'];
+            $businessusername = $_SESSION['auth_user']['business_name'];
             $query_reservation = "SELECT reservations.reservationid,reservations.arrived,reservations.namereserveunder,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,reservations.tableid,managetable.tableid,managetable.table_number,managetable.chair,reservations.userid,reservations.status,users.userid,users.name
             FROM reservations
             JOIN managetable 
@@ -92,6 +93,7 @@ include('../config/dbcon.php');
                             <form action="code.php" method="POST" enctype="multipart/form-data">
                             <tbody style="text-align:center">
                             <input type="hidden" name="businessid" value="<?= $businessuserid ?>" >
+                            <input type="hidden" name="businessname" value="<?= $businessusername ?>" >
                                 <?php
                                     // $reservations = getAll("reservations");
                                     //$reservations = getAll("reservations");
@@ -135,7 +137,9 @@ include('../config/dbcon.php');
                                                                 elseif($item['status'] == 2)
                                                                     {echo 'Declined';}  
                                                         ?></td> -->
+                                                        <input type="hidden" name="userid" value="<?=$item['userid']; ?>" >
                                                         <td>
+                                                            <input type="hidden" name="userid" value="<?=$item['userid']; ?>" >
                                                             <button type="submit" class="btn btn-lg btn-success" value = "<?= $item['reservationid']; ?>" name="update_arrived_btn">✓</button>
                                                             <button type="submit" class="btn btn-l btn-danger" value = "<?= $item['reservationid']; ?>"  name="update_not_arrived_btn">X</button>
                                                             

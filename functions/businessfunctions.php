@@ -212,13 +212,13 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
         $mail->Username   = "reservationconfirmed@ieat.store";
         $mail->Password   = "*Password5*";
 
-        // $mail->SMTPOptions = array(
-        //     'ssl' => array(
-        //     'verify_peer' => false,
-        //     'verify_peer_name' => false,
-        //     'allow_self_signed' => true
-        //     )
-        //     );
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+            );
         $mail->SMTPSecure = "ssl";
         $mail->Port       = 465;
         
@@ -260,13 +260,13 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
         $mail->Username   = "reservationdeclined@ieat.store";
         $mail->Password   = "*Password6*";
 
-        // $mail->SMTPOptions = array(
-        //     'ssl' => array(
-        //     'verify_peer' => false,
-        //     'verify_peer_name' => false,
-        //     'allow_self_signed' => true
-        //     )
-        //     );
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+            );
         $mail->SMTPSecure = "ssl";
         $mail->Port       = 465;
         
@@ -635,7 +635,7 @@ Your OTP verification code is '.$otp.'',
     
 }
 
-function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredirect)
+function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredirect,$alert)
 {
     $ch = curl_init();
     $parameters = array(
@@ -660,11 +660,11 @@ function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredi
     //Show the server response
     if($output)
     {
-        redirect("$ifredirect", "Login Success", "success");
+        redirect("$ifredirect", "$alert", "success");
     }
     else
     {
-        redirect("$elseredirect", "Something Went Wrong", "error");
+        redirect("$elseredirect", "$alert", "error");
     }
     
     
