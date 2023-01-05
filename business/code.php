@@ -41,7 +41,7 @@ if(isset($_POST['add_product_btn']))
 
        redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
    }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 80000)) {
+   else if (($_FILES["image"]["size"] < 8000)) {
 
        redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
 

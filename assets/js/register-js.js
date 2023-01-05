@@ -65,8 +65,8 @@ function checkBirthDate() {
 function checkPhoneNum() {
 	// trim to remove the whitespaces
 	const phonenumberValue = phonenumber.value.trim();
-
-	if(phonenumberValue.length == 11 ) {
+	var Validation=/^09[0-9]\d{8}$/;
+	if(Validation.test(phonenumberValue)) {
 		setSuccessFor(phonenumber);
 	} else {
 		setErrorFor(phonenumber, 'Invalid Phone Number');

@@ -85,7 +85,7 @@ if(isset($_POST['registerbutton']))
         {
             if($age >= 18)
             {
-                if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
+                if(preg_match("/^09[0-9]\d{8}$/",$_POST['phonenumber']))
                 {
                     if(strlen($_POST['password']) >= 8 )
                     {
@@ -113,7 +113,7 @@ if(isset($_POST['registerbutton']))
                 }
                 else
                 {
-                    redirect("../register.php?error=Phone Number must be 11 digits&$user_data", "Phone Number must be 11 digits", "warning");
+                    redirect("../register.php?error=Phone Number must be 11 digits&$user_data", "Invalid Phone number", "warning");
                 }
             }
             else
