@@ -25,7 +25,6 @@ if(isset($_SESSION['auth'])){
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <link rel="stylesheet" href="assets/css/Navbar-Centered-Links.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="assets/css/Kaushan%20Script.css">
@@ -481,11 +480,12 @@ document.getElementById("bpassValidation").style.display = "none";
 }
 function checkBusiPassword() {
     const busipasswordValue = businesspassword.value.trim();
+    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 	// If password not entered
-	if (busipasswordValue == '')
-	setErrorFor(businesspassword); 
-	else{  
-		
+    if (busipasswordValue == ''){
+	setErrorFor(password, 'Please Enter A Password');
+	}else if (!PasswordValidation.test(busipasswordValue)){
+
 	// When the user starts to type something inside the password field
 	myInput.onkeyup = function() {
 	// Validate Special Characters
@@ -526,13 +526,16 @@ function checkBusiPassword() {
 	length.classList.remove("valid");
 	length.classList.add("invalid");
 	}
-	}
-	setSuccessFor(businesspassword); 
-		return true;
-	}	
-		// If same return True.
-		
-	}
+    }
+    setErrorFor(businesspassword, '');  
+    }else{  
+
+    setSuccessFor(businesspassword); 
+    return true;
+    }	
+    // If same return True.
+
+    }
 
         </script>
     <script  src="assets/js/function-for-registration.js"></script>
