@@ -36,12 +36,13 @@ body p {
 .header__title {
   margin-bottom: 20px;
   font-size: 1.5rem;
+ 
 }
 h6 {
   font-size: 12px;
 }
 .content {
-  width: 95%;
+  width: 100%;
   margin: 0 auto 50px;
 }
 
@@ -90,6 +91,7 @@ h6 {
     text-indent: 0;
   }
 }
+
 .multisteps-form__progress-btn:before {
   position: absolute;
   top: 0;

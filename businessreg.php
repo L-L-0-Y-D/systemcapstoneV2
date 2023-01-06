@@ -130,7 +130,6 @@ if(isset($_SESSION['auth'])){
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
-                                                
                                             </div>
                                             <div class="form-row mt-3">
                                                 <div class="col-12 col-sm-6 form-content">
@@ -155,7 +154,10 @@ if(isset($_SESSION['auth'])){
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
-                                            </div>
+                                            </div>    
+                                            <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="sameday"></input>
+                                            <label class="form-label text-black">Have same day reservation?</label>                         
+                                                            
                                             <div class="form-row mt-3">
                                                 <div class="col">
                                                     <label class="form-label ">Cuisine Type<span style="color:red;">&nbsp;*</span></label>

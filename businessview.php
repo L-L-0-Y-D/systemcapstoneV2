@@ -266,16 +266,59 @@
             <!-- START OF ABOUT SECTION-->
                 <div class="container mb-4" id="aboutrestaurant">
                     <div class="row">
-                        <div class="col-md-8 p-0">
-                            <div><a class="portfolio-link" href="#portfolioModal1" data-bs-toggle="modal">
-                                    <div class="portfolio-hover"></div>
-                                    <img class="img-fluid" data-bss-hover-animate="pulse" src="uploads/<?= $data['image']; ?>">
-                                </a>
+                        <div class="col-md-8 p-0"> 
+                            <!--image slider start-->
+                            <div class="slider">
+                                <div class="slides">
+                                    <!--radio buttons start-->
+                                    <input type="radio" name="radio-btn" id="radio1">
+                                    <input type="radio" name="radio-btn" id="radio2">
+                                    <input type="radio" name="radio-btn" id="radio3">
+                                    <input type="radio" name="radio-btn" id="radio4">
+                                    <input type="radio" name="radio-btn" id="radio5">
+                                    <!--radio buttons end-->
+                                    <!--slide images start-->
+                                    <div class="slide first">
+                                    <img src="uploads/<?= $data['image']; ?>" alt="Logo">
+                                    </div>
+                                    <div class="slide">
+                                    <img src="uploads/<?= $data['image_cert']; ?>" alt="Business Permit">
+                                    </div>
+                                    <div class="slide">
+                                    <img src="uploads/<?= $data['image_scert']; ?>" alt="Sanitary Permit">
+                                    </div>
+                                    <div class="slide">
+                                    <img src="uploads/<?= $data['image_fcert']; ?>" alt="Fire Safety Permit">
+                                    </div>
+                                    <div class="slide">
+                                    <img src="uploads/<?= $data['image_bcert']; ?>" alt="Barangay Clearance Permit">
+                                    </div>
+                                    <!--slide images end-->
+                                    <!--automatic navigation start-->
+                                    <div class="navigation-auto">
+                                    <div class="auto-btn1"></div>
+                                    <div class="auto-btn2"></div>
+                                    <div class="auto-btn3"></div>
+                                    <div class="auto-btn4"></div>
+                                    <div class="auto-btn5"></div>
+                                    </div>
+                                    <!--automatic navigation end-->
+                                </div>
+                                <!--manual navigation start-->
+                                <div class="navigation-manual">
+                                    <label for="radio1" class="manual-btn"></label>
+                                    <label for="radio2" class="manual-btn"></label>
+                                    <label for="radio3" class="manual-btn"></label>
+                                    <label for="radio4" class="manual-btn"></label>
+                                    <label for="radio5" class="manual-btn"></label>
+                                </div>
+                            <!--manual navigation end-->
                             </div>
+                            <!--image slider end-->
+                          
                         </div>
                         <div class="col-md-4" >
                             <h1 ><?= $data['business_name']; ?></h1>
-                            
                             <p><i class="fas fa-utensils text-black"></i>&nbsp;&nbsp;<?= $data['cuisinename']; ?> Cuisine</p>
                             <p><i class="fas fa-phone-alt text-black"></i>&nbsp;&nbsp;<?= $data['business_phonenumber']; ?></p>
                             <p><i class="fas fa-clock text-black"></i>&nbsp;&nbsp;Open : <?=  date("g:i a", strtotime($opening));?> - Close: <?= date("g:i a", strtotime($closing)); ?></p>
@@ -1517,7 +1560,16 @@
             </div>
         </section>
     </main>
-
+    <script>
+               var counter = 1;
+    setInterval(function(){
+      document.getElementById('radio' + counter).checked = true;
+      counter++;
+      if(counter > 5){
+        counter = 1;
+      }
+    }, 5000);
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>

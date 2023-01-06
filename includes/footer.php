@@ -2,27 +2,6 @@
 <footer class="text-white sticky-footer">
     <div class="container " >
         <div class="row ">
-                <h3>POPULAR CUISINES</h3>
-            <?php
-            $query = "SELECT * FROM mealcategory";
-            $query_run = mysqli_query($con, $query);
-
-            if(mysqli_num_rows($query_run) > 0)
-            {
-                foreach($query_run as $item)
-                {
-            ?>
-            <div class="col-md-2">
-                <a href="cuisine.php?name=<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></a>
-            </div>
-            <?php
-                }
-            }
-            else
-            {
-                echo "No Cuisine Available";
-            }?>
-            <hr>
             <div class="row ">
                 <div class="col-md-4 text-white"><span class="copyright">Copyright&nbsp;© I-EAT 2022</span>
                 <a href="adminsignup.php"><i class="fas fa-door-open text-black"></i></a></li>
