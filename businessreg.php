@@ -228,6 +228,7 @@ if(isset($_SESSION['auth'])){
                                     <!--FOR BUSINESS LOCATION-->
                                     <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                                         <h3 class="multisteps-form__title">Business Location</h3><hr>
+                                        <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                         <div class="multisteps-form__content">
                                             <div class="form-row mt-3 ">
                                                 <label class="form-label pt-2">Municipality where it's located<span style="color:red;">&nbsp;*</span></span></label>
@@ -301,6 +302,7 @@ if(isset($_SESSION['auth'])){
                                         <!--FOR BUSINESS PERMITS-->
                                         <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                                             <h3 class="multisteps-form__title">Business Permits</h3><hr>
+                                            <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                             <div class="multisteps-form__content">
                                             <div class="form-row">
                                                 <div class="col-12 col-md-12 mb-3 form-content">
@@ -335,6 +337,7 @@ if(isset($_SESSION['auth'])){
                                         <!--FOR OWNER INFO-->
                                         <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                                             <h3 class="multisteps-form__title">Owner's Info</h3><hr>
+                                            <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                             <div class="multisteps-form__content">
                                             <div class="form-row mt-3">
                                                 <div class="col-12 col-sm-6 form-content">
