@@ -47,7 +47,7 @@ if(isset($_SESSION['auth'])){
     </style>
 </head>
 <body><nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
-        <div class="container ml-2">
+        <div class="container ">
             <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">
             <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
                 <map name="workmap">

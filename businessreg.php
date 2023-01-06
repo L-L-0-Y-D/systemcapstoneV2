@@ -40,7 +40,7 @@ if(isset($_SESSION['auth'])){
 </head>
 <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav" style="background-color:rgb(255,128,64); box-shadow: 0px 0px 18px var(--bs-gray); height: 80px;">
-        <div class="container ml-2">
+        <div class="container">
             <a class="navbar-brand" href="index.php" style="color: white;font-size: 28px;">
             <span><img src="uploads/logoT.png" usemap=#workmap style="width: 50px;">&nbsp;</span>
                 <map name="workmap">
@@ -222,7 +222,7 @@ if(isset($_SESSION['auth'])){
                                                 </div> 
                                             </div>
                                             <div class="button-row d-flex mt-3">
-                                                <button class="btn btn-primary ml-auto js-btn-next" type="submit" title="Next">Next</button>
+                                                <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
                                             </div>
                                         </div>
                                     </div>
@@ -284,7 +284,7 @@ if(isset($_SESSION['auth'])){
                                                             </div>                                                    
                                                         <?php }?>
                                                     </div>
-                                                    <div class="form-row mt-3">
+                                                    <div class="form-row mt-3 form-content">
                                                         <div class="col">
                                                             <label class="form-label">Pin Location<span style="color:red;">&nbsp;*</span></span></label>
                                                             <!-- /* The above code is creating a map and pinning the location of the user. */ -->

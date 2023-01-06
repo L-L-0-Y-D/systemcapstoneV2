@@ -223,25 +223,6 @@
     font-size:smaller;
  
   }
-  .profile {
-    padding-top:50px!important;
-  }
-  .profile .text-primary {
-    --bs-text-opacity: 1;
-    color: rgb(255,128,64)!important;
-    text-align: left!important;
-  }
-  .profile .btn-primary {
-    font-family:Monsterrat!important;
-    background-color: rgb(255,128,64);
-    border: none;
-
-  }
-  .profile .btn-primary:hover {
-    color: white;
-    background-color: rgb(226, 96, 31)!important;
-    border-color: rgb(226, 96, 31)!important;
-  }
   
  
 
