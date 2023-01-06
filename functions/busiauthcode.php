@@ -25,13 +25,13 @@ if(isset($_POST['business_register_btn']))
     $status = isset($_POST['status']) ? "0":"1";
     $verify_token = md5(rand());
 
-    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'$latitude='.$latitude.'$longitude='.$longitude.'&cuisinename='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email.'&latitude='.$latitude.'&longitude='.$longitude.'&duration='.$duration.'&business_number='.$business_number;
+    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'$latitude='.$latitude.'$longitude='.$longitude.'&cuisinename='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email.'&duration='.$duration.'&business_number='.$business_number;
      // Get Image Dimension
      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
      $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
      $fileinfo = @getimagesize($_FILES["image_scert"]["tmp_name"]);
-     $fileinfo = @getimagesize($_FILES["image_fscert"]["tmp_name"]);
-     $fileinfo = @getimagesize($_FILES["image_bccert"]["tmp_name"]);
+     $fileinfo = @getimagesize($_FILES["image_fcert"]["tmp_name"]);
+     $fileinfo = @getimagesize($_FILES["image_bcert"]["tmp_name"]);
 
      $allowed_image_extension = array(
          "png",
@@ -167,10 +167,10 @@ if(isset($_POST['business_register_btn']))
 
 
     $filename = time().'.'.$image_ext;
-    $certname = time().'.'.$image_cert_ext;
-    $scertname = time().'.'.$image_scert_ext;
-    $fcertname = time().'.'.$image_fcert_ext;
-    $bcertname = time().'.'.$image_bcert_ext;
+    $certname = 'cert'.time().'.'.$image_cert_ext;
+    $scertname = 'scert'.time().'.'.$image_scert_ext;
+    $fcertname = 'fcert'.time().'.'.$image_fcert_ext;
+    $bcertname = 'bcert'.time().'.'.$image_bcert_ext;
     
     // Check if email already registered
     $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
@@ -202,18 +202,71 @@ if(isset($_POST['business_register_btn']))
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 
+                            //notification
                             $insert_notification = "INSERT INTO notifications (comment_subject,comment_text,usertype) 
                             VALUES ('NEW BUSINESS FOR VERIFICATION', 'You have new Business named $business_name', '1')";
                             $insert_notification_run = mysqli_query($con, $insert_notification);
+                            
+                            //Reservation Hours
+                            // //Monday
+                            // $insert_data_query1 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
+                            // SELECT businessid,'Monday','Open', opening, closing, '1'
+                            // FROM business
+                            // ORDER BY business.businessid DESC LIMIT 1
+                            // ";
+                            // $insert_data_query_run1 = mysqli_query($con, $insert_data_query1) or die("bad query: $insert_data_query1");
+                            // //Tuesday
+                            // $insert_data_query2 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
+                            // SELECT businessid,'Tuesday','Open', opening, closing, '1'
+                            // FROM business
+                            // ORDER BY business.businessid DESC LIMIT 1
+                            // ";
+                            // $insert_data_query_run2 = mysqli_query($con, $insert_data_query2) or die("bad query: $insert_data_query2");
+                            // //Wednesday    
+                            // $insert_data_query3 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
+                            // SELECT businessid,'Wednesday','Open', opening, closing, '1'
+                            // FROM business
+                            // ORDER BY business.businessid DESC LIMIT 1
+                            // ";
+                            // $insert_data_query_run3 = mysqli_query($con, $insert_data_query3) or die("bad query: $insert_data_query3");
+                            // //Thursday    
+                            // $insert_data_query4 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
+                            // SELECT businessid,'Thursday','Open', opening, closing, '1'
+                            // FROM business
+                            // ORDER BY business.businessid DESC LIMIT 1
+                            // ";
+                            // $insert_data_query_run4 = mysqli_query($con, $insert_data_query3) or die("bad query: $insert_data_query4");
+                            // //Friday    
+                            // $insert_data_query5 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
+                            // SELECT businessid,'Friday','Open', opening, closing, '1'
+                            // FROM business
+                            // ORDER BY business.businessid DESC LIMIT 1
+                            // ";
+                            // $insert_data_query_run5 = mysqli_query($con, $insert_data_query5) or die("bad query: $insert_data_query5");
+                            // //Saturday   
+                            // $insert_data_query6 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
+                            // SELECT businessid,'Saturday','Open', opening, closing, '1'
+                            // FROM business
+                            // ORDER BY business.businessid DESC LIMIT 1
+                            // ";
+                            // $insert_data_query_run6 = mysqli_query($con, $insert_data_query6) or die("bad query: $insert_data_query6");
+                            // //Sunday    
+                            // $insert_data_query7 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
+                            // SELECT businessid,'Sunday','Open', opening, closing, '1'
+                            // FROM business
+                            // ORDER BY business.businessid DESC LIMIT 1
+                            // ";                                                                                                   
+                            // $insert_data_query_run7 = mysqli_query($con, $insert_data_query7) or die("bad query: $insert_data_query7");
+                            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
-                                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$scertname);
-                                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$fcertname);
-                                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$bcertname);
+                                move_uploaded_file($_FILES['image_scert']['tmp_name'], $cert_path.'/'.$scertname);
+                                move_uploaded_file($_FILES['image_fcert']['tmp_name'], $cert_path.'/'.$fcertname);
+                                move_uploaded_file($_FILES['image_bcert']['tmp_name'], $cert_path.'/'.$bcertname);
                                 sendemail_business($business_name, $business_email);
-                                sendsms_business($business_name, $phonenumber, $business_data);
+                                sendsms_business($business_name, $business_number, $business_data);
                                 // redirect("../ownerlogin.php", "Register Successfully!! Please Wait for the Admin to Process your Business Account to Login", "success");
                             }
                             else{
