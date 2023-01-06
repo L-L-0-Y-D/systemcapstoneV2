@@ -117,7 +117,7 @@ $data = mysqli_fetch_array($business);
 // $tablechair = $row['chair'];
 
 
-$duration = 60;
+$duration = $data['duration'];
 $cleanup = 0;
 date_default_timezone_set("Asia/Singapore");
 // $start = date("H:i:s");

@@ -122,10 +122,10 @@ if(isset($_SESSION['auth'])){
                                                 <div class="col-12 col-sm-6 form-content">
                                                     <label for="">Time Duration For Every Reservation(Minutes)<span style="color:red;">&nbsp;*</span></label>
                                                     <?php if (isset($_GET['duration'])){?>
-                                                            <input type="time" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  oninput="checkDuration();" >
+                                                            <input type="number" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  oninput="checkDuration();" >
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input type="time" name="duration"  id="duration" oninput="checkDuration();"  required>
+                                                            <input type="number" name="duration"  id="duration" oninput="checkDuration();"  required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
@@ -332,12 +332,12 @@ if(isset($_SESSION['auth'])){
                                                 </div> 
                                                 <div class="col-12 col-md-12 mt-3 form-content">
                                                     <label class="form-label">Upload your Fire Safety Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_fscert" id="imagefscert" type="file" onchange="return fscertValidation();" required>
+                                                    <input class="form-control" name="image_fcert" id="imagefscert" type="file" onchange="return fscertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
                                                 <div class="col-12 col-md-12 mt-3 form-content">
                                                     <label class="form-label">Upload your Brgy. Clearance Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_bccert" id="imagebccert" type="file" onchange="return bccertValidation();" required>
+                                                    <input class="form-control" name="image_bcert" id="imagebccert" type="file" onchange="return bccertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
                                             </div>

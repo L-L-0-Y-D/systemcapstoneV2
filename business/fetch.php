@@ -54,8 +54,9 @@ if(isset($_POST['request'])){
             <div class="col p-3 col-md-4 ">
                 <div class="btn-group m-3" role="group">
                     <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
-                    <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>                                                           
+                    <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-outline-dark edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>                                                           
                     <td><button  type="submit" class="btn btn-sm btn-danger archive_menu_btn" id="<?= $item['businessid']; ?>" value = "<?= $item['productid']; ?>"  name="archive_menu_btn"><i class="fas fa-archive">Archive&nbsp;&nbsp;</i></button></td>
+                    <a role="button" href="exportItemData.php?id=<?= $item['businessid'];;?>&productid=<?= $item['productid']; ?>" class="btn btn-outline-dark btn-primary btn-sm">Export&nbsp;&nbsp;<i class="fas fa-download exp"></i> </a>
                 </div>
             </div>
         </div>
