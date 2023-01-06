@@ -164,7 +164,7 @@ function build_calendar($month,$year,$resourceid){
 
         $dayname = strtolower(date('l', strtotime($date)));
         $eventNum = 0;
-        $today = $date == date('Y-m-d')?"today":"";
+        
 
         $query_blockdates = "SELECT * FROM blockdate WHERE businessid = $id AND status = 1";
         $query_blockdates_run = mysqli_query($mysqli, $query_blockdates);
@@ -179,8 +179,22 @@ function build_calendar($month,$year,$resourceid){
 
         // $data = $blockdates;
         // $users = array($data['blockdates']);  
+        $query_sameday_reservation = "SELECT * FROM business WHERE businessid = $id AND status = 1";
+        $query_sameday_reservation_run = mysqli_query($mysqli, $query_sameday_reservation);
+        $samedayreserve = mysqli_fetch_array($query_sameday_reservation_run);
 
+        $sameday = $samedayreserve['sameday_reservation'];
 
+        if($sameday == '1')
+        {
+            $today = $date == date('Y-m-d')?"today":"";
+        }
+        else
+        {
+            $today = $date == date('Y-m-d')?"":"";
+        }
+
+        
         // // $users = ['john', 'dave', 'tim'];
 
         // function print_item($item, $key)

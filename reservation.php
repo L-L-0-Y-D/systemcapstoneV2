@@ -8,9 +8,9 @@ if (isset($_GET['id']) && isset($_GET['uid'])) {
     $query_reservations = "SELECT * FROM reservations WHERE userid = $uid AND status = 0";
     $check_reservations_run = mysqli_query($con, $query_reservations);
 
-    if (mysqli_num_rows($check_reservations_run) >= 3) {
+    if (mysqli_num_rows($check_reservations_run) >= 5) {
 
-        redirect("index.php", "Please wait for your reservation/s to approved before you can reserve again.", "error");
+        redirect("index.php", "You have reached your number of reserve please wait for your reservation/s to approved before you can reserve again.", "error");
 
     } else {
         if (isset($_GET['id']) && isset($_GET['uid'])) {
