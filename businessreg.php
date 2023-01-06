@@ -227,7 +227,7 @@ if(isset($_SESSION['auth'])){
                                     </div>
                                     <!--FOR BUSINESS LOCATION-->
                                     <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                                        <h3 class="multisteps-form__title">Business Location</h3><hr>
+                                        <h3 class="multisteps-form__title">Business Location</h3>
                                         <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                         <div class="multisteps-form__content">
                                             <div class="form-row mt-3 ">
@@ -301,7 +301,7 @@ if(isset($_SESSION['auth'])){
                                         </div>
                                         <!--FOR BUSINESS PERMITS-->
                                         <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                                            <h3 class="multisteps-form__title">Business Permits</h3><hr>
+                                            <h3 class="multisteps-form__title">Business Permits</h3>
                                             <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                             <div class="multisteps-form__content">
                                             <div class="form-row">
@@ -336,7 +336,7 @@ if(isset($_SESSION['auth'])){
                                         </div>
                                         <!--FOR OWNER INFO-->
                                         <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                                            <h3 class="multisteps-form__title">Owner's Info</h3><hr>
+                                            <h3 class="multisteps-form__title">Owner's Info</h3>
                                             <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                             <div class="multisteps-form__content">
                                             <div class="form-row mt-3">
