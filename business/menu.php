@@ -63,8 +63,8 @@ include('../config/dbcon.php');
                         <!-- Import & Export link -->
                         <div class="col-md-6 ">
                             <div class="float-right">
-                                <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-3 btn-sm" onclick="formToggle('importFrm');"><i class="plus"></i> Import</a>
-                                <a href="exportData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end mb-3 mx-3 btn-sm"><i class="exp"></i> Export</a>
+                                <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-3 btn-sm" onclick="formToggle('importFrm');">Import&nbsp;<i class="fas fa-upload plus"></i></a>
+                                <a href="exportData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end mb-3 mx-3 btn-sm">Export All&nbsp;<i class="fas fa-download exp"></i></a>
                             </div>
                         </div>
                         <!-- Archive link-->
@@ -110,6 +110,7 @@ include('../config/dbcon.php');
                                                                 <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-outline-dark edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>
                                                               
                                                                 <button class="btn btn-danger btn-sm" type="submit" value = "<?= $item['productid']; ?>" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
+                                                                <a role="button" href="exportItemData.php?id=<?= $_SESSION['auth_user']['businessid'];?>&productid=<?= $item['productid']; ?>" class="btn btn-outline-dark btn-primary btn-sm">Export&nbsp;&nbsp;<i class="fas fa-download exp"></i> </a>
                                                             </div>
                                                         </div>
                                                     </div>
