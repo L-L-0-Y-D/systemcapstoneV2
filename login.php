@@ -83,7 +83,7 @@ if(isset($_SESSION['auth'])){
                                 </map>
                             </div>
                             <div class="btn-group btn-group-sm border rounded flex-grow-1" role="group" >
-                                <button class="btn btn-primary unactive" type="submit" onclick="location.href='ownerlogin.php'" title="For business owner.">Owner</button>
+                                <button class="btn btn-primary unactive" type="submit" onclick="location.href='ownerlogin.php'" title="For business owner.">Business User</button>
                                 <button class="btn btn-primary active" type="submit" onclick="location.href='login.php'" title="For customer.">Customer</button>
                             </div>
                             <form form class="text-center" method="post" action="functions/authcode.php">
