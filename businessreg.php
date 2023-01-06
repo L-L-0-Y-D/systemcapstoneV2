@@ -288,8 +288,22 @@ if(isset($_SESSION['auth'])){
                                                             <label class="form-label">Pin Location<span style="color:red;">&nbsp;*</span></span></label>
                                                             <!-- /* The above code is creating a map and pinning the location of the user. */ -->
                                                                 <input type="hidden" id="address" name="address">
-                                                                <input type="hidden" value="14.6741" id="latitude" name="latitude">
-                                                                <input type="hidden" value="120.5113" id="longitude" name="longitude">
+                                                                <?php if (isset($_GET['latitude'])){?>
+                                                                        <input type="hidden" value="<?= $_GET['latitude'] ?>" id="latitude" name="latitude">
+                                                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                                <?php }else{?>
+                                                                        <input type="hidden" value="14.6741" id="latitude" name="latitude">
+                                                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                                <?php }?>
+                                                                <?php if (isset($_GET['longitude'])){?>
+                                                                        <input type="hidden" value="<?= $_GET['longitude'] ?>" id="longitude" name="longitude">
+                                                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                                <?php }else{?>
+                                                                        <input type="hidden" value="120.5113" id="longitude" name="longitude">
+                                                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                                <?php }?>
+                                                                <!-- <input type="hidden" value="14.6741" id="latitude" name="latitude">
+                                                                <input type="hidden" value="120.5113" id="longitude" name="longitude"> -->
                                                             <div id="map" style=" height: 300px;"></div>
                                                         </div>
                                                     </div>                            

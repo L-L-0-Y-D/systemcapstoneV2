@@ -558,7 +558,7 @@ function sendemail_business($name,$email)
                         <td bgcolor='#ffffff' align='left' style='padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;'>
                             <p style='margin: 0;'>Hi! $name,</p><br>
                             <p style='margin: 0;'>Thank you for registering on I-Eat</p><br>
-                            <p style='margin: 0;'>We have received your registration details and will be reviewing them. We're excited to work with you, and we will immediately notify you once we've activated your account.</p>
+                            <p style='margin: 0;'>We have received your registration details and we will be reviewing them. We're excited to work with you, and we will immediately notify you once we've activated your account.</p>
                         </td>
                     </tr>
                     <tr>
@@ -665,6 +665,41 @@ function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredi
     else
     {
         redirect("$elseredirect", "$alert", "error");
+    }
+    
+    
+}
+
+function sendsms_business($username,$phonenumber,$business_data)
+{
+    $ch = curl_init();
+    $parameters = array(
+        'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
+        'number' => $phonenumber,
+        'message' => 'Hello '.$username.'!,
+You have Registered Successfully!! Please Wait for the Admin to Process your Business Account to Login',
+                
+        'sendername' => 'IEAT'
+    );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
+
+    //Show the server response
+    if($output)
+    {
+        redirect("../ownerlogin.php", "Register Successfully!! Please Wait for the Admin to Process your Business Account to Login", "success");
+    }
+    else
+    {
+        redirect("../businessreg.php?error=Something went wrong&$business_data", "Something went wrong", "error");
     }
     
     

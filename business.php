@@ -182,7 +182,7 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <a href="<?=$item['businessid'];?>" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
+                    <a href="businessview.php?id=<?=$item['businessid'];?>" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
                     <span class="product-type"><?= $item['business_address']; ?></span><br> 
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>

@@ -8,6 +8,8 @@ if(isset($_POST['business_register_btn']))
     $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
+    $business_number = mysqli_real_escape_string($con,$_POST['business_number']);
+    $duration = $_POST['duration'];
     $latitude = $_POST["latitude"];
     $longitude = $_POST["longitude"];
     $cuisinename = $_POST['cuisinename'];
@@ -23,10 +25,13 @@ if(isset($_POST['business_register_btn']))
     $status = isset($_POST['status']) ? "0":"1";
     $verify_token = md5(rand());
 
-    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'$latitude='.$latitude.'$longitude='.$longitude.'&cuisinename='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email;
+    $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'$latitude='.$latitude.'$longitude='.$longitude.'&cuisinename='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email.'&latitude='.$latitude.'&longitude='.$longitude.'&duration='.$duration.'&business_number='.$business_number;
      // Get Image Dimension
      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
      $fileinfo = @getimagesize($_FILES["image_cert"]["tmp_name"]);
+     $fileinfo = @getimagesize($_FILES["image_scert"]["tmp_name"]);
+     $fileinfo = @getimagesize($_FILES["image_fscert"]["tmp_name"]);
+     $fileinfo = @getimagesize($_FILES["image_bccert"]["tmp_name"]);
 
      $allowed_image_extension = array(
          "png",
@@ -37,6 +42,9 @@ if(isset($_POST['business_register_btn']))
      // Get image file extension
      $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
      $file_cert_extension = pathinfo($_FILES["image_cert"]["name"], PATHINFO_EXTENSION);
+     $file_scert_extension = pathinfo($_FILES["image_scert"]["name"], PATHINFO_EXTENSION);
+     $file_fcert_extension = pathinfo($_FILES["image_fcert"]["name"], PATHINFO_EXTENSION);
+     $file_bcert_extension = pathinfo($_FILES["image_bcert"]["name"], PATHINFO_EXTENSION);
      
      // Validate file input to check if is not empty
     if (! file_exists($_FILES["image"]["tmp_name"])) {
@@ -48,7 +56,25 @@ if(isset($_POST['business_register_btn']))
         
         redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image certificate file to upload.", "warning");
             
-    }    // Validate file input to check if is with valid extension
+    }
+    /* Checking if the file is not empty. */
+    else if (! file_exists($_FILES["image_scert"]["tmp_name"])) {
+        
+        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image Sanitary Permit file to upload.", "warning");
+            
+    } 
+    /* Checking if the file is not empty. */
+    else if (! file_exists($_FILES["image_fcert"]["tmp_name"])) {
+        
+        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image Fire Safety Permit file to upload.", "warning");
+            
+    }
+    /* Checking if the file is not empty. */
+    else if (! file_exists($_FILES["image_bcert"]["tmp_name"])) {
+        
+        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image Brgy. Clearance Permit file to upload.", "warning");
+            
+    }   // Validate file input to check if is with valid extension
     else if (! in_array($file_extension, $allowed_image_extension)) {
  
         redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
@@ -57,13 +83,43 @@ if(isset($_POST['business_register_btn']))
     
         redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
        
-    }    // Validate image file size less than
+    }
+    else if (! in_array($file_scert_extension, $allowed_image_extension)) {
+    
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
+       
+    }
+    else if (! in_array($file_fcert_extension, $allowed_image_extension)) {
+    
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
+       
+    }
+    else if (! in_array($file_bcert_extension, $allowed_image_extension)) {
+    
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
+       
+    }     // Validate image file size less than
     else if (($_FILES["image"]["size"] < 0)) {
  
         redirect("../businessreg.php?error=Image size less than 800KB&$business_data", "Image size less than 800KB", "warning");
 
     }    // Validate image file size less than
     else if (($_FILES["image_cert"]["size"] < 0)) {
+ 
+        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
+
+    }
+    else if (($_FILES["image_scert"]["size"] < 0)) {
+ 
+        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
+
+    }
+    else if (($_FILES["image_fcert"]["size"] < 0)) {
+ 
+        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
+
+    }
+    else if (($_FILES["image_bcert"]["size"] < 0)) {
  
         redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
 
@@ -77,9 +133,27 @@ if(isset($_POST['business_register_btn']))
         redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
 
     }
+    else if (($_FILES["image_scert"]["size"] > 5000000)) {
+ 
+        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
+
+    }
+    else if (($_FILES["image_fcert"]["size"] > 5000000)) {
+ 
+        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
+
+    }
+    else if (($_FILES["image_bcert"]["size"] > 5000000)) {
+ 
+        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
+
+    }
 
     $image = $_FILES['image']['name'];
     $image_cert = $_FILES['image_cert']['name'];
+    $image_scert = $_FILES['image_scert']['name'];
+    $image_fcert = $_FILES['image_fcert']['name'];
+    $image_bcert = $_FILES['image_bcert']['name'];
 
     $path = "../uploads";
 
@@ -87,8 +161,16 @@ if(isset($_POST['business_register_btn']))
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $image_cert_ext = pathinfo($image_cert, PATHINFO_EXTENSION);
+    $image_scert_ext = pathinfo($image_scert, PATHINFO_EXTENSION);
+    $image_fcert_ext = pathinfo($image_fcert, PATHINFO_EXTENSION);
+    $image_bcert_ext = pathinfo($image_bcert, PATHINFO_EXTENSION);
+
+
     $filename = time().'.'.$image_ext;
     $certname = time().'.'.$image_cert_ext;
+    $scertname = time().'.'.$image_scert_ext;
+    $fcertname = time().'.'.$image_fcert_ext;
+    $bcertname = time().'.'.$image_bcert_ext;
     
     // Check if email already registered
     $check_email_query = "SELECT business_email FROM business WHERE business_email='$business_email'";
@@ -115,8 +197,8 @@ if(isset($_POST['business_register_btn']))
                             // Insert User Data
                             $hash = password_hash($business_password, PASSWORD_DEFAULT);
                             $item = implode(" ",$cuisinename);
-                            $insert_query = "INSERT INTO business (business_name, business_address, municipalityid,  cuisinename, latitude, longitude, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,verify_token, status) 
-                            VALUES ('$business_name','$business_address', $municipalityid, '$item', '$latitude', '$longitude', '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$verify_token', '$status')";
+                            $insert_query = "INSERT INTO business (business_number, duration, business_name, business_address, municipalityid,  cuisinename, latitude, longitude, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,image_scert,image_fcert,image_bcert,verify_token, status) 
+                            VALUES ('$business_number','$duration','$business_name','$business_address', $municipalityid, '$item', '$latitude', '$longitude', '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$scertname','$fcertname','$bcertname','$verify_token', '$status')";
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 
@@ -127,8 +209,12 @@ if(isset($_POST['business_register_btn']))
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
                                 move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$certname);
+                                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$scertname);
+                                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$fcertname);
+                                move_uploaded_file($_FILES['image_cert']['tmp_name'], $cert_path.'/'.$bcertname);
                                 sendemail_business($business_name, $business_email);
-                                redirect("../ownerlogin.php", "Register Successfully!! Please Wait for the Admin to Process your Business Account to Login", "success");
+                                sendsms_business($business_name, $phonenumber, $business_data);
+                                // redirect("../ownerlogin.php", "Register Successfully!! Please Wait for the Admin to Process your Business Account to Login", "success");
                             }
                             else{
                                 redirect("../businessreg.php?error=Something went wrong&$business_data", "Something went wrong", "error");
