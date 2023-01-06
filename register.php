@@ -65,7 +65,7 @@ if(isset($_SESSION['auth'])){
 	<!--<label class="form-label mt-0">Upload your profile (max 2mbs)</label>
         <input class="form-control" type="file" name="image" required> -->
         <div class="form-content">
-			<label for="username">Username</label>
+			<label for="username">Username<span style="color:red;">&nbsp;*</span></label>
             <!-- /* A php code that is used to check if the name is set or not. If
             it is set then it will display the name in the input field. */ -->
             <?php if (isset($_GET['name'])){?>
@@ -81,7 +81,7 @@ if(isset($_SESSION['auth'])){
             <?php }?>
 		</div>
 		<div class="form-content">
-			<label for="email">Email Address</label>
+			<label for="email">Email Address<span style="color:red;">&nbsp;*</span></label>
             <!-- /* Checking if the email is set or not. If it is set then it will
             display the email in the input field. */ -->
             <?php if (isset($_GET['email'])){?>
@@ -97,7 +97,7 @@ if(isset($_SESSION['auth'])){
             <?php }?>
 		</div>
         <div class="form-content">
-            <label for="fname">Firstname</label>
+            <label for="fname">Firstname<span style="color:red;">&nbsp;*</span></label>
             <!-- /* Checking if the firstname is set or not. If it is set then it
             will display the firstname in the input field. */ -->
             <?php if (isset($_GET['firstname'])){?>
@@ -113,7 +113,7 @@ if(isset($_SESSION['auth'])){
             <?php }?>
         </div>
         <div class="form-content">
-            <label for="lname">Lastname</label>
+            <label for="lname">Lastname<span style="color:red;">&nbsp;*</span></label>
             <!-- /* Checking if the lastname is set, if it is then it will display
             the value of the lastname. If it is not set then it will display
             the placeholder. */ -->
@@ -130,7 +130,7 @@ if(isset($_SESSION['auth'])){
             <?php }?>
         </div>
         <div class="form-content">
-            <label for="dob">Date of Birth</label>
+            <label for="dob">Date of Birth<span style="color:red;">&nbsp;*</span></label>
             <?php if (isset($_GET['dateofbirth'])){?>
                 <input name='dateofbirth' type="date" id="date" value="<?= $_GET['dateofbirth'] ?>" oninput="checkBirthDate();"  required>
                 <i id="check" class="fas fa-check-circle"></i>
@@ -144,7 +144,7 @@ if(isset($_SESSION['auth'])){
             <?php }?> 
         </div>
         <div class="form-content">
-            <label for="number">Contact Number</label>
+            <label for="number">Contact Number<span style="color:red;">&nbsp;*</span></label>
             <!-- /* Checking if the variable phonenumber is set. If it is, it will
             display the value of the variable. If it is not set, it will
             display nothing. */ -->
@@ -172,7 +172,7 @@ if(isset($_SESSION['auth'])){
             <?php }?>
         </div>-->
 		<div class="form-content">
-            <label for="password">Password</label>
+            <label for="password">Password<span style="color:red;">&nbsp;*</span></label>
             <input class="form-control" type="password" name="password" id="password" oninput="checkPassword();" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
             <i id="check" class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
@@ -186,7 +186,7 @@ if(isset($_SESSION['auth'])){
                 </div>
 		</div>
 		<div class="form-content">
-			<label for="cpassword">Confirm Password</label>
+			<label for="cpassword">Confirm Password<span style="color:red;">&nbsp;*</span></label>
             <input class="form-control" type="password" name="confirmpassword" id="password2" oninput="checkPassword2();" required>
             <input type = "hidden" name='role_as' value = '0'>
             <i class="fas fa-check-circle"></i>

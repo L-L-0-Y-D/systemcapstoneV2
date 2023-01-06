@@ -58,7 +58,7 @@ h6 {
   font-size: 1.3rem;
 }
 .row .form-label {
-  font-size: 15px;
+  font-size: 14px;
 }
 .row .form-checkbox {
   margin: auto 1.5vw;
@@ -175,6 +175,7 @@ h6 {
 
 .form-content label {
 	display: inline-block;
+  font-size: 14px;
 
 }
 @media (max-width: 500px) {
