@@ -80,12 +80,12 @@ if(isset($_SESSION['auth'])){
                                         <div class="multisteps-form__content">                                   
                                             <div class="form-row mt-4">
                                                 <div class="col-12 col-md-12 mb-3 form-content">
-                                                    <label class="form-label">Upload your Business Logo (max 2mb)</label>
+                                                    <label class="form-label">Upload your Business Logo (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" type="file" name="image" id="file" onchange="return fileValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div>
                                                 <div class="col-12 col-sm-6 form-content">
-                                                    <label for="businessname">Business Name</label>
+                                                    <label for="businessname">Business Name<span style="color:red;">&nbsp;*</span></label>
                                                     <!-- /* Checking if the name is set, if it is, it will display the name in the input
                                                     field. If it is not set, it will display the input field without the name. */ -->
                                                     <?php if (isset($_GET['business_name'])){?>
@@ -97,7 +97,7 @@ if(isset($_SESSION['auth'])){
                                                     <?php }?>
                                                 </div>
                                                 <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
-                                                    <label for="businessname">Full Address</label>
+                                                    <label for="businessname">Full Address<span style="color:red;">&nbsp;*</span></label>
                                                     <!-- /* Checking if the variable business_address is set. If it is, it will display the
                                                     value of the variable. If it is not set, it will display the placeholder. */ -->
                                                     <?php if (isset($_GET['business_address'])){?>
@@ -111,7 +111,7 @@ if(isset($_SESSION['auth'])){
                                             </div>
                                             <div class="form-row mt-4">
                                                 <div class="col-12 col-md-6 mb-3 form-content">
-                                                    <label class="form-label">Contact Number</label>
+                                                    <label class="form-label">Contact Number<span style="color:red;">&nbsp;*</span></label>
                                                     <?php if (isset($_GET['business_number'])){?>
                                                             <input name='business_number' id='businessnumber' oninput="checkbusiPhone();" type="text" value="<?= $_GET['business_number']?>" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
@@ -121,12 +121,12 @@ if(isset($_SESSION['auth'])){
                                                     <?php }?>
                                                 </div>
                                                 <div class="col-12 col-sm-6 form-content">
-                                                    <label for="">Time Duration</label>
+                                                    <label for="">Time Duration For Every Reservation(Minutes)<span style="color:red;">&nbsp;*</span></label>
                                                     <?php if (isset($_GET['duration'])){?>
-                                                            <input type="time" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  oninput="checkDuration();" >
+                                                            <input type="number" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  oninput="checkDuration();" >
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input type="time" name="duration"  id="duration" oninput="checkDuration();"  required>
+                                                            <input type="number" name="duration"  id="duration" oninput="checkDuration();"  required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                 </div>
@@ -134,7 +134,7 @@ if(isset($_SESSION['auth'])){
                                             </div>
                                             <div class="form-row mt-3">
                                                 <div class="col-12 col-sm-6 form-content">
-                                                    <label class="form-label">Opening Time</span></label>
+                                                    <label class="form-label">Opening Time<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the business name is set, if it is then it will display the business
                                                     name, if not then it will display the opening time. */ -->
                                                     <?php if (isset($_GET['opening'])){?>
@@ -146,7 +146,7 @@ if(isset($_SESSION['auth'])){
                                                     <?php }?>
                                                 </div>
                                                 <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
-                                                    <label class="form-label">Closing Time</span></label>
+                                                    <label class="form-label">Closing Time<span style="color:red;">&nbsp;*</span></span></label>
                                                     <?php if (isset($_GET['closing'])){?>
                                                             <input type="time" name="closing" id="closing" value="<?= $_GET['closing'] ?>" oninput="checkClosing();" required placeholder="Opening">
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
@@ -158,7 +158,7 @@ if(isset($_SESSION['auth'])){
                                             </div>
                                             <div class="form-row mt-3">
                                                 <div class="col">
-                                                    <label class="form-label ">Cuisine Type</label>
+                                                    <label class="form-label ">Cuisine Type<span style="color:red;">&nbsp;*</span></label>
                                                     <!-- /* The above code is a PHP code that is used to display the cuisine type in the
                                                     form of checkboxes. */ -->
                                                     <?php if (isset($_GET['cuisinename[]'])){?>
@@ -230,7 +230,7 @@ if(isset($_SESSION['auth'])){
                                         <h3 class="multisteps-form__title">Business Location</h3><hr>
                                         <div class="multisteps-form__content">
                                             <div class="form-row mt-3 ">
-                                                <label class="form-label pt-2">Municipality where it's located</span></label>
+                                                <label class="form-label pt-2">Municipality where it's located<span style="color:red;">&nbsp;*</span></span></label>
                                                 <!-- /* The above code is checking if the municipalityid is set. If it is set, it will
                                                 display the municipalityid. If it is not set, it will display the
                                                 municipalityid. */ -->
@@ -284,11 +284,11 @@ if(isset($_SESSION['auth'])){
                                                     </div>
                                                     <div class="form-row mt-3">
                                                         <div class="col">
-                                                            <label class="form-label">Pin Location</span></label>
+                                                            <label class="form-label">Pin Location<span style="color:red;">&nbsp;*</span></span></label>
                                                             <!-- /* The above code is creating a map and pinning the location of the user. */ -->
                                                                 <input type="hidden" id="address" name="address">
-                                                                <input type="hidden" id="latitude" name="latitude">
-                                                                <input type="hidden" id="longitude" name="longitude">
+                                                                <input type="text" value="14.6741" id="latitude" name="latitude">
+                                                                <input type="text" value="120.5113" id="longitude" name="longitude">
                                                             <div id="map" style=" height: 300px;"></div>
                                                         </div>
                                                     </div>                            
@@ -304,22 +304,22 @@ if(isset($_SESSION['auth'])){
                                             <div class="multisteps-form__content">
                                             <div class="form-row">
                                                 <div class="col-12 col-md-12 mb-3 form-content">
-                                                    <label class="form-label">Upload your DTI Business Permit (max 2mb)</label>
+                                                    <label class="form-label">Upload your DTI Business Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" name="image_cert" id="imagecert" type="file" onchange="return certValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div>
                                                 <div class="col-12 col-md-12 mt-3 form-content">
-                                                    <label class="form-label">Upload your Sanitary Permit (max 2mb)</label>
+                                                    <label class="form-label">Upload your Sanitary Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" name="image_scert" id="imagescert" type="file" onchange="return scertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
                                                 <div class="col-12 col-md-12 mt-3 form-content">
-                                                    <label class="form-label">Upload your Fire Safety Permit (max 2mb)</label>
+                                                    <label class="form-label">Upload your Fire Safety Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" name="image_fscert" id="imagefscert" type="file" onchange="return fscertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
                                                 <div class="col-12 col-md-12 mt-3 form-content">
-                                                    <label class="form-label">Upload your Brgy. Clearance Permit (max 2mb)</label>
+                                                    <label class="form-label">Upload your Brgy. Clearance Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" name="image_bccert" id="imagebccert" type="file" onchange="return bccertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
@@ -338,7 +338,7 @@ if(isset($_SESSION['auth'])){
                                             <div class="multisteps-form__content">
                                             <div class="form-row mt-3">
                                                 <div class="col-12 col-sm-6 form-content">
-                                                    <label class="form-label">Firstname</label>
+                                                    <label class="form-label">Firstname<span style="color:red;">&nbsp;*</span></label>
                                                     <!-- /* Checking if the variable business_firstname is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
                                                     field. */ -->
@@ -351,7 +351,7 @@ if(isset($_SESSION['auth'])){
                                                     <?php }?>
                                                 </div>
                                                 <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
-                                                    <label class="form-label">Lastname</span></label>
+                                                    <label class="form-label">Lastname<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the variable business_lastname is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display the placeholder. */ -->
                                                     <?php if (isset($_GET['business_lastname'])){?>
@@ -365,7 +365,7 @@ if(isset($_SESSION['auth'])){
                                             </div>
                                             <div class="form-row mt-3">
                                                 <div class="col-12 col-sm-6 mt-sm-0 form-content">
-                                                    <label class="form-label">Contact Number</span></label>
+                                                    <label class="form-label">Contact Number<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the variable business_phonenumber is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
                                                     field. */ -->
@@ -378,7 +378,7 @@ if(isset($_SESSION['auth'])){
                                                     <?php }?>
                                                 </div>
                                                 <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
-                                                    <label class="form-label">Email Address</span></label>
+                                                    <label class="form-label">Email Address<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the business_email is set in the URL. If it is, it will display the
                                                     value in the input field. If it is not, it will display a blank input field. */ -->
                                                     <?php if (isset($_GET['business_email'])){?>
@@ -392,7 +392,7 @@ if(isset($_SESSION['auth'])){
                                             </div>
                                             <div class="form-row mt-3">
                                                 <div class="col form-content">
-                                                    <label class="form-label">Address</span></label>
+                                                    <label class="form-label">Address<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the variable business_owneraddress is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
                                                     field. */ -->
