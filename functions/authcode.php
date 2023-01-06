@@ -87,7 +87,7 @@ if(isset($_POST['registerbutton']))
             {
                 if(preg_match("/^09[0-9]\d{8}$/",$_POST['phonenumber']))
                 {
-                    if(strlen($_POST['password']) >= 8 )
+                    if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/",$_POST['password']))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
