@@ -288,8 +288,8 @@ if(isset($_SESSION['auth'])){
                                                             <label class="form-label">Pin Location<span style="color:red;">&nbsp;*</span></span></label>
                                                             <!-- /* The above code is creating a map and pinning the location of the user. */ -->
                                                                 <input type="hidden" id="address" name="address">
-                                                                <input type="text" value="14.6741" id="latitude" name="latitude">
-                                                                <input type="text" value="120.5113" id="longitude" name="longitude">
+                                                                <input type="hidden" value="14.6741" id="latitude" name="latitude">
+                                                                <input type="hidden" value="120.5113" id="longitude" name="longitude">
                                                             <div id="map" style=" height: 300px;"></div>
                                                         </div>
                                                     </div>                            
