@@ -941,6 +941,7 @@ else if(isset($_POST['edit_business_btn']))
     $businessid = $_POST['businessid'];
     $business_name = $_POST['business_name'];
     $business_email = $_POST['business_email'];
+    $business_phonenumber = $_POST['business_phonenumber'];
     $reason = $_POST['reason'];
     $status = $_POST['status'];
 
@@ -958,12 +959,14 @@ else if(isset($_POST['edit_business_btn']))
             //Not finish
             if ($status == 1) {
                 sendemail_businessconfirm($business_email, $business_name);
-                redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
+                sendsms_businessconfirm($business_name, $business_phonenumber);
+                // redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
             } elseif ($status == 0) {
                 redirect("busiowner.php", "Business Updated Successfully", "success");
             } elseif ($status == 2) {
                 sendemail_businesdeclined($business_email, $business_name, $reason);
-                redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
+                sendsms_businesdeclined($business_name, $business_phonenumber, $reason);
+                // redirect("busiowner.php", "Email Send Business Updated Successfully", "success");
             }
         } else {
             redirect("edit-business.php?id=$businessid", "Something Went Wrong", "error");

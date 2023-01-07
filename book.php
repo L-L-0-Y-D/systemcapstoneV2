@@ -143,8 +143,8 @@ function timeslots($duration, $cleanup, $start, $end)
 {
     $start = new DateTime($start);
     $end = new DateTime($end);
-    $interval = new DateInterval("PT".$duration."M");
-    $cleanupInterval = new DateInterval("PT".$cleanup."M");
+    $interval = new DateInterval('PT'.$duration. 'M');
+    $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
     $slots = array();
 
     for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
@@ -156,7 +156,7 @@ function timeslots($duration, $cleanup, $start, $end)
             break;
         }
 
-        $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
+        $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
         // count($slots);
     }
 

@@ -86,8 +86,10 @@ function sendemail_businessconfirm($email,$name)
     $email_template = "
     <b>Dear $name</b>
     <h3>Congratulations.</h3>
-    <p>We check your business details and all the files you send<p>
-    https://ieat.store/ownerlogin.php
+    <p>We have activated your business account and can now receive reservation requests.<br>
+    https://ieat.store/ownerlogin.php <br>
+
+    I-Eat team</p>
     ";
 
     $mail->Body    = $email_template;
@@ -97,6 +99,47 @@ function sendemail_businessconfirm($email,$name)
 
 }
 
+function sendsms_businessconfirm($username,$phonenumber)
+{
+    // $key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
+    // $token = urlencode(encryptthis($verify_token, $key));
+
+    $ch = curl_init();
+    $parameters = array(
+        'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
+        'number' => $phonenumber,
+        'message' => 'Congratulations '.$username.'!,
+We have activated your business account and can now receive reservation requests.
+
+https://ieat.store/ownerlogin.php
+                    
+Cheers,
+I-EAT',
+                
+        'sendername' => 'IEAT'
+    );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
+
+    //Show the server response
+    if($output)
+    {
+        redirect("busiowner.php", "Email & SMS Send Successfully", "success");
+    }
+    else
+    {
+        redirect("busiowner.php?error=Something went wrong", "Something went wrong", "error");
+    }
+    
+}
 // function sendemail_businessconfirm($email,$name)
 // {
 //     //Create an instance; passing `true` enables exceptions
@@ -173,7 +216,6 @@ function sendemail_businesdeclined($email,$name,$reason)
     <b>Dear $name</b>
     <h3>Sorry to Inform you.</h3>
     <p>We check your business details and all the files you send and sorry to inform you that you are been declined for the reason of $reason <p>
-    https://ieat.store
     ";
 
     $mail->Body    = $email_template;
@@ -181,6 +223,46 @@ function sendemail_businesdeclined($email,$name,$reason)
    // echo 'Message has been sent';
 
 
+}
+
+function sendsms_businesdeclined($username,$phonenumber,$reason)
+{
+    // $key = "qkwjdiw239&&jdafweihbrhnan&^%&ggdnawhd4njshjwuuO";
+    // $token = urlencode(encryptthis($verify_token, $key));
+
+    $ch = curl_init();
+    $parameters = array(
+        'apikey' => 'bd676e421ee447473d5e7f249a3bf795', //Your API KEY
+        'number' => $phonenumber,
+        'message' => 'Hello '.$username.'!,
+We check your business details and all the files you send and sorry to inform you that you are been declined for the reason of '.$reason.'
+                    
+Cheers,
+I-EAT',
+                
+        'sendername' => 'IEAT'
+    );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
+
+    //Show the server response
+    if($output)
+    {
+        redirect("busiowner.php", "Email & SMS Send Successfully", "success");
+    }
+    else
+    {
+        redirect("busiowner.php?error=Something went wrong", "Something went wrong", "error");
+    }
+    
 }
 
 //for getting all the data in the table

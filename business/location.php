@@ -27,14 +27,14 @@ if(isset($_GET['id']))
             </div>
     </div>
 <?php
-                } 
+            } 
             else
-                {
-                    echo "No Data Found";
-                    ?>
-                    <br><a href="index.php">Go Back</a>
-                    <?php
-                }
+            {
+                echo "No Data Found";
+                ?>
+                <br><a href="index.php">Go Back</a>
+                <?php
+            }
     }
     else
     {

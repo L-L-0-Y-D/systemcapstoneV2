@@ -15,8 +15,8 @@ function timeslots($duration, $cleanup, $start, $end)
 
     $start = new DateTime($start);
     $end = new DateTime($end);
-    $interval = new DateInterval("PT".$duration."M");
-    $cleanupInterval = new DateInterval("PT".$cleanup."M");
+    $interval = new DateInterval('PT'.$duration. 'M');
+    $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
     $slots = array();
 
     for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
@@ -297,15 +297,15 @@ function build_calendar($month,$year,$resourceid){
         {   $timeslots = timeslots($duration, $cleanup, $start, $end);
             $totalbookings = checkSlots($mysqli, $date, $resourceid);
 
-            // $slots = timeslots($duration, $cleanup, $start, $end);
+            $slots = timeslots($duration, $cleanup, $start, $end);
 
-            if($totalbookings == count($timeslots))
+            if($totalbookings == count($slots))
             {
                 $calendar .= "<td class='$today'><button class='text-muted disabled'>$currentDay</button><p><i><span style='color:red;'>&nbsp;All Booked</span></i></p>";
             }
             else
             {
-                $availableslots = count($timeslots) - $totalbookings;
+                $availableslots = count($slots) - $totalbookings;
                 $calendar .= "<td class='$today'><button value='reserveBtn' date=".$date." tableid=".$resourceid." id=".$id." class='reserveBtn rounded-circle'>$currentDay</button><p><i>$availableslots slots available</i></p>";
 
             }
