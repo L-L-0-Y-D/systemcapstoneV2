@@ -245,7 +245,9 @@ else if(isset($_POST['edit_business_btn']))
     $business_name = mysqli_real_escape_string($con,$_POST['business_name']);
     $business_address = mysqli_real_escape_string($con,$_POST['business_address']);
     $municipalityid = mysqli_real_escape_string($con,$_POST['municipalityid']);
+    $business_number = mysqli_real_escape_string($con,$_POST['business_number']);
     $cuisinename = $_POST['cuisinename'];
+    $duration = $_POST['duration'];
     $opening = $_POST['opening'];
     $closing = $_POST['closing'];
     $business_firstname = mysqli_real_escape_string($con,$_POST['business_firstname']);
@@ -255,11 +257,18 @@ else if(isset($_POST['edit_business_btn']))
     $business_owneraddress = mysqli_real_escape_string($con,$_POST['business_owneraddress']);
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $status = isset($_POST['status']) ? "1":"0";
+    $sameday = isset($_POST['sameday']) ? "1":"0";
 
     $new_image = $_FILES['image']['name'];
     $new_image_cert = $_FILES['image_cert']['name'];
+    $new_image_cert = $_FILES['image_scert']['name'];
+    $new_image_cert = $_FILES['image_fcert']['name'];
+    $new_image_cert = $_FILES['image_bcert']['name'];
     $old_image = $_POST['old_image'];
     $old_image_cert = $_POST['old_image_cert'];
+    $old_image_scert = $_POST['old_image_scert'];
+    $old_image_fcert = $_POST['old_image_fcert'];
+    $old_image_bcert = $_POST['old_image_bcert'];
 
     if($new_image != "")
     {
@@ -298,7 +307,7 @@ else if(isset($_POST['edit_business_btn']))
     {
         //$update_filename = $new_image;
         $image_cert_ext = pathinfo($new_image_cert, PATHINFO_EXTENSION);
-        $update_filename_cert = time().'.'.$image_cert_ext;
+        $update_filename_cert = 'cert'.time().'.'.$image_cert_ext;
 
         $allowed_image_extension = array(
             "png",
@@ -325,6 +334,102 @@ else if(isset($_POST['edit_business_btn']))
     {
         $update_filename_cert = $old_image_cert;
     }
+
+    if($new_image_scert != "")
+    {
+        //$update_filename = $new_image;
+        $image_scert_ext = pathinfo($new_image_scert, PATHINFO_EXTENSION);
+        $update_filename_scert = 'scert'.time().'.'.$image_scert_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_scert_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
+        }// Validate image file size less than
+        else if (($_FILES["image_scert"]["size"] < 800)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image_scert"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+        }
+    }
+    else
+    {
+        $update_filename_scert = $old_image_scert;
+    }
+
+    if($new_image_fscert != "")
+    {
+        //$update_filename = $new_image;
+        $image_fcert_ext = pathinfo($new_image_fcert, PATHINFO_EXTENSION);
+        $update_filename_fcert = 'fcert'.time().'.'.$image_fcert_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_fcert_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
+        }// Validate image file size less than
+        else if (($_FILES["image_cert"]["size"] < 800)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image_cert"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+        }
+    }
+    else
+    {
+        $update_filename_fcert = $old_image_fcert;
+    }
+
+    if($new_image_bscert != "")
+    {
+        //$update_filename = $new_image;
+        $image_bcert_ext = pathinfo($new_image_bcert, PATHINFO_EXTENSION);
+        $update_filename_bcert = 'bcert'.time().'.'.$image_bcert_ext;
+
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        ); 
+            
+        // Validate file input to check if is with valid extension
+        if (! in_array($image_bcert_ext, $allowed_image_extension)) {
+
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
+        }// Validate image file size less than
+        else if (($_FILES["image_cert"]["size"] < 800)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+
+        }    // Validate image file size that is greater
+        else if (($_FILES["image_cert"]["size"] > 10000000)) {
+
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+        }
+    }
+    else
+    {
+        $update_filename_bcert = $old_image_bcert;
+    }
     $path = "../uploads";
     $cert_path = "../certificate";
 
@@ -340,7 +445,7 @@ else if(isset($_POST['edit_business_btn']))
     {
         $login_query = "SELECT * FROM business WHERE businessid='$businessid'";
         $login_query_run = mysqli_query($con, $login_query);
-        //mysqli_query($con,$login_query) or die("bad query: $login_query");
+        //mysqli_query($con,$login_query) or die("bad query: $login_query");$_POST['business_number']
 
                 while($row = mysqli_fetch_array($login_query_run))
                 {
@@ -348,11 +453,13 @@ else if(isset($_POST['edit_business_btn']))
                     {
                         if(preg_match("/^[0-9]\d{10}$/",$_POST['business_phonenumber']))
                         {
+                            if(preg_match("/^[0-9]\d{10}$/",$_POST['business_number']))
+                            {
                                 if(strlen($_POST['business_password']) >= 8 )
                                 {
                                     //$hash = password_hash($business_password, PASSWORD_DEFAULT);
                                     $item = implode(" ",$cuisinename);
-                                    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',cuisinename='$item',opening='$opening',closing='$closing',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress', image='$update_filename', image_cert='$update_filename_cert', status='$status' WHERE businessid='$businessid'";
+                                    $update_query = "UPDATE business SET business_name='$business_name',business_address='$business_address',municipalityid='$municipalityid',cuisinename='$item',opening='$opening',closing='$closing',business_firstname='$business_firstname',business_lastname='$business_lastname',business_email='$business_email',business_phonenumber='$business_phonenumber',business_owneraddress='$business_owneraddress',business_number='$business_number',duration='$duration',sameday_reservation='$sameday', image='$update_filename', image_cert='$update_filename_cert', image_scert='$update_filename_scert', image_fcert='$update_filename_fcert', image_bcert='$update_filename_bcert', status='$status' WHERE businessid='$businessid'";
                                     mysqli_query($con,$update_query) or die("bad query: $update_query");
                                     $update_query_run = mysqli_query($con, $update_query);
 
@@ -376,6 +483,33 @@ else if(isset($_POST['edit_business_btn']))
                                                 unlink("../certification/".$old_image_cert);
                                             }
                                         }
+                                        if($_FILES['image_scert']['name'] != "")
+                                        {
+                                            move_uploaded_file($_FILES['image_scert']['tmp_name'], $cert_path.'/'.$update_filename_scert);
+                                            
+                                            if(file_exists("../certification/".$old_image_scert))
+                                            {
+                                                unlink("../certification/".$old_image_scert);
+                                            }
+                                        }
+                                        if($_FILES['image_dcert']['name'] != "")
+                                        {
+                                            move_uploaded_file($_FILES['image_fcert']['tmp_name'], $cert_path.'/'.$update_filename_fcert);
+                                            
+                                            if(file_exists("../certification/".$old_image_fcert))
+                                            {
+                                                unlink("../certification/".$old_image_fcert);
+                                            }
+                                        }
+                                        if($_FILES['image_bcert']['name'] != "")
+                                        {
+                                            move_uploaded_file($_FILES['image_bcert']['tmp_name'], $cert_path.'/'.$update_filename_bcert);
+                                            
+                                            if(file_exists("../certification/".$old_image_bcert))
+                                            {
+                                                unlink("../certification/".$old_image_bcert);
+                                            }
+                                        }
 
                                         redirect("index.php", "Business Updated Successfully", "success");
                                     }
@@ -389,6 +523,11 @@ else if(isset($_POST['edit_business_btn']))
                                 {
                                     redirect("profile.php?id=$businessid", "Your password must be at least 8 characters", "warning"); 
                                 }
+                            }
+                            else
+                            {
+                                redirect("profile.php?id=$businessid", "Phone number error detected", "warning");
+                            }
                         }
                         else
                         {
