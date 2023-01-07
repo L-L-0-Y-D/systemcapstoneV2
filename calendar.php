@@ -3,38 +3,38 @@
 $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');    
       
 
-function timeslots($duration, $cleanup, $start, $end)
-{
-    // $id = $_GET['id'];
-    // $business = businessGetByIDActives($id);
-    // $data = mysqli_fetch_array($business);
-    // $duration = 60;
-    // $cleanup = 10;
-    // $start = $data['opening'];
-    // $end = $data['closing']; 
+// function timeslots($duration, $cleanup, $start, $end)
+// {
+//     // $id = $_GET['id'];
+//     // $business = businessGetByIDActives($id);
+//     // $data = mysqli_fetch_array($business);
+//     // $duration = 60;
+//     // $cleanup = 10;
+//     // $start = $data['opening'];
+//     // $end = $data['closing']; 
 
-    $start = new DateTime($start);
-    $end = new DateTime($end);
-    $interval = new DateInterval("PT".$duration."M");
-    $cleanupInterval = new DateInterval("PT".$cleanup."M");
-    $slots = array();
+//     $start = new DateTime($start);
+//     $end = new DateTime($end);
+//     $interval = new DateInterval("PT".$duration."M");
+//     $cleanupInterval = new DateInterval("PT".$cleanup."M");
+//     $slots = array();
 
-    for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
-    {
-        $endPeriod = clone $intStart;
-        $endPeriod -> add($interval);
-        if($endPeriod > $end)
-        {
-            break;
-        }
+//     for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
+//     {
+//         $endPeriod = clone $intStart;
+//         $endPeriod -> add($interval);
+//         if($endPeriod > $end)
+//         {
+//             break;
+//         }
 
-        $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
-        // count($slots);
-    }
+//         $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
+//         // count($slots);
+//     }
 
-    return $slots;
+//     return $slots;
 
-}
+// }
 
 function build_calendar($month,$year,$resourceid){
     $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');
