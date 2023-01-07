@@ -38,7 +38,7 @@ include('includes/header.php');
     $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid">
-            <h4 class="text-dark">Menu List</h4>
+    <h3 class="text-dark mb-2 mx-3">Menu List</h3>
             <!--<a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="add-menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" style="background: rgb(255,128,64);border-style: none;"  id="addbtn">&nbsp;Add Menu</a>-->       
         <div class="card shadow">
             <div class="card-body" id="products_table">

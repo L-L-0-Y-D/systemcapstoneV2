@@ -41,7 +41,7 @@ include('includes/header.php');
     $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid">
-        <h4 class="text-dark">BUSINESS PARTNERS</h4>         
+        <h3 class="text-dark mb-2 mx-3">Business Partners</h3> 
         <div class="card shadow">
             <div class="card-body" id="business_table">
                 <div class="row">
@@ -55,7 +55,7 @@ include('includes/header.php');
                         </div> -->
                     </div>
                     <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivebusinessowner.php"><i class="fas fa-archive"></i>&nbsp;Archives</a></div>
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivebusinessowner.php">Archives&nbsp; <i class="fas fa-archive"></i></a></div>
                     </div>
                 </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -105,7 +105,33 @@ include('includes/header.php');
                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                                <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
+                                                                            <!--<img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">-->
+                                                                                <div class="slideshow-container">
+                                                                                    <div class="mySlides fade bg-black">
+                                                                                        <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
+                                                                                        <div class="text">BUSINESS PERMIT</div>
+                                                                                    </div>
+
+                                                                                    <div class="mySlides fade">
+                                                                                        <img src="../certificate/<?= $item['image_scert']; ?>" width="100%" height="100%" alt="<?= $item['image_scert']; ?>">
+                                                                                        <div class="text">SANITARY PERMIT</div>
+                                                                                    </div>
+
+                                                                                    <div class="mySlides fade">
+                                                                                        <img src="../certificate/<?= $item['image_fscert']; ?>" width="100%" height="100%" alt="<?= $item['image_fscert']; ?>">
+                                                                                        <div class="text">FIRE SAFETY PERMIT</div>
+                                                                                    </div>
+
+                                                                                    <div class="mySlides fade">                                                                                
+                                                                                        <img src="../certificate/<?= $item['image_bcert']; ?>" width="100%" height="100%" alt="<?= $item['image_bcert']; ?>">
+                                                                                        <div class="text">BRGY CLEARANCE PERMIT</div>
+                                                                                    </div>
+
+                                                                                    <!-- Next and previous buttons -->
+                                                                                    <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-arrow-alt-circle-left fa-4x"></i></a>
+                                                                                    <a class="next" onclick="plusSlides(1)"><i class="fas fa-arrow-alt-circle-right fa-4x"></i></a>
+                                                                                </div>
+
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -180,6 +206,36 @@ include('includes/header.php');
             </div>
         </div>
     </div>
+    <script>
+        let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+    mySlides.innerText="ERROR";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+    </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

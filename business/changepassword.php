@@ -29,18 +29,16 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                     <a href="index.php" class="back btn-sm btn-close float-end"></a>
-                    <h5 class="fw-bold">Change Password</h5>   
+                    <h6 class="fw-bold">Change Password</h6>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST">
                         <div class="row">
                             <div class="col-12 form-content">
                                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
-                              
                                 <input type="password" name="business_oldpassword" required placeholder="Type your current password">
                             </div>
                             <div class="col-12 form-content">
-                             
                                 <input type="password" name="business_password" id="businesspassword" oninput="checkNewBusiPass();" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required placeholder="Type your new password">
                                 <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                 <div id="newpassValidation">
@@ -51,8 +49,7 @@ include('includes/header.php');
                                     <p id="length" class="invalid">Must be atleast 8 characters</b></p>
                                 </div>
                             </div>
-                            <div class="col-12 form-content">
-                               
+                            <div class="col-12 form-content"> 
                                 <input type="password" name="business_confirmpassword" id="businessconfirmpassword" oninput="checkConNewPass();" required placeholder="Confirm your new password">
                                 <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                             </div>

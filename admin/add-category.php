@@ -11,7 +11,7 @@ include('includes/header.php');
       <div class="card">
         <div class="card-header">
           <a href="category.php" class="back btn-sm btn-close float-end"></a>
-          <h5 class="fw-bold">Add Cuisine Type</h5>
+          <h6 class="fw-bold">Add Cuisine Type</h6>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -27,7 +27,7 @@ include('includes/header.php');
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <button type="submit" class="btn save-btn btn-sm" name="add_category_btn">Save</button>
+                        <button type="submit" class="btn save-btn " name="add_category_btn">Save</button>
                     </div>
                 </div>
             </form>

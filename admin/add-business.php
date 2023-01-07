@@ -10,9 +10,9 @@ include('includes/header.php');
     <div class="col-md-9">
       <div class="card">
         <div class="card-header">
-          <h4>Add Business
+          <h6>Add Business
             <a href="busiowner.php" class="back btn-sm btn-close float-end" ></a>
-          </h4>
+          </h6>
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">

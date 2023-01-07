@@ -3,7 +3,7 @@
         <button class="btn btn-link d-md-none rounded-circle me-3 text-black" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
         <ul class="navbar-nav flex-nowrap ms-auto">
             <li class="nav-item dropdown no-arrow mx-1">
-                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle notificationtoggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter count"></span><i class="fas fa-bell fa-fw"></i></a>
+                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle notificationtoggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter count"></span><i class="fas fa-bell fa-fw "></i></a>
                     <div class="dropdown-menu notification dropdown-menu-end dropdown-list animated--grow-in">
                         <h6 class="dropdown-header">Notification</h6>
                     </div>
@@ -84,7 +84,7 @@
                         $result = $con->query($sql);
                         $item = mysqli_fetch_assoc($result);
                         ?>
-                        <span class="d-none d-lg-inline me-2 text-gray-600 small"><?= $item['business_name'];?></span>
+                        <span class="d-none d-lg-inline me-2 fw-bold text-black"><?= $item['business_name'];?></span>
                         <img class="border rounded-circle img-profile" src="../uploads/<?= $item['image'];?>">
                     </a>
                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">

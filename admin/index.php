@@ -310,7 +310,6 @@ include('includes/header.php');
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" role="tabpanel" id="totalcuisinetab">
-                                        FOR CUISINES
                                         <div class="row">
                                             <div class="col">
                                                 <div class="card shadow mb-4">

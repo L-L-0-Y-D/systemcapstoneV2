@@ -39,9 +39,9 @@ include('includes/header.php');
     $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid">
-            <h4 class="text-dark mb-4">Cuisines List
+            <h3 class="text-dark mb-0 mx-3">Cuisine's List
             <a class="btn btn-primary btn-sm float-end" role="button" href="add-category.php" id="addbtn">Add Cuisine Type</a>
-            </h4><div>&nbsp;</div>
+            </h3><div>&nbsp;</div>
         <div class="card shadow">
             <div class="card-body" id = "category_table">
                 <div class="row">
@@ -55,7 +55,7 @@ include('includes/header.php');
                         </div> -->
                     </div>
                         <div class="col-md-6">
-                            <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivecategory.php"><i class="fas fa-archive"></i>&nbsp;Archives</a></div>
+                            <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivecategory.php">Archives&nbsp; <i class="fas fa-archive"></i></a></div>
                         </div>
                         <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                             <table class="table my-0" id="dataTable">

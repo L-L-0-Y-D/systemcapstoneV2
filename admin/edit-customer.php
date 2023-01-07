@@ -24,13 +24,13 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                     <a href="customers.php" class="back btn-sm btn-close float-end"></a>
-                    <h5 class="fw-bold">Edit Customer Information</h5>   
+                    <h6 class="fw-bold">Edit Customer Information</h6>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="">Current Image</label>
+                                <label >Current Image</label>
                                 <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
                             </div>
@@ -99,7 +99,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn update-btn btn-sm" name="update_customer_btn">Update</button>
+                                <button type="submit" class="btn update-btn" name="update_customer_btn">Update</button>
                             </div>
                         </div>
                     </form>

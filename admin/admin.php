@@ -40,7 +40,7 @@ include('includes/header.php');
 ?>
     <div class="container-fluid">
         <a class="btn btn-primary float-end btn-sm mt-2" role="button" href="add-admin.php" id="addbtn">Add Admin</a>
-        <h4 class="text-dark">Admin's List</h4>
+        <h3 class="text-dark mb-2 mx-3">Admin's List</h3> 
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >
                 <div class="row">
@@ -54,7 +54,7 @@ include('includes/header.php');
                         </div> -->
                     </div>
                         <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-danger float-end mt-2 btn-sm" role="button" href="archiveadmin.php">Archives</a></div>
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archiveadmin.php">Archives&nbsp;<i class="fas fa-archive"></i> </a></div>
                         </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                         <table class="table my-0" id="dataTable">

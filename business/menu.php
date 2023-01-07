@@ -46,7 +46,7 @@ include('../config/dbcon.php');
                         <div class="col-md-6 " id="filters">
                             <div id="dataTable_length" class="dataTables_length small" aria-controls="dataTable">
                                 <label class="form-label text-black">Sorted by:&nbsp;
-                                    <select  id="mySelect" onchange="myFunction()" class="d-inline-block form-select form-select-sm w-75">
+                                    <select  id="mySelect" onchange="myFunction()" class="d-inline-block form-select form-select-sm w-50">
                                         <option value="All" selected="">All Menu</option>
                                         <option value="Main">Main Course</option>
                                         <option value="Appetizer">Appetizer</option>
@@ -63,9 +63,18 @@ include('../config/dbcon.php');
                         <!-- Import, Export & Archive link -->
                         <div class="col-md-6 links">
                             <div class="float-right">
-                                <a class="btn btn-dark float-end mb-3 mx-2 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Archives</a>
-                                <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-2 btn-sm" onclick="formToggle('importFrm');">Import&nbsp;<i class="fas fa-upload plus"></i></a>
-                                <a href="exportData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end mb-3 mx-3 btn-sm">Export All&nbsp;<i class="fas fa-download exp"></i></a>
+                                <a class="btn btn-dark float-end mb-3 mx-2 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>">
+                                    <span class="label">Archives&nbsp;</span>
+                                    <i class="fas fa-archive"></i> 
+                                </a>
+                                <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-2 btn-sm" onclick="formToggle('importFrm');">
+                                    <span class="label">Import&nbsp;</span>
+                                    <i class="fas fa-upload plus"></i> 
+                                </a>
+                                <a href="exportData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end mb-3 mx-3 btn-sm">
+                                    <span class="label">Export All&nbsp;</span>
+                                    <i class="fas fa-download exp"></i> 
+                                </a>
                             </div>
                         </div>
                         <!-- CSV file upload form -->
@@ -77,7 +86,7 @@ include('../config/dbcon.php');
                         </div>
                     </div>
                        
-                        <div class="container menu" id="container">
+                        <div class="container" id="container">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
                                 <?php
                                     // $products = getAllNotArchive("products");
@@ -90,24 +99,32 @@ include('../config/dbcon.php');
                                                 {
                                                 ?>
                                                     <div class="row mx-auto shadow-sm justify-content-center mb-2">
-                                                        <div class="col col-md-2">
+                                                        <div class="col col-md-2 menu">
                                                             <div><img class="p-3 rounded" src="../uploads/<?= $item['image']; ?>" height="170px" width="150px"></div>
                                                         </div>
                                                         <div class="col p-4 col-md-5 info">
-                                                            <h6 class="fw-bold p-0 m-1"><?= $item['name']; ?></h6>
-                                                            <p class="p-0 m-1">₱<?= $item['price']; ?>.00</p>
-                                                            <p class="p-0 m-1">Course Menu:&nbsp;<?= $item['food_type']; ?></p>
-                                                            <p class="p-0 m-1">Cuisine Type:&nbsp;<?= $item['cuisinename']; ?></p>
-                                                            <p class="p-0 m-1">Product Description:&nbsp;<?= $item['description']; ?></p>
-                                                            <p class="p-0 m-1 fw-bold">Status:&nbsp;<?= $item['status']== '0'? "Sold Out":"Available"  ?></p>
+                                                            <h6 class="form-label text-black p-0 m-1"><?= $item['name']; ?></h6>
+                                                            <p class="descrip">₱<?= $item['price']; ?>.00</p>
+                                                            <p class="descrip">Course Menu:&nbsp;<?= $item['food_type']; ?></p>
+                                                            <p class="descrip">Cuisine Type:&nbsp;<?= $item['cuisinename']; ?></p>
+                                                            <p class="descrip ">Product Description:&nbsp;<?= $item['description']; ?></p>
+                                                            <p class="status p-0 m-1 fw-bold">Status:&nbsp;<?= $item['status']== '0'? "Sold Out":"Available"  ?></p>
                                                         </div>
-                                                        <div class="col p-3 col-md-4 ">
-                                                            <div class="btn-group m-3" role="group">
+                                                        <div class="col p-3 col-md-4 col-sm-6">
+                                                            <div class="btn-group m-3 menubtn" role="group">
                                                                 <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
-                                                                <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-outline-dark edit-btn btn-sm" type="button">Edit&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i></a>
-                                                              
-                                                                <button class="btn btn-danger btn-sm" type="submit" value = "<?= $item['productid']; ?>" name="archive_menu_btn">Archive&nbsp;&nbsp;<i class="fas fa-archive"></i> </button>
-                                                                <a role="button" href="exportItemData.php?id=<?= $_SESSION['auth_user']['businessid'];?>&productid=<?= $item['productid']; ?>" class="btn btn-outline-dark btn-primary btn-sm">Export&nbsp;&nbsp;<i class="fas fa-download exp"></i> </a>
+                                                                <a href="edit-menu.php?id=<?= $item['productid']; ?>" class="btn btn-outline-dark edit-btn btn-sm" type="button">
+                                                                    <span class="label">Edit&nbsp;&nbsp;</span>
+                                                                    <i class="fas fa-pencil-alt"></i> 
+                                                                </a><br>
+                                                                <a value = "<?= $item['productid']; ?>" class="btn btn-danger btn-sm pt-2" type="submit" name="archive_menu_btn">
+                                                                    <span class="label">Archive&nbsp;&nbsp;</span>
+                                                                    <i class="fas fa-archive"></i> 
+                                                                </a><br>
+                                                                <a href="exportItemData.php?id=<?= $_SESSION['auth_user']['businessid'];?>&productid=<?= $item['productid']; ?>" class="btn btn-primary btn-sm pt-2" role="button">
+                                                                    <span class="label">Export&nbsp;&nbsp;</span>
+                                                                    <i class="fas fa-download exp"></i> 
+                                                                </a><br>
                                                             </div>
                                                         </div>
                                                     </div>

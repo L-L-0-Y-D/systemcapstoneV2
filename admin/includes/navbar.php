@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
     <div class="container-fluid">
-        <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link d-md-none rounded-circle me-3 text-black" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
         <ul class="navbar-nav flex-nowrap ms-auto">
             <li class="nav-item dropdown no-arrow mx-1">
                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle notificationtoggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter count"></span><i class="fas fa-bell fa-fw"></i></a>
@@ -97,19 +97,19 @@
                         $result = $con->query($sql);
                         $item = mysqli_fetch_assoc($result);
                         ?>
-                        <span class="d-none d-lg-inline me-2 text-gray-600 small"><?= $item['name'];?></span>
+                        <span class="d-none d-lg-inline me-2 fw-bold text-black"><?= $item['name'];?></span>
                         <img class="border rounded-circle img-profile" src="../uploads/<?= $item['image'];?>">
                     </a>
                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
                         <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['userid'];?>">
-                            <i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a>
+                            <i class="fas fa-user fa-sm fa-fw "></i>&nbsp;Profile</a>
                         <a class="dropdown-item" href="admin.php">
-                            <i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Admin</a>
+                            <i class="fas fa-cogs fa-sm fa-fw"></i>&nbsp;Admin</a>
                         <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['userid'];?>">
-                            <i class="fas fa-key fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Change Password</a>
+                            <i class="fas fa-key fa-sm fa-fw "></i>&nbsp;Change Password</a>
                             <div class="dropdown-divider bg-gray-500"></div>
                         <a class="dropdown-item" href="../logout.php">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw "></i>&nbsp;Logout</a>
                     </div>
                 </div>
             </li>

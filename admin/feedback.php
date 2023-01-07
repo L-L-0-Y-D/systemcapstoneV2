@@ -39,7 +39,7 @@ include('includes/header.php');
     $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid">
-        <h4 class="text-dark mb-4">Feedback</h4>
+        <h3 class="text-dark mb-2 mx-3">Feedbacks</h3>
         <div class="card shadow">
             <div class="card-body">
                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">

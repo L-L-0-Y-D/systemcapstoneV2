@@ -107,7 +107,7 @@ include('includes/header.php');
                                 </div>
                             </div>
                             <div class="row">
-                            <div class="col">
+                                <div class="col">
                                     <div class="form-content">
                                         <label class="form-label" for="email"><strong>Full Address</strong></label>
                                         <input type="text" name='business_address' id='businessaddress' oninput="checkBusiAddress();" value="<?= $data['business_address'] ?>"  required placeholder="Business Address">
@@ -204,7 +204,7 @@ include('includes/header.php');
                                  </div>
                                 <div class="col">
                                     <div class="form-content"><label class="form-label" for=""><strong>Email Address</strong></label>
-                                    <input name='business_email' id='businessemail' oninput="checkbusiEmail();" type="email" placeholder="sample@gmail.com" value="<?= $data['business_email'] ?>"  required placeholder="Owner Email">
+                                    <input name='business_email' id='businessemail' oninput="checkbusiEmail();" type="email" placeholder="sample@gmail.com" value="<?= $data['business_email'] ?>"  required>
                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@ include('includes/header.php');
                             </div>
                             <div class="form-content">
                                 <label class="form-label" for=""><strong>Password</strong></label>
-                                <input name='business_password' id="businesspassword" oninput="checkBusiPassword();" placeholder="Enter Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
+                                <input name='business_password' id="businesspassword" placeholder="Enter Password" type="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
                             </div>
                             <div class="form-check form-switch">
                                 <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>

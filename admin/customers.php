@@ -39,7 +39,7 @@ include('includes/header.php');
     $result = mysqli_query($con,$table_query) or die(mysqli_error($con));
 ?>
     <div class="container-fluid">
-            <h4 class="text-dark">CUSTOMER'S LIST</h4>
+        <h3 class="text-dark mb-2 mx-3">Customer's List</h3>
         <div class="card shadow" >
             <div class="card-body" id="customer_table" >
                 <div class="row">
@@ -53,7 +53,7 @@ include('includes/header.php');
                         </div> -->
                     </div>
                     <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivecustomer.php"><i class="fas fa-archive"></i>&nbsp;Archives</a></div>
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivecustomer.php">Archives&nbsp; <i class="fas fa-archive"></i></a></div>
                         </div>
                     </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -62,8 +62,8 @@ include('includes/header.php');
                                 <tr>
                                     <th>Image</th>
                                     <th>Username</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
                                     <th>Email</th>
                                     <th>Age</th>
                                     <th>Status</th>

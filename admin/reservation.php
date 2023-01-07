@@ -39,7 +39,7 @@ include('includes/header.php');
 
 ?>
     <div class="container-fluid">
-        <h4 class="text-dark mb-4">Reservations</h4>   
+        <h3 class="text-dark mb-2 mx-3">Reservations</h3>
         <div class="card shadow">
             <div class="card-body" id="products_table">
                 <div class="row">

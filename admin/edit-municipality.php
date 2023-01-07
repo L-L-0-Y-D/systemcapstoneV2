@@ -24,7 +24,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                     <a href="municipality.php" class="back btn-sm btn-close float-end"></a>
-                    <h5 class="fw-bold">Edit Municipality</h5>     
+                    <h6 class="fw-bold">Edit Municipality</h6>     
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -51,7 +51,7 @@ include('includes/header.php');
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn update-btn btn-sm" name="update_municipality_btn">Update</button>
+                                <button type="submit" class="btn update-btn" name="update_municipality_btn">Update</button>
                             </div>
                         </div>
                     </form>

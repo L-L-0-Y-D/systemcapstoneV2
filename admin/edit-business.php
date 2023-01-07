@@ -10,7 +10,7 @@ include('includes/header.php');
       display: none;
    }
 </style>
-<div class="container pt-3">
+<div class="container editbusiness pt-3">
   <div class="row justify-content-center">
     <div class="col-md-9">
         <?php 
@@ -28,41 +28,41 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                         <a href="busiowner.php" class="back btn-sm btn-close float-end"></a>
-                        <h5 class="fw-bold">Edit Business</h5>   
+                        <h6 class="fw-bold">Edit Business</h6>   
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="">Current Business Image</label>
+                                <label>Current Business Image</label>
                                 <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
                             </div>
                             <div class="col-md-6">
-                                <label for="">Update Business Image</label>
+                                <label>Update Business Image</label>
                                 <input type="file" name="image" class="form-control" disabled>
                             </div>
                             <div class="col-md-6">  
-                                <label for="">Current Business Certificate</label>
+                                <label >Current Business Certificate</label>
                                 <img src="../certificate/<?= $data['image_cert'] ?>" height="100" width="100">
                                 <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
                             </div>
                             <div class="col-md-6">
-                                <label for="">Update Business Certificate</label>
+                                <label >Update Business Certificate</label>
                                 <input type="file" name="image_cert" class="form-control" disabled >
                             </div>
                             <div class="col-md-6">
                                 <!--Needed-->
                                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
-                                <label for="">Business Name:</label>
+                                <label >Business Name:</label>
                                 <input type="text" name="business_name"  value="<?= $data['business_name'] ?>" required placeholder="Enter Business Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Business Address:</label>
+                                <label >Business Address:</label>
                                 <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Select Business Municipality:</label>
+                                <label>Select Business Municipality:</label>
                                 <select name='municipalityid' readonly required class="form-select mb-2" disabled>
                                     <option value="" disabled selected hidden>Municipality</option>
                                     <?php 
@@ -83,44 +83,44 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Select Cuisine Type:</label><br>
+                                <label >Select Cuisine Type:</label><br>
                                 <input type="text" name="cuisinename" value="<?= $data['cuisinename'] ?>"  required placeholder="Cuisine Type" class="form-control" readonly>
                             </div>                                                      
                             <div class="col-md-6">
-                                <label for="">Openig Time:</label>
+                                <label >Openig Time:</label>
                                 <input type="text" name="opening" value="<?= date('h:i A', strtotime($data['opening'])); ?>"  required placeholder="opening" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Closing Time:</label>
+                                <label>Closing Time:</label>
                                 <input type="text" name="closing" value="<?= date('h:i A', strtotime($data['closing'])); ?>"  required placeholder="closing" class="form-control" readonly>
                             </div>
-                            <h4 class="mt-3">OWNER DETAILS</h4>
+                            <h3 class="form-label text-black mt-3 text-center">OWNER DETAILS</h3>
                             <div class="col-md-6">
-                                <label for="">First Name:</label>
+                                <label >First Name:</label>
                                 <input type="text" name="business_firstname" required value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Last Name:</label>
+                                <label >Last Name:</label>
                                 <input type="text" name="business_lastname" required value="<?= $data['business_lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Phone Number:</label>
+                                <label >Phone Number:</label>
                                 <input type="text" name="business_phonenumber" required value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Email Address:</label>
+                                <label >Email Address:</label>
                                 <input type="text" name="business_email" required value="<?= $data['business_email'] ?>"  required placeholder="Owner Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
-                                <label for="">Complete Address:</label>
+                                <label>Complete Address:</label>
                                 <input type="text" name="business_owneraddress" required value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Password:</label>
+                                <label>Password:</label>
                                 <input type="password" name="business_password" required value="<?= $data['business_password'] ?>"  placeholder="Enter Password" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Confirm Password:</label>
+                                <label >Confirm Password:</label>
                                 <input type="password" name="business_confirmpassword" required value="<?= $data['business_password'] ?>"  placeholder="Enter Confirm Password" class="form-control" readonly>
                             </div>
                             <!-- <div class="col-md-12">
@@ -128,7 +128,7 @@ include('includes/header.php');
                                 <input type="checkbox" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
                             </div> <br> -->
                             <div class="col-md-12">
-                                <label for="">Status</label>
+                                <label>Status</label>
                                 <select name='status' required class="form-select mb-2" onchange="displayInput('hideValuesOnSelect', this)">
                                     <?php
                                     if($data['status'] == 0)
@@ -148,7 +148,7 @@ include('includes/header.php');
                                 <input class="form-control mb-2" id="hideValuesOnSelect" name="reason" placeholder="Reason for declining"></input>
                             </div>
                                 <div class="col-md-6">
-                                <button type="submit" class="btn update-btn btn-sm" name="edit_business_btn">Update</button>
+                                <button type="submit" class="btn update-btn " name="edit_business_btn">Update</button>
                             </div>
                             </div>
                     </form>
