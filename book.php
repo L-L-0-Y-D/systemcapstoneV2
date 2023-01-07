@@ -150,7 +150,7 @@ function timeslots($duration, $cleanup, $start, $end)
     for($intStart = $start; $intStart < $end; $intStart -> add(new DateInterval('PT' . $interval . 'M')) -> add(new DateInterval('PT' . $cleanupInterval . 'M')))
     {
         $endPeriod = clone $intStart;
-        $endPeriod -> add($interval);
+        $endPeriod -> add(new DateInterval('PT' . $interval . 'M'));
         if($endPeriod > $end)
         {
             break;
