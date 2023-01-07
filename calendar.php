@@ -294,18 +294,18 @@ function build_calendar($month,$year,$resourceid){
             $calendar .= "<td class='$today'><button class='currentDay'>$currentDay</button> ";
         }
         else
-        {   $timeslots = timeslots($duration, $cleanup, $start, $end);
+        {   //$timeslots = timeslots($duration, $cleanup, $start, $end);
             $totalbookings = checkSlots($mysqli, $date, $resourceid);
 
             // $slots = timeslots($duration, $cleanup, $start, $end);
 
-            if($totalbookings == count($timeslots))
+            if($totalbookings == 12)
             {
                 $calendar .= "<td class='$today'><button class='text-muted disabled'>$currentDay</button><p><i><span style='color:red;'>&nbsp;All Booked</span></i></p>";
             }
             else
             {
-                $availableslots = count($timeslots) - $totalbookings;
+                $availableslots = 12 - $totalbookings;
                 $calendar .= "<td class='$today'><button value='reserveBtn' date=".$date." tableid=".$resourceid." id=".$id." class='reserveBtn rounded-circle'>$currentDay</button><p><i>$availableslots slots available</i></p>";
 
             }
