@@ -124,7 +124,7 @@ $data = mysqli_fetch_array($business);
 // $reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
 
 
-$duration = 60;
+$duration = $data['duration'];
 $cleanup = 0;
 
 // $start = date("H:i");

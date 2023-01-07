@@ -48,7 +48,7 @@ function build_calendar($month,$year,$resourceid){
     $query_reservation_run = mysqli_query($mysqli, $business);
     $business = $query_reservation_run;
     $data = mysqli_fetch_array($business);
-    $duration = 60;
+    $duration = $data['duration'];
     $cleanup = 0;
     $start = $data['opening'];
     $end = $data['closing'];  
