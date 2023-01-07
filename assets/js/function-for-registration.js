@@ -158,7 +158,7 @@ function checkBusiName() {
 	const businessnameValue = businessname.value.trim();
 
 	if(businessnameValue === '') {
-		setErrorFor(businessname, 'Business Name cannot be blank');
+		setErrorFor(businessname, 'This field is required.');
 	} else {
 		setSuccessFor(businessname);
 	}	
@@ -169,7 +169,7 @@ function checkBusiAddress() {
 	const businessaddressValue = businessaddress.value.trim();
 
 	if(businessaddressValue === '') {
-		setErrorFor(businessaddress, 'Business Address cannot be blank');
+		setErrorFor(businessaddress, 'This field is required.');
 	} else {
 		setSuccessFor(businessaddress);
 	}	
@@ -191,7 +191,7 @@ function checkOpening() {
 	const openingValue = opening.value.trim();
 
 	if(openingValue === '') {
-		setErrorFor(opening, 'Opening time cannot be blank');
+		setErrorFor(opening, 'This field is required.');
 	} else {
 		setSuccessFor(opening);
 	}	
@@ -201,7 +201,7 @@ function checkClosing() {
 	const closingValue = closing.value.trim();
 
 	if(closingValue === '') {
-		setErrorFor(closing, 'Closing time cannot be blank');
+		setErrorFor(closing, 'This field is required.');
 	} else {
 		setSuccessFor(closing);
 	}	
@@ -328,7 +328,7 @@ function checkbusiFname() {
 	const busiFnameValue = businessfirstname.value.trim();
 
 	if(busiFnameValue === '') {
-		setErrorFor(businessfirstname, 'Firstname cannot be blank');
+		setErrorFor(businessfirstname, 'This field is required.');
 	} else {
 		setSuccessFor(businessfirstname);
 	}	
@@ -339,7 +339,7 @@ function checkbusiLname() {
 	const busiLnameValue = businesslastname.value.trim();
 
 	if(busiLnameValue === '') {
-		setErrorFor(businesslastname, 'Lastname cannot be blank');
+		setErrorFor(businesslastname, 'This field is required.');
 	} else {
 		setSuccessFor(businesslastname);
 	}	
@@ -350,7 +350,7 @@ function checkDuration() {
   const durationValue = duration.value.trim();
 
   if(durationValue === '') {
-    setErrorFor(duration, 'Duration cannot be blank');
+    setErrorFor(duration, 'This field is required.');
   } else {
     setSuccessFor(duration);
   }	
@@ -382,7 +382,7 @@ function checkbusiEmail() {
 	// trim to remove the whitespaces
 	const busiEmailValue = businessemail.value.trim();
 	if(busiEmailValue === '') {
-		setErrorFor(businessemail, 'Email Address cannot be blank');
+		setErrorFor(businessemail, 'This field is required.');
 	} else if (!isEmail(busiEmailValue)) {
 		setErrorFor(businessemail, 'Not a valid email');
 	} else {
@@ -398,7 +398,7 @@ function checkownerAdd() {
 	const ownerAddValue = businessowneraddress.value.trim();
 
 	if(ownerAddValue === '') {
-		setErrorFor(businessowneraddress, 'Address cannot be blank');
+		setErrorFor(businessowneraddress, 'This field is required.');
 	} else {
 		setSuccessFor(businessowneraddress);
 	}	

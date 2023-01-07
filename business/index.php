@@ -137,7 +137,7 @@ $businessuserid = $_SESSION['auth_user']['businessid'];
                                             <div class="col-md-12 mb-4">
                                                 <div class="card shadow mb-4">
                                                     <div class="card-header py-3">
-                                                        <h6 class="text-primary fw-bold"><br><strong>OVERALL RESERVATION</strong><br></h6>
+                                                        <h6 class="fw-bold"><br><strong>OVERALL RESERVATION</strong><br></h6>
                                                     </div>
                                                     <div class="card-body">
                                                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
