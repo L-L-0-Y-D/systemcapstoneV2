@@ -71,6 +71,12 @@ include('includes/header.php');
                         <small>Error message</small>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="form-check">
+                        <input class= "form-checkbox float-start mt-2" type="checkbox" style="margin-right:5px;" name="sameday"></input>
+                            <label class="form-label text-black" for="formCheck-1">Have same day reservation?</label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,6 +99,15 @@ include('includes/header.php');
                                     </div>
                                 </div>
                                 <div class="col">
+                                    <div class="form-content">
+                                        <label class="form-label" for=""><strong>Contact Number</strong></label>
+                                        <input name='business_number' id='businessnumber' oninput="checkbusiPhone();" type="text" required>
+                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
                                     <div class="form-content">
                                         <label class="form-label" for="email"><strong>Full Address</strong></label>
                                         <input type="text" name='business_address' id='businessaddress' oninput="checkBusiAddress();" value="<?= $data['business_address'] ?>"  required placeholder="Business Address">

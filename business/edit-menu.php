@@ -24,7 +24,7 @@ include('includes/header.php');
                     <div class="card">
                         <div class="card-header">
                         <a href="menu.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
-                        <h5 class="fw-bold">Edit Products</h5>
+                        <h6 class="fw-bold">Edit Products</h6>
                             
                         </div>
                         <div class="card-body">
@@ -38,25 +38,25 @@ include('includes/header.php');
                                         ?>
                                     </div>                                  
                                     <div class="col-md-6">
-                                        <label class="mb-0">Current Image</label>
+                                        <label class="form-label text-black">Current Image</label>
                                         <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="mb-0">Update Product Image</label>
+                                        <label class="form-label text-black">Update Product Image</label>
                                         <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
                                         <input type="file" name="image" class="form-control mb-2">
                                     </div>
                                     <div class="col-md-6">
                                         <input type="hidden" name="productid" value="<?= $data['productid']?>">
-                                        <label class="mb-0">Product Name:</label>
+                                        <label class="form-label text-black">Product Name:</label>
                                         <input type="text" name="name" value="<?= $data['name']?>" required class="form-control mb-2">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="mb-0">Price:</label>
+                                        <label class="form-label text-black">Price:</label>
                                         <input type="text" name="price" value="<?= $data['price']?>" required class="form-control mb-2">
                                     </div>                                   
                                     <div class="col-md-6">
-                                        <label class="control-label">Course Menu:</label>
+                                        <label class="form-label text-black">Course Menu:</label>
                                         <select  name="food_type" value="<?= $data['food_type'] ?>" required class="form-control mb-2">
                                             <option selected hidden value="<?= $data['food_type'] ?>"> <?= $data['food_type'] ?> </option>
                                             <option value="Appetizer">Appetizer</option>
@@ -70,7 +70,7 @@ include('includes/header.php');
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="control-label">Cuisine Type:</label>
+                                        <label class="form-label text-black">Cuisine Type:</label>
                                         <select class= "border rounded form-select mb-3" name="cuisinename" value="<?= $data['cuisinename'] ?>" style="height:40px; border-style:none;"  required>
                                         <option selected hidden value="<?= $data['cuisinename'] ?>"><?= $data['cuisinename'] ?></option>
                                             <?php 
@@ -94,17 +94,17 @@ include('includes/header.php');
                                         </select> 
                                     </div>  
                                     <div class="col-md-12">
-                                        <label class="mb-0">Product Description:</label>
+                                        <label class="form-label text-black">Product Description:</label>
                                         <textarea rows="3" name="description"  required class="form-control mb-2"><?= $data['description']?></textarea>
                                     </div>              
                                     <div class="row">
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" <?= $data['status'] == '0'? '':'checked' ?>> 
-                                            <label class="form-check-label" for="formCheck-1"><strong>Status</strong></label>
+                                            <label class="form-label text-black" for="formCheck-1"><strong>Status</strong></label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn update-btn btn-sm" name="update_product_btn">Update</button>
+                                        <button type="submit" class="btn update-btn" name="update_product_btn">Update</button>
                                     </div>
                                 </div>
                             </form>

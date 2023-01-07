@@ -43,9 +43,9 @@ include('../config/dbcon.php');
         <h4 class="text-dark"><?= $_SESSION['auth_user']['business_name'];?>'s Menu List</h4><hr>
                         <!--SORTING-->
                     <div class="row mx-auto">
-                        <div class="col-md-6 text-nowrap " id="filters">
+                        <div class="col-md-6 " id="filters">
                             <div id="dataTable_length" class="dataTables_length small" aria-controls="dataTable">
-                                <label class="form-label">Sorted by:&nbsp;
+                                <label class="form-label text-black">Sorted by:&nbsp;
                                     <select  id="mySelect" onchange="myFunction()" class="d-inline-block form-select form-select-sm w-75">
                                         <option value="All" selected="">All Menu</option>
                                         <option value="Main">Main Course</option>
@@ -60,16 +60,13 @@ include('../config/dbcon.php');
                                 </label>
                             </div>                           
                         </div>
-                        <!-- Import & Export link -->
-                        <div class="col-md-6 ">
+                        <!-- Import, Export & Archive link -->
+                        <div class="col-md-6 links">
                             <div class="float-right">
-                                <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-3 btn-sm" onclick="formToggle('importFrm');">Import&nbsp;<i class="fas fa-upload plus"></i></a>
+                                <a class="btn btn-dark float-end mb-3 mx-2 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Archives</a>
+                                <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-2 btn-sm" onclick="formToggle('importFrm');">Import&nbsp;<i class="fas fa-upload plus"></i></a>
                                 <a href="exportData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end mb-3 mx-3 btn-sm">Export All&nbsp;<i class="fas fa-download exp"></i></a>
                             </div>
-                        </div>
-                        <!-- Archive link-->
-                        <div class="col-md-6 ">
-                            <a class="btn btn-dark float-end mb-3 mx-3 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Archives</a>
                         </div>
                         <!-- CSV file upload form -->
                         <div class="col-md-6 " id="importFrm" style="display: none;">
@@ -80,7 +77,7 @@ include('../config/dbcon.php');
                         </div>
                     </div>
                        
-                        <div class="container" id="container">
+                        <div class="container menu" id="container">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
                                 <?php
                                     // $products = getAllNotArchive("products");
@@ -94,7 +91,7 @@ include('../config/dbcon.php');
                                                 ?>
                                                     <div class="row mx-auto shadow-sm justify-content-center mb-2">
                                                         <div class="col col-md-2">
-                                                            <div><img class="p-3" src="../uploads/<?= $item['image']; ?>" height="170px" width="150px"></div>
+                                                            <div><img class="p-3 rounded" src="../uploads/<?= $item['image']; ?>" height="170px" width="150px"></div>
                                                         </div>
                                                         <div class="col p-4 col-md-5 info">
                                                             <h6 class="fw-bold p-0 m-1"><?= $item['name']; ?></h6>

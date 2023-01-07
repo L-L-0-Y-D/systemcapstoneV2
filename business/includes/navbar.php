@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-1 topbar static-top">
     <div class="container-fluid">
-        <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link d-md-none rounded-circle me-3 text-black" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
         <ul class="navbar-nav flex-nowrap ms-auto">
             <li class="nav-item dropdown no-arrow mx-1">
                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle notificationtoggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter count"></span><i class="fas fa-bell fa-fw"></i></a>
@@ -89,12 +89,12 @@
                     </a>
                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
                         <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['auth_user']['businessid'];?>">
-                            <i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a>
+                            <span class="fas fa-user fa-sm fa-fw "></span>&nbsp;Profile</a>
                         <a class="dropdown-item" href="changepassword.php?id=<?= $_SESSION['auth_user']['businessid'];?>">
-                            <i class="fas fa-key fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Change Password</a>
-                            <div class="dropdown-divider bg-gray-500"></div>
+                            <span class="fas fa-key fa-sm fa-fw  "></span>&nbsp;Change Password</a>
+                            <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../logout.php">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                            <span class="fas fa-sign-out-alt fa-sm fa-fw  "></span>&nbsp;Logout</a>
                     </div>
                 </div>
             </li>

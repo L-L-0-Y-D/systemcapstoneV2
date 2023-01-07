@@ -231,7 +231,7 @@
 	const dateValues = new Date(dateValue);
 	var diff = currentdate.getFullYear() - dateValues.getFullYear(); 
 	if(dateValue === '') {
-		setErrorFor(date, 'Date of Birth cannot be blank');
+		setErrorFor(date, 'This field is required.');
 	} else if (diff <= 18) {
 		setErrorFor(date, 'Under Age');
 	} else {
@@ -251,7 +251,7 @@
 	const firstnameValue = firstname.value.trim();
 
 	if(firstnameValue === '') {
-		setErrorFor(firstname, 'Firstname cannot be blank');
+		setErrorFor(firstname, 'This field is required.');
 	} else {
 		setSuccessFor(firstname);
 	}	
@@ -261,7 +261,7 @@
         const lastnameValue = lastname.value.trim();
 
         if(lastnameValue === '') {
-            setErrorFor(lastname, 'Lastname cannot be blank');
+            setErrorFor(lastname, 'This field is required.');
         } else {
             setSuccessFor(lastname);
         }	
@@ -270,7 +270,7 @@
 	// trim to remove the whitespaces
 	const emailValue = email.value.trim();
 	if(emailValue === '') {
-		setErrorFor(email, 'Email Address cannot be blank');
+		setErrorFor(email, 'This field is required.');
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'Not a valid email');
 	} else {
@@ -285,7 +285,7 @@
 	const unameValue = username.value.trim();
 
 	if(unameValue === '') {
-		setErrorFor(username, 'Username cannot be blank');
+		setErrorFor(username, 'This field is required.');
 	} else {
 		setSuccessFor(username);
 	}	

@@ -68,7 +68,7 @@ body {
     margin:5px 10px;
 }
 .form-label {
-    font-size: 18px!important;
+    font-size: 17px!important;
     font-weight: 600;
 }
 input , .form-control, .form-select {
@@ -136,10 +136,37 @@ h6 {
 }
 
 /*FOR SIDEBAR*/
-#accordionSidebar a {
+#accordionSidebar a, #accordionSidebar i {
     color: #fff;
 }
-#accordionSidebar .nav-item:active + #accordionSidebar .nav-item:focus + #accordionSidebar .nav-item:hover {
- background-color: #fff;
- color: black;
+#accordionSidebar .nav-link.active, #accordionSidebar .nav-link:hover{
+    color: rgb(255,128,64);
+    background-color: #ffff;
+    font-weight: bold;
+    border-radius: 30px;
+    margin: 1px 0px;
+}
+.sidebar-brand-text {
+    font-size: 30px ;
+}
+.dropdown-menu a {
+    margin-left: 0;
+    padding-left: 7px;
+}
+table {
+    color: black!important;
+}
+.card-header h6 {
+    color: black!important;
+}
+@media (max-width:500px) {
+    .dataTable_length {
+        width: 100%;
+    }
+    .links a {
+        margin:0;
+    }
+    .menu img {
+        text-align: center;
+    }
 }

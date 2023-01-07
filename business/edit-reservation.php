@@ -34,17 +34,17 @@ include('includes/header.php');
                     <div class="card">
                         <div class="card-header">                       
                             <a href="reservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="back btn-sm btn-close float-end"></a>
-                            <h5 class="fw-bold">Approval of Reservation</h5>     
+                            <h6 class="fw-bold">Approval of Reservation</h6>     
                         </div>
                         <div class="card-body">
                         <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="">Table No.</label>
+                                <label class="form-label text-black">Table No.</label>
                                 <input type="text" name="table_number" value="<?= $data['table_number'] ?>" placeholder="Enter Table Number of Guest" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Number of Guest:</label>
+                                <label class="form-label text-black">Number of Guest:</label>
                                 <input type="text" name="chair" value="<?= $data['chair'] ?>" placeholder="Enter Number of Guest" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
@@ -53,32 +53,32 @@ include('includes/header.php');
                                 <input type="hidden" name="reservationid" value="<?= $data['reservationid'] ?>">
                                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                <label for="namereserveunder">Reserved By:</label>
+                                <label class="form-label text-black" for="namereserveunder">Reserved By:</label>
                                 <input type="text" name="namereserveunder" value="<?= $data['namereserveunder'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="namereserveunder">Account Name:</label>
+                                <label class="form-label text-black" for="namereserveunder">Account Name:</label>
                                 <input type="text" name="name" value="<?= $data['name'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 
-                                <label for="">Email Address:</label>
+                                <label class="form-label text-black">Email Address:</label>
                                 <input type="email" name="reservation_email" value="<?= $data['reservation_email'] ?>" placeholder="Enter Reservation Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Phone Number:</label>
+                                <label class="form-label text-black">Phone Number:</label>
                                 <input type="text" name="reservation_phonenumber" value="<?= $data['reservation_phonenumber'] ?>" placeholder="Enter Phonenumber" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Reservation Date:</label>
+                                <label class="form-label text-black">Reservation Date:</label>
                                 <input type="date" name="reservation_date" value="<?= $data['reservation_date'] ?>" placeholder="Enter Reservation Date" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Reservation Time:</label>
+                                <label class="form-label text-black">Reservation Time:</label>
                                 <input type="text" name="reservation_time" value="<?= $data['reservation_time'] ?>" placeholder="Enter Reservation Time" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
-                                <label for="">Status</label>
+                                <label class="form-label text-black">Status</label>
                                 <select name='status' required class="form-select mb-2">
                                     <?php
                                     if($data['status'] == 0)
@@ -97,7 +97,7 @@ include('includes/header.php');
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn update-btn btn-sm" name="update_reservation_btn">Update</button>
+                                <button type="submit" class="btn update-btn" name="update_reservation_btn">Update</button>
                             </div>
                         </div>
                     </form>
