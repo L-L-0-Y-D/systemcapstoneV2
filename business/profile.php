@@ -6,6 +6,11 @@ include('includes/header.php');
 
 
 ?>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="assets/css/style-for-ownerprof.css">
+</head>
 <div class="container-fluid pt-3">
     <?php 
         if(isset($_GET['id']))
@@ -25,46 +30,47 @@ include('includes/header.php');
     <div class="row mb-3 w-100">
         <div class="col-lg-4">
             <div class="card mb-3">
-                <div class="card-header py-3">
-                    <p class="text-primary fw-bold">Upload Profile</p>
+                <div class="card-header py-2">
+                    <p class="fw-bold">Upload Profile</p>
                 </div>
                 <div class="card-body text-center shadow">
-                    <img class="rounded-circle mb-3 mt-4" src="../uploads/<?= $data['image'] ?>" width="160" height="160">
+                    <img class="rounded-circle mb-3 mt-3" src="../uploads/<?= $data['image'] ?>" width="160" height="160">
                     <input type="hidden" name="old_image" value="<?= $data['image'] ?>"><br>
-                    <label class="form-label float-start" ><strong>Change Profile:</strong><br></label>
-                    <div class="mb-3"><input type="file" name="image" class="form-control"></div>
+                    <div class="form-content">
+                        <label class="form-label float-start" >Change Profile:<br></label>
+                        <input type="file" name="image" id="file" accept=".jpg, .jpeg, .png" onchange="return fileValidation();" required>
+                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                    </div>
                 </div>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <p class="text-primary fw-bold">Business Time</p>
+                    <p class="fw-bold">Business Time</p>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3">  
-                                    <label class="form-label" for=""><strong>Opening Time:</strong><br></label>
-                                    <input type="time" name="opening" value="<?= $data['opening'] ?>"  required placeholder="Opening">
+                            <div class="form-content">
+                                <label class="form-label" for=""><strong>Opening Time:</strong><br></label>
+                                <input type="time" name="opening" value="<?= $data['opening'] ?>" id="opening" oninput="checkOpening();" placeholder="Opening Time"  required>
+                                <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>  
                             </div>
                         </div>
                         <div class="col">
-                            <div class="mb-3"> 
-                                    <label class="form-label" for=""><strong>Closing Time:</strong><br></label>
-                                    <input type="time" name="closing" value="<?= $data['closing'] ?>"  required placeholder="Closing">
+                            <div class="form-content"> 
+                                <label class="form-label" for=""><strong>Closing Time:</strong><br></label>
+                                <input type="time" name="closing" value="<?= $data['closing'] ?>" id="closing" oninput="checkClosing();" required placeholder="Closing">
+                                <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>  
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="card shadow mb-4">                  
-                <div class="card-header py-3">
-                    <p class="text-primary fw-bold">Business Certificate</p>
-                </div>
-                <div class="card-body text-center shadow">
-                    <a href="../certificate/<?= $data['image_cert'] ?>">   
-                    <img class="rounded mb-3 mt-4" src="../certificate/<?= $data['image_cert'] ?>" width="160" height="160"></a>
-                    <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>">
-                    <div class="mb-3"><input type="file" name="image_cert" class="form-control"></div>
+                    <div class="row">
+                        <div class="form-content"> 
+                        <label class="form-label">Time Duration For Every Reservation(Minutes)</label>
+                        <input type="number" name="duration"  id="duration" oninput="checkDuration();"  required>
+                        <small>Error message</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,22 +79,24 @@ include('includes/header.php');
                 <div class="col">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <p class="text-primary fw-bold">Business Information</p>
+                            <p class="fw-bold">Business Information</p>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3">                          
+                                    <div class="form-content">                          
                                         <!--Needed-->
                                         <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
                                         <label class="form-label" for="business_name"><strong>Business Name</strong><br></label>
-                                        <input type="text" name="business_name" value="<?= $data['business_name'] ?>" required placeholder="Enter Business Name" class="form-control">
+                                        <input type="text" name='business_name' id="businessname" oninput="checkBusiName();" value="<?= $data['business_name'] ?>" required placeholder="Enter Business Name">
+                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="email"><strong>Business Address</strong></label>
-                                        <input type="text" name="business_address" value="<?= $data['business_address'] ?>"  required placeholder="Business Address" class="form-control">
+                                    <div class="form-content">
+                                        <label class="form-label" for="email"><strong>Full Address</strong></label>
+                                        <input type="text" name='business_address' id='businessaddress' oninput="checkBusiAddress();" value="<?= $data['business_address'] ?>"  required placeholder="Business Address">
+                                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
                             </div>
@@ -155,47 +163,121 @@ include('includes/header.php');
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary fw-bold">Business Owner Details</p>
+                            <p class="fw-bold">Business Owner Details</p>
                         </div>
                         <div class="card-body">                            
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for=""><strong>First Name</strong></label>
-                                        <input type="text" name="business_firstname" value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name" class="form-control">
+                                    <div class="form-content"><label class="form-label" for=""><strong>First Name</strong></label>
+                                    <input name='business_firstname' id='businessfirstname' type="text" oninput="checkbusiFname();" value="<?= $data['business_firstname'] ?>" placeholder="Enter First Name">
+                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for=""><strong>Last Name</strong></label>
-                                        <input type="text" name="business_lastname" value="<?= $data['business_lastname'] ?>" placeholder="Enter Last Name" class="form-control">
+                                    <div class="form-content"><label class="form-label" for=""><strong>Last Name</strong></label>
+                                    <input name='business_lastname' id='businesslastname' type="text" oninput="checkbusiLname();" value="<?= $data['business_lastname'] ?>" placeholder="Enter Last Name">
+                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for=""><strong>Phone Number</strong></label>
-                                        <input type="text" name="business_phonenumber" value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number" class="form-control">
+                                    <div class="form-content"><label class="form-label" for=""><strong>Phone Number</strong></label>
+                                    <input name='business_phonenumber' id='businessphonenumber' oninput="checkbusiNum();" type="text" value="<?= $data['business_phonenumber'] ?>"  required placeholder="Contact Number">
+                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                  </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for=""><strong>Email Address</strong></label>
-                                        <input type="text" name="business_email" value="<?= $data['business_email'] ?>"  required placeholder="Owner Email" class="form-control">
+                                    <div class="form-content"><label class="form-label" for=""><strong>Email Address</strong></label>
+                                    <input name='business_email' id='businessemail' oninput="checkbusiEmail();" type="email" placeholder="sample@gmail.com" value="<?= $data['business_email'] ?>"  required placeholder="Owner Email">
+                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-content">
                                 <label class="form-label" for=""><strong>Address</strong></label>
-                                <input type="text" name="business_owneraddress" value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control">
+                                <input name='business_owneraddress' id='businessowneraddress' oninput="checkownerAdd();" type="text" value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address">
+                                <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-content">
                                 <label class="form-label" for=""><strong>Password</strong></label>
-                                <input type="password" name="business_password" placeholder="Enter Password" class="form-control" required>
+                                <input name='business_password' id="businesspassword" oninput="checkBusiPassword();" placeholder="Enter Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
                             </div>
                             <div class="form-check form-switch">
                                 <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
                             </div>
-                            <div class="mb-3">
-                                <button class="btn update-btn btn-sm" type="submit" name="edit_business_btn">Update Business Profile</button>
+                            <div class="">
+                                <button class="btn update-btn " type="submit" name="edit_business_btn">Update Business Profile</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 w-100">
+            <div class="col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-header py-2">
+                        <p class="fw-bold">Business Permit</p>
+                    </div>
+                    <div class="card-body text-center shadow">
+                        <a href="../certificate/<?= $data['image_cert'] ?>"><img class="rounded mb-3 mt-3" src="../certificate/<?= $data['image_cert'] ?>" width="160" height="160"></a>
+                        <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>"><br>
+                        <div class="form-content">
+                            <label class="form-label float-start" >Upload your DTI Business Permit<br></label>
+                            <input type="file" name="image_cert" id="imagecert" accept=".jpg, .jpeg, .png" onchange="return certValidation();" required>
+                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-header py-2">
+                        <p class="fw-bold">Sanitary Permit</p>
+                    </div>
+                    <div class="card-body shadow">
+                        <a href="../certificate/<?= $data['image_scert'] ?>">
+                        <img class="rounded mb-3 mt-3" src="../certificate/<?= $data['image_scert'] ?>" width="160" height="160"></a>
+                        <input type="hidden" name="old_image_scert" value="<?= $data['image_scert'] ?>"><br>
+                        <div class="form-content">
+                            <label class="form-label float-start" >Upload your Sanitary Permit<br></label>
+                            <input type="file" name="image_scert" id="imagescert" accept=".jpg, .jpeg, .png" onchange="return scertValidation();" required>
+                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-header py-2">
+                        <p class="fw-bold">Fire Safety Permit</p>
+                    </div>
+                    <div class="card-body shadow">
+                        <a href="../certificate/<?= $data['image_fscert'] ?>">
+                        <img class="rounded mb-3 mt-3" src="../certificate/<?= $data['image_fscert'] ?>" width="160" height="160"></a>
+                        <input type="hidden" name="old_image_fscert" value="<?= $data['image_fscert'] ?>"><br>
+                        <div class="form-content">
+                            <label class="form-label float-start" >Upload your Fire Safety Permit<br></label>
+                            <input type="file" name="image_fscert" id="imagefscert" accept=".jpg, .jpeg, .png" onchange="return fscertValidation();" required>
+                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-header py-2">
+                        <p class="fw-bold">Brgy. Clearance Permit</p>
+                    </div>
+                    <div class="card-body shadow">
+                        <a href="../certificate/<?= $data['image_bcert'] ?>">
+                        <img class="rounded mb-3 mt-3" src="../certificate/<?= $data['image_bcert'] ?>" width="160" height="160"></a>
+                        <input type="hidden" name="old_image_bcert" value="<?= $data['image_bcert'] ?>"><br>
+                        <div class="form-content">
+                            <label class="form-label float-start" >Upload your Brgy. Clearance Permit<br></label>
+                            <input type="file" name="image_bcert" id="imagebccert" accept=".jpg, .jpeg, .png" onchange="return bccertValidation();" required>
+                            <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
                         </div>
                     </div>
                 </div>
@@ -217,5 +299,5 @@ include('includes/header.php');
             }
     ?>
 </div>
-
+<script  src="assets/js/function-for-ownerprof.js"></script>
 <?php include('includes/footer.php');?>

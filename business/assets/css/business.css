@@ -6,7 +6,7 @@ body {
     color: #fff;
 }
 .back {
-    text-decoration: none!important;
+    text-decoration: underline!important;
     color:darkgrey;
     padding-right: 10px;
 }
@@ -66,10 +66,15 @@ body {
 }
 .form-check {
     margin:5px 10px;
-
+}
+.form-label {
+    font-size: 18px!important;
+    font-weight: 600;
 }
 input , .form-control, .form-select {
-    font-size: smaller!important;
+    font-size: 16px!important;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
 }
 input:focus, textarea:focus, select:focus, option:focus {
     box-shadow:none!important;
@@ -103,6 +108,8 @@ h4 {
 .card-header {
     margin-bottom:0px!important;
     padding-bottom: 0%!important;
+    font-size: 20px;
+    font-weight: lighter!important;
 }
 td ,option, .info p{
     font-size: 14px!important;
@@ -126,4 +133,13 @@ h6 {
 }
 .fourth-tab {
     color: rgb(255, 128, 64)!important;
+}
+
+/*FOR SIDEBAR*/
+#accordionSidebar a {
+    color: #fff;
+}
+#accordionSidebar .nav-item:active + #accordionSidebar .nav-item:focus + #accordionSidebar .nav-item:hover {
+ background-color: #fff;
+ color: black;
 }

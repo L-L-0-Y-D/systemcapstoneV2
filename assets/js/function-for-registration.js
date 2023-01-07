@@ -145,7 +145,9 @@ window.addEventListener('resize', setFormHeight, false);
 
 
 
-           
+         
+
+//FOR LIVE VALIDATION
 const businessname = document.getElementById('businessname');
 const businessaddress = document.getElementById('businessaddress');
 const opening = document.getElementById('opening');
@@ -204,25 +206,13 @@ function checkClosing() {
 		setSuccessFor(closing);
 	}	
 }
-  const form = document.getElementById('form');
+  //const form = document.getElementById('form');
   
-  form.addEventListener('submit', e => {
-      e.preventDefault();
+ // form.addEventListener('submit', e => {
+ //     e.preventDefault();
   
-      checkInputs();
-  });
-  
-  function checkInputs() {
-      // trim to remove the whitespaces
-      const cuisineValue = cuisinename.value.trim();
-  
-      if(cuisineValue === '') {
-          setErrorFor(cuisinename, 'Choose what cuisine type is your business');
-      } else {
-          setSuccessFor(cuisinename);
-      }
-  
-  }
+ //     checkInputs();
+ // });
   
   function fileValidation() {
     var fileInput =

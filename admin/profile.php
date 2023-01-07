@@ -5,6 +5,12 @@ include('includes/header.php');
 
 
 ?>
+<head>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="assets/css/style-for-adminprofile.css">
+</head>
 <div class="container-fluid">
     <?php 
         if(isset($_GET['id']))
@@ -28,8 +34,11 @@ include('includes/header.php');
                 <div class="card-body text-center shadow">
                     <img class="rounded-circle mb-3 mt-4" src="../uploads/<?= $data['image'] ?>" width="160" height="160">
                     <input type="hidden" name="old_image" value="<?= $data['image'] ?>"><br>
-                    <label class="form-label float-start" ><strong>Change Profile:</strong><br></label>
-                    <div class="mb-3"><input type="file" name="image" class="form-control"></div>
+                    <div class="mb-3 form-content">
+                        <label class="form-label float-start" ><strong>Change Profile:</strong><br></label>
+                        <input type="file" name="image" id="image" onchange="return profUpload();" class="form-control">
+                        <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                    </div>
                 </div>
             </div>
         </div>
