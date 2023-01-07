@@ -124,7 +124,7 @@ $data = mysqli_fetch_array($business);
 // $reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
 
 
-$duration = $data['duration'];
+$duration = 60;
 $cleanup = 0;
 
 // $start = date("H:i");
@@ -143,20 +143,20 @@ function timeslots($duration, $cleanup, $start, $end)
 {
     $start = new DateTime($start);
     $end = new DateTime($end);
-    $interval = $duration;
-    $cleanupInterval = $cleanup;
+    $interval = new DateInterval('PT'.$duration. 'M');
+    $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
     $slots = array();
 
-    for($intStart = $start; $intStart < $end; $intStart -> add(new DateInterval('PT' . $interval . 'M')) -> add(new DateInterval('PT' . $cleanupInterval . 'M')))
+    for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
     {
         $endPeriod = clone $intStart;
-        $endPeriod -> add(new DateInterval('PT' . $interval . 'M'));
+        $endPeriod -> add($interval);
         if($endPeriod > $end)
         {
             break;
         }
 
-        $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
+        $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
         // count($slots);
     }
 
