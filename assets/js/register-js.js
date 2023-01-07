@@ -71,6 +71,8 @@ function checkPhoneNum() {
 	var Validation=/^09[0-9]\d{8}$/;
 	if(Validation.test(phonenumberValue)) {
 		setSuccessFor(phonenumber);
+	} else if (phonenumberValue === '') {
+		setErrorFor(phonenumber, 'Phonenumber cannot be blank');
 	} else {
 		setErrorFor(phonenumber, 'Invalid Phone Number');
 	}	

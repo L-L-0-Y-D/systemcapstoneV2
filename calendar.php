@@ -204,6 +204,19 @@ function build_calendar($month,$year,$resourceid){
 
         // $data = array_walk($users, 'print_item');
         
+        //test additional features
+        // $query_reservation_hours = "SELECT * FROM reservationhours WHERE businessid = $id AND status = 'Closed'";
+        // $query_reservation_hours_run = mysqli_query($mysqli, $query_reservation_hours);
+        // $reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
+        // $reservationhours = "";
+
+        // foreach ($query_reservation_hours_run as $value) {
+        //     $reservationhours .=  $dayname == "{$value['daysoftheweek']}";
+        //     // $reasons .= "{$value['reason']}";
+
+            
+        // }
+        
 
 
         //part 6 specific date
@@ -213,6 +226,9 @@ function build_calendar($month,$year,$resourceid){
 
             
         }
+
+
+
 
         
 
@@ -232,7 +248,8 @@ function build_calendar($month,$year,$resourceid){
             
         // }
         //  }
-        // elseif($dayname=='sunday')
+        //different days
+        // elseif($reservationhours)
         // {   // specific day
         //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>No Work</i></p>";
         //     //end part 6

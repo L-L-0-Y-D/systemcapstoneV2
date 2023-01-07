@@ -116,6 +116,10 @@ $data = mysqli_fetch_array($business);
 // $tablenumber = $row['table_number'];
 // $tablechair = $row['chair'];
 
+// $query_reservation_hours = "SELECT * FROM reservationhours WHERE businessid = $id AND status = 'Closed'";
+// $query_reservation_hours_run = mysqli_query($mysqli, $query_reservation_hours);
+// $reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
+
 
 $duration = $data['duration'];
 $cleanup = 0;

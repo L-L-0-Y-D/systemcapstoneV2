@@ -61,7 +61,7 @@
                                 <div class="col-md-12 form-content">
                                     <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
                                     <label class="form-label" for="currentpassword">Enter Current Password</label>
-                                    <input  type="password" name="oldpassword" id="oldpassword"  oninput="checkOldPass();" required>
+                                    <input  type="password" name="oldpassword" id="oldpassword" required>
                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                 </div>
                                 <div class="col-md-12 form-content">                      
@@ -104,16 +104,17 @@
     </div>  
     </div>
    <script>
-    function checkOldPass() {
-	// trim to remove the whitespaces
-	const oldpassValue = oldpassword.value.trim();
+    // function checkOldPass() {
+    // oninput="checkOldPass();" 
+	// // trim to remove the whitespaces
+	// const oldpassValue = oldpassword.value.trim();
 
-	if(oldpassValue === '') {
-		setErrorFor(oldpassword, 'Please type your old password.');
-	} else {
-		setSuccessFor(oldpassword);
-	}	
-}  
+	// if(oldpassValue === '') {
+	// 	setErrorFor(oldpassword, 'Please type your old password.');
+	// } else {
+	// 	setSuccessFor(oldpassword);
+	// }	
+    // }  
    </script>
     <script>
         function checkconNewPword() {
