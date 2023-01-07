@@ -78,12 +78,15 @@ if(isset($_SESSION['auth'])){
                                         <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                         <div class="multisteps-form__content">                                   
                                             <div class="form-row mt-4">
-                                                <div class="col-12 col-md-12 mb-3 form-content">
+                                                <div class="col-12 col-md-12 mb-3 ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Upload your Business Logo (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" type="file" name="image" id="file" accept=".jpg, .jpeg, .png" onchange="return fileValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6 form-content">
+                                                <div class="col-12 col-sm-6 ">
+                                                    <div class="form-content">
                                                     <label for="businessname">Business Name<span style="color:red;">&nbsp;*</span></label>
                                                     <!-- /* Checking if the name is set, if it is, it will display the name in the input
                                                     field. If it is not set, it will display the input field without the name. */ -->
@@ -94,8 +97,10 @@ if(isset($_SESSION['auth'])){
                                                             <input type="text" name='business_name' id="businessname" oninput="checkBusiName();" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                                    <div class="form-content">
                                                     <label for="businessname">Full Address<span style="color:red;">&nbsp;*</span></label>
                                                     <!-- /* Checking if the variable business_address is set. If it is, it will display the
                                                     value of the variable. If it is not set, it will display the placeholder. */ -->
@@ -106,10 +111,12 @@ if(isset($_SESSION['auth'])){
                                                             <input type="text" name='business_address' id='businessaddress' oninput="checkBusiAddress();" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-4">
-                                                <div class="col-12 col-md-6 mb-3 form-content">
+                                                <div class="col-12 col-md-6 mb-3">
+                                                    <div class="form-content">
                                                     <label class="form-label">Contact Number<span style="color:red;">&nbsp;*</span></label>
                                                     <?php if (isset($_GET['business_number'])){?>
                                                             <input name='business_number' id='businessnumber' oninput="checkbusiPhone();" type="text" value="<?= $_GET['business_number']?>" required>
@@ -118,8 +125,10 @@ if(isset($_SESSION['auth'])){
                                                             <input name='business_number' id='businessnumber' oninput="checkbusiPhone();" type="text" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6 form-content">
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-content">
                                                     <label for="">Time Duration For Every Reservation(Minutes)<span style="color:red;">&nbsp;*</span></label>
                                                     <?php if (isset($_GET['duration'])){?>
                                                             <input type="number" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  oninput="checkDuration();" >
@@ -128,10 +137,12 @@ if(isset($_SESSION['auth'])){
                                                             <input type="number" name="duration"  id="duration" oninput="checkDuration();"  required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-3">
-                                                <div class="col-12 col-sm-6 form-content">
+                                                <div class="col-12 col-sm-6 ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Opening Time<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the business name is set, if it is then it will display the business
                                                     name, if not then it will display the opening time. */ -->
@@ -142,8 +153,10 @@ if(isset($_SESSION['auth'])){
                                                             <input type="time" name="opening"  id="opening" oninput="checkOpening();"  required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                                    <div class="form-content">
                                                     <label class="form-label">Closing Time<span style="color:red;">&nbsp;*</span></span></label>
                                                     <?php if (isset($_GET['closing'])){?>
                                                             <input type="time" name="closing" id="closing" value="<?= $_GET['closing'] ?>" oninput="checkClosing();" required placeholder="Opening">
@@ -152,6 +165,7 @@ if(isset($_SESSION['auth'])){
                                                             <input type="time" name="closing" id="closing" oninput="checkClosing();"required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
                                             </div>    
                                             <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="sameday"></input>
@@ -320,25 +334,33 @@ if(isset($_SESSION['auth'])){
                                             <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                             <div class="multisteps-form__content">
                                             <div class="form-row">
-                                                <div class="col-12 col-md-12 mb-3 form-content">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="form-content">
                                                     <label class="form-label">Upload your DTI Business Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" name="image_cert" id="imagecert" type="file" accept=".jpg, .jpeg, .png" onchange="return certValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-md-12 mt-3 form-content">
+                                                <div class="col-12 col-md-12  ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Upload your Sanitary Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" name="image_scert" id="imagescert" type="file" accept=".jpg, .jpeg, .png" onchange="return scertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    </div>
                                                 </div> 
-                                                <div class="col-12 col-md-12 mt-3 form-content">
+                                                <div class="col-12 col-md-12 ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Upload your Fire Safety Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" name="image_fcert" id="imagefscert" type="file" accept=".jpg, .jpeg, .png" onchange="return fscertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    </div>
                                                 </div> 
-                                                <div class="col-12 col-md-12 mt-3 form-content">
+                                                <div class="col-12 col-md-12 ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Upload your Brgy. Clearance Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
                                                     <input class="form-control" name="image_bcert" id="imagebccert" type="file" accept=".jpg, .jpeg, .png" onchange="return bccertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    </div>
                                                 </div> 
                                             </div>
                                             <div class="row">
@@ -355,7 +377,8 @@ if(isset($_SESSION['auth'])){
                                             <h6 class="text-muted">All fields are required<span style="color:red;">&nbsp;*</span></h6><hr>
                                             <div class="multisteps-form__content">
                                             <div class="form-row mt-3">
-                                                <div class="col-12 col-sm-6 form-content">
+                                                <div class="col-12 col-sm-6 ">
+                                                <div class="form-content">
                                                     <label class="form-label">Firstname<span style="color:red;">&nbsp;*</span></label>
                                                     <!-- /* Checking if the variable business_firstname is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
@@ -367,8 +390,10 @@ if(isset($_SESSION['auth'])){
                                                         <input name='business_firstname' id='businessfirstname' type="text" oninput="checkbusiFname();" required >
                                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                                    <div class="form-content">
                                                     <label class="form-label">Lastname<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the variable business_lastname is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display the placeholder. */ -->
@@ -379,10 +404,12 @@ if(isset($_SESSION['auth'])){
                                                             <input name='business_lastname' id='businesslastname' type="text" oninput="checkbusiLname();" required >
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-3">
-                                                <div class="col-12 col-sm-6 mt-sm-0 form-content">
+                                                <div class="col-12 col-sm-6 mt-sm-0 ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Contact Number<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the variable business_phonenumber is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
@@ -394,8 +421,10 @@ if(isset($_SESSION['auth'])){
                                                             <input name='business_phonenumber' id='businessphonenumber' oninput="checkbusiNum();" type="text" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Email Address<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the business_email is set in the URL. If it is, it will display the
                                                     value in the input field. If it is not, it will display a blank input field. */ -->
@@ -406,10 +435,12 @@ if(isset($_SESSION['auth'])){
                                                             <input name='business_email' id='businessemail' oninput="checkbusiEmail();" type="email" placeholder="sample@gmail.com" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-3">
-                                                <div class="col form-content">
+                                                <div class="col ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Address<span style="color:red;">&nbsp;*</span></span></label>
                                                     <!-- /* Checking if the variable business_owneraddress is set. If it is, it will display
                                                     the value of the variable. If it is not set, it will display a blank input
@@ -421,10 +452,12 @@ if(isset($_SESSION['auth'])){
                                                             <input class="form-control" name='business_owneraddress' id='businessowneraddress' oninput="checkownerAdd();" type="text" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row mt-3">
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 ">
+                                                <div class="form-content">
                                                     <label class="form-label">Password</label>
                                                     <input name='business_password' id="businesspassword" oninput="checkBusiPassword();" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i>
@@ -436,11 +469,14 @@ if(isset($_SESSION['auth'])){
                                                         <p id="length" class="invalid">Must be atleast 8 characters</b></p>
                                                     </div>
                                                     <input type="hidden" name="status" value = '0'>  
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 form-content">
+                                                <div class="col-12 col-sm-6 mt-3 mt-sm-0 ">
+                                                    <div class="form-content">
                                                     <label class="form-label">Confirm Password</label>
                                                     <input name='business_confirmpassword' id='businessconfirmpassword' oninput="checkCOwnerPword();"  type="password" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">

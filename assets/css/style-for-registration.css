@@ -180,12 +180,7 @@ h6 {
   font-size: 14px;
 
 }
-@media (max-width: 500px) {
-  .form-content.success input {
-    border-color: #2ecc71;
-    min-width: 75vw;
-  }
-}
+
 .form-content input {
 	border: 1px solid #f0f0f0;
 	border-radius: 4px;
@@ -194,12 +189,10 @@ h6 {
 	font-size: 14px;
 	padding: 5px;
   width:100%;
-  min-width: 25vw;
+
   margin-bottom: 10px;
 }
-.form-content .form-control {
-  min-width: 50vw;
-}
+
 .form-content input:focus {
 	outline: 0;
 	border-color: #777;
