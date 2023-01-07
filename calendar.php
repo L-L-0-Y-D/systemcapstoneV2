@@ -257,7 +257,7 @@ function build_calendar($month,$year,$resourceid){
         if($blocks)
         {
             // foreach ($query_blockdates_run as $value) {
-                $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Restaurant is Closed for this Day Reservation</i></p>";
+                $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i><span style='color:red;'>&nbsp;Restaurant is Closed for this Day Reservation</span></i></p>";
             // }
             //part 6   
         }
@@ -273,12 +273,12 @@ function build_calendar($month,$year,$resourceid){
         //different days
         // elseif($reservationhours)
         // {   // specific day
-        //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>No Work</i></p>";
+        //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i><span style='color:red;'>&nbsp;No Work</span></i></p>";
         //     //end part 6
         // }
         // elseif($dayname=='saturday')
         // {   // specific day
-        //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>No Work</i></p>";
+        //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Restaurant is Closed for this Day Reservation</i></p>";
         //     //end part 6
         // }
         elseif($date<date('Y-m-d'))
@@ -301,7 +301,7 @@ function build_calendar($month,$year,$resourceid){
 
             if($totalbookings == count($timeslots))
             {
-                $calendar .= "<td class='$today'><button class='text-muted disabled'>$currentDay</button><p><i>All Booked</i></p>";
+                $calendar .= "<td class='$today'><button class='text-muted disabled'>$currentDay</button><p><i><span style='color:red;'>&nbsp;All Booked</span></i></p>";
             }
             else
             {
