@@ -322,6 +322,7 @@
                             <p><i class="fas fa-utensils text-black"></i>&nbsp;&nbsp;<?= $data['cuisinename']; ?> Cuisine</p>
                             <p><i class="fas fa-phone-alt text-black"></i>&nbsp;&nbsp;<?= $data['business_number']; ?></p>
                             <p><i class="fas fa-clock text-black"></i>&nbsp;&nbsp;Open : <?=  date("g:i a", strtotime($opening));?> - Close: <?= date("g:i a", strtotime($closing)); ?></p>
+                            <!-- Reservation -->
                             <?php
                                 //$businessuser = $_SESSION['auth_user']['businessid'];
                                 $businessid = $data['businessid'];
@@ -368,6 +369,104 @@
                             }
                             ?>
                         <!-- <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button>-->
+                            <!-- Feedback -->
+                            <?php
+                                if(isset($_SESSION['auth'])){
+
+                                    if ($_SESSION['role_as'] == 0) 
+                                    {
+                                        // redirect("index.php", "You are not authorized to access this page", "warning");
+                                        $userid = $_SESSION['auth_user']['userid'];
+                                        $query_feedback = "SELECT * FROM reservations WHERE userid = '$userid' AND businessid = '$id' AND status = '1' AND arrived = '1' AND review = '0' ORDER BY reservationid DESC";
+                                        $query_feedback_run = mysqli_query($con, $query_feedback );
+                                        $feedback = mysqli_fetch_array($query_feedback_run);
+                                        
+
+                                        if(mysqli_num_rows($query_feedback_run)>0)
+                                        {
+                                            ?>
+                                            <!-- <p>You Have </p> -->
+                                            <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='feedback.php?id=<?= $feedback['reservationid'];?>'">ADD REVIEW</button>
+                                            <!-- <a href="feedback.php?id=<?= $feedback['reservation'];?>" class="btn btnSummary w-100" type="submit">ADD REVIEW</a> -->
+                                            
+                                            <?php
+                                        }
+                                ?>
+                                        
+                                <?php
+                                    }
+                                    else
+                                    {
+                                        // redirect("index.php", "You are not authorized to access this page", "warning");
+                                ?>
+                                        <!-- <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<? //$data['businessid']; ?>'">Make Reservation</button> -->
+                                <?php
+
+                                    }   
+                                }
+                                else
+                                {
+                                ?>
+                                <!-- <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button> -->
+                                <?php
+                                }
+                                ?>
+                                <!-- Alert -->
+                                <?php
+                                if(isset($_SESSION['auth'])){
+
+                                    if ($_SESSION['role_as'] == 0) 
+                                    {
+                                        // redirect("index.php", "You are not authorized to access this page", "warning");
+                                        // $userid = $_SESSION['auth_user']['userid'];
+                                        $query_notice= "SELECT * FROM reservations JOIN managetable ON reservations.tableid=managetable.tableid WHERE reservations.userid = '$userid' AND reservations.businessid = '$id' AND reservations.review = '0' ORDER BY reservationid DESC";
+                                        $query_notice_run = mysqli_query($con, $query_notice);
+                                        $notice = mysqli_fetch_array($query_notice_run);
+
+                                        if(mysqli_num_rows($query_notice_run)>0)
+                                        {
+                                            ?>
+                                            <p><span><b>You Have Reservation Here<br></b></span></p>
+                                            <?php
+                                            foreach ($query_notice_run as $item)
+                                            {
+                                            ?>
+                                            <p><b>TableID:</b><?=$item['table_number']?>&nbsp <b>Date:</b><?=$item['reservation_date']?>&nbsp <b>Time:</b><?=$item['reservation_time']?></p>    
+                                            <?php
+                                            }
+                                        }
+                                        // if($notice['arrived'] == "1")
+                                        // {
+                                        //     ?>
+                                        <!-- //     <p>Waiting for Your Review<br></p> -->
+                                             <?php
+                                        //     foreach ($query_notice_run as $item)
+                                        //     {
+                                        //     ?>
+                                        <!-- //     <p>Date:<?=$item['reservation_date']?> Time:<?=$item['reservation_time']?></p>     -->
+                                            <?php
+                                        //     }
+                                        // }
+                                ?>
+                                        
+                                <?php
+                                    }
+                                    else
+                                    {
+                                        // redirect("index.php", "You are not authorized to access this page", "warning");
+                                ?>
+                                        <!-- <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<? //$data['businessid']; ?>'">Make Reservation</button> -->
+                                <?php
+
+                                    }   
+                                }
+                                else
+                                {
+                                ?>
+                                <!-- <button class="btn btn-primary" data-bss-hover-animate="pulse" type="button" onclick="location='reservation.php?id=<?= $data['businessid']; ?>'">Make Reservation</button> -->
+                                <?php
+                                }
+                                ?>
                         </div>
                     </div><hr class="m-0 w-100">
                 </div>

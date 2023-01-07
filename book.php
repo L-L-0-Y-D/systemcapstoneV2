@@ -118,9 +118,10 @@ $data = mysqli_fetch_array($business);
 
 //test additional features
 // $datetime = $_POST['date'];
-$query_reservation_hours = "SELECT * FROM reservationhours WHERE businessid = $id AND daysoftheweek_int = DAYOFWEEK('$date')";
-$query_reservation_hours_run = mysqli_query($mysqli, $query_reservation_hours);
-$reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
+/* This is getting the opening and closing time of the business. */
+// $query_reservation_hours = "SELECT * FROM reservationhours WHERE businessid = $id AND daysoftheweek_int = DAYOFWEEK('$date')";
+// $query_reservation_hours_run = mysqli_query($mysqli, $query_reservation_hours);
+// $reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
 
 
 $duration = $data['duration'];
