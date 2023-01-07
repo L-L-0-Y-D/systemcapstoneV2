@@ -315,7 +315,7 @@ function getAllActive($table)
 function businessGetAll()
 {
     global $con;
-    $query = "SELECT business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    $query = "SELECT business.businessid,business.business_name,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
     FROM business";
     return $query_run = mysqli_query($con, $query);
 }
@@ -376,7 +376,7 @@ function getByID($table, $id, $tabledata)
 function businessGetByIDActives($id)
 {
     global $con;
-    $query = "SELECT business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    $query = "SELECT business.businessid,business.business_name,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
     FROM business
     WHERE business.businessid='$id' 
     AND business.status='1' ";

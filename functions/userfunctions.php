@@ -14,7 +14,7 @@ function getByID($table, $id, $tabledata)
 function reservationGetByID($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.tableid,reservations.reservation_date,reservations.namereserveunder,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,managetable.tableid,managetable.table_number,managetable.chair,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.tableid,reservations.reservation_date,reservations.namereserveunder,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,reservations.userid,reservations.status,managetable.tableid,managetable.table_number,managetable.chair,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -27,7 +27,7 @@ function reservationGetByID($id)
 function reservationGetByIDreservation($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.tableid,reservations.reservation_date,reservations.namereserveunder,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,managetable.tableid,managetable.table_number,managetable.chair,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.tableid,reservations.reservation_date,reservations.namereserveunder,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,reservations.userid,reservations.status,managetable.tableid,managetable.table_number,managetable.chair,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -41,7 +41,7 @@ function reservationGetByIDreservation($id)
 function getReservationByUser($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.archive,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -56,7 +56,7 @@ function getReservationByUser($id)
 function reservationGetByIDWaiting($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.archive,reservations.reservation_date,managetable.tableid,managetable.table_number,managetable.chair,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.reservation_date,managetable.tableid,managetable.table_number,managetable.chair,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -72,7 +72,7 @@ function reservationGetByIDWaiting($id)
 function reservationGetByIDApproved($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.archive,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,reservations.review,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -102,7 +102,7 @@ function reservationGetByIDDeclined($id)
 function reservationGetByIDCancelled($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.archive,reservations.reservation_date,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.archive,reservations.reservation_date,reservations.reservation_time,reservations.namereserveunder,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,business.opening,business.closing,business.image,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -132,7 +132,7 @@ function reservationGetByIDReview($id)
 function reservationIDGetByIDReview($id)
 {
     global $con;
-    $query = "SELECT reservations.reservationid,reservations.arrived,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status,reservations.review,reservations.arrived
+    $query = "SELECT reservations.reservationid,reservations.arrived,reservations.tableid,managetable.tableid,managetable.table_number,reservations.namereserveunder,managetable.chair,reservations.reservation_date,reservations.reservation_time,reservations.reservation_phonenumber,reservations.reservation_email,reservations.businessid,business.business_name,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,business.opening,business.closing,business.image,reservations.review,reservations.userid,reservations.status,reservations.review,reservations.arrived
     FROM reservations
     JOIN business 
     ON reservations.businessid=business.businessid
@@ -223,7 +223,7 @@ function getByIDActives($table, $id, $tabledata)
 function businessGetByIDActives($id)
 {
     global $con;
-    $query = "SELECT business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    $query = "SELECT business.businessid,business.business_name,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
     FROM business
     WHERE business.businessid='$id' 
     AND business.status='1' ";
@@ -234,7 +234,7 @@ function businessGetByIDActives($id)
 function getBusiByMunicipalityandReview($municipality_id)
 {
     global $con;
-    $query = "SELECT ROUND(AVG(review_table.user_rating),1) AS averagerating,business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.archive,business.created_at,review_table.review_id FROM business JOIN review_table ON business.businessid = review_table.businessid WHERE business.municipalityid='$municipality_id' AND business.status='1' AND business.archive='0' group by business.businessid order by averagerating DESC";
+    $query = "SELECT ROUND(AVG(review_table.user_rating),1) AS averagerating,business.businessid,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.archive,business.created_at,review_table.review_id FROM business JOIN review_table ON business.businessid = review_table.businessid WHERE business.municipalityid='$municipality_id' AND business.status='1' AND business.archive='0' group by business.businessid order by averagerating DESC";
     return $query_run = mysqli_query($con, $query);
 }
 

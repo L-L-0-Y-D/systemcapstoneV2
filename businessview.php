@@ -282,16 +282,16 @@
                                     <img src="uploads/<?= $data['image']; ?>" alt="Logo">
                                     </div>
                                     <div class="slide">
-                                    <img src="uploads/<?= $data['image_cert']; ?>" alt="Business Permit">
+                                    <img src="certificate/<?= $data['image_cert']; ?>" alt="Business Permit">
                                     </div>
                                     <div class="slide">
-                                    <img src="uploads/<?= $data['image_scert']; ?>" alt="Sanitary Permit">
+                                    <img src="certificate/<?= $data['image_scert']; ?>" alt="Sanitary Permit">
                                     </div>
                                     <div class="slide">
-                                    <img src="uploads/<?= $data['image_fcert']; ?>" alt="Fire Safety Permit">
+                                    <img src="certificate/<?= $data['image_fcert']; ?>" alt="Fire Safety Permit">
                                     </div>
                                     <div class="slide">
-                                    <img src="uploads/<?= $data['image_bcert']; ?>" alt="Barangay Clearance Permit">
+                                    <img src="certificate/<?= $data['image_bcert']; ?>" alt="Barangay Clearance Permit">
                                     </div>
                                     <!--slide images end-->
                                     <!--automatic navigation start-->
@@ -320,7 +320,7 @@
                         <div class="col-md-4" >
                             <h1 ><?= $data['business_name']; ?></h1>
                             <p><i class="fas fa-utensils text-black"></i>&nbsp;&nbsp;<?= $data['cuisinename']; ?> Cuisine</p>
-                            <p><i class="fas fa-phone-alt text-black"></i>&nbsp;&nbsp;<?= $data['business_phonenumber']; ?></p>
+                            <p><i class="fas fa-phone-alt text-black"></i>&nbsp;&nbsp;<?= $data['business_number']; ?></p>
                             <p><i class="fas fa-clock text-black"></i>&nbsp;&nbsp;Open : <?=  date("g:i a", strtotime($opening));?> - Close: <?= date("g:i a", strtotime($closing)); ?></p>
                             <?php
                                 //$businessuser = $_SESSION['auth_user']['businessid'];
