@@ -40,11 +40,11 @@ include('includes/header.php');
                         <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="form-label text-black">Table No.</label>
+                                <label>Table No.</label>
                                 <input type="text" name="table_number" value="<?= $data['table_number'] ?>" placeholder="Enter Table Number of Guest" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-black">Number of Guest:</label>
+                                <label >Number of Guest:</label>
                                 <input type="text" name="chair" value="<?= $data['chair'] ?>" placeholder="Enter Number of Guest" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
@@ -53,32 +53,32 @@ include('includes/header.php');
                                 <input type="hidden" name="reservationid" value="<?= $data['reservationid'] ?>">
                                 <input type="hidden" name="businessid" value="<?= $data['businessid'] ?>">
                                 <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                <label class="form-label text-black" for="namereserveunder">Reserved By:</label>
+                                <label for="namereserveunder">Reserved By:</label>
                                 <input type="text" name="namereserveunder" value="<?= $data['namereserveunder'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-black" for="namereserveunder">Account Name:</label>
+                                <label  for="namereserveunder">Account Name:</label>
                                 <input type="text" name="name" value="<?= $data['name'] ?>" placeholder="Enter Name Reserveunder" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 
-                                <label class="form-label text-black">Email Address:</label>
+                                <label >Email Address:</label>
                                 <input type="email" name="reservation_email" value="<?= $data['reservation_email'] ?>" placeholder="Enter Reservation Email" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-black">Phone Number:</label>
+                                <label>Phone Number:</label>
                                 <input type="text" name="reservation_phonenumber" value="<?= $data['reservation_phonenumber'] ?>" placeholder="Enter Phonenumber" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-black">Reservation Date:</label>
+                                <label>Reservation Date:</label>
                                 <input type="date" name="reservation_date" value="<?= $data['reservation_date'] ?>" placeholder="Enter Reservation Date" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-black">Reservation Time:</label>
+                                <label >Reservation Time:</label>
                                 <input type="text" name="reservation_time" value="<?= $data['reservation_time'] ?>" placeholder="Enter Reservation Time" class="form-control" readonly>
                             </div>
                             <div class="col-md-12">
-                                <label class="form-label text-black">Status</label>
+                                <label>Status</label>
                                 <select name='status' required class="form-select mb-2">
                                     <?php
                                     if($data['status'] == 0)

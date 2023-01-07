@@ -33,11 +33,11 @@ if(isset($_GET['id']))
                         ?>
                     </div>
                     <div class="col-md-12">
-                        <label class="form-label text-black">Table Number:</label>
+                        <label >Table Number:</label>
                         <input type="number" name="table" required class="form-control mb-2">
                     </div>
                     <div class="col-md-12">
-                        <label class="form-label text-black">Number Of Chairs:</label>
+                        <label>Number Of Chairs:</label>
 						<select  name="chair" required class="form-control mb-2">
 							<option disabled selected hidden> Select number of chairs</option>
 							<option value="1 Person">1 Chair</option>
@@ -53,7 +53,7 @@ if(isset($_GET['id']))
                     <div class="row">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > 
-                            <label class="form-label text-black" for="formCheck-1"><strong>Status</strong></label>
+                            <label for="formCheck-1"><strong>Status</strong></label>
                         </div>
                     </div>
                     <div class="col-md-9">

@@ -71,10 +71,24 @@ body {
     font-size: 17px!important;
     font-weight: 600;
 }
-input , .form-control, .form-select {
+label {
+    color: black;
+    font-weight:normal;
+    margin: 3px 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px!important;
+}
+input ,.form-control, .form-select {
     font-size: 16px!important;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black;
+}
+table {
+    color: black!important;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+td {
+    font-size: 30px!important;
 }
 input:focus, textarea:focus, select:focus, option:focus {
     box-shadow:none!important;
@@ -110,6 +124,10 @@ h4 {
     padding-bottom: 0%!important;
     font-size: 20px;
     font-weight: lighter!important;
+}
+.card-header h6 {
+    color: rgb(19, 19, 19)!important;
+    font-size: 20px;
 }
 td ,option, .info p{
     font-size: 14px!important;
@@ -156,9 +174,7 @@ h6 {
 table {
     color: black!important;
 }
-.card-header h6 {
-    color: black!important;
-}
+
 @media (max-width:500px) {
     .menu {
         text-align: center;
@@ -176,6 +192,14 @@ table {
     .menubtn .btn {
         width:40px;
     }   
+    .container-fluid h3 {
+        font-size:30px!important;
+        font-weight: bold;
+    }
+    .container-fluid h3 {
+        font-size:20px!important;
+        margin: 3px 30px;
+    }
     
 }
 .descrip {

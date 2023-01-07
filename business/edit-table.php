@@ -38,11 +38,11 @@ include('includes/header.php');
                                     </div>
                                     <div class="col-md-12">
                                         <input type="hidden" name="tableid" value="<?= $data['tableid']?>">
-                                        <label class="form-label text-black">Table number:</label>
+                                        <label>Table number:</label>
                                         <input type="number" name="table" value="<?= $data['table_number']?>" required placeholder="Input table number" class="form-control mb-2">
                                     </div>
                                     <div class="col-md-12">
-                                        <label class="form-label text-black">Number Of Chairs:</label>
+                                        <label >Number Of Chairs:</label>
                                         <select  name="chair" value="<?= $data['chair'] ?>" required class="form-control mb-2">
                                             <option selected hidden value="<?= $data['chair'] ?>"> <?= $data['chair'] ?></option>
                                             <option value="1 Person">1 Chair</option>
@@ -58,7 +58,7 @@ include('includes/header.php');
                                     <div class="row">
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" <?= $data['status'] == '0'? '':'checked' ?>> 
-                                            <label class="form-label text-black" for="formCheck-1"><strong>Status</strong></label>
+                                            <label  for="formCheck-1"><strong>Status</strong></label>
                                         </div>
                                     </div>         
                                     <div class="col-md-12">
