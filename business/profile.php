@@ -67,13 +67,13 @@ include('includes/header.php');
                     <div class="row">
                         <div class="form-content"> 
                         <label class="form-label">Time Duration For Every Reservation(Minutes)</label>
-                        <input type="number" name="duration"  id="duration" oninput="checkDuration();"  required>
+                        <input type="number" name="duration"  id="duration" value="<?= $data['duration'] ?>" oninput="checkDuration();"  required>
                         <small>Error message</small>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-check">
-                        <input class= "form-checkbox float-start mt-2" type="checkbox" style="margin-right:5px;" name="sameday"></input>
+                        <input class= "form-checkbox float-start mt-2" type="checkbox" style="margin-right:5px;" name="sameday" <?= $data['sameday_reservation'] == '1'? 'checked':'' ?>></input>
                             <label class="form-label text-black" for="formCheck-1">Have same day reservation?</label>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ include('includes/header.php');
                                 <div class="col">
                                     <div class="form-content">
                                         <label class="form-label" for=""><strong>Contact Number</strong></label>
-                                        <input name='business_number' id='businessnumber' oninput="checkbusiPhone();" type="text" required>
+                                        <input name='business_number' id='businessnumber' value="<?= $data['business_number'] ?>" oninput="checkbusiPhone();" type="text" required>
                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
