@@ -106,7 +106,7 @@ if(isset($_POST['submit']))
 
 
 }
-
+date_default_timezone_set("Asia/Singapore");
 $id = $_GET['id'];
 $tableid = $_POST['tableid'];
 $business = businessGetByIDActives($id);
@@ -116,15 +116,25 @@ $data = mysqli_fetch_array($business);
 // $tablenumber = $row['table_number'];
 // $tablechair = $row['chair'];
 
-// $query_reservation_hours = "SELECT * FROM reservationhours WHERE businessid = $id AND status = 'Closed'";
-// $query_reservation_hours_run = mysqli_query($mysqli, $query_reservation_hours);
-// $reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
+//test additional features
+// $datetime = $_POST['date'];
+$query_reservation_hours = "SELECT * FROM reservationhours WHERE businessid = $id AND daysoftheweek_int = DAYOFWEEK('$date')";
+$query_reservation_hours_run = mysqli_query($mysqli, $query_reservation_hours);
+$reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
 
 
 $duration = $data['duration'];
 $cleanup = 0;
-date_default_timezone_set("Asia/Singapore");
-// $start = date("H:i:s");
+
+// $start = date("H:i");
+// $start = date("H:i:s", strtotime($data['opening']));
+// $end = date("H:i:s", strtotime($data['closing']));
+
+/* Getting the opening and closing time of the business. */
+// $start = $reservation_hours['opening'];
+// $end = $reservation_hours['closing'];
+
+/* Getting the opening and closing time of the business. */
 $start = $data['opening'];
 $end = $data['closing'];
 

@@ -41,18 +41,39 @@ function build_calendar($month,$year,$resourceid){
 
     //slots data
     $id = $_GET['id'];
-    $business = "SELECT business.businessid,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    $business = "SELECT business.businessid,business.business_name,business.duration,business.business_address,business.latitude,business.longitude,business.municipalityid,business.cuisinename,business.image_cert,business.opening,business.closing,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
     FROM business
     WHERE business.businessid='$id' 
     AND business.status='1' ";
     $query_reservation_run = mysqli_query($mysqli, $business);
     $business = $query_reservation_run;
     $data = mysqli_fetch_array($business);
-    $duration = 60;
-    $cleanup = 10;
+    $duration = $data['duration'];
+    $cleanup = 0;
     $start = $data['opening'];
     $end = $data['closing'];  
     date_default_timezone_set("Asia/Singapore");
+
+    //test additional features
+    //  $datetime = $_POST['date'];
+    //  $query_reservation_hours = "SELECT * FROM reservationhours WHERE businessid = $id AND daysoftheweek_int = DAYOFWEEK('$datetime')";
+    //  $query_reservation_hours_run = mysqli_query($mysqli, $query_reservation_hours);
+    //  $reservation_hours = mysqli_fetch_array($query_reservation_hours_run);
+
+
+    // $duration = $data['duration'];
+    // $cleanup = 0;
+
+    // $start = date("H:i");
+    // $start = date("H:i:s", strtotime($data['opening']));
+    // $end = date("H:i:s", strtotime($data['closing']));
+
+    /* Getting the opening and closing time of the business. */
+    //  $start = $reservation_hours['opening'];
+    //  $end = $reservation_hours['closing'];
+    //END
+
+
     // Part 2
     
     // $stmt = $mysqli->prepare("SELECT * FROM bookings WHERE MONTH(date) = ? AND YEAR(date) = ?");
@@ -216,6 +237,7 @@ function build_calendar($month,$year,$resourceid){
 
             
         // }
+        //END
         
 
 

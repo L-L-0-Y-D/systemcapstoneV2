@@ -210,50 +210,50 @@ if(isset($_POST['business_register_btn']))
                             
                             //Reservation Hours
                             // //Monday
-                            // $insert_data_query1 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
-                            // SELECT businessid,'monday','Open', opening, closing, '1'
+                            // $insert_data_query1 = "INSERT INTO reservationhours (businessid,daysoftheweek,daysoftheweek_int,status,opening,closing,status_number)
+                            // SELECT businessid,'monday','2','Open', opening, closing, '1'
                             // FROM business
                             // ORDER BY business.businessid DESC LIMIT 1
                             // ";
                             // $insert_data_query_run1 = mysqli_query($con, $insert_data_query1) or die("bad query: $insert_data_query1");
                             // //Tuesday
-                            // $insert_data_query2 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
-                            // SELECT businessid,'tuesday','Open', opening, closing, '1'
+                            // $insert_data_query2 = "INSERT INTO reservationhours (businessid,daysoftheweek,daysoftheweek_int,status,opening,closing,status_number)
+                            // SELECT businessid,'tuesday','Open','3', opening, closing, '1'
                             // FROM business
                             // ORDER BY business.businessid DESC LIMIT 1
                             // ";
                             // $insert_data_query_run2 = mysqli_query($con, $insert_data_query2) or die("bad query: $insert_data_query2");
                             // //Wednesday    
-                            // $insert_data_query3 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
-                            // SELECT businessid,'wednesday','Open', opening, closing, '1'
+                            // $insert_data_query3 = "INSERT INTO reservationhours (businessid,daysoftheweek,daysoftheweek_int,status,opening,closing,status_number)
+                            // SELECT businessid,'wednesday','4','Open', opening, closing, '1'
                             // FROM business
                             // ORDER BY business.businessid DESC LIMIT 1
                             // ";
                             // $insert_data_query_run3 = mysqli_query($con, $insert_data_query3) or die("bad query: $insert_data_query3");
                             // //Thursday    
-                            // $insert_data_query4 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
-                            // SELECT businessid,'thursday','Open', opening, closing, '1'
+                            // $insert_data_query4 = "INSERT INTO reservationhours (businessid,daysoftheweek,daysoftheweek_int,status,opening,closing,status_number)
+                            // SELECT businessid,'thursday','5','Open', opening, closing, '1'
                             // FROM business
                             // ORDER BY business.businessid DESC LIMIT 1
                             // ";
                             // $insert_data_query_run4 = mysqli_query($con, $insert_data_query3) or die("bad query: $insert_data_query4");
                             // //Friday    
-                            // $insert_data_query5 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
-                            // SELECT businessid,'friday','Open', opening, closing, '1'
+                            // $insert_data_query5 = "INSERT INTO reservationhours (businessid,daysoftheweek,daysoftheweek_int,status,opening,closing,status_number)
+                            // SELECT businessid,'friday','6','Open', opening, closing, '1'
                             // FROM business
                             // ORDER BY business.businessid DESC LIMIT 1
                             // ";
                             // $insert_data_query_run5 = mysqli_query($con, $insert_data_query5) or die("bad query: $insert_data_query5");
                             // //Saturday   
-                            // $insert_data_query6 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
-                            // SELECT businessid,'saturday','Open', opening, closing, '1'
+                            // $insert_data_query6 = "INSERT INTO reservationhours (businessid,daysoftheweek,daysoftheweek_int,status,opening,closing,status_number)
+                            // SELECT businessid,'saturday','7','Open', opening, closing, '1'
                             // FROM business
                             // ORDER BY business.businessid DESC LIMIT 1
                             // ";
                             // $insert_data_query_run6 = mysqli_query($con, $insert_data_query6) or die("bad query: $insert_data_query6");
                             // //Sunday    
-                            // $insert_data_query7 = "INSERT INTO reservationhours (businessid,daysoftheweek,status,opening,closing,status_number)
-                            // SELECT businessid,'sunday','Open', opening, closing, '1'
+                            // $insert_data_query7 = "INSERT INTO reservationhours (businessid,daysoftheweek,daysoftheweek_int,status,opening,closing,status_number)
+                            // SELECT businessid,'sunday','1','Open', opening, closing, '1'
                             // FROM business
                             // ORDER BY business.businessid DESC LIMIT 1
                             // ";                                                                                                   
