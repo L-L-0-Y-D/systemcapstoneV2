@@ -242,11 +242,9 @@
 	// trim to remove the whitespaces
 	const addressValue = address.value.trim();
 
-	if(addressValue === '') {
-		setErrorFor(address, 'Address cannot be blank');
-	} else {
+	
 		setSuccessFor(address);
-	}	
+	
     }
     function checkFname() {
 	// trim to remove the whitespaces

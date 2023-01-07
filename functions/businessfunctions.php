@@ -670,7 +670,7 @@ function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredi
     
 }
 
-function sendsms_business($username,$phonenumber,$business_data)
+function sendsms_business($username,$phonenumber)
 {
     $ch = curl_init();
     $parameters = array(
@@ -699,7 +699,7 @@ You have Registered Successfully!! Please Wait for the Admin to Process your Bus
     }
     else
     {
-        redirect("../businessreg.php?error=Something went wrong&$business_data", "Something went wrong", "error");
+        redirect("../businessreg.php", "Something went wrong", "error");
     }
     
     

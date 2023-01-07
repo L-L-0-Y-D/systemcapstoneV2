@@ -80,7 +80,7 @@ if(isset($_SESSION['auth'])){
                                             <div class="form-row mt-4">
                                                 <div class="col-12 col-md-12 mb-3 form-content">
                                                     <label class="form-label">Upload your Business Logo (max 2mb)<span style="color:red;">&nbsp;*</span></label>
-                                                    <input class="form-control" type="file" name="image" id="file" onchange="return fileValidation();" required>
+                                                    <input class="form-control" type="file" name="image" id="file" accept=".jpg, .jpeg, .png" onchange="return fileValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div>
                                                 <div class="col-12 col-sm-6 form-content">
@@ -206,7 +206,7 @@ if(isset($_SESSION['auth'])){
                                                                                 foreach ($query_run as $item)
                                                                                     {
                                                                                         ?>
-                                                                                        <input class= "form-checkbox" required type="checkbox" style="margin-right:5px;" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?> </input>
+                                                                                        <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?> </input>
                                                                                         <?php
                                                                                     }
                                                                             }
@@ -322,22 +322,22 @@ if(isset($_SESSION['auth'])){
                                             <div class="form-row">
                                                 <div class="col-12 col-md-12 mb-3 form-content">
                                                     <label class="form-label">Upload your DTI Business Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_cert" id="imagecert" type="file" onchange="return certValidation();" required>
+                                                    <input class="form-control" name="image_cert" id="imagecert" type="file" accept=".jpg, .jpeg, .png" onchange="return certValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div>
                                                 <div class="col-12 col-md-12 mt-3 form-content">
                                                     <label class="form-label">Upload your Sanitary Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_scert" id="imagescert" type="file" onchange="return scertValidation();" required>
+                                                    <input class="form-control" name="image_scert" id="imagescert" type="file" accept=".jpg, .jpeg, .png" onchange="return scertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
                                                 <div class="col-12 col-md-12 mt-3 form-content">
                                                     <label class="form-label">Upload your Fire Safety Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_fcert" id="imagefscert" type="file" onchange="return fscertValidation();" required>
+                                                    <input class="form-control" name="image_fcert" id="imagefscert" type="file" accept=".jpg, .jpeg, .png" onchange="return fscertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
                                                 <div class="col-12 col-md-12 mt-3 form-content">
                                                     <label class="form-label">Upload your Brgy. Clearance Permit (max 2mb)<span style="color:red;">&nbsp;*</span></label>
-                                                    <input class="form-control" name="image_bcert" id="imagebccert" type="file" onchange="return bccertValidation();" required>
+                                                    <input class="form-control" name="image_bcert" id="imagebccert" type="file" accept=".jpg, .jpeg, .png" onchange="return bccertValidation();" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                 </div> 
                                             </div>

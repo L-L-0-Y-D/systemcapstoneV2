@@ -23,6 +23,7 @@ if(isset($_POST['business_register_btn']))
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
     $business_confirmpassword = mysqli_real_escape_string($con,$_POST['business_confirmpassword']);
     $status = isset($_POST['status']) ? "0":"1";
+    $sameday = isset($_POST['sameday']) ? "1":"0";
     $verify_token = md5(rand());
 
     $business_data = 'business_name='.$business_name.'&business_address='.$business_address.'&municipalityid='.$municipalityid.'$latitude='.$latitude.'$longitude='.$longitude.'&cuisinename='.$cuisinename .'&opening='.$opening.'&closing='.$closing.'&business_firstname='.$business_firstname.'&business_lastname='.$business_lastname.'&business_phonenumber='.$business_phonenumber.'&business_owneraddress='.$business_owneraddress.'&business_email='.$business_email.'&duration='.$duration.'&business_number='.$business_number;
@@ -49,103 +50,103 @@ if(isset($_POST['business_register_btn']))
      // Validate file input to check if is not empty
     if (! file_exists($_FILES["image"]["tmp_name"])) {
         
-         redirect("../businessreg.php?error=Choose image file to upload&$business_data", "Choose image file to upload.", "warning");
+         redirect("../businessreg.php?error=Choose image file to upload", "Choose image file to upload.", "warning");
      
     }// Validate file input to check if is not empty
     else if (! file_exists($_FILES["image_cert"]["tmp_name"])) {
         
-        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image certificate file to upload.", "warning");
+        redirect("../businessreg.php?error=Choose image certificate file to upload", "Choose image certificate file to upload.", "warning");
             
     }
     /* Checking if the file is not empty. */
     else if (! file_exists($_FILES["image_scert"]["tmp_name"])) {
         
-        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image Sanitary Permit file to upload.", "warning");
+        redirect("../businessreg.php?error=Choose image certificate file to upload", "Choose image Sanitary Permit file to upload.", "warning");
             
     } 
     /* Checking if the file is not empty. */
     else if (! file_exists($_FILES["image_fcert"]["tmp_name"])) {
         
-        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image Fire Safety Permit file to upload.", "warning");
+        redirect("../businessreg.php?error=Choose image certificate file to upload", "Choose image Fire Safety Permit file to upload.", "warning");
             
     }
     /* Checking if the file is not empty. */
     else if (! file_exists($_FILES["image_bcert"]["tmp_name"])) {
         
-        redirect("../businessreg.php?error=Choose image certificate file to upload&$business_data", "Choose image Brgy. Clearance Permit file to upload.", "warning");
+        redirect("../businessreg.php?error=Choose image certificate file to upload", "Choose image Brgy. Clearance Permit file to upload.", "warning");
             
     }   // Validate file input to check if is with valid extension
     else if (! in_array($file_extension, $allowed_image_extension)) {
  
-        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business image&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business image", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
     }    // Validate file input to check if is with valid extension
     else if (! in_array($file_cert_extension, $allowed_image_extension)) {
     
-        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
        
     }
     else if (! in_array($file_scert_extension, $allowed_image_extension)) {
     
-        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
        
     }
     else if (! in_array($file_fcert_extension, $allowed_image_extension)) {
     
-        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
        
     }
     else if (! in_array($file_bcert_extension, $allowed_image_extension)) {
     
-        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate&$business_data", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
+        redirect("../businessreg.php?error=Upload valid images. Only PNG and JPEG are allowed in business certificate", "Upload valid images. Only PNG and JPEG are allowed in business certificate.", "warning");
        
     }     // Validate image file size less than
     else if (($_FILES["image"]["size"] < 0)) {
  
-        redirect("../businessreg.php?error=Image size less than 800KB&$business_data", "Image size less than 800KB", "warning");
+        redirect("../businessreg.php?error=Image size less than 800KB", "Image size less than 800KB", "warning");
 
     }    // Validate image file size less than
     else if (($_FILES["image_cert"]["size"] < 0)) {
  
-        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
+        redirect("../businessreg.php?error=Image size less than 2MB", "Image size less than 2MB", "warning");
 
     }
     else if (($_FILES["image_scert"]["size"] < 0)) {
  
-        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
+        redirect("../businessreg.php?error=Image size less than 2MB", "Image size less than 2MB", "warning");
 
     }
     else if (($_FILES["image_fcert"]["size"] < 0)) {
  
-        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
+        redirect("../businessreg.php?error=Image size less than 2MB", "Image size less than 2MB", "warning");
 
     }
     else if (($_FILES["image_bcert"]["size"] < 0)) {
  
-        redirect("../businessreg.php?error=Image size less than 2MB&$business_data", "Image size less than 2MB", "warning");
+        redirect("../businessreg.php?error=Image size less than 2MB", "Image size less than 2MB", "warning");
 
     }    // Validate image file size that is greater
     else if (($_FILES["image"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php?error=Image size exceeds 800KB&$business_data", "Image size exceeds 800KB", "warning");
+        redirect("../businessreg.php?error=Image size exceeds 800KB", "Image size exceeds 800KB", "warning");
     }    // Validate image file size
     else if (($_FILES["image_cert"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
+        redirect("../businessreg.php?error=Image size exceeds 5MB", "Image size exceeds 5MB", "warning");
 
     }
     else if (($_FILES["image_scert"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
+        redirect("../businessreg.php?error=Image size exceeds 5MB", "Image size exceeds 5MB", "warning");
 
     }
     else if (($_FILES["image_fcert"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
+        redirect("../businessreg.php?error=Image size exceeds 5MB", "Image size exceeds 5MB", "warning");
 
     }
     else if (($_FILES["image_bcert"]["size"] > 5000000)) {
  
-        redirect("../businessreg.php?error=Image size exceeds 5MB&$business_data", "Image size exceeds 5MB", "warning");
+        redirect("../businessreg.php?error=Image size exceeds 5MB", "Image size exceeds 5MB", "warning");
 
     }
 
@@ -197,8 +198,8 @@ if(isset($_POST['business_register_btn']))
                             // Insert User Data
                             $hash = password_hash($business_password, PASSWORD_DEFAULT);
                             $item = implode(" ",$cuisinename);
-                            $insert_query = "INSERT INTO business (business_number, duration, business_name, business_address, municipalityid,  cuisinename, latitude, longitude, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,image_scert,image_fcert,image_bcert,verify_token, status) 
-                            VALUES ('$business_number','$duration','$business_name','$business_address', $municipalityid, '$item', '$latitude', '$longitude', '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$scertname','$fcertname','$bcertname','$verify_token', '$status')";
+                            $insert_query = "INSERT INTO business (business_number, duration, business_name, business_address, municipalityid,  cuisinename, latitude, longitude, opening, closing, business_firstname, business_lastname, business_phonenumber, business_owneraddress, business_email, business_password, image,image_cert,image_scert,image_fcert,image_bcert,verify_token, status, sameday_reservation) 
+                            VALUES ('$business_number','$duration','$business_name','$business_address', $municipalityid, '$item', '$latitude', '$longitude', '$opening', '$closing', '$business_firstname', '$business_lastname', '$business_phonenumber', '$business_owneraddress', '$business_email','$hash','$filename','$certname','$scertname','$fcertname','$bcertname','$verify_token', '$status', '$sameday')";
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
 
@@ -266,27 +267,27 @@ if(isset($_POST['business_register_btn']))
                                 move_uploaded_file($_FILES['image_fcert']['tmp_name'], $cert_path.'/'.$fcertname);
                                 move_uploaded_file($_FILES['image_bcert']['tmp_name'], $cert_path.'/'.$bcertname);
                                 sendemail_business($business_name, $business_email);
-                                sendsms_business($business_name, $business_number, $business_data);
+                                sendsms_business($business_name, $business_number);
                                 // redirect("../ownerlogin.php", "Register Successfully!! Please Wait for the Admin to Process your Business Account to Login", "success");
                             }
                             else{
-                                redirect("../businessreg.php?error=Something went wrong&$business_data", "Something went wrong", "error");
+                                redirect("../businessreg.php", "Something went wrong", "error");
                             }
                         }
                     else
                         {
-                            redirect("../businessreg.php?error=Your password must be at least 8 characters&$business_data", "Your password must be at least 8 characters", "warning"); 
+                            redirect("../businessreg.php", "Your password must be at least 8 characters", "warning"); 
                         }
                 }
             else
                 {
-                    redirect("../businessreg.php?error=Phone number error detected&$business_data", "Phone number error detected", "error");
+                    redirect("../businessreg.php", "Phone number error detected", "error");
                 }
 
         }
         else
         {
-            redirect("../businessreg.php?error=Passwords do not match&$business_data", "Passwords do not match", "warning");
+            redirect("../businessreg.php", "Passwords do not match", "warning");
         }
     }
 }
