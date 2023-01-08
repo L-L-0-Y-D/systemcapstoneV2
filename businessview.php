@@ -548,6 +548,7 @@
                                                         <div class="clean-pricing-item">
                                                             <div class="portfolio-hover" style="border-radius:10px;">
                                                                 <div class="portfolio-hover-content">
+                                                                    <div class="bg-danger">GUMAGANA</div>
                                                                 </div>
                         </div>
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
