@@ -549,7 +549,7 @@
                                                             <div class="portfolio-hover" style="border-radius:10px;">
                                                                 <div class="portfolio-hover-content">
                                                                     <div class="bg-danger"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
-                                                            <span class="moreText"><?= $item['description']; ?></span></p></div>
+                                                            <span class="moreText" id="#menu_description<?= $item['productid'] ?>"><?= $item['description']; ?></span></p></div>
                                                                 </div>
                                                             </div>
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
@@ -563,7 +563,7 @@
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100 read-more-btn" type="submit" href="#menu_description<?= $item['productid'] ?>" >View</button>
+                                                                        <button class="btn btn-primary d-block w-100 read-more-btn" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" >View</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
