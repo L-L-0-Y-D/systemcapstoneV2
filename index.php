@@ -4,11 +4,8 @@
     include('includes/header.php');
 ?>
 <head>
-     <!-- Swiper CSS -->
-     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/cuisine.css">
+    <link rel="stylesheet" href="assets/css/cuisine-slide.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
  <header class="masthead "  style="padding-top:180px;background-image:url(uploads/layout3.jpeg); background-position:top center;background-attachment:fixed; background-size:cover;">
         <div class="container">
@@ -68,12 +65,13 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="text-uppercase text-start section-heading fw-bold">EXPLORE BATAAN !</h2>
-                    <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 35px;">Locate where your favorite spot in&nbsp;</h3>
+                    <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 15px;">Locate where your favorite spot is&nbsp;</h3>
                 </div>
             </div>
-
-            <div class="row">
-               <div class="col mb-5">
+            <body class="cuisine-slide">
+                <div class="wrapper">
+                    <div class="icon"><i id="left" class="fa-solid fa-angle-left"></i></div>
+                    <ul class="tabs-box">
                     <?php
                     $query = "SELECT * FROM mealcategory";
                     $query_run = mysqli_query($con, $query);
@@ -84,17 +82,19 @@
                         {
                     ?>
                 
-                        <a class="cuisines mb-3" href="cuisine.php?name=<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></a>
-            
+                        <li class="tab"><a class="cuisines mb-3" href="cuisine.php?name=<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?></a></li>
+                    
                     <?php
                         }
                     }
                     else
                     {
                         echo "No Cuisine Available";
-                    }?>
-               </div> 
-            </div>  
+                    }?>    
+                    </ul>
+                    <div class="icon"><i id="right" class="fa-solid fa-angle-right"></i></div>
+                </div>
+            </body>
             <div class="row">
             <?php
                     // $municipality = getAllActive("municipality");
@@ -181,9 +181,49 @@
             </div>
         </div>
     </section>
-     <!-- Swiper JS -->
-     <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+        const tabsBox = document.querySelector(".tabs-box"),
+        allTabs = tabsBox.querySelectorAll(".tab"),
+        arrowIcons = document.querySelectorAll(".icon i");
 
-    <!-- JavaScript -->
-    <script src="assets/js/cuisine.js"></script>
+        let isDragging = false;
+
+        const handleIcons = (scrollVal) => {
+            let maxScrollableWidth = tabsBox.scrollWidth - tabsBox.clientWidth;
+            arrowIcons[0].parentElement.style.display = scrollVal <= 0 ? "none" : "flex";
+            arrowIcons[1].parentElement.style.display = maxScrollableWidth - scrollVal <= 1 ? "none" : "flex";
+        }
+
+        arrowIcons.forEach(icon => {
+            icon.addEventListener("click", () => {
+                // if clicked icon is left, reduce 350 from tabsBox scrollLeft else add
+                let scrollWidth = tabsBox.scrollLeft += icon.id === "left" ? -340 : 340;
+                handleIcons(scrollWidth);
+            });
+        });
+
+        allTabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabsBox.querySelector(".active").classList.remove("active");
+                tab.classList.add("active");
+            });
+        });
+
+        const dragging = (e) => {
+            if(!isDragging) return;
+            tabsBox.classList.add("dragging");
+            tabsBox.scrollLeft -= e.movementX;
+            handleIcons(tabsBox.scrollLeft)
+        }
+
+        const dragStop = () => {
+            isDragging = false;
+            tabsBox.classList.remove("dragging");
+        }
+
+        tabsBox.addEventListener("mousedown", () => isDragging = true);
+        tabsBox.addEventListener("mousemove", dragging);
+        document.addEventListener("mouseup", dragStop);
+    </script>
+            
 <?php include('includes/footer.php');?>
