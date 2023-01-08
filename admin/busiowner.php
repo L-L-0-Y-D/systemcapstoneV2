@@ -29,119 +29,6 @@ include('includes/header.php');
                             <button class="button">View More</button>
                         </div>
                     </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="images/profile2.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="images/profile3.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="images/profile4.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="images/profile5.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="images/profile6.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="images/profile7.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="images/profile9.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -328,11 +215,10 @@ include('includes/header.php');
         </div>
     </div> 
     
-   <!-- Swiper JS -->
-   <script src="assets/js/swiper-bundle.min.js"></script>
-
-<!-- JavaScript -->
-<script src="assets/js/for-permit.js"></script>
+    <!-- Swiper JS -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- JavaScript -->
+    <script src="assets/js/for-permit.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
