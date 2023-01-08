@@ -47,23 +47,6 @@ include('includes/header.php');
 ?>
     <div class="container-fluid">
         <h3 class="text-dark mb-2 mx-3">Business Partners</h3> 
-        <body class="slide-permit">
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                        <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-        </div>  
-    </body>
         <div class="card shadow">
             <div class="card-body" id="business_table">
                 <div class="row">
@@ -155,6 +138,7 @@ include('includes/header.php');
                                                             <td>
                                                             <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm edit-btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></a>
                                                             </td>
+
                                                             <!-- <td>
                                                                 <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>
                                                             </td> -->
@@ -163,6 +147,23 @@ include('includes/header.php');
                                                             <td><button type="submit" class="btn btn-sm btn-danger"  name="archive_business_btn"><i class="fas fa-archive"></i></button></td>
                                                             </form>
                                                     </tr>
+                                                    <body class="slide-permit">
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                        <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>  
+    </body>
                                                 <?php
                                             }
                                         }
