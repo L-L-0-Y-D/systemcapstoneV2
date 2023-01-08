@@ -56,7 +56,7 @@
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBznw3cpC9HWF3r7VOvfpTpFaC_3s2lPMY&fbclid=IwAR1x0AIgrCIdyDJ9n90McIYgx7Y_DLHwg5VkvNQ3uJrqkMUfAWrleqYDMe4"></script>    
     <title>I-Eat | Business View </title> 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
