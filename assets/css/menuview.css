@@ -12,7 +12,11 @@
   .text.show-more .dots {
     display: none;
   }
-  
+  .descript {
+    height:20px;
+    padding-top:0;
+    margin-top: 0;
+  }
   .descript p {
     text-align: justify;
     overflow: hidden;
