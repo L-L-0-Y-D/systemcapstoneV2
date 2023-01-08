@@ -549,7 +549,7 @@
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
-                                                            </div>
+                                                            </div>  
                                                             <p ><?= $item['cuisinename']; ?> Cuisine<br></p>
                                                             <p class="text"><br>
                                                             <span class="moreText "><?= $item['description']; ?></span></p>
