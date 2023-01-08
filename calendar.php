@@ -206,7 +206,7 @@ function build_calendar($month,$year,$resourceid){
 
         $sameday = $samedayreserve['sameday_reservation'];
 
-        if($sameday == '1')
+        if($sameday == '0')
         {
             $today = $date == date('Y-m-d')?"today":"";
         }
