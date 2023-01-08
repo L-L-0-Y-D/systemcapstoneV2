@@ -121,7 +121,10 @@ body.slide{
 .swiper-pagination-bullet-active{
   background-color: #4070F4;
 }
-
+.image-content img {
+  width:100px;
+  height:100px;
+}
 @media screen and (max-width: 768px) {
   .slide-content{
     margin: 0 10px;

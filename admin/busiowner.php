@@ -143,7 +143,7 @@ include('includes/header.php');
                                                                                         <div class="card-wrapper swiper-wrapper">
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
-                                                                                                <img src="../certificate/<?= $item['image_bcert']; ?>" width="100%" height="100%" alt="<?= $item['image_bcert']; ?>">
+                                                                                                <img src="../certificate/<?= $item['image_bcert']; ?>" alt="<?= $item['image_bcert']; ?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
