@@ -602,21 +602,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                      
                                                     </div>
                                                     <?php  
                                                         }
@@ -670,21 +656,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                         
                                                     </div>                               
                                                     <?php
                                                         }
@@ -712,21 +684,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        
                                                     </div>
                                                     <?php  
                                                             }
@@ -780,21 +738,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                          
                                                     </div>                               
                                                     <?php
                                                         }
@@ -822,21 +766,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        
                                                     </div>
                                                     <?php  
                                                             }
@@ -860,7 +790,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>DRINKS</h1>                                      
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;DRINKS</h1>                                      
                                                 <div class="row"> 
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -890,21 +820,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                         
                                                     </div>                               
                                                     <?php
                                                         }
@@ -932,21 +848,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                          
                                                     </div>
                                                     <?php  
                                                             }
@@ -1000,21 +902,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                       
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1042,21 +930,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                         
                                                     </div>
                                                     <?php  
                                                             }
@@ -1110,21 +984,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                         
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1152,21 +1012,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                       
                                                     </div>
                                                     <?php  
                                                             }
@@ -1220,21 +1066,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1262,21 +1094,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                     
                                                     </div>
                                                     <?php  
                                                             }
@@ -1330,21 +1148,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                      
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1372,21 +1176,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                     
                                                     </div>
                                                     <?php  
                                                             }
@@ -1410,7 +1200,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>FISH DISH</h1>                                   
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;FISH DISH</h1>                                   
                                                 <div class="row"> 
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -1440,21 +1230,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                      
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1482,21 +1258,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        
                                                     </div>
                                                     <?php  
                                                             }
