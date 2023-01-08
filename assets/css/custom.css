@@ -291,21 +291,21 @@
   }
   
   .manual-btn{
-    border: 2px solid rgb(255, 128, 64);
+    border: 2px solid black;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
     transition: 1s;
   }
   .manual-btn.active {
-    background: rgb(255, 128, 64);
+    background: black;
   }
   .manual-btn:not(:last-child){
     margin-right: 40px;
   }
   
   .manual-btn:hover{
-    background: rgb(255, 128, 64);
+    background: black;
   }
   
   #radio1:checked ~ .first{
