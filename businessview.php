@@ -548,10 +548,11 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6><hr>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
-                                                            <p ><?= $item['cuisinename']; ?> Cuisine</p>
-                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
+                                                            <div class="descript">
+                                                                <p ><?= $item['cuisinename']; ?> Cuisine</p><hr>
+                                                                <p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
                                                                     <div class="col-12 text-end mt-2">
