@@ -119,35 +119,35 @@ include('includes/header.php');
                                                                                                 <img src="../certificate/<?= $item['image_cert']; ?>"  alt="<?= $item['image_cert']; ?>">
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                     
                                                                                    
                                                                              
-                                                                                        <div class="card-wrapper swiper-wrapper">
+                                                                                      
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
                                                                                                 <img src="../certificate/<?= $item['image_scert']; ?>" alt="<?= $item['image_scert']; ?>">
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                       
                                                                                  
                                                                               
-                                                                                        <div class="card-wrapper swiper-wrapper">
+                                                                                       
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
                                                                                                 <img src="../certificate/<?= $item['image_fscert']; ?>" alt="<?= $item['image_fscert']; ?>">
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                 
                                                                                    
                                                                                 
-                                                                                        <div class="card-wrapper swiper-wrapper">
+                                                               
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
                                                                                                 <img src="../certificate/<?= $item['image_bcert']; ?>" alt="<?= $item['image_bcert']; ?>">
                                                                                                 </div>
                                                                                             </div>
+                                                                                     
                                                                                         </div>
-                                                                               
                                                                                     </div>
                                                                                     <div class="swiper-button-next swiper-navBtn"></div>
                                                                                     <div class="swiper-button-prev swiper-navBtn"></div>
