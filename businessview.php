@@ -551,7 +551,7 @@
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
                                                             <div class="descript"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
-                                                            <span class="moreText">&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
+                                                            <span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
                                                                     <div class="col-12 text-end mt-2">
