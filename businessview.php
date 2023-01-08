@@ -548,7 +548,7 @@
                                                         <div class="clean-pricing-item">
                                                             <div class="portfolio-hover" style="border-radius:10px;">
                                                                 <div class="portfolio-hover-content">
-                                                                    <div class="bg-danger"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
+                                                                    <div class="bg-danger"><p class="text"><br>
                                                             <span class="moreText" id="#menu_description<?= $item['productid'] ?>"><?= $item['description']; ?></span></p></div>
                                                                 </div>
                                                             </div>
@@ -556,7 +556,7 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>
-                                                            
+                                                            <p ><?= $item['cuisinename']; ?> Cuisine</p>
                                                             <div class="price">
                                                                 <div class="row">
                                                                     <div class="col">
