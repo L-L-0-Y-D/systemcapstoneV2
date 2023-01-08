@@ -9,24 +9,6 @@ include('includes/header.php');
     <link rel="stylesheet" href="assets/css/for-permit.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 </head>
-<body>
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                        <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-        </div>
-        
-    </body>
 
 <?php
     if(isset($_GET['page_no']) && $_GET['page_no']) {
@@ -65,6 +47,23 @@ include('includes/header.php');
 ?>
     <div class="container-fluid">
         <h3 class="text-dark mb-2 mx-3">Business Partners</h3> 
+        <body class="slide-permit">
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                        <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>  
+    </body>
         <div class="card shadow">
             <div class="card-body" id="business_table">
                 <div class="row">
