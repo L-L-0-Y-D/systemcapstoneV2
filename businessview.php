@@ -550,13 +550,12 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
-                                                            <div class="descript">
-                                                                <p ><?= $item['cuisinename']; ?> Cuisine</p><hr>
-                                                                <p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
+                                                            <p class="float-start" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
                                                                     <div class="col-12 text-end mt-2">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     
                                                                 </div>
@@ -629,8 +628,8 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
-                                                            <div class="descript"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
-                                                            <span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
                                                                     <div class="col-12 text-end mt-2">
@@ -639,7 +638,7 @@
                                                                     
                                                                 </div>
                                                             </div>
-                                                        </div>     
+                                                        </div>    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -655,8 +654,8 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
-                                                            <div class="descript"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
-                                                            <span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
                                                                     <div class="col-12 text-end mt-2">
@@ -665,7 +664,7 @@
                                                                     
                                                                 </div>
                                                             </div>
-                                                        </div>     
+                                                        </div>      
                                                     </div>
                                                     <?php  
                                                             }
@@ -707,8 +706,8 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
-                                                            <div class="descript"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
-                                                            <span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
                                                                     <div class="col-12 text-end mt-2">
@@ -717,7 +716,7 @@
                                                                     
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div>>
                                                     </div>                               
                                                     <?php
                                                         }
@@ -733,8 +732,8 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
-                                                            <div class="descript"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
-                                                            <span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
                                                                     <div class="col-12 text-end mt-2">
@@ -743,7 +742,7 @@
                                                                     
                                                                 </div>
                                                             </div>
-                                                        </div>    
+                                                        </div> >    
                                                     </div>
                                                     <?php  
                                                             }
@@ -783,17 +782,16 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -805,26 +803,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
+                                                                        <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                           
                                                     </div>
                                                     <?php  
@@ -865,17 +862,16 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" >View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -887,26 +883,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
+                                                                        <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                          
                                                     </div>
                                                     <?php  
@@ -947,17 +942,16 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -969,26 +963,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
+                                                                        <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                        
                                                     </div>
                                                     <?php  
@@ -1029,17 +1022,16 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1051,26 +1043,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
+                                                                        <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                      
                                                     </div>
                                                     <?php  
@@ -1111,17 +1102,16 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1133,26 +1123,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
+                                                                        <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                      
                                                     </div>
                                                     <?php  
@@ -1193,17 +1182,16 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1215,27 +1203,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pt-1" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end mt-2">
+                                                                        <p>₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                    <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        
+                                                        </div>      
                                                     </div>
                                                     <?php  
                                                             }
