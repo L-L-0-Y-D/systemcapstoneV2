@@ -261,9 +261,9 @@ else if(isset($_POST['edit_business_btn']))
 
     $new_image = $_FILES['image']['name'];
     $new_image_cert = $_FILES['image_cert']['name'];
-    $new_image_cert = $_FILES['image_scert']['name'];
-    $new_image_cert = $_FILES['image_fcert']['name'];
-    $new_image_cert = $_FILES['image_bcert']['name'];
+    $new_image_scert = $_FILES['image_scert']['name'];
+    $new_image_fcert = $_FILES['image_fcert']['name'];
+    $new_image_bcert = $_FILES['image_bcert']['name'];
     $old_image = $_POST['old_image'];
     $old_image_cert = $_POST['old_image_cert'];
     $old_image_scert = $_POST['old_image_scert'];
@@ -288,11 +288,11 @@ else if(isset($_POST['edit_business_btn']))
 
             redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image"]["size"] < 800)) {
+        // else if (($_FILES["image"]["size"] < 800)) {
 
-            redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
+        //     redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
 
-        }    // Validate image file size that is greater
+        // }    // Validate image file size that is greater
         else if (($_FILES["image"]["size"] > 10000000)) {
 
             redirect("profile.php?id=$businessid", "Image size exceeds 10MB", "warning");
@@ -318,16 +318,16 @@ else if(isset($_POST['edit_business_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_cert_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
+            redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image_cert"]["size"] < 800)) {
+        // else if (($_FILES["image_cert"]["size"] < 800)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+        //     redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
 
-        }    // Validate image file size that is greater
+        // }    // Validate image file size that is greater
         else if (($_FILES["image_cert"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+            redirect("profile.php?id=$businessid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -350,16 +350,16 @@ else if(isset($_POST['edit_business_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_scert_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
+            redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image_scert"]["size"] < 800)) {
+        // else if (($_FILES["image_scert"]["size"] < 800)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+        //     redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
 
-        }    // Validate image file size that is greater
+        // }    // Validate image file size that is greater
         else if (($_FILES["image_scert"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+            redirect("profile.php?id=$businessid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -382,16 +382,16 @@ else if(isset($_POST['edit_business_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_fcert_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
+            redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image_cert"]["size"] < 800)) {
+        // else if (($_FILES["image_cert"]["size"] < 800)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+        //     redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
 
-        }    // Validate image file size that is greater
+        // }    // Validate image file size that is greater
         else if (($_FILES["image_cert"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+            redirect("profile.php?id=$businessid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -414,16 +414,16 @@ else if(isset($_POST['edit_business_btn']))
         // Validate file input to check if is with valid extension
         if (! in_array($image_bcert_ext, $allowed_image_extension)) {
 
-            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
+            redirect("profile.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in certificate image.", "warning");
         }// Validate image file size less than
-        else if (($_FILES["image_cert"]["size"] < 800)) {
+        // else if (($_FILES["image_cert"]["size"] < 800)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+        //     redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
 
-        }    // Validate image file size that is greater
+        // }    // Validate image file size that is greater
         else if (($_FILES["image_cert"]["size"] > 10000000)) {
 
-            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+            redirect("profile.php?id=$businessid", "Image size exceeds 10MB", "warning");
         }
     }
     else
@@ -492,7 +492,7 @@ else if(isset($_POST['edit_business_btn']))
                                                 unlink("../certification/".$old_image_scert);
                                             }
                                         }
-                                        if($_FILES['image_dcert']['name'] != "")
+                                        if($_FILES['image_fcert']['name'] != "")
                                         {
                                             move_uploaded_file($_FILES['image_fcert']['tmp_name'], $cert_path.'/'.$update_filename_fcert);
                                             

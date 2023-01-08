@@ -38,7 +38,7 @@ include('includes/header.php');
                     <input type="hidden" name="old_image" value="<?= $data['image'] ?>"><br>
                     <div class="form-content">
                         <label class="form-label float-start" >Change Profile:<br></label>
-                        <input type="file" name="image" id="file" accept=".jpg, .jpeg, .png" onchange="return fileValidation();" required>
+                        <input type="file" name="image" id="file" accept=".jpg, .jpeg, .png" onchange="return fileValidation();">
                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                     </div>
                 </div>
@@ -216,7 +216,7 @@ include('includes/header.php');
                             </div>
                             <div class="form-content">
                                 <label class="form-label" for=""><strong>Password</strong></label>
-                                <input name='business_password' id="businesspassword" oninput="checkBusiPassword();" placeholder="Enter Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
+                                <input name='business_password' id="businesspassword" oninput="checkBusiPassword();" placeholder="Enter Password" type="password"  title="Password" required>  
                             </div>
                             <div class="form-check form-switch">
                                 <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
@@ -240,7 +240,7 @@ include('includes/header.php');
                         <input type="hidden" name="old_image_cert" value="<?= $data['image_cert'] ?>"><br>
                         <div class="form-content">
                             <label class="form-label float-start" >Upload your DTI Business Permit<br></label>
-                            <input type="file" name="image_cert" id="imagecert" accept=".jpg, .jpeg, .png" onchange="return certValidation();" required>
+                            <input type="file" name="image_cert" id="imagecert" accept=".jpg, .jpeg, .png" onchange="return certValidation();">
                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
                         </div>
                     </div>
@@ -257,7 +257,7 @@ include('includes/header.php');
                         <input type="hidden" name="old_image_scert" value="<?= $data['image_scert'] ?>"><br>
                         <div class="form-content">
                             <label class="form-label float-start" >Upload your Sanitary Permit<br></label>
-                            <input type="file" name="image_scert" id="imagescert" accept=".jpg, .jpeg, .png" onchange="return scertValidation();" required>
+                            <input type="file" name="image_scert" id="imagescert" accept=".jpg, .jpeg, .png" onchange="return scertValidation();">
                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
                         </div>
                     </div>
@@ -274,7 +274,7 @@ include('includes/header.php');
                         <input type="hidden" name="old_image_fscert" value="<?= $data['image_fcert'] ?>"><br>
                         <div class="form-content">
                             <label class="form-label float-start" >Upload your Fire Safety Permit<br></label>
-                            <input type="file" name="image_fscert" id="imagefscert" accept=".jpg, .jpeg, .png" onchange="return fscertValidation();" required>
+                            <input type="file" name="image_fscert" id="imagefscert" accept=".jpg, .jpeg, .png" onchange="return fscertValidation();">
                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
                         </div>
                     </div>
@@ -291,7 +291,7 @@ include('includes/header.php');
                         <input type="hidden" name="old_image_bcert" value="<?= $data['image_bcert'] ?>"><br>
                         <div class="form-content">
                             <label class="form-label float-start" >Upload your Brgy. Clearance Permit<br></label>
-                            <input type="file" name="image_bcert" id="imagebccert" accept=".jpg, .jpeg, .png" onchange="return bccertValidation();" required>
+                            <input type="file" name="image_bcert" id="imagebccert" accept=".jpg, .jpeg, .png" onchange="return bccertValidation();">
                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
                         </div>
                     </div>
