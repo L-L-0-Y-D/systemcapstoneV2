@@ -554,7 +554,7 @@
                                                             <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
-                                                                    <div class="col-12 text-end mt-2">
+                                                                    <div class="col-12 text-end ">
                                                                         <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     
