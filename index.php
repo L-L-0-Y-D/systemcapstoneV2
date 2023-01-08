@@ -181,7 +181,9 @@
             </div>
         </div>
     </section>
+
     <script>
+        //FOR  CUISINES TAB
         const tabsBox = document.querySelector(".tabs-box"),
         allTabs = tabsBox.querySelectorAll(".tab"),
         arrowIcons = document.querySelectorAll(".icon i");
