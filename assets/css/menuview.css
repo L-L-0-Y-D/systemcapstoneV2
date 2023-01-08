@@ -16,7 +16,7 @@
   }
   .descript p {
     height:100px;
-    text-align: justify;
+    text-align: left;
     overflow: hidden;
     overflow-y: scroll;
   }
