@@ -2,9 +2,7 @@
   .text {
     font-size: 24px;
   }
-  .moreText {
  
-  }
 
   .text.show-more .moreText {
     display: inline;
