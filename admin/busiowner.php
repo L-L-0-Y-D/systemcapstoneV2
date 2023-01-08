@@ -107,6 +107,7 @@ include('includes/header.php');
                                                                     <div class="modal-dialog modal-lg">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
+                                                                                <h5>PEERMITS</h5>
                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                             </div>
                                                                             <div class="modal-body">
@@ -116,21 +117,25 @@ include('includes/header.php');
                                                                                         <div class="card-wrapper swiper-wrapper">
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
+                                                                                                <h2 class="name">Business Permit</h2>
                                                                                                 <img src="../certificate/<?= $item['image_cert']; ?>" alt="<?= $item['image_cert']; ?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
+                                                                                                <h2 class="name">Sanitary Permit</h2>
                                                                                                 <img src="../certificate/<?= $item['image_scert']; ?>" alt="<?= $item['image_scert']; ?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
+                                                                                                <h2 class="name">Fire Safety Permit</h2>
                                                                                                 <img src="../certificate/<?= $item['image_fscert']; ?>" alt="<?= $item['image_fscert']; ?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
+                                                                                                <h2 class="name">Brgy. Clearance Permit</h2>
                                                                                                 <img src="../certificate/<?= $item['image_bcert']; ?>"alt="<?= $item['image_bcert']; ?>">
                                                                                                 </div>
                                                                                             </div>
