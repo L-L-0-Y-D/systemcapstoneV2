@@ -550,8 +550,8 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>
-                                                            <p class="text"><?= $item['cuisinename']; ?> Cuisine
-                                                            <span class="moreText"><?= $item['description']; ?></span></p>
+                                                            <p class="text"><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <span class="moreText"><?= $item['description']; ?></span>
                                                             <div class="price">
                                                                 <div class="row">
                                                                     <div class="col">
