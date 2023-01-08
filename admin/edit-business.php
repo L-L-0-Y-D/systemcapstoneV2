@@ -35,8 +35,8 @@ include('includes/header.php');
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Current Business Image</label>
-                                <img class="rounded img-fluid" src="../uploads/<?= $data['image'] ?>" height="100" width="100">
-                                <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
+                                <img class="rounded current img-fluid" src="../uploads/<?= $data['image'] ?>"  width="100">
+                                <input class="current" type="hidden" name="old_image" value="<?= $data['image'] ?>">
                             </div>
                             <div class="col-md-6">
                                 <label>Update Business Image</label>
