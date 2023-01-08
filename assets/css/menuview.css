@@ -1,11 +1,4 @@
-body {
-    font-family: "Montserrat";
-    text-align: justify;
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: rgb(18, 23, 27);
-    color: aliceblue;
-  }
+
   .text {
     font-size: 24px;
   }
@@ -32,12 +25,6 @@ body {
   /* This Code is for only the floating card in right bottom corner */
   /* ********************** */
   
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    overflow-x: hidden;
-  }
   .float-text {
     display: inline-block;
     position: fixed;
@@ -77,9 +64,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
   }
-  .gg-youtube {
-    --ggs: 1.5;
-  }
+
   .float-card-info .icons {
     width: 120px;
     margin: 0 auto;

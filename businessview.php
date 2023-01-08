@@ -472,9 +472,7 @@
                     </div><hr class="m-0 w-100">
                 </div>
                  <!--END OF ABOUT SECTION-->
-                    <h1>Hello world</h1>
-                    <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis veritatis animi aliquam laboriosam velit, esse, blanditiis aspernatur sint est magnam debitis delectus in fuga fugiat repellat dignissimos ipsum necessitatibus corrupti veniam reprehenderit,<span class="dots"> ...</span> <span class="moreText"> assumenda sapiente expedita labore atque! Sint velit cumque minus pariatur quisquam, beatae ab quo impedit eaque soluta vel laboriosam itaque similique iste ex aut in nihil dolorem consequuntur possimus eligendi eos optio ipsam! Sint ullam voluptate obcaecati asperiores eos vero sed iusto magnam ad, vel repellat quidem? Omnis fugit accusantium, illo quos eos odio consectetur et nemo excepturi deleniti dolorum adipisci dolores delectus possimus libero, sed iusto dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis neque distinctio modi dicta ut impedit, vel dolore dolores maiores quis vitae nesciunt ab aut, praesentium facilis necessitatibus odio exercitationem velit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error fugit repellat laborum aspernatur neque eligendi officia eius quidem voluptates fugiat numquam, officiis ullam nemo, incidunt delectus. Consequuntur id veritatis odit, aspernatur libero recusandae doloremque necessitatibus aperiam esse eaque consectetur tempore qui quasi, corporis expedita excepturi natus reprehenderit illo temporibus. Veniam eius dolorem cumque! Iusto eum aut et ipsam nemo cum totam delectus explicabo? Quis odio perferendis aliquid facilis ea quaerat vero minima dolorem cumque, est ab! Vero fuga tenetur unde. Perferendis alias, fugit debitis culpa doloremque aperiam molestiae quos incidunt dolore iure officia! Blanditiis sint delectus quam quae nulla.</span></p>
-                    <button class="read-more-btn">Read More</button>
+            
                 <!-- START OF LOCATION SECTION-->
                 <div class="col-md-12 p-2 mb-4" id="location">
                     <h1 class="mx-4 fs-4"><i class="fas fa-map-marked"></i>&nbsp;&nbsp;Located at  &nbsp;<?= $data['business_address']; ?></h1>
@@ -552,18 +550,21 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <p class="text"><?= $item['cuisinename']; ?> Cuisine
+                                                            <span class="moreText"><?= $item['description']; ?></span></p>
                                                             <div class="price">
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
+                                                                        <button class="btn btn-primary d-block w-100 read-more-btn" type="submit" href="#menu_description<?= $item['productid'] ?>" >View</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                      
+                
                                                         <!--FOR MODAL PER MENU--> 
                                                         <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
                                                             <div class="modal-dialog" role="document">
