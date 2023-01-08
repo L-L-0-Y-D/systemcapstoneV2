@@ -162,7 +162,7 @@ if(isset($_SESSION['auth'])){
     <script>
         function myFunction(x) {
             x.classList.toggle("fa-eye-slash");
-        var x = document.getElementById("inputpassword");
+        var x = document.getElementById("password");
         if (x.type === "password") {
             x.type = "text";
         } else {

@@ -140,7 +140,7 @@ function build_calendar($month,$year,$resourceid){
             {
                 
                 $selected = $resourceid==$row['tableid'] ? 'selected':'';
-                $calendar.= "<option $selected width='100' value='{$row['tableid']}'> Table {$row['table_number']} - for {$row['chair']}</option>";
+                $calendar.= "<option $selected value='{$row['tableid']}'> Table {$row['table_number']} - for {$row['chair']}</option>";
             }
         }
     }
