@@ -120,6 +120,27 @@ include('includes/header.php');
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
+                                                                                        <div class="card-wrapper swiper-wrapper">
+                                                                                            <div class="card swiper-slide">
+                                                                                                <div class="image-content">
+                                                                                                <img src="../certificate/<?= $item['image_scert']; ?>" width="100%" height="100%" alt="<?= $item['image_scert']; ?>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="card-wrapper swiper-wrapper">
+                                                                                            <div class="card swiper-slide">
+                                                                                                <div class="image-content">
+                                                                                                <img src="../certificate/<?= $item['image_fscert']; ?>" width="100%" height="100%" alt="<?= $item['image_fscert']; ?>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="card-wrapper swiper-wrapper">
+                                                                                            <div class="card swiper-slide">
+                                                                                                <div class="image-content">
+                                                                                                <img src="../certificate/<?= $item['image_bcert']; ?>" width="100%" height="100%" alt="<?= $item['image_bcert']; ?>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
                                                                                     </div>
                                                                                     <div class="swiper-button-next swiper-navBtn"></div>
                                                                                     <div class="swiper-button-prev swiper-navBtn"></div>
