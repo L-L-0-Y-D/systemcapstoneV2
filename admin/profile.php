@@ -35,7 +35,7 @@ include('includes/header.php');
                     <img class="rounded-circle mb-3 mt-3" src="../uploads/<?= $data['image'] ?>" width="160" height="160">
                     <input type="hidden" name="old_image" value="<?= $data['image'] ?>"><br>
                     <div class="form-content">
-                        <label class="form-label float-start" >Change Profile:<br></label>
+                        <label class="float-start">Change Profile:<br></label>
                         <input type="file" name="image" id="file" accept=".jpg, .jpeg, .png" onchange="return profValidation();" required>
                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                     </div>
@@ -54,14 +54,14 @@ include('includes/header.php');
                                 <div class="col">
                                     <div class="form-content">
                                         <input type="hidden" name="userid" value="<?= $data['userid'] ?>">
-                                        <label class="form-label" for=""><strong>Username</strong></label>
+                                        <label for="">Username:</label>
                                         <input name='name' id="adminname" type="text" oninput="checkAdminName();" value="<?= $data['name'] ?>" placeholder="Enter Username" required>
                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-content">
-                                        <label class="form-label" for=""><strong>Email Address</strong></label>
+                                        <label for="">Email Address:</label>
                                         <input name='email' id='adminemail' oninput="checkAdminEmail();" type="email" placeholder="sample@gmail.com" value="<?= $data['email'] ?>"  required>
                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
@@ -71,14 +71,14 @@ include('includes/header.php');
                             <div class="row">
                                 <div class="col">
                                     <div class="form-content">
-                                        <label class="form-label" for=""><strong>First Name</strong></label>
+                                        <label for="">First Name:</label>
                                         <input name='firstname' id='adminfirstname' type="text" oninput="checkAdminFname();" value="<?= $data['firstname'] ?>" placeholder="Enter First Name">
                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-content">
-                                        <label class="form-label" for=""><strong>Last Name</strong></label>
+                                        <label for="">Last Name:</label>
                                         <input name='lastname' id='adminlastname' type="text" oninput="checkAdminLname();" value="<?= $data['lastname'] ?>" placeholder="Enter Last Name">
                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
@@ -87,14 +87,14 @@ include('includes/header.php');
                             <div class="row">
                                 <div class="col">
                                     <div class="form-content">
-                                        <label for="dob">Date of Birth</span></label>
+                                        <label for="dob">Date of Birth:</span></label>
                                         <input name='dateofbirth' type="date" value="<?= $data['dateofbirth'] ?>" id="admindate" oninput="checkAdminBirthDate();" required>
                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error Message</small>
                                     </div>
                                 </div>      
                                 <div class="col">
                                     <div class="form-content">
-                                        <label class="form-label" for=""><strong>Phone Number</strong></label>
+                                        <label  for="">Phone Number:</label>
                                         <input type="text" name="phonenumber" id="adminphonenumber" required value="<?= $data['phonenumber'] ?>" placeholder="Enter Phone Number" oninput="checkAdminContact();" >
                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error Message</small>
                                     </div>
@@ -103,14 +103,14 @@ include('includes/header.php');
                             <div class="row">
                                 <div class="col">
                                     <div class="form-content">
-                                        <label class="form-label" for="email"><strong>Address</strong></label>
+                                        <label  for="email">Address:</label>
                                         <input type="text" name='address' id="adminaddress" oninput="checkAdminAddress();" value="<?= $data['address'] ?>"  required placeholder="Enter Address">
                                         <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-content">
-                                <label class="form-label" for=""><strong>Password</strong></label>
+                                <label for="">Password:</label>
                                 <input type="password" name="password" placeholder="Enter Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
                             </div>
                             <div>

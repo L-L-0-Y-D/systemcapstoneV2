@@ -90,7 +90,7 @@ if(isset($_SESSION['auth'])){
                                     <i class="far fa-eye d-md-flex align-items-md-end" id="showicon" onclick="myFunction(this)"></i>
                                 </div>
                                 <div class="mb-1">
-                                    <button class="btn btn-primary" type="submit" name="send_otp">Login</button>
+                                    <button class="btn btn-primary text-white" type="submit" name="send_otp">Login</button>
                                 </div>
                             </form> 
                         </div>

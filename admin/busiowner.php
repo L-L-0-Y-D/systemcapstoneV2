@@ -106,32 +106,24 @@ include('includes/header.php');
                                                                             </div>
                                                                             <div class="modal-body">
                                                                             <!--<img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">-->
-                                                                                <div class="slideshow-container">
-                                                                                    <div class="mySlides fade bg-black">
-                                                                                        <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
-                                                                                        <div class="text">BUSINESS PERMIT</div>
+                                                                            <div id="image-slider" class="splide">
+                                                                                <div class="splide__track">
+                                                                                        <ul class="splide__list">
+                                                                                            <li class="splide__slide">
+                                                                                                <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
+                                                                                            </li>
+                                                                                            <li class="splide__slide">
+                                                                                                <img src="../certificate/<?= $item['image_scert']; ?>" width="100%" height="100%" alt="<?= $item['image_scert']; ?>">
+                                                                                            </li>
+                                                                                            <li class="splide__slide">
+                                                                                                <img src="../certificate/<?= $item['image_fscert']; ?>" width="100%" height="100%" alt="<?= $item['image_fscert']; ?>">
+                                                                                            </li>
+                                                                                            <li class="splide__slide">
+                                                                                                <img src="../certificate/<?= $item['image_bcert']; ?>" width="100%" height="100%" alt="<?= $item['image_bcert']; ?>">
+                                                                                            </li>
+                                                                                        </ul>
                                                                                     </div>
-
-                                                                                    <div class="mySlides fade">
-                                                                                        <img src="../certificate/<?= $item['image_scert']; ?>" width="100%" height="100%" alt="<?= $item['image_scert']; ?>">
-                                                                                        <div class="text">SANITARY PERMIT</div>
-                                                                                    </div>
-
-                                                                                    <div class="mySlides fade">
-                                                                                        <img src="../certificate/<?= $item['image_fscert']; ?>" width="100%" height="100%" alt="<?= $item['image_fscert']; ?>">
-                                                                                        <div class="text">FIRE SAFETY PERMIT</div>
-                                                                                    </div>
-
-                                                                                    <div class="mySlides fade">                                                                                
-                                                                                        <img src="../certificate/<?= $item['image_bcert']; ?>" width="100%" height="100%" alt="<?= $item['image_bcert']; ?>">
-                                                                                        <div class="text">BRGY CLEARANCE PERMIT</div>
-                                                                                    </div>
-
-                                                                                    <!-- Next and previous buttons -->
-                                                                                    <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-arrow-alt-circle-left fa-4x"></i></a>
-                                                                                    <a class="next" onclick="plusSlides(1)"><i class="fas fa-arrow-alt-circle-right fa-4x"></i></a>
                                                                                 </div>
-
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -207,34 +199,12 @@ include('includes/header.php');
         </div>
     </div>
     <script>
-        let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-    mySlides.innerText="ERROR";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
+    document.addEventListener( 'DOMContentLoaded', function () {
+        new Splide( '#image-slider' ).mount();
+    } );
+    </script>
+    <script>
+    new Splide( '#image-slider' ).mount();
     </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
