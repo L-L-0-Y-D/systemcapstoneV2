@@ -110,8 +110,6 @@
   }
   .menu-container {
     position: relative;
-    width: 50%;
-    max-width: 300px;
   }
   
   .menu-container .image {
