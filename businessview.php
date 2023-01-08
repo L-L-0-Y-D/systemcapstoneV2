@@ -553,8 +553,8 @@
                                                             <div class="descript"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
                                                             <span class="moreText "><?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 float-end">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     
