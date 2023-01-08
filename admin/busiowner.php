@@ -15,18 +15,7 @@ include('includes/header.php');
                 <div class="card-wrapper swiper-wrapper">
                     <div class="card swiper-slide">
                         <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="images/profile1.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
+                        <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
                         </div>
                     </div>
                 </div>
