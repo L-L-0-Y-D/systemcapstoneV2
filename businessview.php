@@ -555,7 +555,7 @@
                                                             <div class="price">
                                                                 <div class="row text-end">
                                                                     <div class="col-12 text-end mt-2">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                        <p class="my-2">₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     
                                                                 </div>
