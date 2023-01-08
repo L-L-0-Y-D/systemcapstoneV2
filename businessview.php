@@ -563,22 +563,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description p-0"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start p-0"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1435,16 +1419,14 @@
       }
     }, 5000);
 
+
+    //for show more
     const readMoreBtn = document.querySelector(".read-more-btn");
     const text = document.querySelector(".text");
 
     readMoreBtn.addEventListener("click", (e) => {
     text.classList.toggle("show-more");
-    if (readMoreBtn.innerText === "Read More") {
-        readMoreBtn.innerText = "Read Less";
-    } else {
-        readMoreBtn.innerText = "Read More";
-    }
+    
     });
 
     // *********************
