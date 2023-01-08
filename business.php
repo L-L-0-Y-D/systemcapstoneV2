@@ -148,9 +148,9 @@
                 }
                 else
                 {
-                echo "<p class='text-center'>No Restaurant Found</p>";
+                echo "";
             ?>
-            <br><a class="text-center text-black fw-bold " style="margin-bottom:76px;" href="index.php">Go Back</a>
+            
             <?php
                 }
             ?>  
