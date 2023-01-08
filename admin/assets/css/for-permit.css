@@ -1,47 +1,40 @@
 /* Google Fonts - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-body.slide-permit{
+body.slide{
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #EFEFEF;
 }
-.slide-permit.slide-container{
+.slide-container{
   max-width: 1120px;
   width: 100%;
   padding: 40px 0;
 }
-.slide-permit.slide-content{
+.slide-content{
   margin: 0 40px;
   overflow: hidden;
   border-radius: 25px;
 }
-.slide-permit .card{
+.card{
   border-radius: 25px;
   background-color: #FFF;
-  justify-content: center;
-  display: flex;
-  width: 500px;
-  height: 600px;
 }
-.slide-permit.image-content,.card-content{
+.image-content,
+.card-content{
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px 14px;
 }
-.slide-permit.image-content{
+.image-content{
   position: relative;
   row-gap: 5px;
   padding: 25px 0;
 }
-.slide-permit.image-content img{
-  width: fit-content;
-  height: fit-content;
-}
-.slide-permit.overlay{
+.overlay{
   position: absolute;
   left: 0;
   top: 0;
@@ -50,7 +43,8 @@ body.slide-permit{
   background-color: #4070F4;
   border-radius: 25px 25px 0 25px;
 }
-.slide-permit.overlay::before,.overlay::after{
+.overlay::before,
+.overlay::after{
   content: '';
   position: absolute;
   right: 0;
@@ -59,11 +53,11 @@ body.slide-permit{
   width: 40px;
   background-color: #4070F4;
 }
-.slide-permit.overlay::after{
+.overlay::after{
   border-radius: 0 25px 0 0;
   background-color: #FFF;
 }
-.slide-permit.card-image{
+.card-image{
   position: relative;
   height: 150px;
   width: 150px;
@@ -71,12 +65,36 @@ body.slide-permit{
   background: #FFF;
   padding: 3px;
 }
-.slide-permit.card-image .card-img{
+.card-image .card-img{
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid #4070F4;
+}
+.name{
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+.description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+.button{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover{
+  background: #265DF2;
 }
 
 .swiper-navBtn{
@@ -103,7 +121,16 @@ body.slide-permit{
 .swiper-pagination-bullet-active{
   background-color: #4070F4;
 }
-
+.image-content {
+  width: 500px;
+  height:600px;
+  justify-content: center;
+  text-align: center;
+}
+.image-content img {
+  width: 100%;
+  height: 100%;
+}
 @media screen and (max-width: 768px) {
   .slide-content{
     margin: 0 10px;
