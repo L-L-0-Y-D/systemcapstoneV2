@@ -20,9 +20,8 @@
     padding-top: 2%;
   }
   .clean-pricing-item p {
-    text-align: left;
+    text-align: right;
     margin-top: 0px;
-    opacity: .7;
     font-size: smaller;
   } 
   .clean-pricing-item .heading h6 {

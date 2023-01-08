@@ -550,11 +550,11 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
-                                                            <div class="descript"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
+                                                            <div class="descript"><p class="text text-black"><?= $item['cuisinename']; ?> Cuisine<br>
                                                             <span class="moreText "><?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
-                                                                    <div class="col-12 float-end">
+                                                                    <div class="col-12 text-end">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     
