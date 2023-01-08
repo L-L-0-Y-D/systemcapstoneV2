@@ -546,23 +546,19 @@
                                                     ?>                                      
                                                     <div class="col-md-3">
                                                         <div class="clean-pricing-item">
-                                                            <div class="menu-container">
-                                                                <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                            <div class="overlay"><p class="text">GUMAGANA<br>
-                                                            <span class="moreText" id="#menu_description<?= $item['productid'] ?>"><?= $item['description']; ?></span></p></div>
-                                                            </div>
-                                                            
+                                                            <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>
-                                                            <p ><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            <p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
+                                                            <span class="moreText"><?= $item['description']; ?></span></p>
                                                             <div class="price">
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <button class="viewbtn btn btn-primary d-block w-100 read-more-btn" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" >View</button>
+                                                                        <button class="btn btn-primary d-block w-100 read-more-btn" type="submit" href="#menu_description<?= $item['productid'] ?>" >View</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -643,7 +639,7 @@
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <button class=" btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
+                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1425,19 +1421,6 @@
 
 
     //for show more
-    $(".viewbtn").on('click', function() {
-  $(this).children(".overlay").css('height', '100%');
-});
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-
-
-
-
-
-
-
-
     const readMoreBtn = document.querySelector(".read-more-btn");
     const text = document.querySelector(".text");
 
