@@ -20,13 +20,13 @@
     padding-top: 2%;
   }
   .clean-pricing-item p {
-    text-align: left;
+    text-align: right;
     margin-top: 0px;
-    opacity: .7;
     font-size: smaller;
   } 
   .clean-pricing-item .heading h6 {
-    height: 40px!important;
+    height: 35px!important;
+    
   } 
   .vanilla-zoom {
     width: 100%;
@@ -71,7 +71,7 @@
     padding: 10px;
     overflow: hidden;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .clean-pricing-item .price h4, .clean-pricing-item .price .h4 {
@@ -291,19 +291,21 @@
   }
   
   .manual-btn{
-    border: 2px solid rgb(255, 128, 64);
+    border: 2px solid black;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
     transition: 1s;
   }
-  
+  .manual-btn.active {
+    background: black;
+  }
   .manual-btn:not(:last-child){
     margin-right: 40px;
   }
   
   .manual-btn:hover{
-    background: rgb(255, 128, 64);
+    background: black;
   }
   
   #radio1:checked ~ .first{

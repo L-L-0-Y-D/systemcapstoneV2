@@ -1,5 +1,5 @@
 var swiper = new Swiper(".slide-content", {
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween: 25,
     loop: true,
     centerSlide: 'true',
@@ -20,10 +20,10 @@ var swiper = new Swiper(".slide-content", {
             slidesPerView: 1,
         },
         520: {
-            slidesPerView: 2,
+            slidesPerView: 1,
         },
         950: {
-            slidesPerView: 3,
+            slidesPerView: 1,
         },
     },
   });

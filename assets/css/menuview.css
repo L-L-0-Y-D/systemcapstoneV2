@@ -1,0 +1,40 @@
+
+  .text {
+    font-size: 24px;
+  }
+
+  .text.show-more .moreText {
+    display: inline;
+  }
+  .text.show-more .dots {
+    display: none;
+  }
+  .descript {
+    height:10vh;
+    padding:0px 2px;
+    margin: 0 ;
+  }
+  .descript p {
+    height:50px;
+    text-align: left;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  
+  ::-webkit-scrollbar {
+   width:10px; 
+  }
+    /* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

@@ -119,16 +119,4 @@ p {
     background-color: rgb(226, 96, 31)!important;
     border-color: rgb(226, 96, 31)!important;
   }
-  /*FOR CUISINE CATEGORY*/
-  .row a.cuisines {
-    color:rgb(255,128,64);
-    border: 1px solid rgb(255,128,64);
-    border-radius: 4px;
-    padding: 10px 20px;
-    height: 100px;
-    transition: background-color .2s,color .2s
-  }
-  .row a.cuisines:hover {
-    background-color:rgb(255,128,64);
-    color:#fff;
-  }
+  

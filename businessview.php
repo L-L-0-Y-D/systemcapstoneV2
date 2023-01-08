@@ -56,7 +56,8 @@
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/Vujahday%20Script.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> 
+    <link rel="stylesheet" href="assets/css/menuview.css">   
     <title>I-Eat | Business View </title> 
     <!-- Favicon -->
     <link rel="icon" href="uploads/favicon.ico"/>
@@ -336,7 +337,7 @@
                                 }
                                 else
                                 {
-                                    echo '<span><i class="fas fa-star text-gray"></i>&nbsp;&nbsp;'.$row_rating['averagerating'].'/5</span>';
+                                    echo '<span><i class="fas fa-star text-warning"></i>&nbsp;&nbsp;'.$row_rating['averagerating'].'/5</span>';
                                 }
                                 $query_rating_count = "SELECT review_id FROM review_table WHERE businessid = $businessid ORDER BY review_id";
                                 $query_rating_count_run = mysqli_query($con, $query_rating_count);
@@ -471,6 +472,7 @@
                     </div><hr class="m-0 w-100">
                 </div>
                  <!--END OF ABOUT SECTION-->
+            
                 <!-- START OF LOCATION SECTION-->
                 <div class="col-md-12 p-2 mb-4" id="location">
                     <h1 class="mx-4 fs-4"><i class="fas fa-map-marked"></i>&nbsp;&nbsp;Located at  &nbsp;<?= $data['business_address']; ?></h1>
@@ -547,34 +549,18 @@
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description p-0"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start p-0"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -582,41 +568,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                    <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>                        
                                                     </div>
                                                     <?php  
                                                         }
@@ -640,7 +610,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>APPETIZER</h1>                                        
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;APPETIZER</h1>                                        
                                                 <div class="row">  
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -656,35 +626,19 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>  
                                                     </div>                               
                                                     <?php
                                                         }
@@ -692,41 +646,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>       
                                                     </div>
                                                     <?php  
                                                             }
@@ -750,7 +688,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>SOUP</h1>                                          
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;SOUP</h1>                                          
                                                 <div class="row">    
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -766,35 +704,19 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                    <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -802,41 +724,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>      
                                                     </div>
                                                     <?php  
                                                             }
@@ -860,7 +766,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>DRINKS</h1>                                      
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;DRINKS</h1>                                      
                                                 <div class="row"> 
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -876,35 +782,19 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -912,41 +802,26 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>   
+                                                          
                                                     </div>
                                                     <?php  
                                                             }
@@ -970,7 +845,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>MEAT DISH</h1>
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;MEAT DISH</h1>
                                                 <div class="row">   
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -986,35 +861,19 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1022,41 +881,26 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>   
+                                                         
                                                     </div>
                                                     <?php  
                                                             }
@@ -1080,7 +924,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>MAIN COURSE</h1>                                         
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;MAIN COURSE</h1>                                         
                                                 <div class="row">   
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -1096,35 +940,19 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1132,41 +960,26 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>   
+                                                       
                                                     </div>
                                                     <?php  
                                                             }
@@ -1190,7 +1003,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>SALAD</h1>                                       
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;SALAD</h1>                                       
                                                 <div class="row">  
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -1206,35 +1019,19 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1242,41 +1039,26 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>   
+                                                     
                                                     </div>
                                                     <?php  
                                                             }
@@ -1300,7 +1082,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>DESSERT</h1>                                
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;DESSERT</h1>                                
                                                 <div class="row">
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -1316,35 +1098,19 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1352,41 +1118,26 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>   
+                                                     
                                                     </div>
                                                     <?php  
                                                             }
@@ -1410,7 +1161,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>FISH DISH</h1>                                   
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;FISH DISH</h1>                                   
                                                 <div class="row"> 
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -1426,35 +1177,19 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p>₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
                                                     </div>                               
                                                     <?php
                                                         }
@@ -1462,41 +1197,25 @@
                                                         {
                                                     ?>
                                                     <div class="col-md-3">
-                                                        <div class="clean-pricing-item" style="opacity: 0.70;">
+                                                        <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 0.30;">
                                                             <div class="ribbon">
                                                                 <span>SOLD OUT</span>
                                                             </div>
                                                             <div class="heading">
-                                                                <h6 class="mb-0"><?= $item['name']; ?></h6>
-                                                            </div>
-                                                            <p><?= $item['cuisinename']; ?> Cuisine</p>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                            </div>  
+                                                            <p class="float-start pb-o"><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <p class="text-muted">₱<?= $item['price']; ?></p>
+                                                                <div class="row text-end">
+                                                                    <div class="col-12 text-end ">
+                                                                        <p class="my-3">₱<?= $item['price']; ?></p>
                                                                     </div>
-                                                                    <div class="col">
-                                                                    <button class="btn btn-dark d-block w-100" type="submit"href="#menu_description<?= $item['productid'] ?>" data-bs-target="#menu_description<?= $item['productid'] ?>" data-bs-toggle="modal">View</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!--FOR MODAL PER MENU--> 
-                                                        <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                                                    <div class="modal-body">
-                                                                        <div class="menu_description"><img class="rounded img-fluid modal_img" src="uploads/<?= $item['image']; ?>">
-                                                                            <h4 class="modal-title text-start"><?= $item['name']; ?><p class="float-end">₱<?= $item['price']; ?></p></h4>
-                                                                            <p class="text-start"><?= $item['cuisinename']; ?> Cuisine</p>
-                                                                            <p><?= $item['description']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--CLOSING FOR MODAL PER MENU-->    
+                                                        </div>         
                                                     </div>
                                                     <?php  
                                                             }
@@ -1668,6 +1387,17 @@
         counter = 1;
       }
     }, 5000);
+
+
+    //for show more
+    const readMoreBtn = document.querySelector(".read-more-btn");
+    const text = document.querySelector(".text");
+
+    readMoreBtn.addEventListener("click", (e) => {
+    text.classList.toggle("show-more");
+    
+    });
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>

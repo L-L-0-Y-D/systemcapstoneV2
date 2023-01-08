@@ -80,10 +80,10 @@
                 </div>
                 <div class="product-info">
                     <a href="businessview.php?id=<?=$item['businessid'];?>" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
-                    <span class="product-type"><?= $item['business_address']; ?></span><br> 
+                    <span class="product-type"><i classs="fas fa-map-marker"></i><?= $item['business_address']; ?></span><br> 
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>
-                    <div class="rating d-flex ">
+                    <div class="rating d-flex">
                         <span>
                         <?php
                             $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
@@ -148,9 +148,9 @@
                 }
                 else
                 {
-                echo "<p class='text-center'>No Restaurant Found</p>";
+                echo "";
             ?>
-            <br><a class="text-center text-black fw-bold " style="margin-bottom:76px;" href="index.php">Go Back</a>
+            
             <?php
                 }
             ?>  
