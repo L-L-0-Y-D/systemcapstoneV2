@@ -657,7 +657,7 @@ function sendphonenumber_otp($username,$phonenumber,$message)
     //Show the server response
     if($output)
     {
-        redirect("../otpverification.php", "Login Success", "success");
+        redirect("../otpverification.php", "Please Enter Your OTP Code", "success");
     }
     else
     {
