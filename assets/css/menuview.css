@@ -16,11 +16,9 @@
   }
   .descript p {
     height:100px;
+    text-align: justify;
     overflow: hidden;
     overflow-y: scroll;
-  }
-  .descript span {
-    text-indent: 1;
   }
   ::-webkit-scrollbar {
    width:10px; 
