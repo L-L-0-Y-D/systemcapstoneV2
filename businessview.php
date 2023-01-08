@@ -550,7 +550,7 @@
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>  
-                                                            <p class="float-start mb-0 pb-0" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
+                                                            <p class="float-start pt-2" ><?= $item['cuisinename']; ?> Cuisine</p><br><hr>
                                                             <div class="descript"><p><span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
                                                             <div class="price">
                                                                 <div class="row text-end">
