@@ -107,7 +107,7 @@ include('includes/header.php');
                                                                     <div class="modal-dialog modal-lg">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
-                                                                                <h5>PEERMITS</h5>
+                                                                                <h3 class="fw-bold">PERMITS</h3>
                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                             </div>
                                                                             <div class="modal-body">
@@ -117,25 +117,25 @@ include('includes/header.php');
                                                                                         <div class="card-wrapper swiper-wrapper">
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
-                                                                                                <h2 class="fw-bold">Business Permit</h2>
+                                                                                                <h5 class="fw-bold">Business Permit</h5>
                                                                                                 <img src="../certificate/<?= $item['image_cert']; ?>" alt="<?= $item['image_cert']; ?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
-                                                                                                <h2 class="fw-bold">Sanitary Permit</h2>
+                                                                                                <h5 class="fw-bold">Sanitary Permit</h5>
                                                                                                 <img src="../certificate/<?= $item['image_scert']; ?>" alt="<?= $item['image_scert']; ?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
-                                                                                                <h2 class="fw-bold">Fire Safety Permit</h2>
+                                                                                                <h5 class="fw-bold">Fire Safety Permit</h5>
                                                                                                 <img src="../certificate/<?= $item['image_fscert']; ?>" alt="<?= $item['image_fscert']; ?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
-                                                                                                <h2 class="fw-bold">Brgy. Clearance Permit</h2>
+                                                                                                <h5 class="fw-bold">Brgy. Clearance Permit</h5>
                                                                                                 <img src="../certificate/<?= $item['image_bcert']; ?>"alt="<?= $item['image_bcert']; ?>">
                                                                                                 </div>
                                                                                             </div>

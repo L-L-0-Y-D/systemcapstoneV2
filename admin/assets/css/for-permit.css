@@ -21,6 +21,8 @@ body.slide{
 .card{
   border-radius: 25px;
   background-color: #FFF;
+  justify-content: center;
+  display: flex;
 }
 .image-content,
 .card-content{
@@ -124,7 +126,6 @@ body.slide{
 .image-content {
   width: 500px;
   height:600px;
-  display: inline-block;
   justify-content: center;
   text-align: center;
 }
