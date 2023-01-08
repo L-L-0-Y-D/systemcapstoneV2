@@ -563,7 +563,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                      
                 
                                                         <!--FOR MODAL PER MENU--> 
                                                         <div class="modal fade" role="dialog" tabindex="-1" id="menu_description<?= $item['productid'] ?>">
