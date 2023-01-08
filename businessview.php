@@ -548,7 +548,7 @@
                                                         <div class="clean-pricing-item">
                                                             <div class="menu-container">
                                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
-                                                            <div class="overlay"><p class="text"><br>
+                                                            <div class="overlay"><p class="text">GUMAGANA<br>
                                                             <span class="moreText" id="#menu_description<?= $item['productid'] ?>"><?= $item['description']; ?></span></p></div>
                                                             </div>
                                                             
