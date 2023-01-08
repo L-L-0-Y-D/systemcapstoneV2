@@ -1,212 +1,132 @@
-
-.main {
-  height: 100vh;
-  width: 100%;
-}
-.wrapper,
-.slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.slide {
-  overflow: hidden;
-}
-.slide::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 10;
-}
-.slide .image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.slide .image-data {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
-  z-index: 100;
-}
-.image-data span.text {
-  font-size: 14px;
-  font-weight: 400;
-  color: #fff;
-}
-.image-data h2 {
-  font-size: 45px;
-  font-weight: 600;
-  color: #fff;
-}
-a.button {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 25px;
-  color: #333;
-  background: #fff;
-  text-decoration: none;
-  margin-top: 25px;
-  transition: all 0.3s ease;
-}
-a.button:hover {
-  color: #fff;
-  background-color: #c87e4f;
-}
-
-/* swiper button css */
-.nav-btn {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-}
-.nav-btn:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-.swiper-button-next {
-  right: 50px;
-}
-.swiper-button-prev {
-  left: 50px;
-}
-.nav-btn::before,
-.nav-btn::after {
-  font-size: 25px;
-  color: #fff;
-}
-.swiper-pagination-bullet {
-  opacity: 1;
-  height: 12px;
-  width: 12px;
-  background-color: #fff;
-  visibility: hidden;
-}
-.swiper-pagination-bullet-active {
-  border: 2px solid #fff;
-  background-color: #c87e4f;
-}
-
-@media screen and (max-width: 768px) {
-  .nav-btn {
-    visibility: hidden;
-  }
-  .swiper-pagination-bullet {
-    visibility: visible;
-  }
-}
 /* Google Fonts - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+body.slide{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EFEFEF;
 }
-.main {
-  height: 100vh;
+.slide-container{
+  max-width: 1120px;
   width: 100%;
+  padding: 40px 0;
 }
-.wrapper,
-.slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.slide {
+.slide-content{
+  margin: 0 40px;
   overflow: hidden;
+  border-radius: 25px;
 }
-.slide::before {
-  content: "";
+.card{
+  border-radius: 25px;
+  background-color: #FFF;
+}
+.image-content,
+.card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.image-content{
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+.overlay{
   position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 10;
+  background-color: #4070F4;
+  border-radius: 25px 25px 0 25px;
 }
-.slide .image {
+.overlay::before,
+.overlay::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: #4070F4;
+}
+.overlay::after{
+  border-radius: 0 25px 0 0;
+  background-color: #FFF;
+}
+.card-image{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+}
+.card-image .card-img{
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070F4;
 }
-.slide .image-data {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
-  z-index: 100;
-}
-.image-data span.text {
-  font-size: 14px;
-  font-weight: 400;
-  color: #fff;
-}
-.image-data h2 {
-  font-size: 45px;
-  font-weight: 600;
-  color: #fff;
-}
-a.button {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 25px;
+.name{
+  font-size: 18px;
+  font-weight: 500;
   color: #333;
-  background: #fff;
-  text-decoration: none;
-  margin-top: 25px;
+}
+.description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+.button{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
-a.button:hover {
-  color: #fff;
-  background-color: #c87e4f;
+.button:hover{
+  background: #265DF2;
 }
 
-/* swiper button css */
-.nav-btn {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+.swiper-navBtn{
+  color: #6E93f7;
+  transition: color 0.3s ease;
 }
-.nav-btn:hover {
-  background: rgba(255, 255, 255, 0.4);
+.swiper-navBtn:hover{
+  color: #4070F4;
 }
-.swiper-button-next {
-  right: 50px;
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+  font-size: 35px;
 }
-.swiper-button-prev {
-  left: 50px;
+.swiper-button-next{
+  right: 0;
 }
-.nav-btn::before,
-.nav-btn::after {
-  font-size: 25px;
-  color: #fff;
+.swiper-button-prev{
+  left: 0;
 }
-.swiper-pagination-bullet {
+.swiper-pagination-bullet{
+  background-color: #6E93f7;
   opacity: 1;
-  height: 12px;
-  width: 12px;
-  background-color: #fff;
-  visibility: hidden;
 }
-.swiper-pagination-bullet-active {
-  border: 2px solid #fff;
-  background-color: #c87e4f;
+.swiper-pagination-bullet-active{
+  background-color: #4070F4;
 }
 
 @media screen and (max-width: 768px) {
-  .nav-btn {
-    visibility: hidden;
+  .slide-content{
+    margin: 0 10px;
   }
-  .swiper-pagination-bullet {
-    visibility: visible;
+  .swiper-navBtn{
+    display: none;
   }
 }

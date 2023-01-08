@@ -9,7 +9,6 @@ p {
 	  width: 100%;
 	}
   }
-  
   .socials {
 	width: 100%;
   }
@@ -122,16 +121,14 @@ p {
   }
   /*FOR CUISINE CATEGORY*/
   .row a.cuisines {
-    color:black;
-    background-color: #fff;
-    border: 1px solid black;
+    color:rgb(255,128,64);
+    border: 1px solid rgb(255,128,64);
     border-radius: 4px;
     padding: 10px 20px;
-    min-width:150px;
-    gap:12px;
+    height: 100px;
     transition: background-color .2s,color .2s
   }
   .row a.cuisines:hover {
-    background-color:black;
+    background-color:rgb(255,128,64);
     color:#fff;
   }

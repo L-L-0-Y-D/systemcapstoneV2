@@ -3,6 +3,13 @@
     include('functions/userfunctions.php');
     include('includes/header.php');
 ?>
+<head>
+     <!-- Swiper CSS -->
+     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/cuisine.css">
+</head>
  <header class="masthead "  style="padding-top:180px;background-image:url(uploads/layout3.jpeg); background-position:top center;background-attachment:fixed; background-size:cover;">
         <div class="container">
             <div class="intro-text" style="color: var(--bs-dark);padding-top: 40px;">
@@ -63,6 +70,7 @@
                     <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 35px;">Locate where your favorite spot in&nbsp;</h3>
                 </div>
             </div>
+
             <div class="row">
                <div class="col mb-5">
                     <?php
@@ -172,5 +180,9 @@
             </div>
         </div>
     </section>
- 
+     <!-- Swiper JS -->
+     <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="assets/js/cuisine.js"></script>
 <?php include('includes/footer.php');?>
