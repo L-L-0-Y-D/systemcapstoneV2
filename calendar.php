@@ -133,7 +133,7 @@ function build_calendar($month,$year,$resourceid){
         $result = $stmt -> get_result();
         if($result -> num_rows > 0)
         {
-            $calendar.="<label class='float-start pt-1'>Choose table you'll accomodate :&nbsp; &nbsp;</label><select id='resource_select' class='form-select-sm border-1 mb-3' required>";
+            $calendar.="<label class='float-start pt-1'>Choose table you'll accomodate :</label><span style='color:red;'>*</span><select id='resource_select' class='form-select-sm border-1 mb-3 w-100' required>";
             $calendar.="<option value='' disabled selected hidden>Please Select Table</option>";
 
             while($row = $result -> fetch_assoc())

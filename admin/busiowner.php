@@ -5,6 +5,10 @@ include('includes/header.php');
 
 
 ?>
+<head>
+    <link rel="stylesheet" href="assets/css/for-permit.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+</head>
 <?php
     if(isset($_GET['page_no']) && $_GET['page_no']) {
         $page_no = $_GET['page_no'];
@@ -105,6 +109,50 @@ include('includes/header.php');
                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                             </div>
                                                                             <div class="modal-body">
+<<<<<<< HEAD
+                                                                            <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
+                                                                            <section class="main swiper mySwiper">
+      <div class="wrapper swiper-wrapper">
+        <div class="slide swiper-slide">
+          <img src="images/img1.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">Enjoy the finest coffee drinks.</span>
+            <h2>
+              Enjoy Our Exclusive <br />
+              Coffee and Cocktails
+            </h2>
+            <a href="#" class="button">About Us</a>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <img src="images/img2.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">We really like what we do.</span>
+            <h2>
+              Coffee Beans with a <br />
+              Perfect Aroma
+            </h2>
+            <a href="#" class="button">About Us</a>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <img src="images/img3.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">Making Our coffee with lover.</span>
+            <h2>
+              Alluring and Fragrant <br />
+              Coffee Aroma
+            </h2>
+            <a href="#" class="button">About Us</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+=======
                                                                             <!--<img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">-->
                                                                             <div id="image-slider" class="splide">
                                                                                 <div class="splide__track">
@@ -125,6 +173,7 @@ include('includes/header.php');
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+>>>>>>> e3657cd5d775fabf3ced167f2d6c8d1f85aac477
                                                                             <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                             </div>
@@ -197,15 +246,22 @@ include('includes/header.php');
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     <script>
-    document.addEventListener( 'DOMContentLoaded', function () {
-        new Splide( '#image-slider' ).mount();
-    } );
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
     </script>
-    <script>
-    new Splide( '#image-slider' ).mount();
-    </script>
+<script src="assets/js/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
