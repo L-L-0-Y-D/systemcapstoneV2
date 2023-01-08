@@ -32,7 +32,7 @@ include('includes/header.php');
     $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
     //query string
-    $table_query = "SELECT business.businessid,business.archive,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.opening,business.closing,municipality.municipality_name,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
+    $table_query = "SELECT business.businessid,business.archive,business.image_scert,business.image_fcert,business.image_bcert,business.business_number,business.duration,business.business_name,business.business_address,business.latitude,business.longitude,business.municipalityid,business.opening,business.closing,municipality.municipality_name,business.cuisinename,business.image_cert,business.business_firstname,business.business_lastname,business.business_phonenumber,business.business_owneraddress,business.business_email,business.business_password,business.image,business.role_as,business.status,business.created_at
     FROM business
     JOIN municipality
     ON business.municipalityid=municipality.municipalityid
@@ -116,7 +116,7 @@ include('includes/header.php');
                                                                                                 <img src="../certificate/<?= $item['image_scert']; ?>" width="100%" height="100%" alt="<?= $item['image_scert']; ?>">
                                                                                             </li>
                                                                                             <li class="splide__slide">
-                                                                                                <img src="../certificate/<?= $item['image_fscert']; ?>" width="100%" height="100%" alt="<?= $item['image_fscert']; ?>">
+                                                                                                <img src="../certificate/<?= $item['image_fcert']; ?>" width="100%" height="100%" alt="<?= $item['image_fcert']; ?>">
                                                                                             </li>
                                                                                             <li class="splide__slide">
                                                                                                 <img src="../certificate/<?= $item['image_bcert']; ?>" width="100%" height="100%" alt="<?= $item['image_bcert']; ?>">
