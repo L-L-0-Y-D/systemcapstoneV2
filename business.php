@@ -53,7 +53,7 @@
 
 </head>
 <body>
-    <div class="container my-5 h-50">
+    <div class="container my-5">
         <div class="row pt-5 m-0 ">
             <div class="heading mt-5">
                <h2 >Top Restaurants in <?= $data['municipality_name']; ?></h2>   
@@ -80,10 +80,10 @@
                 </div>
                 <div class="product-info">
                     <a href="businessview.php?id=<?=$item['businessid'];?>" class="d-block text-dark text-decoration-none product-name"><?= $item['business_name']; ?></a>
-                    <span class="product-type"><?= $item['business_address']; ?></span><br> 
+                    <span class="product-type"><i classs="fas fa-map-marker"></i><?= $item['business_address']; ?></span><br> 
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>
-                    <div class="rating d-flex ">
+                    <div class="rating d-flex text-bg-warning">
                         <span>
                         <?php
                             $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";
