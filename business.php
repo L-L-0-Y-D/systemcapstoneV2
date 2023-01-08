@@ -83,7 +83,7 @@
                     <span class="product-type"><i classs="fas fa-map-marker"></i><?= $item['business_address']; ?></span><br> 
                     <span class="product-type"><?= $item['cuisinename']; ?></span><br>         
                     <span class="product-price">Opening:<?= date("g:i a", strtotime($item['opening'])); ?> - Closing:<?= date("g:i a", strtotime($item['closing'])); ?></span>
-                    <div class="rating d-flex text-bg-warning">
+                    <div class="rating d-flex">
                         <span>
                         <?php
                             $query_rating = "SELECT ROUND(AVG(user_rating),1) AS averagerating FROM review_table WHERE businessid = $businessid ORDER BY review_id";

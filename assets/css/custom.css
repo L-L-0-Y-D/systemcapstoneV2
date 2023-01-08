@@ -297,7 +297,9 @@
     cursor: pointer;
     transition: 1s;
   }
-  
+  .manual-btn.active {
+    background: rgb(255, 128, 64);
+  }
   .manual-btn:not(:last-child){
     margin-right: 40px;
   }
