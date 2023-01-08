@@ -120,6 +120,8 @@ include('includes/header.php');
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
+                                                                                    </div>
+                                                                                    <div class="slide-content">
                                                                                         <div class="card-wrapper swiper-wrapper">
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
@@ -127,6 +129,8 @@ include('includes/header.php');
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
+                                                                                    </div>
+                                                                                    <div class="slide-content">
                                                                                         <div class="card-wrapper swiper-wrapper">
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
@@ -134,6 +138,8 @@ include('includes/header.php');
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
+                                                                                    </div>
+                                                                                    <div class="slide-content">
                                                                                         <div class="card-wrapper swiper-wrapper">
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
@@ -141,6 +147,7 @@ include('includes/header.php');
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
+                                                                                    </div>
                                                                                     </div>
                                                                                     <div class="swiper-button-next swiper-navBtn"></div>
                                                                                     <div class="swiper-button-prev swiper-navBtn"></div>
