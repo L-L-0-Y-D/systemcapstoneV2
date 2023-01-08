@@ -110,8 +110,24 @@ include('includes/header.php');
                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                            <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
-                                                                        
+                                                                            <body class="slide-permit">
+                                                                                <div class="slide-container swiper">
+                                                                                    <div class="slide-content">
+                                                                                        <div class="card-wrapper swiper-wrapper">
+                                                                                            <div class="card swiper-slide">
+                                                                                                <div class="image-content">
+                                                                                                <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="swiper-button-next swiper-navBtn"></div>
+                                                                                    <div class="swiper-button-prev swiper-navBtn"></div>
+                                                                                    <div class="swiper-pagination"></div>
+                                                                                </div>  
+                                                                            </body>
+                                                                            </div>
                                                                             <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                             </div>
@@ -138,7 +154,7 @@ include('includes/header.php');
                                                             <td>
                                                             <a href="edit-business.php?id=<?= $item['businessid']; ?>" class="btn btn-sm edit-btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></a>
                                                             </td>
-
+                                                            
                                                             <!-- <td>
                                                                 <button type="button" class="btn btn-sm btn-danger delete_business_btn" value="<?= $item['businessid']; ?>" >Delete</button>
                                                             </td> -->
@@ -147,23 +163,6 @@ include('includes/header.php');
                                                             <td><button type="submit" class="btn btn-sm btn-danger"  name="archive_business_btn"><i class="fas fa-archive"></i></button></td>
                                                             </form>
                                                     </tr>
-                                                    <body class="slide-permit">
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                        <img src="../certificate/<?= $item['image_cert']; ?>" width="100%" height="100%" alt="<?= $item['image_cert']; ?>">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-        </div>  
-    </body>
                                                 <?php
                                             }
                                         }
