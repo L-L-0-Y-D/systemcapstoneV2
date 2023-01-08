@@ -147,9 +147,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
+                                            <!-- oninput="checkPassword();" -->
                                                 <div class="mb-3 form-content">
                                                     <label class="form-label" for="city"><strong>Password</strong></label>
-                                                    <input name="password" required placeholder="Enter Password" type="password" id="password" oninput="checkPassword();" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                                                    <input name="password" required placeholder="Enter Password" type="password" id="password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                     <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <div id="pwordValidation">
                                                         <h3>Password must contain the following:</h3>

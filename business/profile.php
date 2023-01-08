@@ -216,11 +216,11 @@ include('includes/header.php');
                             </div>
                             <div class="form-content">
                                 <label class="form-label" for=""><strong>Password</strong></label>
-<<<<<<< HEAD
+
                                 <input name='business_password' id="businesspassword" placeholder="Enter Password" type="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
-=======
-                                <input name='business_password' id="businesspassword" oninput="checkBusiPassword();" placeholder="Enter Password" type="password"  title="Password" required>  
->>>>>>> 0815a5b0cede39716776af21018654fcaedc1d14
+
+                                <!-- <input name='business_password' id="businesspassword" oninput="checkBusiPassword();" placeholder="Enter Password" type="password"  title="Password" required>   -->
+
                             </div>
                             <div class="form-check form-switch">
                                 <input type="hidden" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>
