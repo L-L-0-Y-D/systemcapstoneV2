@@ -548,15 +548,15 @@
                                                         <div class="clean-pricing-item">
                                                             <div class="portfolio-hover" style="border-radius:10px;">
                                                                 <div class="portfolio-hover-content">
-                                                                    <div class="bg-danger"><span class="moreText"><?= $item['description']; ?></span></div>
+                                                                    <div class="bg-danger"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
+                                                            <span class="moreText"><?= $item['description']; ?></span></p></div>
                                                                 </div>
                                                             </div>
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>
-                                                            <p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
-                                                            </p>
+                                                            
                                                             <div class="price">
                                                                 <div class="row">
                                                                     <div class="col">
