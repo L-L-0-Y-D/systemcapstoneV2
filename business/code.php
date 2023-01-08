@@ -367,7 +367,7 @@ else if(isset($_POST['edit_business_btn']))
         $update_filename_scert = $old_image_scert;
     }
 
-    if($new_image_fscert != "")
+    if($new_image_fcert != "")
     {
         //$update_filename = $new_image;
         $image_fcert_ext = pathinfo($new_image_fcert, PATHINFO_EXTENSION);
@@ -389,7 +389,7 @@ else if(isset($_POST['edit_business_btn']))
         //     redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
 
         // }    // Validate image file size that is greater
-        else if (($_FILES["image_cert"]["size"] > 10000000)) {
+        else if (($_FILES["image_fcert"]["size"] > 10000000)) {
 
             redirect("profile.php?id=$businessid", "Image size exceeds 10MB", "warning");
         }
@@ -399,7 +399,7 @@ else if(isset($_POST['edit_business_btn']))
         $update_filename_fcert = $old_image_fcert;
     }
 
-    if($new_image_bscert != "")
+    if($new_image_bcert != "")
     {
         //$update_filename = $new_image;
         $image_bcert_ext = pathinfo($new_image_bcert, PATHINFO_EXTENSION);
@@ -421,7 +421,7 @@ else if(isset($_POST['edit_business_btn']))
         //     redirect("profile.php?id=$businessid", "Image size less than 800KB", "warning");
 
         // }    // Validate image file size that is greater
-        else if (($_FILES["image_cert"]["size"] > 10000000)) {
+        else if (($_FILES["image_bcert"]["size"] > 10000000)) {
 
             redirect("profile.php?id=$businessid", "Image size exceeds 10MB", "warning");
         }
