@@ -640,7 +640,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>APPETIZER</h1>                                        
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;APPETIZER</h1>                                        
                                                 <div class="row">  
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -750,7 +750,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>SOUP</h1>                                          
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;SOUP</h1>                                          
                                                 <div class="row">    
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -970,7 +970,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>MEAT DISH</h1>
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;MEAT DISH</h1>
                                                 <div class="row">   
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -1080,7 +1080,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>MAIN COURSE</h1>                                         
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;MAIN COURSE</h1>                                         
                                                 <div class="row">   
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -1190,7 +1190,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>SALAD</h1>                                       
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;SALAD</h1>                                       
                                                 <div class="row">  
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
@@ -1300,7 +1300,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-start"><i class="fas fa-utensils"></i>DESSERT</h1>                                
+                                            <h1 class="text-start"><i class="fas fa-utensils"></i>&nbsp;DESSERT</h1>                                
                                                 <div class="row">
                                                     <?php
                                                         if(mysqli_num_rows($product) > 0)
