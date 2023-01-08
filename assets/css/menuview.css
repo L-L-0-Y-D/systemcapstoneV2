@@ -108,14 +108,15 @@
     padding: 10px 20px;
     margin-top: 20px;
   }
+
+
+  
   .menu-container {
     position: relative;
   }
   
   .menu-container .image {
     display: block;
-    width: 100%;
-    height: auto;
   }
   
   .menu-container .overlay {
