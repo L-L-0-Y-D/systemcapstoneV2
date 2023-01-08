@@ -548,7 +548,7 @@
                                                         <div class="clean-pricing-item">
                                                             <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="heading">
-                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6>
+                                                                <h6 class="mb-0 "><?= $item['name']; ?></h6><hr>
                                                             </div>  
                                                             <div class="descript"><p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
                                                             <span class="moreText">&nbsp;&nbsp;&nbsp;&nbsp;<?= $item['description']; ?></span></p></div>
