@@ -551,7 +551,7 @@
                                                                 <h6 class="mb-0 "><?= $item['name']; ?></h6>
                                                             </div>
                                                             <p class="text"><?= $item['cuisinename']; ?> Cuisine<br>
-                                                            <span class="moreText"><?= $item['description']; ?></span></p>
+                                                            <div class="moreText scroll-text"><?= $item['description']; ?></div></p>
                                                             <div class="price">
                                                                 <div class="row">
                                                                     <div class="col">
