@@ -121,7 +121,6 @@ include('includes/header.php');
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
                                                                                     <div class="swiper-button-next swiper-navBtn"></div>
                                                                                     <div class="swiper-button-prev swiper-navBtn"></div>
                                                                                     <div class="swiper-pagination"></div>
