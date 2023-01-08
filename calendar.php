@@ -126,7 +126,7 @@ function build_calendar($month,$year,$resourceid){
     //Add
    
     
-    $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE businessid = ? AND status = '1'");
+    $stmt = $mysqli->prepare("SELECT * FROM managetable WHERE businessid = ? AND status = '1' ORDER BY table_number ASC");
     $stmt -> bind_param('i', $id);
     if($stmt -> execute())
     {
@@ -138,7 +138,7 @@ function build_calendar($month,$year,$resourceid){
 
             while($row = $result -> fetch_assoc())
             {
-                
+
                 $selected = $resourceid==$row['tableid'] ? 'selected':'';
                 $calendar.= "<option $selected value='{$row['tableid']}'> Table {$row['table_number']} - for {$row['chair']}</option>";
             }

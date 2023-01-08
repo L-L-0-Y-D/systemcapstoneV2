@@ -506,7 +506,7 @@ elseif(isset($_POST['verify_otp'])){ // send OTP
     $otp = $_POST['otp'];
     $email = $_SESSION['EMAIL'];
 
-    $verify_query = "SELECT * FROM users WHERE email='$email' AND otp='$otp' ";
+    $verify_query = "SELECT * FROM users WHERE email='$email' OR name='$email' AND otp='$otp' ";
     $verify_query_run = mysqli_query($con, $verify_query);
 
     if(mysqli_num_rows($verify_query_run) > 0)
