@@ -546,6 +546,7 @@
                                                     ?>                                      
                                                     <div class="col-md-3">
                                                         <div class="clean-pricing-item">
+
                                                             <div class="menu-container">
                                                                 <img class="rounded img-fluid" src="uploads/<?= $item['image']; ?>" style="opacity: 1;">
                                                             <div class="overlay"><p class="text"><br>
@@ -807,7 +808,7 @@
                                                                         <p>₱<?= $item['price']; ?></p>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <button class="btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
+                                                                        <button class="view btn btn-primary d-block w-100" type="submit" href="#menu_description<?= $item['productid'] ?>">View</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1425,29 +1426,13 @@
 
 
     //for show more
-    const readMoreBtn = document.querySelector(".read-more-btn");
-    const text = document.querySelector(".text");
+    $(".view").on('click', function() {
+  $(this).children(".overlay").css('height', '100%');
+});
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    readMoreBtn.addEventListener("click", (e) => {
-    text.classList.toggle("show-more");
-    
-    });
 
-    // *********************
-    // This Code is for only the floating card in right bottom corner
-    // **********************
 
-    const touchButton = document.querySelector(".float-text");
-    const card = document.querySelector(".float-card-info");
-    const close = document.querySelector(".gg-close-r");
-
-    touchButton.addEventListener("click", moveCard);
-    close.addEventListener("click", moveCard);
-
-    function moveCard() {
-    card.classList.toggle("active");
-    }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
