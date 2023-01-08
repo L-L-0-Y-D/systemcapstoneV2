@@ -53,7 +53,7 @@
 
 </head>
 <body>
-    <div class="container my-5">
+    <div class="container my-5 h-50">
         <div class="row pt-5 m-0 ">
             <div class="heading mt-5">
                <h2 >Top Restaurants in <?= $data['municipality_name']; ?></h2>   
