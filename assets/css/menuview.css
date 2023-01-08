@@ -13,14 +13,12 @@
     display: none;
   }
   .descript {
-    height:20vh;
+    height:17vh;
     padding-top:0;
     margin: 5px 0px ;
   }
   .descript p {
     height:100px;
-  }
-  .descript p span {
     text-align: justify;
     overflow: hidden;
     overflow-y: scroll;
