@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="assets/css/untitled.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <footer class="text-white sticky-footer">
     <div class="container " >
         <div class="row ">
@@ -8,8 +10,8 @@
             </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons ">
-                        <li class="list-inline-item"><a href="mailto:ieatwebsite@gmail.com"><i class="fa fa-google"></i></a></li>
-                        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100087262523820"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="mailto:ieatwebsite@gmail.com"><i class="fas fa-google"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100087262523820"><i class="fas fa-facebook"></i></a></li>
                         <li class="list-inline-item"><a href="https://www.instagram.com/ieat.website/"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 </div>
