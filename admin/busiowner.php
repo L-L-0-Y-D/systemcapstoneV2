@@ -130,7 +130,7 @@ include('includes/header.php');
                                                                                             <div class="card swiper-slide">
                                                                                                 <div class="image-content">
                                                                                                 <h5 class="fw-bold">Fire Safety Permit</h5>
-                                                                                                <img src="../certificate/<?= $item['image_fscert']; ?>" alt="<?= $item['image_fscert']; ?>">
+                                                                                                <img src="../certificate/<?= $item['image_fcert']; ?>" alt="<?= $item['image_fcert']; ?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="card swiper-slide">

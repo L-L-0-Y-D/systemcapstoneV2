@@ -275,10 +275,10 @@ include('includes/header.php');
                     <div class="card-body shadow">
                         <a href="../certificate/<?= $data['image_fcert'] ?>">
                         <img class="rounded mb-3 mt-3" src="../certificate/<?= $data['image_fcert'] ?>" width="160" height="160"></a>
-                        <input type="hidden" name="old_image_fscert" value="<?= $data['image_fcert'] ?>"><br>
+                        <input type="hidden" name="old_image_fcert" value="<?= $data['image_fcert'] ?>"><br>
                         <div class="form-content">
                             <label class="form-label float-start" >Upload your Fire Safety Permit<br></label>
-                            <input type="file" name="image_fscert" id="imagefscert" accept=".jpg, .jpeg, .png" onchange="return fscertValidation();">
+                            <input type="file" name="image_fcert" id="imagefscert" accept=".jpg, .jpeg, .png" onchange="return fscertValidation();">
                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><br><small>Error message</small>
                         </div>
                     </div>
