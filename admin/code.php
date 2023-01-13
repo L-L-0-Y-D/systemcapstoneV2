@@ -408,7 +408,7 @@ else if(isset($_POST['add_customer_btn'])){
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $firstname = mysqli_real_escape_string($con,$_POST['firstname']);
     $lastname = mysqli_real_escape_string($con,$_POST['lastname']);
-    $age = mysqli_real_escape_string($con,$_POST['age']);
+    // $age = mysqli_real_escape_string($con,$_POST['age']);
     $phonenumber = mysqli_real_escape_string($con,$_POST['phonenumber']);
     $address = mysqli_real_escape_string($con,$_POST['address']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
@@ -473,16 +473,16 @@ else if(isset($_POST['add_customer_btn'])){
         // Check if password Match
         if($password == $confirmpassword)
         {
-            if($age >= '18')
-                {
+            // if($age >= '18')
+            //     {
                     if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
                     {
                         if(strlen($_POST['password']) >= 8 )
                         {
                             // Insert User Data
                             $hash = password_hash($password, PASSWORD_DEFAULT);
-                            $insert_query = "INSERT INTO users (name, email, firstname, lastname, age, phonenumber, address, password, role_as, image, status) 
-                            VALUES ('$name','$email','$firstname','$lastname', $age, '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
+                            $insert_query = "INSERT INTO users (name, email, firstname, lastname, phonenumber, address, password, role_as, image, status) 
+                            VALUES ('$name','$email','$firstname','$lastname', '$phonenumber', '$address', '$hash', $role_as,'$filename', '$status')";
                             //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                             $users_query_run = mysqli_query($con, $insert_query);
                         
@@ -517,11 +517,11 @@ else if(isset($_POST['add_customer_btn'])){
                     {
                         redirect("add-customer.php", "Phone number error detected", "warning");
                     }
-                }
-                else
-                {
-                    redirect("add-customer.php", "Underage Detected", "warning");
-                }
+                // }
+                // else
+                // {
+                //     redirect("add-customer.php", "Underage Detected", "warning");
+                // }
 
         }
         else
@@ -538,7 +538,7 @@ else if(isset($_POST['update_customer_btn']))
     $email = $_POST['email'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $age = $_POST['age'];
+    // $age = $_POST['age'];
     $phonenumber = $_POST['phonenumber'];
     $address = $_POST['address'];
     $password = $_POST['password'];
@@ -584,13 +584,13 @@ else if(isset($_POST['update_customer_btn']))
         // Check if password Match
         if($password == $confirmpassword)
         {
-            if($age >= '18')
-                {
+            // if($age >= '18')
+            //     {
                     if(preg_match("/^[0-9]\d{10}$/",$_POST['phonenumber']))
                     {
                         
                             $path = "../uploads";
-                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
                             //mysqli_query($con,$update_query) or die("bad query: $update_query");
 
                             $update_query_run = mysqli_query($con, $update_query);
@@ -599,11 +599,11 @@ else if(isset($_POST['update_customer_btn']))
                     {
                         redirect("add-customers.php", "Phone number error detected", "warning");
                     }
-                }
-                else
-                {
-                    redirect("add-customers.php", "Underage Detected", "warning");
-                }
+                // }
+                // else
+                // {
+                //     redirect("add-customers.php", "Underage Detected", "warning");
+                // }
 
         }
         else
@@ -723,7 +723,7 @@ else if(isset($_POST['update_admin_btn']))
                         if(strlen($_POST['password']) >= 8 )
                         {
                             //$hash = password_hash($password, PASSWORD_DEFAULT);
-                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',age=$age,phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
                             //mysqli_query($con,$update_query) or die("bad query: $update_query");
                             $update_query_run = mysqli_query($con, $update_query);
                         }

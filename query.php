@@ -16,7 +16,7 @@ if(isset($_POST["query"]))
     {
         while($row = mysqli_fetch_array($result))
         {
-            $output .= '<li id="businesslist">'.$row["business_name"].' ('.$row["municipality_name"].')</li>';
+            $output .= '<li ><span id="businesslist">'.$row["business_name"].'</span>('.$row["municipality_name"].')</li>';
         }
     }
     else

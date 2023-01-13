@@ -65,7 +65,7 @@ include('includes/header.php');
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Address</th>
-                                    <th>Age</th>
+                                    <!-- <th>Age</th> -->
                                     <th>Status</th>
                                     <th>Role</th>
                                     <th>Action</th>
@@ -90,7 +90,7 @@ include('includes/header.php');
                                                         <td><?= $item['firstname']; ?></td>
                                                         <td><?= $item['lastname']; ?></td>
                                                         <td><?= $item['address']; ?></td>
-                                                        <td><?= $item['age']; ?></td>
+                                                        <!-- <td><?= $item['age']; ?></td> -->
                                                         <td><?php 
                                                                 if($item['status'] == 0)
                                                                     { echo 'Waiting'; } 
