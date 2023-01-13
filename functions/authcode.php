@@ -18,6 +18,7 @@ if(isset($_POST['registerbutton']))
     $role_as = mysqli_real_escape_string($con,$_POST['role_as']);
     $verify_token = md5(rand());
     $image = "profile.jpg";
+    $status = "1";
 
     $user_data = 'name='.$name.'&email='.$email.'&firstname='.$firstname.'&dateofbirth='.$dateofbirth.'&lastname='.$lastname.'&phonenumber='.$phonenumber;
 
@@ -87,20 +88,20 @@ if(isset($_POST['registerbutton']))
             {
                 if(preg_match("/^09[0-9]\d{8}$/",$_POST['phonenumber']))
                 {
-                    if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/",$_POST['password']))
+                    if(preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/",$password))
                     {
                         // Insert User Data
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, age, phonenumber, password, role_as, image, verify_token) 
-                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , $age, '$phonenumber', '$hash', $role_as,'$image', '$verify_token')";
+                        $insert_query = "INSERT INTO users (name, email, firstname, lastname, dateofbirth, phonenumber, password, role_as, image, verify_token, status) 
+                        VALUES ('$name','$email','$firstname','$lastname', '$dateofbirth' , '$phonenumber', '$hash', $role_as,'$image', '$verify_token', '$status')";
                         //mysqli_query($con,$insert_query) or die("bad query: $insert_query");
                         $users_query_run = mysqli_query($con, $insert_query);
 
                             if($users_query_run){
                                 move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-                                sendemail_verify("$name","$email","$verify_token");
+                                // sendemail_verify("$name","$email","$verify_token");
                                 // sendphonenumber_confirmverification($name, $phonenumber, $verify_token, $user_data);
-                                redirect("../login.php", "Registration Success Please verify your account to login", "success");
+                                redirect("../login.php", "Registration Successfully", "success");
                             }
                             else
                             {
@@ -262,7 +263,7 @@ elseif(isset($_POST['update_profile_btn']))
                         if(strlen($_POST['password']) >= 8 )
                         {
                             //$hash = password_hash($password, PASSWORD_DEFAULT);
-                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',dateofbirth='$dateofbirth',age='$age',phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
+                            $update_query = "UPDATE users SET name='$name',email='$email',firstname='$firstname',lastname='$lastname',dateofbirth='$dateofbirth',phonenumber='$phonenumber',address='$address',role_as='$role_as', image='$update_filename', status='$status' WHERE userid='$userid'";
                             //mysqli_query($con,$update_query) or die("bad query: $update_query");
                             $update_query_run = mysqli_query($con, $update_query);
                         }

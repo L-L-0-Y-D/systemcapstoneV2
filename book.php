@@ -156,7 +156,7 @@ function timeslots($duration, $cleanup, $start, $end)
             break;
         }
 
-        $slots[] = $intStart -> format("H:iA")."-".$endPeriod -> format("H:iA");
+        $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
         // count($slots);
     }
 

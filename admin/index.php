@@ -163,7 +163,7 @@ include('includes/header.php');
                                                                         <th>Username</th>
                                                                         <th>Email</th>
                                                                         <th>Phone Number</th>
-                                                                        <th>Age</th>
+                                                                        <!-- <th>Age</th> -->
                                                                     </tr>
                                                                 </thead>
                                                                 
@@ -182,7 +182,7 @@ include('includes/header.php');
                                                                                         <td><?= $item['name']; ?></td>
                                                                                         <td><?= $item['email']; ?></td>
                                                                                         <td><?= $item['phonenumber']; ?></td>
-                                                                                        <td><?= $item['age']; ?></td>
+                                                                                        <!-- <td><?= $item['age']; ?></td> -->
                                                                                     </tr>
                                                                                 <?php
                                                                             }

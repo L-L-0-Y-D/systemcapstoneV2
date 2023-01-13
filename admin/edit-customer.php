@@ -56,10 +56,10 @@ include('includes/header.php');
                                 <label for="">Last Name:</label>
                                 <input type="text" name="lastname" required value="<?= $data['lastname'] ?>" placeholder="Enter Last Name" class="form-control" readonly>
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <label for="">Age:</label>
                                 <input type="number" name="age" required value="<?= $data['age'] ?>" placeholder="Enter Age" class="form-control" readonly>
-                            </div>
+                            </div> -->
                             <div class="col-md-6">
                                 <label for="">Phone Number:</label>
                                 <input type="text" name="phonenumber" required value="<?= $data['phonenumber'] ?>" placeholder="Enter Phone Number" class="form-control" readonly>
@@ -68,14 +68,14 @@ include('includes/header.php');
                                 <label for="">Address:</label>
                                 <input type="text" name="address" required value="<?= $data['address'] ?>" placeholder="Enter Address" class="form-control" readonly>
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <label for="">Password:</label>
                                 <input type="password" name="password" required value="<?= $data['password'] ?>" placeholder="Enter Password" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Confirm Password:</label>
                                 <input type="password" name="confirmpassword" required value="<?= $data['password'] ?>" placeholder="Enter Confirm Password" class="form-control" readonly>
-                            </div>
+                            </div> -->
                             <div class="col-md-12">
                                 <input type = "hidden" name='role_as' value = '0'>
                             </div>

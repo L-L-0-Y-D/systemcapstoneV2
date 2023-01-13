@@ -115,14 +115,14 @@ include('includes/header.php');
                                 <label>Complete Address:</label>
                                 <input type="text" name="business_owneraddress" required value="<?= $data['business_owneraddress'] ?>"  required placeholder="Owner Address" class="form-control" readonly>
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <label>Password:</label>
                                 <input type="password" name="business_password" required value="<?= $data['business_password'] ?>"  placeholder="Enter Password" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label >Confirm Password:</label>
                                 <input type="password" name="business_confirmpassword" required value="<?= $data['business_password'] ?>"  placeholder="Enter Confirm Password" class="form-control" readonly>
-                            </div>
+                            </div> -->
                             <!-- <div class="col-md-12">
                                 <label for="">Status</label>
                                 <input type="checkbox" name="status" <?= $data['status'] == '1'? 'checked':'' ?>>

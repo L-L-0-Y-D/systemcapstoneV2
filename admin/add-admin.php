@@ -59,13 +59,13 @@ include('includes/header.php');
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <!-- <div class="col">
                             <div class="form-content">
                                 <label >Age:</label>
                                 <input type="number" name="age" id="age" oninput="checkAge();" required >
                                 <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error Message</small>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col">
                             <div class="form-content">
                                 <label >Phone Number:</label>

@@ -73,7 +73,7 @@
                     <div class="icon"><i id="left" class="fa-solid fa-angle-left"></i></div>
                     <ul class="tabs-box">
                     <?php
-                    $query = "SELECT * FROM mealcategory";
+                    $query = "SELECT * FROM mealcategory WHERE status = '1'";
                     $query_run = mysqli_query($con, $query);
 
                     if(mysqli_num_rows($query_run) > 0)
