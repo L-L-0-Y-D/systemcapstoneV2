@@ -63,6 +63,7 @@ h6 {
 }
 .row .form-checkbox {
   margin: auto 1.5vw;
+  font-size: smaller;
 }
 .btn {
   font-family: 'Poppins', sans-serif!important;
