@@ -31,25 +31,26 @@ if(isset($_GET['id']))
                     <div class="col-md-12">
                         <?php 
                         ?>
-                        <input type="hidden" name="businessid" value="<?= $_SESSION['auth_user']['businessid'];?>">
+                        <input type="hidden" name="businessid[]" value="<?= $_SESSION['auth_user']['businessid'];?>">
+                        <input type="hidden" class="form-control sl" name="slno[]" id="slno[]" value="1" readonly="">
                         <?php
                         ?>
                     </div>
                     <div class="col-md-12">
                         <label >Upload Product Image (Image must be greater than 2MB to get a better quality)</label>
-                        <input type="file" name="image" required class="form-control mb-2">
+                        <input type="file" name="image[]" required class="form-control mb-2">
                     </div>
                     <div class="col-md-6">
                         <label >Product Name:</label>
-                        <input type="text" name="name" required class="form-control mb-2">
+                        <input type="text" name="name[]" required class="form-control mb-2">
                     </div>
                     <div class="col-md-6">
                         <label>Price:</label>
-                        <input type="text" name="price" required class="form-control mb-2">
+                        <input type="text" name="price[]" required class="form-control mb-2">
                     </div>                   
                     <div class="col-md-6">
                         <label >Course Menu:</label>
-						<select  name="food_type" required class="form-control mb-2">
+						<select  name="food_type[]" required class="form-control mb-2">
 							<option disabled selected hidden> Select your Course Menu </option>
 							<option value="Appetizer">Appetizer</option>
 							<option value="Soup">Soup</option>
@@ -63,7 +64,7 @@ if(isset($_GET['id']))
                     </div>
                     <div class="col-md-6">
                         <label >Cuisine Type:</label>
-						<select class= "border rounded form-select mb-3" name="cuisinename" required>
+						<select class= "border rounded form-select mb-3" name="cuisinename[]" required>
                         <option disabled selected hidden>Select your Type of Cuisine</option>
                             <?php 
                                 //$municipality = getAllActive("municipality");
@@ -82,18 +83,18 @@ if(isset($_GET['id']))
                                     }
                                     else
                                     {
-                                        echo "No Municipality Available";
+                                        echo "No Cuisine Available";
                                     }?>
                         </select> 
                     </div>
                     <div class="col-md-12">
                         <label>Product Description:</label>
-                        <textarea rows="3" name="description" required class="form-control mb-2"></textarea>
+                        <textarea rows="3" name="description[]" required class="form-control mb-2"></textarea>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > 
+                                <input class="form-check-input" type="checkbox" id="formCheck-1" name="status[]" > 
                                 <label for="formCheck-1"><strong>Status</strong></label>
                             </div>
                         </div>
@@ -117,29 +118,33 @@ if(isset($_GET['id']))
             });
 
             $(document).on('click', '.add-more-form', function () {
+                var length = $('.sl').length;
+                var i   = parseInt(length)+parseInt(1);
                 $('.paste-new-forms').append('<div class=" main-form row">\
                     <div class="col-md-12">\
                         <?php 
                         ?>
-                        <input type="hidden" name="businessid" value="<?= $_SESSION['auth_user']['businessid'];?>">\
+                        <input type="hidden" name="businessid[]" value="<?= $_SESSION['auth_user']['businessid'];?>"  readonly="">\
+                        <input type="hidden" class="form-control sl" name="slno[]" id="slno[]" value="'+i+'" readonly="">\
+                        <button type="button" class="float-end remove-btn btn btn-danger btn-sm">Remove</button>\
                         <?php
                         ?>
                     </div>\
                     <div class="col-md-12">\
                         <label >Upload Product Image (Image must be greater than 2MB to get a better quality)</label>\
-                        <input type="file" name="image" required class="form-control mb-2">\
+                        <input type="file" name="image[]" required class="form-control mb-2">\
                     </div>\
                     <div class="col-md-6">\
                         <label >Product Name:</label>\
-                        <input type="text" name="name" required class="form-control mb-2">\
+                        <input type="text" name="name[]" required class="form-control mb-2">\
                     </div>\
                     <div class="col-md-6">\
                         <label>Price:</label>\
-                        <input type="text" name="price" required class="form-control mb-2">\
+                        <input type="text" name="price[]" required class="form-control mb-2">\
                     </div>\
                     <div class="col-md-6">\
                         <label >Course Menu:</label>\
-						<select  name="food_type" required class="form-control mb-2">\
+						<select  name="food_type[]" required class="form-control mb-2">\
 							<option disabled selected hidden> Select your Course Menu </option>\
 							<option value="Appetizer">Appetizer</option>\
 							<option value="Soup">Soup</option>\
@@ -153,10 +158,12 @@ if(isset($_GET['id']))
                     </div>\
                     <div class="col-md-6">\
                         <label >Cuisine Type:</label>\
-						<select class= "border rounded form-select mb-3" name="cuisinename" required>\
+						<select class= "border rounded form-select mb-3" name="cuisinename[]" required>\
                         <option disabled selected hidden>Select your Type of Cuisine</option>\
                         <?php
                             //$municipality = getAllActive("municipality");
+                            $id = $_GET['id'];
+                            $business = getByID("business", $id,"businessid");
                             $query = "SELECT * FROM business WHERE status= '1'";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($business) > 0)
@@ -172,20 +179,19 @@ if(isset($_GET['id']))
                             }
                             else
                             {
-                                echo "No Municipality Available";
+                                echo "No Cuisine Available";
                             }?>
                         </select>\
                     </div>\
                     <div class="col-md-12">\
                         <label>Product Description:</label>\
-                        <textarea rows="3" name="description" required class="form-control mb-2"></textarea>\
+                        <textarea rows="3" name="description[]" required class="form-control mb-2"></textarea>\
                     </div>\
                     <div class="row">\
                         <div class="col">\
                             <div class="form-check form-switch">\
-                                <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > \
+                                <input class="form-check-input" type="checkbox" id="formCheck-1" name="status[]" > \
                                 <label for="formCheck-1"><strong>Status</strong></label>\
-                                <button type="button" class="float-end remove-btn btn btn-danger btn-sm">Remove</button>\
                             </div>\
                         </div>\
                     </div>\

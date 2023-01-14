@@ -61,7 +61,27 @@ include('../config/dbcon.php');
                         </div> -->
                 </div>
                     <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivetable.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Archives</a></div>
+                        <div class="float-right">
+                                <a class="btn btn-dark float-end mb-3 mx-2 btn-sm" role="button" href="archivetable.php?id=<?= $_SESSION['auth_user']['businessid'];?>">
+                                    <span class="label">Archives&nbsp;</span>
+                                    <i class="fas fa-archive"></i> 
+                                </a>
+                                <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-2 btn-sm" onclick="formToggle('importFrm');">
+                                    <span class="label">Import&nbsp;</span>
+                                    <i class="fas fa-upload plus"></i> 
+                                </a>
+                                <a href="exportTableData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" class="btn btn-primary float-end mb-3 mx-3 btn-sm">
+                                    <span class="label">Export All&nbsp;</span>
+                                    <i class="fas fa-download exp"></i> 
+                                </a>
+                            </div>
+                            <!-- CSV file upload form -->
+                        <div class="col-md-6 " id="importFrm" style="display: none;">
+                            <form action="importTableData.php?id=<?= $_SESSION['auth_user']['businessid'];?>" method="post" enctype="multipart/form-data">
+                                <input class="float-end mb-3 mx-3 btn-sm" type="file" name="file" accept=".csv" required/>
+                                <input class="btn btn-success float-end mb-3 mx-3 btn-sm" type="submit" class="btn btn-primary" name="importSubmit" value="IMPORT">
+                            </form>
+                        </div>
                     </div>
                 </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -74,6 +94,7 @@ include('../config/dbcon.php');
                                     <th>Action</th>
                                     <!-- <th>Delete</th> -->
                                     <th>Archive</th>
+                                    <th>Export</th>
                                 </tr>
                             </thead>
                             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -101,6 +122,7 @@ include('../config/dbcon.php');
                                                         </td> -->
                                                         <input type="hidden" name="businessid" value="<?= $item['businessid']; ?>">
                                                         <td><button type="submit" class="btn btn-sm btn-danger" value = "<?= $item['tableid']; ?>"  name="archive_table_btn"><i class="fas fa-archive"></i></button></td>
+                                                        <td><a href="exportItemTableData.php?id=<?= $_SESSION['auth_user']['businessid'];?>&tableid=<?= $item['tableid']; ?>" class="btn btn-primary btn-outline-dark"><i class="fas fa-download exp"></i></a></td>
                                                     </tr>
                                                 <?php
                                                 }
@@ -114,6 +136,18 @@ include('../config/dbcon.php');
                             </tbody>
                         </form>
                         </table>
+                    <!-- Show/hide CSV upload form -->
+                    <script>
+
+                        function formToggle(ID){
+                            var element = document.getElementById(ID);
+                            if(element.style.display === "none"){
+                                element.style.display = "block";
+                            }else{
+                                element.style.display = "none";
+                            }
+                        }
+                    </script>
                     </div>
                     <div class="row">
                         <div class="col-md-6 align-self-center">

@@ -115,7 +115,7 @@ if(isset($_GET['id']))
                     <div class="row">\
                         <div class="col">\
                             <div class="form-check form-switch">\
-                                <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > \
+                                <input class="form-check-input" type="checkbox" id="formCheck-1" name="status[]" > \
                                 <label for="formCheck-1"><strong>Status</strong></label>\
                             </div>\
                         </div>\
