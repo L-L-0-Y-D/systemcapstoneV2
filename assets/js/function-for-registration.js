@@ -344,17 +344,26 @@ function checkbusiLname() {
 		setSuccessFor(businesslastname);
 	}	
 }
+function onlyNumberKey(evt) {
+              
+  // Only ASCII character in that range allowed
+  var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+      return false;
+  setSuccessFor(duration);
+  return true;
+}
 
-function checkDuration() {
+//function checkDuration() {
   // trim to remove the whitespaces
-  const durationValue = duration.value.trim();
+  //const durationValue = duration.value.trim();
 
-  if(durationValue === '') {
-    setErrorFor(duration, 'This field is required.');
-  } else {
-    setSuccessFor(duration);
-  }	
-}   
+ // if(durationValue === '') {
+  //  setErrorFor(duration, 'This field is required.');
+ // } else {
+ //   setSuccessFor(duration);
+ // }	
+// }   
  
 function checkbusiPhone() {
 	// trim to remove the whitespaces

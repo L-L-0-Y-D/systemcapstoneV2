@@ -131,10 +131,10 @@ if(isset($_SESSION['auth'])){
                                                     <div class="form-content">
                                                     <label for="">Time Duration For Every Reservation(Minutes)<span style="color:red;">&nbsp;*</span></label>
                                                     <?php if (isset($_GET['duration'])){?>
-                                                            <input type="number" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  oninput="checkDuration();" >
+                                                            <input type="number" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  onkeypress="return onlyNumberKey(event)">
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input type="number" name="duration"  id="duration" oninput="checkDuration();"  required>
+                                                            <input type="number" name="duration"  id="duration" onkeypress="return onlyNumberKey(event)" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                     </div>
