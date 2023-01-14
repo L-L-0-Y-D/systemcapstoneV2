@@ -3,81 +3,155 @@
 include('../config/dbcon.php');
 include('../functions/businessfunctions.php');
 
+// if(isset($_POST['add_product_btn']))
+// {
+//     $businessid = $_POST['businessid'];
+//     $name = $_POST['name'];
+//     $description = $_POST['description'];
+//     $food_type = $_POST['food_type'];
+//     $cuisinename = $_POST['cuisinename'];
+//     $price = $_POST['price'];
+//     $status = isset($_POST['status']) ? "1":"0";
+
+//     $image = $_FILES['image']['name'];
+
+//     $food_data = 'name='.$name.'&description='.$description.'&food_type='.$food_type.'&cuisinename='.$cuisinename.'&price='.$price.'&status='.$status;
+
+//     $path = "../uploads";
+
+//     // Get Image Dimension
+//     $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+
+//     $allowed_image_extension = array(
+//         "png",
+//         "jpg",
+//         "jpeg"
+//     );
+    
+//     // Get image file extension
+//     $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    
+//     // Validate file input to check if is not empty
+//    if (! file_exists($_FILES["image"]["tmp_name"])) {
+       
+//         redirect("add-menu.php?id=$businessid&Choose image file to upload", "Choose image file to upload.", "warning");
+    
+//    }  // Validate file input to check if is with valid extension
+//    else if (! in_array($file_extension, $allowed_image_extension)) {
+
+//        redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
+//    }// Validate image file size less than
+//    else if (($_FILES["image"]["size"] < 8000)) {
+
+//        redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+
+//    }    // Validate image file size that is greater
+//    else if (($_FILES["image"]["size"] > 100000000)) {
+
+//        redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+//    }
+
+//     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+//     $filename = time().'.'.$image_ext;
+
+//     // Check if item already registered
+//     $check_product_query = "SELECT name FROM products WHERE name='$name' AND businessid='$businessid'";
+//     $check_product_query_run = mysqli_query($con, $check_product_query);
+
+//     if(mysqli_num_rows($check_product_query_run)>0)
+//     {
+//         redirect("menu.php?id=$businessid", "Product Already Exist.", "warning");
+//     }
+//     else
+//     {
+
+//         $product_query = "INSERT INTO products (businessid,name,description,cuisinename,food_type,price,status,image) 
+//         VALUES ('$businessid','$name','$description','$cuisinename','$food_type','$price','$status','$filename')";
+
+//         $product_query_run = mysqli_query($con, $product_query);
+
+//         if($product_query_run)
+//         {
+//             move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+//             redirect("menu.php?id=$businessid", "Product Added Successfully", "success");
+//         }else
+//         {
+//             redirect("add-menu.php?id=$businessid", "Something Went Wrong", "error");
+//         }
+//     }
+// }
 if(isset($_POST['add_product_btn']))
 {
-    $businessid = $_POST['businessid'];
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $food_type = $_POST['food_type'];
-    $cuisinename = $_POST['cuisinename'];
-    $price = $_POST['price'];
-    $status = isset($_POST['status']) ? "1":"0";
+    for ($i = 0; $i < count($_POST['slno']); $i++) {
+        $businessid = $_POST['businessid'][$i];
+        $name = $_POST['name'][$i];
+        $description = $_POST['description'][$i];
+        $food_type = $_POST['food_type'][$i];
+        $cuisinename = $_POST['cuisinename'][$i];
+        $price = $_POST['price'][$i];
+        $status = isset($_POST['status'][$i]) ? "1" : "0";
 
-    $image = $_FILES['image']['name'];
+        $image = $_FILES['image']['name'][$i];
 
-    $food_data = 'name='.$name.'&description='.$description.'&food_type='.$food_type.'&cuisinename='.$cuisinename.'&price='.$price.'&status='.$status;
+        $food_data = 'name=' . $name . '&description=' . $description . '&food_type=' . $food_type . '&cuisinename=' . $cuisinename . '&price=' . $price . '&status=' . $status;
 
-    $path = "../uploads";
+        $path = "../uploads";
 
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+        // Get Image Dimension
+        $fileinfo = @getimagesize($_FILES["image"]["tmp_name"][$i]);
 
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
-    
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    
-    // Validate file input to check if is not empty
-   if (! file_exists($_FILES["image"]["tmp_name"])) {
-       
-        redirect("add-menu.php?id=$businessid&Choose image file to upload", "Choose image file to upload.", "warning");
-    
-   }  // Validate file input to check if is with valid extension
-   else if (! in_array($file_extension, $allowed_image_extension)) {
+        $allowed_image_extension = array(
+            "png",
+            "jpg",
+            "jpeg"
+        );
 
-       redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
-   }// Validate image file size less than
-   else if (($_FILES["image"]["size"] < 8000)) {
+        // Get image file extension
+        $file_extension = pathinfo($_FILES["image"]["name"][$i], PATHINFO_EXTENSION);
 
-       redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
+        // Validate file input to check if is not empty
+        if (!file_exists($_FILES["image"]["tmp_name"][$i])) {
 
-   }    // Validate image file size that is greater
-   else if (($_FILES["image"]["size"] > 100000000)) {
+            redirect("add-menu.php?id=$businessid&Choose image file to upload", "Choose image file to upload.", "warning");
 
-       redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
-   }
+        } // Validate file input to check if is with valid extension
+        else if (!in_array($file_extension, $allowed_image_extension)) {
 
-    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
-    $filename = time().'.'.$image_ext;
+            redirect("add-menu.php?id=$businessid", "Upload valid images. Only PNG and JPEG are allowed in business image.", "warning");
+        } // Validate image file size less than
+        else if (($_FILES["image"]["size"][$i] < 8000)) {
 
-    // Check if item already registered
-    $check_product_query = "SELECT name FROM products WHERE name='$name' AND businessid='$businessid'";
-    $check_product_query_run = mysqli_query($con, $check_product_query);
+            redirect("add-menu.php?id=$businessid", "Image size less than 800KB", "warning");
 
-    if(mysqli_num_rows($check_product_query_run)>0)
-    {
-        redirect("menu.php?id=$businessid", "Product Already Exist.", "warning");
-    }
-    else
-    {
+        } // Validate image file size that is greater
+        else if (($_FILES["image"]["size"][$i] > 100000000)) {
 
-        $product_query = "INSERT INTO products (businessid,name,description,cuisinename,food_type,price,status,image) 
+            redirect("add-menu.php?id=$businessid", "Image size exceeds 10MB", "warning");
+        }
+
+        $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+        $filename = 'product' .rand() . '.' . $image_ext;
+
+        // Check if item already registered
+        $check_product_query = "SELECT name FROM products WHERE name='$name' AND businessid='$businessid'";
+        $check_product_query_run = mysqli_query($con, $check_product_query);
+
+        if (mysqli_num_rows($check_product_query_run) > 0) {
+            redirect("menu.php?id=$businessid", "Product Already Exist.", "warning");
+        } else {
+
+            $product_query = "INSERT INTO products (businessid,name,description,cuisinename,food_type,price,status,image) 
         VALUES ('$businessid','$name','$description','$cuisinename','$food_type','$price','$status','$filename')";
 
-        $product_query_run = mysqli_query($con, $product_query);
-
-        if($product_query_run)
-        {
-            move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
-            redirect("menu.php?id=$businessid", "Product Added Successfully", "success");
-        }else
-        {
-            redirect("add-menu.php?id=$businessid", "Something Went Wrong", "error");
+            $product_query_run = mysqli_query($con, $product_query);
+            move_uploaded_file($_FILES['image']['tmp_name'][$i], $path . '/' . $filename);
+            
         }
+    }
+    if ($product_query_run) {
+        redirect("menu.php?id=$businessid", "Product Added Successfully", "success");
+    } else {
+        redirect("add-menu.php?id=$businessid", "Something Went Wrong", "error");
     }
 }
 elseif (isset($_POST['update_product_btn']))
@@ -684,7 +758,7 @@ else if(isset($_POST['add_table_btn']))
         $businessid = $_POST['businessid'][$i];
         $table = $_POST['table'][$i];
         $chair = $_POST['chair'][$i];
-        $status = isset($_POST['status']) ? "1" : "0"[$i];
+        $status = isset($_POST['status'][$i]) ? "1" : "0";
 
         // Check if table already registered
         $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table' AND businessid = '$businessid'";
