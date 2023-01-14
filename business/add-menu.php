@@ -95,7 +95,6 @@ if(isset($_GET['id']))
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > 
                                 <label for="formCheck-1"><strong>Status</strong></label>
-                                <button type="button" class="float-end firstremove-btn btn btn-danger btn-sm">Remove</button>
                             </div>
                         </div>
                     </div>
@@ -115,10 +114,6 @@ if(isset($_GET['id']))
 
             $(document).on('click', '.remove-btn', function () {
                 $(this).closest('.main-form').remove();
-            });
-
-            $(document).on('click', '.firstremove-btn', function () {
-                $(this).closest('.first-form').remove();
             });
 
             $(document).on('click', '.add-more-form', function () {
