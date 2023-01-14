@@ -146,7 +146,7 @@ document.getElementById("pwordValidation").style.display = "none";
 }
 function checkPassword() {
     const passwordValue = password.value.trim();
-	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.*\d)[a-zA-Z\d]{8,}$/;
+	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.*[0-9])(?=.{8,})$/;
 	// If password not entered
 	if (passwordValue == ''){
 	setErrorFor(password, 'Please Enter A Password');
