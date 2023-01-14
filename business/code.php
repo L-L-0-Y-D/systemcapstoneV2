@@ -684,7 +684,7 @@ else if(isset($_POST['add_table_btn']))
         $businessid = $_POST['businessid'][$i];
         $table = $_POST['table'][$i];
         $chair = $_POST['chair'][$i];
-        $status = isset($_POST['status'][$i]) ? "1" : "0";
+        $status = isset($_POST['status']) ? "1" : "0"[$i];
 
         // Check if table already registered
         $check_table_query = "SELECT table_number FROM managetable WHERE table_number='$table' AND businessid = '$businessid'";
