@@ -131,10 +131,10 @@ if(isset($_SESSION['auth'])){
                                                     <div class="form-content">
                                                     <label for="">Time Duration For Every Reservation(Minutes)<span style="color:red;">&nbsp;*</span></label>
                                                     <?php if (isset($_GET['duration'])){?>
-                                                            <input type="number" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  oninput="checkDuration();" >
+                                                            <input type="number" name="duration" id="duration" value="<?= $_GET['duration'] ?>"  required  onkeypress="return onlyNumberKey(event)">
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }else{?>
-                                                            <input type="number" name="duration"  id="duration" oninput="checkDuration();"  required>
+                                                            <input type="number" name="duration"  id="duration" onkeypress="return onlyNumberKey(event)" required>
                                                             <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
                                                     <?php }?>
                                                     </div>
@@ -169,15 +169,13 @@ if(isset($_SESSION['auth'])){
                                                 </div>
                                             </div>    
                                             <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="sameday"></input>
-                                            <label class="form-label text-black">Have same day reservation?</label>                         
-                                                            
-                                            <div class="form-row mt-3">
-                                                <div class="col">
-                                                    <label class="form-label ">Cuisine Type<span style="color:red;">&nbsp;*</span></label>
+                                            <label class="form-label text-black">Have same day reservation?</label><br>                         
+                                            
+                                            <label class="form-label mt-4">Cuisine Type<span style="color:red;">&nbsp;*</span></label>            
+                                            <div class="form-row ">
                                                     <!-- /* The above code is a PHP code that is used to display the cuisine type in the
                                                     form of checkboxes. */ -->
                                                     <?php if (isset($_GET['cuisinename[]'])){?>
-                                                        <div class="col">
                                                             <?php 
                                                             //$category = getAllActive("mealcategory");
                                                             $query_mealcategory = "SELECT * FROM mealcategory WHERE status= '1'";
@@ -187,7 +185,8 @@ if(isset($_SESSION['auth'])){
                                                                 foreach ($query_mealcategory_run as $item)
                                                                 {
                                                                     ?>
-                                                                    <input class= "form-checkbox" type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>" required
+                                                                    <div class="col-md-3">
+                                                                        <input class= "form-checkbox" type="checkbox" name="cuisinename[]" value="<?= $item['categoryname']; ?>" required
                                                                     <?php
                                                                     $cuisine = str_word_count($_GET['cuisinename'],1);
                                                                         foreach ($cuisine as $itemcuisine)
@@ -198,6 +197,7 @@ if(isset($_SESSION['auth'])){
                                                                     }
                                                                     ?>
                                                                     ><?= $item['categoryname']; ?></input>
+                                                                    </div> 
                                                                     <?php
                                                                     }
                                                                         }
@@ -207,10 +207,8 @@ if(isset($_SESSION['auth'])){
                                                                         }
                                                                     ?>
                                                                     <br><a name="addcuisinebtn" href="addcuisine.php" >Add Cuisine Type</a> 
-                                                        </div>  
-                                                        <?php }else{?>
-                                                            <div class="col">
-                                                                <div class="form-check">        
+                                                         
+                                                        <?php }else{?>      
                                                                     <?php 
                                                                         //$category = getAllActive("mealcategory");
                                                                         $query = "SELECT * FROM mealcategory";
@@ -220,7 +218,10 @@ if(isset($_SESSION['auth'])){
                                                                                 foreach ($query_run as $item)
                                                                                     {
                                                                                         ?>
-                                                                                        <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?> </input>
+                                                                                        <div class=" form-check col-md-3">
+                                                                                            <input class= "form-checkbox" type="checkbox" style="margin-right:5px;" name="cuisinename[]" value="<?= $item['categoryname']; ?>"><?= $item['categoryname']; ?> </input>
+                                                                                        </div>
+                                                                                        
                                                                                         <?php
                                                                                     }
                                                                             }
@@ -230,10 +231,7 @@ if(isset($_SESSION['auth'])){
                                                                             }
                                                                     ?>
                                                                     <br><a name="addcuisinebtn" href="addcuisine.php" >Add Cuisine Type</a>   
-                                                                </div>
-                                                            </div>
                                                         <?php }?>
-                                                </div> 
                                             </div>
                                             <div class="button-row d-flex mt-3">
                                                 <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
