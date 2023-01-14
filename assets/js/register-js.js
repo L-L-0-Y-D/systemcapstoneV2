@@ -145,7 +145,7 @@ document.getElementById("pwordValidation").style.display = "none";
 }
 function checkPassword() {
     const passwordValue = password.value.trim();
-	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@#&_!])[a-zA-Z\d\$@#&_!]{8,}$/;
+	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@#&_$!%*?&])[a-zA-Z\d\$@#&_$!%*?&]{8,}$/;
 	// If password not entered
 	if (passwordValue == ''){
 	setErrorFor(password, 'Please Enter A Password');
@@ -174,7 +174,7 @@ function checkPassword() {
 		}
 
 		// Validate Special Characters
-		var specialCharacter = /[$@#&_!]/g;
+		var specialCharacter = /[$@#&_$!%*?&]/g;
 		if(myInput.value.match(specialCharacter)) {  
 		special.classList.remove("invalid");
 		special.classList.add("valid");

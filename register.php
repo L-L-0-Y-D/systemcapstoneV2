@@ -180,7 +180,7 @@ if(isset($_SESSION['auth'])){
                     <h3>Password must contain the following:</h3>
                     <p id="letter" class="invalid">A lowercase letter</p>
                     <p id="capital" class="invalid">An Uppercase letter</p>
-                    <p id="special" class="invalid">A Special Character (example:$@#&_!)</p>
+                    <p id="special" class="invalid">A Special Character (example:$@#&_$!%*?&)</p>
                     <p id="number" class="invalid">A number</p>
                     <p id="length" class="invalid">Must be atleast 8 characters</b></p>
                 </div>
