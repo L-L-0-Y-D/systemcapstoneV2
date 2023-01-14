@@ -45,6 +45,7 @@ include('includes/header.php');
                                     <h3>Password must contain the following:</h3>
                                     <p id="letter" class="invalid">A lowercase letter</p>
                                     <p id="capital" class="invalid">An Uppercase letter</p>
+                                    <p id="special" class="invalid">A Special Character (example:$@#&_!)</p>
                                     <p id="number" class="invalid">A number</p>
                                     <p id="length" class="invalid">Must be atleast 8 characters</b></p>
                                 </div>
@@ -103,6 +104,7 @@ var newpassValidation = document.getElementById('newpassValidation');
 var newBusipassInput = document.getElementById("businesspassword");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
+var special = document.getElementById("special");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
 
@@ -118,7 +120,7 @@ document.getElementById("newpassValidation").style.display = "none";
 }
 function checkNewBusiPass() {
     const newBusipassValue = businesspassword.value.trim();
-    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@#&_!])[a-zA-Z\d\$@#&_!]{8,}$/;
 	// If password not entered
     if (newBusipassValue == ''){
 	setErrorFor(newpass, 'Please Enter A Password');
@@ -146,6 +148,16 @@ function checkNewBusiPass() {
 	capital.classList.add("invalid");
 	}
 
+    // Validate Special Characters
+    var specialCharacter = /[$@#&_!]/g;
+	if(newBusipassInput.value.match(specialCharacter)) {  
+	special.classList.remove("invalid");
+	special.classList.add("valid");
+	} else {
+	special.classList.remove("valid");
+	special.classList.add("invalid");
+	}
+    
 	// Validate numbers
 	var numbers = /[0-9]/g;
 	if(newBusipassInput.value.match(numbers)) {  

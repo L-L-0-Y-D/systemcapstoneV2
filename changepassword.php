@@ -67,11 +67,12 @@
                                 <div class="col-md-12 form-content">                      
                                     <label class="form-label" for="newpass">Enter New Password</label>
                                     <input type="password" name="password" id="newpass"  oninput="checkNewPassword();"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required>
-                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i><small>Error message</small>
+                                    <i class="fas fa-check-circle"></i><i class="fas fa-exclamation-circle"></i>
                                     <div id="newpassValidation">
                                         <h3>Password must contain the following:</h3>
                                         <p id="letter" class="invalid">A lowercase letter</p>
                                         <p id="capital" class="invalid">An Uppercase letter</p>
+                                        <p id="special" class="invalid">A Special Character (example:$@#&_!)</p>
                                         <p id="number" class="invalid">A number</p>
                                         <p id="length" class="invalid">Must be atleast 8 characters</b></p>
                                     </div>
@@ -159,6 +160,7 @@ var newpassValidation = document.getElementById('newpassValidation');
 var newpassInput = document.getElementById("newpass");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
+var special = document.getElementById("special");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
 
@@ -174,7 +176,7 @@ document.getElementById("newpassValidation").style.display = "none";
 }
 function checkNewPassword() {
     const newpasswordValue = newpass.value.trim();
-    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@#&_!])[a-zA-Z\d\$@#&_!]{8,}$/;
 	// If password not entered
     if (newpasswordValue == ''){
 	setErrorFor(newpass, 'Please Enter A Password');
@@ -200,6 +202,16 @@ function checkNewPassword() {
 	} else {
 	capital.classList.remove("valid");
 	capital.classList.add("invalid");
+	}
+
+    // Validate Special Characters
+	var specialCharacter = /[$@#&_!]/g;
+	if(newpassInput.value.match(specialCharacter)) {  
+	special.classList.remove("invalid");
+	special.classList.add("valid");
+	} else {
+	special.classList.remove("valid");
+	special.classList.add("invalid");
 	}
 
 	// Validate numbers

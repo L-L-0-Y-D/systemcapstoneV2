@@ -81,10 +81,6 @@ if(isset($_GET['id']))
                 $(this).closest('.main-form').remove();
             });
 
-            $(document).on('click', '.firstremove-btn', function () {
-                $(this).closest('.first-form').remove();
-            });
-            
             $(document).on('click', '.add-more-form', function () {
                 var length = $('.sl').length;
                 var i   = parseInt(length)+parseInt(1);

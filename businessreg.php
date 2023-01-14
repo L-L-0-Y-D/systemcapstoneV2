@@ -465,6 +465,7 @@ if(isset($_SESSION['auth'])){
                                                         <h3>Password must contain the following:</h3>
                                                         <p id="letter" class="invalid">A lowercase letter</p>
                                                         <p id="capital" class="invalid">An Uppercase letter</p>
+                                                        <p id="special" class="invalid">A Special Character (example:$@#&_!)</p>
                                                         <p id="number" class="invalid">A number</p>
                                                         <p id="length" class="invalid">Must be atleast 8 characters</b></p>
                                                     </div>
@@ -501,6 +502,7 @@ var bpassValidation = document.getElementById('bpassValidation');
 var myInput = document.getElementById("businesspassword");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
+var special = document.getElementById("special");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
 
@@ -516,7 +518,7 @@ document.getElementById("bpassValidation").style.display = "none";
 }
 function checkBusiPassword() {
     const busipasswordValue = businesspassword.value.trim();
-    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@#&_!])[a-zA-Z\d\$@#&_!]{8,}$/;
 	// If password not entered
     if (busipasswordValue == ''){
 	setErrorFor(password, 'Please Enter A Password');
@@ -542,6 +544,16 @@ function checkBusiPassword() {
 	} else {
 	capital.classList.remove("valid");
 	capital.classList.add("invalid");
+	}
+
+    // Validate Special Characters
+	var specialCharacter = /[$@#&_!]/g;
+	if(myInput.value.match(specialCharacter)) {  
+	special.classList.remove("invalid");
+	special.classList.add("valid");
+	} else {
+	special.classList.remove("valid");
+	special.classList.add("invalid");
 	}
 
 	// Validate numbers

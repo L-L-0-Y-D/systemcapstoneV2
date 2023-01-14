@@ -43,6 +43,7 @@ include('includes/header.php');
                                     <h3>Password must contain the following:</h3>
                                     <p id="letter" class="invalid">A lowercase letter</p>
                                     <p id="capital" class="invalid">An Uppercase letter</p>
+                                    <p id="special" class="invalid">A Special Character (example:$@#&_!)</p>
                                     <p id="number" class="invalid">A number</p>
                                     <p id="length" class="invalid">Must be atleast 8 characters</b></p>
                                 </div>
@@ -113,6 +114,7 @@ var adminpassValidation = document.getElementById('adminpassValidation');
 var adminpassInput = document.getElementById("adminpassword");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
+var special = document.getElementById("special");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
 
@@ -128,7 +130,7 @@ document.getElementById("adminpassValidation").style.display = "none";
 }
 function checkAdminPass() {
     const adminpassValue = adminpassword.value.trim();
-    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@#&_!])[a-zA-Z\d\$@#&_!]{8,}$/;
 	// If password not entered
     if (adminpassValue == ''){
 	setErrorFor(adminpassword, 'Please Enter A Password');
@@ -154,6 +156,15 @@ function checkAdminPass() {
 	} else {
 	capital.classList.remove("valid");
 	capital.classList.add("invalid");
+	}
+    // Validate Special Characters
+	var specialCharacter = /[$@#&_!]/g;
+	if(adminpassInput.value.match(specialCharacter)) {  
+	special.classList.remove("invalid");
+	special.classList.add("valid");
+	} else {
+	special.classList.remove("valid");
+	special.classList.add("invalid");
 	}
 
 	// Validate numbers

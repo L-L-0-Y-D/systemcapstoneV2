@@ -152,6 +152,7 @@ var apassValidation = document.getElementById('apassValidation');
 var myInput = document.getElementById("adminpassword");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
+var special = document.getElementById("special");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
 
@@ -167,7 +168,7 @@ document.getElementById("apassValidation").style.display = "none";
 }
 function checkAdminPassword() {
     const apasswordValue = adminpassword.value.trim();
-	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@#&_!])[a-zA-Z\d\$@#&_!]{8,}$/;
 	// If password not entered
 	if (apasswordValue == ''){
 	setErrorFor(password, 'Please Enter A Password');
@@ -195,6 +196,16 @@ function checkAdminPassword() {
 		capital.classList.add("invalid");
 		}
 	
+        // Validate Special Characters
+		var specialCharacter = /[$@#&_!]/g;
+		if(myInput.value.match(specialCharacter)) {  
+		special.classList.remove("invalid");
+		special.classList.add("valid");
+		} else {
+		special.classList.remove("valid");
+		special.classList.add("invalid");
+		}
+
 		// Validate numbers
 		var numbers = /[0-9]/g;
 		if(myInput.value.match(numbers)) {  
