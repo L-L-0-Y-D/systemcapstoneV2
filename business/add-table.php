@@ -31,17 +31,18 @@ if(isset($_GET['id']))
                     <div class="col-md-12">
                         <?php 
                         ?>
-                        <input type="hidden" name="businessid" value="<?= $_SESSION['auth_user']['businessid'];?>">
+                        <input type="hidden" name="businessid[]" value="<?= $_SESSION['auth_user']['businessid'];?>" readonly="">
+                        <input type="hidden" class="form-control sl" name="slno[]" id="slno[]" value="1" readonly="">
                         <?php
                         ?>
                     </div>
                     <div class="col-md-12">
                         <label >Table Number:</label>
-                        <input type="number" name="table" required class="form-control mb-2">
+                        <input type="number" name="table[]" required class="form-control mb-2">
                     </div>
                     <div class="col-md-12">
                         <label>Number Of Chairs:</label>
-						<select  name="chair" required class="form-control mb-2">
+						<select  name="chair[]" required class="form-control mb-2">
 							<option disabled selected hidden> Select number of chairs</option>
 							<option value="1 Person">1 Chair</option>
 							<option value="2 People">2 Chairs</option>
@@ -78,21 +79,25 @@ if(isset($_GET['id']))
             });
             
             $(document).on('click', '.add-more-form', function () {
+                var length = $('.sl').length;
+                var i   = parseInt(length)+parseInt(1);
                 $('.paste-new-forms').append('<div class=" main-form row">\
                     <div class="col-md-12">\
                         <?php 
                         ?>
-                        <input type="hidden" name="businessid" value="<?= $_SESSION['auth_user']['businessid'];?>">\
+                        <input type="hidden" name="businessid[]" value="<?= $_SESSION['auth_user']['businessid'];?>" readonly="">\
+                        <input type="hidden" class="form-control sl" name="slno[]" id="slno[]" value="'+i+'" readonly="">\
+                        <button type="button" class="float-end remove-btn btn btn-danger btn-sm">Remove</button>\
                         <?php
                         ?>
                     </div>\
                     <div class="col-md-12">\
                         <label >Table Number:</label>\
-                        <input type="number" name="table" required class="form-control mb-2">\
+                        <input type="number" name="table[]" required class="form-control mb-2">\
                     </div>\
                     <div class="col-md-12">\
                         <label>Number Of Chairs:</label>\
-						<select  name="chair" required class="form-control mb-2">\
+						<select  name="chair[]" required class="form-control mb-2">\
 							<option disabled selected hidden> Select number of chairs</option>\
 							<option value="1 Person">1 Chair</option>\
 							<option value="2 People">2 Chairs</option>\
@@ -109,7 +114,6 @@ if(isset($_GET['id']))
                             <div class="form-check form-switch">\
                                 <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > \
                                 <label for="formCheck-1"><strong>Status</strong></label>\
-                                <button type="button" class="float-end remove-btn btn btn-danger btn-sm">Remove</button>\
                             </div>\
                         </div>\
                     </div>\
