@@ -130,6 +130,7 @@ var pwordValidation = document.getElementById('pwordValidation');
 var myInput = document.getElementById("password");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
+var special = document.getElementById("special");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
 
@@ -145,7 +146,7 @@ document.getElementById("pwordValidation").style.display = "none";
 }
 function checkPassword() {
     const passwordValue = password.value.trim();
-	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+	var PasswordValidation=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.*\d)[a-zA-Z\d]{8,}$/;
 	// If password not entered
 	if (passwordValue == ''){
 	setErrorFor(password, 'Please Enter A Password');
@@ -171,6 +172,16 @@ function checkPassword() {
 		} else {
 		capital.classList.remove("valid");
 		capital.classList.add("invalid");
+		}
+
+		// Validate Special Characters
+		var specialCharacter = /[^A-Za-z0-9]/g;
+		if(myInput.value.match(specialCharacter)) {  
+		special.classList.remove("invalid");
+		special.classList.add("valid");
+		} else {
+		special.classList.remove("valid");
+		special.classList.add("invalid");
 		}
 	
 		// Validate numbers
