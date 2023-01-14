@@ -27,7 +27,7 @@ if(isset($_GET['id']))
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
-                <div class="main-form row">
+                <div class="first-form row">
                     <div class="col-md-12">
                         <?php 
                         ?>
@@ -91,16 +91,18 @@ if(isset($_GET['id']))
                         <textarea rows="3" name="description" required class="form-control mb-2"></textarea>
                     </div>
                     <div class="row">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > 
-                            <label for="formCheck-1"><strong>Status</strong></label>
-                            <button type="button" class="float-end remove-btn btn btn-danger btn-sm">Remove</button>
+                        <div class="col">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > 
+                                <label for="formCheck-1"><strong>Status</strong></label>
+                                <button type="button" class="float-end firstremove-btn btn btn-danger btn-sm">Remove</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="paste-new-forms"></div>
-                    <div class="col-md-9">
-                        <button type="submit" class="btn save-btn " name="add_product_btn" >Save</button>
-                    </div>
+                </div>
+                <div class="paste-new-forms"></div>
+                <div class="col-md-9">
+                    <button type="submit" class="btn save-btn " name="add_product_btn" >Save</button>
                 </div>
             </form>
         </div>
@@ -114,7 +116,11 @@ if(isset($_GET['id']))
             $(document).on('click', '.remove-btn', function () {
                 $(this).closest('.main-form').remove();
             });
-            
+
+            $(document).on('click', '.firstremove-btn', function () {
+                $(this).closest('.first-form').remove();
+            });
+
             $(document).on('click', '.add-more-form', function () {
                 $('.paste-new-forms').append('<div class=" main-form row">\
                     <div class="col-md-12">\
@@ -154,7 +160,25 @@ if(isset($_GET['id']))
                         <label >Cuisine Type:</label>\
 						<select class= "border rounded form-select mb-3" name="cuisinename" required>\
                         <option disabled selected hidden>Select your Type of Cuisine</option>\
-                        <option value="<?= $item ?>"><?= $item ?></option>\
+                        <?php
+                            //$municipality = getAllActive("municipality");
+                            $query = "SELECT * FROM business WHERE status= '1'";
+                            $query_run = mysqli_query($con, $query);
+                            if(mysqli_num_rows($business) > 0)
+                            {
+                                $data = mysqli_fetch_array($business);
+                                $cuisine = str_word_count($data['cuisinename'],1);
+                                foreach ($cuisine as $item)
+                                {
+                                ?>
+                                    <option value="<?= $item ?>"><?= $item ?></option>\
+                                <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "No Municipality Available";
+                            }?>
                         </select>\
                     </div>\
                     <div class="col-md-12">\

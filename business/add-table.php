@@ -27,7 +27,7 @@ if(isset($_GET['id']))
         </div>
         <div class="card-body">
             <form action="code.php" method="POST" enctype="multipart/form-data">
-                <div class=" main-form row">
+                <div class=" first-form row">
                     <div class="col-md-12">
                         <?php 
                         ?>
@@ -55,15 +55,18 @@ if(isset($_GET['id']))
 						</select>
                     </div>
                     <div class="row">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > 
-                            <label for="formCheck-1"><strong>Status</strong></label>
+                        <div class="col">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="formCheck-1" name="status" > 
+                                <label for="formCheck-1"><strong>Status</strong></label>
+                                <button type="button" class="float-end firstremove-btn btn btn-danger btn-sm">Remove</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="paste-new-forms"></div>
-                    <div class="col-md-9">
-                        <button type="submit" class="btn save-btn " name="add_table_btn" >Save</button>
-                    </div>
+                </div>
+                <div class="paste-new-forms"></div>
+                <div class="col-md-9">
+                    <button type="submit" class="btn save-btn " name="add_table_btn" >Save</button>
                 </div>
             </form>
         </div>
@@ -76,6 +79,10 @@ if(isset($_GET['id']))
 
             $(document).on('click', '.remove-btn', function () {
                 $(this).closest('.main-form').remove();
+            });
+
+            $(document).on('click', '.firstremove-btn', function () {
+                $(this).closest('.first-form').remove();
             });
             
             $(document).on('click', '.add-more-form', function () {
