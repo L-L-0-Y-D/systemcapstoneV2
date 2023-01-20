@@ -63,7 +63,7 @@ include('../config/dbcon.php');
                     <div class="col-md-6">
                         <div class="float-right">
                                 <a class="btn btn-dark float-end mb-3 mx-2 btn-sm" role="button" href="archivetable.php?id=<?= $_SESSION['auth_user']['businessid'];?>">
-                                    <span class="label">Archives&nbsp;</span>
+                                    <span class="label">Activate&nbsp;</span>
                                     <i class="fas fa-archive"></i> 
                                 </a>
                                 <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-2 btn-sm" onclick="formToggle('importFrm');">
@@ -93,7 +93,7 @@ include('../config/dbcon.php');
                                     <th>Status</th>
                                     <th>Action</th>
                                     <!-- <th>Delete</th> -->
-                                    <th>Archive</th>
+                                    <th>Deactivate</th>
                                     <th>Export</th>
                                 </tr>
                             </thead>

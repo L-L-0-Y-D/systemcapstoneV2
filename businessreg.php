@@ -233,7 +233,7 @@ if(isset($_SESSION['auth'])){
  
                                                         <?php }?>
                                             </div>
-                                            <br><a name="addcuisinebtn" href="addcuisine.php" >Add Cuisine Type</a>  
+                                            <a name="addcuisinebtn" href="addcuisine.php" >Add Cuisine Type</a>  
                                             <div class="button-row d-flex mt-3">
                                                 <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
                                             </div>

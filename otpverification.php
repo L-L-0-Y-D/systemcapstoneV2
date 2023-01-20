@@ -85,7 +85,7 @@ if(isset($_SESSION['auth'])){
                             <form form class="text-center" method="post" action="functions/authcode.php">
                                 <p>We Just Sent You An SMS With An Authentication Code. Enter the Code to Verify your Identity.</p>
                                 <div class="inputs second_box form-group">
-                                    <i class="fas fa-fingerprint d-md-flex align-items-md-end"></i>&nbsp
+                                    <i class="fas fa-mobile d-md-flex align-items-md-end"></i>&nbsp
                                     <input class="form-control" id="otp" type="number" name="otp" placeholder="OTP" required>
                                 </div>
                                 <div class="mb-1 second_box form-group">

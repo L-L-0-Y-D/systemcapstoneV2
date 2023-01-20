@@ -64,7 +64,7 @@ include('../config/dbcon.php');
                         <div class="col-md-6 links">
                             <div class="float-right">
                                 <a class="btn btn-dark float-end mb-3 mx-2 btn-sm" role="button" href="archivemenu.php?id=<?= $_SESSION['auth_user']['businessid'];?>">
-                                    <span class="label">Archives&nbsp;</span>
+                                    <span class="label">Active&nbsp;</span>
                                     <i class="fas fa-archive"></i> 
                                 </a>
                                 <a href="javascript:void(0);" class="btn btn-success float-end mb-3 mx-2 btn-sm" onclick="formToggle('importFrm');">
@@ -117,9 +117,7 @@ include('../config/dbcon.php');
                                                                     <span class="label">Edit&nbsp;&nbsp;</span>
                                                                     <i class="fas fa-pencil-alt"></i> 
                                                                 </a><br>
-                                                                <a value = "<?= $item['productid']; ?>" class="btn btn-danger btn-sm pt-2" type="submit" name="archive_menu_btn">
-                                                                    <span class="label">Archive&nbsp;&nbsp;</span>
-                                                                    <i class="fas fa-archive"></i> 
+                                                                <button value = "<?= $item['productid']; ?>" class="btn btn-danger btn-sm pt-2" type="submit" name="archive_menu_btn"><span class="label"><i class="fas fa-archive"></i> Deactive&nbsp;&nbsp;</span></button>
                                                                 </a><br>
                                                                 <a href="exportItemData.php?id=<?= $_SESSION['auth_user']['businessid'];?>&productid=<?= $item['productid']; ?>" class="btn btn-primary btn-sm pt-2" role="button">
                                                                     <span class="label">Export&nbsp;&nbsp;</span>

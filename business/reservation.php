@@ -162,7 +162,7 @@ include('../config/dbcon.php');
                         </div> -->
                     </div>
                     <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivereservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Archives</a></div>
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><a class="btn btn-dark float-end mt-2 btn-sm" role="button" href="archivereservation.php?id=<?= $_SESSION['auth_user']['businessid'];?>"><i class="fas fa-archive"></i>&nbsp;Activate</a></div>
                     </div>
                 </div>
                     <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -179,7 +179,7 @@ include('../config/dbcon.php');
                                     <th>Reservation Time</th>
                                     <th>Status</th>
                                     <th>Action</th>
-                                    <th>Archive</th>
+                                    <th>Deactivate</th>
                                 </tr>
                             </thead>
                             <form action="code.php" method="POST" enctype="multipart/form-data">
