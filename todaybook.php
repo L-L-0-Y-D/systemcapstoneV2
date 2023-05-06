@@ -141,52 +141,15 @@ $start = $data['opening'];
 $end = $data['closing'];
 $now = new DateTime();
 
-function timeslots($duration, $cleanup, $start, $end)
-{
-    $start = new DateTime($start);
-    $end = new DateTime($end);
-    $interval = new DateInterval('PT'.$duration. 'M');
-    $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
-    $slots = array();
-
-    for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
-    {
-        $endPeriod = clone $intStart;
-        $endPeriod -> add($interval);
-        if($endPeriod > $end)
-        {
-            break;
-        }
-
-        $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
-        // count($slots);
-    }
-
-    return $slots;
-
-}
-
-
-// Today
-// function timeslots($duration, $cleanup, $start, $end, $skipPast = true)
+// function timeslots($duration, $cleanup, $start, $end)
 // {
-//     $now = new DateTime('now', new DateTimeZone('Asia/Singapore'));
-//     $start = new DateTime($start, new DateTimeZone('Asia/Singapore'));
-//     $end = new DateTime($end, new DateTimeZone('Asia/Singapore'));
+//     $start = new DateTime($start);
+//     $end = new DateTime($end);
 //     $interval = new DateInterval('PT'.$duration. 'M');
 //     $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
 //     $slots = array();
 
-//     $intStart = clone $start;
-//     if ($skipPast && $now >= $start) {
-//         // If skipPast is true and the current time is after the opening time,
-//         // find the next available time slot
-//         while ($intStart < $end && $intStart <= $now) {
-//             $intStart -> add($interval) -> add($cleanupInterval);
-//         }
-//     }
-
-//     for(; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
+//     for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
 //     {
 //         $endPeriod = clone $intStart;
 //         $endPeriod -> add($interval);
@@ -196,17 +159,119 @@ function timeslots($duration, $cleanup, $start, $end)
 //         }
 
 //         $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
+//         // count($slots);
+//     }
+
+//     return $slots;
+
+// }
+
+// function timeslots($duration, $cleanup, $start, $end)
+// {
+//     $now = new DateTime();
+//     $now -> format("h:iA");
+//     $start = new DateTime($start);
+//     $end = new DateTime($end);
+//     $interval = new DateInterval('PT'.$duration. 'M');
+//     $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
+//     $slots = array();
+
+//     if ($now >= $start) {
+//         for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
+//         {
+//             $endPeriod = clone $intStart;
+//             $endPeriod -> add($interval);
+//             if($endPeriod > $end)
+//             {
+//                 break;
+//             }
+
+//             $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
+//         }
+//     } else {
+//         $endPeriod = clone $start;
+//         $endPeriod -> add($interval);
+//         $slots[] = $start -> format("h:iA")."-".$endPeriod -> format("h:iA");
 //     }
 
 //     return $slots;
 // }
+
+// function timeslots($duration, $cleanup, $start, $end)
+// {
+//     $now = new DateTime();
+//     $now -> format("h:iA");
+//     $start = new DateTime($start);
+//     $end = new DateTime($end);
+//     $interval = new DateInterval('PT'.$duration. 'M');
+//     $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
+//     $slots = array();
+
+//     if ($now >= $start) {
+//         for($intStart = $start; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
+//         {
+//             $endPeriod = clone $intStart;
+//             $endPeriod -> add($interval);
+//             if($endPeriod > $end)
+//             {
+//                 break;
+//             }
+
+//             // Add check to skip slots outside of opening and closing times
+//             $slotStart = $intStart -> format("h:iA");
+//             $slotEnd = $endPeriod -> format("h:iA");
+//             if ($slotEnd <= $end -> format("h:iA")) {
+//                 $slots[] = $slotStart."=".$slotEnd;
+//             }
+//         }
+//     } else {
+//         $endPeriod = clone $start;
+//         $endPeriod -> add($interval);
+//         $slots[] = $start -> format("h:iA")."-".$endPeriod -> format("h:iA");
+//     }
+
+//     return $slots;
+// }
+// Today
+function timeslots($duration, $cleanup, $start, $end, $skipPast = true)
+{
+    $now = new DateTime('now', new DateTimeZone('Asia/Singapore'));
+    $start = new DateTime($start, new DateTimeZone('Asia/Singapore'));
+    $end = new DateTime($end, new DateTimeZone('Asia/Singapore'));
+    $interval = new DateInterval('PT'.$duration. 'M');
+    $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
+    $slots = array();
+
+    $intStart = clone $start;
+    if ($skipPast && $now >= $start) {
+        // If skipPast is true and the current time is after the opening time,
+        // find the next available time slot
+        while ($intStart < $end && $intStart <= $now) {
+            $intStart -> add($interval) -> add($cleanupInterval);
+        }
+    }
+
+    for(; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
+    {
+        $endPeriod = clone $intStart;
+        $endPeriod -> add($interval);
+        if($endPeriod > $end)
+        {
+            break;
+        }
+
+        $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
+    }
+
+    return $slots;
+}
 
 
 if(isset($_POST['value'])){
 ?>
          <hr><h6 class="text-dark">Time Slots for <?= $_POST['date'];?></h6><hr>
     <!-- /* Creating a button for each time slot. */ -->
-            <?php $timeslots = timeslots($duration, $cleanup, $start, $end);
+            <?php $timeslots = timeslots($duration, $cleanup, $start, $end, true);
             // echo count($timeslots); 
             foreach ($timeslots as $ts)
             {

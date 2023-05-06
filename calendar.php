@@ -36,6 +36,39 @@ function timeslots($duration, $cleanup, $start, $end)
 
 }
 
+function todaytimeslots($duration, $cleanup, $start, $end, $skipPast = true)
+{
+    $now = new DateTime('now', new DateTimeZone('Asia/Singapore'));
+    $start = new DateTime($start, new DateTimeZone('Asia/Singapore'));
+    $end = new DateTime($end, new DateTimeZone('Asia/Singapore'));
+    $interval = new DateInterval('PT'.$duration. 'M');
+    $cleanupInterval = new DateInterval('PT'.$cleanup.'M');
+    $slots = array();
+
+    $intStart = clone $start;
+    if ($skipPast && $now >= $start) {
+        // If skipPast is true and the current time is after the opening time,
+        // find the next available time slot
+        while ($intStart < $end && $intStart <= $now) {
+            $intStart -> add($interval) -> add($cleanupInterval);
+        }
+    }
+
+    for(; $intStart < $end; $intStart -> add($interval) -> add($cleanupInterval))
+    {
+        $endPeriod = clone $intStart;
+        $endPeriod -> add($interval);
+        if($endPeriod > $end)
+        {
+            break;
+        }
+
+        $slots[] = $intStart -> format("h:iA")."-".$endPeriod -> format("h:iA");
+    }
+
+    return $slots;
+}
+
 function build_calendar($month,$year,$resourceid){
     $mysqli = new mysqli('localhost', 'u217632220_ieat', 'Hj1@8QuF3C', 'u217632220_ieatwebsite');
 
@@ -288,6 +321,7 @@ function build_calendar($month,$year,$resourceid){
         // elseif(in_array($date, $bookings))
         // {
         //     $calendar .= "<td><button class='text-muted disabled'>$currentDay</button><p><i>Already Booked</i></p>";
+        //      $calendar .= "<td class='$today'><button class='currentDay'>$currentDay</button> ";
         // }
         elseif($date<$today)
         {
@@ -297,11 +331,17 @@ function build_calendar($month,$year,$resourceid){
         {   $timeslots = timeslots($duration, $cleanup, $start, $end);
             $totalbookings = checkSlots($mysqli, $date, $resourceid);
 
+            $todayslots = todaytimeslots($duration, $cleanup, $start, $end, true);
             $slots = timeslots($duration, $cleanup, $start, $end);
 
             if($totalbookings == count($slots))
             {
                 $calendar .= "<td class='$today'><button class='text-muted disabled'>$currentDay</button><p><i><span style='color:red;'>&nbsp;All Booked</span></i></p>";
+            }
+            elseif($date == date('Y-m-d')?"today":"")
+            {
+                $todayavailableslots = count($todayslots) - $totalbookings;
+                $calendar .= "<td class='$today'><button value='todayreserveBtn' date=".$date." tableid=".$resourceid." id=".$id." class='todayreserveBtn rounded-circle'>$currentDay</button><p><i>$todayavailableslots slots available</i></p>";
             }
             else
             {

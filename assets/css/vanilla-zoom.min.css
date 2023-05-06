@@ -179,6 +179,14 @@ thead, tbody, tfoot, tr, td, th {
   font-size: 14px;
   font-weight: bold;
 }
+.table-bordered td .todayreserveBtn {
+  border:none;
+  background-color: transparent;
+  padding:10px 15px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
 .table-bordered td .currentDay {
   border:none;
   background-color: transparent;
@@ -195,6 +203,9 @@ thead, tbody, tfoot, tr, td, th {
   font-size: 14px;
 }
 .table-bordered td .reserveBtn:hover, .table-bordered td .reserveBtn:focus,.table-bordered td .reserveBtn:active {
+  background-color: rgb(255,128,64);
+}
+.table-bordered td .todayreserveBtn:hover, .table-bordered td .todayreserveBtn:focus,.table-bordered td .todayreserveBtn:active {
   background-color: rgb(255,128,64);
 }
 

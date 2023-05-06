@@ -176,6 +176,35 @@ if (isset($_GET['id']) && isset($_GET['uid'])) {
             // });
         });
 
+        $(document).on('click','.todayreserveBtn',function(){
+                var values = $(this).val();
+                var dates = $(this).attr('date');
+                var tableids = $(this).attr('tableid');
+                var ids = $(this).attr('id');
+                // alert(values);
+                // alert(dates);
+                // alert(tableids);
+                // alert(ids);
+                // alert(ID);
+                // alert(id);
+                // alert(Review);
+                // var all= $('#all').val();
+
+                $.ajax({
+                    url:"todaybook.php?id=<?= $id; ?>",
+                    type:"POST",
+                    data:{value: values, date: dates, tableid: tableids, id: ids},
+                    beforeSend:function(){
+                        $("#book").html("<span>Working...</span>");
+                    },
+                    success:function(data){
+                        $("#book").html(data);
+                    
+                    }
+                });
+            // });
+        });
+
 
 $.ajax({
     url: "calendar.php?id=<?= $id; ?>",
