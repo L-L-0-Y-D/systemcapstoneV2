@@ -20,9 +20,12 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->isSMTP();
     $mail->SMTPAuth   = true; 
 
-    $mail->Host       = "smtp.hostinger.com";
-    $mail->Username   = "recoverpassword@ieat.store";
-    $mail->Password   = "*Password1*";
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Password   = "gliubpwerozdvmei";
+    // $mail->Host       = "smtp.hostinger.com";
+    // $mail->Username   = "recoverpassword@ieat.store";
+    // $mail->Password   = "*Password1*";
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -34,7 +37,7 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("recoverpassword@ieat.store", "I-EAT Recover Password");
+    $mail->setFrom("tt5933895@gmail.com", "I-EAT Recover Password");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -63,9 +66,12 @@ function sendemail_businessconfirm($email,$name)
     $mail->isSMTP();
     $mail->SMTPAuth   = true; 
 
-    $mail->Host       = "smtp.hostinger.com";
-    $mail->Username   = "businessapproved@ieat.store";
-    $mail->Password   = "*Password2*";
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Password   = "gliubpwerozdvmei";
+    // $mail->Host       = "smtp.hostinger.com";
+    // $mail->Username   = "businessapproved@ieat.store";
+    // $mail->Password   = "*Password2*";
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -77,7 +83,7 @@ function sendemail_businessconfirm($email,$name)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("businessapproved@ieat.store", "I-EAT Business Approved");
+    $mail->setFrom("tt5933895@gmail.com", "I-EAT Business Approved");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -192,9 +198,12 @@ function sendemail_businesdeclined($email,$name,$reason)
     $mail->isSMTP();
     $mail->SMTPAuth   = true; 
 
-    $mail->Host       = "smtp.hostinger.com";
-    $mail->Username   = "businessdeclined@ieat.store";
-    $mail->Password   = "*Password3*";
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Password   = "gliubpwerozdvmei";
+    // $mail->Host       = "smtp.hostinger.com";
+    // $mail->Username   = "businessdeclined@ieat.store";
+    // $mail->Password   = "*Password3*";
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -206,7 +215,7 @@ function sendemail_businesdeclined($email,$name,$reason)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("businessdeclined@ieat.store", "I-EAT Business Declined");
+    $mail->setFrom("tt5933895@gmail.com", "I-EAT Business Declined");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -374,9 +383,12 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->isSMTP();
     $mail->SMTPAuth   = true; 
 
-    $mail->Host       = "smtp.hostinger.com";
-    $mail->Username   = "verifyaccount@ieat.store";
-    $mail->Password   = "*Password4*";
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Password   = "gliubpwerozdvmei";
+    // $mail->Host       = "smtp.hostinger.com";
+    // $mail->Username   = "verifyaccount@ieat.store";
+    // $mail->Password   = "*Password4*";
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -388,7 +400,7 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom('verifyaccount@ieat.store', 'I-EAT Verify Email');
+    $mail->setFrom('tt5933895@gmail.com', 'I-EAT Verify Email');
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -665,6 +677,47 @@ function sendphonenumber_otp($username,$phonenumber,$message)
     }
     
     
+}
+
+function sendemail_otp($username,$emails,$message)
+{
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    //$mail->SMTPDebug = 2; 
+    $mail->isSMTP();
+    $mail->SMTPAuth   = true; 
+
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Password   = "gliubpwerozdvmei";
+
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+        )
+        );
+    $mail->SMTPSecure = "ssl";
+    $mail->Port       = 465;
+    
+    $mail->setFrom("tt5933895@gmail.com", "OTP VERIFICATION");
+    $mail->addAddress($emails);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'OTP VERIFICATION'; 
+
+    $email_template = "
+    <b>Dear $username,</b>
+    <h1>$message.</h1>
+    ";
+
+    $mail->Body    = $email_template;
+    $mail->send();
+    //echo 'Message has been sent';
+   
+
 }
 
 function sendphone_message($username,$phonenumber,$message,$ifredirect,$elseredirect,$alert)

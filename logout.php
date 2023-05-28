@@ -14,6 +14,7 @@ if(isset($_SESSION['auth'])){
 
     unset($_SESSION['message']);
     unset($_SESSION['status']);
+    unset($_SESSION['EMAIL']);
 
     
 }

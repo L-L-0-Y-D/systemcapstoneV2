@@ -316,7 +316,7 @@ elseif(isset($_POST['login_btn'])){ // LogIn
     $email = mysqli_real_escape_string($con,$_POST['email']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
 
-    $login_query = "SELECT * FROM users WHERE email='$email' OR name='$email'";
+    $login_query = "SELECT * FROM users WHERE email='$email'";
     $login_query_run = mysqli_query($con, $login_query);
 
     if(mysqli_num_rows($login_query_run) > 0)
@@ -459,7 +459,7 @@ elseif(isset($_POST['send_otp'])){ // send OTP
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $login_query = "SELECT * FROM users WHERE email='$email' OR name='$email'";
+    $login_query = "SELECT * FROM users WHERE email='$email'";
     $login_query_run = mysqli_query($con, $login_query);
 
     if(mysqli_num_rows($login_query_run) > 0)
@@ -471,14 +471,17 @@ elseif(isset($_POST['send_otp'])){ // send OTP
                 if (mysqli_num_rows($login_query_run) > 0) {
                     $phonenumber = $row["phonenumber"];
                     $username = $row["name"];
+                    $emails = $row["email"];
                     $otp = rand(11111, 99999);
 
-                    mysqli_query($con, "UPDATE users SET otp='$otp' where email='$email' OR name='$email'");
+                    mysqli_query($con, "UPDATE users SET otp='$otp' where email='$email'");
 
                     $message = "Your OTP verification code is " . $otp;
 
                     $_SESSION['EMAIL'] = $email;
-                    sendphonenumber_otp($username, $phonenumber, $message);
+                    sendemail_otp($username,$emails,$message);
+                    redirect("../otpverification.php", "Please Enter Your OTP Code", "success");
+                    // sendphonenumber_otp($username, $phonenumber, $message);
                     
                 }
                 else
@@ -507,7 +510,7 @@ elseif(isset($_POST['verify_otp'])){ // send OTP
     $otp = $_POST['otp'];
     $email = $_SESSION['EMAIL'];
 
-    $verify_query = "SELECT * FROM users WHERE email='$email' OR name='$email' AND otp='$otp' ";
+    $verify_query = "SELECT * FROM users WHERE email='$email' AND otp='$otp' ";
     $verify_query_run = mysqli_query($con, $verify_query);
 
     if(mysqli_num_rows($verify_query_run) > 0)
@@ -546,7 +549,7 @@ elseif(isset($_POST['verify_otp'])){ // send OTP
                     else
                     {
                         redirect("../index.php", "Logged In Successfully", "success");
-                                exit(0);
+                        exit(0);
                     }
                 }
                 elseif($row['status'] == "2" || $row['archive'] == "1")

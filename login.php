@@ -89,7 +89,7 @@ if(isset($_SESSION['auth'])){
                             <form form class="text-center" method="post" action="functions/authcode.php">
                                 <div class="inputs first_box form-group">
                                     <i class="fas fa-user d-md-flex align-items-md-end"></i>&nbsp
-                                    <input class="form-control" type="text" id="email" name="email" placeholder="Email or Username" required>
+                                    <input class="form-control" type="text" id="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="inputs first_box form-group">
                                     <i class="fas fa-key d-md-flex align-items-md-end" ></i>&nbsp
