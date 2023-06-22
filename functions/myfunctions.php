@@ -47,7 +47,7 @@ function sendemail_forgetpassword($email,$verify_token)
     <b>Dear User</b>
     <h3>We received a request to reset your password.</h3>
     <p>Kindly click the below link to reset your password</p>
-    <a href='https://ieat.store/resetpassword.php?token=$verify_token'>Clicked here<a>
+    <a href='http://localhost/systemcapstoneV2/resetpassword.php?token=$verify_token'>Clicked here<a>
     ";
 
     $mail->Body    = $email_template;
@@ -93,7 +93,7 @@ function sendemail_businessconfirm($email,$name)
     <b>Dear $name</b>
     <h3>Congratulations.</h3>
     <p>We have activated your business account and can now receive reservation requests.<br>
-    https://ieat.store/ownerlogin.php <br>
+    http://localhost/systemcapstoneV2/ownerlogin.php <br>
 
     I-Eat team</p>
     ";
@@ -117,7 +117,7 @@ function sendsms_businessconfirm($username,$phonenumber)
         'message' => 'Congratulations '.$username.'!,
 We have activated your business account and can now receive reservation requests.
 
-https://ieat.store/ownerlogin.php
+http://localhost/systemcapstoneV2/ownerlogin.php
                     
 Cheers,
 I-EAT',
@@ -552,7 +552,7 @@ function sendemail_verify($name,$email,$verify_token)
                                     <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 60px 30px;'>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td align='center' style='border-radius: 3px;' bgcolor='#FFA73B'><a href='https://ieat.store/verify-email.php?token=$token' target='_blank' style='font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #060505; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid rgb(255,128,64); display: inline-block;'>Confirm Account</a></td>
+                                                <td align='center' style='border-radius: 3px;' bgcolor='#FFA73B'><a href='http://localhost/systemcapstoneV2/verify-email.php?token=$token' target='_blank' style='font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #060505; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid rgb(255,128,64); display: inline-block;'>Confirm Account</a></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -614,7 +614,7 @@ function sendphonenumber_confirmverification($username,$phonenumber,$verify_toke
         'message' => 'Hello '.$username.'!,
 Were excited to have you get started. First, you need to confirm your account. Just press the Link below..
 
-https://ieat.store/verify-email.php?token='.$token.'
+http://localhost/systemcapstoneV2/verify-email.php?token='.$token.'
                     
 Cheers,
 I-EAT',
