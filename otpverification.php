@@ -83,7 +83,7 @@ if(isset($_SESSION['auth'])){
                                 </map>
                             </div>
                             <form form class="text-center" method="post" action="functions/authcode.php">
-                                <p>We Just Sent You An SMS With An Authentication Code. Enter the Code to Verify your Identity.</p>
+                                <p>We Just Sent You An EMAIL With An Authentication Code. Enter the Code to Verify your Identity.</p>
                                 <div class="inputs second_box form-group">
                                     <i class="fas fa-mobile d-md-flex align-items-md-end"></i>&nbsp
                                     <input class="form-control" id="otp" type="number" name="otp" placeholder="OTP" required>
