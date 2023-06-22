@@ -138,7 +138,20 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                     ?>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
-                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
+                        <?php
+                                $host = "localhost";
+                                $username = "u217632220_ieat";
+                                $password = "Hj1@8QuF3C";
+                                $database = "u217632220_ieatwebsite";
+                            
+                                // Creating database connection
+                                $con = mysqli_connect($host,$username,$password,$database);
+                                $businessid = $_SESSION['auth_user']['businessid']; 
+                                $sql = "SELECT * FROM `business` WHERE businessid = $businessid;";
+                                $result = $con->query($sql);
+                                $items = mysqli_fetch_assoc($result);
+                            ?>
+                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $items['image'];?>"></a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="business/index.php?id=<?= $_SESSION['auth_user']['businessid'];?>"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
                             <div class="dropdown-divider"></div>
@@ -146,7 +159,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         </div>
                     </div>
                         <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
-                        &nbspWelcome <strong style="font-family:'Lato';"><?= $_SESSION['auth_user']['business_name'];?>!</strong></a>
+                        &nbspWelcome <strong style="font-family:'Lato';"><?= $items['business_name'];?>!</strong></a>
                     <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
@@ -161,7 +174,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                     ?>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle text-white fs-4" aria-expanded="false" data-bs-toggle="dropdown">
-                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $_SESSION['auth_user']['image'];?>"></a>
+                        <img class="border rounded-circle img-profile" style="width:40px;height:40px;" src="uploads/<?= $item['image'];?>"></a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="admin/index.php"style="font-size:16px; text-align:left;"><i class="fa fa-align-justify"></i>&nbsp;Dashboard</a>
                             <div class="dropdown-divider"></div>
@@ -169,7 +182,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                         </div>
                     </div>
                         <a class="navbar-brand" href="#page-top" style="color: white;font-size: 20px;">
-                        &nbspWelcome <strong style="font-family:'Lato';"><?= $_SESSION['auth_user']['name'];?>!</strong></a>
+                        &nbspWelcome <strong style="font-family:'Lato';"><?= $item['name'];?>!</strong></a>
                     <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center text-uppercase">
