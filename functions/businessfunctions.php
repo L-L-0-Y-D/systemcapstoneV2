@@ -15,19 +15,26 @@ include('../config/dbcon.php');
     {
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
-    
+
         //$mail->SMTPDebug = 2; 
         $mail->isSMTP();
         $mail->SMTPAuth   = true; 
-    
+
         $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "ieatwebsite@gmail.com";
-        $mail->Password   = "ydckqbbwsloabncq";
-    
-        $mail->SMTPSecure = "tls";
-        $mail->Port       = 587;
+        $mail->Username   = "tt5933895@gmail.com";
+        $mail->Password   = "gliubpwerozdvmei";
+
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+            );
+        $mail->SMTPSecure = "ssl";
+        $mail->Port       = 465;
         
-        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+        $mail->setFrom("tt5933895@gmail.com", "I-EAT");
         $mail->addAddress($email);
     
         $mail->isHTML(true);
@@ -51,19 +58,26 @@ include('../config/dbcon.php');
     {
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
-    
+
         //$mail->SMTPDebug = 2; 
         $mail->isSMTP();
         $mail->SMTPAuth   = true; 
-    
+
         $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "ieatwebsite@gmail.com";
-        $mail->Password   = "ydckqbbwsloabncq";
-    
-        $mail->SMTPSecure = "tls";
-        $mail->Port       = 587;
+        $mail->Username   = "tt5933895@gmail.com";
+        $mail->Password   = "gliubpwerozdvmei";
+
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+            );
+        $mail->SMTPSecure = "ssl";
+        $mail->Port       = 465;
         
-        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+        $mail->setFrom("tt5933895@gmail.com", "I-EAT");
         $mail->addAddress($email);
     
         $mail->isHTML(true);
@@ -87,19 +101,26 @@ include('../config/dbcon.php');
     {
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
-    
+
         //$mail->SMTPDebug = 2; 
         $mail->isSMTP();
         $mail->SMTPAuth   = true; 
-    
+
         $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "ieatwebsite@gmail.com";
-        $mail->Password   = "ydckqbbwsloabncq";
-    
-        $mail->SMTPSecure = "tls";
-        $mail->Port       = 587;
+        $mail->Username   = "tt5933895@gmail.com";
+        $mail->Password   = "gliubpwerozdvmei";
+
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+            );
+        $mail->SMTPSecure = "ssl";
+        $mail->Port       = 465;
         
-        $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+        $mail->setFrom("tt5933895@gmail.com", "I-EAT");
         $mail->addAddress($email);
     
         $mail->isHTML(true);

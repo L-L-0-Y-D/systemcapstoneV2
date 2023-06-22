@@ -36,7 +36,7 @@ if(!isset($_GET['token']))
             <div class="col-md-6 col-xl-4" style="margin-top:150px;">
                 <div class="card mb-5" style="border-style:none;">
                     <div class="card-body d-flex flex-column align-items-center" style="border-radius: 10px;border-style: solid;border-color: rgb(255, 128, 64);box-shadow: 0px 0px 18px var(--bs-gray);">
-                        <form method="post" action="functions/authcode.php" > 
+                        <form method="post" action="functions/busiauthcode.php" > 
                             <div class="row">
                                 <div class="col-md-12">
                                     <h4 class="mt-1">

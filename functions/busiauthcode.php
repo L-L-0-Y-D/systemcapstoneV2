@@ -293,7 +293,7 @@ if(isset($_POST['business_register_btn']))
 }
 
 /* This is the code for logging in a user. */
-else if(isset($_POST['business_login']))
+if(isset($_POST['business_login']))
 { // LogIn
     $business_email = mysqli_real_escape_string($con,$_POST['business_email']);
     $business_password = mysqli_real_escape_string($con,$_POST['business_password']);
