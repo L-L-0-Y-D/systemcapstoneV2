@@ -9,6 +9,17 @@
   max-width: 1000px;
   border-radius: 13px;
 }
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+}
 .wrapper .icon {
   position: absolute;
   top: 0;

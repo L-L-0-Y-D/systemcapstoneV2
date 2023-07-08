@@ -64,8 +64,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase text-start section-heading fw-bold">EXPLORE BATAAN !</h2>
-                    <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 15px;">Locate where your favorite spot is&nbsp;</h3>
+                    <h2 class="text-uppercase text-start section-heading fw-bold">EXPLORE BATAAN!!!</h2>
+                    <h3 class="text-muted section-subheading" style="text-align: left;margin-bottom: 15px;">Locate where your favorite spot at&nbsp;</h3>
                 </div>
             </div>
             <body class="cuisine-slide">

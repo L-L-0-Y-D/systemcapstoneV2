@@ -21,11 +21,9 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->SMTPAuth   = true; 
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "tt5933895@gmail.com";
-    $mail->Password   = "gliubpwerozdvmei";
-    // $mail->Host       = "smtp.hostinger.com";
-    // $mail->Username   = "recoverpassword@ieat.store";
-    // $mail->Password   = "*Password1*";
+    $mail->Username   = 'user@example.com';               //SMTP username
+    $mail->Password   = 'gliubpwerozdvmei';
+
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -37,7 +35,7 @@ function sendemail_forgetpassword($email,$verify_token)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("tt5933895@gmail.com", "I-EAT Recover Password");
+    $mail->setFrom("user@example.com", "I-EAT Recover Password");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -67,7 +65,7 @@ function sendemail_businessconfirm($email,$name)
     $mail->SMTPAuth   = true; 
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Username   = "user@example.com";
     $mail->Password   = "gliubpwerozdvmei";
     // $mail->Host       = "smtp.hostinger.com";
     // $mail->Username   = "businessapproved@ieat.store";
@@ -83,7 +81,7 @@ function sendemail_businessconfirm($email,$name)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("tt5933895@gmail.com", "I-EAT Business Approved");
+    $mail->setFrom("user@example.com", "I-EAT Business Approved");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -156,7 +154,7 @@ I-EAT',
 //     $mail->SMTPAuth   = true; 
 
 //     $mail->Host       = "smtp.gmail.com";
-//     $mail->Username   = "ieatwebsite@gmail.com";
+//     $mail->Username   = "user@example.com";
 //     $mail->Password   = "ydckqbbwsloabncq";
 
 //     $mail->SMTPOptions = array(
@@ -169,7 +167,7 @@ I-EAT',
 //     $mail->SMTPSecure = "tls";
 //     $mail->Port       = 587;
     
-//     $mail->setFrom("ieatwebsite@gmail.com", "I-EAT");
+//     $mail->setFrom("user@example.com", "I-EAT");
 //     $mail->addAddress($email);
 
 //     $mail->isHTML(true);
@@ -199,11 +197,9 @@ function sendemail_businesdeclined($email,$name,$reason)
     $mail->SMTPAuth   = true; 
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Username   = "user@example.com";
     $mail->Password   = "gliubpwerozdvmei";
-    // $mail->Host       = "smtp.hostinger.com";
-    // $mail->Username   = "businessdeclined@ieat.store";
-    // $mail->Password   = "*Password3*";
+    
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -215,7 +211,7 @@ function sendemail_businesdeclined($email,$name,$reason)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("tt5933895@gmail.com", "I-EAT Business Declined");
+    $mail->setFrom("user@example.com", "I-EAT Business Declined");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -384,11 +380,9 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->SMTPAuth   = true; 
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Username   = "user@example.com";
     $mail->Password   = "gliubpwerozdvmei";
-    // $mail->Host       = "smtp.hostinger.com";
-    // $mail->Username   = "verifyaccount@ieat.store";
-    // $mail->Password   = "*Password4*";
+
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -400,7 +394,7 @@ function sendemail_verify($name,$email,$verify_token)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom('tt5933895@gmail.com', 'I-EAT Verify Email');
+    $mail->setFrom('user@example.com', 'I-EAT Verify Email');
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -689,7 +683,7 @@ function sendemail_otp($username,$emails,$message)
     $mail->SMTPAuth   = true; 
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Username   = "user@example.com";
     $mail->Password   = "gliubpwerozdvmei";
 
     $mail->SMTPOptions = array(
@@ -702,7 +696,7 @@ function sendemail_otp($username,$emails,$message)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom("tt5933895@gmail.com", "OTP VERIFICATION");
+    $mail->setFrom("user@example.com", "OTP VERIFICATION");
     $mail->addAddress($emails);
 
     $mail->isHTML(true);

@@ -17,6 +17,18 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+}
+
 @media (max-width:767px) {
   .simple-slider .swiper-slide {
     height: 360px;

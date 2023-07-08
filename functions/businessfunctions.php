@@ -21,7 +21,7 @@ include('../config/dbcon.php');
         $mail->SMTPAuth   = true; 
 
         $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "tt5933895@gmail.com";
+        $mail->Username   = "user@example.com";
         $mail->Password   = "gliubpwerozdvmei";
 
         $mail->SMTPOptions = array(
@@ -34,7 +34,7 @@ include('../config/dbcon.php');
         $mail->SMTPSecure = "ssl";
         $mail->Port       = 465;
         
-        $mail->setFrom("tt5933895@gmail.com", "I-EAT");
+        $mail->setFrom("user@example.com", "I-EAT");
         $mail->addAddress($email);
     
         $mail->isHTML(true);
@@ -64,7 +64,7 @@ include('../config/dbcon.php');
         $mail->SMTPAuth   = true; 
 
         $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "tt5933895@gmail.com";
+        $mail->Username   = "user@example.com";
         $mail->Password   = "gliubpwerozdvmei";
 
         $mail->SMTPOptions = array(
@@ -77,7 +77,7 @@ include('../config/dbcon.php');
         $mail->SMTPSecure = "ssl";
         $mail->Port       = 465;
         
-        $mail->setFrom("tt5933895@gmail.com", "I-EAT");
+        $mail->setFrom("user@example.com", "I-EAT");
         $mail->addAddress($email);
     
         $mail->isHTML(true);
@@ -107,7 +107,7 @@ include('../config/dbcon.php');
         $mail->SMTPAuth   = true; 
 
         $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "tt5933895@gmail.com";
+        $mail->Username   = "user@example.com";
         $mail->Password   = "gliubpwerozdvmei";
 
         $mail->SMTPOptions = array(
@@ -120,7 +120,7 @@ include('../config/dbcon.php');
         $mail->SMTPSecure = "ssl";
         $mail->Port       = 465;
         
-        $mail->setFrom("tt5933895@gmail.com", "I-EAT");
+        $mail->setFrom("user@example.com", "I-EAT");
         $mail->addAddress($email);
     
         $mail->isHTML(true);
@@ -230,11 +230,9 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
         $mail->SMTPAuth   = true; 
 
         $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "tt5933895@gmail.com";
+        $mail->Username   = "user@example.com";
         $mail->Password   = "gliubpwerozdvmei";
-        // $mail->Host       = "smtp.hostinger.com";
-        // $mail->Username   = "reservationconfirmed@ieat.store";
-        // $mail->Password   = "*Password5*";
+
 
         $mail->SMTPOptions = array(
             'ssl' => array(
@@ -246,7 +244,7 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
         $mail->SMTPSecure = "ssl";
         $mail->Port       = 465;
         
-        $mail->setFrom("tt5933895@gmail.com", "I-EAT Reservation Confirmed");
+        $mail->setFrom("user@example.com", "I-EAT Reservation Confirmed");
         $mail->addAddress($email);
 
         $mail->isHTML(true);
@@ -281,11 +279,9 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
         $mail->SMTPAuth   = true; 
 
         $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "tt5933895@gmail.com";
+        $mail->Username   = "user@example.com";
         $mail->Password   = "gliubpwerozdvmei";
-        // $mail->Host       = "smtp.hostinger.com";
-        // $mail->Username   = "reservationdeclined@ieat.store";
-        // $mail->Password   = "*Password6*";
+
 
         $mail->SMTPOptions = array(
             'ssl' => array(
@@ -297,7 +293,7 @@ function sendemail_confirmreservation($email,$namereserve,$username,$phonenumber
         $mail->SMTPSecure = "ssl";
         $mail->Port       = 465;
         
-        $mail->setFrom("tt5933895@gmail.com", "I-EAT Reservation Declined");
+        $mail->setFrom("user@example.com", "I-EAT Reservation Declined");
         $mail->addAddress($email);
 
         $mail->isHTML(true);
@@ -429,11 +425,9 @@ function sendemail_business($name,$email)
     $mail->SMTPAuth   = true; 
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "tt5933895@gmail.com";
+    $mail->Username   = "user@example.com";
     $mail->Password   = "gliubpwerozdvmei";
-    // $mail->Host       = "smtp.hostinger.com";
-    // $mail->Username   = "business@ieat.store";
-    // $mail->Password   = "*Password7*";
+
 
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -445,7 +439,7 @@ function sendemail_business($name,$email)
     $mail->SMTPSecure = "ssl";
     $mail->Port       = 465;
     
-    $mail->setFrom('tt5933895@gmail.com', 'I-EAT ADMIN to Business');
+    $mail->setFrom('user@example.com', 'I-EAT ADMIN to Business');
     $mail->addAddress($email);
 
     $mail->isHTML(true);

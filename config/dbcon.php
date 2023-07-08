@@ -11,7 +11,7 @@
 
     //Check database connection
     if(!$con){
-        die("Connetion Failed: ". mysqli_connect_error());
+        die("Connection Failed: ". mysqli_connect_error());
     }
 
 ?>

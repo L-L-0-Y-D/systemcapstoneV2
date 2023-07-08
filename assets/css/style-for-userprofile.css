@@ -22,6 +22,18 @@
     border-color: rgb(226, 96, 31)!important;
   }
   
+  @media screen and (min-width: 768px) {
+    
+  }
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+
+  }
+  
 .form-content {
 	margin-bottom: 10px;
 	padding-bottom: 10px;

@@ -16,6 +16,18 @@
 	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+}
+
 @font-face {
 	font-family: 'Inter';
 	src: url(../../assets/fonts//s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2ZL7SUc.woff2) format('woff2');

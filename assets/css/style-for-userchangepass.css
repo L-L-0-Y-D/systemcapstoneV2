@@ -21,6 +21,18 @@
     margin-bottom: 10px;
 }
 
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+}
+
 .form-content input:focus {
 	outline: 0;
 	border-color: #777;
